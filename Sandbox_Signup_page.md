@@ -11,7 +11,7 @@ https://sandbox.ndhm.gov.in/applications/Home/admin
 **Step 1:** Signup using the below URL as _Company_ or _Individuals_ per requirement.
  https://sandbox.ndhm.gov.in/applications/Home/signup_form
 
-![HomePage](/uploads/05663334efc59a6007c9202043d629cf/HomePage.png)  
+![HomePage](./HomePage.png)  
 
 ![Fill_Form](/uploads/7bba7a4b751045bb9283f5f7c4aee3fa/Fill_Form.png)
 
