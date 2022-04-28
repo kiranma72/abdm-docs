@@ -11,17 +11,17 @@ https://sandbox.ndhm.gov.in/applications/Home/admin
 **Step 1:** Signup using the below URL as _Company_ or _Individuals_ per requirement.
  https://sandbox.ndhm.gov.in/applications/Home/signup_form
 
-![HomePage](./HomePage.png)  
+![HomePage](./resources/HomePage.png)  
 
-![Fill_Form](/uploads/7bba7a4b751045bb9283f5f7c4aee3fa/Fill_Form.png)
+![Fill_Form](./resources/Fill_Form.png)
 
 Select appropriate _Entity_, _Type of Application_, _Category_ value.
 
-![License_in_India](/uploads/2d6a3bf46b564a851c75285d9256f8b9/License_in_India.png)
+![License_in_India](./resources/License_in_India.png)
 
 **_Registere/License to operate in India:_** Select _Yes_ if a license is from India otherwise select _No_ then the committee will decide on a case-to-case basis.
 
-![Intent_FOr_Request](/uploads/ade2d2dd3e7e47e97c2c91812d4790fc/Intent_FOr_Request.png)
+![Intent_FOr_Request](./resources/Intent_For_Request.png)
 
 Currently, try to select the appropriate _Intent For Request_ under which the user wants to register with. In case, an incorrect option is selected, _Don't worry_ the user can change it later.
 
@@ -117,11 +117,11 @@ submit
 **Step 3:** Once the Sandbox request form is submitted, the user can see the application submitted status by login in with _Email id_ and _Password_.  
 https://sandbox.ndhm.gov.in/applications/Home/login  
 
-![SandboxLogin](/uploads/d0fdf359069992c0371896324867f785/SandboxLogin.png)  
+![SandboxLogin](./resources/SandboxLogin.png)  
 
 **Step 4:** On login, _Application Submitted_ status in green color will be displayed and another status in Grey color.  
 
-![Landing_Page](/uploads/074aed6d0a8427ef14dd75a296d75902/Landing_Page.png) 
+![Landing_Page](./resources/Landing_Page.png) 
 
 **Step 5:** Once the application is _Approved_ by the committee, an email will be received by the user stating _Client id_ & _Client Secret_. On Frontend, the user will see the status changed to _Sandbox Application Status_.  
 
