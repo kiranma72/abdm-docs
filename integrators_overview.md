@@ -9,7 +9,7 @@ ABDM allows various types of entities to integrate with their APIs. Please choos
 Please read the ABDM concepts overview first 
 
 What are the key functionalities that must be supported by your system to become ABDM compliant 
-0. Register the health facilty that uses your software and link it to your software endpoint
+0. Register the health facility that uses your software and link it to your software endpoint
 1. Collect & Verify ABHA address during patient registration (Milestone 1) 
 2. Help users discover their health records available in your system (Milestone 2)
 3. Notify or link a new health record with a ABHA address when it is created in your system (Milestone 2) 
