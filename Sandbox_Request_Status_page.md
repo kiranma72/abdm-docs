@@ -10,9 +10,7 @@ https://sandbox.ndhm.gov.in/applications/Home/login
 **Step 3:** Once the application is _Approved_ by the committee, an email will be received by the user stating _Client id_ & _Client Secret_. On Frontend, the user will see the status changed to _Sandbox Application Status_.  
 
 **Step 4:** Once _Client id_ & _Client Secret_ are received via an email, please verify it and check if the correct response is received.  
-**Please find the Postman Collection** [here](./Postman/Gateway_Session.json)
 
-**Please find the Curl** [here](/Curls/Gateway_session.txt)
 
 **URL:** https://dev.abdm.gov.in/gateway/v0.5/sessions  
 **Request:** POST  
@@ -91,3 +89,7 @@ Validitiy of Refresh Token is for 600sec.
     ]
 }  
 ```
+
+**Download the Postman Collection** [here](./Postman/Gateway_Session.json)
+
+**Download the Curls** [here](/Curls/Gateway_session.txt)
