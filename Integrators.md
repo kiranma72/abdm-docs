@@ -43,6 +43,31 @@ We aim bring the following goals to fruition via the FHR framework:
 - Enable HIUs such as hospitals and labs to access patient care information,while ensuring patients' privacy and confidentiality.
 - Leverage tiered approach of care delivery.
 
+# ABDM digital health architecture
+## Overview of architecture
+The FHR architecture is inline with the concepts described in the Niti Aayog National Health Stack (NHS) strategy and approach concept paper1 published in July 2018.
+
+As stated in the National Health Digital Mission (ABDM) operational strategy, the architecture is modelled as a Federated Architecture, where management and data access occurs in a 'federated' manner — where multiple entities will manage health data about users. The federated architecture will enable current and future health information flowing through the system, for example between providers and patients, wearables and EHR/EMRs, consumers and physicians, labs, institutions and payers. A centralized approach, where collation of data in National Repositories for democracy like ours with a 1.35 billion population will be prohibitively expensive and increase friction with the ecosystem, would be a single point of failure, with any security breach resulting in unimaginable compromise. A federated system allows data to sit at the source and be accessible on demand.
+
+Healthcare service provides need patient's health information in order for them to provide effective care. Insurance providers need hospitalisation and diagnostic data for processing claims. In such scenarios, it is essential that users and patients provide consent to providers sharing data, to safeguard patients' privacy and data.
+
+To ensure smooth consented data sharing and time-bound data access, it is necessary to make the data traceable and auditable. Therefore the FHR Framework architecture leverages MeitY's Data Empowerment and Protection Architecture (DEPA)2 electronic consent framework, which is already being used in financial sectors, notably in NBFC Account Aggregator3 framework.
+
+The following diagram represents the overall digital health architecture that corroborates with the ABDM vision for digital health in India:
+
+ ![ABDM digital health architecture](/resources/ABDM_digital_health_architecture.png)
+ 
+ 
+The digital health architecture is composed of the following:
+
+- A set of core services, inclusive of National Level Electronic Registries such as Doctor Registry and Facility Registry
+- FHR framework components such as gateway, consent manager and health repositories
+
+## Other relevant documents
+1. National Digital Health Blueprint
+2. National Health Stack
+3. Electronic Consent Framework
+
 # FHR framework components & roles
 The following section describes the roles played by the various entities represented in the FHR architecture.
 
