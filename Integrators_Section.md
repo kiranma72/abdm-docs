@@ -1,10 +1,14 @@
 ABDM allows various types of entities to integrate with their APIs. Please choose the approprate type that fits your application from the choices below.
 
+**Please read the** [ABDM Concepts Overview](ABDM_Concepts_Overview.md) **first**
+
 ## HIMS / LIMS Systems
-Systems providing a healthcare software to hospitals, labs, clinics, etc
+Entities providing a healthcare software to hospitals, labs, clinics, etc comes under this category.
 
 HIMS Maintain, collect and manage health records. Ensure timely and accurate delivery of data to health care providers. 
 In return the health care providers rely on the information to deliver quality healthcare
+
+LIMS is a software designed to improve lab productivity and efficiency, by keeping track of data associated with samples, experiments, laboratory workflows, and instruments
 
 The private HIMS partners are Piramal Swasthya, Narayana Health Limited, Drucare Private Limited, Apollo hospital,  Plus 91, Thoughtworks, DocOn Technologies and Bajaj Finserv Health
 
@@ -16,6 +20,7 @@ The private LIMS partners are SRL LIMITED,  Livehealth and Dr Lal PathLabs.
 - 
 
 **Features:**
+
 What are the key functionalities that must be supported by your system to become ABDM compliant
 
 1. Register the health facility that uses your software and link it to your software endpoint
@@ -35,13 +40,16 @@ What are the key functionalities that must be supported by your system to become
 
 
 
-**Please read the** [ABDM Concepts Overview](ABDM_Concepts_Overview.md) **first**
+
 
 
 
 ## Consumer Healthcare applications
 
-Integrators building health care applications for consumers / patients comes under this category.
+Entities building health care applications for consumers / patients comes under this category.
+
+The private Healthcare application partners are Curelink Private Limited, Alafied Solutions Private Limited, Practo, Verraton Health Private Limited, MarSha Health, 
+NEC Software Solution, Jio Health Hub, Raxa Health, Doxper, argusoft MEDplat and Pristyn Care
 
 The healthcare applications 
 
@@ -53,7 +61,6 @@ The healthcare applications
 - Get medical history of patient with their consent
 
 **Other Benefits:**
-
 1. UHI 
 2. Users can book appointment
 3. Tele consulting
@@ -81,12 +88,10 @@ What are the key functionalities that must be supported by your system to become
 14. Share the health record on request after verifying user consent (Milestone 2)
 
 
-**Please read the** [ABDM Concepts Overview](ABDM_Concepts_Overview.md) **first**
-
 ## Government Systems
-Integrators providing software for the government programs like RCH, NCD, NIKSHAY, COWIN, etc should start here
+
+Entities providing software for the government programs like RCH, NCD, NIKSHAY, COWIN, etc should start here
 
 
-**Please read the** [ABDM Concepts Overview](ABDM_Concepts_Overview.md) **first**
 
 
