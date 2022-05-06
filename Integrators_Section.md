@@ -14,8 +14,6 @@ In return the health care providers rely on the information to deliver quality h
 **Please read the** [ABDM Concepts Overview](ABDM_Concepts_Overview.md) **first**
 
 
-**Download the Postman Collection** [here](./Postman/Gateway_Session.json)
-
 
 ## Consumer Healthcare applications
 
