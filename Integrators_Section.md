@@ -11,8 +11,23 @@ HIMS Maintain, collect and manage health records. Ensure timely and accurate del
 In return the health care providers rely on the information to deliver quality healthcare
 
 
+**Please read the** [ABDM Concepts Overview](ABDM_Concepts_Overview.md) **first**
+
+
+**Download the Postman Collection** [here](./Postman/Gateway_Session.json)
+
+
 ## Consumer Healthcare applications
 
+Integrators building health care applications for consumers / patients comes under this category.
 
+
+**Please read the** [ABDM Concepts Overview](ABDM_Concepts_Overview.md) **first**
 
 ## Government Systems
+
+
+
+**Please read the** [ABDM Concepts Overview](ABDM_Concepts_Overview.md) **first**
+
+
