@@ -15,7 +15,7 @@ home = [ "HTML", "RSS", "JSON"]
   # See the config.toml file from this documentation site to have an example.
   editURL = ""
   # Author of the site, will be used in meta information
-  author = "National Health Authority"
+  author = "NHA"
   # Description of the site, will be used in meta information
   description = "Documentation of various ABDM Building Blocks"
   # Shows a checkmark for visited pages on the menu
