@@ -1,0 +1,8 @@
+New Token
+curl -X POST "https://dev.abdm.gov.in/gateway/v0.5/sessions" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{\"clientId\":\"string\",\"clientSecret\":\"string\",\"grantType\":\"client_credentials\"}"
+
+Refresh Token
+curl -X POST "https://dev.abdm.gov.in/gateway/v0.5/sessions" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{\"clientId\":\"string\",\"clientSecret\":\"string\",\"grantType\":\"client_credentials\",\"refreshToken\":\"string\"}"
+
+Get certs for JWT verification
+curl -X GET "https://dev.abdm.gov.in/gateway/v0.5/certs" -H  "accept: application/json"
