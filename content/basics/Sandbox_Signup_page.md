@@ -25,17 +25,17 @@ https://sandbox.ndhm.gov.in/applications/Home/admin
 **Step 1:** Signup using the below URL as _Company_ or _Individuals_ per requirement.
  https://sandbox.ndhm.gov.in/applications/Home/signup_form
 
-![HomePage](/img/HomePage.png)  
+![HomePage](/abdm-docs/img/HomePage.png)  
 
-![Fill_Form](/img/Fill_Form.png)
+![Fill_Form](/abdm-docs/img/Fill_Form.png)
 
 Select appropriate _Entity_, _Type of Application_, _Category_ value.
 
-![License_in_India](/img/License_in_India.png)
+![License_in_India](/abdm-docs/img/License_in_India.png)
 
 **_Registered/License to operate in India:_** Select _Yes_ if a license is from India otherwise select _No_ then the committee will decide on a case-to-case basis.
 
-![Intent_FOr_Request](/img/Intent_For_Request.png)
+![Intent_FOr_Request](/abdm-docs/img/Intent_For_Request.png)
 
 If your application creates health records that need to be shared with a user, select HIP & HRP. 
 if your application would like to access health records linked with a user select HRP & HIU.
