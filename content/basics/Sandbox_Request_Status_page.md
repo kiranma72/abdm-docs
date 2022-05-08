@@ -1,3 +1,11 @@
+---
+title: "Verify you can access the Sandbox"
+date: 2022-05-07T18:00:04+05:30
+draft: false
+---
+
+## Signing up for the ABDM Sandbox
+
 **Step 1:** Once the Sandbox request form is submitted, the user can see the application submitted status by login in with _Email id_ and _Password_.  
 https://sandbox.ndhm.gov.in/applications/Home/login  
 

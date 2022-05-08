@@ -1,3 +1,12 @@
+---
+title: "Key Concepts for PHR"
+date: 2022-05-07T18:00:04+05:30
+draft: false
+---
+
+## Signing up for the ABDM Sandbox
+Here is the process flow for the same 
+
 # Overview of FHR framework
 
 Using the Federated Health Records framework (FHR), patients can access and view their health records, and provide consent to any HIPs and HIUs to access their data. 

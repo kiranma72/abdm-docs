@@ -1,3 +1,12 @@
+---
+title: "Choose the right integration"
+date: 2022-05-07T18:00:04+05:30
+draft: false
+---
+
+## Signing up for the ABDM Sandbox
+Here is the process flow for the same 
+
 ABDM allows various types of entities to integrate with their APIs. Please choose the approprate type that fits your application from the choices below.
 
 1. HMIS / LMIS systems -- Anyone providing a healthcare software to hospitals, labs, clinics, etc should start here 
