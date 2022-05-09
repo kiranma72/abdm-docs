@@ -13,7 +13,7 @@ ABDM Sandbox provides you access to APIs for the following Building Blocks
 - Ayushman Bharat Health Account (ABHA) - Formerly called Health ID. 
 - Health Information Exchange & Consent Manager (the @abdm HIE-CM)
 - The Health Professionals Registry (HPR)
-- The Health Facility Registry (HFR)
+- The Health Facility Registry (HFR) 
 
 ### Sandbox Tools 
 The sandbox also hosts several developer tools that are useful during integration
