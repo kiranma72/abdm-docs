@@ -1,11 +1,9 @@
 ---
-title: "Key Concepts for PHR"
+title: "Understanding the PHR Framework"
 date: 2022-05-07T18:00:04+05:30
+Weight: 2
 draft: false
 ---
-
-## Signing up for the ABDM Sandbox
-Here is the process flow for the same 
 
 # Overview of FHR framework
 

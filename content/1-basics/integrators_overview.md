@@ -1,23 +1,25 @@
 ---
 title: "Choose the right integration"
 date: 2022-05-07T18:00:04+05:30
+Weight: 5
 draft: false
 ---
 
-## Signing up for the ABDM Sandbox
-Here is the process flow for the same 
+## What are you trying to integrate?
 
-ABDM allows various types of entities to integrate with their APIs. Please choose the approprate type that fits your application from the choices below.
+Various types of entities can integrate with the ABDM building blocks via APIs. These include
 
-1. HMIS / LMIS systems -- Anyone providing a healthcare software to hospitals, labs, clinics, etc should start here 
-2. Consumer Healthcare applications -- Personal Health record applications, Teleconsultations, etc. Anyone building healthcare applications for consumers / patients should start here 
-3. Government Systems -- Any software provider for goverment programs like RCH, NCD, NIKSHAY, COWIN, etc should start here
+1. HMIS / LMIS systems -- Anyone providing a healthcare software to hospitals, labs, clinics, etc 
+2. Consumer Healthcare applications -- Personal Health record applications, Teleconsultations, etc. Anyone building healthcare applications for consumers / patients  
+3. Government Systems -- Any software provider for goverment programs like RCH, NCD, NIKSHAY, COWIN, etc
+
+It is recommended that you read the (ABDM PHR concepts)[/abdm-docs/basics/abdm_concepts_overview/] overview first before getting into futher details of how to integrate. 
+
 
 ## HMIS / LMIS Systems
 
-Please read the ABDM concepts overview first 
 
-What are the key functionalities that must be supported by your system to become ABDM compliant 
+Following are the key functionalities that must be supported by your system to become ABDM compliant 
 0. Register the health facility that uses your software and link it to your software endpoint
 1. Collect & Verify ABHA address during patient registration (Milestone 1) 
 2. Help users discover their health records available in your system (Milestone 2)
@@ -31,9 +33,10 @@ What are the key functionalities that must be supported by your system to become
 
 
 ## Consumer Healthcare applications
-Please read the ABDM concepts overview first 
 
-What are the key functionalities that must be supported by your application to become ABDM compliant 
+Please read the (ABDM PHR concepts)[/abdm-docs/basics/abdm_concepts_overview/] first 
+
+Following are the key functionalities that must be supported by your application to become ABDM compliant 
 1. Issue a ABHA address to the user
 2. Link the ABHA address to a ABHA No if requested by the user 
 3. Login (authenticate) the user
@@ -48,6 +51,8 @@ What are the key functionalities that must be supported by your application to b
 12. Help the user manage their consents & subscriptions 
 13. Scan / Upload records held by the user 
 14. Share the health record on request after verifying user consent (Milestone 2) 
+
+## Government Healthcare applications
 
 
 
