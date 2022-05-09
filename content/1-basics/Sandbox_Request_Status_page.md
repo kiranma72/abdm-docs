@@ -10,11 +10,11 @@ draft: false
 **Step 1:** Once the Sandbox request form is submitted, the user can see the application submitted status by login in with _Email id_ and _Password_.  
 https://sandbox.ndhm.gov.in/applications/Home/login  
 
-![SandboxLogin](./resources/SandboxLogin.png)  
+![SandboxLogin](/abdm-docs/img/SandboxLogin.png)  
 
 **Step 2:** On login, _Application Submitted_ status in green color will be displayed and another status in Grey color.  
 
-![Landing_Page](./resources/Landing_Page.png) 
+![Landing_Page](/abdm-docs/img/Landing_Page.png) 
 
 **Step 3:** Once the application is _Approved_ by the committee, an email will be received by the user stating _Client id_ & _Client Secret_. On Frontend, the user will see the status changed to _Sandbox Application Status_.  
 
@@ -24,7 +24,7 @@ https://sandbox.ndhm.gov.in/applications/Home/login
 **URL:** https://dev.abdm.gov.in/gateway/v0.5/sessions  
 **Request:** POST  
 **Body:**
-```sh
+```json
 {
     "clientId": "string",
     "clientSecret": "string",
@@ -32,7 +32,7 @@ https://sandbox.ndhm.gov.in/applications/Home/login
 }
 ```
 **Response:**
-```sh
+```json
 {
   
     "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJBbFJiNVdDbThUbTlFSl9JZk85ejA2ajlvQ3Y1MXBLS0ZrbkdiX1RCdkswIn0.eyJleHAiOjE2NTEwNTA4NzQsImlhdCI6MTY1MTA1MDI3NCwianRpIjoiMDViN2RmNGEtMmFiNS00MjZhLTg2NjMtZGI0YTk5N2YyOWZmIiwiaXNzIjoiaHR0cHM6Ly9kZXYubmRobS5nb3YuaW4vYXV0aC9yZWFsbXMvY2VudHJhbC1yZWdpc3RyeSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI4NDgxZjM5MC01MmJjLTRkM2UtOGNjZS1lMjRkODQ1YTIyOTAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJQUklZQU5LQV9MVEkiLCJzZXNzaW9uX3N0YXRlIjoiODk1M2IzZGItY2RjNC00OTJjLTlkOTctNTJjOWIwZjI4MzE2IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjkwMDciXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImhpdSIsIm9mZmxpbmVfYWNjZXNzIiwiaGVhbHRoSWQiLCJPSURDIiwiaGlwIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiUFJJWUFOS0FfTFRJIjp7InJvbGVzIjpbInVtYV9wcm90ZWN0aW9uIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjEwLjIzMy42OS45MyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiY2xpZW50SWQiOiJQUklZQU5LQV9MVEkiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtcHJpeWFua2FfbHRpIiwiY2xpZW50QWRkcmVzcyI6IjEwLjIzMy42OS45MyJ9.SAFsIp5LQzAa8JTMeHQVxXCrWmvbLmho69YzxbtOgdRNkESVEGl3JGUzPfFutEQYyRqj9BCn2xbu0LlT7497-XIRrGVHcL680-TQh-iv_M75elQn9O7kmsvyreKf1HtRboSn3cAqSkMbRNsroYsNjcI0XjRX9J8o5auipbrd9B6ZHL8HYl08bdWLr18FqEulEaLe6poJOyw67_R4hwCtJdqW0uIva9hTbgAGik8J5jcUWhcTg9kasKLugF8XWgc0VbD1krnYC6S7yyBYojYBaN_6N5uQtWPUm2DUUXR1E9uJ1TdILIpAt2Pbe3O4eNV2fyV_FA0HdS3GOCZA_knrhw",
@@ -99,6 +99,6 @@ Validitiy of Refresh Token is for 600sec.
 }  
 ```
 
-**Download the Postman Collection** [here](./Postman/Gateway_Session.json)
+**Download the Postman Collection** [here](/abdm-docs/Postman/Gateway_Session.json)
 
-**Download the Curls** [here](/Curls/Gateway_session.txt)
+**Download the Curls** [here](/abdm-docs/Curls/Gateway_session.txt)
