@@ -15,4 +15,4 @@ This section covers the methods that must be supported for collecting the PHR Ad
 - By sharing the PHR address verbally during registration
 - Using the discovery method from a PHR app 
 
-
+![sharing phr addr](/abdm-docs/img/sharing-phr-address-during-reg.png)
