@@ -7,15 +7,12 @@ draft: false
 
 # Overview of FHR framework
 
-Using the Federated Health Records framework (FHR), patients can access and view their health records, and provide consent to any HIPs and HIUs to access their data. 
-This works in two ways:
+ABDM uses a federated architecture that enables health care providers to link their health records with the user's PHR address, users to view their records and manage consents using PHR applications and to share health records with requestors with their consent.  
 
-- Any HIU can request a patient’s information from an HIP, and obtain it through patient’s consent.
+The image below provides a overview of how the ABDM federated architecture works for personal health records
 
-- Any HIP can directly request the patient for consent to access their information.
+![ABDM HIP HIU Architecture](/abdm-docs/img/abdm_hip_hiu_architecture.png)
 
-Patients can also selectively share their data with any HIU or HIP through the patient’s mobile interface in the FHR Framework. FHR Framework removes the limitations 
-faced by patients and medical practitioners, enabling all parties involved to make informed decisions and ensure better, and more seamless, quality of care.
 
 
 ## What is an HIP?
