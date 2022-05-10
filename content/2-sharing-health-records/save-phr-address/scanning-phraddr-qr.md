@@ -21,6 +21,19 @@ include any images from the PHR app / EMRSBX for this feature
 
 ## API Sequence 
 
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+| S.No         | Collection & verification of ABHA by HIP	| APIs call on the Gateway|APIs that are expected to be available at the HIP end by the Gateway |
+|--------------|------------------------------------------|-------------------------|---------------------------------------------------------------------|
+|  1.          |                                          |https://dev.abdm.gov.in/gateway/v0.5/users/auth/fetch-modes  |{{HIP_HOST}}/v0.5/users/auth/on-fetch-modes|
+|  2.          |                                          |https://dev.abdm.gov.in/gateway/v0.5/users/auth/init         |{{HIP_HOST}}/v0.5/users/auth/on-init|
+|  3.          |                                          |https://dev.abdm.gov.in/gateway/v0.5/users/auth/confirm      |{{HIP_HOST}}/v0.5/users/auth/on-confirm|
+|  4.          |                                          |https://dev.abdm.gov.in/gateway/v0.5/users/auth/notify	      |{{HIP_HOST}}/v0.5/users/auth/on-notify      |
+
+
 1. Get patient's authentication modes relevant to specified purpose (KYC & link is used most frequently)
 
 **URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/fetch-modes
