@@ -167,3 +167,7 @@ Request Accepted
 
 ## Postman + Curl Collection 
 
+**Download the Postman Collection** [here](/abdm-docs/Postman/scanning-phraddr.json)
+
+**Download the Curls** [here](/abdm-docs/Curls/scanning-phraddr.txt)
+
