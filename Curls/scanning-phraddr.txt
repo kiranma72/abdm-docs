@@ -1,0 +1,10 @@
+1. Get patient's authentication modes relevant to specified purpose (KYC & link is used most frequently)
+
+2. Initialize Authentication from HIP
+Demographic auth mode to be used for QR code scans. Direct auth modes to be used for verbal sharing
+
+3. Confirm authentication of users. Obtain linking token
+
+4. Notification API in case of DIRECT mode of authentication
+
+
