@@ -1,112 +1,29 @@
-1. Get patient's authentication modes relevant to specified purpose (KYC & link is used most frequently)
-curl --location --request POST 'https://dev.abdm.gov.in/gateway/v0.5/users/auth/fetch-modes' \
---header 'X-CM-ID: laboris quis' \
---header 'Content-Type: application/json' \
---header 'Accept: application/json' \
---data-raw '{
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "1990-09-04T03:35:33.874Z",
-  "query": {
-    "id": "hinapatel79@ndhm",
-    "purpose": "KYC",
-    "requester": {
-      "id": "100005",
-      "type": "HIP"
-    }
-  }
-}'
-
-
-
-2. Initialize Authentication from HIP
-curl --location --request POST 'https://dev.abdm.gov.in/gateway/v0.5/users/auth/init' \
---header 'X-CM-ID: laboris quis' \
---header 'Content-Type: application/json' \
---header 'Accept: application/json' \
---data-raw '{
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "1948-05-21T07:42:14.733Z",
-  "query": {
-    "id": "hinapatel@ndhm",
-    "requester": {
-      "type": "HIP",
-      "id": "enim in Ut sunt veniam"
-    },
-    "purpose": "KYC_AND_LINK",
-    "authMode": "MOBILE_OTP"
-  }
-}'
-
-
-3. Confirm authentication of users. Obtain linking token
-curl --location --request POST 'https://dev.abdm.gov.in/gateway/v0.5/users/auth/confirm' \
---header 'X-CM-ID: laboris quis' \
---header 'Content-Type: application/json' \
---header 'Accept: application/json' \
---data-raw '{
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "1950-09-05T22:46:42.508Z",
-  "transactionId": "proident exercitation qui in",
-  "credential": {
-    "authCode": "incididunt dolor nulla",
-    "demographic": {
-      "name": "janki das",
-      "gender": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
-      },
-      "dateOfBirth": "1972-02-29",
-      "identifier": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
-      }
-    }
-  }
-}'
-
-
-4. Notification API in case of DIRECT mode of authentication
-curl --location --request POST 'https://dev.abdm.gov.in/gateway/v0.5/users/auth/notify' \
---header 'X-HIP-ID: laboris quis' \
---header 'X-HIU-ID: laboris quis' \
---header 'Content-Type: application/json' \
---header 'Accept: application/json' \
---data-raw '{
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "1997-03-06T08:02:53.000Z",
-  "auth": {
-    "transactionId": "aute Excepteur",
-    "status": "DENIED",
-    "accessToken": "laborum labore deserunt",
-    "validity": {
-      "purpose": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
-      },
-      "requester": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
-      },
-      "expiry": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
-      },
-      "limit": 51770445
-    },
+Share patient profile details
+curl -L -X POST 'https://dev.abdm.gov.in/gateway/v0.5/patients/profile/share' -H 'Authorization:string' -H 'X-HIP-ID:string' --data-raw '{
+  "requestId": "5388cc41-131c-46f2-95dd-8df9246b7d12",
+  "timestamp": "2022-05-10T14:11:31.893000",
+  "profile": {
+    "hipCode": "12345 (CounterId)",
     "patient": {
-      "id": "<patient-id>@<consent-manager-id>",
-      "name": "Hina Patel",
-      "gender": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
+      "healthId": "<username>@<suffix>",
+      "healthIdNumber": "1111-1111-1111-11",
+      "name": "Jane Doe",
+      "gender": "M",
+      "address": {
+        "line": "string",
+        "district": "string",
+        "state": "string",
+        "pincode": "string"
       },
       "yearOfBirth": 2000,
-      "address": {
-        "value": "<Error: Too many levels of nesting to fake this schema>"
-      },
+      "dayOfBirth": 0,
+      "monthOfBirth": 0,
       "identifiers": [
         {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
-        },
-        {
-          "value": "<Error: Too many levels of nesting to fake this schema>"
+          "type": "MR",
+          "value": "+919800083232"
         }
       ]
     }
   }
 }'
-
