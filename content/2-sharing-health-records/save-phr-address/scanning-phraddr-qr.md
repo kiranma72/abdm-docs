@@ -22,166 +22,58 @@ include any images from the PHR app / EMRSBX for this feature
 ## API Sequence 
 
 
+## API Information Request Response 
 
-| S.No | Collection & verification of ABHA by HIP	| APIs call on the Gateway|APIs that are expected to be available at the HIP end by the Gateway |
-|------|------------------------------------------|-------------------------|---------------------------------------------------------------------|
-|  1.  |Get patient's authentication modes relevant to specified purpose|https://dev.abdm.gov.in/gateway/v0.5/users/auth/fetch-modes |{{HIP_HOST}}/v0.5/users/auth/on-fetch-modes|
-|  2.  |Demographic auth mode to be used for QR code scans|https://dev.abdm.gov.in/gateway/v0.5/users/auth/init |{{HIP_HOST}}/v0.5/users/auth/on-init|
-|  3.  |Confirm authentication of users. Obtain linking token|https://dev.abdm.gov.in/gateway/v0.5/users/auth/confirm  |{{HIP_HOST}}/v0.5/users/auth/on-confirm|
-|  4.  |Notification API in case of DIRECT mode of authentication|https://dev.abdm.gov.in/gateway/v0.5/users/auth/notify |{{HIP_HOST}}/v0.5/users/auth/on-notify |
+1. Get patient's Details
 
-
-1. Get patient's authentication modes relevant to specified purpose (KYC & link is used most frequently)
-
-**URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/fetch-modes
+**URL:** https://dev.abdm.gov.in/cm/v0.5/patients/profile/share
 
 **Request:** POST  
 
 **Parameters:**
 - Authorization: Access token which was issued after successful login with gateway auth server.
-Authorization
+
 Type: string (header)
 
 - X-CM-ID: Suffix of the consent manager to which the request was intended.
-X-CM-ID 
+
 Type: string (header)
 
 **Body:**
 ```json
 {
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "2022-05-10T04:36:30.435Z",
-  "query": {
-    "id": "hinapatel79@ndhm",
-    "purpose": "LINK",
-    "requester": {
-      "type": "HIP",
-      "id": "100005"
-    }
-  }
-```
-**Response:**
-202	
-Request Accepted
-
-
-
-2. Initialize Authentication from HIP
-Demographic auth mode to be used for QR code scans. Direct auth modes to be used for verbal sharing.
-
-
-**URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/init
-
-**Request:** POST  
-
-**Parameters:**
-- Authorization: Access token which was issued after successful login with gateway auth server.
-Authorization
-Type: string (header)
-
-- X-CM-ID: Suffix of the consent manager to which the request was intended.
-X-CM-ID 
-Type: string (header)
-
-**Body:**
-```json
-{
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "2022-05-10T08:17:50.254Z",
-  "query": {
-    "id": "hinapatel@ndhm",
-    "purpose": "LINK",
-    "authMode": "MOBILE_OTP",
-    "requester": {
-      "type": "HIP",
-      "id": 100005
-    }
-  }
-```
-**Response:**
-202	
-Request Accepted
-
-
-
-3. Confirm authentication of users. Obtain linking token
-
-**URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/confirm
-
-**Request:** POST  
-
-**Parameters:**
-- Authorization: Access token which was issued after successful login with gateway auth server.
-Authorization
-Type: string (header)
-
-- X-CM-ID: Suffix of the consent manager to which the request was intended.
-X-CM-ID 
-Type: string (header)
-
-**Body:**
-```json
-{
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "2022-05-10T08:20:25.720Z",
-  "transactionId": "string",
-  "credential": {
-    "authCode": "string",
-    "demographic": {
-      "name": "janki das",
+  "requestId": "499a5a4a-7dda-4f20-9b67-e24589627061",
+  "timestamp": "2022-05-10T14:19:12.993Z",
+  "profile": {
+    "hipCode": "12345 (CounterId)",
+    "patient": {
+      "healthId": "<username>@<suffix>",
+      "healthIdNumber": "1111-1111-1111-11",
+      "name": "Jane Doe",
       "gender": "M",
-      "dateOfBirth": "1972-02-29",
-      "identifier": {
-        "type": "MOBILE",
-        "value": "+919800083232"
-      }
+      "address": {
+        "line": "string",
+        "district": "string",
+        "state": "string",
+        "pincode": "string"
+      },
+      "yearOfBirth": 2000,
+      "dayOfBirth": 0,
+      "monthOfBirth": 0,
+      "identifiers": [
+        {
+          "type": "MR",
+          "value": "+919800083232"
+        }
+      ]
     }
-  }
-```
-**Response:**
-202	
-Request Accepted
-
-
-
-4. Notification API in case of DIRECT mode of authentication
-
-**URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/on-notify
-
-**Request:** POST  
-
-**Parameters:**
-- Authorization: Access token which was issued after successful login with gateway auth server.
-Authorization
-Type: string (header)
-
-- X-CM-ID: Suffix of the consent manager to which the request was intended.
-X-CM-ID 
-Type: string (header)
-
-**Body:**
-```json
-{
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "2022-05-10T08:21:51.727Z",
-  "acknowledgement": {
-    "status": "OK"
-  },
-  "error": {
-    "code": 1000,
-    "message": "string"
-  },
-  "resp": {
-    "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
   }
 }
 ```
+
 **Response:**
 202	
 Request Accepted
-
-
-## API Information Request Response 
 
 ## Postman + Curl Collection 
 
