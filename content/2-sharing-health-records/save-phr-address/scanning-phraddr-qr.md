@@ -9,7 +9,7 @@ draft: false
 - Patient must have a PHR app or PHR card and have a valid PHR address
 - Hospital must have a scanner available at the registration counter
 - Hospital operator scans the QR code on patient PHR card or from PHR mobile App.
-- If scanned from within the PHR app, the app will call the share-profile API on the HIE-CM 
+- If scanned within the PHR app, the app will call the share-profile API on the HIE-CM 
 - The HIE-CM will verify this is a registered healthcare provider and call the share-profile api on the end of the HRP that is linked to this HIP 
 - The HRP software can create a screen to display all the scanned profiles and allow the operator to select them for fast registration 
 - Then the detials like ABHA ID, PHR address,name,gender,sateId,districtId,dob,address will be shared with health facility
@@ -21,23 +21,22 @@ include any images from the PHR app / EMRSBX for this feature
 
 ## API Sequence 
 
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
 
-| S.No         | Collection & verification of ABHA by HIP	| APIs call on the Gateway|APIs that are expected to be available at the HIP end by the Gateway |
-|--------------|------------------------------------------|-------------------------|---------------------------------------------------------------------|
-|  1.          |                                          |https://dev.abdm.gov.in/gateway/v0.5/users/auth/fetch-modes  |{{HIP_HOST}}/v0.5/users/auth/on-fetch-modes|
-|  2.          |                                          |https://dev.abdm.gov.in/gateway/v0.5/users/auth/init         |{{HIP_HOST}}/v0.5/users/auth/on-init|
-|  3.          |                                          |https://dev.abdm.gov.in/gateway/v0.5/users/auth/confirm      |{{HIP_HOST}}/v0.5/users/auth/on-confirm|
-|  4.          |                                          |https://dev.abdm.gov.in/gateway/v0.5/users/auth/notify	      |{{HIP_HOST}}/v0.5/users/auth/on-notify      |
+
+| S.No | Collection & verification of ABHA by HIP	| APIs call on the Gateway|APIs that are expected to be available at the HIP end by the Gateway |
+|------|------------------------------------------|-------------------------|---------------------------------------------------------------------|
+|  1.  |Get patient's authentication modes relevant to specified purpose|https://dev.abdm.gov.in/gateway/v0.5/users/auth/fetch-modes |{{HIP_HOST}}/v0.5/users/auth/on-fetch-modes|
+|  2.  |Demographic auth mode to be used for QR code scans|https://dev.abdm.gov.in/gateway/v0.5/users/auth/init |{{HIP_HOST}}/v0.5/users/auth/on-init|
+|  3.  |Confirm authentication of users. Obtain linking token|https://dev.abdm.gov.in/gateway/v0.5/users/auth/confirm  |{{HIP_HOST}}/v0.5/users/auth/on-confirm|
+|  4.  |Notification API in case of DIRECT mode of authentication|https://dev.abdm.gov.in/gateway/v0.5/users/auth/notify |{{HIP_HOST}}/v0.5/users/auth/on-notify |
 
 
 1. Get patient's authentication modes relevant to specified purpose (KYC & link is used most frequently)
 
 **URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/fetch-modes
+
 **Request:** POST  
+
 **Parameters:**
 - Authorization: Access token which was issued after successful login with gateway auth server.
 Authorization
@@ -72,7 +71,9 @@ Demographic auth mode to be used for QR code scans. Direct auth modes to be used
 
 
 **URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/init
+
 **Request:** POST  
+
 **Parameters:**
 - Authorization: Access token which was issued after successful login with gateway auth server.
 Authorization
@@ -106,7 +107,9 @@ Request Accepted
 3. Confirm authentication of users. Obtain linking token
 
 **URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/confirm
+
 **Request:** POST  
+
 **Parameters:**
 - Authorization: Access token which was issued after successful login with gateway auth server.
 Authorization
@@ -144,7 +147,9 @@ Request Accepted
 4. Notification API in case of DIRECT mode of authentication
 
 **URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/on-notify
+
 **Request:** POST  
+
 **Parameters:**
 - Authorization: Access token which was issued after successful login with gateway auth server.
 Authorization
