@@ -1,1 +1,88 @@
 
+curl -L -X POST 'https://dev.abdm.gov.in/cm/v0.5/users/auth/fetch-modes' -H 'X-CM-ID:String;' -H 'Authorization:String;'  --data-raw '{
+  "requestId": "ec6639bf-59a1-49e3-b8fe-1598fe6504aa",
+  "timestamp": "2022-05-11T08:56:44.286000",
+  "query": {
+    "id": "sample@ndhm",
+    "purpose": "KYC",
+    "requester": {
+      "id": "HIP_ID",
+      "type": "HIP"
+    }
+  }
+}'
+
+
+curl -L -X POST 'https://dev.abdm.gov.in/cm/v0.5/users/auth/init' -H 'X-CM-ID:String ' -H 'Authorization:String;'  --data-raw '{
+  "requestId": "e622c255-1b7f-474d-9fd9-3bbc2b70622d",
+  "timestamp": "2022-05-11T08:56:44.286000",
+  "query": {
+    "id": "hinapatel@ndhm",
+    "requester": {
+      "type": "HIP",
+      "id": "enim in Ut sunt veniam"
+    },
+    "purpose": "KYC",
+    "authMode": "MOBILE_OTP"
+  }
+}'
+
+
+curl -L -X POST 'https://dev.abdm.gov.in/cm/v0.5/users/auth/confirm' -H 'X-CM-ID: String' -H 'Authorization:String;'  --data-raw '{
+  "requestId": "28265074-8e3a-4fb7-a033-d025e354a8de",
+  "timestamp": "2022-05-11T08:56:44.286000",
+  "transactionId": "proident exercitation qui in",
+  "credential": {
+    "authCode": "incididunt dolor nulla",
+    "demographic": {
+      "name": "janki das",
+      "gender": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      },
+      "dateOfBirth": "1972-02-29",
+      "identifier": {
+        "value": "<Error: Too many levels of nesting to fake this schema>"
+      }
+    }
+  }
+}'
+
+
+curl -L -X POST 'https://dev.abdm.gov.in/cm/v0.5/users/auth/notify' -H 'X-HIP-ID: String' -H 'X-HIU-ID: String' -H 'Authorization: String;'  --data-raw '{
+  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+  "timestamp": "2022-05-11T09:12:07.275Z",
+  "auth": {
+    "transactionId": "string",
+    "status": "GRANTED",
+    "accessToken": "string",
+    "validity": {
+      "purpose": "LINK",
+      "requester": {
+        "type": "HIP",
+        "id": 100005
+      },
+      "expiry": "2022-05-11T09:12:07.275Z",
+      "limit": "1"
+    },
+    "patient": {
+      "id": "<patient-id>@<consent-manager-id>",
+      "name": "Hina Patel",
+      "gender": "M",
+      "yearOfBirth": 2000,
+      "address": {
+        "line": "string",
+        "district": "string",
+        "state": "string",
+        "pincode": "string"
+      },
+      "identifiers": [
+        {
+          "type": "MR",
+          "value": "+919800083232"
+        }
+      ]
+    }
+  }
+}'
+
+
