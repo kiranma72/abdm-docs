@@ -17,7 +17,7 @@ draft: false
 
 include any images from the PHR app / EMRSBX for this feature 
 
-
+![Scan PHR QR Code](/abdm-docs/img/PHRAddress_QRCode.png)
 
 ## API Sequence 
 
