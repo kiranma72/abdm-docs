@@ -15,8 +15,6 @@ draft: false
 - Then the detials like ABHA ID, PHR address,name,gender,sateId,districtId,dob,address will be shared with health facility
 
 
-include any images from the PHR app / EMRSBX for this feature 
-
 ![Scan PHR QR Code](/abdm-docs/img/PHRAddress_QRCode.png)
 
 ## API Sequence 
