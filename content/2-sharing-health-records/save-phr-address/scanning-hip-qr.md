@@ -30,13 +30,15 @@ include any images from the PHR app / EMRSBX for this feature
 **Request:** POST  
 
 **Parameters:**
+
 - Authorization: Access token which was issued after successful login with gateway auth server.
 
 Type: string (header)
 
-- X-CM-ID: Suffix of the consent manager to which the request was intended.
+- X-HIP-ID : Identifier of the health information provider to which the request was intended.
 
 Type: string (header)
+
 
 **Body:**
 ```json
@@ -71,9 +73,58 @@ Type: string (header)
 ```
 
 **Response:**
+
 202	
+
+Request Accepted
+
+
+2. Response to patient's share profile request
+
+**URL:** https://dev.abdm.gov.in/gateway/v0.5/patients/profile/on-share
+
+**Request:** POST  
+
+**Parameters:**
+
+- Authorization: Access token which was issued after successful login with gateway auth server.
+
+Type: string (header)
+
+- X-CM-ID: Suffix of the consent manager to which the request was intended.
+
+Type: string (header)
+
+**Body:**
+
+```json
+{
+  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+  "timestamp": "2022-05-11T04:58:00.037Z",
+  "acknowledgement": {
+    "status": "SUCCESS",
+    "healthId": "<username>@<suffix>"
+  },
+  "error": {
+    "code": 1000,
+    "message": "string"
+  },
+  "resp": {
+    "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+```
+
+**Response:**
+
+202	
+
 Request Accepted
 
 
 ## Postman + Curl Collection 
+
+**Download the Postman Collection** [here](/abdm-docs/Postman/scanning-hip-qr.json)
+
+**Download the Curls** [here](/abdm-docs/Curls/scanning-hip-qr.txt)
 
