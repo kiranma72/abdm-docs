@@ -21,7 +21,7 @@ draft: false
 
 The sequence of APIs used via this method are shown in the diagram below.
 
-[ABHA ID registration via Aadhaar](/abdm-docs/img/Creation_With_Aadhaar_on_registered_mobile_number.png)
+![ABHA ID registration via Aadhaar](/abdm-docs/img/Creation_With_Aadhaar_on_registered_mobile_number.png)
 
 
 ## API Information Request Response 
@@ -225,7 +225,7 @@ Type: string (header)
 
 The sequence of APIs used via this method are shown in the diagram below.
 
-[ABHA ID registration via Aadhaar](/abdm-docs/img/Creation_With_Aadhaar_Biometric.png)
+![ABHA ID registration via Aadhaar](/abdm-docs/img/Creation_With_Aadhaar_Biometric.png)
 
 
 
