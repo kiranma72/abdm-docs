@@ -5,8 +5,6 @@ Weight: 2
 draft: false
 ---
 
-# Overview of PHR framework
-
 ABDM uses a federated architecture to help users collect their health records across various healthcare providers, view their records from any PHR application and share their records with any requestor with their consent 
 
 The image below shows the various entities involved in the PHR framework
@@ -91,7 +89,8 @@ The Architecture ensures that there is
 - The HRPs verify the consent and push the data to the HIU
 - Data has to be in the specified FHIR format to achieve interoperability 
 - Data is encrypted using a method that ensures only the requesting HIU can decrypt the data 
-## The ABDM Gateway 
+
+ ## The ABDM Gateway 
 Gateway is the hub that mediates and connects HIE-CMs, Health Repository Providers and HIUs in the network. Its primary job is to allow for discovery, routing in the network. The gateway does the following:
 
 - Connects and validates the HOE-CMs and health repositories (servicing HIUs and HIPs) to the network.
@@ -100,7 +99,7 @@ Gateway is the hub that mediates and connects HIE-CMs, Health Repository Provide
 The entire PHR framework including the gateway communicates via asynchronous APIs over HTTPs channel.
 
 The following figure provides a view of how the Gateway fits in with other components 
-![ABDM digital health architecture](/resources/ABDM_digital_health_architecture.png)
+![ABDM digital health architecture](/abdm-docs/img/ABDM_digital_health_architecture.png)
 
 ## Experience PHR in action using the ABDM sandbox
 ABDM is providing a sandbox environment with core essential services that enable integrators who want to become HIPs/HIUs/HRPs or PHR apps build and test their integration. 
