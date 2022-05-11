@@ -16,7 +16,7 @@ Various types of entities can integrate with the ABDM building blocks via APIs. 
 It is recommended that you read the (ABDM PHR concepts)[/abdm-docs/basics/abdm_concepts_overview/] overview first before getting into futher details of how to integrate. 
 
 
-## HMIS / LMIS Systems
+## HIMS / LIMS Systems
 
 
 Following are the key functionalities that must be supported by your system to become ABDM compliant 
