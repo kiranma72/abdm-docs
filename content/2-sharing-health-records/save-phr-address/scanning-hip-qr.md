@@ -17,6 +17,21 @@ draft: false
 
 include any images from the PHR app / EMRSBX for this feature 
 
+**To use this flow for an HIP, follow the below steps**
+
+- Generate a QR code for the data in below format. For testing we can use something like [Sample QR Generator](https://www.the-qrcode-generator.com/)
+
+```json
+{
+    "hipId": "<HIP ID>",
+    "code": "<any extra information you want to send in profile, e,g counterId, Dept Id>"
+}
+```
+
+- Go to ABHA Mobile Application, then My Profile and Find Scan option on the top right.
+- Scan the QR code, the app should fetch details of QR code along with User profile details.
+- Click on share which will make HIE-CM call the expected API on HIP side.
+- The successful message would be shown on app once the on-share callback is given.
 
 
 ## API Sequence 
