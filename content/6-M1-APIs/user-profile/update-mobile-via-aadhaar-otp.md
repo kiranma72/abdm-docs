@@ -1,5 +1,5 @@
 ---
-title: "Update Mobile"
+title: "Update Mobile via Aadhaar Otp"
 date: 2022-05-07T18:00:04+05:30
 weight: 4
 draft: false
