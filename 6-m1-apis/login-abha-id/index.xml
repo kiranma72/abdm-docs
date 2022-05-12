@@ -2,4 +2,5 @@
 API Information Request Response Auth token public key URL: https://healthidsbx.ndhm.gov.in/api/v1/auth/cert
 Request: GET
 Parameters:
-Authorization string (header)</description></item></channel></rss>
+Authorization string (header)</description></item><item><title>Login with Mobile OTP</title><link>http://kiranma72.github.io/abdm-docs/6-m1-apis/login-abha-id/login-with-mobile-otp/</link><pubDate>Sat, 07 May 2022 18:00:04 +0530</pubDate><guid>http://kiranma72.github.io/abdm-docs/6-m1-apis/login-abha-id/login-with-mobile-otp/</guid><description>Login with Mobile OTP Overview of the functionality An OTP is sent to the patient’s mobile number that is linked with the Health ID. The patient must share the OTP with the user for verification. A token has been returned and can be used for Profile APIs purpose. API Sequence The sequence of APIs used via this method are shown in the diagram below.
+API Information Request Response Auth token public key URL: https://healthidsbx.</description></item></channel></rss>
