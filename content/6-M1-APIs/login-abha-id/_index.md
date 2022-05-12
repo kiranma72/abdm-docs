@@ -8,7 +8,7 @@ pre = "<b>6.2 </b>"
 
 # Login with ABHA (Health ID)
 
-This section covers the methods that must be supported for collecting the PHR Address from the user
+This section covers the login of ABHA 
 
 - Login with Aadhaar OTP
 - Login with Mobile OTP
