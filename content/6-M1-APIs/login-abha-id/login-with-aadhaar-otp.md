@@ -50,3 +50,121 @@ string (header)
 string
 ```
 
+
+2. Search a user by Health ID Number
+
+**URL:** https://healthidsbx.ndhm.gov.in/api/v1/search/searchByHealthId
+
+**Request:** POST  
+
+**Parameters:**
+
+- Authorization
+string (header)
+
+- X-HIP-ID
+string (header)
+
+
+**Body:**
+
+```json
+{
+  "healthId": "string"
+}
+```
+
+**Response:** 200 OK
+
+```json
+{
+  "authMethods": [
+    "AADHAAR_OTP"
+  ],
+  "healthId": "string",
+  "healthIdNumber": "string",
+  "name": "string",
+  "tags": {
+    "additionalProp1": "string",
+    "additionalProp2": "string",
+    "additionalProp3": "string"
+  }
+}
+```
+
+
+3. Initiate authentication process for given Health ID
+
+**URL:** https://healthidsbx.ndhm.gov.in/api/v1/auth/init
+
+**Request:** GET  
+
+**Parameters:**
+
+- Authorization
+string (header)
+
+- X-HIP-ID
+string (header)
+
+
+**Body:**
+
+```json
+{
+  "authMethod": "AADHAAR_OTP",
+  "healthid": "string"
+}
+```
+
+**Response:** 200 OK
+
+```json
+{
+  "txnId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+```
+
+
+4. Authentication with Aadhaar OTP based auth transaction
+
+**URL:** https://healthidsbx.ndhm.gov.in/api/v1/auth/confirmWithAadhaarOtp
+
+**Request:** POST  
+
+**Parameters:**
+
+- Authorization
+string (header)
+
+- X-HIP-ID
+string (header)
+
+
+**Body:**
+
+```json
+{
+  "otp": "string",
+  "txnId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+```
+
+**Response:** 200 OK
+
+```json
+{
+  "token": "string"
+}
+```
+
+
+
+## Postman + Curl Collection 
+
+**Download the Postman Collection** [here](/abdm-docs/Postman/)
+
+**Download the Curls** [here](/abdm-docs/Curls/)
+
+
+
