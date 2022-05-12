@@ -16,4 +16,4 @@ X-HIP-ID string (header)
 X-Token string (header)
 Body:
 { } Response: 200 OK
-{ string } Postman + Curl Collection Download the Postman Collection here</description></item></channel></rss>
+{ string } Postman + Curl Collection Download the Postman Collection here</description></item><item><title>EDIT Profile</title><link>http://kiranma72.github.io/abdm-docs/6-m1-apis/user-profile/update-email/</link><pubDate>Sat, 07 May 2022 18:00:04 +0530</pubDate><guid>http://kiranma72.github.io/abdm-docs/6-m1-apis/user-profile/update-email/</guid><description>Update User E-mail Overview of the functionality OTP will be sent to the provided e-mail address. OTP will be valid for 10 minute only. To Update or Changes the existing e-mail Address (Verified/Unverified email). Send the New Email Address required in the request. API Sequence API Information Request Response To generate the Email Verification OTP to verify the Email Address in the profile. OTP will be sent to the provided email address.</description></item></channel></rss>
