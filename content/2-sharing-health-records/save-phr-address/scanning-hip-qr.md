@@ -15,7 +15,10 @@ draft: false
 - The HRP software can create a screen to display all the scanned profiles and allow the operator to select them for fast registration 
 
 
-include any images from the PHR app / EMRSBX for this feature 
+![Scan HIP QR Code](/abdm-docs/img/Scan HIP QR.png)
+
+######## Patients can scan a Health Facility QR code Pasted at the facility registration counter on their PHR mobile app
+
 
 **To use this flow for an HIP, follow the below steps**
 
