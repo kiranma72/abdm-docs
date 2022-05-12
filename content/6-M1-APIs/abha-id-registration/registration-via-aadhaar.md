@@ -34,12 +34,14 @@ The sequence of APIs used via this method are shown in the diagram below.
 
 **Parameters:**
 
-- Authorization: Access token which was issued after successful login with gateway auth server.
+- Authorization string (header)
 
-Type: string (header)
+- X-HIP-ID string (header)
 
 
 **Body:**
+
+generateOtpRequest (body)
 
 ```json
 {
@@ -64,12 +66,13 @@ Type: string (header)
 
 **Parameters:**
 
-- Authorization: Access token which was issued after successful login with gateway auth server.
+- Authorization string (header)
 
-Type: string (header)
-
+- X-HIP-ID string (header)
 
 **Body:**
+
+request (body)
 
 ```json
 {
@@ -96,12 +99,14 @@ Type: string (header)
 
 **Parameters:**
 
-- Authorization: Access token which was issued after successful login with gateway auth server.
+- Authorization string (header)
 
-Type: string (header)
+- X-HIP-ID string (header)
 
 
 **Body:**
+
+request (body)
 
 ```json
 {
@@ -127,12 +132,14 @@ Type: string (header)
 
 **Parameters:**
 
-- Authorization: Access token which was issued after successful login with gateway auth server.
+- Authorization string (header)
 
-Type: string (header)
-
+- X-HIP-ID string (header)
 
 **Body:**
+
+request (body)
+
 ```json
 {
   "otp": "string",
@@ -157,12 +164,13 @@ Type: string (header)
 
 **Parameters:**
 
-- Authorization: Access token which was issued after successful login with gateway auth server.
+- Authorization string (header)
 
-Type: string (header)
-
+- X-HIP-ID string (header)
 
 **Body:**
+
+accountRequest (body)
 
 ```json
 {
@@ -228,7 +236,6 @@ The sequence of APIs used via this method are shown in the diagram below.
 ![ABHA ID registration via Aadhaar](/abdm-docs/img/Creation_With_Aadhaar_Biometric.png)
 
 
-
 ## API Information Request Response 
 
 1. Verify Aadhaar using biometrics
@@ -239,46 +246,15 @@ The sequence of APIs used via this method are shown in the diagram below.
 
 **Parameters:**
 
-- aadhaar
-string (query)
+- Authorization string (header)
 
-- pid
-string (query)
+- X-HIP-ID string (header)
 
-- restrictions
-string (query)
+- aadhaar string (query)
 
-**Body:**
+- pid string (query)
 
-```json
-
-```
-
-**Response:** 200 OK
-
-```json
-{
-  "txnId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-}
-```
-
-
-1. Verify Aadhaar using biometrics
-
-**URL:** https://healthidsbx.ndhm.gov.in/api/v1/registration/aadhaar/verifyBio
-
-**Request:** POST  
-
-**Parameters:**
-
-- aadhaar
-string (query)
-
-- pid
-string (query)
-
-- restrictions
-string (query)
+- restrictions string (query)
 
 **Body:**
 
@@ -293,6 +269,7 @@ string (query)
   "txnId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
 }
 ```
+
 
 
 2. Create Health ID using pre-verified Aadhaar & Mobile.
@@ -303,12 +280,13 @@ string (query)
 
 **Parameters:**
 
-- Authorization: Access token which was issued after successful login with gateway auth server.
+- Authorization string (header)
 
-Type: string (header)
-
+- X-HIP-ID string (header)
 
 **Body:**
+
+accountRequest (body)
 
 ```json
 {
