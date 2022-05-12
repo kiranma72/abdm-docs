@@ -8,7 +8,7 @@ pre = "<b>6.1 </b>"
 
 # Registration for ABHA
 
-This section covers the methods that must be supported for collecting the PHR Address from the user
+This section covers flow of ABHA registration 
 
 - Registration via Aadhaar Number
 - Registration via Other Documents
