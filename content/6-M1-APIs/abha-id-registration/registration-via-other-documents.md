@@ -5,7 +5,7 @@ weight: 2
 draft: false
 ---
 
-## Registration via Other Documents
+## ABHA ID Registration via Other Documents
 
 ## Overview of the functionality 
 
@@ -50,90 +50,208 @@ The sequence of APIs used via this method are shown in the diagram below.
 
 ## API Information Request Response 
 
-1. Verify Aadhaar using biometrics
+1. Api Accepts Mobile Number and creates OTP for it
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v1/registration/aadhaar/verifyBio
+**URL:** https://healthidsbx.ndhm.gov.in/api/v2/document/generate/mobile/otp
 
 **Request:** POST  
 
 **Parameters:**
 
-- aadhaar
-string (query)
+- Authorization
+string (header)
 
-- pid
-string (query)
+- X-HIP-ID
+string (header)
 
-- restrictions
-string (query)
 
 **Body:**
 
-```json
+generateOtpRequest (body)
 
+```json
+{
+  "mobile": 9545812125
+}
 ```
 
 **Response:** 200 OK
 
 ```json
 {
-  "txnId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
-1. Verify Aadhaar using biometrics
+2. Api Accepts Mobile OTP and validates it
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/
-
-**Request:** POST  
-
-**Parameters:**
-
-- Authorization: Access token which was issued after successful login with gateway auth server.
-
-Type: string (header)
-
-
-**Body:**
-
-```json
-
-```
-
-**Response:** 200 OK
-
-```json
-
-```
-
-
-2. Create Health ID using pre-verified Aadhaar & Mobile.
-
-**URL:** https://healthidsbx.ndhm.gov.in/api/
+**URL:** https://healthidsbx.ndhm.gov.in/api/v2/document/verify/mobile/otp
 
 **Request:** POST  
 
 **Parameters:**
 
-- Authorization: Access token which was issued after successful login with gateway auth server.
+- Authorization
+string (header)
 
-Type: string (header)
+- X-HIP-ID
+string (header)
 
 
 **Body:**
 
-```json
+verifyMobileWebRequest  (body)
 
+```json
+{
+  "otp": "sw1uD+gpv3fj6NHBNhtcII3GksVtkLT9bvcz0svYDyUt/x3jTtedXSYgw4b90GTwfLfs1eow056VsOw9HFS/wB8uH5Ysx+QzpL7PxmAY1WOHwOj04sPKN6Dw8XY8vcXovtvZc1dUB+TPAlGGPNu8iqMVPetukysjRxgbNdLLKMxn46rIRb8NieeyuDx1EHa90jJP9KwKGZdsLr08BysrmMJExzTO9FT93CzoNg50/nxzaQgmkBSbu9D8DxJm7XrLzWSUB05YCknHbokm4iXwyYBsrmfFDE/xCDfzYPhYyhtEmOi4J/GMp+lO+gAHQFQtxkIADhoSR8WXGcAbCUj7uTjFsBU/tc+RtvSotso4FXy8v+Ylzj28jbFTmmOWyAwYi9pThQjXnmRnq43dVdd5OXmxIII6SXs0JzoFvKwSk7VxhuLIRYzKqrkfcnWMrrmRgE8xZ6ZLft6O3IeiHb9WA8b/6/qO8Hdd17FKsSF6te59gSpoajS0FtQIgFn/c+NHzQYo5ZdsuRGM9v+bhHTInI=",
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
+}
 ```
 
 **Response:** 200 OK
 
 ```json
-
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+}
 ```
 
 
+3. Api Accepts Identity Document details and Validates the document. Match the provided demographic details(Name, DOB, Gender) against document. It also check for the already created Health ID or Enrolment number against the document.
+
+**URL:** https://healthidsbx.ndhm.gov.in/api/v2/document/validate
+
+**Request:** POST  
+
+**Parameters:**
+
+- Authorization
+string (header)
+
+- X-HIP-ID
+string (header)
+
+
+**Body:**
+
+request (body)
+
+```json
+{
+  "dayOfBirth": 21,
+  "documentNumber": "UK0720190567",
+  "documentType": "DRIVING_LICENCE",
+  "firstName": "Deepak",
+  "gender": "M",
+  "lastName": "Pant",
+  "middleName": "Kumar",
+  "monthOfBirth": "03",
+  "yearOfBirth": 1990
+}
+```
+
+**Response:** 200 OK
+
+```json
+{
+  "address": "b-14 someshwar nagar",
+  "enrolmentNumber": "43-4231-5504-6839",
+  "healthIdNumber": "43-4221-5105-6749",
+  "jwtResponse": {
+    "expiresIn": 1800,
+    "refreshExpiresIn": 86400,
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+  },
+  "verification": {
+    "fields": [
+      {
+        "key": 1255477819,
+        "matched": true
+      }
+    ],
+    "matched": true
+  }
+}
+```
+
+
+
+4.  Api Accepts Identity Document details and Creates HealthID for it
+
+**URL:** https://healthidsbx.ndhm.gov.in/api/v2/document
+
+**Request:** POST  
+
+**Parameters:**
+
+- Authorization
+string (header)
+
+- X-HIP-ID
+string (header)
+
+- T-Token
+string (header)
+
+**Body:**
+
+request (body)	
+
+```json
+{
+  "address": "Street No 3, Opp. gali no 2",
+  "dayOfBirth": "04",
+  "districtCode": 401,
+  "documentNumber": "UK0720190567",
+  "documentType": "DRIVING_LICENCE",
+  "firstName": "Deepak",
+  "gender": "M",
+  "lastName": "Pant",
+  "middleName": "Kumar",
+  "mobile": 9545812125,
+  "monthOfBirth": "03",
+  "photo": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
+  "photoBack": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
+  "stateCode": 27,
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83",
+  "yearOfBirth": 1990
+}
+```
+
+**Response:** 200 OK
+
+```json
+{
+  "address": "b-14 someshwar nagar",
+  "authMethods": "AADHAAR_OTP",
+  "dayOfBirth": 31,
+  "districtCode": 401,
+  "documentNumber": "UK0720190567",
+  "documentPhoto": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
+  "documentType": "DRIVING_LICENCE",
+  "firstName": "Deepak",
+  "gender": "M",
+  "healthId": "deepakndhm",
+  "healthIdNumber": "43-4221-5105-6749",
+  "lastName": "singh",
+  "middleName": "kumar",
+  "mobile": 9545812125,
+  "monthOfBirth": "05",
+  "name": "kishan kumar singh",
+  "photo": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
+  "photoBack": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
+  "state": "MH",
+  "stateCode": 27,
+  "stateName": "MAHARASHTRA",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+  "verificationStatus": "verified",
+  "verificationType": "testing",
+  "yearOfBirth": 1994
+}
+```
 
 ## Postman + Curl Collection 
 
