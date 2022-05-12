@@ -25,6 +25,7 @@ API links the given ABHA Address to the ABHA number and defines whether it is th
 
 ### API Information Request Response 
 
+Api Checks Health id and Linked it
 
 **URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/phr-linked
 
@@ -32,13 +33,17 @@ API links the given ABHA Address to the ABHA number and defines whether it is th
 
 **Parameters:**
 
-- X-Token
-string (header)
+- Authorization  string (header)
 
-- phrLinkedOrDeLinkedRequestPayLoad
-object (body)
+- X-HIP-ID  string (header)
+
+- X-Token  string (header)
+
+
 
 **Body:**
+
+phrLinkedOrDeLinkedRequestPayLoad  object (body)
 
 ```json
 {
@@ -65,6 +70,7 @@ API de-links the given ABHA Address to the ABHA number.
 
 ### API Information Request Response 
 
+Api Checks Health id and De-linked it
 
 **URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/phr-delinked
 
@@ -72,13 +78,17 @@ API de-links the given ABHA Address to the ABHA number.
 
 **Parameters:**
 
-- X-Token
-string (header)
+- Authorization string (header)
 
-- phrLinkedOrDeLinkedRequestPayLoad
-object (body)
+- X-HIP-ID string (header)
+
+- X-Token string (header)
+
+
 
 **Body:**
+
+phrLinkedOrDeLinkedRequestPayLoad  (body)
 
 ```json
 {
@@ -105,15 +115,19 @@ API used to create the auto creation of ABHA address. X-token has been used in t
 
 ### API Information Request Response 
 
+Api Accepts HealthID Number and Creates PHR Address
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v1/account/update/phr-address
+**URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/update/phr-address
 
 **Request:** POST  
 
 **Parameters:**
 
-- X-Token
-string (header)
+- Authorization string (header)
+
+- X-HIP-ID string (header)
+
+- X-Token string (header)
 
 
 **Body:**
@@ -125,7 +139,7 @@ string (header)
 **Response:**
 
 ```json
-
+"string"
 ```
 
 ### Postman + Curl Collection 
