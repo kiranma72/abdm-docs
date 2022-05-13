@@ -25,9 +25,13 @@ API links the given ABHA Address to the ABHA number and defines whether it is th
 
 ### API Information Request Response 
 
-Api Checks Health id and Linked it
+Links the given ABHA Address to the ABHA number
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/phr-linked
+Explanation - API links the given ABHA Address to the ABHA number and defines whether it is the preferred ABHA Address
+
+Request Body - Required
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/account/phr-linked
 
 **Request:** POST  
 
@@ -38,7 +42,6 @@ Api Checks Health id and Linked it
 - X-HIP-ID  string (header)
 
 - X-Token  string (header)
-
 
 
 **Body:**
@@ -52,11 +55,9 @@ phrLinkedOrDeLinkedRequestPayLoad  object (body)
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
-```json
 true
-```
 
 
 ## De-Link the ABHA address with ABHA Number
@@ -70,9 +71,13 @@ API de-links the given ABHA Address to the ABHA number.
 
 ### API Information Request Response 
 
-Api Checks Health id and De-linked it
+De-links the given ABHA Address from the ABHA number
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/phr-delinked
+Explanation - API delinks a given ABHA Address from the ABHA number
+
+Request Body - Required
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/account/phr-delinked
 
 **Request:** POST  
 
@@ -96,11 +101,9 @@ phrLinkedOrDeLinkedRequestPayLoad  (body)
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200 
 
-```json
-true
-```
+true 
 
 
 
@@ -115,9 +118,15 @@ API used to create the auto creation of ABHA address. X-token has been used in t
 
 ### API Information Request Response 
 
-Api Accepts HealthID Number and Creates PHR Address
+Create ABHA Address With ABHA Number.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/update/phr-address
+Explanation - API Accepts ABHA Number and Creates ABHA Address.
+
+Request Body - Required
+
+Response - API Accepts ABHA Number and Creates ABHA Address. Returns Error for Invalid/Incorrect Info..
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/account/update/phr-address
 
 **Request:** POST  
 
@@ -136,11 +145,9 @@ Api Accepts HealthID Number and Creates PHR Address
 
 ```
 
-**Response:**
+**Response:** 200
 
-```json
-"string"
-```
+string
 
 ### Postman + Curl Collection 
 
