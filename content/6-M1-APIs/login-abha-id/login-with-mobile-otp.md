@@ -24,9 +24,9 @@ The sequence of APIs used via this method are shown in the diagram below.
 
 ## API Information Request Response 
 
-1. Auth token public key
+1. Authentication token public certificate. This certificate is also used to encrypt the data.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v1/auth/cert
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/cert
 
 **Request:** GET  
 
@@ -45,94 +45,103 @@ string (header)
 
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
-```json
 string
-```
 
-2. Search a user by Health ID Number
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v1/search/searchByHealthId
+
+2. Search a user by ABHA Number or ABHA Address.
+
+This API returns only Active or Deactive ABHA Number/ Address (Never returns Permanently Deleted ABHA Number/ Address)
+
+Explanation - API checks ABHA Number or ABHA Address to find User.
+
+Request Body - Required. Here healthId attribute means ABHA Address
+
+Response - API checks ABHA Number or ABHA Address to find User. API returns only Active or Deactive ABHA Number/ Address (Never returns Permanently Deleted ABHA Number/Address)
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/search/searchByHealthId
 
 **Request:** POST  
 
 **Parameters:**
 
-- Authorization
-string (header)
+- Authorization string (header)
 
-- X-HIP-ID
-string (header)
+- X-HIP-ID  string (header)
 
 
 **Body:**
 
+searchRequest (body)
+
 ```json
 {
-  "healthId": "string"
+  "healthId": "deepak.pant"
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
 ```json
 {
   "authMethods": [
     "AADHAAR_OTP"
   ],
-  "healthId": "string",
-  "healthIdNumber": "string",
-  "name": "string",
-  "tags": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
-  }
+  "healthId": "deepakndhm",
+  "healthIdNumber": "43-4221-5105-6749",
+  "name": "kishan kumar singh",
+  "status": "ACTIVE"
 }
 ```
 
 
 3. Initiate authentication process for given Health ID
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v1/auth/init
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/init
+
+**NEED to check actual API is v2/auth/init in pdf document provided**
 
 **Request:** GET  
 
 **Parameters:**
 
-- Authorization
-string (header)
+- Authorization string (header)
 
-- X-HIP-ID
-string (header)
+- X-HIP-ID  string (header)
 
 
 **Body:**
 
+authRequest  (body)
+
 ```json
 {
   "authMethod": "AADHAAR_OTP",
-  "healthid": "string"
+  "healthid": "43-4221-5105-6749"
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
 ```json
 {
-  "txnId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  "mobileNumber": "XXXXXX2125",
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
 4. Authentication with Mobile OTP based auth transaction
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v1/auth/confirmWithMobileOTP
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/confirmWithMobileOTP
 
 **Request:** POST  
 
 **Parameters:**
+
+authAccountMobileOTPRequest  (body)
 
 - Authorization
 string (header)
@@ -146,15 +155,18 @@ string (header)
 ```json
 {
   "otp": "string",
-  "txnId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  "txnId": "string"
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
 ```json
 {
-  "token": "string"
+  "expiresIn": 1800,
+  "refreshExpiresIn": 86400,
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 }
 ```
 
