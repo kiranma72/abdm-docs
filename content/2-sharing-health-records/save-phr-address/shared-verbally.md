@@ -1,7 +1,7 @@
 ---
-title: "By scanning HIP QR code"
+title: "By sharing PHR verbally"
 date: 2022-05-07T18:00:04+05:30
-weight: 1
+weight: 3
 draft: false
 ---
 
@@ -27,7 +27,7 @@ include any images from the PHR app / EMRSBX for this feature
 
 ## API Request Response 
 
-1. Get patient's authentication modes relevant to specified purpose
+1. Get a patient's authentication modes relevant to specified purpose
 
 **URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/fetch-modes
 
@@ -35,20 +35,15 @@ include any images from the PHR app / EMRSBX for this feature
 
 **Parameters:**
 
-- Authorization: Access token which was issued after successful login with gateway auth server.
+- Authorization  string (header)
 
-Type: string (header)
-
-- X-CM-ID: Suffix of the consent manager to which the request was intended.
-
-Type: string (header)
+- X-HIP-ID  string (header)
 
 **Body:**
-
 ```json
 {
   "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "2022-05-11T09:10:08.745Z",
+  "timestamp": "2022-05-13T08:51:12.728Z",
   "query": {
     "id": "hinapatel79@ndhm",
     "purpose": "LINK",
@@ -62,16 +57,53 @@ Type: string (header)
 
 **Response:**
 
-202	
-
-Request Accepted
+202	  Accepted
 
 
+2. Identification result for a consent-manager user-id
 
-2. Initialize Authentication from HIP
+**URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/on-fetch-modes
 
-Demographic auth mode to be used for QR code scans. Direct auth modes to be used for verbal sharing.
+**Request:** POST  
 
+**Parameters:**
+
+- Authorization  string (header)
+
+- X-HIP-ID  string (header)
+
+- X-HIU-ID  string (header)
+
+**Body:**
+
+```json
+{
+  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+  "timestamp": "2022-05-13T08:53:22.488Z",
+  "auth": {
+    "purpose": "KYC_AND_LINK",
+    "modes": [
+      "MOBILE_OTP"
+    ]
+  },
+  "error": {
+    "code": 1000,
+    "message": "string"
+  },
+  "resp": {
+    "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+```
+
+**Response:**
+
+202	 Accepted
+
+
+
+
+3. Initialize authentication from HIP
 
 **URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/init
 
@@ -79,20 +111,15 @@ Demographic auth mode to be used for QR code scans. Direct auth modes to be used
 
 **Parameters:**
 
-- Authorization: Access token which was issued after successful login with gateway auth server.
+- Authorization  string (header)
 
-Type: string (header)
-
-- X-CM-ID: Suffix of the consent manager to which the request was intended.
-
-Type: string (header)
+- X-CM-ID  string (header)
 
 **Body:**
-
 ```json
 {
   "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "2022-05-11T09:10:39.179Z",
+  "timestamp": "2022-05-13T08:59:28.977Z",
   "query": {
     "id": "hinapatel@ndhm",
     "purpose": "LINK",
@@ -104,14 +131,58 @@ Type: string (header)
   }
 }
 ```
+
 **Response:**
 
-202	
-
-Request Accepted
+202	  Accepted
 
 
-3. Confirm authentication of users. Obtain linking token
+4. Response to user authentication initialization from HIP
+
+**URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/on-init
+
+**Request:** POST  
+
+**Parameters:**
+
+- Authorization  string (header)
+
+- X-HIP-ID  string (header)
+
+- X-HIU-ID  string (header)
+
+**Body:**
+
+```json
+{
+  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+  "timestamp": "2022-05-13T09:02:38.686Z",
+  "auth": {
+    "transactionId": "string",
+    "mode": "MOBILE_OTP",
+    "meta": {
+      "hint": "string",
+      "expiry": "2019-12-30T12:01:55Z"
+    }
+  },
+  "error": {
+    "code": 1000,
+    "message": "string"
+  },
+  "resp": {
+    "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+```
+
+**Response:**
+
+202	 Accepted
+
+
+
+
+5. Confirmation request sending token, otp or other authentication details from HIP/HIU for confirmation
 
 **URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/confirm
 
@@ -119,20 +190,15 @@ Request Accepted
 
 **Parameters:**
 
-- Authorization: Access token which was issued after successful login with gateway auth server.
+- Authorization  string (header)
 
-Type: string (header)
-
-- X-CM-ID: Suffix of the consent manager to which the request was intended.
-
-Type: string (header)
+- X-CM-ID  string (header)
 
 **Body:**
-
 ```json
 {
   "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "2022-05-11T09:11:18.003Z",
+  "timestamp": "2022-05-13T09:05:40.735Z",
   "transactionId": "string",
   "credential": {
     "authCode": "string",
@@ -151,40 +217,30 @@ Type: string (header)
 
 **Response:**
 
-202	
-
-Request Accepted
+202	  Accepted
 
 
-4. Notification API in case of DIRECT mode of authentication
+6. callback API for /auth/confirm (in case of MEDIATED auth) to confirm user authentication or not
 
-**URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/notify
+**URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/on-confirm
 
 **Request:** POST  
 
 **Parameters:**
 
-- Authorization: Access token which was issued after successful login with gateway auth server.
+- Authorization  string (header)
 
-Type: string (header)
+- X-HIP-ID  string (header)
 
-- X-HIP-ID: Identifier of the health information provider to which the request was intended.
-
-Type: string (header)
-
-- X-HIU-ID: Identifier of the health information user to which the request was intended.
-
-Type: string (header)
+- X-HIU-ID  string (header)
 
 **Body:**
 
 ```json
 {
   "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "2022-05-11T09:12:07.275Z",
+  "timestamp": "2022-05-13T09:06:58.238Z",
   "auth": {
-    "transactionId": "string",
-    "status": "GRANTED",
     "accessToken": "string",
     "validity": {
       "purpose": "LINK",
@@ -192,7 +248,7 @@ Type: string (header)
         "type": "HIP",
         "id": 100005
       },
-      "expiry": "2022-05-11T09:12:07.275Z",
+      "expiry": "2022-05-13T09:06:58.238Z",
       "limit": "1"
     },
     "patient": {
@@ -213,16 +269,20 @@ Type: string (header)
         }
       ]
     }
+  },
+  "error": {
+    "code": 1000,
+    "message": "string"
+  },
+  "resp": {
+    "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
   }
 }
 ```
 
 **Response:**
 
-202	
-
-Request Accepted
-
+202	 Accepted
 
 
 ## Postman + Curl Collection 
