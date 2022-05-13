@@ -52,7 +52,14 @@ The sequence of APIs used via this method are shown in the diagram below.
 
 1. Api Accepts Mobile Number and creates OTP for it
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/document/generate/mobile/otp
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/document/generate/mobile/otp
+
+Explanation - Api Accepts Mobile Number and creates OTP fo it.
+
+Request Body - Required
+
+Responce - Api Accepts Mobile Number and creates OTP fo it. Returns Error for Invalid Mobile number.
+
 
 **Request:** POST  
 
@@ -71,7 +78,7 @@ generateOtpRequest (body)
 
 ```json
 {
-  "mobile": 9545812125
+  "mobile": "9545812125"
 }
 ```
 
@@ -79,6 +86,7 @@ generateOtpRequest (body)
 
 ```json
 {
+  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
@@ -86,7 +94,14 @@ generateOtpRequest (body)
 
 2. Api Accepts Mobile OTP and validates it
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/document/verify/mobile/otp
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/document/verify/mobile/otp
+
+Explanation - Api Accepts Mobile OTP and validates it.
+
+Request Body - Required
+
+Responce - Api Accepts Mobile OTP and validates it. Returns Error for Invalid Mobile OTP.
+
 
 **Request:** POST  
 
@@ -119,9 +134,15 @@ verifyMobileWebRequest  (body)
 ```
 
 
-3. Api Accepts Identity Document details and Validates the document. Match the provided demographic details(Name, DOB, Gender) against document. It also check for the already created Health ID or Enrolment number against the document.
+3. Validate the document. Match the provided demographic details (Name, DOB, Gender) against the document. It also checks for already created ABHA Number or Enrolment number against the document
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/document/validate
+Explanation - API accepts Identity Document details and validates the document. Match the provided demographic details (Name, DOB, Gender) against document. It also check for the already created ABHA Number or Enrolment number against the document.
+
+Request Body - Required
+
+Response - API accepts Identity Document details and validates the document. Match the provided demographic details(Name, DOB, Gender) against document. It also check for the already created ABHA Number or Enrolment number against the document. Returns Error for Invalid Identity Document details.
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/document/validate
 
 **Request:** POST  
 
@@ -140,7 +161,7 @@ request (body)
 
 ```json
 {
-  "dayOfBirth": 21,
+  "dayOfBirth": "21",
   "documentNumber": "UK0720190567",
   "documentType": "DRIVING_LICENCE",
   "firstName": "Deepak",
@@ -148,7 +169,7 @@ request (body)
   "lastName": "Pant",
   "middleName": "Kumar",
   "monthOfBirth": "03",
-  "yearOfBirth": 1990
+  "yearOfBirth": "1990"
 }
 ```
 
@@ -168,7 +189,7 @@ request (body)
   "verification": {
     "fields": [
       {
-        "key": 1255477819,
+        "key": "1255477819",
         "matched": true
       }
     ],
@@ -179,9 +200,15 @@ request (body)
 
 
 
-4.  Api Accepts Identity Document details and Creates HealthID for it
+4.  Create ABHA Number using ID documents like Driving Licence, PAN Card
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/document
+Explanation - Api Accepts Identity Document details and Creates HealthID for it.
+
+Request Body - Required
+
+Responce - Api Accepts Identity Document details and Creates HealthID for it. Returns Error for Invalid Identity Document details.
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/document
 
 **Request:** POST  
 
@@ -204,20 +231,20 @@ request (body)
 {
   "address": "Street No 3, Opp. gali no 2",
   "dayOfBirth": "04",
-  "districtCode": 401,
+  "districtCode": "401",
   "documentNumber": "UK0720190567",
   "documentType": "DRIVING_LICENCE",
   "firstName": "Deepak",
   "gender": "M",
   "lastName": "Pant",
   "middleName": "Kumar",
-  "mobile": 9545812125,
+  "mobile": "9545812125",
   "monthOfBirth": "03",
   "photo": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
   "photoBack": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
-  "stateCode": 27,
+  "stateCode": "27",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83",
-  "yearOfBirth": 1990
+  "yearOfBirth": "1990"
 }
 ```
 
@@ -227,8 +254,8 @@ request (body)
 {
   "address": "b-14 someshwar nagar",
   "authMethods": "AADHAAR_OTP",
-  "dayOfBirth": 31,
-  "districtCode": 401,
+  "dayOfBirth": "31",
+  "districtCode": "401",
   "documentNumber": "UK0720190567",
   "documentPhoto": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
   "documentType": "DRIVING_LICENCE",
@@ -238,18 +265,18 @@ request (body)
   "healthIdNumber": "43-4221-5105-6749",
   "lastName": "singh",
   "middleName": "kumar",
-  "mobile": 9545812125,
+  "mobile": "9545812125",
   "monthOfBirth": "05",
   "name": "kishan kumar singh",
   "photo": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
   "photoBack": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
   "state": "MH",
-  "stateCode": 27,
+  "stateCode": "27",
   "stateName": "MAHARASHTRA",
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
   "verificationStatus": "verified",
   "verificationType": "testing",
-  "yearOfBirth": 1994
+  "yearOfBirth": "1994"
 }
 ```
 
