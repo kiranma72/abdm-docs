@@ -23,9 +23,15 @@ The sequence of APIs used via this method are shown in the diagram below.
 ## API Information Request Response 
 
 
-1. Api Accepts Mobile Number and then generates OTP for it to Start Registration
+1. Generate Mobile OTP as part of Forgot flow
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/forgot/healthId/mobile/generateOtp
+Explanation - API accepts Mobile Number and then generates OTP for it.
+
+Request Body - Required
+
+Responce - API Accepts Mobile Number and then generates OTP for it. Returns Transaction ID.
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/forgot/healthId/mobile/generateOtp
 
 **Request:** POST  
 
@@ -42,23 +48,32 @@ generateOtpRequest  (body)
 
 ```json
 {
-  "mobile": 9545812125
+  "mobile": "9545812125"
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
 ```json
 {
+  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
 
-2. Api Accepts OTP and then checks is it Valid as per given Mobile Transaction
+2. Verify Mobile OTP sent as part of forget ABHA number
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/forgot/healthId/mobile
+Explanation - API accepts OTP and then checks is it Valid as per given Mobile Transaction.
+
+Request Body - Required
+
+Response - API accepts OTP then returns ABHA Number accordingly.
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/forgot/healthId/mobile
+
+**Need to check API in pdf it is mentioned as v1/forgot/healthId/aadhaar **
 
 **Request:** POST  
 
@@ -75,33 +90,26 @@ retriveHealthIdMobilePayLoad  (body)
 
 ```json
 {
-  "dayOfBirth": 31,
+  "dayOfBirth": "31",
   "firstName": "Kishan",
-  "flow": "RETRIEVE_HID",
   "gender": "M",
   "lastName": "Singh",
   "middleName": "kumar",
   "monthOfBirth": "05",
   "name": "kishan kumar singh",
-  "otp": 816406,
+  "otp": "816406",
   "status": "Active",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83",
-  "yearOfBirth": 1995
+  "yearOfBirth": "1995"
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
 ```json
 {
-  "healthId": "deepakndhm",
-  "healthIdNumber": "43-4221-5105-6749",
-  "jwtResponse": {
-    "expiresIn": 1800,
-    "refreshExpiresIn": 86400,
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-  }
+  "healthId": "deepak.pant",
+  "healthIdNumber": "43-4221-5105-6749"
 }
 ```
 
