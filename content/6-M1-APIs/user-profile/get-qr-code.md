@@ -17,9 +17,15 @@ draft: false
 
 ## API Information Request Response 
 
-Get Quick Response code in PNG format for this account
+Get Quick Response code in PNG format for this account.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v1/account/qrCode
+Explanation - Api Accepts Auth Token and then returns Account Info for QR Code.
+
+Request Body - Required
+
+Responce - Api Accepts Auth Token and then returns Account Info for QR Code. Returns Error for Unauthorized Token.
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/account/qrCode
 
 **Request:** GET  
 
@@ -40,13 +46,9 @@ Get Quick Response code in PNG format for this account
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
-```json
-{
 string
-}
-```
 
 ## Postman + Curl Collection 
 
