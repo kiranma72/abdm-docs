@@ -28,6 +28,8 @@ The sequence of APIs used via this method are shown in the diagram below.
 
 1. Generate Aadhaar OTP on registrered mobile number
 
+Api Accepts Adhar Card Number and then Generates OTP for Regestered Mobile Number
+
 **URL:** https://healthidsbx.ndhm.gov.in/api/v1/registration/aadhaar/generateOtp
 
 **Request:** POST  
@@ -60,6 +62,8 @@ generateOtpRequest (body)
 
 2. Verify Aadhaar OTP received on registrered mobile number
 
+Api Accepts OTP and then Checks OTP is Verified or Not
+
 **URL:** https://healthidsbx.ndhm.gov.in/api/v1/registration/aadhaar/verifyOTP
 
 **Request:** POST  
@@ -72,13 +76,12 @@ generateOtpRequest (body)
 
 **Body:**
 
-request (body)
+verifyAadhaarOtp (body)
 
 ```json
 {
-  "otp": "string",
-  "restrictions": "string",
-  "txnId": "string"
+  "otp": 812306,
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
@@ -91,7 +94,9 @@ request (body)
 ```
 
 
-3.  Generate Mobile OTP to verify mobile number.
+3.  Generate Mobile OTP for verification.
+
+Api Accepts Mobile Number and then Creates OTP for it.
 
 **URL:** https://healthidsbx.ndhm.gov.in/api/v1/registration/aadhaar/generateMobileOTP
 
@@ -110,8 +115,8 @@ request (body)
 
 ```json
 {
-  "mobile": "string",
-  "txnId": "string"
+  "mobile": 9545812125,
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
@@ -125,6 +130,8 @@ request (body)
 
 
 4. Verify Mobile OTP in an existing transaction.
+
+Api Accepts Mobile OTP and then Checks it is Verified or Not.
 
 **URL:** https://healthidsbx.ndhm.gov.in/api/v1/registration/aadhaar/verifyMobileOTP
 
@@ -142,8 +149,8 @@ request (body)
 
 ```json
 {
-  "otp": "string",
-  "txnId": "string"
+  "otp": 812306,
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
@@ -157,6 +164,8 @@ request (body)
 
 
 5. Create Health ID using pre-verified Aadhaar & Mobile.
+
+Api Creates HealthID using Aadhaar & Mobile Which are already Registered.
 
 **URL:** https://healthidsbx.ndhm.gov.in/api/v1/registration/aadhaar/createHealthIdWithPreVerified
 
@@ -240,6 +249,8 @@ The sequence of APIs used via this method are shown in the diagram below.
 
 1. Verify Aadhaar using biometrics
 
+Api Checks Aadhaar Using Registered Biometrics.
+
 **URL:** https://healthidsbx.ndhm.gov.in/api/v1/registration/aadhaar/verifyBio
 
 **Request:** POST  
@@ -250,16 +261,16 @@ The sequence of APIs used via this method are shown in the diagram below.
 
 - X-HIP-ID string (header)
 
-- aadhaar string (query)
-
-- pid string (query)
-
-- restrictions string (query)
-
 **Body:**
 
-```json
+verifyAadharOtpRequest (body)
 
+```json
+{
+  "aadhaar": 31541756777,
+  "bioType": "FMR",
+  "pid": "PD94bWwgdmVyc2lvbj0iMS4wIj8+DQo8UGlkRGF0YT4NCiAgPFJlc3AgZXJyQ29kZT0iMCIgZXJySW5mbz0iU3VjY2VzcyIgZkNvdW50PSIxIiBmVHlwZT0iMCIgbm1Qb2ludHM9IjM5IiBxU2NvcmU9IjY4IiAvPg0KICA8RGV2aWNlSW5mbyBkcElkPSJNQU5UUkEuTVNJUEwiIHJkc0lkPSJNQU5UUkEuV0lOLjAwMSIgcmRzVmVyPSIxLjAuMyIgbWk9Ik1GUzEwMCIgbWM9Ik1JSUVHRENDQXdDZ0F3SUJBZ0lFQWdiTWdEQU5CZ2txaGtpRzl3MEJBUXNGQURDQjZqRXFNQ2dHQTFVRUF4TWhSRk1nVFdGdWRISmhJRk52Wm5SbFkyZ2dTVzVrYVdFZ1VIWjBJRXgwWkNBM01VTZXMG1SZz08L0RhdGE+DQo8L1BpZERhdGE+"
+}
 ```
 
 **Response:** 200 OK
@@ -273,6 +284,8 @@ The sequence of APIs used via this method are shown in the diagram below.
 
 
 2. Create Health ID using pre-verified Aadhaar & Mobile.
+
+Api Creates HealthID using Aadhaar & Mobile Which are already Registered.
 
 **URL:** https://healthidsbx.ndhm.gov.in/api/v1/registration/aadhaar/createHealthIdWithPreVerified
 
