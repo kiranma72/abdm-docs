@@ -18,7 +18,7 @@ draft: false
 
 1. Initiate authentication for reactivation of Health ID
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/auth/reactivate/init
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/auth/reactivate/init
 
 **Request:** POST  
 
@@ -40,10 +40,11 @@ authRequest  (body)
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
 ```json
 {
+  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
@@ -52,7 +53,7 @@ authRequest  (body)
 
 2. Confirm reactivation txn with aadhar or mobile otp
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/auth/reactivate
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/auth/reactivate
 
 **Request:** POST  
 
@@ -78,7 +79,7 @@ reactivateByOTPWebRequest  (body)
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
 ```json
 {
