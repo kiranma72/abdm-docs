@@ -27,11 +27,15 @@ The sequence of APIs used via this method is shown in the diagram below.
 
 ## API Information Request Response 
 
-1. Generate Aadhaar OTP on Registered for link account with aadhar number
+1. Generate Aadhaar OTP on mobile number linked with Aadhar
 
-Api Accepts Auth Token and Generates OTP on Linked mobile number.
+Explanation - API accepts Auth Token and Generates OTP on Linked mobile number.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/aadhaar/generateOTP
+Request Body - Required
+
+Response - API accepts Auth Token and Generates OTP on Linked mobile number. Returns Error for Unauthorized token .
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/account/aadhaar/generateOTP
 
 **Request:** POST  
 
@@ -54,10 +58,11 @@ aadharNumberWebOptionalRequestPayload  (body)
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
 ```json
 {
+  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
@@ -65,7 +70,7 @@ aadharNumberWebOptionalRequestPayload  (body)
 
 2. Deactivate the account using mobile or aadhaar otp.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/profile/deactivate
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/account/profile/deactivate
 
 
 **Request:** POST  
@@ -94,15 +99,7 @@ deactivateAccountByOtpWebRequest  (body)
 }
 ```
 
-**Response:** 200 OK
-
-```json
-{
-  "body": {},
-  "statusCode": "100 CONTINUE",
-  "statusCodeValue": 0
-}
-```
+**Response:** 204
 
 
 
