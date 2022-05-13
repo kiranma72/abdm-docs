@@ -23,9 +23,13 @@ The sequence of APIs used via this method is shown in the diagram below.
 
 1. Generate OTP on new mobile need to update existing account mobile number
 
-Api Accepts New Mobile Number and Auth Token and creates OTP
+Explanation - Api Accepts New Mobile Number and Auth Token and creates OTP.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/change/mobile/new/generateOTP
+Request Body - Required
+
+Responce - Api Accepts New Mobile Number and Auth Token and creates OTP. Returns Error for Unauthorized Auth Token.
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/account/change/mobile/new/generateOTP
 
 **Request:** POST  
 
@@ -44,14 +48,15 @@ mobileNumberNewRequestPayload (body)
 
 ```json
 {
-  "newMobileNumber": 9545812125
+  "newMobileNumber": "9545812125"
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
 ```json
 {
+  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
@@ -60,9 +65,13 @@ mobileNumberNewRequestPayload (body)
 
 2. Verify Mobile OTP to complete new mobile update verification.
 
-Api Accepts New Mobile Number OTP and Verifies it.
+Explanation - Api Accepts New Mobile Number OTP and Verifies it.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/change/mobile/new/verifyOTP
+Request Body - Required
+
+Responce - Api Accepts New Mobile Number OTP and Verifies it. Returns Error for Unauthorized OTP.
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/account/change/mobile/new/verifyOTP
 
 **Request:** POST  
 
@@ -86,10 +95,11 @@ verifyAadhaarOtpWebPaylaod (body)
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
 ```json
 {
+  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
@@ -97,9 +107,13 @@ verifyAadhaarOtpWebPaylaod (body)
 
 3. Generate Mobile OTP to start mobile update.
 
-Api Accepts Transaction ID and Creates OTP for mobile number.
+Explanation - Api Accepts Transaction ID and Creates OTP for mobile number.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/change/mobile/old/generateOTP
+Request Body - Required
+
+Responce - Api Accepts Transaction ID and Creates OTP for mobile number. Returns Error for Unauthorized Transaction ID.
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/account/change/mobile/old/generateOTP
 
 **Request:** POST  
 
@@ -122,10 +136,11 @@ updateMobileGenerateOTPPayload (body)
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
 ```json
 {
+  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
@@ -134,9 +149,13 @@ updateMobileGenerateOTPPayload (body)
 
 4. Change mobile number via password/aadhaar/existing mobile for Health ID.
 
- Api Accepts password/aadhaar/existing mobile and new Mobiles OTP and Updates new mobile number.
+Explanation - Api Accepts password/aadhaar/existing mobile and new Mobiles OTP and Updates new mobile number.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/change/mobile/update/authentication
+Request Body - Required
+
+Responce - Api Accepts password/aadhaar/existing mobile and new Mobiles OTP and Updates new mobile number. Returns Error for Unauthorized OTP.
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/account/change/mobile/update/authentication
 
 **Request:** POST  
 
@@ -162,11 +181,9 @@ updateNewMobileNoRequestPayload (body)
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
-```json
-"string"
-```
+string
 
 
 
