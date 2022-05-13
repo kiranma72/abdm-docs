@@ -31,7 +31,9 @@ draft: false
 
 - To Update or Changes the existing e-mail Address (Verified/Unverified email). Send the New Email Address* required in the request.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/email/verification/send/otp
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/account/email/verification/send/otp
+
+**Need to check this API not in sandbox swagger**
 
 **Request:** POST  
 
@@ -76,7 +78,9 @@ the response body
 
 - OTP must be in the encrypted.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/email/verification/verify/otp
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/account/email/verification/verify/otp
+
+**Need to check this API not in sandbox swagger**
 
 **Request:** POST  
 
@@ -100,7 +104,7 @@ request (body)
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
 ```json
 {
