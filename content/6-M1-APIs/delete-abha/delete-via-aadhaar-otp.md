@@ -28,9 +28,15 @@ The sequence of APIs used via this method is shown in the diagram below.
 
 1. Generate Aadhaar OTP on Registered for link account with aadhar number
 
-Api Accepts Auth Token and Generates OTP on Linked mobile number.
+Api Accepts Auth Token and Generates OTP on Linked mobile number.Generate Aadhaar OTP on mobile number linked with Aadhar
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/aadhaar/generateOTP
+Explanation - API accepts Auth Token and Generates OTP on Linked mobile number.
+
+Request Body - Required
+
+Response - API accepts Auth Token and Generates OTP on Linked mobile number. Returns Error for Unauthorized token .
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/account/aadhaar/generateOTP
 
 **Request:** POST  
 
@@ -53,10 +59,11 @@ aadharNumberWebOptionalRequestPayload  (body)
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
 ```json
 {
+  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
@@ -64,7 +71,7 @@ aadharNumberWebOptionalRequestPayload  (body)
 
 2. Delete the account using aadhaar otp.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/profile/delete
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/account/profile/delete
 
 
 **Request:** POST  
@@ -93,16 +100,7 @@ deleteAccountByOtpWebRequest  (body)
 }
 ```
 
-**Response:** 200 OK
-
-```json
-{
-  "body": {},
-  "statusCode": "100 CONTINUE",
-  "statusCodeValue": 0
-}
-```
-
+**Response:** 204
 
 
 
