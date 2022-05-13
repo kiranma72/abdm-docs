@@ -30,7 +30,7 @@ The sequence of APIs used via this method are shown in the diagram below.
 
 Api Accepts Adhar Card Number and then Generates OTP for Regestered Mobile Number
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v1/registration/aadhaar/generateOtp
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/registration/aadhaar/generateOtp
 
 **Request:** POST  
 
@@ -47,7 +47,7 @@ generateOtpRequest (body)
 
 ```json
 {
-  "aadhaar": "string"
+  "aadhaar": "31541756999"
 }
 ```
 
@@ -55,7 +55,8 @@ generateOtpRequest (body)
 
 ```json
 {
-  "txnId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  "mobileNumber": "XXXXXX2125",
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
@@ -64,7 +65,7 @@ generateOtpRequest (body)
 
 Api Accepts OTP and then Checks OTP is Verified or Not
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v1/registration/aadhaar/verifyOTP
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/registration/aadhaar/verifyOTP
 
 **Request:** POST  
 
@@ -80,7 +81,7 @@ verifyAadhaarOtp (body)
 
 ```json
 {
-  "otp": 812306,
+  "otp": "812306",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
@@ -89,7 +90,8 @@ verifyAadhaarOtp (body)
 
 ```json
 {
-  "txnId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  "mobileNumber": "XXXXXX2125",
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
@@ -98,7 +100,7 @@ verifyAadhaarOtp (body)
 
 Api Accepts Mobile Number and then Creates OTP for it.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v1/registration/aadhaar/generateMobileOTP
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/registration/aadhaar/generateMobileOTP
 
 **Request:** POST  
 
@@ -115,7 +117,7 @@ request (body)
 
 ```json
 {
-  "mobile": 9545812125,
+  "mobile": "9545812125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
@@ -124,7 +126,8 @@ request (body)
 
 ```json
 {
-  "txnId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  "mobileNumber": "XXXXXX2125",
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
@@ -133,7 +136,7 @@ request (body)
 
 Api Accepts Mobile OTP and then Checks it is Verified or Not.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v1/registration/aadhaar/verifyMobileOTP
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/registration/aadhaar/verifyMobileOTP
 
 **Request:** POST  
 
@@ -149,7 +152,7 @@ request (body)
 
 ```json
 {
-  "otp": 812306,
+  "otp": "812306",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
@@ -158,16 +161,17 @@ request (body)
 
 ```json
 {
-  "txnId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  "mobileNumber": "XXXXXX2125",
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
-5. Create Health ID using pre-verified Aadhaar & Mobile.
+5. Create ABHA Number using pre-verified Aadhaar & Mobile.
 
-Api Creates HealthID using Aadhaar & Mobile Which are already Registered.
+API creates ABHA Number using Aadhaar & Mobile Which are already Registered.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v1/registration/aadhaar/createHealthIdWithPreVerified
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/registration/aadhaar/createHealthIdWithPreVerified
 
 **Request:** POST  
 
@@ -183,14 +187,14 @@ accountRequest (body)
 
 ```json
 {
-  "email": "string",
-  "firstName": "string",
-  "healthId": "string",
-  "lastName": "string",
-  "middleName": "string",
-  "password": "string",
-  "profilePhoto": "string",
-  "txnId": "string"
+  "email": "Example@Demo.com",
+  "firstName": "manoj",
+  "healthId": "deepak.pant",
+  "lastName": "singh",
+  "middleName": "kishan",
+  "password": "India@143",
+  "profilePhoto": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
@@ -198,33 +202,33 @@ accountRequest (body)
 
 ```json
 {
-  "authMethods": [
-    "AADHAAR_OTP"
-  ],
-  "dayOfBirth": "string",
-  "districtCode": "string",
-  "districtName": "string",
-  "email": "string",
-  "firstName": "string",
-  "gender": "string",
-  "healthId": "string",
-  "healthIdNumber": "string",
-  "kycPhoto": "string",
-  "lastName": "string",
-  "middleName": "string",
-  "mobile": "string",
-  "monthOfBirth": "string",
-  "name": "string",
+  "authMethods": "AADHAAR_OTP",
+  "dayOfBirth": "23",
+  "districtCode": "401",
+  "districtName": "Pune",
+  "email": "Example@demo.com",
+  "firstName": "akash",
+  "gender": "M",
+  "healthId": "deepak.pant",
+  "healthIdNumber": "43-4221-5105-6749",
+  "kycPhoto": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
+  "lastName": "singh",
+  "middleName": "pramod",
+  "mobile": "9545812125",
+  "monthOfBirth": "05",
+  "name": "kishan kumar singh",
   "new": true,
-  "stateCode": "string",
-  "stateName": "string",
+  "profilePhoto": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+  "stateCode": "27",
+  "stateName": "MAHARASHTRA",
   "tags": {
     "additionalProp1": "string",
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "token": "string",
-  "yearOfBirth": "string"
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+  "yearOfBirth": "1995"
 }
 ```
 
@@ -251,7 +255,7 @@ The sequence of APIs used via this method are shown in the diagram below.
 
 Api Checks Aadhaar Using Registered Biometrics.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v1/registration/aadhaar/verifyBio
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/registration/aadhaar/verifyBio
 
 **Request:** POST  
 
@@ -267,7 +271,7 @@ verifyAadharOtpRequest (body)
 
 ```json
 {
-  "aadhaar": 31541756777,
+  "aadhaar": "31541756999",
   "bioType": "FMR",
   "pid": "PD94bWwgdmVyc2lvbj0iMS4wIj8+DQo8UGlkRGF0YT4NCiAgPFJlc3AgZXJyQ29kZT0iMCIgZXJySW5mbz0iU3VjY2VzcyIgZkNvdW50PSIxIiBmVHlwZT0iMCIgbm1Qb2ludHM9IjM5IiBxU2NvcmU9IjY4IiAvPg0KICA8RGV2aWNlSW5mbyBkcElkPSJNQU5UUkEuTVNJUEwiIHJkc0lkPSJNQU5UUkEuV0lOLjAwMSIgcmRzVmVyPSIxLjAuMyIgbWk9Ik1GUzEwMCIgbWM9Ik1JSUVHRENDQXdDZ0F3SUJBZ0lFQWdiTWdEQU5CZ2txaGtpRzl3MEJBUXNGQURDQjZqRXFNQ2dHQTFVRUF4TWhSRk1nVFdGdWRISmhJRk52Wm5SbFkyZ2dTVzVrYVdFZ1VIWjBJRXgwWkNBM01VTZXMG1SZz08L0RhdGE+DQo8L1BpZERhdGE+"
 }
@@ -277,17 +281,18 @@ verifyAadharOtpRequest (body)
 
 ```json
 {
-  "txnId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  "mobileNumber": "XXXXXX2125",
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
 
-2. Create Health ID using pre-verified Aadhaar & Mobile.
+2. Create ABHA Number using pre-verified Aadhaar & Mobile.
 
-Api Creates HealthID using Aadhaar & Mobile Which are already Registered.
+Explanation - API creates ABHA Number using Aadhaar & Mobile Which are already Registered.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v1/registration/aadhaar/createHealthIdWithPreVerified
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/registration/aadhaar/createHealthIdWithPreVerified
 
 **Request:** POST  
 
@@ -303,14 +308,14 @@ accountRequest (body)
 
 ```json
 {
-  "email": "string",
-  "firstName": "string",
-  "healthId": "string",
-  "lastName": "string",
-  "middleName": "string",
-  "password": "string",
-  "profilePhoto": "string",
-  "txnId": "string"
+  "email": "Example@Demo.com",
+  "firstName": "manoj",
+  "healthId": "deepak.pant",
+  "lastName": "singh",
+  "middleName": "kishan",
+  "password": "India@143",
+  "profilePhoto": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
@@ -318,33 +323,33 @@ accountRequest (body)
 
 ```json
 {
-  "authMethods": [
-    "AADHAAR_OTP"
-  ],
-  "dayOfBirth": "string",
-  "districtCode": "string",
-  "districtName": "string",
-  "email": "string",
-  "firstName": "string",
-  "gender": "string",
-  "healthId": "string",
-  "healthIdNumber": "string",
-  "kycPhoto": "string",
-  "lastName": "string",
-  "middleName": "string",
-  "mobile": "string",
-  "monthOfBirth": "string",
-  "name": "string",
+  "authMethods": "AADHAAR_OTP",
+  "dayOfBirth": "23",
+  "districtCode": "401",
+  "districtName": "Pune",
+  "email": "Example@demo.com",
+  "firstName": "akash",
+  "gender": "M",
+  "healthId": "deepak.pant",
+  "healthIdNumber": "43-4221-5105-6749",
+  "kycPhoto": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
+  "lastName": "singh",
+  "middleName": "pramod",
+  "mobile": "9545812125",
+  "monthOfBirth": "05",
+  "name": "kishan kumar singh",
   "new": true,
-  "stateCode": "string",
-  "stateName": "string",
+  "profilePhoto": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+  "stateCode": "27",
+  "stateName": "MAHARASHTRA",
   "tags": {
     "additionalProp1": "string",
     "additionalProp2": "string",
     "additionalProp3": "string"
   },
-  "token": "string",
-  "yearOfBirth": "string"
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+  "yearOfBirth": "1995"
 }
 ```
 
