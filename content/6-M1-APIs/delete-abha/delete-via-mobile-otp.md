@@ -26,11 +26,15 @@ The sequence of APIs used via this method is shown in the diagram below.
 
 ## API Information Request Response 
 
-1. Generate Mobile OTP to start mobile txn
+1. Generate Mobile OTP to start mobile txn.
 
- Api Accepts Auth Token and Generates OTP on mobile number
+Explanation - Api Accepts Auth Token and Generates OTP on mobile number.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/mobile/generateOTP
+Request Body - Required
+
+Responce - Api Accepts Auth Token and Generates OTP on mobile number. Returns Error for Unauthorized token .
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/account/mobile/generateOTP
 
 **Request:** POST  
 
@@ -42,8 +46,6 @@ The sequence of APIs used via this method is shown in the diagram below.
 
 - X-Token string (header)
 
-- purpose string (query)
-
 
 **Body:**
 
@@ -51,10 +53,11 @@ The sequence of APIs used via this method is shown in the diagram below.
 
 ```
 
-**Response:** 200 OK
+**Response:** 200
 
 ```json
 {
+  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
@@ -62,7 +65,7 @@ The sequence of APIs used via this method is shown in the diagram below.
 
 2. Delete the account using Mobile otp.
 
-**URL:** https://healthidsbx.ndhm.gov.in/api/v2/account/profile/delete
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/account/profile/delete
 
 **Request:** POST  
 
@@ -90,16 +93,7 @@ deleteAccountByOtpWebRequest  (body)
 }
 ```
 
-**Response:** 200 OK
-
-```json
-{
-  "body": {},
-  "statusCode": "100 CONTINUE",
-  "statusCodeValue": 0
-}
-```
-
+**Response:** 204
 
 
 
