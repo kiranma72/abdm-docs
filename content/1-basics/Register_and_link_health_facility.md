@@ -1,3 +1,11 @@
+---
+title: "Link your Health Facility"
+date: 2022-05-07T18:00:04+05:30
+Weight: 5 
+draft: false
+---
+
+
 # Register the health facility that uses your software and link it to your software endpoint
 
 Following article focuses on HMIS/LMIS/HRPs software providers can register the facilities which uses their softwares

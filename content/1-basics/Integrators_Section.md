@@ -1,14 +1,35 @@
-ABDM allows various types of entities to integrate with their APIs. Please choose the approprate type that fits your application from the choices below.
+---
+title: "Making your app ABDM compliant"
+date: 2022-05-07T18:00:04+05:30
+Weight: 4 
+draft: false
+---
 
-**Please read the** [ABDM Concepts Overview](ABDM_Concepts_Overview.md) **first**
 
-## HIMS / LIMS Systems
+ First decide on the roles that your application will play in the ABDM ecosystem 
+
+ | Role | Applicable to | Example Applications | 
+ | -----| ----------- | ------------------- |
+ | HRP / HIP | Any application that holds health records and shares it on demand | HIMS, LIMS, Teleconsultation Apps, user uploaded data in PHR apps, Government programs, etc | 
+ | HIU | Any application that requires access to user health records | HIMS, Teleconsultation Apps, PHR apps, Insurance apps | 
+ | PHR App | Consumer applications that want to help users manage their health records & consents | PHR Apps | 
+
+
+For an explaination of the various roles read the [PHR Architecture Overview](/abdm-docs/1-basics/phr_architecture_overview/)
+
+## Features to be supported by a HRP / HIP
 Entities providing a healthcare software to hospitals, labs, clinics, etc comes under this category.
 
 HIMS Maintain, collect and manage health records. Ensure timely and accurate delivery of data to health care providers. 
 In return the health care providers rely on the information to deliver quality healthcare
 
-LIMS is a software designed to improve lab productivity and efficiency, by keeping track of data associated with samples, experiments, laboratory workflows, and instruments
+LIMS is a software designed to improve lab productivity an---
+title: "Verify you can access the Sandbox"
+date: 2022-05-07T18:00:04+05:30
+Weight: 4 
+draft: false
+---
+d efficiency, by keeping track of data associated with samples, experiments, laboratory workflows, and instruments
 
 The private HIMS partners are Piramal Swasthya, Narayana Health Limited, Drucare Private Limited, Apollo hospital,  Plus 91, Thoughtworks, DocOn Technologies and Bajaj Finserv Health
 

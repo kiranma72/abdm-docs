@@ -6,10 +6,13 @@ chapter = true
 pre = "<b>1. </b>"
 +++
 
-# Getting Started with ABDM
+## Getting Started with ABDM
 
 This section covers 
 
 - Understand how the ABDM Personal Health Records Framework works and the terminology within ABDM
 - Getting access to the Sandbox & verifying your credentials
-- Understand what functionality you must achieve with your ABDM integration
+- What integration is required to make your application ABDM compliant
+- Setup an end point URL for your health repository or consumer health application
+- Link health facilities with your health repository
+- 
