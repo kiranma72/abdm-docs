@@ -6,6 +6,7 @@ draft: false
 ---
 
 ## Overview of the functionality 
+<<<<<<< HEAD
 - Patient must have a PHR app and have a valid PHR address
 - Hospital must generate a HIP QR code and display it at the registration counter
 - Patient scans the QR code from his phone camera or his PHR app 
@@ -21,6 +22,10 @@ draft: false
 
 
 ## Create a QR code for your Health Facility
+=======
+- Patient must have a PHR app and have a valid PHR address.
+- Hospital must generate a HIP QR code and display it at the registration counter.
+>>>>>>> 66a9da4d2ebf718de4e5ebc35f88fa963d2802f3
 
 Generate a QR code for the data in below format. You can use something like [Sample QR Generator](https://www.the-qrcode-generator.com/). ABDM will shortly release a QR code generator that can be used.
 
@@ -33,6 +38,28 @@ Your HIP ID is the same as the Health Facility Registry ID. You must have linked
 }
 ```
 
+![Scan HIP QR Code](/abdm-docs/img/scanning_hip_qrcode.PNG)
+
+
+- Patient scans the QR code from his phone camera or his PHR app.
+- On scan gateway or HIE-CM will call the HIP with profile.
+- After receiving the patient details the HIP must validate passing it to HIECM.
+- Then HIE-CM will validates patient details and creates a new access token just for the purpose of linking.
+- This new access token is passed to the HIP.
+- The HIP has to call the CM with the new access token to add the care contexts.
+
+- Get user auth for the action they want to perform. There are two different modes of Authentication:
+    - **Mediated (Mobile OTP, Aadhaar OTP, User Demographics)**
+    - **Direct**
+
+    While seeking user auth, the HIP must send purpose of auth, current supported purposes are
+    - **LINK**:  for purpose of adding care-contexts subsequently. User details are not returned in this case.
+    - **KYC**:  for getting basic user details.
+    - **KYC_AND_LINK**:  for requesting user details.
+            
+    Once the user authentication is confirmed, CM returns “linking token” via /auth/on-confirm API. NOTE for KYC purpose, "linking token" is not returned.
+
+
 - Go to ABHA Mobile Application, then My Profile and Find Scan option on the top right.
 - Scan the QR code, the app should fetch details of QR code along with User profile details.
 - Click on share which will make HIE-CM call the expected API on HIP side.
@@ -41,7 +68,23 @@ Your HIP ID is the same as the Health Facility Registry ID. You must have linked
 
 ## API Sequence 
 
+<<<<<<< HEAD
 ![Scan HIP QR Code API Seq](../share-profile-hip-qr-api-seq.png)
+=======
+### Patient Profile Flow
+
+
+![Patient Share Profile Flow](/abdm-docs/img/scanning-hip-qr-flow.png)
+
+
+### Patient Details Verification Flow
+
+
+![Patient Details Verification Flow](/abdm-docs/img/patient_profile_verfication_flow.png)
+
+
+## API Information Request Response 
+>>>>>>> 66a9da4d2ebf718de4e5ebc35f88fa963d2802f3
 
 ## API Information Request Response 
 
@@ -273,6 +316,14 @@ If there is any mismatch between the PHR Address (sent in init) and the demograp
 }
 ```
 
+<<<<<<< HEAD
+=======
+**Response:**
+
+202	 Accepted
+
+
+>>>>>>> 66a9da4d2ebf718de4e5ebc35f88fa963d2802f3
 
 ## Postman + Curl Collection 
 

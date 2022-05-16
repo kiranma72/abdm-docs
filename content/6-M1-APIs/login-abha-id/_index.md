@@ -12,4 +12,5 @@ This section covers the login of ABHA
 
 - Login with Aadhaar OTP
 - Login with Mobile OTP
+- Login to your ABHA using Mobbile
 

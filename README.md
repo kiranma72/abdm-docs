@@ -18,3 +18,5 @@ If you want to contribute to improving the documentation, write with your github
 
 ## Documentation Output 
 Every time you checkin / update a file on this project, a action is automatcially (see the Github Actions tab). Hugo is used to build the final documentation set and this is pushed back into the repository under the **gh-pages** branch. 
+
+To deploy the final site on your own domain you can fetch the **gh-pages** branch  
