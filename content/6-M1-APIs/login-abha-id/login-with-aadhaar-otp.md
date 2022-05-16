@@ -17,13 +17,46 @@ draft: false
 
 The sequence of APIs used via this method are shown in the diagram below.
 
-![Login ABHA ID via Aadhaar Otp](/abdm-docs/img/Login_With_ABHA_using_mobile.png)
+![Login ABHA via Aadhaar Otp](/abdm-docs/img/Login_With_ABHA.png)
 
 
 
 ## API Information Request Response 
 
-1. Authentication token public certificate. This certificate is also used to encrypt the data.
+
+**1. Generate the Gateway session**
+
+Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
+
+**URL:** https://dev.ndhm.gov.in/gateway/v0.5/sessions
+
+**Request:** POST  
+
+**Body:**
+
+```json
+{
+    "clientId": "healthid-api",
+    "clientSecret": "9042c774-f57b-46ba-bb11-796a4345ada1",
+    "grantType": "client_credentials"
+}
+```
+
+**Response:** 200 OK
+
+```json
+{
+    "accessToken": "string",
+    "expiresIn": 600,
+    "refreshExpiresIn": 1800,
+    "refreshToken": "string",
+    "tokenType": "bearer"
+}
+```
+
+
+
+**2. Authentication token public certificate. This certificate is also used to encrypt the data.**
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/cert
 
@@ -50,7 +83,7 @@ string
 
 
 
-2. Search a user by ABHA Number or ABHA Address.
+**3. Search a user by ABHA Number or ABHA Address.**
 
 This API returns only Active or Deactive ABHA Number/ Address (Never returns Permanently Deleted ABHA Number/ Address)
 
@@ -96,7 +129,8 @@ searchRequest (body)
 ```
 
 
-3. Initiate authentication process for given Health ID
+
+**4. Initiate authentication process for a given ABHA Number**
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/init
 
@@ -132,7 +166,8 @@ authRequest  (body)
 ```
 
 
-4. Authentication with Aadhaar OTP based auth transaction
+
+**5. Authentication with Aadhaar OTP based auth transaction**
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/confirmWithAadhaarOtp
 
