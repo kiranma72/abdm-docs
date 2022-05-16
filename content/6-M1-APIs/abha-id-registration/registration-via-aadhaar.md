@@ -5,8 +5,10 @@ weight: 1
 draft: false
 ---
 
+# Registration via Aadhaar Number
 
-## Overview of the functionality 
+
+### Overview of the functionality 
 
 - User can register ABHA ID with their Aadhaar Number.
 - To enable beneficiary registration using Aadhaar OTP, an integrator needs to generate an Aadhaar OTP, followed by OTP verification.
@@ -15,18 +17,50 @@ draft: false
 **Note:** Mobile Number can be linked/verify with ABHA via using API  
 
 
-## Registration via Aadhaar Number
 
-## API Sequence 
+
+### API Sequence 
 
 The sequence of APIs used via this method are shown in the diagram below.
 
 ![ABHA ID registration via Aadhaar](/abdm-docs/img/Creation_With_Aadhaar_on_registered_mobile_number.png)
 
 
-## API Information Request Response 
+### API Information Request Response 
 
-1. Generate Aadhaar OTP on registrered mobile number
+
+**1. Generate the Gateway session**
+
+Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
+
+**URL:** https://dev.ndhm.gov.in/gateway/v0.5/sessions
+
+**Request:** POST  
+
+**Body:**
+
+```json
+{
+    "clientId": "healthid-api",
+    "clientSecret": "9042c774-f57b-46ba-bb11-796a4345ada1",
+    "grantType": "client_credentials"
+}
+```
+
+**Response:** 200 OK
+
+```json
+{
+    "accessToken": "string",
+    "expiresIn": 600,
+    "refreshExpiresIn": 1800,
+    "refreshToken": "string",
+    "tokenType": "bearer"
+}
+```
+
+
+**2. Generate Aadhaar OTP on registrered mobile number**
 
 Api Accepts Adhar Card Number and then Generates OTP for Regestered Mobile Number
 
@@ -55,13 +89,12 @@ generateOtpRequest (body)
 
 ```json
 {
-  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
-2. Verify Aadhaar OTP received on registrered mobile number
+**3. Verify Aadhaar OTP received on registrered mobile number**
 
 Api Accepts OTP and then Checks OTP is Verified or Not
 
@@ -90,13 +123,12 @@ verifyAadhaarOtp (body)
 
 ```json
 {
-  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
-3.  Generate Mobile OTP for verification.
+**4.  Generate Mobile OTP for verification.**
 
 Api Accepts Mobile Number and then Creates OTP for it.
 
@@ -126,13 +158,12 @@ request (body)
 
 ```json
 {
-  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
-4. Verify Mobile OTP in an existing transaction.
+**5. Verify Mobile OTP in an existing transaction.**
 
 Api Accepts Mobile OTP and then Checks it is Verified or Not.
 
@@ -161,13 +192,12 @@ request (body)
 
 ```json
 {
-  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
-5. Create ABHA Number using pre-verified Aadhaar & Mobile.
+**6. Create ABHA Number using pre-verified Aadhaar & Mobile.**
 
 API creates ABHA Number using Aadhaar & Mobile Which are already Registered.
 
@@ -187,14 +217,14 @@ accountRequest (body)
 
 ```json
 {
-  "email": "Example@Demo.com",
-  "firstName": "manoj",
-  "healthId": "deepak.pant",
-  "lastName": "singh",
-  "middleName": "kishan",
-  "password": "India@143",
-  "profilePhoto": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
-  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
+  "email": "ram@Demo.com",
+  "firstName": "abhi",
+  "healthId": "test.1234567",
+  "lastName": "A",
+  "middleName": "ram",
+  "password": "string",
+  "profilePhoto": "string",
+  "txnId": "f5b82f6f-2bab-4274-8261-950d917f3b5c"
 }
 ```
 
@@ -202,39 +232,51 @@ accountRequest (body)
 
 ```json
 {
-  "authMethods": "AADHAAR_OTP",
-  "dayOfBirth": "23",
-  "districtCode": "401",
-  "districtName": "Pune",
-  "email": "Example@demo.com",
-  "firstName": "akash",
-  "gender": "M",
-  "healthId": "deepak.pant",
-  "healthIdNumber": "43-4221-5105-6749",
-  "kycPhoto": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
-  "lastName": "singh",
-  "middleName": "pramod",
-  "mobile": "9545812125",
-  "monthOfBirth": "05",
-  "name": "kishan kumar singh",
-  "new": true,
-  "profilePhoto": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
-  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-  "stateCode": "27",
-  "stateName": "MAHARASHTRA",
-  "tags": {
-    "additionalProp1": "string",
-    "additionalProp2": "string",
-    "additionalProp3": "string"
-  },
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-  "yearOfBirth": "1995"
+    "token": "string",
+    "refreshToken": "string",
+    "healthIdNumber": "12-3456-7899-1111",
+    "name": "Ram",
+    "gender": "M",
+    "yearOfBirth": "1977",
+    "monthOfBirth": "1",
+    "dayOfBirth": "1",
+    "firstName": "abhi",
+    "healthId": "test.1234567@sbx",
+    "lastName": "A",
+    "middleName": "ram",
+    "stateCode": "27",
+    "districtCode": "",
+    "stateName": "MAHARASHTRA",
+    "districtName": "Pune",
+    "email": "ram@Demo.com",
+    "kycPhoto": null,
+    "profilePhoto": "",
+    "mobile": "1234567890",
+    "authMethods": [
+        "AADHAAR_BIO",
+        "AADHAAR_OTP",
+        "DEMOGRAPHICS",
+        "PASSWORD",
+        "MOBILE_OTP"
+    ],
+    "pincode": null,
+    "tags": {},
+    "new": true
 }
 ```
 
 
 
-## Registration via Aadhaar Biometric
+### Postman + Curl Collection 
+
+**Download the Postman Collection** [here](/abdm-docs/Postman/)
+
+**Download the Curls** [here](/abdm-docs/Curls/)
+
+
+
+
+# Registration via Aadhaar Biometric
 
 - To enable beneficiary registration using Aadhaar Biometric, a client needs to have a Aadhaar Registered Device (RD Device) that allows capture and processing of Biometrics of the beneficiary.
 - This RD Service returns an encrypted PID block containing signed biometrics (using device private key within the registered devices secure zone) back to the calling application.
@@ -242,16 +284,16 @@ accountRequest (body)
 - Post verification, the client is returned complete profile data along with ABHA (Health ID).
 
 
-## API Sequence 
+### API Sequence 
 
 The sequence of APIs used via this method are shown in the diagram below.
 
 ![ABHA ID registration via Aadhaar](/abdm-docs/img/Creation_With_Aadhaar_Biometric.png)
 
 
-## API Information Request Response 
+### API Information Request Response 
 
-1. Verify Aadhaar using biometrics
+**1. Verify Aadhaar using biometrics**
 
 Api Checks Aadhaar Using Registered Biometrics.
 
@@ -288,7 +330,7 @@ verifyAadharOtpRequest (body)
 
 
 
-2. Create ABHA Number using pre-verified Aadhaar & Mobile.
+**2. Create ABHA Number using pre-verified Aadhaar & Mobile.**
 
 Explanation - API creates ABHA Number using Aadhaar & Mobile Which are already Registered.
 
@@ -355,7 +397,7 @@ accountRequest (body)
 
 
 
-## Postman + Curl Collection 
+### Postman + Curl Collection 
 
 **Download the Postman Collection** [here](/abdm-docs/Postman/)
 
