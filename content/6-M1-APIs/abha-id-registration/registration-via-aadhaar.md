@@ -269,7 +269,7 @@ accountRequest (body)
 
 ### Postman + Curl Collection 
 
-**Download the Postman Collection** [here](/abdm-docs/Postman/ABHA_ID_Registration_Via_Aadhaar.json)
+**Download the Postman Collection** [here](/abdm-docs/Postman/ABHA_Registration_Via_Aadhaar.json)
 
 **Download the Curls** [here](/abdm-docs/Curls/)
 
