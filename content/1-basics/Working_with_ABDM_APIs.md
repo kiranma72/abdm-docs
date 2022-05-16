@@ -106,7 +106,62 @@ The ABDM architecture is designed to support multiple HIE-CMs. Whenever you call
 
 1. X-CM-ID -- Pass 'sbx' if you are in the sandbox, Pass 'abdm' if you are in production. You must get this from HIE-CM domain name suffixed after the @ symbol in a PHR address. 
 
+### Check your configuration 
+
+**URL:** https://dev.abdm.gov.in/gateway/v1/bridges/getServices
+
+**HEADER:** 
+- Authorization : JWT session token
+
+**Response** 
+200
+
+```json
+{
+    "bridge": {
+        "id": "TEST_002",
+        "name": "Sandbox Test Bridge",
+        "url": "https://webhook.site/6ea28791-96fd-4c60-a6ce-a1eb67556370",
+        "active": true,
+        "blocklisted": false
+    },
+    "services": [
+        {
+            "id": "KT-HIU",
+            "name": "HIU for KT",
+            "types": [
+                "HIU"
+            ],
+            "endpoints": {},
+            "active": true
+        },
+        {
+            "id": "KT-HIP",
+            "name": "HIP for KT",
+            "types": [
+                "HIP"
+            ],
+            "endpoints": {},
+            "active": true
+        },
+    ]
+}
+```
+
+
+### Request IDs and Correlation IDs
+
+### Timestamp format 
+
 ### Encrypting data feilds 
+
+Several APIs have enhanced security measures and you will need to encrypt the content of some fields.
+
+i. Sensitive data(Data like OTP, Aadhaar Number, Password, Username etc) have to be encrypted.
+ii. Data is encrypted by the public certificate. The certificate can be downloaded from the /v2/auth/cert API under Authentication tag in the version 2.
+iii. RSA Encryption to encrypt the data. Cipher Type - RSA/ECB/PKCS1Padding. 
+
+Checkout this (online tool)[https://www.devglan.com/online-tools/rsa-encryption-decryption] for data encryption
 
 ### Securing your callbacks 
 

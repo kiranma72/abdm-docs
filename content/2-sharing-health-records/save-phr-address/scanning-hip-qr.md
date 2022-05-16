@@ -11,23 +11,25 @@ draft: false
 - Patient scans the QR code from his phone camera or his PHR app 
 - If scanned from phone camera -- The list of installed PHR apps is shown on the phone. The user can select any of the apps 
 - if scanned from within the PHR app, the app will call the share-profile API on the HIE-CM 
-- The HIE-CM will verify this is a registered healthcare provider and call the share-profile api on the end of the HRP that is linked to this HIP 
-- The HRP software can create a screen to display all the scanned profiles and allow the operator to select them for fast registration 
+- The HIE-CM will verify this is a registered healthcare provider and identify the HRP linked to this HIP in the ABDM registry 
+- The Gateway will call the share-profile api on the callback URL registered for this HRP
+- The HRP software must create a screen to display all the scanned profiles for a (counter) code
+- The operator (at a counter) should be able to select a shared profile and perform a fast user registration 
+- Remember to correctly handle this for both new and returning patients
+
+![Scan HIP QR Code](../scan-hip-qr.png)
 
 
-![Scan HIP QR Code](/abdm-docs/img/Scan HIP QR.png)
+## Create a QR code for your Health Facility
 
-######## Patients can scan a Health Facility QR code Pasted at the facility registration counter on their PHR mobile app
+Generate a QR code for the data in below format. You can use something like [Sample QR Generator](https://www.the-qrcode-generator.com/). ABDM will shortly release a QR code generator that can be used.
 
-
-**To use this flow for an HIP, follow the below steps**
-
-- Generate a QR code for the data in below format. For testing we can use something like [Sample QR Generator](https://www.the-qrcode-generator.com/)
+Your HIP ID is the same as the Health Facility Registry ID. You must have linked this HIP ID to your HRP
 
 ```json
 {
-    "hipId": "<HIP ID>",
-    "code": "<any extra information you want to send in profile, e,g counterId, Dept Id>"
+    "hipId": "HFR1010342452",
+    "code": "any information you want to get back with the scan, e,g counterId, Dept Id"
 }
 ```
 
@@ -39,25 +41,17 @@ draft: false
 
 ## API Sequence 
 
+![Scan HIP QR Code API Seq](../share-profile-hip-qr-api-seq.png)
+
 ## API Information Request Response 
 
-1. Get patient's Details
+#### 1. User's Profile is shared with the HRP 
 
-**URL:** https://dev.abdm.gov.in/cm/v0.5/patients/profile/share
-
+**URL:** {HRP CALLBACK URL}/v0.5/patients/profile/share
 **Request:** POST  
-
-**Parameters:**
-
-- Authorization: Access token which was issued after successful login with gateway auth server.
-
-Type: string (header)
-
-- X-HIP-ID : Identifier of the health information provider to which the request was intended.
-
-Type: string (header)
-
-
+**HEADERS:**
+- Authorization: JWT Token from Gateway
+- X-HIP-ID: hipID that was embedded in the QR code
 **Body:**
 ```json
 {
@@ -66,10 +60,10 @@ Type: string (header)
   "profile": {
     "hipCode": "12345 (CounterId)",
     "patient": {
-      "healthId": "<username>@<suffix>",
+      "healthId": "test@sbx",
       "healthIdNumber": "1111-1111-1111-11",
       "name": "Jane Doe",
-      "gender": "M",
+      "gender": "F",
       "address": {
         "line": "string",
         "district": "string",
@@ -77,8 +71,8 @@ Type: string (header)
         "pincode": "string"
       },
       "yearOfBirth": 2000,
-      "dayOfBirth": 0,
-      "monthOfBirth": 0,
+      "dayOfBirth": 27,
+      "monthOfBirth": 02,
       "identifiers": [
         {
           "type": "MR",
@@ -92,27 +86,21 @@ Type: string (header)
 
 **Response:**
 
-202	
+202	Request Accepted
 
-Request Accepted
+> Swagger URL:  https://sandbox.abdm.gov.in/swagger/ndhm-hip.yaml See the Profile Section
 
+Note that "healthId": contains the PHR address of the user and "healthIdNumber": contains the linked ABHA no for this PHR address. You need to save the PHR address for the user in your application. You can use the other information provided to quickly register the user.
 
-2. Response to patient's share profile request
+"hipCode": will contain whatever you put in "code" as part of the QR 
 
-**URL:** https://dev.abdm.gov.in/gateway/v0.5/patients/profile/on-share
+#### 2. Responsed to patient's share profile request
 
-**Request:** POST  
-
-**Parameters:**
-
-- Authorization: Access token which was issued after successful login with gateway auth server.
-
-Type: string (header)
-
-- X-CM-ID: Suffix of the consent manager to which the request was intended.
-
-Type: string (header)
-
+**URL:** POST https://dev.abdm.gov.in/gateway/v0.5/patients/profile/on-share
+**Request:**   
+**HEADERS:**
+- Authorization: JWT Sessions token 
+- X-CM-ID: Should be the domain in the PHR Address - @sbx or @abdm
 **Body:**
 
 ```json
@@ -121,135 +109,46 @@ Type: string (header)
   "timestamp": "2022-05-11T04:58:00.037Z",
   "acknowledgement": {
     "status": "SUCCESS",
-    "healthId": "<username>@<suffix>"
+    "healthId": "test@sbx"
   },
   "error": {
     "code": 1000,
     "message": "string"
   },
   "resp": {
-    "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    "requestId": "499a5a4a-7dda-4f20-9b67-e24589627061"
   }
 }
 ```
 
 **Response:**
 
-202	
+202	Request Accepted
 
-Request Accepted
+Ensure that the contents of  "healthID" and "requestID" match the information you got in the share request. 
 
-
-
-
+If there is an issue with the share, set the "status" to ERROR and provide a clear error message with what went wrong. This will be sent back to the PHR app and displayed to the user 
 
 
-
-
-
-
-## API Information Request Response 
-
-1. Get a patient's authentication modes relevant to specified purpose
-
-**URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/fetch-modes
-
-**Request:** POST  
-
-**Parameters:**
-
-- Authorization  string (header)
-
-- X-HIP-ID  string (header)
-
-**Body:**
-```json
-{
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "2022-05-13T08:51:12.728Z",
-  "query": {
-    "id": "hinapatel79@ndhm",
-    "purpose": "LINK",
-    "requester": {
-      "type": "HIP",
-      "id": "100005"
-    }
-  }
-}
-```
-
-**Response:**
-
-202	  Accepted
-
-
-2. Identification result for a consent-manager user-id
-
-**URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/on-fetch-modes
-
-**Request:** POST  
-
-**Parameters:**
-
-- Authorization  string (header)
-
-- X-HIP-ID  string (header)
-
-- X-HIU-ID  string (header)
-
-**Body:**
-
-```json
-{
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "2022-05-13T08:53:22.488Z",
-  "auth": {
-    "purpose": "KYC_AND_LINK",
-    "modes": [
-      "MOBILE_OTP"
-    ]
-  },
-  "error": {
-    "code": 1000,
-    "message": "string"
-  },
-  "resp": {
-    "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-  }
-}
-```
-
-**Response:**
-
-202	 Accepted
-
-
-
-
-3. Initialize authentication from HIP
+### 3. Initiate a demographic auth to verify the PHR address and obtain a linking token
 
 **URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/init
-
 **Request:** POST  
-
-**Parameters:**
-
-- Authorization  string (header)
-
-- X-CM-ID  string (header)
-
+**HEADERS:**
+- Authorization: JWT Sessions token 
+- X-CM-ID: Should be the domain in the PHR Address - sbx or abdm
 **Body:**
 ```json
 {
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "2022-05-13T08:59:28.977Z",
+  "requestId": "28ac1de6-a2ce-4b8e-8afe-a97f7bb52b85",
+  "timestamp": "2022-05-15T15:16:47.21234",
   "query": {
-    "id": "hinapatel@ndhm",
+    "id": "test@sbx",
     "purpose": "LINK",
-    "authMode": "MOBILE_OTP",
+    "authMode": "DEMOGRAPHICS",
     "requester": {
       "type": "HIP",
-      "id": 100005
+      "id": HFR1010342452
     }
   }
 }
@@ -260,79 +159,57 @@ Request Accepted
 202	  Accepted
 
 
-4. Response to user authentication initialization from HIP
+### 4. Recieve the response to PHR address verification request
 
-**URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/on-init
-
+**URL:** {HRP CALLBACK URL}/v0.5/users/auth/on-init
 **Request:** POST  
-
-**Parameters:**
-
-- Authorization  string (header)
-
-- X-HIP-ID  string (header)
-
-- X-HIU-ID  string (header)
-
+**HEADERS:**
+- Authorization: GW JWT token 
+- X-HIP-ID: Same HIP id that was passed in the auth init 
 **Body:**
 
 ```json
 {
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "2022-05-13T09:02:38.686Z",
+  "requestId": "62f31135-7e5b-4714-9a81-4fdcfced2651",
+  "timestamp": "2022-05-15T15:16:48.277264",
   "auth": {
-    "transactionId": "string",
-    "mode": "MOBILE_OTP",
+    "transactionId": "ee1d6495-96a3-4fb6-a0fc-f5b33e3e0434",
+    "mode": "DEMOGRAPHICS",
     "meta": {
-      "hint": "string",
-      "expiry": "2019-12-30T12:01:55Z"
+      "hint": null,
+      "expiry": "2022-05-15T17:16:48.277271"
     }
   },
-  "error": {
-    "code": 1000,
-    "message": "string"
-  },
+  "error": null,
   "resp": {
-    "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    "requestId": "28ac1de6-a2ce-4b8e-8afe-a97f7bb52b85"
   }
 }
 ```
 
 **Response:**
-
 202	 Accepted
 
 
-
-
-5. Confirmation request sending token, otp or other authentication details from HIP/HIU for confirmation
+### 5. Send the demographics for confirmation 
 
 **URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/confirm
-
 **Request:** POST  
-
-**Parameters:**
-
-- Authorization  string (header)
-
-- X-CM-ID  string (header)
+**HEADERS:**
+- Authorization: JWT Session Token
+- X-CM-ID: The domain in the phr address, sbx or abdm
 
 **Body:**
 ```json
 {
   "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "2022-05-13T09:05:40.735Z",
-  "transactionId": "string",
+  "timestamp": "2022-05-15T15:16:49.87345",
+  "transactionId": "ee1d6495-96a3-4fb6-a0fc-f5b33e3e0434",
   "credential": {
-    "authCode": "string",
     "demographic": {
-      "name": "janki das",
-      "gender": "M",
-      "dateOfBirth": "1972-02-29",
-      "identifier": {
-        "type": "MOBILE",
-        "value": "+919800083232"
-      }
+      "name": "Jane Doe",
+      "gender": "F",
+      "dateOfBirth": "2000-02-27"
     }
   }
 }
@@ -342,18 +219,16 @@ Request Accepted
 
 202	  Accepted
 
+Ensure transaction ID is the same as that recieved in the on-init call. Share the demographics exactly as you got in the profile that was shared. You can send the month / day as 01 if only the year of birth is available as part of dateOfBirth. example "2000-01-01"
 
-6. callback API for /auth/confirm (in case of MEDIATED auth) to confirm user authentication or not
 
-**URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/on-confirm
+6. Get and Save the linking token for this user
 
+**URL:** {HRP Callback URL}/v0.5/users/auth/on-confirm
 **Request:** POST  
-
 **Parameters:**
-
-- Authorization  string (header)
-
-- X-HIP-ID  string (header)
+- Authorization  Gateway token
+- X-HIP-ID  Same that was passed as HIP ID in auth init 
 
 - X-HIU-ID  string (header)
 
@@ -361,44 +236,15 @@ Request Accepted
 
 ```json
 {
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "2022-05-13T09:06:58.238Z",
+  "requestId": "9ccbe503-f87a-4f9b-8a0e-d8691d1c9bc3",
+  "timestamp": "2022-05-16T12:39:48.906988",
   "auth": {
-    "accessToken": "string",
-    "validity": {
-      "purpose": "LINK",
-      "requester": {
-        "type": "HIP",
-        "id": 100005
-      },
-      "expiry": "2022-05-13T09:06:58.238Z",
-      "limit": "1"
-    },
-    "patient": {
-      "id": "<patient-id>@<consent-manager-id>",
-      "name": "Hina Patel",
-      "gender": "M",
-      "yearOfBirth": 2000,
-      "address": {
-        "line": "string",
-        "district": "string",
-        "state": "string",
-        "pincode": "string"
-      },
-      "identifiers": [
-        {
-          "type": "MR",
-          "value": "+919800083232"
-        }
-      ]
-    }
+    "accessToken": "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJraXJhbm1hQHNieCIsInJlcXVlc3RlclR5cGUiOiJISVAiLCJyZXF1ZXN0ZXJJZCI6IktULUhJUCIsInBhdGllbnRJZCI6ImtpcmFubWFAc2J4Iiwic2Vzc2lvbklkIjoiZWIyNjdhY2UtYTk2NS00MzRjLWJlNjEtYzcyYjA0ZTNhOWM0IiwiZXhwIjoxNjUyNzkxMTg4LCJpYXQiOjE2NTI3MDQ3ODh9.DAPKgCigF_rOh-OFJocizsOlawDGnCZNDLvzW6HQswR6u30LzDOyJ_JMbW_8-owH0X-e-GCy-zpaiLDxWaVihDOrc51J7Aps-aeDa-sW8r7jspYCOQp0gyT3CzXl-GIkqiaHjCnHTdu5RA4oMGtGTfXKgpZtSsY5PROsekOFFTDlA3BtXnCd1iSdubdbihPtEKL90-w3PCAdm8gYQql8FaxCmMEcsQnNFn-YqqPwq32BSjbmlS6bEmuUpkWnIpXFcpO4GFvQo4VXRlqSFjFu5cjhi8XA61C1cdxCumv7N4uEEq7DPqJ69JCeY48AakWESAEjuP2pxBPhn8520q4gTg",
+    "patient": null
   },
-  "error": {
-    "code": 1000,
-    "message": "string"
-  },
+  "error": null,
   "resp": {
-    "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    "requestId": "b40fb334-6e22-4bee-8269-bc11b2453d7a"
   }
 }
 ```
@@ -407,20 +253,25 @@ Request Accepted
 
 202	 Accepted
 
+The "accessToken" in this response is also reffered to as "linking token". This is a one time use token and does not expire till you use it to link a health record with this PHR address. You can save this in your application till you have a new health record available for you to link 
 
 
+If there is any mismatch between the PHR Address (sent in init) and the demographics (send in confirm) you will get a response that looks like 
 
-
-
-
-
-
-
-
-
-
-
-
+```json
+{
+  "requestId": "a1882f39-f507-4dfa-8275-fdc275403f4b",
+  "timestamp": "2022-05-16T12:31:01.361004",
+  "auth": null,
+  "error": {
+    "code": 1441,
+    "message": "Invalid auth confirm request."
+  },
+  "resp": {
+    "requestId": "22c16352-e66b-4cb0-8330-08234957ac55"
+  }
+}
+```
 
 
 ## Postman + Curl Collection 
