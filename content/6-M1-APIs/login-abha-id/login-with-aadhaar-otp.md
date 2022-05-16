@@ -204,7 +204,7 @@ authAccountAadhaarOTPRequest  (body)
 
 ## Postman + Curl Collection 
 
-**Download the Postman Collection** [here](/abdm-docs/Postman/)
+**Download the Postman Collection** [here](/abdm-docs/Postman/Login_ABHA_Via_Aadhaar_Otp.json)
 
 **Download the Curls** [here](/abdm-docs/Curls/)
 
