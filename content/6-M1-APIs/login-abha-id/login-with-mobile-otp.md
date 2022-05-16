@@ -18,13 +18,46 @@ draft: false
 
 The sequence of APIs used via this method are shown in the diagram below.
 
-![Login ABHA ID via Aadhaar Otp](/abdm-docs/img/Login_With_ABHA_using_mobile.png)
+![Login ABHA ID via Aadhaar Otp](/abdm-docs/img/Login_With_ABHA.png)
 
 
 
-## API Information Request Response 
+## API Information Request Response
 
-1. Authentication token public certificate. This certificate is also used to encrypt the data.
+
+**1. Generate the Gateway session**
+
+Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
+
+**URL:** https://dev.ndhm.gov.in/gateway/v0.5/sessions
+
+**Request:** POST  
+
+**Body:**
+
+```json
+{
+    "clientId": "string",
+    "clientSecret": "string",
+    "grantType": "client_credentials"
+}
+```
+
+**Response:** 200 OK
+
+```json
+{
+    "accessToken": "string",
+    "expiresIn": 600,
+    "refreshExpiresIn": 1800,
+    "refreshToken": "string",
+    "tokenType": "bearer"
+}
+```
+
+
+
+**2. Authentication token public certificate. This certificate is also used to encrypt the data.**
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/cert
 
@@ -39,19 +72,13 @@ string (header)
 string (header)
 
 
-**Body:**
-
-```json
-
-```
-
-**Response:** 200
+**Response:** 200 OK
 
 string
 
 
 
-2. Search a user by ABHA Number or ABHA Address.
+**3. Search a user by ABHA Number or ABHA Address.**
 
 This API returns only Active or Deactive ABHA Number/ Address (Never returns Permanently Deleted ABHA Number/ Address)
 
@@ -82,22 +109,28 @@ searchRequest (body)
 }
 ```
 
-**Response:** 200
+**Response:** 200 OK
 
 ```json
 {
-  "authMethods": [
-    "AADHAAR_OTP"
-  ],
-  "healthId": "deepakndhm",
-  "healthIdNumber": "43-4221-5105-6749",
-  "name": "kishan kumar singh",
-  "status": "ACTIVE"
+    "healthId": "deepak.pant@sbx",
+    "healthIdNumber": "12-3456-7890-1234",
+    "name": "string",
+    "status": "ACTIVE",
+    "authMethods": [
+        "AADHAAR_BIO",
+        "AADHAAR_OTP",
+        "DEMOGRAPHICS",
+        "PASSWORD",
+        "MOBILE_OTP"
+    ],
+    "tags": null
 }
 ```
 
 
-3. Initiate authentication process for given Health ID
+
+**4. Initiate authentication process for given Health ID**
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/init
 
@@ -118,22 +151,22 @@ authRequest  (body)
 
 ```json
 {
-  "authMethod": "AADHAAR_OTP",
+  "authMethod": "MOBILE_OTP",
   "healthid": "43-4221-5105-6749"
 }
 ```
 
-**Response:** 200
+**Response:** 200 OK
 
 ```json
 {
-  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
-4. Authentication with Mobile OTP based auth transaction
+
+**5. Authentication with Mobile OTP based auth transaction**
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/confirmWithMobileOTP
 
@@ -154,19 +187,19 @@ string (header)
 
 ```json
 {
-  "otp": "string",
-  "txnId": "string"
+  "otp": "123456",
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
-**Response:** 200
+**Response:** 200 OK
 
 ```json
 {
-  "expiresIn": 1800,
-  "refreshExpiresIn": 86400,
-  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+    "token": "string",
+    "expiresIn": 1800,
+    "refreshToken": "string",
+    "refreshExpiresIn": 432000
 }
 ```
 
@@ -174,7 +207,7 @@ string (header)
 
 ## Postman + Curl Collection 
 
-**Download the Postman Collection** [here](/abdm-docs/Postman/)
+**Download the Postman Collection** [here](/abdm-docs/Postman/Login_ABHA_Via_Mobile_Otp.json)
 
 **Download the Curls** [here](/abdm-docs/Curls/)
 
