@@ -36,13 +36,13 @@ Bearer token is received as part of respose and should be passed a Authorization
 
 ```json
 {
-    "clientId": "healthid-api",
-    "clientSecret": "9042c774-f57b-46ba-bb11-796a4345ada1",
+    "clientId": "string",
+    "clientSecret": "string",
     "grantType": "client_credentials"
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200  OK
 
 ```json
 {
@@ -71,13 +71,7 @@ string (header)
 string (header)
 
 
-**Body:**
-
-```json
-
-```
-
-**Response:** 200
+**Response:** 200  OK
 
 string
 
@@ -114,17 +108,22 @@ searchRequest (body)
 }
 ```
 
-**Response:** 200
+**Response:** 200  OK
 
 ```json
 {
-  "authMethods": [
-    "AADHAAR_OTP"
-  ],
-  "healthId": "deepakndhm",
-  "healthIdNumber": "43-4221-5105-6749",
-  "name": "kishan kumar singh",
-  "status": "ACTIVE"
+    "healthId": "deepak.pant@sbx",
+    "healthIdNumber": "12-3456-7890-1234",
+    "name": "string",
+    "status": "ACTIVE",
+    "authMethods": [
+        "AADHAAR_BIO",
+        "AADHAAR_OTP",
+        "DEMOGRAPHICS",
+        "PASSWORD",
+        "MOBILE_OTP"
+    ],
+    "tags": null
 }
 ```
 
@@ -152,15 +151,14 @@ authRequest  (body)
 ```json
 {
   "authMethod": "AADHAAR_OTP",
-  "healthid": "43-4221-5105-6749"
+  "healthid": "12-3456-7890-1234"
 }
 ```
 
-**Response:** 200
+**Response:** 200  OK
 
 ```json
 {
-  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
@@ -191,14 +189,14 @@ authAccountAadhaarOTPRequest  (body)
 }
 ```
 
-**Response:** 200
+**Response:** 200  OK
 
 ```json
 {
-  "expiresIn": 1800,
-  "refreshExpiresIn": 86400,
-  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+    "token": "string",
+    "expiresIn": 1800,
+    "refreshToken": "string",
+    "refreshExpiresIn": 432000
 }
 ```
 
