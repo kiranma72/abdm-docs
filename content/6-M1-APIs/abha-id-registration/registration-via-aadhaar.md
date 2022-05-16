@@ -219,7 +219,7 @@ accountRequest (body)
 {
   "email": "ram@Demo.com",
   "firstName": "abhi",
-  "healthId": "test.1234567",
+  "healthId": "test",
   "lastName": "A",
   "middleName": "ram",
   "password": "string",
@@ -241,7 +241,7 @@ accountRequest (body)
     "monthOfBirth": "1",
     "dayOfBirth": "1",
     "firstName": "abhi",
-    "healthId": "test.1234567@sbx",
+    "healthId": "test@sbx",
     "lastName": "A",
     "middleName": "ram",
     "stateCode": "27",
@@ -269,7 +269,7 @@ accountRequest (body)
 
 ### Postman + Curl Collection 
 
-**Download the Postman Collection** [here](/abdm-docs/Postman/)
+**Download the Postman Collection** [here](/abdm-docs/Postman/ABHA_ID_Registration_Via_Aadhaar.json)
 
 **Download the Curls** [here](/abdm-docs/Curls/)
 
