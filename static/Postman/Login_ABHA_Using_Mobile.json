@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "5d8fadf7-5de8-498f-ad33-a0e19d4de7bd",
+		"name": "Login_ABHA_Using_Mobile",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01_Session",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clientId\": \"string\",\r\n    \"clientSecret\": \"string\",\r\n    \"grantType\": \"client_credentials\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.ndhm.gov.in/gateway/v0.5/sessions",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"ndhm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway",
+						"v0.5",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02_Get_Certificate Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "your HIP ID",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v1/auth/cert",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"cert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03_Generate_Mobile_Otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "your HIP ID",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"mobile\": \"1234567890\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v2/registration/mobile/login/generateOtp",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v2",
+						"registration",
+						"mobile",
+						"login",
+						"generateOtp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04_Verify_Mobile_Otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "your HIP ID",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"otp\": \"DllC2+/ALEhgYfr1c2x96O/RCr9Mk6UcW3T5B3sfsl/xNRR33/gbN3miVN7K2Y3D3Op1mM2oYWMaPPkfDmL4pUZHG6f5MILdujJWcAFtvU+VOtieFTcUMNsnSJ2+bl/ZtJrQZeop/phrRh7XXo2W64SbVPy3Rcv2NoYFjuWh9nDqHpvkVmmh7PIubf4usDoBiZY7+r0V308YXF1VOqwhsuyTaDUR9gHjVcv8N3Ysz7SVEXNRU+HJq3SUa/b93iHzBjsiKkp/p05mvwOkDNwyPAYZN8VnlpQUhKzF1tEnNfl/uUoqOXc8RGaW7Rm3m1v0bDZRBXwZ9TE8N3aiaYtdjHMMPqRnr7ZZBJKhrRM02iRqkE0cWDYFFpjEkb0LulbBlvO14uGtDWPQ9WFfGLuocu1txNQm3IZi0PyI2tPAXYEbl+lmC4QMMl3V141IY9n2D2zEVjh6lkPe8Uc3FVGUE7/8nQ5j2Ch34aaUh85Z0uIIiA90YT82N1yLrM1t/\",\r\n  \"txnId\": \"7d3cc2b4-9f35-4ad3-ae92-a269de86c3e9\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v2/registration/mobile/login/verifyOtp",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v2",
+						"registration",
+						"mobile",
+						"login",
+						"verifyOtp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "05_Authorize_Mobile_Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "your HIP ID",
+						"type": "default"
+					},
+					{
+						"key": "T-Token",
+						"value": "Bearer token-received-in-response-of-verify-mobileotp",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"healthId\": \"12-3456-7890-1234\",\r\n  \"txnId\": \"7d3cc2b4-9f35-4ad3-ae92-a269de86c3e9\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v2/registration/mobile/login/userAuthorizedToken",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v2",
+						"registration",
+						"mobile",
+						"login",
+						"userAuthorizedToken"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
