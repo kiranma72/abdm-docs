@@ -54,7 +54,7 @@
 					},
 					{
 						"key": "X-Token",
-						"value": "Bearer your-access-token",
+						"value": "Bearer your-X-token",
 						"type": "default"
 					}
 				],
