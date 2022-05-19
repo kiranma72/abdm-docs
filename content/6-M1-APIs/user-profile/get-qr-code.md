@@ -15,6 +15,7 @@ draft: false
 ## API Sequence 
 
 
+
 ## API Information Request Response 
 
 Get Quick Response code in PNG format for this account.
@@ -38,20 +39,14 @@ Responce - Api Accepts Auth Token and then returns Account Info for QR Code. Ret
 - X-Token string (header)
 
 
-**Body:**
 
-```json
-{
-  
-}
-```
-
-**Response:** 200
+**Response:** 200 OK
 
 string
 
+
 ## Postman + Curl Collection 
 
-**Download the Postman Collection** [here](/abdm-docs/Postman/)
+**Download the Postman Collection** [here](/abdm-docs/Postman/Get_User_QRCode.json)
 
 **Download the Curls** [here](/abdm-docs/Curls/)
