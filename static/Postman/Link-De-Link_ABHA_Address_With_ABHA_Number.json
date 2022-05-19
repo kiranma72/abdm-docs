@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "ae985b09-f0cb-49ca-ae70-5e59985f191b",
+		"name": "Link/De-Link_ABHA_Address_With_ABHA_Number",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Link_ABHA_Address_To_ABHA_Number",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "your HIP ID",
+						"type": "default"
+					},
+					{
+						"key": "X-Token",
+						"value": "Bearer your-X-token",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"phrAddress\": \"test007\",\r\n  \"preferred\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v2/account/phr-linked",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v2",
+						"account",
+						"phr-linked"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "De-Link_ABHA_Address_To_ABHA_Number",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "your HIP ID",
+						"type": "default"
+					},
+					{
+						"key": "X-Token",
+						"value": "Bearer your-X-token",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"phrAddress\": \"test007\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v2/account/phr-delinked",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v2",
+						"account",
+						"phr-delinked"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auto_Creation_of_ABHA_Address",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "your HIP ID",
+						"type": "default"
+					},
+					{
+						"key": "X-Token",
+						"value": "Bearer your-X-token",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v1/account/update/phr-address",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v1",
+						"account",
+						"update",
+						"phr-address"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
