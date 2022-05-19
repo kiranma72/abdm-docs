@@ -54,7 +54,7 @@ phrLinkedOrDeLinkedRequestPayLoad  object (body)
 }
 ```
 
-**Response:** 200
+**Response:** 200 OK
 
 true
 
@@ -82,6 +82,7 @@ Request Body - Required
 
 **Parameters:**
 
+
 - Authorization string (header)
 
 - X-HIP-ID string (header)
@@ -100,7 +101,7 @@ phrLinkedOrDeLinkedRequestPayLoad  (body)
 }
 ```
 
-**Response:** 200 
+**Response:** 200  OK
 
 true 
 
@@ -138,19 +139,15 @@ Response - API Accepts ABHA Number and Creates ABHA Address. Returns Error for I
 - X-Token string (header)
 
 
-**Body:**
 
-```json
+**Response:** 200  OK
 
-```
+1234567890@sbx
 
-**Response:** 200
-
-string
 
 ### Postman + Curl Collection 
 
-**Download the Postman Collection** [here](/abdm-docs/Postman/)
+**Download the Postman Collection** [here](/abdm-docs/Postman/Link-De-Link_ABHA_Address_With_ABHA_Number.json)
 
 **Download the Curls** [here](/abdm-docs/Curls/)
 
