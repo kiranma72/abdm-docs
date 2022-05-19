@@ -133,7 +133,7 @@ searchRequest (body)
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v2/auth/init
 
-**Request:** GET  
+**Request:** POST  
 
 **Parameters:**
 
