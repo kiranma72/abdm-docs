@@ -88,8 +88,6 @@ Response - Api Accepts Aadhaar Number and then generates OTP for linked number a
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v2/forgot/healthId/aadhaar/generateOtp
 
-**Need to confirm whether API is v1 or v2 in pdf API is mentioned as v2**
-
 **Request:** POST  
 
 **Parameters:**
@@ -128,8 +126,6 @@ Request Body - Required
 Responce - Api Accepts OTP then returns ABHA Number and ABHA Address accordingly.
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v2/forgot/healthId/aadhaar
-
-**Need to confime whether API is v1 or v2 in pdf API is mentioned as v2**
 
 **Request:** POST  
 
