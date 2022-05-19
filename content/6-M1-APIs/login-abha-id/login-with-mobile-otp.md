@@ -18,7 +18,7 @@ draft: false
 
 The sequence of APIs used via this method are shown in the diagram below.
 
-![Login ABHA ID via Aadhaar Otp](/abdm-docs/img/Login_With_ABHA.png)
+![Login ABHA ID via Mobile Otp](/abdm-docs/img/Login_With_ABHA.png)
 
 
 
@@ -132,11 +132,9 @@ searchRequest (body)
 
 **4. Initiate authentication process for given Health ID**
 
-**URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/init
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/auth/init
 
-**NEED to check actual API is v2/auth/init in pdf document provided**
-
-**Request:** GET  
+**Request:** POST  
 
 **Parameters:**
 
