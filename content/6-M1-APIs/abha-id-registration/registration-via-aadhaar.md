@@ -323,7 +323,6 @@ verifyAadharOtpRequest (body)
 
 ```json
 {
-  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
@@ -399,7 +398,7 @@ accountRequest (body)
 
 ### Postman + Curl Collection 
 
-**Download the Postman Collection** [here](/abdm-docs/Postman/)
+**Download the Postman Collection** [here](/abdm-docs/Postman/ABHA_Registration_Via_Aadhaar_Biometric.json)
 
 **Download the Curls** [here](/abdm-docs/Curls/)
 
