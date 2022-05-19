@@ -50,7 +50,65 @@ The sequence of APIs used via this method are shown in the diagram below.
 
 ## API Information Request Response 
 
-1. Api Accepts Mobile Number and creates OTP for it
+
+
+**1. Generate the Gateway session**
+
+Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
+
+**URL:** https://dev.ndhm.gov.in/gateway/v0.5/sessions
+
+**Request:** POST  
+
+**Body:**
+
+```json
+{
+    "clientId": "string",
+    "clientSecret": "string",
+    "grantType": "client_credentials"
+}
+```
+
+**Response:** 200 OK
+
+```json
+{
+    "accessToken": "string",
+    "expiresIn": 600,
+    "refreshExpiresIn": 1800,
+    "refreshToken": "string",
+    "tokenType": "bearer"
+}
+```
+
+
+
+
+
+**2. Authentication token public certificate. This certificate is also used to encrypt the data.**
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/cert
+
+**Request:** GET  
+
+**Parameters:**
+
+- Authorization
+string (header)
+
+- X-HIP-ID
+string (header)
+
+
+**Response:** 200  OK
+
+string
+
+
+
+
+**3. Api Accepts Mobile Number and creates OTP for it**
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v2/document/generate/mobile/otp
 
@@ -86,13 +144,13 @@ generateOtpRequest (body)
 
 ```json
 {
-  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
-2. Api Accepts Mobile OTP and validates it
+
+**4. Api Accepts Mobile OTP and validates it**
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v2/document/verify/mobile/otp
 
@@ -129,12 +187,15 @@ verifyMobileWebRequest  (body)
 
 ```json
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+  "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 }
 ```
 
 
-3. Validate the document. Match the provided demographic details (Name, DOB, Gender) against the document. It also checks for already created ABHA Number or Enrolment number against the document
+
+**5. Validate the document**
+
+Match the provided demographic details (Name, DOB, Gender) against the document. It also checks for already created ABHA Number or Enrolment number against the document
 
 Explanation - API accepts Identity Document details and validates the document. Match the provided demographic details (Name, DOB, Gender) against document. It also check for the already created ABHA Number or Enrolment number against the document.
 
@@ -200,7 +261,7 @@ request (body)
 
 
 
-4.  Create ABHA Number using ID documents like Driving Licence, PAN Card
+**6.  Create ABHA Number using ID documents like Driving Licence, PAN Card**
 
 Explanation - Api Accepts Identity Document details and Creates HealthID for it.
 
@@ -248,6 +309,7 @@ request (body)
 }
 ```
 
+
 **Response:** 200 OK
 
 ```json
@@ -280,9 +342,12 @@ request (body)
 }
 ```
 
+
+
+
 ## Postman + Curl Collection 
 
-**Download the Postman Collection** [here](/abdm-docs/Postman/)
+**Download the Postman Collection** [here](/abdm-docs/Postman/ABHA_Registration_Via_OtherDocuments.json)
 
 **Download the Curls** [here](/abdm-docs/Curls/)
 
