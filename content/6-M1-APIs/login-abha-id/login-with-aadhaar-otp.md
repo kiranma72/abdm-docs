@@ -131,9 +131,7 @@ searchRequest (body)
 
 **4. Initiate authentication process for a given ABHA Number**
 
-**URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/init
-
-**NEED to check actual API is v2/auth/init in pdf document provided**
+**URL:** https://healthidsbx.abdm.gov.in/api/v2/auth/init
 
 **Request:** GET  
 
