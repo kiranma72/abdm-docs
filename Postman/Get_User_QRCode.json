@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "861252e9-ef44-4270-9419-4b783ee63ce2",
+		"name": "Get_User_QRCode",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01_Session",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clientId\": \"string\",\r\n    \"clientSecret\": \"string\",\r\n    \"grantType\": \"client_credentials\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.ndhm.gov.in/gateway/v0.5/sessions",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"ndhm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway",
+						"v0.5",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "your HIP ID",
+						"type": "default"
+					},
+					{
+						"key": "X-Token",
+						"value": "Bearer your-X-token",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v1/account/qrCode",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v1",
+						"account",
+						"qrCode"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
