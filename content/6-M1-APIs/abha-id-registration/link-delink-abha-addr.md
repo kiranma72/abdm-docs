@@ -10,8 +10,7 @@ draft: false
 
 ## Overview of the functionality 
 
-- ABDM has now segregated the identity layer from the consent layer, which will ensure that the ABHA Number (earlier known as Health ID) provides a strong identity to an individual whereas 
-an ABHA Address (earlier known as PHR Address) enables an individual to share their health records with different healthcare providers and payers.
+- ABDM has now segregated the identity layer from the consent layer, which will ensure that the ABHA Number (earlier known as Health ID) provides a strong identity   to an individual whereas an ABHA Address (earlier known as PHR Address) enables an individual to share their health records with different healthcare providers     and payers.
 - ABHA number can be link/delink with the ABHA address. Below are the API used linking ABHA number with ABHA address.
 
 
