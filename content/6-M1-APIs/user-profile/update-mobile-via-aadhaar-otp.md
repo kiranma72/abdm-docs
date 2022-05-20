@@ -23,7 +23,66 @@ The sequence of APIs used via this method is shown in the diagram below.
 
 ## API Information Request Response 
 
-1. Generate OTP on new mobile need to update existing account mobile number
+
+
+
+**1. Generate the Gateway session**
+
+Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
+
+**URL:** https://dev.ndhm.gov.in/gateway/v0.5/sessions
+
+**Request:** POST  
+
+**Body:**
+
+```json
+{
+    "clientId": "string",
+    "clientSecret": "string",
+    "grantType": "client_credentials"
+}
+```
+
+**Response:** 200 OK
+
+```json
+{
+    "accessToken": "string",
+    "expiresIn": 600,
+    "refreshExpiresIn": 1800,
+    "refreshToken": "string",
+    "tokenType": "bearer"
+}
+```
+
+
+
+
+
+**2. Authentication token public certificate. This certificate is also used to encrypt the data.**
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/cert
+
+**Request:** GET  
+
+**Parameters:**
+
+- Authorization
+string (header)
+
+- X-HIP-ID
+string (header)
+
+
+**Response:** 200  OK
+
+string
+
+
+
+
+**3. Generate OTP on new mobile need to update existing account mobile number**
 
 Explanation - Api Accepts New Mobile Number and Auth Token and creates OTP.
 
@@ -54,18 +113,17 @@ mobileNumberNewRequestPayload (body)
 }
 ```
 
-**Response:** 200
+**Response:** 200  OK
 
 ```json
 {
-  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
 
-2. Verify Mobile OTP to complete new mobile update verification.
+**4. Verify Mobile OTP to complete new mobile update verification.**
 
 Explanation - Api Accepts New Mobile Number OTP and Verifies it.
 
@@ -88,7 +146,7 @@ Responce - Api Accepts New Mobile Number OTP and Verifies it. Returns Error for 
 
 **Body:**
 
-verifyAadhaarOtpWebPaylaod (body)
+VerifyMobileWebRequest (body)
 
 ```json
 {
@@ -97,17 +155,18 @@ verifyAadhaarOtpWebPaylaod (body)
 }
 ```
 
-**Response:** 200
+**Response:** 200  OK
 
 ```json
 {
-  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
-3. Generate Aadhaar OTP on Registered mobile number to start mobile update.
+
+
+**5. Generate Aadhaar OTP on Registered mobile number to start mobile update.**
 
 Explanation - Api Accepts Transaction ID and Creates OTP for linked mobile number.
 
@@ -138,18 +197,18 @@ updateMobileGenerateOTPPayload (body)
 }
 ```
 
-**Response:** 200
+**Response:** 200  OK
 
 ```json
 {
-  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
 
-4. Change mobile number via password/aadhaar/existing mobile for Health ID.
+
+**6. Change mobile number via password/aadhaar/existing mobile for Health ID.**
 
 Explanation - Api Accepts password/aadhaar/existing mobile and new Mobiles OTP and Updates new mobile number.
 
@@ -183,7 +242,7 @@ updateNewMobileNoRequestPayload (body)
 }
 ```
 
-**Response:** 200
+**Response:** 200  OK
 
 string
 
@@ -191,6 +250,6 @@ string
 
 ## Postman + Curl Collection 
 
-**Download the Postman Collection** [here](/abdm-docs/Postman/)
+**Download the Postman Collection** [here](/abdm-docs/Postman/Update_Mobile_Via_Aadhaar_Otp.json)
 
 **Download the Curls** [here](/abdm-docs/Curls/)
