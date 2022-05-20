@@ -7,21 +7,99 @@ draft: false
 
 ## Update Mobile via Mobile Otp
 
+
 ## Overview of the functionality 
+
 
 - To update the mobile using Mobile OTP , a client ( Integrator) needs to first generate Mobile OTP on a new number and verify it.
 - Again generate Aadhaar OTP on the old number and a transaction ID is returned.
 - Auth token, OTP , along with transaction ID is passed in the requested body and the client is returned with the status of changed mobile number.
 
+
 ## API Sequence 
+
 
 The sequence of APIs used via this method is shown in the diagram below.
 
 ![Update Mobile via Mobile Otp](/abdm-docs/img/ABHA_Update_Password_Via_Mobile_OTP.png)
 
+
 ## API Information Request Response 
 
-1. Generate OTP on new mobile need to update existing account mobile number
+
+
+**1. Generate the Gateway session**
+
+Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
+
+**URL:** https://dev.ndhm.gov.in/gateway/v0.5/sessions
+
+**Request:** POST  
+
+**Body:**
+
+```json
+{
+    "clientId": "string",
+    "clientSecret": "string",
+    "grantType": "client_credentials"
+}
+```
+
+**Response:** 200 OK
+
+```json
+{
+    "accessToken": "string",
+    "expiresIn": 600,
+    "refreshExpiresIn": 1800,
+    "refreshToken": "string",
+    "tokenType": "bearer"
+}
+```
+
+
+
+**2. Authentication token public certificate. This certificate is also used to encrypt the data.**
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/cert
+
+**Request:** GET  
+
+**Parameters:**
+
+- Authorization
+string (header)
+
+- X-HIP-ID
+string (header)
+
+
+**Response:** 200  OK
+
+string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**3. Generate OTP on new mobile need to update existing account mobile number**
 
 Explanation - Api Accepts New Mobile Number and Auth Token and creates OTP.
 
@@ -56,14 +134,14 @@ mobileNumberNewRequestPayload (body)
 
 ```json
 {
-  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
 
-2. Verify Mobile OTP to complete new mobile update verification.
+
+**4. Verify Mobile OTP to complete new mobile update verification.**
 
 Explanation - Api Accepts New Mobile Number OTP and Verifies it.
 
@@ -99,13 +177,14 @@ verifyAadhaarOtpWebPaylaod (body)
 
 ```json
 {
-  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
-3. Generate Mobile OTP to start mobile update.
+
+
+**5. Generate Mobile OTP to start mobile update.**
 
 Explanation - Api Accepts Transaction ID and Creates OTP for mobile number.
 
@@ -140,14 +219,14 @@ updateMobileGenerateOTPPayload (body)
 
 ```json
 {
-  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
 
-4. Change mobile number via password/aadhaar/existing mobile for Health ID.
+
+**6. Change mobile number via password/aadhaar/existing mobile for Health ID.**
 
 Explanation - Api Accepts password/aadhaar/existing mobile and new Mobiles OTP and Updates new mobile number.
 
@@ -174,7 +253,7 @@ updateNewMobileNoRequestPayload (body)
 
 ```json
 {
-  "authMethod": "AADHAAR_OTP",
+  "authMethod": "MOBILE_OTP",
   "oldPassword": "UPjUGDnhCi7aaoVLMpR99wtpDKm58vjdFx1ref++/v2u+CN+/P4AKwQQgMNoMs1MPv8cosEebxBMMQN8qdy9Y1WWz8Fp4U3gXxGEAOl848uRItXNm9peyOm8gZewmH4FtEAvA6tGVts3FG8fFBct0RCYLQAnlTQrO7hbjz81LYcI6aOw3tcZVXfdoQJjC5mGhnXQmloVciduw478IVUkx4VA/A5Y8jLuEqLsujYbx46MB1ZKWPTvTfopMU5VxLdWNrvSubSBrFeHNQRDS8jB35AC1zEZbnbPPU5fuLvFlsYXedq9XvQZK/S4qzdjkgHVUFeGN/9zvpsoC/0AifJ19tsPCKik1GeXdL+iDqpPIIS65kAAKQ7W8loMSBcXDy7/YU0S9VbiwM4xNGV3Fp/lQHY/0p3p0lGykmifr1V5IrFNo1vTZqXTAvysf4F9d7lIGVj6+TNYojg4NnO7iRO6UhZtNEjhDEED55qH8z4Qzv8R8ZpOOMIR3HLlWadnVKFeLsko9QwLcabV7caY25sTXzLK3dOXnH/AHqneWkksiCcz/GBrVgNG6D82XxgqQT8IzIyHQl0on1rIPJU6VAZ/i++JyP9xEjSI8TjJuGS6eH2KO19mIFjyqvhFLe0vFyeLTLFWphv3KPNTneMPCixlGf0ksjaCwQGChHobC4eqWyY=",
   "otp": "UPjUGDnhCi7aaoVLMpR99wtpDKm58vjdFx1ref++/v2u+CN+/P4AKwQQgMNoMs1MPv8cosEebxBMMQN8qdy9Y1WWz8Fp4U3gXxGEAOl848uRItXNm9peyOm8gZewmH4FtEAvA6tGVts3FG8fFBct0RCYLQAnlTQrO7hbjz81LYcI6aOw3tcZVXfdoQJjC5mGhnXQmloVciduw478IVUkx4VA/A5Y8jLuEqLsujYbx46MB1ZKWPTvTfopMU5VxLdWNrvSubSBrFeHNQRDS8jB35AC1zEZbnbPPU5fuLvFlsYXedq9XvQZK/S4qzdjkgHVUFeGN/9zvpsoC/0AifJ19tsPCKik1GeXdL+iDqpPIIS65kAAKQ7W8loMSBcXDy7/YU0S9VbiwM4xNGV3Fp/lQHY/0p3p0lGykmifr1V5IrFNo1vTZqXTAvysf4F9d7lIGVj6+TNYojg4NnO7iRO6UhZtNEjhDEED55qH8z4Qzv8R8ZpOOMIR3HLlWadnVKFeLsko9QwLcabV7caY25sTXzLK3dOXnH/AHqneWkksiCcz/GBrVgNG6D82XxgqQT8IzIyHQl0on1rIPJU6VAZ/i++JyP9xEjSI8TjJuGS6eH2KO19mIFjyqvhFLe0vFyeLTLFWphv3KPNTneMPCixlGf0ksjaCwQGChHobC4eqWyY=",
   "txnId": "c3b0c27d-e19d-4244-b8bb-3fa19285054a"
@@ -184,6 +263,8 @@ updateNewMobileNoRequestPayload (body)
 **Response:** 200
 
 string
+
+
 
 
 
