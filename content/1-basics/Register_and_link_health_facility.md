@@ -18,7 +18,7 @@ ABDM will support 2 methods to onboard health facilities
 ##### Method 1: Facility Manager registers via HFR Portal
 Health facility should sign up on the Health Facility Registry and then link the ABDM compatible HRP software it plans to use.
 
-For Registration, please follow instructions in this PDF.
+For Registration, please follow instructions in this [PDF](/abdm-docs/img/HFR%20Registration%20Flow.pdf).
 
 Once HFR Id is received, show process fof linking a facility with HRP s/w using HFR UI. (Check with Anshul)
 
@@ -28,7 +28,7 @@ This is a new process where the HRP can declare the presence of the health facil
 
 Every HIMS/LIMS provider (HRP) must first register a Nodal contact as a Facility Manager and obtain a HPID.
 
-To obtain HPID for a Nodat Contact, please click here. (URL of HP link to register)
+To obtain HPID for a Nodat Contact, please [click here](https://hprid.ndhm.gov.in/register).
 
 Ensure that HPID is created by using Password.
 Ensure that Client ID is enabled with the HPID role. (How to check role is assign link)
