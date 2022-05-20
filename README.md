@@ -14,7 +14,9 @@ If you want to contribute to improving the documentation, write with your github
 - You can add as many pages to a chapter or create a new folder to create a sub-chapter
 - The order of the pages are controlled by the "weight" parameter in the header of each page
 - All pages are written using Markdown - Editor: [dillinger markdown editor](https://dillinger.io) and [Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/) 
-- Put images and other resources under the static folder. To reference your image in your content the path would be /abdm-docs/img/<filename>
+- Put images and other resources under the static folder. If you add to static folder reference your image using a path like /abdm-docs/img/<filename>
+- Put images in the same content folder as the page your are editing. Reference the image using the path ../<filename> 
+
 
 ## Documentation Output 
 Every time you checkin / update a file on this project, a action is automatcially (see the Github Actions tab). Hugo is used to build the final documentation set and this is pushed back into the repository under the **gh-pages** branch. 
