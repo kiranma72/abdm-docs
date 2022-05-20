@@ -38,7 +38,7 @@
 			"response": []
 		},
 		{
-			"name": "02_Get_Certificate Copy",
+			"name": "02_Get_Certificate",
 			"request": {
 				"method": "GET",
 				"header": [
