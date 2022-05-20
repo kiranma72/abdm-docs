@@ -19,9 +19,66 @@ draft: false
 ## API Sequence 
 
 
-## API Information Request Response 
+## API Information Request Response
 
-1. To generate the Email Verification OTP to verify the Email Address in the profile. OTP will be sent to the provided email address.
+
+
+**1. Generate the Gateway session**
+
+Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
+
+**URL:** https://dev.ndhm.gov.in/gateway/v0.5/sessions
+
+**Request:** POST  
+
+**Body:**
+
+```json
+{
+    "clientId": "string",
+    "clientSecret": "string",
+    "grantType": "client_credentials"
+}
+```
+
+**Response:** 200 OK
+
+```json
+{
+    "accessToken": "string",
+    "expiresIn": 600,
+    "refreshExpiresIn": 1800,
+    "refreshToken": "string",
+    "tokenType": "bearer"
+}
+```
+
+
+
+
+
+**2. Authentication token public certificate. This certificate is also used to encrypt the data.**
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/cert
+
+**Request:** GET  
+
+**Parameters:**
+
+- Authorization
+string (header)
+
+- X-HIP-ID
+string (header)
+
+
+**Response:** 200  OK
+
+string
+
+
+
+**3. To generate the Email Verification OTP to verify the Email Address in the profile. OTP will be sent to the provided email address.**
 
 **Note:**
 
@@ -56,7 +113,7 @@ request (body)
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200  OK
 
 ```json
 {
@@ -66,7 +123,7 @@ request (body)
 
 
 
-2. Verify the Email Verification OTP to verify the E-mail Address.
+**4. Verify the Email Verification OTP to verify the E-mail Address.**
 
 Transaction ID & encrypted OTP is passed in the requested body. An authentication token is used in the header. OTP should be in the encrypted form. Status is returned in 
 the response body
@@ -104,7 +161,7 @@ request (body)
 }
 ```
 
-**Response:** 200
+**Response:** 200  OK
 
 ```json
 {
@@ -113,8 +170,10 @@ request (body)
 ```
 
 
+
+
 ## Postman + Curl Collection 
 
-**Download the Postman Collection** [here](/abdm-docs/Postman/)
+**Download the Postman Collection** [here](/abdm-docs/Postman/Update_Email.json)
 
 **Download the Curls** [here](/abdm-docs/Curls/)
