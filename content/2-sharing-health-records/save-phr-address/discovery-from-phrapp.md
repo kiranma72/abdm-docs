@@ -10,7 +10,7 @@ draft: false
 - Patient makes a discovery request with verified identifiers along with name and demographic information 
 - HIP revert with the Care Context detail  
 
-![LoginwithPHR](https://user-images.githubusercontent.com/104073067/169785288-2d900932-7280-4a67-a8db-c84b0fcf462a.jpg)
+<img width="184" alt="LoginwithPHR" src="https://user-images.githubusercontent.com/104073067/169785288-2d900932-7280-4a67-a8db-c84b0fcf462a.jpg">
 
 ## Discovery of Patient’s information at the HIP
 
