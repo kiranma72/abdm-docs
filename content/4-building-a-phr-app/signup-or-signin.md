@@ -15,7 +15,7 @@ In the ABHA app which is an reference app, registration can be done by two ways:
 For registering using ABHA number, individual has to choose the option of ABHA number and enter the 14-digit ABHA number. Once entered individual will autheticate ABHA number either via Aadhar OTP or Mobile OTP. 
 After validating the OTP, the individual's profile details are auto populated from ABHA system. Already linked ABHA addresses will be displayed along with the option of creating New ABHA address. Individual can either choose already linked ABHA addresses to login or can create new ABHA address.
 For creating new ABHA address, inidvidual can choose an ABHA address from the suggestions displayed based on the user profile details or can create a different ABHA address as per ABHA Address creation policy, along with password. New ABHA address will be created for the given ABHA number and user can directly login.
-![alt text](Picture 1.png) 
+![alt test123](Picture 1.png) 
 ![alt text](Picture 2.png) 
 ![alt text](Picture 3.jpg) 
 ![alt text](Picture 4.png) 
