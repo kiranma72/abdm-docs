@@ -82,23 +82,6 @@ string
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 **3. Generate OTP on new mobile need to update existing account mobile number**
 
 Explanation - Api Accepts New Mobile Number and Auth Token and creates OTP.
@@ -130,7 +113,7 @@ mobileNumberNewRequestPayload (body)
 }
 ```
 
-**Response:** 200
+**Response:** 200  OK
 
 ```json
 {
@@ -164,7 +147,7 @@ Responce - Api Accepts New Mobile Number OTP and Verifies it. Returns Error for 
 
 **Body:**
 
-verifyAadhaarOtpWebPaylaod (body)
+VerifyMobileWebRequest (body)
 
 ```json
 {
@@ -173,7 +156,7 @@ verifyAadhaarOtpWebPaylaod (body)
 }
 ```
 
-**Response:** 200
+**Response:** 200  OK
 
 ```json
 {
@@ -215,7 +198,7 @@ updateMobileGenerateOTPPayload (body)
 }
 ```
 
-**Response:** 200
+**Response:** 200  OK
 
 ```json
 {
@@ -260,7 +243,7 @@ updateNewMobileNoRequestPayload (body)
 }
 ```
 
-**Response:** 200
+**Response:** 200  OK
 
 string
 
@@ -270,6 +253,6 @@ string
 
 ## Postman + Curl Collection 
 
-**Download the Postman Collection** [here](/abdm-docs/Postman/)
+**Download the Postman Collection** [here](/abdm-docs/Postman/Update_Mobile_Via_Mobile_Otp.json)
 
 **Download the Curls** [here](/abdm-docs/Curls/)
