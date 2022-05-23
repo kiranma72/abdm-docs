@@ -56,7 +56,7 @@ Request for patient care context discover, made by Gateway intended for a specif
 - Authorization: Access token which was issued after successful login with gateway auth server, which will be sent by gateway to authenticate itself with API bridge
 - X-HIP-ID: Identifier of the health information provider to which the request was intended.
 **Request Body:**
-**Example:
+**Example:**
 ```json
 {
   {
@@ -101,7 +101,7 @@ Result of patient care-context discovery request at HIP end. If a matching patie
 - X-CM-ID: Suffix of the consent manager to which the request was intended.(Should be the domain in the PHR Address - @sbx or @abdm)
 **Request Body:**
 
-**Example:
+**Example:**
 
 ```json
 {
@@ -150,7 +150,7 @@ Request from Gateway to links care contexts associated with only one patient
 - X-HIP-ID: Identifier of the health information provider to which the request was intended.
 **Request Body:**
 
-**Example:
+**Example:**
 ```json
 {
   "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -188,7 +188,7 @@ Result of patient care-context link request from HIP end. This happens in contex
 - X-HIP-ID: Identifier of the health information provider to which the request was intended.
 **Request Body:**
 
-**Example:
+**Example**
 ```json
 {
   "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
@@ -225,7 +225,7 @@ API to submit the token that was sent by HIP during the link request.
 - X-HP-ID:Identifier of the health information provider to which the request was intended.
 
 **Request Body:**
-**Example:
+**Example:**
 
 ```json
 {
@@ -260,7 +260,7 @@ Returns a list of linked care contexts with patient reference number.
 
 **Request Body:**
 
-**Example:
+**Example:**
 
 ```json
 {
