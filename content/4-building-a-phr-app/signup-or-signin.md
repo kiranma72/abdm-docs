@@ -81,6 +81,102 @@ Return status as true alone with partail details of Health id number in case of 
   }
 }
 ```
+
+2. **/v1/apps/create/registration/hid/create/phrAddress**
+
+Parameters 
+
+No Parameters
+
+Request body (In application/JSON)
+
+**Example for request body**
+```
+{
+  "alreadyExistedPHR": true,
+  "password": "HNceo964MVndrs8Z2oMtzIsmmbzagveHbWkDsDKskTue+/YZhHHrMon19J03ggU457upzWMIX0nU3d38xjB3FxA2qWCVmvLZ98A9l0y3i33vq1ywu9cORGF4OEqV8l7H9h4tDnLGDHnbOh9ct85VfOohP4p73lqW6WQSMYcU+xkBfEsRj42pWL19EVsE1UULtQE8gYY1B0SeM63svUp1kQ4Pt5hdgKxibYBq+hRcck2PkEIhp2N7AkjH4Tf+AhXU9956WLwjKgAKMk7K4+Zv8JtxYCcblQitbpN4ImPH5edf4mO5R/L9RpdAVSllAQQfPIDlp5ZGOZ1GrSmhzOSP3g==",
+  "phrAddress": "user@abdm",
+  "sessionId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
+}
+```
+Responses
+
+OK
+
+**Example for Response**
+```
+{
+  "phrAdress": "user@abdm",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+}
+```
+
+3. **/v1/apps/registration/hid/auth-init**
+
+Explanation - Api Checks Health ID Number to find User.
+Request Body - Required
+Response - Retrun transaction in case of success against request.
+
+Parameters 
+
+No Parameters
+
+Request body (In application/JSON)
+
+**Example for request body**
+```
+{
+  "healthIdNumber": "22-2626-4321-7532",
+  "purpose": "CM_ACCESS",
+  "authMode": "MOBILE_OTP",
+  "requester": {
+    "type": "PHR",
+    "id": "IN0400XX"
+  }
+}
+```
+Responses
+Return status as true alone with partail details of Health id number in case of success
+**Example for Response**
+```
+{
+  "sessionId": "31216fed-4a23-4a18-ac89-03c9f3a0bf89"
+}
+```
+
+4. **/v1/apps/registration/hid/search/auth-mode**
+Explanation - Api Checks Health ID Number to find User.
+Request Body - Required
+Response - Retrun partial details of Health ID Number.
+
+Parameters 
+
+No Parameters
+
+Request body (In application/JSON)
+
+**Example for request body**
+```
+{
+  "healhtIdNumber": "11-1111-1111-1111"
+}
+```
+Responses
+Return status as true alone with partail details of Health id number in case of success
+**Example for Response**
+```
+{
+  "authMethods": [
+    "string"
+  ],
+  "blockedAuthMethods": [
+    "string"
+  ],
+  "healthIdNumber": "string",
+  "status": "string"
+}
+```
+
 ### Registration via Mobile Number
 For registering using Mobile number, Individual has to choose the option of Mobile number and enter the Mobile number. Once entered individual will autheticate MObile number via OTP.  
 After validating the OTP, list of already linked ABHA addresses will be displayed along with the option of creating New ABHA address. 
@@ -94,6 +190,7 @@ Individual can either choose already linked ABHA addresses to login or can creat
 7.	District (Mandatory)
 8.	Pin Code (Mandatory)
 For creating new ABHA address, inidvidual can choose an ABHA address from the suggestions displayed based on the user profile details or can create a different ABHA address as per ABHA Address creation policy, along with password. New ABHA address will be created for the given ABHA number and user can directly login.
+
 #### Registration via Email ID
 For registering using Email ID, Individual has to choose the option of Email ID and enter the Email ID. Once entered individual will autheticate Email ID via OTP.  
 After validating the OTP, list of already linked ABHA addresses will be displayed along with the option of creating New ABHA address. 
@@ -107,4 +204,198 @@ Individual can either choose already linked ABHA addresses to login or can creat
 7.	District (Mandatory)
 8.	Pin Code (Mandatory)
 For creating new ABHA address, inidvidual can choose an ABHA address from the suggestions displayed based on the user profile details or can create a different ABHA address as per ABHA Address creation policy, along with password. New ABHA address will be created for the given ABHA number and user can directly login.
+
+**APIs for registering using Mobile number or Email ID**
+1. **/v1/apps/create/phrAddress**
+To Register the beneficiary.
+Beneficiary data required to pass in the request
+Request
+Below is the Request Parameters description
+
+Attributes	Description
+sessionId * required	Session Id, Based on UUID.
+phrAddress * required	PHR address of the Beneficiary or user
+password * required	Password for the account. Same will be used to login to PHR Account. Password must contain an uppercase, a lowercase, a number, a special character (@,_$,#) and at least 8 or more characters. It should not contain any sequences (like 123)
+Note :
+
+1. Password must be in encrypted form, Plain text form Password is not allowed in request
+Parameters 
+
+No Parameters
+
+Request body (In application/JSON)
+
+**Example for Request body**
+```
+{
+  "alreadyExistedPHR": true,
+  "password": "HNceo964MVndrs8Z2oMtzIsmmbzagveHbWkDsDKskTue+/YZhHHrMon19J03ggU457upzWMIX0nU3d38xjB3FxA2qWCVmvLZ98A9l0y3i33vq1ywu9cORGF4OEqV8l7H9h4tDnLGDHnbOh9ct85VfOohP4p73lqW6WQSMYcU+xkBfEsRj42pWL19EVsE1UULtQE8gYY1B0SeM63svUp1kQ4Pt5hdgKxibYBq+hRcck2PkEIhp2N7AkjH4Tf+AhXU9956WLwjKgAKMk7K4+Zv8JtxYCcblQitbpN4ImPH5edf4mO5R/L9RpdAVSllAQQfPIDlp5ZGOZ1GrSmhzOSP3g==",
+  "phrAddress": "user@abdm",
+  "sessionId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
+}
+```
+Responses
+Return user token id in case of success
+**Example for Responses**
+```
+{
+  "phrAdress": "user@abdm",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+}
+```
+
+2. **/v1/apps/registration/details**
+To Register the beneficiary.
+Beneficiary data required to pass in the request
+Request
+Below is the Request Parameters description
+
+Attributes	Description
+sessionId * required	Transaction number, Based on UUID.
+first * required	First Name of the Beneficiary mentioned in the documents
+middle	Middle Name of the Beneficiary mentioned in the documents
+last	Last Name of the Beneficiary mentioned in the documents
+gender * required	Male - M, Female - M, Other - O
+email * required	Valid E-mail address of the beneficiary (Encrypted)
+mobile* required	Valid 10-digit Mobile Number(Note - Mobile number must be encrypted) of the Beneficiary(Encrypted).
+dayOfBirth * required	day of birth
+monthOfBirth * required	month of birth
+yearOfBirth * required	year of birth
+stateCode * required	Valid State Code (LGD)
+districtCode	Valid District Code (LGD).
+countryCode	Country code.
+pincode * required	Pincode
+address	Valid Address as per documents.
+Parameters 
+
+No Parameters
+
+Request body (In application/JSON)
+
+**Example for Request body**
+```
+{
+  "sessionId": "a825f76b-0696-40f3-864c-5a3a5b389a83",
+  "name": {
+    "first": "Shubhanshu",
+    "middle": "Kumar",
+    "last": "Shukla"
+  },
+  "dateOfBirth": {
+    "date": 14,
+    "month": 1,
+    "year": 1996
+  },
+  "gender": "M",
+  "stateCode": "7",
+  "districtCode": "77",
+  "email": "6BE4FfCtkOrDZU/Fc545GrhVGgC8JxiK8uU/DSQT7PNebX2Bigz0lUuC3R0F4RA+PoulQCfqqK4OKDe1vi0oAgiSbvAQl4DoCnd4ANmb5k+5YevhouiHCiBCp1zUZZLJ6A28Ux7NBWioNxFuWUYh2syF+nOoQ0kyQ1bUUMYg8tFtm0SLj0MRTowh3fksCFsbYBj6sgx7Hd+5M8xlUDhd/v5mHh4zoTodQNRc5L/2nlT/eBSQPof1iIgkMsgYZjLllS0v1LPSdeGsnsreEVtqkWn/tPyLwcsqkcMxDKrhHbI3odlIkYngBLGqLuBWLVE52pihdCbGrVwpG4S0bpQ0qg==",
+  "mobile": "yJ2hY5bc2g3P2pQyca/ER6VYQ8TGMj/VN42h9xkh/3jAwJQtZEspnhrtEKqwFXt1+8budi64CPlUEzbkwUsCotIOMm8idfSX+SQyb8VlqLxxIkAzGvmXjWrbQUNEUWnnJjzkIjweNmj8GJ2u0uRdrAGpBc1vMoMz5XD2SGfFttvmziTtucq5w2dOoAPOni4Bl7sfii3Qyo8Szl1/tXNnZbDZi8HH9Cpajno4pFiu6mQDVTkkyDHTqyo7Bv3IFpdNYiRDAZ1yh1cBOfufMy1gSZQetCwETFxdsOgw7JvKL/gEN+RAFKZF2oUriCsAkYYbxW1cfrqa/YRXUw0ho+n4Jw==",
+  "countryCode": "+91 ",
+  "pinCode": "110001",
+  "address": "9th Floor, Tower-l, Jeevan Bharati Building, Connaught Place, New Delhi - 110001"
+}
+```
+Responses
+Return transaction id in case of success
+**Example for Responses**
+```
+{
+  "sessionId": "31216fed-4a23-4a18-ac89-03c9f3a0bf89"
+}
+```
+
+3. **/v1/apps/generate/otp**
+Explanation - Api Accepts Mobile Number/Email and then Generates OTP for it. Request Body - Required Response - Api Accepts Mobile Number/Email and then Generates OTP for it. if number/email id not found then throws error.
+
+Note :
+
+1. OTP will be valid for 10 Minutes only
+Parameters 
+
+No Parameters
+
+Request body (In application/JSON)
+
+**Example for Request body**
+```
+{
+  "value": "yJ2hY5bc2g3P2pQyca/ER6VYQ8TGMj/VN42h9xkh/3jAwJQtZEspnhrtEKqwFXt1+8budi64CPlUEzbkwUsCotIOMm8idfSX+SQyb8VlqLxxIkAzGvmXjWrbQUNEUWnnJjzkIjweNmj8GJ2u0uRdrAGpBc1vMoMz5XD2SGfFttvmziTtucq5w2dOoAPOni4Bl7sfii3Qyo8Szl1/tXNnZbDZi8HH9Cpajno4pFiu6mQDVTkkyDHTqyo7Bv3IFpdNYiRDAZ1yh1cBOfufMy1gSZQetCwETFxdsOgw7JvKL/gEN+RAFKZF2oUriCsAkYYbxW1cfrqa/YRXUw0ho+n4Jw==",
+  "authMode": "MOBILE_OTP / EMAIL_OTP"
+}
+```
+Responses
+
+Return transaction id in case of success
+
+**Example for Responses**
+```
+{
+  "sessionId": "31216fed-4a23-4a18-ac89-03c9f3a0bf89"
+}
+```
+
+3. **/v1/apps/resend/otp**
+Explanation - Api Accepts Transaction Number and then Resend OTP for it. Request Body - Required Response - Api Accepts Transaction Number and then Resend OTP for it. if transaction number not found then throws error.
+Parameters 
+
+No Parameters
+
+Request body (In application/JSON)
+
+**Example for Request body**
+```
+{
+  "sessionId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
+}
+```
+Responses
+
+Return transaction id in case of success
+
+**Example for Responses**
+```
+{
+  "success": "true",
+  "sessionId": "16a18568-7c86-49a7-a95c-f1671cd04a94"
+}
+```
+
+4. **/v1/apps/validate/otp**
+API to verify the Mobile/Email OTP
+Request
+Below is the Request Parameters description
+
+Attributes	Description
+sessionId * required	Session number, Based on UUID.
+value * required	Value reviced on the mobile number.
+Note :
+
+1. OTP must be in encrypted form, Plain text form OTP is not allowed
+Parameters 
+
+No Parameters
+
+Request body (In application/JSON)
+
+**Example for Request body**
+```
+{
+  "value": "tSCaVUjHwHiMVCokz7u3ogfop5r7ON5GmVY4rJNaQhoVAMlZl5lDqbb4vobfFMsQ1zO404gkWqPqLoDCdavx+JJ5pxprDpRo+PbeV44q51xr5OoNW2ITy9x6WM81KF9o7OnIU3FOGg09jqcJ/By3S8ICWxzJDKVwCJPehHtjhSFiy+mdWEjKkBTrEWJRTy3ZOkij+fskm+JjLoJlIF0TmA94Jb/avX0/LrnacpWEYWAHd0R/8/HIeITVNwG5hnsuRyIcIKKy7bEuYul8wJDD8RPBhL/gIAV4c5zDCb518o1MJGQtNg8Yf/zcROdaynWrBHIh2tacPrxmLHiZHD+BHQ==",
+  "sessionId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
+}
+```
+
+Responses
+
+Return Transaction Number in case of success
+
+**Example of Responses**
+```
+{
+  "mappedPhrAddress": "[user@abdm, user2@abdm]",
+  "sessionId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
+}
+```
+
 
