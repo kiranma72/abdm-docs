@@ -25,3 +25,96 @@ Note : Post successful completion of discovery flow, its HIP’s prerogative to 
 
 The following API sequence diagram details the flows that take place during patient information discovery from the HIP perspective
 ![API_discovery](https://user-images.githubusercontent.com/104073067/169794446-b42f13d5-3f35-4bb6-a558-59864fb3d2dd.jpg)
+### 1. Discovery Request
+Request for patient care context discover, made by Gateway intended for a specific HIP. It is expected that HIP will subsequently return either zero or one patient record with (potentially masked) associated care contexts
+
+- At least one of the verified identifier matches
+- Name (fuzzy), gender matches
+- If YoB was given, age band(+-2) matches
+- If unverified identifiers were given, one of them matches
+- If more than one patient records would be found after aforementioned steps, then patient who matches most verified and unverified identifiers would be returned.
+- If there would be still more than one patients (after ranking) error would be returned
+- Intended HIP should be able to resolve and identify results returned in the subsequent link confirmation request via the specified transactionId
+- Intended HIP should store the discovery results with transactionId and care contexts discovered for subsequent link initiation
+
+**URL:** /v0.5/care-contexts/discover
+**Request:** POST  
+**HEADERS:**
+- Authorization: Access token which was issued after successful login with gateway auth server, which will be sent by gateway to authenticate itself with API bridge
+- X-HIP-ID: Identifier of the health information provider to which the request was intended.
+**Request Body:**
+```json
+{
+  {
+  "requestId": "499a5a4a-7dda-4f20-9b67-e24589627061",
+  "timestamp": "2022-05-23T10:30:58.871Z",
+  "transactionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "patient": {
+    "id": "<patient-id>@<consent-manager-id>",
+    "verifiedIdentifiers": [
+      {
+        "type": "MR",
+        "value": "+919800083232"
+      }
+    ],
+    "unverifiedIdentifiers": [
+      {
+        "type": "MR",
+        "value": "+919800083232"
+      }
+    ],
+    "name": "chandler bing",
+    "gender": "M",
+    "yearOfBirth": 2000
+  }
+}
+```
+
+**Response:**
+
+202	Request Accepted
+
+### 2. On-Discovery
+Result of patient care-context discovery request at HIP end. If a matching patient found with zero or more care contexts associated, it is specified as result attribute. If the prior discovery request, resulted in errors then it is specified in the error attribute. Reasons of errors can be
+
+- more than one definitive match for the given request
+- no verified identifer was specified
+
+**URL:** POST /v0.5/care-contexts/on-discover
+**Request:**   
+**HEADERS:**
+- Authorization: Access token which was issued after successful login with gateway auth server, which will be sent by gateway to authenticate itself with API bridge. 
+- X-CM-ID: Suffix of the consent manager to which the request was intended.(Should be the domain in the PHR Address - @sbx or @abdm)
+**Request Body:**
+
+```json
+{
+  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+  "timestamp": "2022-05-23T10:38:59.874Z",
+  "transactionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "patient": {
+    "referenceNumber": "string",
+    "display": "string",
+    "careContexts": [
+      {
+        "referenceNumber": "string",
+        "display": "string"
+      }
+    ],
+    "matchedBy": [
+      "MR"
+    ]
+  },
+  "error": {
+    "code": 1000,
+    "message": "string"
+  },
+  "resp": {
+    "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}```
+
+**Response:**
+
+202	Request Accepted
+
