@@ -10,6 +10,8 @@ draft: false
 - Patient makes a discovery request with verified identifiers along with name and demographic information 
 - HIP revert with the Care Context detail  
 
+ ![alt text](../loginwithPHR.jpg)
+
 ## Discovery of Patient’s information at the HIP
 
 When the gateway calls an HIP system and requests for a particular patient’s records with a set of verifiable Ids, the process of information discovery begins. Upon receipt of the request, the HIP health repository reverts with a set of care context labels (in masked form). The following flow diagram details the flows that take place during patient information discovery from the HIP perspective
