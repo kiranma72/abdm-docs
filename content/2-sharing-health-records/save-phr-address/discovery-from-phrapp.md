@@ -118,3 +118,81 @@ Result of patient care-context discovery request at HIP end. If a matching patie
 
 202	Request Accepted
 
+### 3. Link Patient's Care Contexts
+
+Request from Gateway to links care contexts associated with only one patient
+
+- Validate account reference number and care context reference number
+- Validate transactionId in the request with discovery request entry to check whether there was a discovery and were these care contexts discovered or not for a given patient
+- Before eventual link confirmation, HIP needs to authenticate the request with the patient(eg: OTP verification)
+- HIP should communicate the mode of authentication of a successful request to Consent Manager
+**URL:** /v0.5/links/link/init
+**Request:** POST  
+**HEADERS:**
+- Authorization: JWT Sessions token (Access token which was issued after successful login with gateway auth server, which will be sent by gateway to authenticate itself with API bridge.)
+- X-HIP-ID: Identifier of the health information provider to which the request was intended.
+**Body:**
+```json
+{
+  "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "timestamp": "2022-05-23T10:50:35.447Z",
+  "transactionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "patient": {
+    "id": "hinapatel79@ndhm",
+    "referenceNumber": "TMH-PUID-001",
+    "careContexts": [
+      {
+        "referenceNumber": "string"
+      }
+    ]
+  }
+}
+```
+
+**Response:**
+
+202	  Accepted
+
+
+### 4. Response to patient's care context link request
+Result of patient care-context link request from HIP end. This happens in context of previous discovery of patient found at HIP end, therefore the link requests ought to be in reference to the patient reference and care-context references previously returned by the HIP. The correlation of discovery and link request is maintained through the transactionId. HIP should have
+
+- Validated transactionId in the request to check whether there was a discovery done previously, and the link request corresponds to returned patient care care context references
+- Before returning the response, HIP should have sent an authentication request to the patient(eg: OTP verification)
+- HIP should communicate the mode of authentication of a successful request
+- HIP subsequently should expect the token passed via /link/confirm against the link.referenceNumber passed in this call
+
+**URL:** /v0.5/links/link/on-init
+**Request:** POST  
+**HEADERS:**
+- Authorization: Access token which was issued after successful login with gateway auth server, which will be sent by gateway to authenticate itself with API bridge
+- X-HIP-ID: Identifier of the health information provider to which the request was intended.
+**Body:**
+
+```json
+{
+  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+  "timestamp": "2022-05-23T10:54:45.431Z",
+  "transactionId": "a1s2c932-2f70-3ds3-a3b5-2sfd46b12a18d",
+  "link": {
+    "referenceNumber": "string",
+    "authenticationType": "DIRECT",
+    "meta": {
+      "communicationMedium": "MOBILE",
+      "communicationHint": "string",
+      "communicationExpiry": "2019-12-30T12:01:55Z"
+    }
+  },
+  "error": {
+    "code": 1000,
+    "message": "string"
+  },
+  "resp": {
+    "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+```
+
+**Response:**
+202	 Accepted
+
