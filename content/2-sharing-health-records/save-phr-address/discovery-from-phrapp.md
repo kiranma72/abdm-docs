@@ -7,10 +7,12 @@ draft: false
 
 ## Discovery from PHR Apps : Overview of the functionality 
 
+
 - Patient must have a PHR app and have a valid PHR address
 - Patient LogIn to PHR app with Mobile/PHR Address/e-Mail/ABHA etc
 - Patient makes a discovery request with verified identifiers along with name and demographic information 
 - HIP revert with the Care Context detail  
+
 
 
 
@@ -27,7 +29,7 @@ This flow begins once a patient initiates a link request to the HIP to link the 
 
 The HIP system sends an OTP to the patient’s phone number. Note, the phone number for OTP communication from HIP may be the same as verified by the CM or maybe a different number that the patient has chosen as preferred mode of communication with HIP - meaning it's up to the HIP to choose the phone number it sends OTP to. The patient, via patient app, submits the OTP received from the HIP system within the stipulated time. If the patient is successfully authenticated by the HIP, the linking is now complete. The following flow diagrams details the flows that take place while linking to a health repository representing an HIP.
 
- Note : Post successful completion of discovery flow, its HIP’s prerogative to decide regarding implementation logic for saving the Verified identifier information (ABHA Address and ABHA number in case of KYC verified linking.
+ **Note : Post successful completion of discovery flow, its HIP’s prerogative to decide regarding implementation logic for saving the Verified identifier information (ABHA Address and ABHA number in case of KYC verified linking.
 
 The following API sequence diagram details the flows that take place during patient information discovery from the HIP perspective
                 ![API_discovery](https://user-images.githubusercontent.com/104073067/169794446-b42f13d5-3f35-4bb6-a558-59864fb3d2dd.jpg)
@@ -48,7 +50,7 @@ Request for patient care context discover, made by Gateway intended for a specif
 - Intended HIP should be able to resolve and identify results returned in the subsequent link confirmation request via the specified transactionId
 - Intended HIP should store the discovery results with transactionId and care contexts discovered for subsequent link initiation
 
-**URL:** /v0.5/care-contexts/discover
+**URL: /v0.5/care-contexts/discover **
 **Request:** POST  
 **HEADERS:**
 - Authorization: Access token which was issued after successful login with gateway auth server, which will be sent by gateway to authenticate itself with API bridge
@@ -92,7 +94,7 @@ Result of patient care-context discovery request at HIP end. If a matching patie
 - more than one definitive match for the given request
 - no verified identifer was specified
 
-**URL:** POST /v0.5/care-contexts/on-discover
+**URL: POST /v0.5/care-contexts/on-discover **
 **Request:**   
 **HEADERS:**
 - Authorization: Access token which was issued after successful login with gateway auth server, which will be sent by gateway to authenticate itself with API bridge. 
@@ -141,7 +143,7 @@ Request from Gateway to links care contexts associated with only one patient
 - Validate transactionId in the request with discovery request entry to check whether there was a discovery and were these care contexts discovered or not for a given patient
 - Before eventual link confirmation, HIP needs to authenticate the request with the patient(eg: OTP verification)
 - HIP should communicate the mode of authentication of a successful request to Consent Manager
-**URL:** /v0.5/links/link/init
+**URL: /v0.5/links/link/init**
 **Request:** POST  
 **HEADERS:**
 - Authorization: JWT Sessions token (Access token which was issued after successful login with gateway auth server, which will be sent by gateway to authenticate itself with API bridge.)
@@ -179,7 +181,7 @@ Result of patient care-context link request from HIP end. This happens in contex
 - HIP should communicate the mode of authentication of a successful request
 - HIP subsequently should expect the token passed via /link/confirm against the link.referenceNumber passed in this call
 
-**URL:** /v0.5/links/link/on-init
+**URL: /v0.5/links/link/on-init **
 **Request:** POST  
 **HEADERS:**
 - Authorization: Access token which was issued after successful login with gateway auth server, which will be sent by gateway to authenticate itself with API bridge
@@ -216,7 +218,7 @@ Result of patient care-context link request from HIP end. This happens in contex
 
 ### 5. Token Submission by consent manager for link confirmation
 API to submit the token that was sent by HIP during the link request.
-**URL:** /v0.5/links/link/confirm
+**URL: /v0.5/links/link/confirm **
 **Request:** POST  
 **HEADERS:**
 - Authorization: Access token which was issued after successful login with gateway auth server, which will be sent by gateway to authenticate itself with API bridge. (JWT Token)
@@ -250,7 +252,7 @@ Returns a list of linked care contexts with patient reference number.
 - Results of unmasked linked care contexts with patient reference number
 
 
-**URL:** /v0.5/links/link/on-confirm
+**URL: /v0.5/links/link/on-confirm**
 **Request:** POST  
 **Parameters:**
 - Authorization: Access token which was issued after successful login with gateway auth server, which will be sent by gateway to authenticate itself with API bridge. 
