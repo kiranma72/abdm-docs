@@ -186,7 +186,7 @@ Return status as true alone with partail details of Health id number in case of 
 }
 ```
 
-### Registration via Mobile Number
+### Registration via Mobile Number (Self-Verified)
 For registering using Mobile number, Individual has to choose the option of Mobile number and enter the Mobile number. Once entered individual will autheticate MObile number via OTP.  
 After validating the OTP, list of already linked ABHA addresses will be displayed along with the option of creating New ABHA address. 
 Individual can either choose already linked ABHA addresses to login or can create new ABHA address by selecting “Still want to create a new ABHA address?” When individual selects “Still want to create new ABHA address?” he/she can fill all the demographic details like
@@ -202,7 +202,7 @@ For creating new ABHA address, inidvidual can choose an ABHA address from the su
 
 <img width="184" alt="Picture6" src="https://user-images.githubusercontent.com/105836429/169763808-1b2ec097-7e28-4b71-a68b-c98600ed5a0a.png">  <img width="184" alt="Picture7" src="https://user-images.githubusercontent.com/105836429/169763818-ca8338c2-d02e-40b3-bab3-4f8f3bbae764.jpg">  <img width="184" alt="Picture8" src="https://user-images.githubusercontent.com/105836429/169763823-7d033d5e-3a9f-4a6f-b467-a860a19dc5e9.jpg">  <img width="184" alt="Picture9" src="https://user-images.githubusercontent.com/105836429/169764605-f5521dbd-d1c6-4205-b8ed-4cb4552f9a3b.png">  <img width="184" alt="Picture10" src="https://user-images.githubusercontent.com/105836429/169765445-617a9190-3d0e-4d6d-97f0-4a3539e2a326.png">
 
-#### Registration via Email ID
+#### Registration via Email ID (Self-Verified)
 For registering using Email ID, Individual has to choose the option of Email ID and enter the Email ID. Once entered individual will autheticate Email ID via OTP.  
 After validating the OTP, list of already linked ABHA addresses will be displayed along with the option of creating New ABHA address. 
 Individual can either choose already linked ABHA addresses to login or can create new ABHA address by selecting “Still want to create a new ABHA address?” When individual selects “Still want to create new ABHA address?” he/she can fill all the demographic details like
