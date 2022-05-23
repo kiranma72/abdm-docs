@@ -35,6 +35,7 @@ The following API sequence diagram details the flows that take place during pati
 ### 1. Discovery Request
 
 ( Swagger link of Discovery API - https://sandbox.abdm.gov.in/swagger/ndhm-hip.yaml )
+( Base URL: https://dev.abdm.gov.in/gateway )
 
 Request for patient care context discover, made by Gateway intended for a specific HIP. It is expected that HIP will subsequently return either zero or one patient record with (potentially masked) associated care contexts
 
