@@ -5,10 +5,12 @@ weight: 4
 draft: false
 ---
 ## Discovery from PHR Apps : Overview of the functionality 
+
 - Patient must have a PHR app and have a valid PHR address
 - Patient LogIn to PHR app with Mobile/PHR Address/e-Mail/ABHA etc
 - Patient makes a discovery request with verified identifiers along with name and demographic information 
 - HIP revert with the Care Context detail  
+
 
 <img width="184" alt="LoginwithPHR" src="https://user-images.githubusercontent.com/104073067/169785288-2d900932-7280-4a67-a8db-c84b0fcf462a.jpg">     <img width="184" alt="landingpage" src="https://user-images.githubusercontent.com/104073067/169791285-9e3ff444-2a1f-45a6-82a1-1feaa4f474fb.jpg"> <img width="184" alt="searchHIP" src="https://user-images.githubusercontent.com/104073067/169791298-731f4dcd-9f38-41a3-aff6-2669657699a1.jpg"> <img width="184" alt="linkedHIP" src="https://user-images.githubusercontent.com/104073067/169791288-8930b979-06f5-4245-8118-b64e793f7658.jpg"> <img width="184" alt="fetchrecrd" src="https://user-images.githubusercontent.com/104073067/169791277-da0db504-4efd-466f-839d-352e4f4ffee4.jpg"> <img width="184" alt="foundrecord" src="https://user-images.githubusercontent.com/104073067/169791281-a39409b9-4bee-491c-b7e0-038540119bc1.jpg"> <img width="184" alt="recvrecord" src="https://user-images.githubusercontent.com/104073067/169791295-08455588-73a5-4390-9862-280fef75cbfb.jpg"> <img width="184" alt="linksuccessfully" src="https://user-images.githubusercontent.com/104073067/169791291-a9f19188-2273-4c62-a6ea-f816c10f2dd6.jpg">
 
@@ -20,11 +22,13 @@ When the gateway calls an HIP system and requests for a particular patient’s r
 
 ## Verify the patient and link the care context as requested by the patient 
 This flow begins once a patient initiates a link request to the HIP to link the care context to the patient’s Consent Manager’s User ID. To enable the linking, the HIP system returns a link reference number along with the authentication type and its associated parameters.
-The HIP system sends an OTP to the patient’s phone number. Note, the phone number for OTP communication from HIP may be the same as verified by the CM or maybe a different number that the patient has chosen as preferred mode of communication with HIP - meaning it's up to the HIP to choose the phone number it sends OTP to. The patient, via patient app, submits the OTP received from the HIP system within the stipulated time. If the patient is successfully authenticated by the HIP, the linking is now complete. The following flow diagrams details the flows that take place while linking to a health repository representing an HIP
-Note : Post successful completion of discovery flow, its HIP’s prerogative to decide regarding implementation logic for saving the Verified identifier information (ABHA Address and ABHA number in case of KYC verified linking.
+
+The HIP system sends an OTP to the patient’s phone number. Note, the phone number for OTP communication from HIP may be the same as verified by the CM or maybe a different number that the patient has chosen as preferred mode of communication with HIP - meaning it's up to the HIP to choose the phone number it sends OTP to. The patient, via patient app, submits the OTP received from the HIP system within the stipulated time. If the patient is successfully authenticated by the HIP, the linking is now complete. The following flow diagrams details the flows that take place while linking to a health repository representing an HIP.
+
+# Note : Post successful completion of discovery flow, its HIP’s prerogative to decide regarding implementation logic for saving the Verified identifier information (ABHA Address and ABHA number in case of KYC verified linking.
 
 The following API sequence diagram details the flows that take place during patient information discovery from the HIP perspective
-![API_discovery](https://user-images.githubusercontent.com/104073067/169794446-b42f13d5-3f35-4bb6-a558-59864fb3d2dd.jpg)
+                ![API_discovery](https://user-images.githubusercontent.com/104073067/169794446-b42f13d5-3f35-4bb6-a558-59864fb3d2dd.jpg)
 
 ### 1. Discovery Request
 
@@ -47,6 +51,7 @@ Request for patient care context discover, made by Gateway intended for a specif
 - Authorization: Access token which was issued after successful login with gateway auth server, which will be sent by gateway to authenticate itself with API bridge
 - X-HIP-ID: Identifier of the health information provider to which the request was intended.
 **Request Body:**
+**Example:
 ```json
 {
   {
@@ -90,6 +95,8 @@ Result of patient care-context discovery request at HIP end. If a matching patie
 - Authorization: Access token which was issued after successful login with gateway auth server, which will be sent by gateway to authenticate itself with API bridge. 
 - X-CM-ID: Suffix of the consent manager to which the request was intended.(Should be the domain in the PHR Address - @sbx or @abdm)
 **Request Body:**
+
+**Example:
 
 ```json
 {
@@ -136,7 +143,9 @@ Request from Gateway to links care contexts associated with only one patient
 **HEADERS:**
 - Authorization: JWT Sessions token (Access token which was issued after successful login with gateway auth server, which will be sent by gateway to authenticate itself with API bridge.)
 - X-HIP-ID: Identifier of the health information provider to which the request was intended.
-**Body:**
+**Request Body:**
+
+**Example:
 ```json
 {
   "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -172,8 +181,9 @@ Result of patient care-context link request from HIP end. This happens in contex
 **HEADERS:**
 - Authorization: Access token which was issued after successful login with gateway auth server, which will be sent by gateway to authenticate itself with API bridge
 - X-HIP-ID: Identifier of the health information provider to which the request was intended.
-**Body:**
+**Request Body:**
 
+**Example:
 ```json
 {
   "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
@@ -200,6 +210,7 @@ Result of patient care-context link request from HIP end. This happens in contex
 
 **Response:**
 202	 Accepted
+
 ### 5. Token Submission by consent manager for link confirmation
 API to submit the token that was sent by HIP during the link request.
 **URL:** /v0.5/links/link/confirm
@@ -208,7 +219,9 @@ API to submit the token that was sent by HIP during the link request.
 - Authorization: Access token which was issued after successful login with gateway auth server, which will be sent by gateway to authenticate itself with API bridge. (JWT Token)
 - X-HP-ID:Identifier of the health information provider to which the request was intended.
 
-**Body:**
+**Request Body:**
+**Example:
+
 ```json
 {
   "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -240,7 +253,9 @@ Returns a list of linked care contexts with patient reference number.
 - Authorization: Access token which was issued after successful login with gateway auth server, which will be sent by gateway to authenticate itself with API bridge. 
 - X-CM-ID: Suffix of the consent manager to which the request was intended.(Should be the domain in the PHR Address - @sbx or @abdm)
 
-**Body:**
+**Request Body:**
+
+**Example:
 
 ```json
 {
