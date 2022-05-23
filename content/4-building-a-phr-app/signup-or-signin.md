@@ -26,9 +26,13 @@ For creating new ABHA address, inidvidual can choose an ABHA address from the su
 Explanation - Api Checks Health ID Number to find User.
 Request Body - Required
 Response - Retrun session in case of success against request.
+
 Parameters 
+
 No Parameters
+
 Request body (In application/JSON)
+
 **Example for request body**
 ```
 {
@@ -36,8 +40,10 @@ Request body (In application/JSON)
   "value": "sw1uD+gpv3fj6NHBNhtcII3GksVtkLT9bvcz0svYDyUt/x3jTtedXSYgw4b90GTwfLfs1eow056VsOw9HFS/wB8uH5Ysx+QzpL7PxmAY1WOHwOj04sPKN6Dw8XY8vcXovtvZc1dUB+TPAlGGPNu8iqMVPetukysjRxgbNdLLKMxn46rIRb8NieeyuDx1EHa90jJP9KwKGZdsLr08BysrmMJExzTO9FT93CzoNg50/nxzaQgmkBSbu9D8DxJm7XrLzWSUB05YCknHbokm4iXwyYBsrmfFDE/xCDfzYPhYyhtEmOi4J/GMp+lO+gAHQFQtxkIADhoSR8WXGcAbCUj7uTjFsBU/tc+RtvSotso4FXy8v+Ylzj28jbFTmmOWyAwYi9pThQjXnmRnq43dVdd5OXmxIII6SXs0JzoFvKwSk7VxhuLIRYzKqrkfcnWMrrmRgE8xZ6ZLft6O3IeiHb9WA8b/6/qO8Hdd17FKsSF6te59gSpoajS0FtQIgFn/c+NHzQYo5ZdsuRGM9v+bhHTInI="
 }
 ```
-Responses	
+Responses
+
 Return status as true alone with partail details of Health id number in case of success
+
 **Example for Response**
 ```
 {
