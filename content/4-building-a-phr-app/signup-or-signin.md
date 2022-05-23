@@ -16,23 +16,22 @@ For registering using ABHA number, individual has to choose the option of ABHA n
 After validating the OTP, the individual's profile details are auto populated from ABHA system. Already linked ABHA addresses will be displayed along with the option of creating New ABHA address. Individual can either choose already linked ABHA addresses to login or can create new ABHA address.
 For creating new ABHA address, inidvidual can choose an ABHA address from the suggestions displayed based on the user profile details or can create a different ABHA address as per ABHA Address creation policy, along with password. New ABHA address will be created for the given ABHA number and user can directly login.
 
-<img width="184" alt="Picture1" src="https://user-images.githubusercontent.com/105836429/169759881-3f40a1c9-d442-4a63-beec-eaae5ad7f4ab.png">
-<img width="184" alt="Picture2" src="https://user-images.githubusercontent.com/105836429/169759890-cb9fce56-f1e3-454a-bba4-553718d0e3f7.png">
-<img width="184" alt="Picture3" src="https://user-images.githubusercontent.com/105836429/169759894-63a71fe4-74c4-431a-98a1-fc842fadf9fe.jpg">
-<img width="184" alt="Picture4" src="https://user-images.githubusercontent.com/105836429/169759898-50a3cf78-ce1c-42ee-b5de-707a43c2f14e.png">
-<img width="184" alt="Picture5" src="https://user-images.githubusercontent.com/105836429/169759900-67a02408-25a1-432f-8f8f-47ea9499a66d.png">
+<img width="184" alt="Picture1" src="https://user-images.githubusercontent.com/105836429/169759881-3f40a1c9-d442-4a63-beec-eaae5ad7f4ab.png">  <img width="184" alt="Picture2" src="https://user-images.githubusercontent.com/105836429/169759890-cb9fce56-f1e3-454a-bba4-553718d0e3f7.png">  <img width="184" alt="Picture3" src="https://user-images.githubusercontent.com/105836429/169759894-63a71fe4-74c4-431a-98a1-fc842fadf9fe.jpg">  <img width="184" alt="Picture4" src="https://user-images.githubusercontent.com/105836429/169759898-50a3cf78-ce1c-42ee-b5de-707a43c2f14e.png">  <img width="184" alt="Picture5" src="https://user-images.githubusercontent.com/105836429/169759900-67a02408-25a1-432f-8f8f-47ea9499a66d.png">
 
 **APIs for registering using ABHA number**
-1. **/v1/apps/registration/hid/confirm-init**
-Explanation - Api Checks Health ID Number to find User.
-Request Body - Required
-Response - Retrun session in case of success against request.
+1. **URL: /v1/apps/registration/hid/confirm-init**
 
-Parameters 
+*Explanation* - Api Checks Health ID Number to find User.
+
+*Request Body* - Required
+
+*Response* - Retrun session in case of success against request.
+
+*Parameters* 
 
 No Parameters
 
-Request body (In application/JSON)
+*Request body* (In application/JSON)
 
 **Example for request body**
 ```
@@ -41,7 +40,7 @@ Request body (In application/JSON)
   "value": "sw1uD+gpv3fj6NHBNhtcII3GksVtkLT9bvcz0svYDyUt/x3jTtedXSYgw4b90GTwfLfs1eow056VsOw9HFS/wB8uH5Ysx+QzpL7PxmAY1WOHwOj04sPKN6Dw8XY8vcXovtvZc1dUB+TPAlGGPNu8iqMVPetukysjRxgbNdLLKMxn46rIRb8NieeyuDx1EHa90jJP9KwKGZdsLr08BysrmMJExzTO9FT93CzoNg50/nxzaQgmkBSbu9D8DxJm7XrLzWSUB05YCknHbokm4iXwyYBsrmfFDE/xCDfzYPhYyhtEmOi4J/GMp+lO+gAHQFQtxkIADhoSR8WXGcAbCUj7uTjFsBU/tc+RtvSotso4FXy8v+Ylzj28jbFTmmOWyAwYi9pThQjXnmRnq43dVdd5OXmxIII6SXs0JzoFvKwSk7VxhuLIRYzKqrkfcnWMrrmRgE8xZ6ZLft6O3IeiHb9WA8b/6/qO8Hdd17FKsSF6te59gSpoajS0FtQIgFn/c+NHzQYo5ZdsuRGM9v+bhHTInI="
 }
 ```
-Responses
+*Responses*
 
 Return status as true alone with partail details of Health id number in case of success
 
@@ -83,13 +82,13 @@ Return status as true alone with partail details of Health id number in case of 
 }
 ```
 
-2. **/v1/apps/create/registration/hid/create/phrAddress**
+2. **URL:/v1/apps/create/registration/hid/create/phrAddress**
 
-Parameters 
+*Parameters*
 
 No Parameters
 
-Request body (In application/JSON)
+*Request body* (In application/JSON)
 
 **Example for request body**
 ```
@@ -100,7 +99,7 @@ Request body (In application/JSON)
   "sessionId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
-Responses
+*Responses*
 
 OK
 
@@ -112,17 +111,19 @@ OK
 }
 ```
 
-3. **/v1/apps/registration/hid/auth-init**
+3. **URL: /v1/apps/registration/hid/auth-init**
 
-Explanation - Api Checks Health ID Number to find User.
-Request Body - Required
-Response - Retrun transaction in case of success against request.
+*Explanation* - Api Checks Health ID Number to find User.
 
-Parameters 
+*Request Body* - Required
+
+*Response* - Retrun transaction in case of success against request.
+
+*Parameters* 
 
 No Parameters
 
-Request body (In application/JSON)
+*Request body* (In application/JSON)
 
 **Example for request body**
 ```
@@ -136,8 +137,10 @@ Request body (In application/JSON)
   }
 }
 ```
-Responses
+*Responses*
+
 Return status as true alone with partail details of Health id number in case of success
+
 **Example for Response**
 ```
 {
@@ -145,16 +148,19 @@ Return status as true alone with partail details of Health id number in case of 
 }
 ```
 
-4. **/v1/apps/registration/hid/search/auth-mode**
-Explanation - Api Checks Health ID Number to find User.
-Request Body - Required
-Response - Retrun partial details of Health ID Number.
+4. **URL: /v1/apps/registration/hid/search/auth-mode**
 
-Parameters 
+*Explanation* - Api Checks Health ID Number to find User.
+
+*Request Body* - Required
+
+*Response* - Retrun partial details of Health ID Number.
+
+*Parameters*
 
 No Parameters
 
-Request body (In application/JSON)
+*Request body* (In application/JSON)
 
 **Example for request body**
 ```
@@ -162,8 +168,10 @@ Request body (In application/JSON)
   "healhtIdNumber": "11-1111-1111-1111"
 }
 ```
-Responses
+*Responses*
+
 Return status as true alone with partail details of Health id number in case of success
+
 **Example for Response**
 ```
 {
@@ -192,11 +200,7 @@ Individual can either choose already linked ABHA addresses to login or can creat
 8.	Pin Code (Mandatory)
 For creating new ABHA address, inidvidual can choose an ABHA address from the suggestions displayed based on the user profile details or can create a different ABHA address as per ABHA Address creation policy, along with password. New ABHA address will be created for the given ABHA number and user can directly login.
 
-<img width="184" alt="Picture6" src="https://user-images.githubusercontent.com/105836429/169763808-1b2ec097-7e28-4b71-a68b-c98600ed5a0a.png">
-<img width="184" alt="Picture7" src="https://user-images.githubusercontent.com/105836429/169763818-ca8338c2-d02e-40b3-bab3-4f8f3bbae764.jpg">
-<img width="184" alt="Picture8" src="https://user-images.githubusercontent.com/105836429/169763823-7d033d5e-3a9f-4a6f-b467-a860a19dc5e9.jpg">
-<img width="184" alt="Picture9" src="https://user-images.githubusercontent.com/105836429/169764605-f5521dbd-d1c6-4205-b8ed-4cb4552f9a3b.png">
-<img width="184" alt="Picture10"src="https://user-images.githubusercontent.com/105836429/169765445-617a9190-3d0e-4d6d-97f0-4a3539e2a326.png">
+<img width="184" alt="Picture6" src="https://user-images.githubusercontent.com/105836429/169763808-1b2ec097-7e28-4b71-a68b-c98600ed5a0a.png">  <img width="184" alt="Picture7" src="https://user-images.githubusercontent.com/105836429/169763818-ca8338c2-d02e-40b3-bab3-4f8f3bbae764.jpg">  <img width="184" alt="Picture8" src="https://user-images.githubusercontent.com/105836429/169763823-7d033d5e-3a9f-4a6f-b467-a860a19dc5e9.jpg">  <img width="184" alt="Picture9" src="https://user-images.githubusercontent.com/105836429/169764605-f5521dbd-d1c6-4205-b8ed-4cb4552f9a3b.png">  <img width="184" alt="Picture10" src="https://user-images.githubusercontent.com/105836429/169765445-617a9190-3d0e-4d6d-97f0-4a3539e2a326.png">
 
 #### Registration via Email ID
 For registering using Email ID, Individual has to choose the option of Email ID and enter the Email ID. Once entered individual will autheticate Email ID via OTP.  
@@ -212,31 +216,33 @@ Individual can either choose already linked ABHA addresses to login or can creat
 8.	Pin Code (Mandatory)
 For creating new ABHA address, inidvidual can choose an ABHA address from the suggestions displayed based on the user profile details or can create a different ABHA address as per ABHA Address creation policy, along with password. New ABHA address will be created for the given ABHA number and user can directly login.
 
-<img width="184" alt="Picture11" src="https://user-images.githubusercontent.com/105836429/169766759-ef6210e7-6e42-4c80-870e-f46af9d3cd34.png">
-<img width="184" alt="Picture12" src="https://user-images.githubusercontent.com/105836429/169766767-81865de8-30e7-48e1-93ed-7e99edc0d314.png">
-<img width="184" alt="Picture13" src="https://user-images.githubusercontent.com/105836429/169766773-66abe7d9-420d-4a51-a2e9-acfafea1a8c1.jpg">
-<img width="184" alt="Picture14" src="https://user-images.githubusercontent.com/105836429/169766778-ba5e4050-051a-495a-8743-de6170fab1f9.png">
-<img width="184" alt="Picture15" src="https://user-images.githubusercontent.com/105836429/169766803-7ec3513b-6897-4381-9d35-bf2fcaffde6d.png">
+<img width="184" alt="Picture11" src="https://user-images.githubusercontent.com/105836429/169766759-ef6210e7-6e42-4c80-870e-f46af9d3cd34.png">  <img width="184" alt="Picture12" src="https://user-images.githubusercontent.com/105836429/169766767-81865de8-30e7-48e1-93ed-7e99edc0d314.png">  <img width="184" alt="Picture13" src="https://user-images.githubusercontent.com/105836429/169766773-66abe7d9-420d-4a51-a2e9-acfafea1a8c1.jpg">  <img width="184" alt="Picture14" src="https://user-images.githubusercontent.com/105836429/169766778-ba5e4050-051a-495a-8743-de6170fab1f9.png">  <img width="184" alt="Picture15" src="https://user-images.githubusercontent.com/105836429/169766803-7ec3513b-6897-4381-9d35-bf2fcaffde6d.png">
 
 **APIs for registering using Mobile number or Email ID**
-1. **/v1/apps/create/phrAddress**
+1. **URL: /v1/apps/create/phrAddress**
+
 To Register the beneficiary.
+
 Beneficiary data required to pass in the request
-Request
+
+*Request*
+
 Below is the Request Parameters description
 
-Attributes	Description
+*Attributes	Description*
+
 sessionId * required	Session Id, Based on UUID.
 phrAddress * required	PHR address of the Beneficiary or user
 password * required	Password for the account. Same will be used to login to PHR Account. Password must contain an uppercase, a lowercase, a number, a special character (@,_$,#) and at least 8 or more characters. It should not contain any sequences (like 123)
+
 Note :
 
 1. Password must be in encrypted form, Plain text form Password is not allowed in request
-Parameters 
+*Parameters*
 
 No Parameters
 
-Request body (In application/JSON)
+*Request body* (In application/JSON)
 
 **Example for Request body**
 ```
@@ -247,8 +253,10 @@ Request body (In application/JSON)
   "sessionId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
-Responses
+*Responses*
+
 Return user token id in case of success
+
 **Example for Responses**
 ```
 {
@@ -257,13 +265,17 @@ Return user token id in case of success
 }
 ```
 
-2. **/v1/apps/registration/details**
+2. **URL: /v1/apps/registration/details**
+
 To Register the beneficiary.
+
 Beneficiary data required to pass in the request
-Request
+
+*Request*
+
 Below is the Request Parameters description
 
-Attributes	Description
+*Attributes	Description*
 sessionId * required	Transaction number, Based on UUID.
 first * required	First Name of the Beneficiary mentioned in the documents
 middle	Middle Name of the Beneficiary mentioned in the documents
@@ -279,11 +291,11 @@ districtCode	Valid District Code (LGD).
 countryCode	Country code.
 pincode * required	Pincode
 address	Valid Address as per documents.
-Parameters 
+*Parameters*
 
 No Parameters
 
-Request body (In application/JSON)
+*Request body* (In application/JSON)
 
 **Example for Request body**
 ```
@@ -309,8 +321,10 @@ Request body (In application/JSON)
   "address": "9th Floor, Tower-l, Jeevan Bharati Building, Connaught Place, New Delhi - 110001"
 }
 ```
-Responses
+*Responses*
+
 Return transaction id in case of success
+
 **Example for Responses**
 ```
 {
@@ -318,17 +332,22 @@ Return transaction id in case of success
 }
 ```
 
-3. **/v1/apps/generate/otp**
-Explanation - Api Accepts Mobile Number/Email and then Generates OTP for it. Request Body - Required Response - Api Accepts Mobile Number/Email and then Generates OTP for it. if number/email id not found then throws error.
+3. **URL: /v1/apps/generate/otp**
+
+*Explanation* - Api Accepts Mobile Number/Email and then Generates OTP for it. 
+
+*Request Body* - Required Response 
+
+Api Accepts Mobile Number/Email and then Generates OTP for it. if number/email id not found then throws error.
 
 Note :
 
 1. OTP will be valid for 10 Minutes only
-Parameters 
+*Parameters* 
 
 No Parameters
 
-Request body (In application/JSON)
+*Request body* (In application/JSON)
 
 **Example for Request body**
 ```
@@ -337,7 +356,7 @@ Request body (In application/JSON)
   "authMode": "MOBILE_OTP / EMAIL_OTP"
 }
 ```
-Responses
+*Responses*
 
 Return transaction id in case of success
 
@@ -348,13 +367,18 @@ Return transaction id in case of success
 }
 ```
 
-3. **/v1/apps/resend/otp**
-Explanation - Api Accepts Transaction Number and then Resend OTP for it. Request Body - Required Response - Api Accepts Transaction Number and then Resend OTP for it. if transaction number not found then throws error.
-Parameters 
+3. **URL: /v1/apps/resend/otp**
+
+*Explanation* - Api Accepts Transaction Number and then Resend OTP for it. 
+
+*Request Body* - Required Response 
+
+Api Accepts Transaction Number and then Resend OTP for it. if transaction number not found then throws error.
+*Parameters* 
 
 No Parameters
 
-Request body (In application/JSON)
+*Request body* (In application/JSON)
 
 **Example for Request body**
 ```
@@ -362,7 +386,7 @@ Request body (In application/JSON)
   "sessionId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
-Responses
+*Responses*
 
 Return transaction id in case of success
 
@@ -374,22 +398,24 @@ Return transaction id in case of success
 }
 ```
 
-4. **/v1/apps/validate/otp**
+4. **URL: /v1/apps/validate/otp**
 API to verify the Mobile/Email OTP
 Request
 Below is the Request Parameters description
 
-Attributes	Description
+*Attributes	Description*
 sessionId * required	Session number, Based on UUID.
 value * required	Value reviced on the mobile number.
+
 Note :
 
 1. OTP must be in encrypted form, Plain text form OTP is not allowed
-Parameters 
+
+*Parameters* 
 
 No Parameters
 
-Request body (In application/JSON)
+*Request body* (In application/JSON)
 
 **Example for Request body**
 ```
@@ -399,7 +425,7 @@ Request body (In application/JSON)
 }
 ```
 
-Responses
+*Responses*
 
 Return Transaction Number in case of success
 
