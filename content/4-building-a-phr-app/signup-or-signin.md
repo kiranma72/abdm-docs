@@ -16,7 +16,7 @@ For registering using ABHA number, individual has to choose the option of ABHA n
 After validating the OTP, the individual's profile details are auto populated from ABHA system. Already linked ABHA addresses will be displayed along with the option of creating New ABHA address. Individual can either choose already linked ABHA addresses to login or can create new ABHA address.
 For creating new ABHA address, inidvidual can choose an ABHA address from the suggestions displayed based on the user profile details or can create a different ABHA address as per ABHA Address creation policy, along with password. New ABHA address will be created for the given ABHA number and user can directly login.
 
-![Picture1](https://user-images.githubusercontent.com/105836429/169759881-3f40a1c9-d442-4a63-beec-eaae5ad7f4ab.png)
+<img width="184" alt="Picture1" src="https://user-images.githubusercontent.com/105836429/169759881-3f40a1c9-d442-4a63-beec-eaae5ad7f4ab.png">
 
 ![Picture2](https://user-images.githubusercontent.com/105836429/169759890-cb9fce56-f1e3-454a-bba4-553718d0e3f7.png)
 
