@@ -25,7 +25,11 @@ Note : Post successful completion of discovery flow, its HIP’s prerogative to 
 
 The following API sequence diagram details the flows that take place during patient information discovery from the HIP perspective
 ![API_discovery](https://user-images.githubusercontent.com/104073067/169794446-b42f13d5-3f35-4bb6-a558-59864fb3d2dd.jpg)
+
 ### 1. Discovery Request
+
+( Swagger link of Discovery API - https://sandbox.abdm.gov.in/swagger/ndhm-hip.yaml )
+
 Request for patient care context discover, made by Gateway intended for a specific HIP. It is expected that HIP will subsequently return either zero or one patient record with (potentially masked) associated care contexts
 
 - At least one of the verified identifier matches
