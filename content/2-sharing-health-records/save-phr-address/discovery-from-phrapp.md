@@ -112,7 +112,8 @@ Result of patient care-context discovery request at HIP end. If a matching patie
   "resp": {
     "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
   }
-}```
+}
+```
 
 **Response:**
 
