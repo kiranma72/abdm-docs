@@ -188,8 +188,8 @@ Return status as true alone with partail details of Health id number in case of 
 ```
 
 ### Registration via Mobile Number (Self-Verified)
-For registering using Mobile number, individual has to enter the Mobile number and autheticate via OTP.  
-After validating the OTP, list of already linked ABHA addresses will be displayed along with the option of creating New ABHA address. 
+For registering using mobile number, individual has to enter the mobile number and autheticate via OTP.  
+After validating the OTP, list of already linked ABHA addresses will be displayed along with the option of creating new ABHA address. 
 Individual can either choose already linked ABHA addresses to login or can create new ABHA address by selecting “Still want to create a new ABHA address?” When individual selects “Still want to create new ABHA address?” he/she can fill all the demographic details like
 1.	Full name (Mandatory)
 2.	Date of Birth (Year- Mandatory)
@@ -201,11 +201,11 @@ Individual can either choose already linked ABHA addresses to login or can creat
 8.	Pin Code (Mandatory)
 For creating new ABHA address, inidvidual can choose an ABHA address from the suggestions displayed based on the user profile details or can create a different ABHA address as per ABHA Address creation policy, along with password. New ABHA address will be created for the given ABHA number and user can directly login.
 
-<img width="184" alt="Picture6" src="https://user-images.githubusercontent.com/105836429/169763808-1b2ec097-7e28-4b71-a68b-c98600ed5a0a.png">  <img width="184" alt="Picture7" src="https://user-images.githubusercontent.com/105836429/169763818-ca8338c2-d02e-40b3-bab3-4f8f3bbae764.jpg">  <img width="184" alt="Picture8" src="https://user-images.githubusercontent.com/105836429/169763823-7d033d5e-3a9f-4a6f-b467-a860a19dc5e9.jpg">  <img width="184" alt="Picture9" src="https://user-images.githubusercontent.com/105836429/169764605-f5521dbd-d1c6-4205-b8ed-4cb4552f9a3b.png">  <img width="184" alt="Picture10" src="https://user-images.githubusercontent.com/105836429/169765445-617a9190-3d0e-4d6d-97f0-4a3539e2a326.png">
+<img width="184" alt="Picture6" src="https://user-images.githubusercontent.com/105836429/169763808-1b2ec097-7e28-4b71-a68b-c98600ed5a0a.png">  <img width="184" alt="Picture10" src="https://user-images.githubusercontent.com/105836429/169765445-617a9190-3d0e-4d6d-97f0-4a3539e2a326.png">  <img width="184" alt="Picture8" src="https://user-images.githubusercontent.com/105836429/169763823-7d033d5e-3a9f-4a6f-b467-a860a19dc5e9.jpg">  <img width="184" alt="Picture9" src="https://user-images.githubusercontent.com/105836429/169764605-f5521dbd-d1c6-4205-b8ed-4cb4552f9a3b.png">  <img width="184" alt="Picture7" src="https://user-images.githubusercontent.com/105836429/169763818-ca8338c2-d02e-40b3-bab3-4f8f3bbae764.jpg">
 
 #### Registration via Email ID (Self-Verified)
 For registering using Email ID, individual has to enter the Email ID and autheticate via OTP.  
-After validating the OTP, list of already linked ABHA addresses will be displayed along with the option of creating New ABHA address. 
+After validating the OTP, list of already linked ABHA addresses will be displayed along with the option of creating new ABHA address. 
 Individual can either choose already linked ABHA addresses to login or can create new ABHA address by selecting “Still want to create a new ABHA address?” When individual selects “Still want to create new ABHA address?” he/she can fill all the demographic details like
 1.	Full name (Mandatory)
 2.	Mobile number (Optional)
@@ -277,6 +277,7 @@ Beneficiary data required to pass in the request
 Below is the Request Parameters description
 
 *Attributes	Description*
+
 sessionId * required	Transaction number, Based on UUID.
 first * required	First Name of the Beneficiary mentioned in the documents
 middle	Middle Name of the Beneficiary mentioned in the documents
