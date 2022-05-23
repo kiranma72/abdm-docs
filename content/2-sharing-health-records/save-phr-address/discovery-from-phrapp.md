@@ -25,7 +25,7 @@ This flow begins once a patient initiates a link request to the HIP to link the 
 
 The HIP system sends an OTP to the patient’s phone number. Note, the phone number for OTP communication from HIP may be the same as verified by the CM or maybe a different number that the patient has chosen as preferred mode of communication with HIP - meaning it's up to the HIP to choose the phone number it sends OTP to. The patient, via patient app, submits the OTP received from the HIP system within the stipulated time. If the patient is successfully authenticated by the HIP, the linking is now complete. The following flow diagrams details the flows that take place while linking to a health repository representing an HIP.
 
-# Note : Post successful completion of discovery flow, its HIP’s prerogative to decide regarding implementation logic for saving the Verified identifier information (ABHA Address and ABHA number in case of KYC verified linking.
+### Note : Post successful completion of discovery flow, its HIP’s prerogative to decide regarding implementation logic for saving the Verified identifier information (ABHA Address and ABHA number in case of KYC verified linking.
 
 The following API sequence diagram details the flows that take place during patient information discovery from the HIP perspective
                 ![API_discovery](https://user-images.githubusercontent.com/104073067/169794446-b42f13d5-3f35-4bb6-a558-59864fb3d2dd.jpg)
