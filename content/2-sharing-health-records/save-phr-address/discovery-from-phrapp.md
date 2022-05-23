@@ -220,7 +220,7 @@ API to submit the token that was sent by HIP during the link request.
 
 202	  Accepted
 
-6. Token authenticated by HIP, indicating completion of linkage of care-contexts
+### 6. Token authenticated by HIP, indicating completion of linkage of care-contexts
 
 Returns a list of linked care contexts with patient reference number.
 
