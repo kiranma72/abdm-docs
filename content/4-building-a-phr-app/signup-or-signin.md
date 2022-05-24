@@ -460,7 +460,10 @@ Individual can login by entering the registered mobile number and validating it 
 
 <img width="184" alt="Picture16" src="https://user-images.githubusercontent.com/105836429/169952732-99825807-41fc-4801-81b7-3bc8d5c2b18c.png">  <img width="184" alt="Picture17" src="https://user-images.githubusercontent.com/105836429/169952741-ec782508-4912-4aae-a96c-3df4cf004105.png">  <img width="184" alt="Picture18" src="https://user-images.githubusercontent.com/105836429/169952746-e56b619c-626b-46d4-8045-b6b9aab129b9.jpg">
 
+Swagger link for APIs: https://sandbox.abdm.gov.in/swagger/ndhm-phr-app2.yaml
+
 **APIs for login via mobile number**
+
 1. **URL: /v1/apps/login/hid/auth-init**
 
 *Explanation* - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it. 
@@ -749,6 +752,8 @@ Return PHR ADDRESS Authentication method Details in case of success
 Individual can login by entering the ABHA address and validating it either by OTP or by using the password. Once the ABHA address is validated, individual can login into the account.
 
 <img width="184" alt="Picture19" src="https://user-images.githubusercontent.com/105836429/169953341-bb05604f-9bbc-4897-9bc6-91720edb54df.png">  <img width="184" alt="Picture20" src="https://user-images.githubusercontent.com/105836429/169953345-002248eb-b603-4e1f-a1c9-874b13f6e49e.png">  <img width="184" alt="Picture18" src="https://user-images.githubusercontent.com/105836429/169952746-e56b619c-626b-46d4-8045-b6b9aab129b9.jpg">
+
+Swagger link for APIs: https://sandbox.abdm.gov.in/swagger/ndhm-phr-app2.yaml
 
 **APIs for login via ABHA address**
 
@@ -1041,6 +1046,8 @@ Individual can login by entering the Email ID and validating it by the OTP. Once
 
 <img width="184" alt="Picture21" src="https://user-images.githubusercontent.com/105836429/169953593-65c71a9a-7b35-4518-8a69-7204d34573b8.png">  <img width="184" alt="Picture22" src="https://user-images.githubusercontent.com/105836429/169953596-1ea31928-153b-4074-9eaa-f056dd3067a2.png">  <img width="184" alt="Picture23" src="https://user-images.githubusercontent.com/105836429/169953600-b9ce4955-bade-42b2-be91-ce3d14005580.png">  <img width="184" alt="Picture18" src="https://user-images.githubusercontent.com/105836429/169952746-e56b619c-626b-46d4-8045-b6b9aab129b9.jpg">
 
+Swagger link for APIs: https://sandbox.abdm.gov.in/swagger/ndhm-phr-app2.yaml
+
 **APIs for login via Email ID**
 
 1. **URL: /v1/apps/login/hid/auth-init**
@@ -1331,3 +1338,42 @@ Return PHR ADDRESS Authentication method Details in case of success
 Individual can login by entering the ABHA number and Year of Birth and validating it by the OTP. Once the ABHA number is validated, the list of linked ABHA addresses will be displayed and individual can login by selecting any of the ABHA addresses.
 
 <img width="184" alt="Picture24" src="https://user-images.githubusercontent.com/105836429/169953882-68a5bf9a-9cb5-464e-b2a6-b26124228eac.png">  <img width="184" alt="Picture25" src="https://user-images.githubusercontent.com/105836429/169953886-6a254513-9f46-41cb-aff5-b1135b4573f9.png">  <img width="184" alt="Picture26" src="https://user-images.githubusercontent.com/105836429/169953889-f1d8385c-3e54-4823-a6dc-2d8c44845b28.png">  <img width="184" alt="Picture18" src="https://user-images.githubusercontent.com/105836429/169952746-e56b619c-626b-46d4-8045-b6b9aab129b9.jpg">
+
+Swagger link for APIs: https://app.swaggerhub.com/apis-docs/abdm.abha/abha-service/1.0#/Profile/createPhrAdressWithHealthIdNumberUsingPOST
+
+**URL: /v1/account/update/phr-address**
+
+*Explanation* - API Accepts ABHA Number and Creates ABHA Address.
+
+*Request Body* - Required
+
+*Response* - API Accepts ABHA Number and Creates ABHA Address. Returns Error for Invalid/Incorrect Info..
+
+*Parameters*
+
+Name	Description
+Accept-Language
+string
+(header)
+Default value : en-US
+
+X-Token *
+string
+(header)
+x-example: Bearer X-Token
+Auth Token
+
+Example : Bearer X-Token
+
+Bearer X-Token
+
+*Responses*
+	
+Successfully Created PHR.
+
+**Example of Responses**
+```
+string
+```
+
+
