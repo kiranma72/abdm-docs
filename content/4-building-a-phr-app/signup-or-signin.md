@@ -446,7 +446,7 @@ Return Transaction Number in case of success
 ```
 
 
-#Sign-in/Login in PHR App
+# Sign-in/Login in PHR App
 
 The PHR mobile application developed by ABDM is now known as ABHA mobile application and has been taken as a reference PHR application. In this application, by login we means login into application using ABHA address aka PHR address, which is an easy to remember PHR address along with its password. 
 In the ABHA app which is a reference app, login can be done by four ways:
@@ -463,9 +463,9 @@ Individual can login by entering the registered mobile number and validating it 
 **APIs for login via mobile number**
 1. **URL: /v1/apps/login/hid/auth-init**
 
-Explanation - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it. 
+*Explanation* - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it. 
 
-Request Body - Required Response - Api Accepts HealthId Number and then Generates OTPbased on the auth methods for it. if number not found then throws error.
+*Request Body* - Required Response - Api Accepts HealthId Number and then Generates OTPbased on the auth methods for it. if number not found then throws error.
 
 Note :
 
@@ -504,6 +504,7 @@ Return transaction id in case of success
 ```
 
 2. **URL: /v1/apps/login/mobileEmail/auth-confirm**
+
 fetch the User token
 
 *Parameters* 
@@ -532,9 +533,10 @@ Example of Responses
 ```
 
 3. **URL: /v1/apps/login/mobileEmail/auth-init**
-Explanation - Api Accepts Mobile/Email address and then Generates OTP for it. 
 
-Request Body - Required Response - Api Accepts PHR ADDRESS and then Generates OTPbased on the auth methods for it. if number not found then throws error.
+*Explanation* - Api Accepts Mobile/Email address and then generates OTP for it. 
+
+*Request Body* - Required Response - Api Accepts PHR ADDRESS and then generates OT Pbased on the auth methods for it. if number not found then throws error.
 
 Note :
 
@@ -573,9 +575,10 @@ Return transaction id in case of success
 ```
 
 4. **URL: /v1/apps/login/mobileEmail/pre-Verify**
-Explanation - Api Accepts Transaction Number and OTP(Encrypted form) for it. 
 
-Request Body - Required
+*Explanation* - Api Accepts Transaction Number and OTP(Encrypted form) for it. 
+
+*Request Body* - Required
 
 Note :
 
@@ -611,9 +614,10 @@ Return list of phr address mapped with mobile in case of success
 ```
 
 5. **URL: /v1/apps/phrAddress/auth-init**
-Explanation - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it.
 
-Request Body - Required Response - Api Accepts PHR ADDRESS and then Generates OTPbased on the auth methods for it. if number not found then throws error.
+*Explanation* - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it.
+
+*Request Body* - Required Response - Api Accepts PHR ADDRESS and then Generates OTPbased on the auth methods for it. if number not found then throws error.
 
 Note :
 
@@ -652,9 +656,10 @@ Return transaction id in case of success
 }
 ```
 6. **URL: /v1/apps/phrAddress/auth-confirm**
-Explanation - Api Accepts Transaction Id and Passowrd, Mobile/Email OTP based on Auth methods, Plain text credentails is not allowed. 
 
-Request Body - Required
+*Explanation* - Api Accepts Transaction Id and Passowrd, Mobile/Email OTP based on Auth methods, Plain text credentails is not allowed. 
+
+*Request Body* - Required
 
 Note :
 
@@ -687,11 +692,12 @@ Return user Token id in case of success
 ```
 
 7. **URL: /v1/apps/login/hid/search/auth-mode**
-Explanation - Api Checks Health ID Number to find User.
 
-Request Body - Required
+*Explanation* - Api Checks Health ID Number to find User.
 
-Response - Retrun partial details of Health ID Number.
+*Request Body* - Required
+
+*Response* - Retrun partial details of Health ID Number.
 
 *Parameters* 
 
@@ -725,6 +731,7 @@ Return status as true alone with partail details of Health id number in case of 
 ```
 
 8. **URL: /v1/apps/phrAddress/search/auth-mode**
+
 *Responses*
 	
 Return PHR ADDRESS Authentication method Details in case of success
@@ -738,16 +745,18 @@ Return PHR ADDRESS Authentication method Details in case of success
 ```
 
 ### Login via ABHA address
+
 Individual can login by entering the ABHA address and validating it either by OTP or by using the password. Once the ABHA address is validated, individual can login into the account.
 
-<img width="184" alt="Picture19"src="https://user-images.githubusercontent.com/105836429/169953341-bb05604f-9bbc-4897-9bc6-91720edb54df.png">  <img width="184" alt="Picture20"src="https://user-images.githubusercontent.com/105836429/169953345-002248eb-b603-4e1f-a1c9-874b13f6e49e.png">  <img width="184" alt="Picture18"src="https://user-images.githubusercontent.com/105836429/169952746-e56b619c-626b-46d4-8045-b6b9aab129b9.jpg">
+<img width="184" alt="Picture19" src="https://user-images.githubusercontent.com/105836429/169953341-bb05604f-9bbc-4897-9bc6-91720edb54df.png">  <img width="184" alt="Picture20" src="https://user-images.githubusercontent.com/105836429/169953345-002248eb-b603-4e1f-a1c9-874b13f6e49e.png">  <img width="184" alt="Picture18" src="https://user-images.githubusercontent.com/105836429/169952746-e56b619c-626b-46d4-8045-b6b9aab129b9.jpg">
 
 **APIs for login via ABHA address**
+
 1. **URL: /v1/apps/login/hid/auth-init**
 
-Explanation - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it. 
+*Explanation* - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it. 
 
-Request Body - Required Response - Api Accepts HealthId Number and then Generates OTPbased on the auth methods for it. if number not found then throws error.
+*Request Body* - Required Response - Api Accepts HealthId Number and then Generates OTPbased on the auth methods for it. if number not found then throws error.
 
 Note :
 
@@ -774,7 +783,7 @@ No Parameters
 *Responses*
 Return transaction id in case of success
 
-Example of Responses
+**Example of Responses**
 
 ```
 {
@@ -786,6 +795,7 @@ Example of Responses
 ```
 
 2. **URL: /v1/apps/login/mobileEmail/auth-confirm**
+
 fetch the User token
 
 *Parameters* 
@@ -806,7 +816,7 @@ No Parameters
 	
 Return list of phr address mapped with mobile in case of success
 
-Example of Responses
+**Example of Responses**
 ```
 {
   "token": "Bearer eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJzaHViaGFuc2h1QGFiZG0iLCJjbGllbnRJZCI6IiIsInJlcXVlc3RlcklkIjoiUEhSLVsdfsdfsdfsdfdsfsfszAtMDA4Mi00ZGJlLTk3N2MtMjUxY2YyMWZiOWFhIn0.DOmjJzM1KwfdgDSg_JiHvomo5_sOwqTgG2vMyaM-c1XMCPklR-0FdWKMipIjNVycoF_sdfdfsdsfvsdY6WAqk2fM3T0d8Z9cycuavzSynT4mtNNcHX78y4OAu53mpTsTpesA4s6dK8IAcN9ir9T7Cnr5k4393i5ZUTOTs9Fq1wLPR87YzfJ6-tUgOIDdfJiGzEew2vIz_wt481ShQiIeHOG5PPCPC-H1JhblqRzijFJEX2G0zvolwC8cO9ATBWZlbOxq9gmENzYMAY1y1IBb8uO56zeldiVf0-_Pw4f8nP90nlyQrGoYfut3HuK-jmL7nUBs7Y0gufUiFw8gAIEg"
@@ -814,9 +824,10 @@ Example of Responses
 ```
 
 3. **URL: /v1/apps/login/mobileEmail/auth-init**
-Explanation - Api Accepts Mobile/Email address and then Generates OTP for it. 
 
-Request Body - Required Response - Api Accepts PHR ADDRESS and then Generates OTPbased on the auth methods for it. if number not found then throws error.
+*Explanation* - Api Accepts Mobile/Email address and then Generates OTP for it. 
+
+*Request Body* - Required Response - Api Accepts PHR ADDRESS and then Generates OTPbased on the auth methods for it. if number not found then throws error.
 
 Note :
 
@@ -855,9 +866,10 @@ Return transaction id in case of success
 ```
 
 4. **URL: /v1/apps/login/mobileEmail/pre-Verify**
-Explanation - Api Accepts Transaction Number and OTP(Encrypted form) for it. 
 
-Request Body - Required
+*Explanation* - Api Accepts Transaction Number and OTP(Encrypted form) for it. 
+
+*Request Body* - Required
 
 Note :
 
@@ -893,9 +905,10 @@ Return list of phr address mapped with mobile in case of success
 ```
 
 5. **URL: /v1/apps/phrAddress/auth-init**
-Explanation - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it.
 
-Request Body - Required Response - Api Accepts PHR ADDRESS and then Generates OTPbased on the auth methods for it. if number not found then throws error.
+*Explanation* - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it.
+
+*Request Body* - Required Response - Api Accepts PHR ADDRESS and then Generates OTPbased on the auth methods for it. if number not found then throws error.
 
 Note :
 
@@ -934,9 +947,10 @@ Return transaction id in case of success
 }
 ```
 6. **URL: /v1/apps/phrAddress/auth-confirm**
-Explanation - Api Accepts Transaction Id and Passowrd, Mobile/Email OTP based on Auth methods, Plain text credentails is not allowed. 
 
-Request Body - Required
+*Explanation* - Api Accepts Transaction Id and Passowrd, Mobile/Email OTP based on Auth methods, Plain text credentails is not allowed. 
+
+*Request Body* - Required
 
 Note :
 
@@ -969,9 +983,10 @@ Return user Token id in case of success
 ```
 
 7. **URL: /v1/apps/login/hid/search/auth-mode**
-Explanation - Api Checks Health ID Number to find User.
 
-Request Body - Required
+*Explanation* - Api Checks Health ID Number to find User.
+
+*Request Body* - Required
 
 Response - Retrun partial details of Health ID Number.
 
@@ -1007,6 +1022,7 @@ Return status as true alone with partail details of Health id number in case of 
 ```
 
 8. **URL: /v1/apps/phrAddress/search/auth-mode**
+
 *Responses*
 	
 Return PHR ADDRESS Authentication method Details in case of success
@@ -1023,14 +1039,15 @@ Return PHR ADDRESS Authentication method Details in case of success
 
 Individual can login by entering the Email ID and validating it by the OTP. Once the Email ID is validated, the list of linked ABHA addresses will be displayed and individual can login by selecting any of the ABHA addresses.
 
-<img width="184" alt="Picture21"src="https://user-images.githubusercontent.com/105836429/169953593-65c71a9a-7b35-4518-8a69-7204d34573b8.png">  <img width="184" alt="Picture22"src="https://user-images.githubusercontent.com/105836429/169953596-1ea31928-153b-4074-9eaa-f056dd3067a2.png">  <img width="184" alt="Picture23"src="https://user-images.githubusercontent.com/105836429/169953600-b9ce4955-bade-42b2-be91-ce3d14005580.png">  <img width="184" alt="Picture18"src="https://user-images.githubusercontent.com/105836429/169952746-e56b619c-626b-46d4-8045-b6b9aab129b9.jpg">
+<img width="184" alt="Picture21" src="https://user-images.githubusercontent.com/105836429/169953593-65c71a9a-7b35-4518-8a69-7204d34573b8.png">  <img width="184" alt="Picture22" src="https://user-images.githubusercontent.com/105836429/169953596-1ea31928-153b-4074-9eaa-f056dd3067a2.png">  <img width="184" alt="Picture23" src="https://user-images.githubusercontent.com/105836429/169953600-b9ce4955-bade-42b2-be91-ce3d14005580.png">  <img width="184" alt="Picture18" src="https://user-images.githubusercontent.com/105836429/169952746-e56b619c-626b-46d4-8045-b6b9aab129b9.jpg">
 
 **APIs for login via Email ID**
+
 1. **URL: /v1/apps/login/hid/auth-init**
 
-Explanation - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it. 
+*Explanation* - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it. 
 
-Request Body - Required Response - Api Accepts HealthId Number and then Generates OTPbased on the auth methods for it. if number not found then throws error.
+*Request Body* - Required Response - Api Accepts HealthId Number and then Generates OTPbased on the auth methods for it. if number not found then throws error.
 
 Note :
 
@@ -1057,7 +1074,7 @@ No Parameters
 *Responses*
 Return transaction id in case of success
 
-Example of Responses
+**Example of Responses**
 
 ```
 {
@@ -1069,6 +1086,7 @@ Example of Responses
 ```
 
 2. **URL: /v1/apps/login/mobileEmail/auth-confirm**
+
 fetch the User token
 
 *Parameters* 
@@ -1089,7 +1107,7 @@ No Parameters
 	
 Return list of phr address mapped with mobile in case of success
 
-Example of Responses
+**Example of Responses**
 ```
 {
   "token": "Bearer eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJzaHViaGFuc2h1QGFiZG0iLCJjbGllbnRJZCI6IiIsInJlcXVlc3RlcklkIjoiUEhSLVsdfsdfsdfsdfdsfsfszAtMDA4Mi00ZGJlLTk3N2MtMjUxY2YyMWZiOWFhIn0.DOmjJzM1KwfdgDSg_JiHvomo5_sOwqTgG2vMyaM-c1XMCPklR-0FdWKMipIjNVycoF_sdfdfsdsfvsdY6WAqk2fM3T0d8Z9cycuavzSynT4mtNNcHX78y4OAu53mpTsTpesA4s6dK8IAcN9ir9T7Cnr5k4393i5ZUTOTs9Fq1wLPR87YzfJ6-tUgOIDdfJiGzEew2vIz_wt481ShQiIeHOG5PPCPC-H1JhblqRzijFJEX2G0zvolwC8cO9ATBWZlbOxq9gmENzYMAY1y1IBb8uO56zeldiVf0-_Pw4f8nP90nlyQrGoYfut3HuK-jmL7nUBs7Y0gufUiFw8gAIEg"
@@ -1097,9 +1115,10 @@ Example of Responses
 ```
 
 3. **URL: /v1/apps/login/mobileEmail/auth-init**
-Explanation - Api Accepts Mobile/Email address and then Generates OTP for it. 
 
-Request Body - Required Response - Api Accepts PHR ADDRESS and then Generates OTPbased on the auth methods for it. if number not found then throws error.
+*Explanation* - Api Accepts Mobile/Email address and then Generates OTP for it. 
+
+*Request Body* - Required Response - Api Accepts PHR ADDRESS and then Generates OTPbased on the auth methods for it. if number not found then throws error.
 
 Note :
 
@@ -1138,9 +1157,10 @@ Return transaction id in case of success
 ```
 
 4. **URL: /v1/apps/login/mobileEmail/pre-Verify**
-Explanation - Api Accepts Transaction Number and OTP(Encrypted form) for it. 
 
-Request Body - Required
+*Explanation* - Api Accepts Transaction Number and OTP(Encrypted form) for it. 
+
+*Request Body* - Required
 
 Note :
 
@@ -1176,9 +1196,10 @@ Return list of phr address mapped with mobile in case of success
 ```
 
 5. **URL: /v1/apps/phrAddress/auth-init**
-Explanation - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it.
 
-Request Body - Required Response - Api Accepts PHR ADDRESS and then Generates OTPbased on the auth methods for it. if number not found then throws error.
+*Explanation* - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it.
+
+*Request Body* - Required Response - Api Accepts PHR ADDRESS and then Generates OTPbased on the auth methods for it. if number not found then throws error.
 
 Note :
 
@@ -1217,9 +1238,10 @@ Return transaction id in case of success
 }
 ```
 6. **URL: /v1/apps/phrAddress/auth-confirm**
-Explanation - Api Accepts Transaction Id and Passowrd, Mobile/Email OTP based on Auth methods, Plain text credentails is not allowed. 
 
-Request Body - Required
+*Explanation* - Api Accepts Transaction Id and Passowrd, Mobile/Email OTP based on Auth methods, Plain text credentails is not allowed. 
+
+*Request Body* - Required
 
 Note :
 
@@ -1252,11 +1274,12 @@ Return user Token id in case of success
 ```
 
 7. **URL: /v1/apps/login/hid/search/auth-mode**
-Explanation - Api Checks Health ID Number to find User.
 
-Request Body - Required
+*Explanation* - Api Checks Health ID Number to find User.
 
-Response - Retrun partial details of Health ID Number.
+*Request Body* - Required
+
+*Response* - Retrun partial details of Health ID Number.
 
 *Parameters* 
 
@@ -1290,6 +1313,7 @@ Return status as true alone with partail details of Health id number in case of 
 ```
 
 8. **URL: /v1/apps/phrAddress/search/auth-mode**
+
 *Responses*
 	
 Return PHR ADDRESS Authentication method Details in case of success
@@ -1303,6 +1327,7 @@ Return PHR ADDRESS Authentication method Details in case of success
 ```
 
 #### Login via ABHA number
+
 Individual can login by entering the ABHA number and Year of Birth and validating it by the OTP. Once the ABHA number is validated, the list of linked ABHA addresses will be displayed and individual can login by selecting any of the ABHA addresses.
 
-<img width="184" alt="Picture24"src="https://user-images.githubusercontent.com/105836429/169953882-68a5bf9a-9cb5-464e-b2a6-b26124228eac.png">  <img width="184" alt="Picture25"src="https://user-images.githubusercontent.com/105836429/169953886-6a254513-9f46-41cb-aff5-b1135b4573f9.png">  <img width="184" alt="Picture26"src="https://user-images.githubusercontent.com/105836429/169953889-f1d8385c-3e54-4823-a6dc-2d8c44845b28.png">  <img width="184" alt="Picture18"src="https://user-images.githubusercontent.com/105836429/169952746-e56b619c-626b-46d4-8045-b6b9aab129b9.jpg">
+<img width="184" alt="Picture24" src="https://user-images.githubusercontent.com/105836429/169953882-68a5bf9a-9cb5-464e-b2a6-b26124228eac.png">  <img width="184" alt="Picture25" src="https://user-images.githubusercontent.com/105836429/169953886-6a254513-9f46-41cb-aff5-b1135b4573f9.png">  <img width="184" alt="Picture26" src="https://user-images.githubusercontent.com/105836429/169953889-f1d8385c-3e54-4823-a6dc-2d8c44845b28.png">  <img width="184" alt="Picture18" src="https://user-images.githubusercontent.com/105836429/169952746-e56b619c-626b-46d4-8045-b6b9aab129b9.jpg">
