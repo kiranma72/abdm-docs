@@ -41,8 +41,8 @@ Bearer token is received as part of respose and should be passed a Authorization
 
 ```json
 {
-    "clientId": "healthid-api",
-    "clientSecret": "9042c774-f57b-46ba-bb11-796a4345ada1",
+    "clientId": "your-clientID",
+    "clientSecret": "your-clientSecret",
     "grantType": "client_credentials"
 }
 ```
@@ -51,10 +51,10 @@ Bearer token is received as part of respose and should be passed a Authorization
 
 ```json
 {
-    "accessToken": "string",
+    "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJBbFJiNVdDbThUbTlFSl9JZk85ejA2ajlvQ3Y1MXBLS0ZrbkdiX1RCdkswIn0.eyJleHAiOjE2NTMzNjkyNTYsImlhdCI6MTY1MzM2ODY1NiwianRpIjoiZDg5YTFlYmUtZWRlNS00Y2U4LWEwZTAtMTUzNGNjNzkyYjk0IiwiaXNzIjoiaHR0cHM6Ly9kZXYubmRobS5nb3YuaW4vYXV0aC9yZWFsbXMvY2VudHJhbC1yZWdpc3RyeSIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiIwNmJkNGZlNy04NjEyLTRiZmEtYTI1NS1iMDdiZmFjZmU1M2QiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJoZWFsdGhpZC1hcGkiLCJzZXNzaW9uX3N0YXRlIjoiNjU2NGY2N2UtZjM4My00NGRiLWIyOTYtNDA2ZmE2MmVj",
     "expiresIn": 600,
     "refreshExpiresIn": 1800,
-    "refreshToken": "string",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyMWU5NzA4OS00ZTcxLTQyNGEtOTAzYS1jOTAyMWM1NmFlNWYifQ.eyJleHAiOjE2NTMzNzA0NTYsImlhdCI6MTY1MzM2ODY1NiwianRpIjoiNGY1ZjZjMWYtYTk0Yy00ZjJmLThmZjctYTY2MDRiN2M2ZjJhIiwiaXNz",
     "tokenType": "bearer"
 }
 ```
@@ -222,9 +222,9 @@ accountRequest (body)
   "healthId": "test",
   "lastName": "A",
   "middleName": "ram",
-  "password": "string",
-  "profilePhoto": "string",
-  "txnId": "f5b82f6f-2bab-4274-8261-950d917f3b5c"
+  "password": "India@143",
+  "profilePhoto": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShj",
+  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
