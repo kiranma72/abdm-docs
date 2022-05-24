@@ -525,7 +525,7 @@ No Parameters
 	
 Return list of phr address mapped with mobile in case of success
 
-Example of Responses
+**Example of Responses**
 ```
 {
   "token": "Bearer eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJzaHViaGFuc2h1QGFiZG0iLCJjbGllbnRJZCI6IiIsInJlcXVlc3RlcklkIjoiUEhSLVsdfsdfsdfsdfdsfsfszAtMDA4Mi00ZGJlLTk3N2MtMjUxY2YyMWZiOWFhIn0.DOmjJzM1KwfdgDSg_JiHvomo5_sOwqTgG2vMyaM-c1XMCPklR-0FdWKMipIjNVycoF_sdfdfsdsfvsdY6WAqk2fM3T0d8Z9cycuavzSynT4mtNNcHX78y4OAu53mpTsTpesA4s6dK8IAcN9ir9T7Cnr5k4393i5ZUTOTs9Fq1wLPR87YzfJ6-tUgOIDdfJiGzEew2vIz_wt481ShQiIeHOG5PPCPC-H1JhblqRzijFJEX2G0zvolwC8cO9ATBWZlbOxq9gmENzYMAY1y1IBb8uO56zeldiVf0-_Pw4f8nP90nlyQrGoYfut3HuK-jmL7nUBs7Y0gufUiFw8gAIEg"
