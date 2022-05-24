@@ -7,7 +7,11 @@ draft: false
 
 # Sign up or Sign in using PHR Address
 # Sign up/Registration in PHR App
-The PHR mobile application developed by ABDM is now known as ABHA mobile application and has been taken as a reference PHR application. In this application, by registration we means creating ABHA address aka PHR address, which is an easy to remember PHR address along with its password to login. 
+
+The PHR mobile application developed by ABDM is now known as ABHA mobile application and has been taken as a reference PHR application. In this application, by registration, we mean creating an ABHA address aka PHR address, which is an easy-to-remember address. 
+
+ABHA address has to be alphanumeric. The only numeric address allowed is 14 digits and that must be a valid ABHA number. ABHA address is created to link health records of the user which are made at the facility. It is essential to have an ABHA address created to link health records to the PHR app. Multiple ABHA addresses can be created for one ABHA number and a single ABHA number can be linked to one or more ABHA addresses as per the user's convenience. 
+
 In the ABHA app which is a reference app, registration can be done by two ways:
 1. KYC Verified registration (Aadhar/DL/PAN)
 2. Self declared registration (Mobile or Email)
