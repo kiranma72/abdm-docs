@@ -53,4 +53,4 @@ HMIS / LMIS systems &amp;ndash; Anyone providing a healthcare software to hospit
 Each Client ID should be used by the organization to register ONE INSTANCE of their ABDM compiliant software
 Each instance of the software can hold health records for one or more health facilities
 The figure below explains this using e-Hospital as an example
-The Authorization Header Almost all ABDM APIs require you to pass the session token obtained via your client ID / secret in the Authorization HTTP Header.</description></item></channel></rss>
+The Authorization Header Almost all ABDM APIs require you to pass the session token obtained via your client ID / secret in the Authorization HTTP Header.</description></item><item><title/><link>http://kiranma72.github.io/abdm-docs/4-building-a-phr-app/link-unlink-abha-number/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://kiranma72.github.io/abdm-docs/4-building-a-phr-app/link-unlink-abha-number/</guid><description>Link ABHA number</description></item></channel></rss>
