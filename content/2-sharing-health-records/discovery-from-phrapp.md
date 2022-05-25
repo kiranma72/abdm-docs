@@ -26,11 +26,12 @@ pre: "<b>2.2 </b>"
 
 
 ## Discovery & Linking Flow in ABHA PHR App
-<img width="184" alt="LoginwithPHR" src="https://user-images.githubusercontent.com/104073067/169785288-2d900932-7280-4a67-a8db-c84b0fcf462a.jpg">     <img width="184" alt="landingpage" src="https://user-images.githubusercontent.com/104073067/169791285-9e3ff444-2a1f-45a6-82a1-1feaa4f474fb.jpg"> <img width="184" alt="searchHIP" src="https://user-images.githubusercontent.com/104073067/169791298-731f4dcd-9f38-41a3-aff6-2669657699a1.jpg"> <img width="184" alt="linkedHIP" src="https://user-images.githubusercontent.com/104073067/169791288-8930b979-06f5-4245-8118-b64e793f7658.jpg"> <img width="184" alt="fetchrecrd" src="https://user-images.githubusercontent.com/104073067/169791277-da0db504-4efd-466f-839d-352e4f4ffee4.jpg"> <img width="184" alt="foundrecord" src="https://user-images.githubusercontent.com/104073067/169791281-a39409b9-4bee-491c-b7e0-038540119bc1.jpg"> <img width="184" alt="recvrecord" src="https://user-images.githubusercontent.com/104073067/169791295-08455588-73a5-4390-9862-280fef75cbfb.jpg"> <img width="184" alt="linksuccessfully" src="https://user-images.githubusercontent.com/104073067/169791291-a9f19188-2273-4c62-a6ea-f816c10f2dd6.jpg">
+
+![login](../discovery-process-abha-app.png)
 
 ## API Sequence
 
-![API_discovery](https://user-images.githubusercontent.com/104073067/169794446-b42f13d5-3f35-4bb6-a558-59864fb3d2dd.jpg)
+![API_discovery](../discovery-api-seq.jpeg)
 
 Swagger link for above APIs - https://sandbox.abdm.gov.in/swagger/ndhm-hip.yaml 
 
