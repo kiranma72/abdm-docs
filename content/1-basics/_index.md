@@ -10,9 +10,9 @@ pre = "<b>1. </b>"
 
 This section covers 
 
-- Understand how the ABDM Personal Health Records Framework works and the terminology within ABDM
-- Getting access to the Sandbox & verifying your credentials
-- What integration is required to make your application ABDM compliant
+- Understand how the ABDM Personal Health Records Framework works 
+- Learn the ABDM terminology - HIP / HIU / HPR / PHR 
+- Apply for access to the Sandbox & verify your credentials
+- Understand what integration is required to make your application ABDM compliant
 - Setup an end point URL for your health repository or consumer health application
 - Link health facilities with your health repository
-- 
