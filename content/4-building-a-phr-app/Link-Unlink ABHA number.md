@@ -62,7 +62,7 @@ In Unlink ABHA number flow, the ABHA address is unlinked with the ABHA number of
 
 ### APIs for Unlinking ABHA number
 
-1. **URL: /v2/account/phr-delinked**
+1. **URL:/v2/account/phr-delinked**
 
 *Explanation*- API delinks a given ABHA Address from the ABHA number
 
