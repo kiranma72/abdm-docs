@@ -1,11 +1,12 @@
 ---
-title: "Deactivate via Mobile Otp"
+title: "Deactivate ABHA via Mobile Otp"
 date: 2022-05-07T18:00:04+05:30
 weight: 1
 draft: false
 ---
 
-## Deactivate ABHA via Mobile Otp
+# Deactivate ABHA via Mobile Otp
+
 
 ## Overview of the functionality 
 
@@ -48,7 +49,7 @@ Bearer token is received as part of respose and should be passed a Authorization
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200   OK
 
 ```json
 {
@@ -77,7 +78,7 @@ Bearer token is received as part of respose and should be passed a Authorization
 - X-HIP-ID string (header) : your-HIP-ID
 
 
-**Response:** 200  OK
+**Response:** 200   OK
 
 string
 
@@ -113,15 +114,15 @@ Responce - Api Accepts Auth Token and Generates OTP on mobile number. Returns Er
 
 **Parameters:**
 
-- Authorization string (header)
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
 
-- X-HIP-ID string (header)
+- X-HIP-ID string (header) : your-HIP-ID
 
-- X-Token string (header)
+- X-Token string (header) : Bearer your-X-token
 
 
 
-**Response:** 200  OK
+**Response:** 200   OK
 
 ```json
 {
@@ -131,6 +132,9 @@ Responce - Api Accepts Auth Token and Generates OTP on mobile number. Returns Er
 
 
 
+\
+\
+\
 **4. Deactivate the account using mobile otp.**
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v2/account/profile/deactivate
@@ -139,11 +143,11 @@ Responce - Api Accepts Auth Token and Generates OTP on mobile number. Returns Er
 
 **Parameters:**
 
-- Authorization string (header)
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
 
-- X-HIP-ID string (header)
+- X-HIP-ID string (header) : your-HIP-ID
 
-- X-Token string (header)
+- X-Token string (header) : Bearer your-X-token
 
 
 **Body:**
@@ -153,22 +157,20 @@ deactivateAccountByOtpWebRequest  (body)
 ```json
 {
   "authMethod": "MOBILE_OTP",
-  "otp": "sw1uD+gpv3fj6NHBNhtcII3GksVtkLT9bvcz0svYDyUt/x3jTtedXSYgw4b90GTwfLfs1eow056VsOw9HFS/wB8uH5Ysx+QzpL7PxmAY1WOHwOj04sPKN6Dw8XY8vcXovtvZc1dUB+TPAlGGPNu8iqMVPetukysjRxgbNdLLKMxn46rIRb8NieeyuDx1EHa90jJP9KwKGZdsLr08BysrmMJExzTO9FT93CzoNg50/nxzaQgmkBSbu9D8DxJm7XrLzWSUB05YCknHbokm4iXwyYBsrmfFDE/xCDfzYPhYyhtEmOi4J/GMp+lO+gAHQFQtxkIADhoSR8WXGcAbCUj7uTjFsBU/tc+RtvSotso4FXy8v+Ylzj28jbFTmmOWyAwYi9pThQjXnmRnq43dVdd5OXmxIII6SXs0JzoFvKwSk7VxhuLIRYzKqrkfcnWMrrmRgE8xZ6ZLft6O3IeiHb9WA8b/6/qO8Hdd17FKsSF6te59gSpoajS0FtQIgFn/c+NHzQYo5ZdsuRGM9v+bhHTInI=",
-  "password": "string",
-  "reactivationDate": "12/2/2021",
-  "reasons": "Official requirement",
+  "otp": "OISH0Ck8M4XFh7XggpLmBnyNdXD2qbMSShJERkHx8wLn+omotRxU5LXyspe0qL3v2OgOsdiw/bVMtHr/FcKHbopRga+eD1d+3tfI63qS/zosy45GYmvbBU4dVGMAbRzmYCR7gJIlxfRl2X5V9nD3rKLBL6n3s5lHn6OAW6R9lP5uSaFKRu8W30BnptSArWvGHxXlZPKogm9vezKWGRkjP1aiFlyRWYpqyqmM2r7w88atALyO0F0e98a9s4jzVZ1ggpip/3+awNTZMsL/F9Vxx0kuKayVSGiGunTO+aVRvIsM6j8zN5vSvqfi5W7v8a4I0takq3V+hCGi8EncKPGFopqXvATn/I59HhgoUPXNNZbWpDgQ+BLxXqb0G1tyQCegQe/g",
+  "reasons": ["101", "102", "103", "104"],
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
-**Response:** 204  OK
+**Response:** 204
 
 
 
 
 ## Postman + Curl Collection 
 
-**Download the Postman Collection** [here](/abdm-docs/Postman/)
+**Download the Postman Collection** [here](/abdm-docs/Postman/Deactivate_ABHA_Via_Mobile_Otp.json)
 
 **Download the Curls** [here](/abdm-docs/Curls/)
 
