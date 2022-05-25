@@ -1,11 +1,11 @@
 ---
-title: "Delete via Aadhaar Otp"
+title: "Delete ABHA via Aadhaar Otp"
 date: 2022-05-07T18:00:04+05:30
 weight: 1
 draft: false
 ---
 
-## Delete ABHA via Aadhaar Otp
+# Delete ABHA via Aadhaar Otp
 
 ## Overview of the functionality 
 
@@ -26,7 +26,78 @@ The sequence of APIs used via this method is shown in the diagram below.
 
 ## API Information Request Response 
 
-1. Generate Aadhaar OTP on Registered for link account with aadhar number
+
+\
+**1. Generate the Gateway session**
+
+Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
+
+**URL:** https://dev.ndhm.gov.in/gateway/v0.5/sessions
+
+**Request:** POST  
+
+**Body:**
+
+```json
+{
+    "clientId": "your-clientID",
+    "clientSecret": "your-clientSecret",
+    "grantType": "client_credentials"
+}
+```
+
+**Response:** 200 OK
+
+```json
+{
+    "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJBbFJiNVdDbThUbTlFSl9JZk85ejA2ajlvQ3Y1MXBLS0ZrbkdiX1RCdkswIn0.eyJleHAiOjE2NTMzNjkyNTYsImlhdCI6MTY1MzM2ODY1NiwianRpIjoiZDg5YTFlYmUtZWRlNS00Y2U4LWEwZTAtMTUzNGNjNzkyYjk0IiwiaXNz",
+    "expiresIn": 600,
+    "refreshExpiresIn": 1800,
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyMWU5NzA4OS00ZTcxLTQyNGEtOTAzYS1jOTAyMWM1NmFlNWYifQ.eyJleHAiOjE2NTMzNzA0NTYsImlhdCI6MTY1MzM2ODY1NiwianRpIjoiNGY1ZjZjMWYtYTk0Yy00ZjJmLThmZjctYTY2MDRiN2M2ZjJhIiwiaXNz",
+    "tokenType": "bearer"
+}
+```
+
+
+
+\
+\
+**2. Authentication token public certificate. This certificate is also used to encrypt the data.**
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/cert
+
+**Request:** GET  
+
+**Parameters:**
+
+- Authorization
+string (header)
+
+- X-HIP-ID
+string (header)
+
+
+**Response:** 200  OK
+
+string
+
+
+-----BEGIN PUBLIC KEY-----
+M3IdPoUuNUNUYv33QrHIb1Nmh6TECSbmokLCsPx0hHYCsH37FIDE7fXKWNXYSjtRLBF2vwt7y8qUTdklfCLmO
+VqVXacyMslKaXzsbYxHaAsm9Dkp6A0oprgnPL9x0/g9AC1/n90GakXWAdnZr6Jh/tfmjAeU+On1M6qSo1fTvH
+ppHKIzs/XdLWq7j2ENdNNWd7qHSa1MIYjCSJmO/zCRl7S/V3bvibAsXWRLamfqcNw8E+IuhQc/PK4khuHsp80
+N4RjUI1D5u84I0Qxn4G10i/gsU4Hls2RZODmOfxBBGjjgv7tO1HMa7BLyRx2NxFRCQ7d1vN6eQnxIzEFPfRyF
+yoMKpctbUS0kfwYI0T1sT6UidgDV2//SVv0ymZgeSYKwdPT2LC4HzJhpOvYMVsyGq6aEA5ieUp4wxOs8Ab3pQ
+zJKuTdXBRZo18jGoj3ZT4fGRZ/NfWrkGZiKR1SSOYZeb0MrQZnz2Or0C//fiIzpfW6AeYMd+2nUAjX+I+K2xR
+tVfSxys4I8Ylt3R3jdeVb+nlQaU6hCVlaWW1UXiljh8asnpj6q1qXPB8RoSUVIwsiCcQVibaY4OuFd6EHOgnO
+ZIMGomLoDz7omTrmpOn+dobCa7yDvkNGPjoUr67RVq0hpJ9pVJVNL9INJfK5SPXJxUqEilkVTgph0FeoObvHVXnw=
+-----END PUBLIC KEY-----
+
+
+
+\
+\
+**3. Generate Aadhaar OTP on Registered for link account with aadhar number**
 
 Api Accepts Auth Token and Generates OTP on Linked mobile number.Generate Aadhaar OTP on mobile number linked with Aadhar
 
@@ -69,10 +140,12 @@ aadharNumberWebOptionalRequestPayload  (body)
 ```
 
 
-2. Delete the account using aadhaar otp.
+
+\
+\
+**4. Delete the account using aadhaar otp.**
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v2/account/profile/delete
-
 
 **Request:** POST  
 
@@ -105,35 +178,11 @@ deleteAccountByOtpWebRequest  (body)
 
 
 
-
-
-
-
-
-
-
 ## Postman + Curl Collection 
 
 **Download the Postman Collection** [here](/abdm-docs/Postman/)
 
 **Download the Curls** [here](/abdm-docs/Curls/)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
