@@ -1,11 +1,13 @@
 ---
-title: "Reactivate via Aadhaar OTP"
+title: "Reactivate ABHA via Aadhaar OTP"
 date: 2022-05-07T18:00:04+05:30
 weight: 1
 draft: false
 ---
 
-## Reactivate ABHA via Aadhaar OTP
+
+
+# Reactivate ABHA via Aadhaar OTP
 
 ## Overview of the functionality 
 
@@ -36,7 +38,7 @@ Bearer token is received as part of respose and should be passed a Authorization
 }
 ```
 
-**Response:** 200 OK
+**Response:** 200   OK
 
 ```json
 {
@@ -66,7 +68,7 @@ Bearer token is received as part of respose and should be passed a Authorization
 - X-HIP-ID string (header) : your-HIP-ID
 
 
-**Response:** 200  OK
+**Response:** 200   OK
 
 string
 
@@ -162,6 +164,10 @@ reactivateByOTPWebRequest  (body)
 ```
 
 
+
+\
+\
+\
 ## Postman + Curl Collection 
 
 **Download the Postman Collection** [here](/abdm-docs/Postman/Reactivate_ABHA_Via_Aadhaar_Otp.json)
