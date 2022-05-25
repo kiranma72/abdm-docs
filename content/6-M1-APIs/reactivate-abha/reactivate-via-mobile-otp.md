@@ -1,11 +1,11 @@
 ---
-title: "Reactivate via Mobile OTP"
+title: "Reactivate ABHA via Mobile OTP"
 date: 2022-05-07T18:00:04+05:30
 weight: 2
 draft: false
 ---
 
-## Reactivate ABHA via Mobile OTP
+# Reactivate ABHA via Mobile OTP
 
 ## Overview of the functionality 
 
@@ -162,7 +162,9 @@ reactivateByOTPWebRequest  (body)
 ```
 
 
-
+\
+\
+\
 ## Postman + Curl Collection 
 
 **Download the Postman Collection** [here](/abdm-docs/Postman/Reactivate_ABHA_Via_Mobile_Otp.json)
