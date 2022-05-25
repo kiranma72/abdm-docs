@@ -1,11 +1,11 @@
 ---
-title: "Delete via Mobile Otp"
+title: "Delete ABHA via Mobile Otp"
 date: 2022-05-07T18:00:04+05:30
-weight: 1
+weight: 2
 draft: false
 ---
 
-## Delete ABHA via Mobile Otp
+# Delete ABHA via Mobile Otp
 
 ## Overview of the functionality 
 
@@ -24,9 +24,78 @@ The sequence of APIs used via this method is shown in the diagram below.
 ![Delete ABHA via Aadhaar Otp](/abdm-docs/img/Delete_ABHA(Health_ID).png)
 
 
+
 ## API Information Request Response 
 
-1. Generate Mobile OTP to start mobile txn.
+
+\
+**1. Generate the Gateway session**
+
+Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
+
+**URL:** https://dev.ndhm.gov.in/gateway/v0.5/sessions
+
+**Request:** POST  
+
+**Body:**
+
+```json
+{
+    "clientId": "your-clientID",
+    "clientSecret": "your-clientSecret",
+    "grantType": "client_credentials"
+}
+```
+
+**Response:** 200   OK
+
+```json
+{
+    "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJBbFJiNVdDbThUbTlFSl9JZk85ejA2ajlvQ3Y1MXBLS0ZrbkdiX1RCdkswIn0.eyJleHAiOjE2NTMzNjkyNTYsImlhdCI6MTY1MzM2ODY1NiwianRpIjoiZDg5YTFlYmUtZWRlNS00Y2U4LWEwZTAtMTUzNGNjNzkyYjk0IiwiaXNzIjoiaHR0cHM6Ly9kZXYubmRobS5nb3YuaW4vYXV0aC9yZWFsbXMvY2VudHJhbC1yZWdpc3RyeSIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiIwNmJkNGZlNy04NjEyLTRiZmEtYTI1NS1iMDdiZmFjZmU1M2QiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJoZWFsdGhpZC1hcGkiLCJzZXNzaW9uX3N0YXRlIjoiNjU2NGY2N2UtZjM4My00NGRiLWIyOTY",
+    "expiresIn": 600,
+    "refreshExpiresIn": 1800,
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyMWU5NzA4OS00ZTcxLTQyNGEtOTAzYS1jOTAyMWM1NmFlNWYifQ.eyJleHAiOjE2NTMzNzA0NTYsImlhdCI6MTY1MzM2ODY1NiwianRpIjoiNGY1ZjZjMWYtYTk0Yy00ZjJmLThmZjctYTY2MDRiN",
+    "tokenType": "bearer"
+}
+```
+
+
+\
+\
+**2. Authentication token public certificate. This certificate is also used to encrypt the data.**
+
+**URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/cert
+
+**Request:** GET  
+
+**Parameters:**
+
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
+
+- X-HIP-ID string (header) : your-HIP-ID
+
+**Response:** 200   OK
+
+string
+
+-----BEGIN PUBLIC KEY-----
+
+M3IdPoUuNUNUYv33QrHIb1Nmh6TECSbmokLCsPx0hHYCsH37FIDE7fXKWNXYSjtRLBF2vwt7y8qUTdklfCLmO
+VqVXacyMslKaXzsbYxHaAsm9Dkp6A0oprgnPL9x0/g9AC1/n90GakXWAdnZr6Jh/tfmjAeU+On1M6qSo1fTvH
+ppHKIzs/XdLWq7j2ENdNNWd7qHSa1MIYjCSJmO/zCRl7S/V3bvibAsXWRLamfqcNw8E+IuhQc/PK4khuHsp80
+N4RjUI1D5u84I0Qxn4G10i/gsU4Hls2RZODmOfxBBGjjgv7tO1HMa7BLyRx2NxFRCQ7d1vN6eQnxIzEFPfRyF
+yoMKpctbUS0kfwYI0T1sT6UidgDV2//SVv0ymZgeSYKwdPT2LC4HzJhpOvYMVsyGq6aEA5ieUp4wxOs8Ab3pQ
+zJKuTdXBRZo18jGoj3ZT4fGRZ/NfWrkGZiKR1SSOYZeb0MrQZnz2Or0C//fiIzpfW6AeYMd+2nUAjX+I+K2xR
+tVfSxys4I8Ylt3R3jdeVb+nlQaU6hCVlaWW1UXiljh8asnpj6q1qXPB8RoSUVIwsiCcQVibaY4OuFd6EHOgnO
+ZIMGomLoDz7omTrmpOn+dobCa7yDvkNGPjoUr67RVq0hpJ9pVJVNL9INJfK5SPXJxUqEilkVTgph0FeoObvHVXnw=
+
+-----END PUBLIC KEY-----
+
+
+
+\
+\
+**3. Generate Mobile OTP to start mobile txn.**
 
 Explanation - Api Accepts Auth Token and Generates OTP on mobile number.
 
@@ -40,42 +109,38 @@ Responce - Api Accepts Auth Token and Generates OTP on mobile number. Returns Er
 
 **Parameters:**
 
-- Authorization string (header)
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
 
-- X-HIP-ID string (header)
+- X-HIP-ID string (header) : your-HIP-ID
 
-- X-Token string (header)
+- X-Token string (header) : Bearer your-X-token
 
 
-**Body:**
-
-```json
-
-```
-
-**Response:** 200
+**Response:** 200   OK
 
 ```json
 {
-  "mobileNumber": "XXXXXX2125",
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
 
 
-2. Delete the account using Mobile otp.
+
+\
+\
+**4. Delete the account using Mobile otp.**
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v2/account/profile/delete
 
-**Request:** POST  
+**Request:**  POST  
 
 **Parameters:**
 
-- Authorization string (header)
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
 
-- X-HIP-ID string (header)
+- X-HIP-ID string (header) : your-HIP-ID
 
-- X-Token string (header)
+- X-Token string (header) : Bearer your-X-token
 
 
 **Body:**
@@ -83,24 +148,22 @@ Responce - Api Accepts Auth Token and Generates OTP on mobile number. Returns Er
 deleteAccountByOtpWebRequest  (body)
 
 ```json
-{
-  "authMethod": "AADHAAR_OTP",
-  "otp": "sw1uD+gpv3fj6NHBNhtcII3GksVtkLT9bvcz0svYDyUt/x3jTtedXSYgw4b90GTwfLfs1eow056VsOw9HFS/wB8uH5Ysx+QzpL7PxmAY1WOHwOj04sPKN6Dw8XY8vcXovtvZc1dUB+TPAlGGPNu8iqMVPetukysjRxgbNdLLKMxn46rIRb8NieeyuDx1EHa90jJP9KwKGZdsLr08BysrmMJExzTO9FT93CzoNg50/nxzaQgmkBSbu9D8DxJm7XrLzWSUB05YCknHbokm4iXwyYBsrmfFDE/xCDfzYPhYyhtEmOi4J/GMp+lO+gAHQFQtxkIADhoSR8WXGcAbCUj7uTjFsBU/tc+RtvSotso4FXy8v+Ylzj28jbFTmmOWyAwYi9pThQjXnmRnq43dVdd5OXmxIII6SXs0JzoFvKwSk7VxhuLIRYzKqrkfcnWMrrmRgE8xZ6ZLft6O3IeiHb9WA8b/6/qO8Hdd17FKsSF6te59gSpoajS0FtQIgFn/c+NHzQYo5ZdsuRGM9v+bhHTInI=",
-  "password": "string",
-  "reactivationDate": "12/2/2021",
-  "reasons": "Official requirement",
-  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
-}
+	{
+	  "authMethod": "MOBILE_OTP",
+	  "otp": "hzrxZvR1zkG3GxlGIy6ECQwd7rzsQmsGtzeGqAmEXpnl9jnLJR4wAIoPmAUUJLyPRzseloH59cQStn3dW6hmSDfnfYS0DpYRfIubOIo3DjkiAFkBgJrGTt0EEvoGV7Y0PYtGaaHqyo3lPDzGEqqml2rwf5p3VA7jY5Ez87UFLYPmZ14haSqZxO7EFOZGLcs29yuy3X4XvjAnJmbh5kh81ctCufqMqzk3I3fRxTzR/n42g27ou2fvuCpn/K/wBGsezmhUGUYK0nnkyh7z/9Vw91vpiqQrZdYBEX8YxnESU4KlbkYLDMBIr41I0rka70CqRFNlOJR+M+zqhJsOflRl62rQc1Bghoh9jgzW4NAWTxCGPfS375q1dxMpc6hm4mtF1mCazlQwq8feyEw8UHp9Z/kTFhkffcEFbeVSunWztY3IctL5Mfz14KFXUJfcBqt9EOTzjM15YUc/x6fBQ9P8Ix4/tP4kEUDeqyI6KVghZZsfLNaa+rvl/J4qiAA3SiXqA0adF1Hn9I2So8pFC/IvyRsFtQXo90JqwHVQYLA7Q1dIWSlPjAmObL3d65Zbb8xPg1xYLDoUUfk5kpU6hAhLom80N3d14eSvY+yzNsc1q09Wh9hgaDhUvs0CwBY0Xi0aYbhcZu26Wv3tNE4SOx5SsmqwSFwU41W281M3mHIfw5o=",
+	  "reasons": ["101", "102", "103", "104","others"],
+	  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
+	}
 ```
 
-**Response:** 204
+**Response:**  204
 
 
 
 
 ## Postman + Curl Collection 
 
-**Download the Postman Collection** [here](/abdm-docs/Postman/)
+**Download the Postman Collection** [here](/abdm-docs/Postman/Delete_ABHA_Via_Mobile_Otp.json)
 
 **Download the Curls** [here](/abdm-docs/Curls/)
 
