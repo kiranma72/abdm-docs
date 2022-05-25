@@ -70,12 +70,25 @@ Bearer token is received as part of respose and should be passed a Authorization
 
 string
 
+-----BEGIN PUBLIC KEY-----
+
+M3IdPoUuNUNUYv33QrHIb1Nmh6TECSbmokLCsPx0hHYCsH37FIDE7fXKWNXYSjtRLBF2vwt7y8qUTdklfCLmO
+VqVXacyMslKaXzsbYxHaAsm9Dkp6A0oprgnPL9x0/g9AC1/n90GakXWAdnZr6Jh/tfmjAeU+On1M6qSo1fTvH
+ppHKIzs/XdLWq7j2ENdNNWd7qHSa1MIYjCSJmO/zCRl7S/V3bvibAsXWRLamfqcNw8E+IuhQc/PK4khuHsp80
+N4RjUI1D5u84I0Qxn4G10i/gsU4Hls2RZODmOfxBBGjjgv7tO1HMa7BLyRx2NxFRCQ7d1vN6eQnxIzEFPfRyF
+yoMKpctbUS0kfwYI0T1sT6UidgDV2//SVv0ymZgeSYKwdPT2LC4HzJhpOvYMVsyGq6aEA5ieUp4wxOs8Ab3pQ
+zJKuTdXBRZo18jGoj3ZT4fGRZ/NfWrkGZiKR1SSOYZeb0MrQZnz2Or0C//fiIzpfW6AeYMd+2nUAjX+I+K2xR
+tVfSxys4I8Ylt3R3jdeVb+nlQaU6hCVlaWW1UXiljh8asnpj6q1qXPB8RoSUVIwsiCcQVibaY4OuFd6EHOgnO
+ZIMGomLoDz7omTrmpOn+dobCa7yDvkNGPjoUr67RVq0hpJ9pVJVNL9INJfK5SPXJxUqEilkVTgph0FeoObvHVXnw=
+
+-----END PUBLIC KEY-----
 
 
+
 \
 \
 \
-**3. Initiate authentication for reactivation of Health ID**
+**3. Initiate authentication for reactivation of ABHA (Health ID)**
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v2/auth/reactivate/init
 
@@ -112,7 +125,7 @@ authRequest  (body)
 \
 \
 \
-**4. Confirm reactivation txn with aadhar or mobile otp**
+**4. Confirm reactivation txn with aadhar otp**
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v2/auth/reactivate
 
