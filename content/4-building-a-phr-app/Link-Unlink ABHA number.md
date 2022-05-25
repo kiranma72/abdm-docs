@@ -2,8 +2,7 @@ ABHA number is the uniquely generated 14 digit number which provides the strong 
 
 # Link ABHA number
 
-In link ABHA number flow, the ABHA address is linked with the ABHA number of the user. 
-The link ABHA number is displayed just below the profile pic and when selected, user has to fill the ABHA number and validate it using either the Aadhar OTP or Mobile OTP linked to the ABHA number. Once the number is validated, the ABHA address will be linked to ABHA number.
+In link ABHA number flow, the ABHA address is linked with the ABHA number of the user. The link ABHA number is displayed just below the profile pic and when selected, user has to fill the ABHA number and validate it using either the Aadhar OTP or Mobile OTP linked to the ABHA number. Once the number is validated, the ABHA address will be linked to ABHA number.
 
 <img width="184" alt="Picture27" src="https://user-images.githubusercontent.com/105836429/170210796-56073fd9-e7f7-4f2f-bf49-8315f29faa52.png">  <img width="184" alt="Picture28" src="https://user-images.githubusercontent.com/105836429/170210808-75a23352-83e3-4d77-bd45-ca07042e2f2a.png">  <img width="184" alt="Picture29" src="https://user-images.githubusercontent.com/105836429/170210812-9a578649-f0ec-4926-91e4-fb768314b381.png">
 
