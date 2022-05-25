@@ -3,11 +3,9 @@ Bearer token is received as part of respose and should be passed a Authorization
 URL: https://dev.ndhm.gov.in/gateway/v0.5/sessions
 Request: POST
 Body:
-{ &amp;#34;clientId&amp;#34;: &amp;#34;your-clientID&amp;#34;, &amp;#34;clientSecret&amp;#34;: &amp;#34;your-clientSecret&amp;#34;, &amp;#34;grantType&amp;#34;: &amp;#34;client_credentials&amp;#34; } Response: 200 OK</description></item><item><title>Reactivate via Mobile OTP</title><link>http://kiranma72.github.io/abdm-docs/6-m1-apis/reactivate-abha/reactivate-via-mobile-otp/</link><pubDate>Sat, 07 May 2022 18:00:04 +0530</pubDate><guid>http://kiranma72.github.io/abdm-docs/6-m1-apis/reactivate-abha/reactivate-via-mobile-otp/</guid><description>Reactivate via Mobile OTP Overview of the functionality Users may Reactivate his/her ABHA (Health ID) via Mobile OTP by using the below endpoints. API Sequence API Information Request Response Initiate authentication for reactivation of Health ID URL: https://healthidsbx.abdm.gov.in/api/v2/auth/reactivate/init
+{ &amp;#34;clientId&amp;#34;: &amp;#34;your-clientID&amp;#34;, &amp;#34;clientSecret&amp;#34;: &amp;#34;your-clientSecret&amp;#34;, &amp;#34;grantType&amp;#34;: &amp;#34;client_credentials&amp;#34; } Response: 200 OK</description></item><item><title>Reactivate via Mobile OTP</title><link>http://kiranma72.github.io/abdm-docs/6-m1-apis/reactivate-abha/reactivate-via-mobile-otp/</link><pubDate>Sat, 07 May 2022 18:00:04 +0530</pubDate><guid>http://kiranma72.github.io/abdm-docs/6-m1-apis/reactivate-abha/reactivate-via-mobile-otp/</guid><description>Reactivate ABHA via Mobile OTP Overview of the functionality Users may Reactivate his/her ABHA (Health ID) via Mobile OTP by using the below endpoints. API Sequence API Information Request Response 1. Generate the Gateway session
+Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
+URL: https://dev.ndhm.gov.in/gateway/v0.5/sessions
 Request: POST
-Parameters:
-Authorization string (header)
-X-HIP-ID string (header)
 Body:
-authRequest (body)
-{ &amp;#34;authMethod&amp;#34;: &amp;#34;AADHAAR_OTP&amp;#34;, &amp;#34;healthid&amp;#34;: &amp;#34;43-4221-5105-6749&amp;#34; } Response: 200</description></item></channel></rss>
+{ &amp;#34;clientId&amp;#34;: &amp;#34;your-clientID&amp;#34;, &amp;#34;clientSecret&amp;#34;: &amp;#34;your-clientSecret&amp;#34;, &amp;#34;grantType&amp;#34;: &amp;#34;client_credentials&amp;#34; } Response: 200 OK</description></item></channel></rss>
