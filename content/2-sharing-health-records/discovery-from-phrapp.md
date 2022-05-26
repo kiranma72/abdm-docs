@@ -319,6 +319,24 @@ The HRP is expected to perform the following validations before responding via t
 
 202	 Accepted
 
+
+
+
+
+
+
+
+## Postman + Curl Collection 
+
+**Download the Postman Collection** [here](../Discover_Link_Flow.json)
+
+**Download the Curls** [here](/abdm-docs/Curls/)
+
+
+
+
+
+
 TODO:
 
 - Document error responses for common errors 
