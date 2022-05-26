@@ -1,4 +1,4 @@
-ABHA number is the uniquely generated 14 digit number which provides the strong identity to an individual, whereas ABHA address is used to share the health records of the individual with different healthcare providers and payers. Individual can link/Unlink ABHA number with the ABHA address to experience the benefits of both.  
+ABHA number is the uniquely generated 14 digit number which provides the strong identity to an individual, whereas ABHA address is use to share the health records of the individual with different healthcare providers and payers. Individual can link/Unlink ABHA number with the ABHA address to experience the benefits of both.  
 
 # Link ABHA number
 
