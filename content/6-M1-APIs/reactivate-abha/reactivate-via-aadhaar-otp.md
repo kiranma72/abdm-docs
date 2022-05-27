@@ -19,7 +19,7 @@ draft: false
 ## API Information Request Response 
 
 
-
+\
 **1. Generate the Gateway session**
 
 Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
@@ -42,10 +42,10 @@ Bearer token is received as part of respose and should be passed a Authorization
 
 ```json
 {
-    "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJBbFJiNVdDbThUbTlFSl9JZk85ejA2ajlvQ3Y1MXBLS0ZrbkdiX1RCdkswIn0.eyJleHAiOjE2NTMzNjkyNTYsImlhdCI6MTY1MzM2ODY1NiwianRpIjoiZDg5YTFlYmUtZWRlNS00Y2U4LWEwZTAtMTUzNGNjNzkyYjk0IiwiaXNzIjoiaHR0cHM6Ly9kZXYubmRobS5nb3YuaW4vYXV0aC9yZWFsbXMvY2VudHJhbC1yZWdpc3RyeSIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiIwNmJkNGZlNy04NjEyLTRiZmEtYTI1NS1iMDdiZmFjZmU1M2QiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJoZWFsdGhpZC1hcGkiLCJzZXNzaW9uX3N0YXRlIjoiNjU2NGY2N2UtZjM4My00NGRiLWIyOTY",
+    "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJBbFJiNVdDbThUbTlFSl9JZk85ejA2ajlvQ3Y1MXBLS0ZrbkdiX1RCdkswIn0.eyJleHAiOjE2NTMzNjkyNTYsImlhdCI6MTY1MzM2ODY1NiwianRpIjoiZDg5YTFlYmUtZWRlNS00Y2U4LWEwZTAtMTUzNGNjNzkyYjk0IiwiaXNz",
     "expiresIn": 600,
     "refreshExpiresIn": 1800,
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyMWU5NzA4OS00ZTcxLTQyNGEtOTAzYS1jOTAyMWM1NmFlNWYifQ.eyJleHAiOjE2NTMzNzA0NTYsImlhdCI6MTY1MzM2ODY1NiwianRpIjoiNGY1ZjZjMWYtYTk0Yy00ZjJmLThmZjctYTY2MDRiN",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyMWU5NzA4OS00ZTcxLTQyNGEtOTAzYS1jOTAyMWM1NmFlNWYifQ.eyJleHAiOjE2NTMzNzA0NTYsImlhdCI6MTY1MzM2ODY1NiwianRpIjoiNGY1ZjZjMWYtYTk0Yy00ZjJmLThmZjctYTY2MDRiN2M2ZjJhIiwiaXNz",
     "tokenType": "bearer"
 }
 ```
@@ -63,15 +63,19 @@ Bearer token is received as part of respose and should be passed a Authorization
 
 **Parameters:**
 
-- Authorization string (header) : Bearer your-access-token-from-gateway-session
+- Authorization : Access token which was issued after successful login with gateway auth server
 
-- X-HIP-ID string (header) : your-HIP-ID
+string (header)
+
+- X-HIP-ID : Identifier of the health information provider to which the request was intended
+
+string (header)
 
 
 **Response:** 200   OK
 
-string
 
+```text
 -----BEGIN PUBLIC KEY-----
 
 M3IdPoUuNUNUYv33QrHIb1Nmh6TECSbmokLCsPx0hHYCsH37FIDE7fXKWNXYSjtRLBF2vwt7y8qUTdklfCLmO
@@ -84,7 +88,7 @@ tVfSxys4I8Ylt3R3jdeVb+nlQaU6hCVlaWW1UXiljh8asnpj6q1qXPB8RoSUVIwsiCcQVibaY4OuFd6E
 ZIMGomLoDz7omTrmpOn+dobCa7yDvkNGPjoUr67RVq0hpJ9pVJVNL9INJfK5SPXJxUqEilkVTgph0FeoObvHVXnw=
 
 -----END PUBLIC KEY-----
-
+```
 
 
 \
@@ -98,9 +102,13 @@ ZIMGomLoDz7omTrmpOn+dobCa7yDvkNGPjoUr67RVq0hpJ9pVJVNL9INJfK5SPXJxUqEilkVTgph0Feo
 
 **Parameters:**
 
-- Authorization string (header) : Bearer your-access-token-from-gateway-session
+- Authorization : Access token which was issued after successful login with gateway auth server
 
-- X-HIP-ID string (header) : your-HIP-ID
+string (header)
+
+- X-HIP-ID : Identifier of the health information provider to which the request was intended
+
+string (header)
 
 
 **Body:**
@@ -135,9 +143,13 @@ authRequest  (body)
 
 **Parameters:**
 
-- Authorization string (header) : Bearer your-access-token-from-gateway-session
+- Authorization : Access token which was issued after successful login with gateway auth server
 
-- X-HIP-ID string (header) : your-HIP-ID
+string (header)
+
+- X-HIP-ID : Identifier of the health information provider to which the request was intended
+
+string (header)
 
 
 **Body:**
@@ -165,9 +177,7 @@ reactivateByOTPWebRequest  (body)
 
 
 
-\
-\
-\
+
 ## Postman + Curl Collection 
 
 **Download the Postman Collection** [here](/abdm-docs/Postman/Reactivate_ABHA_Via_Aadhaar_Otp.json)
