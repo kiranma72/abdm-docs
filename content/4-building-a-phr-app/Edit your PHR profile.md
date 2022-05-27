@@ -64,7 +64,7 @@ request
 
 *Responses*
 
-	Show User Details in case of success
+Show User Details in case of success
 
 **Example of responses**
 ```
