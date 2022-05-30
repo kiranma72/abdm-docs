@@ -1,4 +1,5 @@
-#  SMS Notify2  #
+#  SMS Notify2 - If the PHR address of the patient is not saved   #
+
 ABDM plans to ensure that users are aware of which health facilities are participating in ABDM. HRPs are expected to notify ABDM whenever a new health record is created using this API.
 
 The expected User flow is given below :
