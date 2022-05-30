@@ -6,8 +6,18 @@ The expected User flow is given below
 - Patient visits a health facility and registers by providing Name, DoB, Gender and Mobile. Patient does not share any ABHA address with the facility.
 - If the Health Facility is participating in ABDM, then it will notify ABDM when there is a new health record for this patient. Only the mobile number and the HIP ID of the facility is notified. Facilities are identified by the facility’s HIPCODE. This can be obtained by registering the facility using the Health Facility Registry and linking the facility to a ABDM approved Health Repository Provider Software.
 - ABDM will send an SMS to the user with a deep link.
+- The content of the message will be:
+```
+ Dear Madam/Sir,
+   <facility name> is now participating in Ayushman Bharat Digital Mission (ABDM).
+    Your report at this facility is now ready. See your record by clicking on
+    on phr.abdm.gov.in/uhi/<hipcode>
+    
+    ABDM,NHA
+ ```
 Following API must be be used by HRPs for the same -
 
+**Endpoint:**
 **/v0.5/patients/sms/notify2**
 
 ```
@@ -23,7 +33,7 @@ Following API must be be used by HRPs for the same -
     }
   }  
   ```
-  
+**Endpoint:**  
 **/v0.5/patients/sms/on-notify**
 
 If the SMS notification is successfully sent to the patient then "status" will be "ACKNOWLEDGED" with no error. If the SMS notification is failed then "status" will be "ERRORED" with error.
