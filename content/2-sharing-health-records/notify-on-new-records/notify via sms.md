@@ -3,7 +3,7 @@ ABDM plans to ensure that users are aware of which health facilities are partici
 
 The expected User flow is given below :
 
-![Deep Linking](USER FLOW – DEEP LINKING.jpg)
+![Deep Linking](../USER FLOW – DEEP LINKING.jpg)
 
 - Patient visits a health facility and registers by providing Name, DoB, Gender and Mobile. Patient does not share any ABHA address with the facility.
 - If the Health Facility is participating in ABDM, then it will notify ABDM when there is a new health record for this patient. Only the mobile number and the HIP ID of the facility is notified. Facilities are identified by the facility’s HIPCODE. This can be obtained by registering the facility using the Health Facility Registry and linking the facility to a ABDM approved Health Repository Provider Software.
