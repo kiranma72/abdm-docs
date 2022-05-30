@@ -32,9 +32,17 @@ The expected User flow is given below :
 
 Following API must be be used by HRPs for the same -
 
-**Endpoint:**
+
+**URL:**
 **/v0.5/patients/sms/notify2**
 
+**METHOD**: POST
+
+**HEADERS**:
+- Authorization: Session Token using Client ID
+- X-CM-ID: sbx or adbm. Must be the same as the domain shared in the HEALTH_ID
+
+**Request Body:**
 ```
   {
     "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
@@ -48,11 +56,21 @@ Following API must be be used by HRPs for the same -
     }
   }  
   ```
-**Endpoint:**  
+  
+  
+**URL:** 
 **/v0.5/patients/sms/on-notify**
+
+**METHOD**: POST
+
+**HEADERS**:
+- Authorization: Session Token using Client ID
+- X-CM-ID: sbx or adbm. Must be the same as the domain shared in the HEALTH_ID
+
 
 If the SMS notification is successfully sent to the patient then "status" will be "ACKNOWLEDGED" with no error. If the SMS notification is failed then "status" will be "ERRORED" with error.
 
+**Request Body:**
 ```
  {
     "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
