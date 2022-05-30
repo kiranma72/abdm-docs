@@ -8,9 +8,9 @@ Other details displayed are editable such as
 1. Mobile                   
 2. Email ID                 
 3. Address 
-- District
-- State
-- Pin Code                
+District
+State
+Pin Code                
 In self-verified profile (Created by Mobile/Email ID), all the details can be edited. 
 
 **Swagger link for API**: https://app.swaggerhub.com/apis-docs/abdm.abha/abha-service/1.0#/Integrated%20Programs/updateAccountInformationUsingPOST_1
