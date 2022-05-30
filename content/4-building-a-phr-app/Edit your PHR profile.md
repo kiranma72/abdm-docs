@@ -14,6 +14,8 @@ Other details displayed are editable such as
 
 In self-verified profile (Created by Mobile/Email ID), all the details can be edited. 
 
+<img width="184" alt="5" src="https://user-images.githubusercontent.com/105836429/170986464-95da5a77-8873-4475-a1b8-999e1289daec.jpg"> <img width="184" alt="4" src="https://user-images.githubusercontent.com/105836429/170985406-0d380f0f-6b21-4ed6-81bc-bba488adf0a2.png">  <img width="184" alt="2" src="https://user-images.githubusercontent.com/105836429/170985380-9cf1c7ae-240c-4fe1-973f-d0785e25a52c.jpg">  <img width="184" alt="3" src="https://user-images.githubusercontent.com/105836429/170985382-48ffa642-b0c7-472b-bed7-f67ec7e48f8f.jpg">  
+
 **Swagger link for API**: https://app.swaggerhub.com/apis-docs/abdm.abha/abha-service/1.0#/Integrated%20Programs/updateAccountInformationUsingPOST_1
 
 **API for Edit profile**
