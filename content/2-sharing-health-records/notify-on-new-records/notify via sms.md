@@ -8,8 +8,9 @@ The expected User flow is given below
 - ABDM will send an SMS to the user with a deep link.
 Following API must be be used by HRPs for the same -
 
-/v0.5/patients/sms/notify2
+**/v0.5/patients/sms/notify2**
 
+```
   {
     "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
     "timestamp": "2022-02-08T10:48:02.530Z",
@@ -21,10 +22,13 @@ Following API must be be used by HRPs for the same -
       }
     }
   }  
-/v0.5/patients/sms/on-notify
+  ```
+  
+**/v0.5/patients/sms/on-notify**
+
 If the SMS notification is successfully sent to the patient then "status" will be "ACKNOWLEDGED" with no error. If the SMS notification is failed then "status" will be "ERRORED" with error.
 
-
+```
  {
     "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
     "timestamp": "2022-02-08T10:56:37.221Z",
@@ -37,3 +41,4 @@ If the SMS notification is successfully sent to the patient then "status" will b
       "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
     }
   }
+```
