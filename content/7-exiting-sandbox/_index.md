@@ -1,9 +1,9 @@
 +++
 title = "Sandbox Exit Process"
 date = 2022-05-07T17:53:25+05:30
-weight = 5
+weight = 7
 chapter = true
-pre = "<b>5. </b>"
+pre = "<b>7. </b>"
 +++
 
 # Sandbox Exit Process

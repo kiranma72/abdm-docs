@@ -1,7 +1,8 @@
 ---
-title: "Link your Health Facility"
+title: "Link Health Facilities with HRP"
 date: 2022-05-07T18:00:04+05:30
 Weight: 5 
+pre: "<b>2.6 </b>"
 draft: false
 ---
 
