@@ -15,6 +15,9 @@ Linking care context automatically is a process where the HIP can link the patie
 
 In this patient will have to share their name, YOB, gender which is forwarded to the CM. The CM validates the user details and creates a new access token just for the purpose of linking. This new access token is passed to the HIP. The HIP has to call the CM with the new access token to add the care contexts.
 
+Following is the API sequence diagram :
+
+![Deep Linking](../Demo.png)
 
 
 ## API Request Response 
