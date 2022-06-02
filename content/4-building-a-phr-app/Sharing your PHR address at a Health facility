@@ -1,1 +1,9 @@
-Sharing your PHR address at a Health facility
+#Sharing your PHR address at a Health facility
+User can share his/her profile using QR code scanner which is on the top right side of the screen. When clicked, it opens the new screen where details of user is 
+displayed such as
+- Name
+- ABHA address
+- Year of Birth
+- Gender
+User has also being provided with the option to share QR Code. User can also download and view his/her ABHA address card. 
+**Scan**: Using this user can scan the ABHA address at the facility.
