@@ -103,3 +103,8 @@ Please note:
 
 •	This search API is used to find the facilities already registered, so that no duplicate facilities are created by the other APIs.
 
+
+| Parameters | Required | Description | Data type | Format, if any |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| Header | Title |
+| Paragraph | Text |
