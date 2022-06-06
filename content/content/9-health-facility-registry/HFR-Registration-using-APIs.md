@@ -52,7 +52,7 @@ Before starting to create/register a facility using the APIs, following two step
  
 #### Step 2: Register the Health Facility
 
-**------------------------------below this not yet corrected** -----------
+**------------------------------below this not yet corrected** 
 The following section covers the APIs, their required parameters, and their example requests and responses for easy understanding. The easiest way to start using the HFR APIs is by trying them out in Postman (a free tool that helps developers run and debug API requests) or our Swagger UI (https://facilitysbx.abdm.gov.in/swagger-ui.html#/)
 
 The APIs are based around REST architecture and use the basic HTTPS request methods. Our APIs accept JSON- encoded body requests and return data in the same form.
