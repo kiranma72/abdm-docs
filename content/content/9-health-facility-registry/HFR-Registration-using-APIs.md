@@ -68,9 +68,13 @@ For Production environment, the Public IP will need to be changed to 121.242.73.
 ### API Usage Guidelines ###
 
   •	APIs published use the basic HTTP request codes: POST and GET.
+  
   •	Each API has been described in detail with the attribute description and format followed, if any. Also, details if the API is mandatory or optional.
+  
   •	There are certain APIs which have authorization as a header which requires an access-token.
+  
   •	The APIs and related details are also present on [Swagger Interface](https://facilitysbx.abdm.gov.in/swagger-ui.html# ). 
+  
   •	Master APIs are created for which master data sets are available in the HFR system with corresponding values. Details are present under the “Utilities” tab on swagger link.
 
 It is requested that an integrator must first check if the facility is already registered using the Search API or the HFR UI. If the facility is already registered, integrators may proceed with linking the facility as in the “Link the facility with your HRP software” step. To register a new facility all the required information is required to be passed, in same order as mentioned in the APIs definition (basic information, additional information, detailed information, submit facility). The tables following in each API section below describes the various fields / formats and validations.
