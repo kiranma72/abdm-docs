@@ -77,6 +77,7 @@ For Production environment, the Public IP will need to be changed to 121.242.73.
   
   •	Master APIs are created for which master data sets are available in the HFR system with corresponding values. Details are present under the “Utilities” tab on swagger link.
 
+
 It is requested that an integrator must first check if the facility is already registered using the Search API or the HFR UI. If the facility is already registered, integrators may proceed with linking the facility as in the “Link the facility with your HRP software” step. To register a new facility all the required information is required to be passed, in same order as mentioned in the APIs definition (basic information, additional information, detailed information, submit facility). The tables following in each API section below describes the various fields / formats and validations.
 
 
@@ -84,13 +85,21 @@ It is requested that an integrator must first check if the facility is already r
 
 ### 1. Search API ###
 This API will provide list of facilities present in the HFR system based on the search criteria. It returns the basic details of the facilities like Facility Id, Name, demographic details, etc.
+
 Please note:
 •	User can either search for a particular facility, by giving facilityId as input parameter, or with other search criterias.
+
 •	If a user searches with facilityId, then other search parameters will not be considered.
+
 •	If search is performed without facilityId, then user will have to inout all the required parameters for a successful search.
+
 •	Input data needs to be passed in the required format as mentioned for each attribute / search parameter.
+
 •	Certain demographic details need to be filled in as LGD Codes (Local Government Directory). Please visit https://lgdirectory.gov.in/ for more information.
+
 •	The API performs fuzzy match on facility name and exact match on all the other attributes / search parameter.
+
 •	Search result follows pagination format. By default it will return the first page consisting of 10 records unless specified otherwise.
-•	This search API is used to find the facilities already registered, so that no duplicate facilities are created by the other APIs
+
+•	This search API is used to find the facilities already registered, so that no duplicate facilities are created by the other APIs.
 
