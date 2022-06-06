@@ -107,5 +107,5 @@ Please note:
 | Parameters | Required | Description | Data type | Format, if any |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
 | ownershipCode | Yes (if facilityId not present) | Ownership of the facility to be searched | String | Accepted codes as specified in get-master-data API with type=’OWNER’ |
- |
+| stateLGDCode | Yes (if facilityId not present) | State of the facility. The value should be from LGD | String | LGD Code |
 | Paragraph | Text |
