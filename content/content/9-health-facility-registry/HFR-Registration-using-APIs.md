@@ -52,27 +52,41 @@ Before starting to create/register a facility using the APIs, following two step
  
 #### Step 2: Register the Health Facility
 
-**------------------------------below this not yet corrected** 
-The following section covers the APIs, their required parameters, and their example requests and responses for easy understanding. The easiest way to start using the HFR APIs is by trying them out in Postman (a free tool that helps developers run and debug API requests) or our Swagger UI (https://facilitysbx.abdm.gov.in/swagger-ui.html#/)
+The following section covers the APIs, their required parameters, and their example requests and responses for easy understanding. The easiest way to start using the HFR APIs is by trying them out in Postman (a free tool that helps developers run and debug API requests) or [HFR Swagger link](https://facilitysbx.abdm.gov.in/swagger-ui.html#/).
 
 The APIs are based around REST architecture and use the basic HTTPS request methods. Our APIs accept JSON- encoded body requests and return data in the same form.
+The APIs should be integrated and tested out in sandbox, prior to requesting access for production details. 
 
-The APIs should be integrated and tested out in sandbox, prior to requesting access for production details.
+# Getting Started with HFR registration & search APIS #
+First, ensure to whitelist the Public IP of HFR sandbox to integrate and access the APIs. Please make note of the details for whitelisting in Sandbox environment.
+    •	Public IP: 121.242.73.85
+    •	Port to be opened: 443
+    •	Domain: facilitysbx.abdm.gov.in
+
+For Production environment, the Public IP will need to be changed to 121.242.73.91 and domain updated to facility.abdm.gov.in.
+
+### API Usage Guidelines ###
+
+  •	APIs published use the basic HTTP request codes: POST and GET.
+  •	Each API has been described in detail with the attribute description and format followed, if any. Also, details if the API is mandatory or optional.
+  •	There are certain APIs which have authorization as a header which requires an access-token.
+  •	The APIs and related details are also present on [Swagger Interface](https://facilitysbx.abdm.gov.in/swagger-ui.html# ). 
+  •	Master APIs are created for which master data sets are available in the HFR system with corresponding values. Details are present under the “Utilities” tab on swagger link.
+
+It is requested that an integrator must first check if the facility is already registered using the Search API or the HFR UI. If the facility is already registered, integrators may proceed with linking the facility as in the “Link the facility with your HRP software” step. To register a new facility all the required information is required to be passed, in same order as mentioned in the APIs definition (basic information, additional information, detailed information, submit facility). The tables following in each API section below describes the various fields / formats and validations.
 
 
-Getting Started
-First, you will need to whitelist the Public IP of HFR sandbox to integrate and access the APIs. Please make note of the details
-•	Public IP: 121.242.73.85
-•	Port to be opened: 443
-•	Domain: facilitysbx.abdm.gov.in
+## API for Facility Search functionality - SEARCH FOR FACILITY ## 
 
-For Production, the Public IP will need to be changed to 121.242.73.91 and domain updated to facility.abdm.gov.in
+### 1. Search API ###
+This API will provide list of facilities present in the HFR system based on the search criteria. It returns the basic details of the facilities like Facility Id, Name, demographic details, etc.
+Please note:
+•	User can either search for a particular facility, by giving facilityId as input parameter, or with other search criterias.
+•	If a user searches with facilityId, then other search parameters will not be considered.
+•	If search is performed without facilityId, then user will have to inout all the required parameters for a successful search.
+•	Input data needs to be passed in the required format as mentioned for each attribute / search parameter.
+•	Certain demographic details need to be filled in as LGD Codes (Local Government Directory). Please visit https://lgdirectory.gov.in/ for more information.
+•	The API performs fuzzy match on facility name and exact match on all the other attributes / search parameter.
+•	Search result follows pagination format. By default it will return the first page consisting of 10 records unless specified otherwise.
+•	This search API is used to find the facilities already registered, so that no duplicate facilities are created by the other APIs
 
-API Usage Guidelines
-•	Our APIs use the basic HTTP request codes: POST and GET.
-•	Each API has been described in detail with the attribute description, format followed if any and mandatory or not.
-•	There are certain APIs which have Authorization as a Header which will need an access-token.
-•	The APIs and related details are also present on our swagger interface (https://facilitysbx.abdm.gov.in/swagger-ui.html# ). 
-•	We have also created master APIs where you can check what all master data sets are available in the HFR system and see corresponding values as well. These are present under the “Utilities” tab on swagger link.
-
-It is requested that you first check if the facility is already registered using the Search API or the HFR UI. If the facility is already registered, you can proceed with linking the facility as in the “Link the facility with your HRP software” step. In order to register a new facility pass all the required information in order in the mentioned APIs (basic information, additional information, detailed information, submit facility). The tables following in each API section below describes the various fields / formats and validations
