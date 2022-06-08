@@ -34,5 +34,7 @@ Consent request as HIU comes with a consent expiry time, after which you will no
 - Details of who is requesting the health information and of whom
 - Health information types; the HIP needs to maintain details of what has been requested and what has been sent.
 
-4: Cosent manager sahre the approved consent artifect with HIU.
+4: Consent manager share the approved consent artifect with HIU.
+
+Following is the diagram to explain the "notify the consent artefect" : 
 
