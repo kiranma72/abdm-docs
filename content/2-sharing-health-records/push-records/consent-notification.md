@@ -16,7 +16,7 @@ Obtaining the patient’s consent for information sharing begins when the HIU sy
 
 Following are the steps to notify the consent to HIP/HRP :
 
-# 1: An HIU create a request to obtain a patient's consent to access her health information, as follows:
+ 1: An HIU create a request to obtain a patient's consent to access her health information, as follows: 
 
 Consent request may have follwoing details:
 - User's consent manager ID
@@ -27,16 +27,16 @@ Consent request may have follwoing details:
 
 Consent request as HIU comes with a consent expiry time, after which you will not be able to access the patient's data.
 
-# 2: Patient Approved or reject the consent request via PHR App
+ 2: Patient Approved or reject the consent request via PHR App
 
-# 3: CM notify to HIP/HRP after patient grant approval . HIP/HRP save the consent artefact after patients grants a request. The consent artefact lets the HIP know what data needs to be shared, as detailed below:
+ 3: CM notify to HIP/HRP after patient grant approval . HIP/HRP save the consent artefact after patients grants a request. The consent artefact lets the HIP know what data needs to be shared, as detailed below:
 
 - Patient's consent manager ID
 - Purpose of data access consent
 - Details of who is requesting the health information and of whom
 - Health information types; the HIP needs to maintain details of what has been requested and what has been sent.
 
-# 4: Consent manager share the approved consent artifect with HIU.
+ 4: Consent manager share the approved consent artifect with HIU.
 
-Following is the diagram to explain the "notify the consent artefect" : 
+Bellow is the diagram to explain the "notify the consent artefect" : 
 
