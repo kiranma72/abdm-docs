@@ -1,16 +1,147 @@
 ---
-title: "Sign Up or Sign in using PHR Addr"
+title: "Sign Up or Sign in"
 date: 2022-05-07T18:00:04+05:30
 weight: 1
 draft: false
+Pre: "<b>4.1 </b>"
 ---
 
-# Sign up or Sign in using PHR Address
-# Sign up/Registration in PHR App
+### Sign up / Sign in 
 
-The PHR mobile application developed by ABDM is now known as ABHA mobile application and has been taken as a reference PHR application. In this application, by registration, we mean creating an ABHA address aka PHR address, which is an easy-to-remember address. 
+Every PHR App user needs to have an ABHA Address (also reffered to as PHR Address). The address looks like "username@hie-cm". Currently ABDM manages 2 HIE-CMs. The Sandbox HIE-CM @sbx and the production HIE-CM @abdm. PHR Apps use APIs provided by the HIE-CM to create a new ABHA address for users. 
 
-ABHA address has to be alphanumeric. The only numeric address allowed is 14 digits and that must be a valid ABHA number. ABHA address is created to link health records of the user which are made at the facility. It is essential to have an ABHA address created to link health records to the PHR app. Multiple ABHA addresses can be created for one ABHA number and a single ABHA number can be linked to one or more ABHA addresses as per the user's convenience. 
+The user chosen ABHA address has to be alphanumeric. The only numeric address allowed is 14 digits and that must be a valid ABHA number. 
+
+### Recommended User Experience 
+
+- User is requested to enter their mobile no / email id
+- The mobile / email is validated via an OTP 
+- All ABHA Addresses linked to the mobile / email is retrieved and presented to user.
+- User can select an already created ABHA address and login OR
+- User can create a new ABHA address linked to this mobile or email 
+- PHR app should check & suggest PHR addressess that are available when creating a new address
+
+This is demonstrated in the ABHA PHR reference app 
+
+> Insert image here 
+
+### Multiple ABHA Addresses for same user
+
+Users are allowed to create multiple ABHA addresses as per their convienence / requirement. ABDM requires PHR apps to educate users that is it better to maintain only one ABHA address and link all health records to this address. 
+
+The ABDM HIE-CM restricts the number of ABHA addresses that can be linked to a single mobile number to 4
+
+### API Sequence 
+
+#### 1. Generate an OTP for Mobile / Email
+
+**URL: /v1/apps/generate/otp**
+
+*Explanation* - Api Accepts Mobile Number/Email and then Generates OTP for it. 
+
+*Request Body* - Required Response 
+
+Api Accepts Mobile Number/Email and then Generates OTP for it. if number/email id not found then throws error.
+
+Note :
+
+1. OTP will be valid for 10 Minutes only
+*Parameters* 
+
+No Parameters
+
+*Request body* (In application/JSON)
+
+**Example for Request body**
+```
+{
+  "value": "yJ2hY5bc2g3P2pQyca/ER6VYQ8TGMj/VN42h9xkh/3jAwJQtZEspnhrtEKqwFXt1+8budi64CPlUEzbkwUsCotIOMm8idfSX+SQyb8VlqLxxIkAzGvmXjWrbQUNEUWnnJjzkIjweNmj8GJ2u0uRdrAGpBc1vMoMz5XD2SGfFttvmziTtucq5w2dOoAPOni4Bl7sfii3Qyo8Szl1/tXNnZbDZi8HH9Cpajno4pFiu6mQDVTkkyDHTqyo7Bv3IFpdNYiRDAZ1yh1cBOfufMy1gSZQetCwETFxdsOgw7JvKL/gEN+RAFKZF2oUriCsAkYYbxW1cfrqa/YRXUw0ho+n4Jw==",
+  "authMode": "MOBILE_OTP / EMAIL_OTP"
+}
+```
+*Responses*
+
+Return transaction id in case of success
+
+**Example for Responses**
+```
+{
+  "sessionId": "31216fed-4a23-4a18-ac89-03c9f3a0bf89"
+}
+```
+
+3. **URL: /v1/apps/resend/otp**
+
+*Explanation* - Api Accepts Transaction Number and then Resend OTP for it. 
+
+*Request Body* - Required Response 
+
+Api Accepts Transaction Number and then Resend OTP for it. if transaction number not found then throws error.
+*Parameters* 
+
+No Parameters
+
+*Request body* (In application/JSON)
+
+**Example for Request body**
+```
+{
+  "sessionId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
+}
+```
+*Responses*
+
+Return transaction id in case of success
+
+**Example for Responses**
+```
+{
+  "success": "true",
+  "sessionId": "16a18568-7c86-49a7-a95c-f1671cd04a94"
+}
+```
+
+4. **URL: /v1/apps/validate/otp**
+API to verify the Mobile/Email OTP
+Request
+Below is the Request Parameters description
+
+*Attributes Description*
+sessionId * required  Session number, Based on UUID.
+value * required  Value reviced on the mobile number.
+
+Note :
+
+1. OTP must be in encrypted form, Plain text form OTP is not allowed
+
+*Parameters* 
+
+No Parameters
+
+*Request body* (In application/JSON)
+
+**Example for Request body**
+```
+{
+  "value": "tSCaVUjHwHiMVCokz7u3ogfop5r7ON5GmVY4rJNaQhoVAMlZl5lDqbb4vobfFMsQ1zO404gkWqPqLoDCdavx+JJ5pxprDpRo+PbeV44q51xr5OoNW2ITy9x6WM81KF9o7OnIU3FOGg09jqcJ/By3S8ICWxzJDKVwCJPehHtjhSFiy+mdWEjKkBTrEWJRTy3ZOkij+fskm+JjLoJlIF0TmA94Jb/avX0/LrnacpWEYWAHd0R/8/HIeITVNwG5hnsuRyIcIKKy7bEuYul8wJDD8RPBhL/gIAV4c5zDCb518o1MJGQtNg8Yf/zcROdaynWrBHIh2tacPrxmLHiZHD+BHQ==",
+  "sessionId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
+}
+```
+
+*Responses*
+
+Return Transaction Number in case of success
+
+**Example of Responses**
+```
+{
+  "mappedPhrAddress": "[user@abdm, user2@abdm]",
+  "sessionId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
+}
+```
+
+### 
+ Multiple ABHA addresses can be created for one ABHA number and a single ABHA number can be linked to one or more ABHA addresses as per the user's convenience. 
 
 In the ABHA app which is a reference app, registration can be done by two ways:
 1. KYC Verified registration (Aadhar/DL/PAN)
@@ -344,110 +475,6 @@ Return transaction id in case of success
 }
 ```
 
-3. **URL: /v1/apps/generate/otp**
-
-*Explanation* - Api Accepts Mobile Number/Email and then Generates OTP for it. 
-
-*Request Body* - Required Response 
-
-Api Accepts Mobile Number/Email and then Generates OTP for it. if number/email id not found then throws error.
-
-Note :
-
-1. OTP will be valid for 10 Minutes only
-*Parameters* 
-
-No Parameters
-
-*Request body* (In application/JSON)
-
-**Example for Request body**
-```
-{
-  "value": "yJ2hY5bc2g3P2pQyca/ER6VYQ8TGMj/VN42h9xkh/3jAwJQtZEspnhrtEKqwFXt1+8budi64CPlUEzbkwUsCotIOMm8idfSX+SQyb8VlqLxxIkAzGvmXjWrbQUNEUWnnJjzkIjweNmj8GJ2u0uRdrAGpBc1vMoMz5XD2SGfFttvmziTtucq5w2dOoAPOni4Bl7sfii3Qyo8Szl1/tXNnZbDZi8HH9Cpajno4pFiu6mQDVTkkyDHTqyo7Bv3IFpdNYiRDAZ1yh1cBOfufMy1gSZQetCwETFxdsOgw7JvKL/gEN+RAFKZF2oUriCsAkYYbxW1cfrqa/YRXUw0ho+n4Jw==",
-  "authMode": "MOBILE_OTP / EMAIL_OTP"
-}
-```
-*Responses*
-
-Return transaction id in case of success
-
-**Example for Responses**
-```
-{
-  "sessionId": "31216fed-4a23-4a18-ac89-03c9f3a0bf89"
-}
-```
-
-3. **URL: /v1/apps/resend/otp**
-
-*Explanation* - Api Accepts Transaction Number and then Resend OTP for it. 
-
-*Request Body* - Required Response 
-
-Api Accepts Transaction Number and then Resend OTP for it. if transaction number not found then throws error.
-*Parameters* 
-
-No Parameters
-
-*Request body* (In application/JSON)
-
-**Example for Request body**
-```
-{
-  "sessionId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
-}
-```
-*Responses*
-
-Return transaction id in case of success
-
-**Example for Responses**
-```
-{
-  "success": "true",
-  "sessionId": "16a18568-7c86-49a7-a95c-f1671cd04a94"
-}
-```
-
-4. **URL: /v1/apps/validate/otp**
-API to verify the Mobile/Email OTP
-Request
-Below is the Request Parameters description
-
-*Attributes	Description*
-sessionId * required	Session number, Based on UUID.
-value * required	Value reviced on the mobile number.
-
-Note :
-
-1. OTP must be in encrypted form, Plain text form OTP is not allowed
-
-*Parameters* 
-
-No Parameters
-
-*Request body* (In application/JSON)
-
-**Example for Request body**
-```
-{
-  "value": "tSCaVUjHwHiMVCokz7u3ogfop5r7ON5GmVY4rJNaQhoVAMlZl5lDqbb4vobfFMsQ1zO404gkWqPqLoDCdavx+JJ5pxprDpRo+PbeV44q51xr5OoNW2ITy9x6WM81KF9o7OnIU3FOGg09jqcJ/By3S8ICWxzJDKVwCJPehHtjhSFiy+mdWEjKkBTrEWJRTy3ZOkij+fskm+JjLoJlIF0TmA94Jb/avX0/LrnacpWEYWAHd0R/8/HIeITVNwG5hnsuRyIcIKKy7bEuYul8wJDD8RPBhL/gIAV4c5zDCb518o1MJGQtNg8Yf/zcROdaynWrBHIh2tacPrxmLHiZHD+BHQ==",
-  "sessionId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
-}
-```
-
-*Responses*
-
-Return Transaction Number in case of success
-
-**Example of Responses**
-```
-{
-  "mappedPhrAddress": "[user@abdm, user2@abdm]",
-  "sessionId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
-}
-```
 
 
 # Sign-in/Login in PHR App

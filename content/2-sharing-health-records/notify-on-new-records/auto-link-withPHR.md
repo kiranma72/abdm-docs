@@ -24,7 +24,7 @@ Following is the API sequence diagram :
 
 ### API Request Response 
 
-#### Add the care context to the PHR address 
+#### 1. Add the care context to the PHR address 
 
 **URL:**
 **https://dev.abdm.gov.in/gateway/v0.5/links/link/add-contexts**
