@@ -16,7 +16,7 @@
 
 Following are the steps to notify the consent to HIP/HRP :
 
- **1:** An HIU create a request to obtain a patient's consent to access her health information, as follows: 
+ **1:** HIU create a request to obtain a patient's consent to access her health information, as follows: 
 
 Consent request may have follwoing details:
 - User's consent manager ID
