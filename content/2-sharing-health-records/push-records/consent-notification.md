@@ -40,3 +40,4 @@ Consent request as HIU comes with a consent expiry time, after which you will no
 
 Bellow is the diagram to explain the "notify the consent artefect" : 
 
+![ConsentNotification](../notify-consent.jpg)
