@@ -38,6 +38,6 @@ Consent request as HIU comes with a consent expiry time, after which you will no
 
  4: Consent manager share the approved consent artifect with HIU.
 
-Bellow is the diagram to explain the "notify the consent artefect" : 
+Below is the diagram to explain the "notify the consent artefect" : 
 
 ![ConsentNotification](../notify-consent.jpg)
