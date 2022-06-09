@@ -15,7 +15,7 @@ company,organization working on health analytics, insurers, medical researchers 
 patient, and upon obtaining the patient’s digital consent, view the health records for a limited time period.
 
 
-- How to create consent request and notifying the patient
+- How to create consent request and notify the patient
 - How to notify patient consent from CM to HIU
 - How to fetch the consent artefact
 - How to make data request and transfer
