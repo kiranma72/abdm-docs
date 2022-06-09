@@ -122,12 +122,15 @@ Developers can search for the facility name they registered for their HRP using 
 202	Request Accepted
 
 **Notes**
+
 Notification of consents to health information providers consent request granted, consent revoked, consent expired. Only the GRANTED and REVOKED status notifications will be sent to HIP.
 
 If consent is granted, status=GRANTED, then consentDetail contains the consent artefact details and signature is available.
 If consent is revoked, then status=REVOKED, and consentId specifes which consent artefact is revoked.
+
 ###  On- Notify 
 This API is called by HIP as acknowledgement to notification of consents, in cases of consent revocation and expiration.
+
 **End Point URL**: /v0.5/consents/hip/on-notify
 
 **METHOD**: POST
