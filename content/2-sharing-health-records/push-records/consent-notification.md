@@ -50,8 +50,6 @@ Swagger link for above APIs - https://sandbox.abdm.gov.in/swagger/ndhm-hip.yaml
 
 ###  Notify Consent
 
-Developers can search for the facility name they registered for their HRP using the ABDM PHR Sandbox App. The Discovery request will be sent to the HRP callback Url registered with the sandbox.
-
 **End Point URL**: /v0.5/consents/hip/notify
 
 **METHOD**: POST
