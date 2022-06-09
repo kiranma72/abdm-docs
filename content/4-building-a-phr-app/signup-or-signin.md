@@ -35,7 +35,7 @@ The ABDM HIE-CM restricts the number of ABHA addresses that can be linked to a s
 
 #### 1. Generate an OTP for Mobile / Email
 
-**URL: /v1/apps/generate/otp**
+**URL: https://dev.abdm.gov.in/cm/v1/apps/generate/otp**
 
 *Explanation* - Api Accepts Mobile Number/Email and then Generates OTP for it. 
 
@@ -70,7 +70,7 @@ Return transaction id in case of success
 }
 ```
 
-3. **URL: /v1/apps/resend/otp**
+3. **URL: https://dev.abdm.gov.in/cm/v1/apps/resend/otp**
 
 *Explanation* - Api Accepts Transaction Number and then Resend OTP for it. 
 
@@ -101,7 +101,7 @@ Return transaction id in case of success
 }
 ```
 
-4. **URL: /v1/apps/validate/otp**
+4. **URL: https://dev.abdm.gov.in/cm/v1/apps/validate/otp**
 API to verify the Mobile/Email OTP
 Request
 Below is the Request Parameters description
@@ -157,7 +157,7 @@ For creating new ABHA address, individual can choose an ABHA address from the su
 Swagger link for APIs: https://sandbox.abdm.gov.in/swagger/ndhm-phr-app2.yaml
 
 **APIs for registering using ABHA number**
-1. **URL: /v1/apps/registration/hid/confirm-init**
+1. **URL: https://dev.abdm.gov.in/cm/v1/apps/registration/hid/confirm-init**
 
 *Explanation* - Api Checks Health ID Number to find User.
 
@@ -220,7 +220,7 @@ Return status as true alone with partail details of Health id number in case of 
 }
 ```
 
-2. **URL:/v1/apps/create/registration/hid/create/phrAddress**
+2. **URL: https://dev.abdm.gov.in/cm/v1/apps/create/registration/hid/create/phrAddress**
 
 *Parameters*
 
@@ -249,7 +249,7 @@ OK
 }
 ```
 
-3. **URL: /v1/apps/registration/hid/auth-init**
+3. **URL: https://dev.abdm.gov.in/cm/v1/apps/registration/hid/auth-init**
 
 *Explanation* - Api Checks Health ID Number to find User.
 
@@ -286,7 +286,7 @@ Return status as true alone with partail details of Health id number in case of 
 }
 ```
 
-4. **URL: /v1/apps/registration/hid/search/auth-mode**
+4. **URL: https://dev.abdm.gov.in/cm/v1/apps/registration/hid/search/auth-mode**
 
 *Explanation* - Api Checks Health ID Number to find User.
 
@@ -361,7 +361,7 @@ For creating new ABHA address, inidvidual can choose an ABHA address from the su
 Swagger link for APIs: https://sandbox.abdm.gov.in/swagger/ndhm-phr-app2.yaml
 
 **APIs for registering using Mobile number or Email ID**
-1. **URL: /v1/apps/create/phrAddress**
+1. **URL: https://dev.abdm.gov.in/cm/v1/apps/create/phrAddress**
 
 To Register the beneficiary.
 
@@ -407,7 +407,7 @@ Return user token id in case of success
 }
 ```
 
-2. **URL: /v1/apps/registration/details**
+2. **URL: https://dev.abdm.gov.in/cm/v1/apps/registration/details**
 
 To Register the beneficiary.
 
@@ -495,7 +495,7 @@ Swagger link for APIs: https://sandbox.abdm.gov.in/swagger/ndhm-phr-app2.yaml
 
 **APIs for login via mobile number**
 
-1. **URL: /v1/apps/login/hid/auth-init**
+1. **URL: https://dev.abdm.gov.in/cm/v1/apps/login/hid/auth-init**
 
 *Explanation* - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it. 
 
@@ -537,7 +537,7 @@ Return transaction id in case of success
 }
 ```
 
-2. **URL: /v1/apps/login/mobileEmail/auth-confirm**
+2. **URL: https://dev.abdm.gov.in/cm/v1/apps/login/mobileEmail/auth-confirm**
 
 fetch the User token
 
@@ -566,7 +566,7 @@ Return list of phr address mapped with mobile in case of success
 }
 ```
 
-3. **URL: /v1/apps/login/mobileEmail/auth-init**
+3. **URL: https://dev.abdm.gov.in/cm/v1/apps/login/mobileEmail/auth-init**
 
 *Explanation* - Api Accepts Mobile/Email address and then generates OTP for it. 
 
@@ -608,7 +608,7 @@ Return transaction id in case of success
 }
 ```
 
-4. **URL: /v1/apps/login/mobileEmail/pre-Verify**
+4. **URL: https://dev.abdm.gov.in/cm/v1/apps/login/mobileEmail/pre-Verify**
 
 *Explanation* - Api Accepts Transaction Number and OTP(Encrypted form) for it. 
 
@@ -647,7 +647,7 @@ Return list of phr address mapped with mobile in case of success
 }
 ```
 
-5. **URL: /v1/apps/phrAddress/auth-init**
+5. **URL: https://dev.abdm.gov.in/cm/v1/apps/phrAddress/auth-init**
 
 *Explanation* - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it.
 
@@ -689,7 +689,7 @@ Return transaction id in case of success
   "error": null
 }
 ```
-6. **URL: /v1/apps/phrAddress/auth-confirm**
+6. **URL: https://dev.abdm.gov.in/cm/v1/apps/phrAddress/auth-confirm**
 
 *Explanation* - Api Accepts Transaction Id and Passowrd, Mobile/Email OTP based on Auth methods, Plain text credentails is not allowed. 
 
@@ -725,7 +725,7 @@ Return user Token id in case of success
 }
 ```
 
-7. **URL: /v1/apps/login/hid/search/auth-mode**
+7. **URL: https://dev.abdm.gov.in/cm/v1/apps/login/hid/search/auth-mode**
 
 *Explanation* - Api Checks Health ID Number to find User.
 
@@ -764,7 +764,7 @@ Return status as true alone with partail details of Health id number in case of 
 }
 ```
 
-8. **URL: /v1/apps/phrAddress/search/auth-mode**
+8. **URL: https://dev.abdm.gov.in/cm/v1/apps/phrAddress/search/auth-mode**
 
 *Responses*
 	
@@ -788,7 +788,7 @@ Swagger link for APIs: https://sandbox.abdm.gov.in/swagger/ndhm-phr-app2.yaml
 
 **APIs for login via ABHA address**
 
-1. **URL: /v1/apps/login/hid/auth-init**
+1. **URL: https://dev.abdm.gov.in/cm/v1/apps/login/hid/auth-init**
 
 *Explanation* - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it. 
 
@@ -830,7 +830,7 @@ Return transaction id in case of success
 }
 ```
 
-2. **URL: /v1/apps/login/mobileEmail/auth-confirm**
+2. **URL: https://dev.abdm.gov.in/cm/v1/apps/login/mobileEmail/auth-confirm**
 
 fetch the User token
 
@@ -859,7 +859,7 @@ Return list of phr address mapped with mobile in case of success
 }
 ```
 
-3. **URL: /v1/apps/login/mobileEmail/auth-init**
+3. **URL: https://dev.abdm.gov.in/cm/v1/apps/login/mobileEmail/auth-init**
 
 *Explanation* - Api Accepts Mobile/Email address and then Generates OTP for it. 
 
@@ -901,7 +901,7 @@ Return transaction id in case of success
 }
 ```
 
-4. **URL: /v1/apps/login/mobileEmail/pre-Verify**
+4. **URL: https://dev.abdm.gov.in/cm/v1/apps/login/mobileEmail/pre-Verify**
 
 *Explanation* - Api Accepts Transaction Number and OTP(Encrypted form) for it. 
 
@@ -940,7 +940,7 @@ Return list of phr address mapped with mobile in case of success
 }
 ```
 
-5. **URL: /v1/apps/phrAddress/auth-init**
+5. **URL: https://dev.abdm.gov.in/cm/v1/apps/phrAddress/auth-init**
 
 *Explanation* - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it.
 
@@ -982,7 +982,7 @@ Return transaction id in case of success
   "error": null
 }
 ```
-6. **URL: /v1/apps/phrAddress/auth-confirm**
+6. **URL: https://dev.abdm.gov.in/cm/v1/apps/phrAddress/auth-confirm**
 
 *Explanation* - Api Accepts Transaction Id and Passowrd, Mobile/Email OTP based on Auth methods, Plain text credentails is not allowed. 
 
@@ -1018,7 +1018,7 @@ Return user Token id in case of success
 }
 ```
 
-7. **URL: /v1/apps/login/hid/search/auth-mode**
+7. **URL: https://dev.abdm.gov.in/cm/v1/apps/login/hid/search/auth-mode**
 
 *Explanation* - Api Checks Health ID Number to find User.
 
@@ -1057,7 +1057,7 @@ Return status as true alone with partail details of Health id number in case of 
 }
 ```
 
-8. **URL: /v1/apps/phrAddress/search/auth-mode**
+8. **URL: https://dev.abdm.gov.in/cm/v1/apps/phrAddress/search/auth-mode**
 
 *Responses*
 	
@@ -1081,7 +1081,7 @@ Swagger link for APIs: https://sandbox.abdm.gov.in/swagger/ndhm-phr-app2.yaml
 
 **APIs for login via Email ID**
 
-1. **URL: /v1/apps/login/hid/auth-init**
+1. **URL: https://dev.abdm.gov.in/cm/v1/apps/login/hid/auth-init**
 
 *Explanation* - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it. 
 
@@ -1123,7 +1123,7 @@ Return transaction id in case of success
 }
 ```
 
-2. **URL: /v1/apps/login/mobileEmail/auth-confirm**
+2. **URL: https://dev.abdm.gov.in/cm/v1/apps/login/mobileEmail/auth-confirm**
 
 fetch the User token
 
@@ -1152,7 +1152,7 @@ Return list of phr address mapped with mobile in case of success
 }
 ```
 
-3. **URL: /v1/apps/login/mobileEmail/auth-init**
+3. **URL: https://dev.abdm.gov.in/cm/v1/apps/login/mobileEmail/auth-init**
 
 *Explanation* - Api Accepts Mobile/Email address and then Generates OTP for it. 
 
@@ -1194,7 +1194,7 @@ Return transaction id in case of success
 }
 ```
 
-4. **URL: /v1/apps/login/mobileEmail/pre-Verify**
+4. **URL: https://dev.abdm.gov.in/cm/v1/apps/login/mobileEmail/pre-Verify**
 
 *Explanation* - Api Accepts Transaction Number and OTP(Encrypted form) for it. 
 
@@ -1233,7 +1233,7 @@ Return list of phr address mapped with mobile in case of success
 }
 ```
 
-5. **URL: /v1/apps/phrAddress/auth-init**
+5. **URL: https://dev.abdm.gov.in/cm/v1/apps/phrAddress/auth-init**
 
 *Explanation* - Api Accepts PHR ADDRESS and then Generates OTPbased on Authentication mode for it.
 
@@ -1275,7 +1275,7 @@ Return transaction id in case of success
   "error": null
 }
 ```
-6. **URL: /v1/apps/phrAddress/auth-confirm**
+6. **URL: https://dev.abdm.gov.in/cm/v1/apps/phrAddress/auth-confirm**
 
 *Explanation* - Api Accepts Transaction Id and Passowrd, Mobile/Email OTP based on Auth methods, Plain text credentails is not allowed. 
 
@@ -1311,7 +1311,7 @@ Return user Token id in case of success
 }
 ```
 
-7. **URL: /v1/apps/login/hid/search/auth-mode**
+7. **URL: https://dev.abdm.gov.in/cm/v1/apps/login/hid/search/auth-mode**
 
 *Explanation* - Api Checks Health ID Number to find User.
 
@@ -1350,7 +1350,7 @@ Return status as true alone with partail details of Health id number in case of 
 }
 ```
 
-8. **URL: /v1/apps/phrAddress/search/auth-mode**
+8. **URL: https://dev.abdm.gov.in/cm/v1/apps/phrAddress/search/auth-mode**
 
 *Responses*
 	
@@ -1372,7 +1372,7 @@ Individual can login by entering the ABHA number and Year of Birth and validatin
 
 Swagger link for APIs: https://app.swaggerhub.com/apis-docs/abdm.abha/abha-service/1.0#/Profile/createPhrAdressWithHealthIdNumberUsingPOST
 
-**URL: /v1/account/update/phr-address**
+**URL: https://dev.abdm.gov.in/cm/v1/account/update/phr-address**
 
 *Explanation* - API Accepts ABHA Number and Creates ABHA Address.
 
