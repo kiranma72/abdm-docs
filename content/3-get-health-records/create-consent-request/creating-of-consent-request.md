@@ -34,7 +34,8 @@ The following diagram explains the consent request creation flow of forwarding t
  
  
  ### API Information Request Response 
- \
+ 
+ 
  **1. Generate the Gateway session**
 
 Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
