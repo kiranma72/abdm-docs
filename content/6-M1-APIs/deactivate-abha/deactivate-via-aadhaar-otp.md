@@ -18,11 +18,13 @@ Following will happen (during the deactivation period) if you deactivate your AB
 3. You will no longer be able to share your ABHA (Health ID) at any health facility.
 
 
+
 ## API Sequence 
 
 The sequence of APIs used via this method is shown in the diagram below.
 
 ![Deactivate ABHA via Aadhaar Otp](/abdm-docs/img/De-Activate_ABHA(Health_ID).png)
+
 
 
 ## API Information Request Response 
