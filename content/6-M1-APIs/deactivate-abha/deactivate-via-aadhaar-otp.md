@@ -29,7 +29,6 @@ The sequence of APIs used via this method is shown in the diagram below.
 
 
 
-
 **1. Generate the Gateway session**
 
 Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
@@ -52,13 +51,14 @@ Bearer token is received as part of respose and should be passed a Authorization
 
 ```json
 {
-    "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJBbFJiNVdDbThUbTlFSl9JZk85ejA2ajlvQ3Y1MXBLS0ZrbkdiX1RCdkswIn0.eyJleHAiOjE2NTMzNjkyNTYsImlhdCI6MTY1MzM2ODY1NiwianRpIjoiZDg5YTFlYmUtZWRlNS00Y2U4LWEwZTAtMTUzNGNjNzkyYjk0IiwiaXNzIjoiaHR0cHM6Ly9kZXYubmRobS5nb3YuaW4vYXV0aC9yZWFsbXMvY2VudHJhbC1yZWdpc3RyeSIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiIwNmJkNGZlNy04NjEyLTRiZmEtYTI1NS1iMDdiZmFjZmU1M2QiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJoZWFsdGhpZC1hcGkiLCJzZXNzaW9uX3N0YXRlIjoiNjU2NGY2N2UtZjM4My00NGRiLWIyOTY",
+    "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJBbFJiNVdDbThUbTlFSl9JZk85ejA2ajlvQ3Y1MXBLS0ZrbkdiX1RCdkswIn0.eyJleHAiOjE2NTMzNjkyNTYsImlhdCI6MTY1MzM2ODY1NnR",
     "expiresIn": 600,
     "refreshExpiresIn": 1800,
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyMWU5NzA4OS00ZTcxLTQyNGEtOTAzYS1jOTAyMWM1NmFlNWYifQ.eyJleHAiOjE2NTMzNzA0NTYsImlhdCI6MTY1MzM2ODY1NiwianRpIjoiNGY1ZjZjMWYtYTk0Yy00ZjJmLThmZjctYTY2MDRiN",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyMWU5NzA4OS00ZTcxLTQyNGEtOTAzYS1jOTAyMWM1NmFlNWYifQ.eyJleHAiOjE2NTMzNzA0NTYsImlhdCI6MTY1MzM2ODY1NiwianRpIjoi",
     "tokenType": "bearer"
 }
 ```
+
 
 
 \
@@ -72,17 +72,21 @@ Bearer token is received as part of respose and should be passed a Authorization
 
 **Parameters:**
 
-- Authorization string (header) : Bearer your-access-token-from-gateway-session
+- Authorization : Access token which was issued after successful login with gateway auth server
 
-- X-HIP-ID string (header) : your-HIP-ID
+string (header)
+
+- X-HIP-ID : Identifier of the health information provider to which the request was intended
+
+string (header)
 
 
 **Response:** 200   OK
 
-string
+
+```text
 
 -----BEGIN PUBLIC KEY-----
-
 M3IdPoUuNUNUYv33QrHIb1Nmh6TECSbmokLCsPx0hHYCsH37FIDE7fXKWNXYSjtRLBF2vwt7y8qUTdklfCLmO
 VqVXacyMslKaXzsbYxHaAsm9Dkp6A0oprgnPL9x0/g9AC1/n90GakXWAdnZr6Jh/tfmjAeU+On1M6qSo1fTvH
 ppHKIzs/XdLWq7j2ENdNNWd7qHSa1MIYjCSJmO/zCRl7S/V3bvibAsXWRLamfqcNw8E+IuhQc/PK4khuHsp80
@@ -91,8 +95,9 @@ yoMKpctbUS0kfwYI0T1sT6UidgDV2//SVv0ymZgeSYKwdPT2LC4HzJhpOvYMVsyGq6aEA5ieUp4wxOs8
 zJKuTdXBRZo18jGoj3ZT4fGRZ/NfWrkGZiKR1SSOYZeb0MrQZnz2Or0C//fiIzpfW6AeYMd+2nUAjX+I+K2xR
 tVfSxys4I8Ylt3R3jdeVb+nlQaU6hCVlaWW1UXiljh8asnpj6q1qXPB8RoSUVIwsiCcQVibaY4OuFd6EHOgnO
 ZIMGomLoDz7omTrmpOn+dobCa7yDvkNGPjoUr67RVq0hpJ9pVJVNL9INJfK5SPXJxUqEilkVTgph0FeoObvHVXnw=
-
 -----END PUBLIC KEY-----
+
+```
 
 
 
@@ -113,11 +118,11 @@ Response - API accepts Auth Token and Generates OTP on Linked mobile number. Ret
 
 **Parameters:**
 
-- Authorization string (header)
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
 
-- X-HIP-ID string (header)
+- X-HIP-ID string (header) : your-HIP-ID
 
-- X-Token string (header)
+- X-Token string (header) : Bearer your-X-token
 
 
 **Body:**
@@ -126,16 +131,17 @@ aadharNumberWebOptionalRequestPayload  (body)
 
 ```json
 {
-
 }
 ```
 
 **Response:** 200  OK
 
 ```json
+
 {
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
+
 ```
 
 
@@ -152,11 +158,11 @@ aadharNumberWebOptionalRequestPayload  (body)
 
 **Parameters:**
 
-- Authorization string (header)
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
 
-- X-HIP-ID string (header)
+- X-HIP-ID string (header) : your-HIP-ID
 
-- X-Token string (header)
+- X-Token string (header) : Bearer your-X-token
 
 
 **Body:**
@@ -167,7 +173,7 @@ deactivateAccountByOtpWebRequest  (body)
 
 {
   "authMethod": "AADHAAR_OTP",
-  "otp": "sw1uD+gpv3fj6NHBNhtcII3GksVtkLT9bvcz0svYDyUt/x3jTtedXSYgw4b90GTwfLfs1eow056VsOw9HFS/wB8uH5Ysx+QzpL7PxmAY1WOHwOj04sPKN6Dw8XY8vcXovtvZc1dUB+TPAlGGPNu8iqMVPetukysjRxgbNdLLKMxn46rIRb8NieeyuDx1EHa90jJP9KwKGZdsLr08BysrmMJExzTO9FT93CzoNg50/nxzaQgmkBSbu9D8DxJm7XrLzWSUB05YCknHbokm4iXwyYBsrmfFDE/xCDfzYPhYyhtEmOi4J/GMp+lO+gAHQFQtxkIADhoSR8WXGcAbCUj7uTjFsBU/tc+RtvSotso4FXy8v+Ylzj28jbFTmmOWyAwYi9pThQjXnmRnq43dVdd5OXmxIII6SXs0JzoFvKwSk7VxhuLIRYzKqrkfcnWMrrmRgE8xZ6ZLft6O3IeiHb9WA8b/6/qO8Hdd17FKsSF6te59gSpoajS0FtQIgFn/c+NHzQYo5ZdsuRGM9v+bhHTInI=",
+  "otp": "TkI1ViAnr0Egqls9adx/Qf2O55BFWiBA4JOUWuhkTEV3LGLa2KVjYDw85ubCKT0h/dhsaEYQPbPSrTbhGe7+Tieqkx4WVBWnFgoxwEHt/rhM2L+BU82A4ECb/qkMBFOsX32uezmnqrnQn/eB5vX2kSP/Z8jYj9+CUHFUTHD++oQL1TEitJmlCl/+yrOg8mZiH/ttk5jPnk/ZZ5QwZXTrwUMyeWFZRsQVBhzyzj1LUwrU3ivWVmrVSWbqHNdtGXCvWsvunc/A8qvegOV7KPFF5s5ObzsuNWqSbQ+t5n/+UTygl0fV6uS4TMZh5TQGUqw+t3EHKwXprJ+76pkqOgHpleKbcVcXPJirqoLwebEfYj/567gMBFRbKBCpFn2FIKQt5rJMps5YAQEPs9opttViSxFEn6Nz/5EM0lRPazU0B0lqJ1ViT9rs6O4Z2OGsLHGECXjy0wowXp2YnsI49ITfUMAoBM4yNVE8JNiy1PD3dEg2rqRMlM8PYStj3OpK26T2DcNIf/mncQpAQ/nIMuf0Zokgj4RKqlqS1O5rGWh06nlFc/hOULHZV+yxKQUFT0Ws6SVnfTiDtMdXmP02F1qrbcK1Vz0ZLvYV1+k3US9oo8H2G+ZFNCa6k8+jKDRj9+ePwgl8QvHHW4Fn9HaX2/axRtl2DjGc0XLFimCilND4FEA==",
   "reasons": ["104", "103", "102", "101", "others"],
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
@@ -180,7 +186,7 @@ deactivateAccountByOtpWebRequest  (body)
 
 ## Postman + Curl Collection 
 
-**Download the Postman Collection** [here](/abdm-docs/Postman/)
+**Download the Postman Collection** [here](/abdm-docs/Postman/Deactivate_ABHA_Via_Aadhaar_Otp.json)
 
 **Download the Curls** [here](/abdm-docs/Curls/)
 
