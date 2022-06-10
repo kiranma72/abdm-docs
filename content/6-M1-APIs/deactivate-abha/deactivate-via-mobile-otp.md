@@ -1,7 +1,7 @@
 ---
 title: "Deactivate ABHA via Mobile Otp"
 date: 2022-05-07T18:00:04+05:30
-weight: 1
+weight: 2
 draft: false
 ---
 
