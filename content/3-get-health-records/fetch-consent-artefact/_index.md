@@ -1,6 +1,6 @@
 +++
 title = "Fetching the Consent artefact"
-date = 2022-06-10T17:53:25+05:30
+date = 2022-06-09T17:53:25+05:30
 weight = 3
 chapter = true
 pre = "<b>3.3 </b>"
