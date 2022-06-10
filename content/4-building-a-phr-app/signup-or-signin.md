@@ -31,6 +31,8 @@ Users are allowed to create multiple ABHA addresses as per their convienence / r
 
 The ABDM HIE-CM restricts the number of ABHA addresses that can be linked to a single mobile number to 4
 
+![APISequence](APISequence-ABHACreationWithAadharOnRegisteredMobile.png)
+
 ### API Sequence for Registration using Health ID number. 
 
 Swagger link- https://sandbox.abdm.gov.in/swagger/ndhm-phr-app2.yaml/
