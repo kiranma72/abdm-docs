@@ -23,7 +23,7 @@ The user chosen ABHA address has to be alphanumeric. The only numeric address al
 
 This is demonstrated in the ABHA PHR reference app 
 
-![Sequence](Merged.png)
+![Sequence](FlowSequence.png)
 
 ### Multiple ABHA Addresses for same user
 
