@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "567711df-c974-4506-b428-cb11bca00b6a",
+		"name": "Delete_ABHA_Via_Mobile_Otp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01_Session",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clientId\": \"your-clientID\",\r\n    \"clientSecret\": \"your-clientSecret\",\r\n    \"grantType\": \"client_credentials\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.ndhm.gov.in/gateway/v0.5/sessions",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"ndhm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway",
+						"v0.5",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02_Get_Certificate",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "your-HIP-ID",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v1/auth/cert",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"cert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03_Generate_Mobile_Otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "your-HIP-ID",
+						"type": "default"
+					},
+					{
+						"key": "X-Token",
+						"value": "Bearer your-X-token",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v2/account/mobile/generateOTP",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v2",
+						"account",
+						"mobile",
+						"generateOTP"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04_Delete",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "your-HIP-ID",
+						"type": "default"
+					},
+					{
+						"key": "X-Token",
+						"value": "Bearer your-X-token",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"authMethod\": \"MOBILE_OTP\",\r\n    \"otp\": \"hzrxZvR1zkG3GxlGIy6ECQwd7rzsQmsGtzeGqAmEXpnl9jnLJR4wAIoPmAUUJLyPRzseloH59cQStn3dW6hmSDfnfYS0DpYRfIubOIo3DjkiAFkBgJrGTt0EEvoGV7Y0PYtGaaHqyo3lPDzGEqqml2rwf5p3VA7jY5Ez87UFLYPmZ14haSqZxO7EFOZGLcs29yuy3X4XvjAnJmbh5kh81ctCufqMqzk3I3fRxTzR/n42g27ou2fvuCpn/K/wBGsezmhUGUYK0nnkyh7z/9Vw91vpiqQrZdYBEX8YxnESU4KlbkYLDMBIr41I0rka70CqRFNlOJR+M+zqhJsOflRl62rQc1Bghoh9jgzW4NAWTxCGPfS375q1dxMpc6hm4mtF1mCazlQwq8feyEw8UHp9Z/kTFhkffcEFbeVSunWztY3IctL5Mfz14KFXUJfcBqt9EOTzjM15YUc/x6fBQ9P8Ix4/tP4kEUDeqyI6KVghZZsfLNaa+rvl/J4qiAA3SiXqA0adF1Hn9I2So8pFC/IvyRsFtQXo90JqwHVQYLA7Q1dIWSlPjAmObL3d65Zbb8xPg1xYLDoUUfk5kpU6hAhLom80N3d14eSvY+yzNsc1q09Wh9hgaDhUvs0CwBY0Xi0aYbhcZu26Wv3tNE4SOx5SsmqwSFwU41W281M3mHIfw5o=\",\r\n    \"reasons\": [\"205\"],\r\n    \"txnId\": \"a825f76b-0696-40f3-864c-5a3a5b389a83\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v2/account/profile/delete",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v2",
+						"account",
+						"profile",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
