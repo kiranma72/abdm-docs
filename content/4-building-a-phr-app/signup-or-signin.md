@@ -23,15 +23,13 @@ The user chosen ABHA address has to be alphanumeric. The only numeric address al
 
 This is demonstrated in the ABHA PHR reference app 
 
-> Insert image here 
+![Sequence](Merged.png)
 
 ### Multiple ABHA Addresses for same user
 
 Users are allowed to create multiple ABHA addresses as per their convienence / requirement. ABDM requires PHR apps to educate users that is it better to maintain only one ABHA address and link all health records to this address. 
 
 The ABDM HIE-CM restricts the number of ABHA addresses that can be linked to a single mobile number to 4
-
-![APISequence](APISequence-ABHACreationWithAadharOnRegisteredMobile.png)
 
 ### API Sequence for Registration using Health ID number. 
 
