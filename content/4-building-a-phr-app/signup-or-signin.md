@@ -271,7 +271,7 @@ Swagger link for APIs: https://sandbox.abdm.gov.in/swagger/ndhm-phr-app2.yaml
 
 **Method**: GET
 
-**HEADERS**: 
+**Query**: phrAddress-PHR Address
 
 **Responses**
 	
