@@ -1,5 +1,5 @@
 ---
-title: "Deactivate via Aadhaar Otp"
+title: "Deactivate ABHA via Aadhaar Otp"
 date: 2022-05-07T18:00:04+05:30
 weight: 1
 draft: false
