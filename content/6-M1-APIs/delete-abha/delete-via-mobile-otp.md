@@ -151,7 +151,7 @@ deleteAccountByOtpWebRequest  (body)
 	{
 	  "authMethod": "MOBILE_OTP",
 	  "otp": "hzrxZvR1zkG3GxlGIy6ECQwd7rzsQmsGtzeGqAmEXpnl9jnLJR4wAIoPmAUUJLyPRzseloH59cQStn3dW6hmSDfnfYS0DpYRfIubOIo3DjkiAFkBgJrGTt0EEvoGV7Y0PYtGaaHqyo3lPDzGEqqml2rwf5p3VA7jY5Ez87UFLYPmZ14haSqZxO7EFOZGLcs29yuy3X4XvjAnJmbh5kh81ctCufqMqzk3I3fRxTzR/n42g27ou2fvuCpn/K/wBGsezmhUGUYK0nnkyh7z/9Vw91vpiqQrZdYBEX8YxnESU4KlbkYLDMBIr41I0rka70CqRFNlOJR+M+zqhJsOflRl62rQc1Bghoh9jgzW4NAWTxCGPfS375q1dxMpc6hm4mtF1mCazlQwq8feyEw8UHp9Z/kTFhkffcEFbeVSunWztY3IctL5Mfz14KFXUJfcBqt9EOTzjM15YUc/x6fBQ9P8Ix4/tP4kEUDeqyI6KVghZZsfLNaa+rvl/J4qiAA3SiXqA0adF1Hn9I2So8pFC/IvyRsFtQXo90JqwHVQYLA7Q1dIWSlPjAmObL3d65Zbb8xPg1xYLDoUUfk5kpU6hAhLom80N3d14eSvY+yzNsc1q09Wh9hgaDhUvs0CwBY0Xi0aYbhcZu26Wv3tNE4SOx5SsmqwSFwU41W281M3mHIfw5o=",
-	  "reasons": ["101", "102", "103", "104","others"],
+	  "reasons": ["205"],
 	  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 	}
 ```
