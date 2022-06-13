@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "63d804f1-d83d-4621-87db-80e5aa6e9d71",
+		"name": "Delete_ABHA_Via_Aadhaar_Otp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01_Session",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clientId\": \"your-clientID\",\r\n    \"clientSecret\": \"your-clientSecret\",\r\n    \"grantType\": \"client_credentials\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.ndhm.gov.in/gateway/v0.5/sessions",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"ndhm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway",
+						"v0.5",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02_Get_Certificate",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "your-HIP-ID",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v1/auth/cert",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"cert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03_Generate_Aadhaar_Otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "your-HIP-ID",
+						"type": "default"
+					},
+					{
+						"key": "X-Token",
+						"value": "Bearer your-X-token",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v2/account/aadhaar/generateOTP",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v2",
+						"account",
+						"aadhaar",
+						"generateOTP"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04_Delete",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "your-HIP-ID",
+						"type": "default"
+					},
+					{
+						"key": "X-Token",
+						"value": "Bearer your-X-token",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"authMethod\": \"AADHAAR_OTP\",\r\n  \"otp\": \"TkI1ViAnr0Egqls9adx/Qf2O55BFWiBA4JOUWuhkTEV3LGLa2KVjYDw85ubCKT0h/dhsaEYQPbPSrTbhGe7+Tieqkx4WVBWnFgoxwEHt/rhM2L+BU82A4ECb/qkMBFOsX32uezmnqrnQn/eB5vX2kSP/Z8jYj9+CUHFUTHD++oQL1TEitJmlCl/+yrOg8mZiH/ttk5jPnk/ZZ5QwZXTrwUMyeWFZRsQVBhzyzj1LUwrU3ivWVmrVSWbqHNdtGXCvWsvunc/A8qvegOV7KPFF5s5ObzsuNWqSbQ+t5n/+UTygl0fV6uS4TMZh5TQGUqw+t3EHKwXprJ+76pkqOgHpleKbcVcXPJirqoLwebEfYj/567gMBFRbKBCpFn2FIKQt5rJMps5YAQEPs9opttViSxFEn6Nz/5EM0lRPazU0B0lqJ1ViT9rs6O4Z2OGsLHGECXjy0wowXp2YnsI49ITfUMAoBM4yNVE8JNiy1PD3dEg2rqRMlM8PYStj3OpK26T2DcNIf/mncQpAQ/nIMuf0Zokgj4RKqlqS1O5rGWh06nlFc/hOULHZV+yxKQUFT0Ws6SVnfTiDtMdXmP02F1qrbcK1Vz0ZLvYV1+k3US9oo8H2G+ZFNCa6k8+jKDRj9+ePwgl8QvHHW4Fn9HaX2/axRtl2DjGc0XLFimCilND4FEA=\",\r\n  \"reasons\": [\"205\"],\r\n  \"txnId\": \"a825f76b-0696-40f3-864c-5a3a5b389a83\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v2/account/profile/delete",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v2",
+						"account",
+						"profile",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
