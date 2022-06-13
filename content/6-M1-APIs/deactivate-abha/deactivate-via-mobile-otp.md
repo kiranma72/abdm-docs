@@ -53,13 +53,14 @@ Bearer token is received as part of respose and should be passed a Authorization
 
 ```json
 {
-    "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJBbFJiNVdDbThUbTlFSl9JZk85ejA2ajlvQ3Y1MXBLS0ZrbkdiX1RCdkswIn0.eyJleHAiOjE2NTMzNjkyNTYsImlhdCI6MTY1MzM2ODY1NiwianRpIjoiZDg5YTFlYmUtZWRlNS00Y2U4LWEwZTAtMTUzNGNjNzkyYjk0IiwiaXNzIjoiaHR0cHM6Ly9kZXYubmRobS5nb3YuaW4vYXV0aC9yZWFsbXMvY2VudHJhbC1yZWdpc3RyeSIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiIwNmJkNGZlNy04NjEyLTRiZmEtYTI1NS1iMDdiZmFjZmU1M2QiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJoZWFsdGhpZC1hcGkiLCJzZXNzaW9uX3N0YXRlIjoiNjU2NGY2N2UtZjM4My00NGRiLWIyOTY",
+    "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJBbFJiNVdDbThUbTlFSl9JZk85ejA2ajlvQ3Y1MXBLS0ZrbkdiX1RCdkswIn0.eyJleHAiOjE2NTMzNjkyNTYsImlhdCI6MTY1MzM2ODY1NnR",
     "expiresIn": 600,
     "refreshExpiresIn": 1800,
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyMWU5NzA4OS00ZTcxLTQyNGEtOTAzYS1jOTAyMWM1NmFlNWYifQ.eyJleHAiOjE2NTMzNzA0NTYsImlhdCI6MTY1MzM2ODY1NiwianRpIjoiNGY1ZjZjMWYtYTk0Yy00ZjJmLThmZjctYTY2MDRiN",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyMWU5NzA4OS00ZTcxLTQyNGEtOTAzYS1jOTAyMWM1NmFlNWYifQ.eyJleHAiOjE2NTMzNzA0NTYsImlhdCI6MTY1MzM2ODY1NiwianRpIjoi",
     "tokenType": "bearer"
 }
 ```
+
 
 
 \
@@ -73,17 +74,21 @@ Bearer token is received as part of respose and should be passed a Authorization
 
 **Parameters:**
 
-- Authorization string (header) : Bearer your-access-token-from-gateway-session
+- Authorization : Access token which was issued after successful login with gateway auth server
 
-- X-HIP-ID string (header) : your-HIP-ID
+string (header)
+
+- X-HIP-ID : Identifier of the health information provider to which the request was intended
+
+string (header)
 
 
 **Response:** 200   OK
 
-string
+
+```text
 
 -----BEGIN PUBLIC KEY-----
-
 M3IdPoUuNUNUYv33QrHIb1Nmh6TECSbmokLCsPx0hHYCsH37FIDE7fXKWNXYSjtRLBF2vwt7y8qUTdklfCLmO
 VqVXacyMslKaXzsbYxHaAsm9Dkp6A0oprgnPL9x0/g9AC1/n90GakXWAdnZr6Jh/tfmjAeU+On1M6qSo1fTvH
 ppHKIzs/XdLWq7j2ENdNNWd7qHSa1MIYjCSJmO/zCRl7S/V3bvibAsXWRLamfqcNw8E+IuhQc/PK4khuHsp80
@@ -92,8 +97,9 @@ yoMKpctbUS0kfwYI0T1sT6UidgDV2//SVv0ymZgeSYKwdPT2LC4HzJhpOvYMVsyGq6aEA5ieUp4wxOs8
 zJKuTdXBRZo18jGoj3ZT4fGRZ/NfWrkGZiKR1SSOYZeb0MrQZnz2Or0C//fiIzpfW6AeYMd+2nUAjX+I+K2xR
 tVfSxys4I8Ylt3R3jdeVb+nlQaU6hCVlaWW1UXiljh8asnpj6q1qXPB8RoSUVIwsiCcQVibaY4OuFd6EHOgnO
 ZIMGomLoDz7omTrmpOn+dobCa7yDvkNGPjoUr67RVq0hpJ9pVJVNL9INJfK5SPXJxUqEilkVTgph0FeoObvHVXnw=
-
 -----END PUBLIC KEY-----
+
+```
 
 
 
@@ -158,7 +164,7 @@ deactivateAccountByOtpWebRequest  (body)
 {
   "authMethod": "MOBILE_OTP",
   "otp": "OISH0Ck8M4XFh7XggpLmBnyNdXD2qbMSShJERkHx8wLn+omotRxU5LXyspe0qL3v2OgOsdiw/bVMtHr/FcKHbopRga+eD1d+3tfI63qS/zosy45GYmvbBU4dVGMAbRzmYCR7gJIlxfRl2X5V9nD3rKLBL6n3s5lHn6OAW6R9lP5uSaFKRu8W30BnptSArWvGHxXlZPKogm9vezKWGRkjP1aiFlyRWYpqyqmM2r7w88atALyO0F0e98a9s4jzVZ1ggpip/3+awNTZMsL/F9Vxx0kuKayVSGiGunTO+aVRvIsM6j8zN5vSvqfi5W7v8a4I0takq3V+hCGi8EncKPGFopqXvATn/I59HhgoUPXNNZbWpDgQ+BLxXqb0G1tyQCegQe/g",
-  "reasons": ["101", "102", "103", "104"],
+  "reasons": ["205"],
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
