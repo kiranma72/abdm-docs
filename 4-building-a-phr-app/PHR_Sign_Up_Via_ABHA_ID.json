@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "01d9fbae-c35f-4ea2-a157-9181d048c1fb",
+		"name": "PHR_Sign_Up_Via_ABHA_ID",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01_Search_Auth_Mode",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true,
+					"accept": true,
+					"accept-encoding": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"healthIdNumber\": \"11-1111-1111-1111\"\r\n}"
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/cm/v1/apps/registration/hid/search/auth-mode",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"cm",
+						"v1",
+						"apps",
+						"registration",
+						"hid",
+						"search",
+						"auth-mode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02_Auth_Init",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"healthid\": \"11-1111-1111-1111\",\r\n    \"authMethod\": \"MOBILE_OTP\"\r\n}"
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/cm/v1/apps/registration/hid/auth-init",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"cm",
+						"v1",
+						"apps",
+						"registration",
+						"hid",
+						"auth-init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03_Confirm_Init",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sessionId\": \"a825f76b-0696-40f3-864c-5a3a5b389a83\",\r\n    \"value\": \"sw1uD+gpv3fj6NHBNhtcII3GksVtkLT9bvcz0svYDyUt/x3jTtedXSYgw4b90GTwfLfs1eow056VsOw9HFS/wB8uH5Ysx+QzpL7PxmAY1WOHwOj04sPKN6Dw8XY8vcXovtvZc1dUB+TPAlGGPNu8iqMVPetukysjRxgbNdLLKMxn46rIRb8NieeyuDx1EHa90jJP9KwKGZdsLr08BysrmMJExzTO9FT93CzoNg50/nxzaQgmkBSbu9D8DxJm7XrLzWSUB05YCknHbokm4iXwyYBsrmfFDE/xCDfzYPhYyhtEmOi4J/GMp+lO+gAHQFQtxkIADhoSR8WXGcAbCUj7uTjFsBU/tc+RtvSotso4FXy8v+Ylzj28jbFTmmOWyAwYi9pThQjXnmRnq43dVdd5OXmxIII6SXs0JzoFvKwSk7VxhuLIRYzKqrkfcnWMrrmRgE8xZ6ZLft6O3IeiHb9WA8b/6/qO8Hdd17FKsSF6te59gSpoajS0FtQIgFn/c+NHzQYo5ZdsuRGM9v+bhHTInI=\"\r\n}"
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/cm/v1/apps/registration/hid/confirm-init",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"cm",
+						"v1",
+						"apps",
+						"registration",
+						"hid",
+						"confirm-init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04_Create_PHR_Address",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"alreadyExistedPHR\": true,\r\n    \"password\": \"HNceo964MVndrs8Z2oMtzIsmmbzagveHbWkDsDKskTue+/YZhHHrMon19J03ggU457upzWMIX0nU3d38xjB3FxA2qWCVmvLZ98A9l0y3i33vq1ywu9cORGF4OEqV8l7H9h4tDnLGDHnbOh9ct85VfOohP4p73lqW6WQSMYcU+xkBfEsRj42pWL19EVsE1UULtQE8gYY1B0SeM63svUp1kQ4Pt5hdgKxibYBq+hRcck2PkEIhp2N7AkjH4Tf+AhXU9956WLwjKgAKMk7K4+Zv8JtxYCcblQitbpN4ImPH5edf4mO5R/L9RpdAVSllAQQfPIDlp5ZGOZ1GrSmhzOSP3g==\",\r\n    \"phrAddress\": \"user@sbx\",\r\n    \"sessionId\": \"a825f76b-0696-40f3-864c-5a3a5b389a83\"\r\n}"
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/cm/v1/apps/create/registration/hid/create/phrAddress",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"cm",
+						"v1",
+						"apps",
+						"create",
+						"registration",
+						"hid",
+						"create",
+						"phrAddress"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
