@@ -10,5 +10,5 @@ draft: false
 The functionality to initiate a call with the doctor is enabled 30 mins prior to the scheduled appointment. The user starts the consultation only when the doctor allows them to join until then the user waits in the digital waiting room. 
 
 ## Reference UI
-[Initiate call with the doctor](../Initiate_Calls.png)
+![Initiate call with the doctor](../Initiate_Calls.png)
 
