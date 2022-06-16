@@ -11,10 +11,10 @@ draft: false
 - Init API call is made to the HSPA with the above details and receives the revised quote and payment terms from the HSPA.
 
 ## UI Reference
-![Book Selected Doctor or Facility]../(Book_Selected_UIR.png)
+![Book Selected Doctor or Facility](../Book_Selected_UIR.png)
 
 ## API Sequence
-![Book Selected Doctor or Facility]../(Book_Selected_SeqAPI.png)
+![Book Selected Doctor or Facility](../Book_Selected_SeqAPI.png)
 ## Example JSONs
 The /init API is fired to the HSPA with the selected date and time as well as the customer and billing details. 
 
