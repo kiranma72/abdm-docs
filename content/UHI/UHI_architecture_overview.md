@@ -12,5 +12,6 @@ UHI aims to trasnform the way digital health services are rendered in India, whi
 
 #### Architecture Steps 
 
-**1. A Sign Up/ Login:** Patients login using their ABHA number/ Aadhar number. This is verified by HIE-CM and login is enabled. In case patients do not have an account, they are asked to sign up using their Aadhar number. The details are sent to HIE-CM. 
+**1.A - Patient Sign Up/ Login:** Patients login using their ABHA number/ Aadhar number / Mobile Number. This is verified by HIE-CM / UIDAI through an OTP authentication, post which the login is enabled. In case patients do not have an account, they are asked to sign up using their Aadhar or other identification documents. 
    
+**1.B - Health Service Provider Sign Up/ Login:** 
