@@ -18,12 +18,12 @@ The user can search for a doctor using one or multiple criteria. The supported c
 - The EUA fires Search API onto the HSPAs to look for the doctors matching the search criteria across the network.
 
 ## UI Reference
-../Search_HSPAs_UIR.png
+![Search HSPAs UI Reference](../Search_HSPAs_UIR)
 
 
 ## API Sequence
 
-../Search_HSPAs_SeqAPI.png
+![Search HSPAs Sequence API](../Search_HSPAs_SeqAPI.png)
 
 ## Example JSONs
 
