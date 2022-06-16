@@ -1,3 +1,10 @@
+---
+title: "Collect Payment"
+date: 2022-05-07T18:00:04+05:30
+Weight: 4
+draft: false
+---
+
 # Collect Payment if Required
 
 - The HSPA responds to the request by the EUA through on_init API.

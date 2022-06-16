@@ -1,9 +1,5 @@
----
-title: "Sign In/Up with PHR Addr"
-date: 2022-05-07T18:00:04+05:30
-Weight: 1
-draft: false
----
+
+
 ## Overview of the functionality
 - User can login with mobile number/email ID linked to their ABHA ID/address
 - OTP is sent to the user’s mobile number/email ID to authenticate the request

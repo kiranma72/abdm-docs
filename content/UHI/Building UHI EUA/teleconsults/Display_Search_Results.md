@@ -1,3 +1,10 @@
+---
+title: "Display Search Results"
+date: 2022-05-07T18:00:04+05:30
+Weight: 2
+draft: false
+---
+
 # Display search results
 
 - The HSPAs respond with on_search API to send back the HPID of the doctors who match the search criteria of EUA.

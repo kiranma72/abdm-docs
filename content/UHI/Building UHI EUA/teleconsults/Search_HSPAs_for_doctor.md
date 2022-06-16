@@ -1,4 +1,10 @@
-# Search HSPAs for Doctor
+---
+title: "Search HSPAs for Doctor"
+date: 2022-05-07T18:00:04+05:30
+Weight: 1
+draft: false
+---
+
 
 The user can search for a doctor using one or multiple criteria. The supported criteria include
 - Doctor name/HPID

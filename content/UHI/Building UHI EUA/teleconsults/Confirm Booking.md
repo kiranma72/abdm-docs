@@ -1,3 +1,10 @@
+---
+title: "Confirm Booking"
+date: 2022-05-07T18:00:04+05:30
+Weight: 5
+draft: false
+---
+
 # Confirm Booking
 
 - Upon successful collection of payment or acceptance of agreeing to pay as per the terms sent by the HSPA the EUA calls the /confirm API on the HSPA. 

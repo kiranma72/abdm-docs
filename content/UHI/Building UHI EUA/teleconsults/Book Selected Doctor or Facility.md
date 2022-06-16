@@ -1,3 +1,10 @@
+---
+title: "Book Selected Doctor"
+date: 2022-05-07T18:00:04+05:30
+Weight: 3
+draft: false
+---
+
 # Book selected Doctor/Facility
 - User selects the time and date for the service for the selected doctor from the available appointment calendar.
 - User initiates the booking.
