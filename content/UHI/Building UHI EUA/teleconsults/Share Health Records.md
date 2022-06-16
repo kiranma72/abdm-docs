@@ -12,5 +12,5 @@ The shared health records functionality allows the patient to share health recor
 The functionality will be updated to provide a native experience to the user and the documentation will be updated accordingly. 
 
 ## UI Reference:
-<img width="429" alt="image" src="https://user-images.githubusercontent.com/98421565/171581938-2264e9b9-3811-49c9-ad00-914365dfed6e.png">
+![Share records with the patient](../Share_Records.png)
 
