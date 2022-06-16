@@ -13,10 +13,10 @@ draft: false
 - The EUA collates the results and presents it to the user. 
 
 ## Reference UI
-<img width="190" alt="Screenshot 2022-06-02 at 12 11 28 PM" src="https://user-images.githubusercontent.com/98421565/171568878-6a0ad0fb-55be-4d6f-ae9e-7c2a9d573097.png">
+![Display results to the patient](../Display_Results_UIR.png)
 
 ## API Sequence
-<img width="642" alt="Screenshot 2022-06-02 at 12 11 40 PM" src="https://user-images.githubusercontent.com/98421565/171568919-33b4b3fe-7948-4799-ae00-e4c433e08a7e.png">
+![Display results to the patient](../Display_Results_SeqAPI.png)
 
 ## Example JSONs
 The /search API is fired once again with the specific doctor’s HPR ID to retrieve the doctor’s appointment calendar. This call is made directly to the the HSPA
