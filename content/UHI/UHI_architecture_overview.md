@@ -12,6 +12,14 @@ UHI aims to trasnform the way digital health services are rendered in India, whi
 
 #### Architecture Steps 
 
-**1.A - Patient Sign Up/ Login:** Patients login using their ABHA number/ Aadhar number / Mobile Number. This is verified by HIE-CM / UIDAI through an OTP authentication, post which the login is enabled. In case patients do not have an account, they are asked to sign up using their Aadhar or other identification documents. 
+**1.A - Patient Sign Up/ Login:** Patients login using their ABHA number/ Aadhar number / Mobile Number. This is verified by HIE-CM (for login via ABHA number) and UIDAI (for login via Aadhar) through an OTP authentication, post which the login is enabled. In case patients do not have an account, they are asked to sign up using their Aadhar or by providing any other identification documents. 
    
-**1.B - Health Service Provider Sign Up/ Login:** 
+**1.B - Health Service Provider Sign Up/ Login:** Health Service Providers (HSPs) login using their HPID/ HPR Address (Health Professional Address) on thw HSPA. In case the HSP does not have a Health Professional Address, he/she will be asked to create one using their Registration Number registered with their respective State Council. 
+
+**1.C - Health Service Provider Details sent to HPR:** The details filled by the the Health Service Provider are sent back to the Health Professional Registry. 
+
+**2. Patient Search for a Doctor:** A patient searches for a doctor on the EUA via defined parameters. The EUA fires Search API to the  UHI Gateway to look for the doctors matching the search criteria across the network.
+
+**3. Search Request Sent to all Registered HSPAs:** The UHI Gateway broadcasts the search request and the search parameters to all the HSPAs registered on UHI. 
+
+
