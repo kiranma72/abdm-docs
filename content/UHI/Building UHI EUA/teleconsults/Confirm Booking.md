@@ -11,10 +11,10 @@ draft: false
 - The HSPA responds with an on_confirm API to confirm the booking of the service and sends confirmation of the appointment with the doctor along with all the details of the appointment such as the doctor details, slot, payment, billing etc. 
 
 ## UI Reference
-<img width="203" alt="image" src="https://user-images.githubusercontent.com/98421565/171580299-56d58017-d256-4b6e-83e8-eeed1bcdc09e.png">
+![Confirm Booking](../Confirm_Booking_UIR.png)
 
 ## API Sequence
-<img width="645" alt="image" src="https://user-images.githubusercontent.com/98421565/171580405-4b184562-70a8-4db4-ab64-aa782e8390d6.png">
+![Confirm Booking](../Confirm_Booking_SeqAPI.png)
 
 ## Example JSONs
 The /init API is fired to the HSPA with the selected date and time as well as the customer and billing details. 
