@@ -8,7 +8,7 @@ draft: false
 
 UHI aims to transform the way digital health services are rendered in India, while ensuring that it is in sync with the other building blocks of ABDM. The functional architecture for UHI is mentioned below. The aim of this architecture is to ensure interoperability for health services and health data. The architecture also depicts how UHI will interact with the other building blocks within ABDM. 
 
-[UHI Architecture Overview](../UHI_Architecture_Overview.png)
+[UHI Architecture Overview](../UHI_architecture_overview.png)
 
 #### Architecture Steps 
 
