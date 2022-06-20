@@ -3,8 +3,12 @@
 The setup for physical appointments is similar to setting up a teleconsultation service except the doctor doesn't need to provide their signature for signing the prescriptions. 
 
 - Set up Calendar/availability
-  - 
-- Provide their fees/charges
+  The doctor can chose to set their available timings on set days. There are two options that can be made available to the doctor
+  1. Fixed - The time interval is fixed. 
+  2. Flexi - The doctor provides the number of patients they wish to allocate in a hour. Each patient gets a token.
+ 
+- Provide their fees/charges: The doctor can chose to charge different fees for different services they wish to provide. 
+  
 - Provide bank details/UPI address to receive payments
 
 ## UI Reference
@@ -1099,5 +1103,3 @@ he /init API is fired to the HSPA with the selected date and time as well as the
    }
 }
 ```
-
-
