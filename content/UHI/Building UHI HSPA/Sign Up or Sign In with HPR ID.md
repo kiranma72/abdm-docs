@@ -11,7 +11,7 @@ draft: false
 
 ## UI Reference
 
-[Sign In Reference Screens](../Sign_In.png)
+![Sign In Reference Screens](../Sign_In.png)
 
 ## API Documentation 
 
