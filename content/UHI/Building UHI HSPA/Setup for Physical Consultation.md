@@ -1,4 +1,9 @@
-# Setup for Physical Consultation 
+---
+title: "Setup for Physical Consultation "
+date: 2022-05-07T18:00:04+05:30
+Weight: 3
+draft: false
+---
 
 The setup for physical appointments is similar to setting up a teleconsultation service except the doctor doesn't need to provide their signature for signing the prescriptions. 
 
