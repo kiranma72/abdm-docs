@@ -100,7 +100,4 @@ c. Encrypt the data
 
 The key exchange will be performed over Elliptic Curve Cryptography (ECC) groups. We will adhere to a single ECC curve, namely Curve25519, in all encryption operations. Curve25519 is used in ECDH implementations in various protocols like SSH and WhatsApp.
 
-Examples of encryption and decryption using ECDH key exchange:
 
-For Java example, see here.
-For C# example, see here.
