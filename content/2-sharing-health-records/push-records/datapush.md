@@ -25,3 +25,4 @@ Once the HIP repository receives the information, it first validates the informa
 Finally, the CM receives notifications from both the HIP and the HIU. The HIP’s health repository notifies the CM that the requested information was transmitted to the HIU. The HIU’s health repository sends a notification that the requested information was successfully received, or that the request failed.
 
 All above 3 stages that pertains to HIP are shown in the following diagram:
+![DataPush](DataTransfer.jpg)
