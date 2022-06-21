@@ -65,6 +65,16 @@ Creates a request for subscription. The subscription categories can be for care-
 
 **Request:** POST
 
+**Parameters:**
+
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
+
+Access token which was issued after successful login with gateway auth server
+
+- X-CM-ID string (header) :  sbx (or) abdm
+
+Suffix-of-the-consent-manager
+
 **Body:**
 
 ```json
@@ -117,6 +127,16 @@ This callback API acknowledges the request for subscription from a HIU, and send
 
 **Request:** POST
 
+**Parameters:**
+
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
+
+Access token which was issued after successful login with gateway auth server
+
+- X-HIU-ID string (header) : your-HIU-ID
+
+Identifier of the health information user to which the request was intended
+
 **Body:**
 
 ```json
@@ -151,6 +171,16 @@ This API is used by CM to notify a HIU to grant or deny a request for subscripti
 **URL:** {HIU CALLBACK URL}/v0.5/subscription-requests/hiu/notify
 
 **Request:** POST
+
+**Parameters:**
+
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
+
+Access token which was issued after successful login with gateway auth server
+
+- X-HIU-ID string (header) : your-HIU-ID
+
+Identifier of the health information user to which the request was intended
 
 **Body:**
 
@@ -206,6 +236,17 @@ This API is called by HIU as acknowledgement to subscription request relevant no
 
 **Request:** POST
 
+**Parameters:**
+
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
+
+Access token which was issued after successful login with gateway auth server
+
+- X-CM-ID string (header) :  sbx (or) abdm
+
+Suffix-of-the-consent-manager
+
+
 **Body:**
 
 ```json
@@ -244,6 +285,16 @@ If event.category = DATA, then hiTypes are passed. Care-context is passed only i
 **URL:** {HIU CALLBACK URL}/v0.5/subscriptions/hiu/notify
 
 **Request:** POST
+
+**Parameters:**
+
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
+
+Access token which was issued after successful login with gateway auth server
+
+- X-HIU-ID string (header) : your-HIU-ID
+
+Identifier of the health information user to which the request was intended
 
 **Body:**
 
@@ -296,6 +347,16 @@ This API is called by HIU as acknowledgement to consent notifications, specifica
 **URL:** https://dev.abdm.gov.in/gateway/v0.5/subscriptions/hiu/on-notify
 
 **Request:** POST
+
+**Parameters:**
+
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
+
+Access token which was issued after successful login with gateway auth server
+
+- X-CM-ID string (header) :  sbx (or) abdm
+
+Suffix-of-the-consent-manager
 
 **Body:**
 
