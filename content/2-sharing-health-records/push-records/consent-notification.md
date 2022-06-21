@@ -46,7 +46,7 @@ Consent request as HIU comes with a consent expiry time, after which you will no
 
 Below is the diagram to explain the "notify the consent artefect" : 
 
-![ConsentNotification](../notify-consent.jpg)
+![consentNotification](notify-consent.jpg)
 
 ## API Used :
 
