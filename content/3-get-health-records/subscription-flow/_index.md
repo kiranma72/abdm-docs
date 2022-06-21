@@ -1,6 +1,6 @@
 +++
 title = "Subscription Flow"
-date = 2022-06-21T17:53:25+05:30
+date = 2022-06-21T12:53:25+05:30
 weight = 1
 chapter = true
 pre = "<b>3.1 </b>"
