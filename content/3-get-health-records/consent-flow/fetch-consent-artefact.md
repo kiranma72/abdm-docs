@@ -57,6 +57,137 @@ Bearer token is received as part of respose and should be passed a Authorization
 }
 ```
 
+### 2. Get consent artefact
+
+
+**URL:** https://dev.ndhm.gov.in/gateway/v0.5/consents/fetch
+
+**Request:** POST  
+
+**Parameters:**
+
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
+
+Access token which was issued after successful login with gateway auth server
+
+- X-CM-ID string (header) :  sbx (or) abdm
+
+Suffix-of-the-consent-manager
+
+**Body:**
+
+```json
+{
+  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+  "timestamp": "2022-06-22T06:51:39.024Z",
+  "consentId": "string"
+}
+
+```
+
+**Response:**
+
+202 	Accepted
+
+
+
+### 3. Result of fetch request for a consent artefact
+
+Must contain either consentDetail or error. Possible reason of errors are
+
+consentId passed through /fetch is invalid
+
+**URL:** {HIU CALLBACK URL}/v0.5/consents/on-fetch
+
+**Request:** POST  
+
+**Parameters:**
+
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
+
+Access token which was issued after successful login with gateway auth server
+
+- X-HIU-ID string (header) : your-HIU-ID
+
+Identifier of the health information user to which the request was intended
+
+**Body:**
+
+```json
+{
+  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+  "timestamp": "2022-06-22T06:54:04.799Z",
+  "consent": {
+    "status": "GRANTED",
+    "consentDetail": {
+      "schemaVersion": "string",
+      "consentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "createdAt": "2022-06-22T06:54:04.799Z",
+      "patient": {
+        "id": "hinapatel79@ndhm"
+      },
+      "careContexts": [
+        {
+          "patientReference": "hinapatel79@hospital",
+          "careContextReference": "Episode1"
+        }
+      ],
+      "purpose": {
+        "text": "string",
+        "code": "string",
+        "refUri": "string"
+      },
+      "hip": {
+        "id": "string"
+      },
+      "hiu": {
+        "id": "string"
+      },
+      "consentManager": {
+        "id": "string"
+      },
+      "requester": {
+        "name": "Dr. Manju",
+        "identifier": {
+          "type": "REGNO",
+          "value": "MH1001",
+          "system": "https://www.mciindia.org"
+        }
+      },
+      "hiTypes": [
+        "OPConsultation"
+      ],
+      "permission": {
+        "accessMode": "VIEW",
+        "dateRange": {
+          "from": "2022-06-22T06:54:04.799Z",
+          "to": "2022-06-22T06:54:04.799Z"
+        },
+        "dataEraseAt": "2022-06-22T06:54:04.799Z",
+        "frequency": {
+          "unit": "HOUR",
+          "value": 0,
+          "repeats": 0
+        }
+      }
+    },
+    "signature": "Signature of CM as defined in W3C standards; Base64 encoded"
+  },
+  "error": {
+    "code": 1000,
+    "message": "string"
+  },
+  "resp": {
+    "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+
+```
+
+**Response:**
+
+202 	Accepted
+
 
 ### Postman + Curl Collection 
 
