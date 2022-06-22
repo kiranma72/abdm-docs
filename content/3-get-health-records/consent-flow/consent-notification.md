@@ -1,6 +1,6 @@
 ---
 title: "Consent Notification"
-date: 2022-06-21T12:53:25+05:30
+date: 2022-06-22T11:07:25+05:30
 weight: 2
 draft: false
 ---
