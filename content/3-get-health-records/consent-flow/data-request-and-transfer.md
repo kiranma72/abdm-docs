@@ -1,7 +1,7 @@
 ---
 title: " Data request and transfer"
 date: 2022-06-22T12:53:25+05:30
-weight: 1
+weight: 4
 draft: false
 ---
 
@@ -62,7 +62,7 @@ All above 3 stages that pertains to HIU are shown in the following diagram:
 ### API Information Request Response
 
 
-**1. Generate the Gateway session**
+### 1. Generate the Gateway session
 
 Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
 
@@ -91,6 +91,240 @@ Bearer token is received as part of respose and should be passed a Authorization
     "tokenType": "bearer"
 }
 ```
+
+
+
+### 2. Health information data request
+
+Request for Health information against a consent id. CM would generate a transactionId against each consent and pass it as trnasaction context / correlation id to the HIP and also return the same to HIU via /on-request.
+
+**URL:** https://dev.ndhm.gov.in/gateway/v0.5/health-information/cm/request
+
+**Request:** POST
+
+**Parameters:**
+
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
+
+Access token which was issued after successful login with gateway auth server
+
+- X-CM-ID string (header) :  sbx (or) abdm
+
+Suffix-of-the-consent-manager
+
+**Body:**
+
+```json
+{
+  "requestId": "a1s2c932-2f70-3ds3-a3b5-2sfd46b12a18d",
+  "timestamp": "2022-06-22T09:01:16.382Z",
+  "hiRequest": {
+    "consent": {
+      "id": "string"
+    },
+    "dateRange": {
+      "from": "2022-06-22T09:01:16.382Z",
+      "to": "2022-06-22T09:01:16.382Z"
+    },
+    "dataPushUrl": "string",
+    "keyMaterial": {
+      "cryptoAlg": "ECDH",
+      "curve": "Curve25519",
+      "dhPublicKey": {
+        "expiry": "2022-06-22T09:01:16.382Z",
+        "parameters": "Curve25519/32byte random key",
+        "keyValue": "string"
+      },
+      "nonce": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    }
+  }
+}
+
+```
+
+**Response:**
+
+202 	Accepted
+
+
+
+
+### 3. Response for Health information data request
+
+Callback API for acknowledgement of Health information request of HIU.
+CM calls this API when it has validated the Health Information request given the consent id.
+Either the hiRequest or error would need to be specified. If the health info request was valid, then the hiRequest.transactionId specifies the transaction context
+against which HIP would send over the data. Possible cases of errors are
+
+- Invalid consent artefact id
+- Consent has expired
+- Date ranges are invalid
+
+**URL:**  {HIU CALLBACK URL}/v0.5/health-information/cm/on-request
+
+**Request:** POST
+
+**Parameters:**
+
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
+
+Access token which was issued after successful login with gateway auth server
+
+- X-HIU-ID string (header) : your-HIU-ID
+
+Identifier of the health information user to which the request was intended
+
+**Body:**
+
+```json
+{
+  "requestId": "a1s2c932-2f70-3ds3-a3b5-2sfd46b12a18d",
+  "timestamp": "2022-06-22T09:04:29.973Z",
+  "hiRequest": {
+    "transactionId": "a1s2c932-2f70-3ds3-a3b5-2sfd46b12a18d",
+    "sessionStatus": "REQUESTED"
+  },
+  "error": {
+    "code": 1000,
+    "message": "string"
+  },
+  "resp": {
+    "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+
+```
+
+**Response:**
+
+202 	Accepted
+
+
+
+
+
+### 4. Health information transfer API
+
+This API should be implemented at HIU side. It maybe implemented by the Data Bridge representing the HIU.
+Entry elements maybe content or link, although for version 1, entry content is preferred.
+Entry content (or even link reference content) must be encrypted by means of Elliptic-curve Diffie–Hellman Key Exchange, utilizing the HIU keymaterials that are
+passed through the data request API - /v0.5/health-information/hip/request.
+Media contains the mimetype of content, and for v1, it is "application/fhir+json"
+checksum is Md5 checksum of the data conent, before encryption
+Please refer to the ABDM Sandbox documentation for the format of FHIR bundle that is passed through content
+
+**Note:** This API is actually the callback URL that is passed as dataPushUrl in the data request API - /v0.5/health-information/hip/request. This API is directly called by HIP Data Bridge and is not mediated via CM, and hence not routed through the Gateway.
+
+**URL:**  {Data_push_url}/v0.5/health-information/transfer
+
+**Request:** POST
+
+**Parameters:**
+
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
+
+Access token which was issued after successful login with gateway auth server
+
+
+**Body:**
+
+```json
+{
+  "pageNumber": 0,
+  "pageCount": 0,
+  "transactionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "entries": [
+    {
+      "content": "Encrypted content of data packaged in FHIR bundle",
+      "media": "application/fhir+json",
+      "checksum": "string",
+      "careContextReference": "RVH1008"
+    },
+    {
+      "link": "https://data-from.net/sa2321afaf12e13",
+      "media": "application/fhir+json",
+      "checksum": "string",
+      "careContextReference": "NCC1701"
+    }
+  ],
+  "keyMaterial": {
+    "cryptoAlg": "ECDH",
+    "curve": "Curve25519",
+    "dhPublicKey": {
+      "expiry": "2022-06-22T09:07:16.948Z",
+      "parameters": "Curve25519/32byte random key",
+      "keyValue": "string"
+    },
+    "nonce": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+
+```
+
+**Response:**
+
+202 	Accepted
+
+
+
+### 5. Notifications corresponding to events during data flow
+
+API called by HIU and HIP during data-transfer.
+
+- HIP on transfer of data would send sessionStatus - one of [TRANSFERRED, FAILED]
+- HIP would also send hiStatus for each careContextReference - on of [DELIVERED, ERRORED]
+- HIU on receipt of data would send sessionStatus - one of [TRANSFERRED, FAILED]. For example, FAILED when if data was not sent or if invalid data was sent
+- HIU would also send hiStatus for each careContextReference - one of [OK, ERRORED]
+
+**URL:**   https://dev.ndhm.gov.in/gateway/v0.5/health-information/notify
+
+**Request:** POST
+
+**Parameters:**
+
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
+
+Access token which was issued after successful login with gateway auth server
+
+- X-CM-ID string (header) :  sbx (or) abdm
+
+Suffix-of-the-consent-manager
+
+**Body:**
+
+```json
+{
+  "requestId": "499a5a4a-7dda-4f20-9b67-e24589627061",
+  "timestamp": "2022-06-22T09:11:03.851Z",
+  "notification": {
+    "consentId": "a1s2c932-2f70-3ds3-a3b5-2sfd46b12a18d",
+    "transactionId": "a1s2c932-2f70-3ds3-a3b5-2sfd46b12a18d",
+    "doneAt": "2022-06-22T09:11:03.851Z",
+    "notifier": {
+      "type": "HIU",
+      "id": "tmh"
+    },
+    "statusNotification": {
+      "sessionStatus": "TRANSFERRED",
+      "hipId": "max",
+      "statusResponses": [
+        {
+          "careContextReference": "string",
+          "hiStatus": "OK",
+          "description": "string"
+        }
+      ]
+    }
+  }
+}
+
+```
+
+**Response:**
+
+202 	Accepted
+
+
 
 
 
