@@ -10,7 +10,7 @@ draft: false
 
 
 
-### Creation of Consent Request
+### Patient Consent Notification from CM to HIU
 
 ### Overview of the functionality
 
@@ -44,7 +44,9 @@ Bearer token is received as part of respose and should be passed a Authorization
 }
 ```
 
-**Response:** 200   OK
+**Response:** 
+
+200   OK
 
 ```json
 {
@@ -102,12 +104,54 @@ Identifier of the health information user to which the request was intended
     
 ```
 
-
 **Response:**
 
 202 	Accepted
 
 
+    
+### 3. Call API for Consent notification
+
+This API is called by HIU as acknowledgement to consent notifications, specifically for cases when consent is REVOKED or EXPIRED.
+
+**URL:** https://dev.ndhm.gov.in/gateway/v0.5/consents/hiu/on-notify
+
+**Request:** POST  
+    
+**Parameters:**
+
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
+
+Access token which was issued after successful login with gateway auth server
+
+- X-CM-ID string (header) :  sbx (or) abdm
+
+Suffix-of-the-consent-manager
+
+**Body:**
+
+```json
+{
+  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+  "timestamp": "2022-06-22T05:54:39.566Z",
+  "acknowledgement": [
+    {
+      "status": "OK",
+      "consentId": "<consent-artefact-id>"
+    }
+  ],
+  "error": null,
+  "resp": {
+    "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }
+}
+
+```
+
+
+**Response:**
+
+202 	Accepted
 
 
 
