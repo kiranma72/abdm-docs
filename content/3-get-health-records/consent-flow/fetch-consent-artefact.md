@@ -1,6 +1,6 @@
 ---
 title: "Fetching the Consent artefact"
-date: 2022-06-22T12:53:25+05:30
+date: 2022-06-22T11:07:25+05:30
 weight: 3
 draft: false
 ---
