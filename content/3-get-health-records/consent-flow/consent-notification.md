@@ -26,7 +26,7 @@ The following diagram explains the consent notification flow
 ### API Information Request Response
 
 
-**1. Generate the Gateway session**
+### 1. Generate the Gateway session
 
 Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
 
@@ -59,7 +59,53 @@ Bearer token is received as part of respose and should be passed a Authorization
 
 
 
+### 2. Consent notification
 
+Health information user will get notified about the consent request granted or denied, consent revoked, consent expired.
+
+- For consent request grant, status=GRANTED, consentRequestId=<consent-request-id>, and consentArtefacts is an array of generated consent artefact Ids.
+- For consent request expiry, status=EXPIRED, consentRequestId=<consent-request-id>
+- For consent request denied, status=DENIED, consentRequestId=<consent-request-id>
+- For consent revocation, status=REVOKED, consentArtefacts is an array of revoked consent artefact ids
+
+**URL:** {HIU CALLBACK URL}/v0.5/consents/hiu/notify
+
+**Request:** POST  
+
+**Parameters:**
+
+- Authorization string (header) : Bearer your-access-token-from-gateway-session
+
+Access token which was issued after successful login with gateway auth server
+
+- X-HIU-ID string (header) : your-HIU-ID
+
+Identifier of the health information user to which the request was intended
+  
+**Body:**
+
+```json
+{
+  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+  "timestamp": "2022-06-22T05:49:08.429Z",
+  "notification": {
+    "consentRequestId": "<consent-request-id>",
+    "status": "GRANTED",
+    "consentArtefacts": [
+      {
+        "id": "<consent-artefact-id>"
+      }
+    ]
+  }
+}
+
+    
+```
+
+
+**Response:**
+
+202 	Accepted
 
 
 
