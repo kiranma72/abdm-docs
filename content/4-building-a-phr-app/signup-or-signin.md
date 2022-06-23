@@ -33,6 +33,9 @@ The ABDM HIE-CM restricts the number of ABHA addresses that can be linked to a s
 
 ### API Sequence for Registration using Health ID number. 
 
+**API Sequence Diagram for Registration using Health ID number**
+![Sequence](APISequenceDiagram.png)
+
 Swagger link- https://sandbox.abdm.gov.in/swagger/ndhm-phr-app2.yaml/
 
 1. Search a user by Health ID Number.
@@ -128,6 +131,9 @@ Swagger link- https://sandbox.abdm.gov.in/swagger/ndhm-phr-app2.yaml/
 201 Created
 
 #### API Sequence for Registration of PHR Address using Mobile/Email .
+
+**API Sequence Diagram**
+![Sequence](https://github.com/kiranma72/abdm-docs/blob/main/content/4-building-a-phr-app/APIsequencediagramRegistrationofPHRAddressusingMobile%26Email%20.png)
 
 1. Generate Mobile/Email OTP to start registration transaction
 
@@ -264,6 +270,9 @@ In the ABHA app which is a reference app, login can be done by four ways:
 
 **API Sequence for Login with PHR Address via password /mobile/email otp**
 
+**API Sequence Diagram**
+![Sequence](APISequencediagramLoginviapasswordmobileOTP.png)
+
 Swagger link for APIs: https://sandbox.abdm.gov.in/swagger/ndhm-phr-app2.yaml
 
  1. Get the PHR Address authentication methods.
@@ -333,6 +342,8 @@ Swagger link for APIs: https://sandbox.abdm.gov.in/swagger/ndhm-phr-app2.yaml
 
 Swagger link for APIs: https://sandbox.abdm.gov.in/swagger/ndhm-phr-app2.yaml
 
+**API Sequence Diagram**
+![Sequence](APISequenceDiagramLoginviamobile&email.png)
 1. Generate Mobile/Email OTP to start login transaction
 
 **URL: https://dev.abdm.gov.in/cm/v1/apps/login/mobileEmail/auth-init**
@@ -408,6 +419,8 @@ Swagger link for APIs: https://sandbox.abdm.gov.in/swagger/ndhm-phr-app2.yaml
 
 Swagger link for APIs: https://sandbox.abdm.gov.in/swagger/ndhm-phr-app2.yaml
 
+**API Sequence Diagram**
+![Sequence](APISequenceDiagramforLoginwithHealthID.png)
 1. Search a user by Health ID number
 
 **URL: https://dev.abdm.gov.in/cm/v1/apps/login/hid/search/auth-mode**
