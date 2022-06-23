@@ -6,6 +6,6 @@ chapter = true
 pre = "<b>3.2 </b>"
 +++
 
-# Subscription Flow
+# Consent Flow
 
 This section covers the methods that must be supported to Consent Flow
