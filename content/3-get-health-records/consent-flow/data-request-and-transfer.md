@@ -1,5 +1,5 @@
 ---
-title: " Data request and transfer"
+title: "Data request and transfer"
 date: 2022-06-22T12:53:25+05:30
 weight: 4
 draft: false
