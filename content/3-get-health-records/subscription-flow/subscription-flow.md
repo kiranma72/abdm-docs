@@ -6,7 +6,7 @@ draft: false
 ---
 
 
-## Creation of Subscription Request Flow
+# Creation of Subscription Request Flow
 
 ## Overview of the functionality
   - Subscription request against PHR address
