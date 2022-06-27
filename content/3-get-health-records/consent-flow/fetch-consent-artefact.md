@@ -7,22 +7,22 @@ draft: false
 
 
 
-### Fetching the Consent artefact
+# Fetching the Consent artefact
 
-### Overview of the functionality
+## Overview of the functionality
 
  - Once the patient grants consent to the HIU, the CM notifies the HIU system of the consent grant via the gateway.
  - If the patient grants for multiple HIPs, then multiple consent artefacts are generated - one for each HIP.
  - The HIU now first fetches all the consent-artefacts that were generated for its request.
 
-### API Sequence
+## API Sequence
 
 The following diagram explains the Fetching of Consent artefact
 
 ![Consention of Consent Request](./fetching_the_consent_artefact.PNG)
 
 
-### API Information Request Response
+## API Information Request Response
 
 
 ### 1. Generate the Gateway session
@@ -189,7 +189,7 @@ Identifier of the health information user to which the request was intended
 202 	Accepted
 
 
-### Postman + Curl Collection 
+## Postman + Curl Collection 
 
 **Download the Postman Collection** [here](/abdm-docs/Postman/)
 
