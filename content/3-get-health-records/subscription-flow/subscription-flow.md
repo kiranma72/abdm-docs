@@ -6,22 +6,22 @@ draft: false
 ---
 
 
-### Creation of Subscription Request Flow
+## Creation of Subscription Request Flow
 
-### Overview of the functionality
+## Overview of the functionality
   - Subscription request against PHR address
   - Subscription Request appoval Notification to HIU
   - Whenever new data is available the HIU will be notified if there is an active subscription.
 
 
-### API Sequence 
+## API Sequence 
 
 
 
-### API Information Request Response
+## API Information Request Response
 
 
-**1. Generate the Gateway session**
+### 1. Generate the Gateway session
 
 Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
 
@@ -53,10 +53,7 @@ Bearer token is received as part of respose and should be passed a Authorization
 
 
 
-\
-\
-\
-**2. Create Request for Subscription**
+### 2. Create Request for Subscription
 
 
 Creates a request for subscription. The subscription categories can be for care-contexts linkages or availability of data against existing care-contexts. Note that the requester must have HIU role.
@@ -116,10 +113,9 @@ Suffix-of-the-consent-manager
 
 
 
-\
-\
-\
-**3. Callback on Subscription Request**
+
+
+### 3. Callback on Subscription Request
 
 This callback API acknowledges the request for subscription from a HIU, and sends back a "id" that will be used when the patient/user approves or denies the subscription.
 
@@ -161,10 +157,8 @@ Identifier of the health information user to which the request was intended
 
 
 
-\
-\
-\
-**4. Notification for Subscription Request Grant/Deny/Revoke**
+
+### 4. Notification for Subscription Request Grant/Deny/Revoke
 
 This API is used by CM to notify a HIU to grant or deny a request for subscription, and also to notify that in case an existing subscription is revoked or expired. For notifying that a particular subscription request was GRANTED or DENIED, the subscriptionRequestId is passed.
 
@@ -225,10 +219,9 @@ Identifier of the health information user to which the request was intended
 
 
 
-\
-\
-\
-**5. Callback API for /subscription-requests/hiu/notify to acknowledge receipt of notification.**
+
+
+### 5. Callback API for /subscription-requests/hiu/notify to acknowledge receipt of notification.
 
 This API is called by HIU as acknowledgement to subscription request relevant notifications.
 
@@ -272,10 +265,8 @@ Suffix-of-the-consent-manager
 
 
 
-\
-\
-\
-**6. Notification to HIU on basis of a granted subscription**
+
+### 6. Notification to HIU on basis of a granted subscription
 
 This API is used by CM to notify a HIU for notification relevant to subscription. Notifications are sent to subscribed HIUs whenever a new care-context is linked or new data is available on an existing linked care-context.
 
@@ -337,10 +328,8 @@ Identifier of the health information user to which the request was intended
 
 
 
-\
-\
-\
-**7. Callback API for /subscriptions/hiu/notify to acknowledge receipt of notification.**
+
+### 7. Callback API for /subscriptions/hiu/notify to acknowledge receipt of notification.
 
 This API is called by HIU as acknowledgement to consent notifications, specifically for cases when consent is REVOKED or EXPIRED.
 
@@ -383,7 +372,7 @@ Suffix-of-the-consent-manager
 
 
 
-### Postman + Curl Collection 
+## Postman + Curl Collection 
 
 **Download the Postman Collection** [here](/abdm-docs/Postman/)
 
