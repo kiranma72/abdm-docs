@@ -7,9 +7,9 @@ draft: false
 
 
 
-###  Data request and transfer
+#  Data request and transfer
 
-### Overview of the functionality
+## Overview of the functionality
 
 The data request and transfer process between the HIU, CM and HIP passes through the following three stages:
 
@@ -52,14 +52,14 @@ was transmitted to the HIU. The HIU’s health repository sends a notification t
 successfully received, or that the request failed.
 
 
-### API Sequence
+## API Sequence
 
 All above 3 stages that pertains to HIU are shown in the following diagram:
 
 ![Consention of Consent Request](./data_request_and_transfer.PNG)
 
 
-### API Information Request Response
+## API Information Request Response
 
 
 ### 1. Generate the Gateway session
@@ -335,7 +335,7 @@ Suffix-of-the-consent-manager
 
 
 
-### Postman + Curl Collection 
+## Postman + Curl Collection 
 
 **Download the Postman Collection** [here](/abdm-docs/Postman/)
 
