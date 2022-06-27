@@ -10,20 +10,20 @@ draft: false
 
 
 
-### Patient Consent Notification from CM to HIU
+# Patient Consent Notification from CM to HIU
 
-### Overview of the functionality
+## Overview of the functionality
 
 
 
-### API Sequence
+## API Sequence
 
 The following diagram explains the consent notification flow
 
 ![Consention of Consent Request](./consent_notification_from_CM_to_HIU.PNG)
 
 
-### API Information Request Response
+## API Information Request Response
 
 
 ### 1. Generate the Gateway session
@@ -165,11 +165,8 @@ Suffix-of-the-consent-manager
 
 
 
-### Postman + Curl Collection 
+## Postman + Curl Collection 
 
 **Download the Postman Collection** [here](/abdm-docs/Postman/)
 
 **Download the Curls** [here](/abdm-docs/Curls/)
-
-
-
