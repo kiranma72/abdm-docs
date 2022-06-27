@@ -7,9 +7,9 @@ draft: false
 
 
 
-### Creation of Consent Request
+# Creation of Consent Request
 
-### Overview of the functionality
+## Overview of the functionality
  - From an HIU perspective, the flow begins when the HIU (e.g., a Doctor at a Hospital) requests consent to view the patient’s data.
  - Upon receipt of such a request from Gateway, CM acknowledges and sends back a consent request ID to the HIU via the gateway.
  - The CM then notifies the patient that an HIU has made a consent request.
@@ -21,17 +21,17 @@ draft: false
 2. If the request is denied, the CM simply notifies the HIU of the denial of the request.
 
 
-### API Sequence
+## API Sequence
 
 The following diagram explains the consent request creation flow of forwarding the request to the gateway so that gateway can forward it to respective CM
 
 ![Consention of Consent Request](./consent_request_creation.PNG)
 
 
-### API Information Request Response
+## API Information Request Response
 
 
-**1. Generate the Gateway session**
+### 1. Generate the Gateway session
 
 Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
 
@@ -63,10 +63,8 @@ Bearer token is received as part of respose and should be passed a Authorization
 
 
 
-\
-\
-\
-**2. Identify a patient**
+
+### 2. Identify a patient
 
 This API is meant for identify to patient given her consent-manager-user-id
 
@@ -109,10 +107,9 @@ Suffix-of-the-consent-manager
 
 
 
-\
-\
-\
-**3. Callback API for patient/find**
+
+
+### 3. Callback API for patient/find
 
 If a patient is found then patient.name contains the patients name. Otherwise, patient is not provided, and possibly error is raised for invalid requests Note in addition to the "Authorization" header, one of the following headers must be specified
 
@@ -161,10 +158,8 @@ Identifier of the health information provider to which the request was intended
 
 
 
-\
-\
-\
-**4. Create consent request**
+
+### 4. Create consent request
 
 Creates a consent request to get data about a patient by HIU user.
 
@@ -243,10 +238,8 @@ Suffix-of-the-consent-manager
 
 
 
-\
-\
-\
-**5. Response to consent request**
+
+### 5. Response to consent request
 
 Result of consent request creation for a patient. consentRequest.id represents the consentrequest id created by CM. The result must contain either consentRequest or the error caused.
 Reasons for error may be Invalid references (e.g patient id, hiu id), purpose, hiTypes, ranges, persmission.
@@ -289,10 +282,8 @@ Identifier of the health information user to which the request was intended
 
 
 
-\
-\
-\
-**6. Get consent request status**
+
+### 6. Get consent request status
 
 Get status of consent request done previously
 
@@ -327,10 +318,8 @@ Suffix-of-the-consent-manager
 
 
 
-\
-\
-\
-**7. Result of consent request status**
+
+### 7. Result of consent request status
 
 Result of consent request done previously. Status of request can be GRANTED, DENIED, EXPIRED. If the request was GRANTED, then
 
@@ -380,7 +369,7 @@ Identifier of the health information user to which the request was intended
 
 
 
-### Postman + Curl Collection 
+## Postman + Curl Collection 
 
 **Download the Postman Collection** [here](/abdm-docs/Postman/)
 
