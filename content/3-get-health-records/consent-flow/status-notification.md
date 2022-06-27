@@ -6,15 +6,15 @@ draft: false
 ---
 
 
-###  Status Notification
+#  Status Notification
 
-### Overview of the functionality
-
-
-### API Sequence
+## Overview of the functionality
 
 
-### API Information Request Response
+## API Sequence
+
+
+## API Information Request Response
 
 
 ### 1. Generate the Gateway session
@@ -141,7 +141,7 @@ Suffix-of-the-consent-manager
 
 
 
-### Postman + Curl Collection 
+## Postman + Curl Collection 
 
 **Download the Postman Collection** [here](/abdm-docs/Postman/)
 
