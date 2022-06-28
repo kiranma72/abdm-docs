@@ -1,5 +1,5 @@
 ---
-title: "UHI & the DHP Protocol"
+title: "UHI Protocol"
 date: 2022-05-07T18:00:04+05:30
 Weight: 1
 draft: false
@@ -7,11 +7,11 @@ draft: false
 
 ### What is UHI?
 
-The Unified Health Interface (UHI) is a network where applications built on the DHP open protocol can interoperably connect with each other to provide health services. UHI is a key Digital Public Infrastructure that enables discoverability and transaction for digital health services.  UHI works with other ABDM building blocks like HIE-CM for interoperable exchange of personal health data and  registries like HPR & HFR to enable trust from participating doctors and health facilities. UHI takes an ‘Open Network’ approach to build the gateway and to enable the creation of a nationwide, decentralized, open, and inclusive network. 
+The Unified Health Interface (UHI) is a network where applications built on the UHI open protocol can interoperably connect with each other to provide health services. UHI is a key Digital Public Infrastructure that enables discoverability and transaction for digital health services.  UHI works with other ABDM building blocks like HIE-CM for interoperable exchange of personal health data and  registries like HPR & HFR to enable trust from participating doctors and health facilities. UHI takes an ‘Open Network’ approach to build the gateway and to enable the creation of a nationwide, decentralized, open, and inclusive network. 
 
 ABDM manages the UHI Gateway and the UHI Registry. Any application that wishes to participate in UHI must 
 
-- Implement the DHP protocol  
+- Implement the UHI protocol  
 - Register with the UHI registry 
 - Use the UHI Gateway to discover other UHI apps & their services
 - Comply with the UHI Market Rules 
@@ -19,8 +19,8 @@ ABDM manages the UHI Gateway and the UHI Registry. Any application that wishes t
 
 It will be provide a system to facilitate the discovery of services between user facing applications and health service provider applications. Open access across diverse health service providers and patients can drastically expand demand-supply ecosystems and transform the digital healthcare landscape in India.
 
-### What is DHP? 
-Decentralized Health Protocols aim to define the interoperable protocol specifications for creating a decentralized network of health services. The purpose of DHP APIs is to enable interoperability between Healthcare providers (doctors, paramedical, health facilities, etc.) and Healthcare consumers. The DHP architecture and APIs allow individuals/ organizations to set up an open network of consumer side applications and health service provider side platforms using common protocol specifications. The DHP renders open APIs, schemas and example flows for the different use cases in healthcare. 
+### What is UHI Open Protocol? 
+UHI Open Protocol is a Decentralized Health Protocols aimed to define the interoperable protocol specifications for creating a decentralized network of health services. The purpose of APIs is to enable interoperability between Healthcare providers (doctors, paramedical, health facilities, etc.) and Healthcare consumers. The UHI Open Protocol architecture and APIs allow individuals/ organizations to set up an open network of consumer side applications and health service provider side platforms using common protocol specifications. It renders open APIs, schemas and example flows for the different use cases in healthcare. 
 
 The protocol is being developed as an open community initiative on GitHub [https://github.com/dhp-project/DHP-Specs](https://github.com/dhp-project/DHP-Specs)
 
