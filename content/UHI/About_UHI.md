@@ -53,7 +53,7 @@ Any service transaction in UHI involves five entities:
 
 The role of the gateway in a UHI service transaction is limited to the search and discoverability of health services. For example, if a user searches for teleconsultation services on an EUA, the gateway routes the request to all available HSPAs and sends back the responses to the EUA. The booking, payment and fulfillment of the service, thereafter, is done directly between the EUA and the HSPA. 
 
-![UHI Gateway Overview](../UHI_Gateway_Overview.png)
+![UHI Gateway Overview](https://github.com/kiranma72/abdm-docs/blob/a6ffaccda810a85dc880457ea446574ed271bd2e/content/UHI/UHI_Gateway_Overview.png)
 
 
 
