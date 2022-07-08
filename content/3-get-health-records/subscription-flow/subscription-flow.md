@@ -76,7 +76,7 @@ Suffix-of-the-consent-manager
 
 ```json
 {
-  "requestId": "499a5a4a-7dda-4f20-9b67-e24589627061",
+  "requestId": "da98c401-a188-48c0-b97d-bba04c7c2c12",
   "timestamp": "2022-07-08T11:16:43.665Z",
   "subscription": {
     "purpose": {
@@ -88,11 +88,11 @@ Suffix-of-the-consent-manager
       "id": "hinapatel79@sbx"
     },
     "hiu": {
-      "id": "PASS-HIU-ID"
+      "id": "HIU-ID"
     },
     "hips": [
       {
-        "id": "PASS-HIP-ID"
+        "id": "HIP-ID"
       }
     ],
     "categories": [
@@ -137,14 +137,14 @@ Identifier of the health information user to which the request was intended
 
 ```json
 {
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+  "requestId": "e7cb5bcf-b1f1-477d-bf04-637217009708",
   "timestamp": "2022-07-08T11:14:19.12645",
   "subscriptionRequest": {
-    "id": "f29f0e59-8388-4698-9fe6-05db67aeac46"
+    "id": "a38aa587-70c6-4b3e-9d76-93fc7e9fd410"
   },
   "error": null,
   "resp": {
-    "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    "requestId": "983c4a30-271c-4add-b50f-85c88b6ded8f"
   }
 }
 
@@ -180,13 +180,13 @@ Identifier of the health information user to which the request was intended
 
 ```json
 {
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+  "requestId": "5f680014-cd8e-4cf8-8a3a-79f1ce3e7c23",
   "timestamp": "2022-07-08T11:18:21.418348",
   "notification": {
-    "subscriptionRequestId": "f29f0e59-8388-4698-9fe6-05db67aeac46",
+    "subscriptionRequestId": "a38aa587-70c6-4b3e-9d76-93fc7e9fd410",
     "status": "GRANTED",
     "subscription": {
-      "id": "77d4f77f-b8f4-4c77-77a5-77b02de1ad2f",
+      "id": "42d4f25f-b8f4-4c52-80a5-11b02de1ad2f",
       "patient": {
         "id": "hinapatel79@sbx"
       },
@@ -247,16 +247,16 @@ Suffix-of-the-consent-manager
 
 ```json
 {
-  "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-  "timestamp": "2022-06-21T07:59:31.461Z",
-  "acknowledgement": {
-    "status": "OK",
-    "subscriptionRequestId": "f29f0e59-8388-4698-9fe6-05db67aeac46"
-  },
-  "error": null,
-  "resp": {
-    "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd"
-  }
+  "requestId": "e2b422c4-8026-4931-bfa3-111c2accd1c7",
+  "timestamp": "2022-07-08T11:32:28.779000",
+    "acknowledgement": {
+        "status": "OK",
+        "subscriptionRequestId": "a38aa587-70c6-4b3e-9d76-93fc7e9fd410"
+    },
+    "error": null,
+    "resp": {
+        "requestId": "5f680014-cd8e-4cf8-8a3a-79f1ce3e7c23"
+    }
 }
 
 ```
@@ -294,12 +294,12 @@ Identifier of the health information user to which the request was intended
 
 ```json
 {
-  "requestId": "07cc2f96-ff33-4f49-b55a-354599a7f777",
+  "requestId": "07cc2f96-ff63-4f49-b11a-354599a7f299",
   "timestamp": "2022-07-08T11:27:43.230328",
   "event": {
-    "id": "a1s2c932-2f70-3ds3-a3b5-2sfd46b12a18d",
+    "id": "add38a15-1bf3-4132-bca9-24ddc1830238",
     "published": "2022-07-08T11:27:43.190529",
-    "subscriptionId": "77d4f77f-b8f4-4c77-77a5-77b02de1ad2f",
+    "subscriptionId": "42d4f25f-b8f4-4c52-80a5-11b02de1ad2f",
     "category": "LINK",
     "content": {
       "patient": {
@@ -355,16 +355,16 @@ Suffix-of-the-consent-manager
 
 ```json
 {
-  "requestId": "73f63ae1-90ac-1234-a874-3b812f89a61c",
-  "timestamp": "2022-06-21T08:02:56.586Z",
-  "acknowledgement": {
-    "status": "OK",
-    "eventId": "a1s2c932-2f70-3ds3-a3b5-2sfd46b12a18d"
-  },
-  "error": null,
-  "resp": {
-    "requestId": "07cc2f96-ff33-4f49-b55a-354599a7f777"
-  }
+  "requestId": "b185f11e-3277-4d47-8a2c-16b86daccc73",
+  "timestamp": "2022-07-08T11:32:28.779000",
+    "acknowledgement": {
+        "status": "OK",
+        "eventId": "add38a15-1bf3-4132-bca9-24ddc1830238"
+    },
+    "error": null,
+    "resp": {
+        "requestId": "07cc2f96-ff63-4f49-b11a-354599a7f299"
+    }
 }
 
 ```
