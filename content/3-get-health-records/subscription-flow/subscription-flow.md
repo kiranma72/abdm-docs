@@ -77,30 +77,30 @@ Suffix-of-the-consent-manager
 ```json
 {
   "requestId": "499a5a4a-7dda-4f20-9b67-e24589627061",
-  "timestamp": "2022-06-21T07:44:12.142Z",
+  "timestamp": "2022-07-08T11:16:43.665Z",
   "subscription": {
     "purpose": {
-      "text": "string",
-      "code": "string",
+      "text": "Care Management",
+      "code": "CAREMGT",
       "refUri": "string"
     },
     "patient": {
       "id": "hinapatel79@sbx"
     },
     "hiu": {
-      "id": "HIU_ID"
+      "id": "PASS-HIU-ID"
     },
     "hips": [
       {
-        "id": "HIP_ID"
+        "id": "PASS-HIP-ID"
       }
     ],
     "categories": [
       "LINK"
     ],
     "period": {
-      "from": "2022-06-21T07:44:12.142Z",
-      "to": "2022-06-21T07:44:12.142Z"
+      "from": "2022-06-16T08:54:51.397Z",
+      "to": "2022-07-25T08:54:51.397Z"
     }
   }
 }
@@ -138,7 +138,7 @@ Identifier of the health information user to which the request was intended
 ```json
 {
   "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "2022-06-21T07:48:39.221Z",
+  "timestamp": "2022-07-08T11:14:19.12645",
   "subscriptionRequest": {
     "id": "f29f0e59-8388-4698-9fe6-05db67aeac46"
   },
@@ -181,35 +181,38 @@ Identifier of the health information user to which the request was intended
 ```json
 {
   "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "2022-06-21T07:55:50.293Z",
+  "timestamp": "2022-07-08T11:18:21.418348",
   "notification": {
-    "subscriptionRequestId": "request id of the subscription",
+    "subscriptionRequestId": "f29f0e59-8388-4698-9fe6-05db67aeac46",
     "status": "GRANTED",
     "subscription": {
-      "id": "subscription Id",
+      "id": "77d4f77f-b8f4-4c77-77a5-77b02de1ad2f",
       "patient": {
         "id": "hinapatel79@sbx"
       },
       "hiu": {
-        "id": "HIU_ID"
+        "id": "HIU-ID",
+        "name": "HIU NAME"
       },
       "sources": [
         {
           "hip": {
-            "id": "HIP_ID"
+            "id": "HIP-ID",
+            "name": "HIP NAME"
           },
           "categories": [
             "LINK"
           ],
           "period": {
-            "from": "2022-06-21T07:55:50.293Z",
-            "to": "2022-06-21T07:55:50.293Z"
+            "from": "2022-06-16T08:54:51.397",
+            "to": "2022-07-25T08:54:51.397"
           }
         }
       ]
     }
   }
 }
+
 
 ```
 
@@ -244,15 +247,15 @@ Suffix-of-the-consent-manager
 
 ```json
 {
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+  "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "timestamp": "2022-06-21T07:59:31.461Z",
   "acknowledgement": {
     "status": "OK",
-    "subscriptionRequestId": "subscription Id"
+    "subscriptionRequestId": "f29f0e59-8388-4698-9fe6-05db67aeac46"
   },
   "error": null,
   "resp": {
-    "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd"
   }
 }
 
@@ -291,28 +294,29 @@ Identifier of the health information user to which the request was intended
 
 ```json
 {
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "2022-06-21T08:01:30.007Z",
+  "requestId": "07cc2f96-ff33-4f49-b55a-354599a7f777",
+  "timestamp": "2022-07-08T11:27:43.230328",
   "event": {
     "id": "a1s2c932-2f70-3ds3-a3b5-2sfd46b12a18d",
-    "published": "2022-06-21T08:01:30.007Z",
-    "subscriptionId": "subscription Id",
+    "published": "2022-07-08T11:27:43.190529",
+    "subscriptionId": "77d4f77f-b8f4-4c77-77a5-77b02de1ad2f",
     "category": "LINK",
     "content": {
       "patient": {
         "id": "hinapatel79@sbx"
       },
       "hip": {
-        "id": "HIP_ID"
+        "id": "HIP-ID",
+        "name": "HIP NAME"
       },
       "context": [
         {
           "careContext": {
-            "patientReference": "batman@tmh",
-            "careContextReference": "Episode1"
+            "patientReference": "hinapatel79@sbx",
+            "careContextReference": "01012021123"
           },
           "hiTypes": [
-            "OPConsultation"
+          "OPConsultation"
           ]
         }
       ]
@@ -351,15 +355,15 @@ Suffix-of-the-consent-manager
 
 ```json
 {
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+  "requestId": "73f63ae1-90ac-1234-a874-3b812f89a61c",
   "timestamp": "2022-06-21T08:02:56.586Z",
   "acknowledgement": {
     "status": "OK",
-    "eventId": "subscription event Id"
+    "eventId": "a1s2c932-2f70-3ds3-a3b5-2sfd46b12a18d"
   },
   "error": null,
   "resp": {
-    "requestId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    "requestId": "07cc2f96-ff33-4f49-b55a-354599a7f777"
   }
 }
 
