@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "12ecf1c1-45a4-4614-a9d8-e1fcdadf20fc",
+		"name": "SUBSCRIPTIONS_FLOW",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21771694"
+	},
+	"item": [
+		{
+			"name": "01_Session_Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"pm.globals.set(\"SK_AUTH\", jsonData.accessToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clientId\": \"your-clientID\",\r\n    \"clientSecret\": \"your-clientSecret\",\r\n    \"grantType\": \"client_credentials\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/gateway/v0.5/sessions",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway",
+						"v0.5",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02_Subscription_Request",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CM-ID",
+						"value": "sbx (or) abdm"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"requestId\": \"da98c401-a188-48c0-b97d-bba04c7c2c12\",\r\n  \"timestamp\": \"2022-07-08T11:16:43.665Z\",\r\n  \"subscription\": {\r\n    \"purpose\": {\r\n      \"text\": \"Care Management\",\r\n      \"code\": \"CAREMGT\",\r\n      \"refUri\": \"string\"\r\n    },\r\n    \"patient\": {\r\n      \"id\": \"hinapatel79@sbx\"\r\n    },\r\n    \"hiu\": {\r\n      \"id\": \"HIU-ID\"\r\n    },\r\n    \"hips\": [\r\n      {\r\n        \"id\": \"HIP-ID\"\r\n      }\r\n    ],\r\n    \"categories\": [\r\n      \"LINK\"\r\n    ],\r\n    \"period\": {\r\n      \"from\": \"2022-06-16T08:54:51.397Z\",\r\n      \"to\": \"2022-07-25T08:54:51.397Z\"\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/gateway/v0.5/subscription-requests/cm/init",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway",
+						"v0.5",
+						"subscription-requests",
+						"cm",
+						"init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03_On_Subscription_Request",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-HIU-ID",
+						"value": "your-HIU-ID"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"requestId\": \"e7cb5bcf-b1f1-477d-bf04-637217009708\",\r\n  \"timestamp\": \"2022-07-08T11:14:19.12645\",\r\n  \"subscriptionRequest\": {\r\n    \"id\": \"a38aa587-70c6-4b3e-9d76-93fc7e9fd410\"\r\n  },\r\n  \"error\": null,\r\n  \"resp\": {\r\n    \"requestId\": \"983c4a30-271c-4add-b50f-85c88b6ded8f\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{HIU CALLBACK URL}/v0.5/subscription-requests/hiu/on-init",
+					"host": [
+						"{HIU CALLBACK URL}"
+					],
+					"path": [
+						"v0.5",
+						"subscription-requests",
+						"hiu",
+						"on-init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04_Subscription_Requests_HIU_Notify",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-HIU-ID",
+						"value": "your-HIU-ID"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"requestId\": \"5f680014-cd8e-4cf8-8a3a-79f1ce3e7c23\",\r\n  \"timestamp\": \"2022-07-08T11:18:21.418348\",\r\n  \"notification\": {\r\n    \"subscriptionRequestId\": \"a38aa587-70c6-4b3e-9d76-93fc7e9fd410\",\r\n    \"status\": \"GRANTED\",\r\n    \"subscription\": {\r\n      \"id\": \"42d4f25f-b8f4-4c52-80a5-11b02de1ad2f\",\r\n      \"patient\": {\r\n        \"id\": \"hinapatel79@sbx\"\r\n      },\r\n      \"hiu\": {\r\n        \"id\": \"HIU-ID\",\r\n        \"name\": \"HIU NAME\"\r\n      },\r\n      \"sources\": [\r\n        {\r\n          \"hip\": {\r\n            \"id\": \"HIP-ID\",\r\n            \"name\": \"HIP NAME\"\r\n          },\r\n          \"categories\": [\r\n            \"LINK\"\r\n          ],\r\n          \"period\": {\r\n            \"from\": \"2022-06-16T08:54:51.397\",\r\n            \"to\": \"2022-07-25T08:54:51.397\"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{HIU CALLBACK URL}/v0.5/subscription-requests/hiu/notify",
+					"host": [
+						"{HIU CALLBACK URL}"
+					],
+					"path": [
+						"v0.5",
+						"subscription-requests",
+						"hiu",
+						"notify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "05_On_Subscription_Requests_HIU_Notify",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CM-ID",
+						"value": "sbx (or) abdm"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"requestId\": \"e2b422c4-8026-4931-bfa3-111c2accd1c7\",\r\n  \"timestamp\": \"2022-07-08T11:32:28.779000\",\r\n    \"acknowledgement\": {\r\n        \"status\": \"OK\",\r\n        \"subscriptionRequestId\": \"a38aa587-70c6-4b3e-9d76-93fc7e9fd410\"\r\n    },\r\n    \"error\": null,\r\n    \"resp\": {\r\n        \"requestId\": \"5f680014-cd8e-4cf8-8a3a-79f1ce3e7c23\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/gateway/v0.5/subscription-requests/hiu/on-notify",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway",
+						"v0.5",
+						"subscription-requests",
+						"hiu",
+						"on-notify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "06_Subscription_HIU_Notify",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-HIU-ID",
+						"value": "your-HIU-ID"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"requestId\": \"07cc2f96-ff63-4f49-b11a-354599a7f299\",\r\n  \"timestamp\": \"2022-07-08T11:27:43.230328\",\r\n  \"event\": {\r\n    \"id\": \"add38a15-1bf3-4132-bca9-24ddc1830238\",\r\n    \"published\": \"2022-07-08T11:27:43.190529\",\r\n    \"subscriptionId\": \"42d4f25f-b8f4-4c52-80a5-11b02de1ad2f\",\r\n    \"category\": \"LINK\",\r\n    \"content\": {\r\n      \"patient\": {\r\n        \"id\": \"hinapatel79@sbx\"\r\n      },\r\n      \"hip\": {\r\n        \"id\": \"HIP-ID\",\r\n        \"name\": \"HIP NAME\"\r\n      },\r\n      \"context\": [\r\n        {\r\n          \"careContext\": {\r\n            \"patientReference\": \"hinapatel79@sbx\",\r\n            \"careContextReference\": \"01012021123\"\r\n          },\r\n          \"hiTypes\": [\r\n          \"OPConsultation\"\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{HIU CALLBACK URL}/v0.5/subscriptions/hiu/notify",
+					"host": [
+						"{HIU CALLBACK URL}"
+					],
+					"path": [
+						"v0.5",
+						"subscriptions",
+						"hiu",
+						"notify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07_On_Subscription_HIU_Notify",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CM-ID",
+						"value": "sbx (or) abdm"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"requestId\": \"b185f11e-3277-4d47-8a2c-16b86daccc73\",\r\n  \"timestamp\": \"2022-07-08T11:32:28.779000\",\r\n    \"acknowledgement\": {\r\n        \"status\": \"OK\",\r\n        \"eventId\": \"add38a15-1bf3-4132-bca9-24ddc1830238\"\r\n    },\r\n    \"error\": null,\r\n    \"resp\": {\r\n        \"requestId\": \"07cc2f96-ff63-4f49-b11a-354599a7f299\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/gateway/v0.5/subscriptions/hiu/on-notify",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway",
+						"v0.5",
+						"subscriptions",
+						"hiu",
+						"on-notify"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
