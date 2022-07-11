@@ -378,7 +378,7 @@ Suffix-of-the-consent-manager
 
 ## Postman + Curl Collection 
 
-**Download the Postman Collection** [here](/abdm-docs/Postman/)
+**Download the Postman Collection** [here](./Subscription_Flow.json)
 
 **Download the Curls** [here](/abdm-docs/Curls/)
 
