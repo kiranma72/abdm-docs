@@ -3,7 +3,7 @@
 This is the repository for the new ABDM sandbox documentation currently under development. 
 You can preview the documentation produced by this repo at [https://kiranma72.github.io/abdm-docs](https://kiranma72.github.io/abdm-docs)
 
-If you want to contribute to improving the documentation, write with your github id to kiran.anandampillai@ispirt.in and we will add you as a collabrator to this project 
+If you want to contribute to improving the documentation, write with your github id to kiranma@gmail.com and we will add you as a collabrator to this project 
 
 ## For contributors
 
