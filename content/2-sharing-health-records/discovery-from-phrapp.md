@@ -299,7 +299,7 @@ The HRP is expected to perform the following validations before responding via t
     "referenceNumber": "DiscoveryRef-352341",
     "display": "Linked Care contexts for Kiran Anandampillai",
     "careContexts": [
-      {{
+      {
         "referenceNumber": "HT1254323",
         "display": "Prescription from OPD Visit on 12-05-22"
       }, 
