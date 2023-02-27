@@ -105,7 +105,7 @@ If a matching patient found with zero or more care contexts associated, it is sp
 - more than one definitive match for the given request
 - no verified identifer was specified
 
-**URL**: https://dev.abdm.gov.in/gateway/v0.5/care-contexts/discover
+**URL**: https://dev.abdm.gov.in/gateway/v0.5/care-contexts/on-discover
 
 **METHOD**: POST
 
