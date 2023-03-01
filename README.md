@@ -8,7 +8,7 @@ If you want to contribute to improving the documentation, write with your github
 ## For contributors
 
 - This documentation uses [Hugo](https://gohugo.io) to build the final documentation site.
-- You can clone this directory using git clone https://github.com/kiranma72/abdm-docs/
+- You can clone this directory using git clone --recursive https://github.com/kiranma72/abdm-docs/
 - The folder structure is very important. All pages are under the directory "content"
 - Each folder under content represents a chapter
 - The _index.md page contains the content for the chapter's starting page
