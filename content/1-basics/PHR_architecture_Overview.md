@@ -9,12 +9,12 @@ ABDM uses a federated architecture to help users collect their health records ac
 
 The image below shows the various entities/roles involved in the PHR framework
 
-![ABDM HIP HIU Architecture](/abdm-docs/img/abdm_hip_hiu_architecture.png)
+![ABDM HIP HIU Architecture](../phr-architeture.pptx.jpg)
 
 ## What is a Health Information Provider (HIP)?
 Any entity that agrees to share digital health records with their users using the ABDM specified methods is called an HIP (Health Information Provider). HIPs can be hospitals, labs, health care centers, government health programs, teleconsultation players, clinics or pharmacies - basically any entity which creates medical data pertaining to a patient. 
 
-HIPs are required to maintain a digital copy of both the inpatient and outpatient records for each person in their care. In order to become an HIP, health facilities must enrol in the ABDM [health facility registry](https://hfr.abdm.gov.in)
+HIPs are required to maintain a digital copy of both the inpatient and outpatient records for each person in their care. In order to become an HIP, health facilities must enrol in the ABDM [health facility registry](https://facility.abdm.gov.in)
 
 ## What is a Health Repository Provider (HRP)?
  Health repository providers are software service providers who offer ABDM compliant software to health facilities like hospitals, diagnostic centers etc. The HRP enables healthcare providers to become HIPs or HIUs and meet their obligations of sharing and securely maintaining health records of patients digitally. HRPs offer long term storage of health records on behalf of a HIP. For example, a hosted lab information management system provider (LIMS) may update their software to become a ABDM compatible Health Repository Provider. Any lab using this hosted LIMS software can rapidly become a HIP by adopting the software.
@@ -36,22 +36,22 @@ In order to manage their personal health records, Users must first create an acc
 
 Users can create an ABHA address by downloading a PHR mobile application or a portal provided by the HIE-CM. Use [phr.abdm.gov.in](https://phr.abdm.gov.in) to create a new ABHA address 
 
-Users can create ABHA addresses in one of two ways
+Users can createa an ABHA addresses in one of two ways:
 1.  Using self declared information - This requires Name, Year of Birth gender along with a mobile no or email 
 2.  Using an ABHA Number - This requires users to first create an ABHA number with strong KYC 
 
-Users can start with a self declared ABHA address and later link it to a ABHA number 
+Users can start with a self declared ABHA address and later link it to an ABHA number 
 
-While users are allowed to create more than one ABHA address, ABDM encourages every induvidual to have only ONE ABHA address. The processes of obtaining a ABHA address is designed to ensure that users dont accidentally create multiple addresses
+While users are allowed to create more than one ABHA address, ABDM encourages every induvidual to have only ONE ABHA address. The processes of obtaining aa ABHA address is designed to ensure that users dont accidentally create multiple addresses
 
-Try it out - Create a ABHA address that you can use on the ABDM sandbox at [phrsbx.abdm.gov.in](https://phrsbx.abdm.gov.in). This will create a ABHA address on the @sbx HIE-CM hosted within the sandbox 
+Try it out - Create an ABHA address that you can use on the ABDM sandbox at [phrsbx.abdm.gov.in](https://phrsbx.abdm.gov.in). This will create an ABHA address on the @sbx HIE-CM hosted within the sandbox 
 
 ## What is an ABHA Number?
-ABHA number is a 14 digit number that is unique (only one per person) issued only after a strong KYC. You can link a PHR address with an ABHA no. ABHA is a core building block of the ABDM ecosystem and integrates with several other systems to provide online KYC including Aadhaar, Driving licence and PAN 
+ABHA number is a 14 digit number that is unique (only one per person) issued only after a strong KYC. You can link a PHR address with an ABHA number ABHA is a core building block of the ABDM ecosystem and integrates with several other systems to provide online KYC including Aadhaar, Driving licence and PAN 
 
 You can obtain an ABHA by signing up at [https://abha.abdm.gov.in](https://abha.abdm.gov.in)
 
-ABHA nos extremely important for helping those who use feature phones or do not use a phone to create their personal health records. ABHA Nos are issued in assisted mode extensively by all Government health programs. Each of these ABHA numbers is also issues a PHR address on the @abdm HIE-CM. They look like <14digitabhano>@abdm. Government programs link any health records they create to this ABHA address.
+ABHA numbers extremely important for helping those who use feature phones or do not use a phone to create their personal health records. ABHA numbers are issued in assisted mode extensively by all Government health programs. Each of these ABHA numbers is also issues a PHR address on the @abdm HIE-CM. They look like <14digitabhano>@abdm. Government programs link any health records they create to this ABHA address.
 
 You can play around with the sandbox instance of the ABHA building block at [https://abhasbx.abdm.gov.in](https://abhasbx.abdm.gov.in)
 
@@ -62,9 +62,9 @@ Personal Health Record Applications are software service providers who offer fro
 You can play around with the sandbox instance of the ABHA PHR app at  [https://phrsbx.abdm.gov.in](https://phrsbx.abdm.gov.in)
 
 ## How does a HIE-CM create a longitudinal Health record 
-The PHR architecture is inline with the concepts described in the Niti Aayog National Health Stack (NHS) strategy and the National Digital Health Bluprint documents.
+The PHR architecture is inline with the concepts described in the Niti Aayog National Health Stack (NHS) strategy and the National Digital Health Blueprint documents.
 
-ABDM is implementated as a Federated Architecture, where data is kept by the entity that generates the health data. Only a link called a *care context* is added to the PHR address. The HIE-CM is designed to be data blind, ie it does not know any details of the health records that are linked with the PHR address and the architecture ensures that any exchange of health data does not pass thru the HIE-CM. 
+ABDM is implemented as a Federated Architecture, where data is kept by the entity that generates the health data. Only a link called a *care context* is added to the PHR address. The HIE-CM is designed to be data blind, ie it does not know any details of the health records that are linked with the PHR address and the architecture ensures that any exchange of health data does not pass through the HIE-CM. 
 
 The architecture is also fully aligned with the upcoming Data Protection Bill. The MietY consent framework and DEPA architecture is used to ensure that any data shared is only with a fully structured consent artifact. This design should ensure that any health facility using a ABDM compliant software will automatically be compliant to the Data protection bill. 
 ![How HIE-CM builds a PHR ](/abdm-docs/img/hie_cm_linking_recs.png)
@@ -97,7 +97,7 @@ The Architecture ensures that there is
  ## The ABDM Gateway 
 Gateway is the hub that mediates and connects HIE-CMs, Health Repository Providers and HIUs in the network. Its primary job is to allow for discovery, routing in the network. The gateway does the following:
 
-- Connects and validates the HOE-CMs and health repositories (servicing HIUs and HIPs) to the network.
+- Connects and validates the HIE-CMs and health repositories (servicing HIUs and HIPs) to the network.
 - Enables routing of information.
 - Authenticates connected systems within the PHR network (provides a signed authentication token for further communication). 
 The entire PHR framework including the gateway communicates via asynchronous APIs over HTTPs channel.
@@ -120,3 +120,17 @@ Try out the following
 1. National Digital Health Blueprint
 2. National Health Stack
 3. Electronic Consent Framework
+
+
+{{< mermaid >}}
+%%{init:{"fontFamily":"monospace", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+    Alice->>John: Hello John, how are you?
+    loop Healthcheck
+        John->>John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts!
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!
+{{< /mermaid >}}
