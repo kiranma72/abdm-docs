@@ -8,7 +8,7 @@ draft: false
 ## Sign up for the ABDM Sandbox
 The building blocks of ABDM uses a JWT token based auth mechanism for all API requests. Signing up to the ABDM sandbox provides you a client ID / client secret which can be used to generate the authorization token. 
 
-The ABDM sandbox is open to everyone including induviduals. You use the sandbox environment to integrate your application and make sure it is compliant to the ABDM requirements. Access to ABDM production APIs requires you to exit the sandbox post integration. 
+The ABDM sandbox is open to everyone including individuals. You use the sandbox environment to integrate your application and make sure it is compliant to the ABDM requirements. Access to ABDM production APIs requires you to exit the sandbox post integration. 
 
 # User Manual for Sandbox Sign Up
 **Step 1:**  
