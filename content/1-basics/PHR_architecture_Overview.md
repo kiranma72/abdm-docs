@@ -12,7 +12,7 @@ The image below shows the various entities/roles involved in the PHR framework
 ![ABDM HIP HIU Architecture](../phr-architeture.pptx.jpg)
 
 ## What is a Health Information Provider (HIP)?
-Any entity that agrees to share digital health records with their users using the ABDM specified methods is called an HIP (Health Information Provider). HIPs can be hospitals, labs, health care centers, government health programs, teleconsultation players, clinics or pharmacies - basically any entity which creates medical data pertaining to a patient. 
+Any entity that agrees to share digital health records with their users using the [ABDM specified methods](https://old.abdm.gov.in/assets/uploads/HIP_HIU_Policy.pdf) is called an HIP (Health Information Provider). HIPs can be hospitals, labs, health care centers, government health programs, teleconsultation players, clinics or pharmacies - basically any entity which creates medical data pertaining to a patient. 
 
 HIPs are required to maintain a digital copy of both the inpatient and outpatient records for each person in their care. In order to become an HIP, health facilities must enrol in the ABDM [health facility registry](https://facility.abdm.gov.in)
 
@@ -111,15 +111,15 @@ ABDM is providing a sandbox environment with core essential services that enable
 Try out the following 
 
 1. Create a PHR address on the sandbox from [https://phrsbx.abdm.gov.in/](https://phrsbx.abdm.gov.in/)
-2. Use EMRSBX to register your PHR address and link it with a new health record 
-3. Download and login to the Sandbox PHR app with your new PHR address 
+2. Use [EMRSBX](https://emrsbx.abdm.gov.in/) to register your PHR address and link it with a new health record 
+3. Download and login to the Sandbox PHR app with your new PHR address {{% button href="https://play.google.com/store/apps/details?id=in.ndhm.phr&hl=en_IN&gl=US&pli=1" style="note" icon="download" %}}Download ABHA App{{% /button %}}
 4. Provide consent and view the health record you linked via EMRSBX
 5. Try adding your COVID vaccination record from CoWIN to your PHR address 
 
 ## Other relevant documents
-1. National Digital Health Blueprint
-2. National Health Stack
-3. Electronic Consent Framework
+1. [National Digital Health Blueprint](https://www.nhp.gov.in/NHPfiles/National_Digital_Health_Blueprint_Report_comments_invited.pdf)
+2. [National Health Stack](https://abdm.gov.in/publications)
+3. [Electronic Consent Framework](https://dla.gov.in/sites/default/files/pdf/MeitY-Consent-Tech-Framework%20v1.1.pdf)
 
 
 {{< mermaid >}}
