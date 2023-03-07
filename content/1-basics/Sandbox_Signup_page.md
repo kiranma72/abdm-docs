@@ -41,7 +41,7 @@ Select appropriate _Entity_, _Type of Application_, _Category_ value.
 
 If your application creates health records that need to be shared with a user, select HIP & HRP. 
 if your application would like to access health records linked with a user select HRP & HIU.
-If your application will act as consumer application that will help users to view records, manage consents, etc select HIU, HRP & Health Locker.
+If your application will act as consumer application that will help users to view records, manage consents, etc select HIU, HRP, Health Locker & PHR App.
 
 Try to select the appropriate _Intent For Request_ as per your understanding. In case, you are unsure, _Don't worry_ this can changed later.
 

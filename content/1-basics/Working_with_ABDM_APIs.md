@@ -41,12 +41,19 @@ All integrators developing either a HRP or a PHR app must register a call back U
 ![Async Arch](/abdm-docs/img/async-callbacks.png)
 
 ### Registering your callback URL 
+The callback URL is the url for the site where the HIP/HRP stores its records. Callback URL cannot be registered without a client Id and the client secret. After obtaining the client ID and the secret, use the gateway sessions api (https://dev.abdm.gov.in/gateway/v0.5/sessions) to get the accessToken. In the below api, to register the callback  url, for "Authorization:" add prefix "Bearer" followed by the obtained accessToken and mention the callback url in the "url:".  
 
 ```
 curl --location --request PATCH 'https://dev.abdm.gov.in/devservice/v1/bridges' --header 'Content-Type: application/json' --header 'Authorization: Bearer your-access-token-from-gateway-session' --data-raw '{
 	"url": "https://my-emr-site.in"
 }
 ```
+
+{{% badge icon="exclamation-triangle"%}}Disclaimer{{% /badge %}} This API can't be configured in production it can be configured only in sandbox
+
+One can verify [here](http://localhost:1313/abdm-docs/1-basics/working_with_abdm_apis/#check-your-configuration) whether the callback url is configured correctly.
+
+After registering the callback url, if we fire any API which has a callback, ABDM will post the response of the fired API to that callback url.
 
 ### Linking the HIPs / HIUs for a Client ID
 
