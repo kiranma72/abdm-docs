@@ -1,0 +1,22 @@
+{{- $context := .context }}
+{{- $src := .src }}
+{{- $api := .api }}
+{{- with $context }}
+{{- with .Page.Resources.Match $src }}
+	{{- range . }}
+		{{- $src = .RelPermalink }}
+	{{- end }}
+{{- end }}
+<rapi-doc-mini
+  spec-url="{{ $src }}"
+  paths-expanded = "false"
+  match-paths = {{ $api }}
+  match-type = "regex"
+  layout="column"
+  allow-try="false"
+  allow-authentication="false"
+  allow-server-selection ="false"
+  show-info="false"
+></rapi-doc-mini>
+{{- .Page.Store.Set "hasSwagger" true }}
+{{- end }}
