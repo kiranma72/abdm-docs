@@ -3,6 +3,7 @@ title: "Understanding the PHR Framework"
 date: 2022-05-07T18:00:04+05:30
 Weight: 2
 draft: false
+pre : "<b>1.2 </b>"
 ---
 
 ABDM uses a federated architecture to help users collect their health records across various healthcare providers, view their records from any PHR application and share their records with any requestor with their consent 
