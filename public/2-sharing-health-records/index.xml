@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Building a HRP on ABDM Sandbox Documentation</title>
+    <link>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/index.html</link>
+    <description>Recent content in Building a HRP on ABDM Sandbox Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 May 2022 17:53:25 +0530</lastBuildDate><atom:link href="http://kiranma72.github.io/abdm-docs/2-sharing-health-records/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Collect &amp; Save PHR Address</title>
+      <link>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/save-phr-address/index.html</link>
+      <pubDate>Sat, 07 May 2022 17:53:25 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/save-phr-address/index.html</guid>
+      <description>Collect &amp;amp; Save PHR Address from the user This section covers the methods that must be supported for collecting the PHR Address from the user
+By Scanning HIP QR code during registration By scanning the User&amp;rsquo;s PHR Address QR code during registration By sharing the PHR address verbally during registration Using the discovery method from a PHR app </description>
+    </item>
+    <item>
+      <title>Support Discovery of Records</title>
+      <link>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/discovery-from-phrapp/index.html</link>
+      <pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/discovery-from-phrapp/index.html</guid>
+      <description>Overview of the functionality User must have a PHR app and have a valid PHR address User is logged in into their PHR App User searches for a health facility which they have visited in the past. The health facility must be a HIP (part of facility registry) and linked with a HRP for discovery to be supported User makes a discovery request via PHR app - ie requests the HIP to find any health records in their name User shares details from their PHRAddress ie Name, Date of birth gender, verified mobile no with the HIP / HRP The HRP is expected to search its database for any records that match this patient.</description>
+    </item>
+    <item>
+      <title>Notify or Link new records</title>
+      <link>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/notify-on-new-records/index.html</link>
+      <pubDate>Sat, 07 May 2022 17:53:25 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/notify-on-new-records/index.html</guid>
+      <description>Notify or Link new records This section covers the steps to be taken up by the HRP when a new health record is created for a patient
+If the PHR address of the patient is not saved with the HRP they must notify via SMS if the PHR address is available with the HRP, link the care context automatically to the address </description>
+    </item>
+    <item>
+      <title>Share health data with Consent</title>
+      <link>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/push-records/index.html</link>
+      <pubDate>Sat, 07 May 2022 17:53:25 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/push-records/index.html</guid>
+      <description>Push the health data on demand This section covers how health data is pushed after verfying user consent
+Save user consents recieved as notifications Accept data push requests from the HIE-CM Prepare, Encrypt and push data to the requestor </description>
+    </item>
+    <item>
+      <title>Using FHIR for data</title>
+      <link>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/using-fhir-for-data/index.html</link>
+      <pubDate>Sat, 07 May 2022 17:53:25 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/using-fhir-for-data/index.html</guid>
+      <description>Using FHIR to format your data This section provides an overview of the FHIR formats for health records in India and examples for the same
+Introduction to FHIR &amp;amp; ABDM FHIR Implementation Guide Recommended libraries to build / verify FHIR data Diagnostic Report Prescription Discharge Summary OP Consultation Notes Wellness Record Moving to structured data </description>
+    </item>
+    <item>
+      <title>Link Health Facilities with HRP</title>
+      <link>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/register_and_link_health_facility/index.html</link>
+      <pubDate>Sat, 07 May 2022 18:00:04 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/register_and_link_health_facility/index.html</guid>
+      <description>Register the health facility that uses your software and link it to your software endpoint Following article focuses on HMIS/LMIS/HRPs software providers can register the facilities which uses their softwares
+All integrators are expected to first ensure their systems work correctly on sandbox before migrating to production.
+On-boarding a Facility into a HFR: ABDM will support 2 methods to onboard health facilities
+Method 1: Facility Manager registers via HFR Portal Health facility should sign up on the Health Facility Registry and then link the ABDM compatible HRP software it plans to use.</description>
+    </item>
+  </channel>
+</rss>

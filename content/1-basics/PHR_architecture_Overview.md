@@ -82,7 +82,25 @@ The Architecture ensures that there is
 - Patients can also upload records by scanning them or from their wearables via PHR apps 
 - Only HIPs that are part of the Health Facility Registry can link health records with a PHR address
 
-![How HIE-CM builds a PHR ](/abdm-docs/img/hie_cm_sharing_recs.png)
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+autonumber
+participant hiu as Health Facility HIU
+participant hiecm as HIE-CM
+actor user as User via PHR App
+participant hrp as Health Facility HRP/HIP
+actor user
+Note over hiu : Hospital would like to access medical history with consent
+Note over hrp : Health Repository Providers holding user data
+hiu->>hiecm: Sends consent request to ABHA address(user)
+hiecm->>user: Presents consent request to user
+user->>hiecm: Users grants consent
+hiecm->>hiu: Signed consent from user
+hiu->>hiecm: Request data with signed  consent
+hiecm->>hrp:  Request HRP to Share data with HIU after verifying consent
+hrp->>hiu: Encrypted health data in FHIR format
+{{< /mermaid >}}
 
 - When any HIU wants to access records linked with a PHR address, it initiates a consent request with the HIE-CM
 - The consent request consists of the purpose for which health records are being sought, why type of records are being sought, from what time period and how long will the HIU like to retain these records

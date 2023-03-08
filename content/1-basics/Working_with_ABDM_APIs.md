@@ -38,10 +38,24 @@ The HIE-CM APIs are designed to be asyncronous. When you call an API on the gate
 
 All integrators developing either a HRP or a PHR app must register a call back URL for their Client ID
 
-![Async Arch](/abdm-docs/img/async-callbacks.png)
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+autonumber
+participant client as HRP 
+participant gateway as ABDM Gateway
+Note over client : Each instance of HRP has a client Id from ABDM
+Note over client : Each instance registers a callback Url
+Note over gateway : Health Repository Providers holding user data
+client->>gateway: /v0.5/users/auth/fetch-modes
+gateway->>client: Response: 200 (as acknowledgment)
+Note right of client : asynchronous calls 
+gateway->>client: /v0.5/users/auth/on-fetch-modes
+client->>gateway: Response: 200 (as acknowledgment)
+{{< /mermaid >}}
 
 ### Registering your callback URL 
-The callback URL is the url for the site where the HIP/HRP stores its records. Callback URL cannot be registered without a client Id and the client secret. After obtaining the client ID and the secret, use the gateway sessions api (https://dev.abdm.gov.in/gateway/v0.5/sessions) to get the accessToken. In the below api, to register the callback  url, for "Authorization:" add prefix "Bearer" followed by the obtained accessToken and mention the callback url in the "url:".  
+The callback URL is the url for the site where the HIP/HRP stores its records. Callback URL cannot be registered without a client Id and the client secret. After obtaining the client ID and the secret, use the gateway sessions api [here](../Sandbox_Request_Status_page.md#create-session) to get the accessToken. Use the below api, to register the callback  url, for "Authorization:" [refer here](#the-authorization-header) and mention the callback url in the "url:".  
 
 ```
 curl --location --request PATCH 'https://dev.abdm.gov.in/devservice/v1/bridges' --header 'Content-Type: application/json' --header 'Authorization: Bearer your-access-token-from-gateway-session' --data-raw '{
@@ -51,13 +65,13 @@ curl --location --request PATCH 'https://dev.abdm.gov.in/devservice/v1/bridges' 
 
 {{% badge icon="exclamation-triangle"%}}Disclaimer{{% /badge %}} This API can't be configured in production it can be configured only in sandbox
 
-One can verify [here](http://localhost:1313/abdm-docs/1-basics/working_with_abdm_apis/#check-your-configuration) whether the callback url is configured correctly.
+One can verify [here](#check-your-configuration) whether the callback url is configured correctly.
 
 After registering the callback url, if we fire any API which has a callback, ABDM will post the response of the fired API to that callback url.
 
 ### Linking the HIPs / HIUs for a Client ID
 
-The HIP code used by ABDM is the same as the health facility registry ID. For details on how to register a health facility that uses your software go (here). 
+The HIP code used by ABDM is the same as the health facility registry ID. For details on how to register a health facility that uses your software go [here](https://facility.abdm.gov.in/). 
 
 The API below is only available in the Sandbox for quick setups. You can use it to link ONE HIP / HIU ID with your Client ID with no validations.  
 

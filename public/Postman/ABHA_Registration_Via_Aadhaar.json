@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "047bbe0d-a165-4d81-b16a-4d26262980df",
+		"name": "ABHA_ID_Registration_Via_Aadhaar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01_Session",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clientId\": \"string\",\r\n    \"clientSecret\": \"string\",\r\n    \"grantType\": \"client_credentials\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.ndhm.gov.in/gateway/v0.5/sessions",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"ndhm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway",
+						"v0.5",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02_Generate_Aadhaar_Otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "HIP ID",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"aadhaar\": \"123456789012\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v1/registration/aadhaar/generateOtp",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v1",
+						"registration",
+						"aadhaar",
+						"generateOtp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03_Verify_Aadhaar_Otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "HIP ID",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"otp\": \"123456\",\r\n  \"txnId\": \"a825f76b-0696-40f3-864c-5a3a5b389a83\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v1/registration/aadhaar/verifyOTP",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v1",
+						"registration",
+						"aadhaar",
+						"verifyOTP"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04_Generate_Mobile_Otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "HIP ID",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"mobile\": \"9876543210\",\r\n  \"txnId\": \"a825f76b-0696-40f3-864c-5a3a5b389a83\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v1/registration/aadhaar/generateMobileOTP",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v1",
+						"registration",
+						"aadhaar",
+						"generateMobileOTP"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "05_Verify_Mobile_Otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "HIP ID",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"otp\": \"977223\",\r\n  \"txnId\": \"a825f76b-0696-40f3-864c-5a3a5b389a83\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v1/registration/aadhaar/verifyMobileOTP",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v1",
+						"registration",
+						"aadhaar",
+						"verifyMobileOTP"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "06_Create_ABHA_Number",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "HIP ID",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"ram@Demo.com\",\r\n  \"firstName\": \"abhi\",\r\n  \"healthId\": \"test\",\r\n  \"lastName\": \"A\",\r\n  \"middleName\": \"ram\",\r\n  \"password\": \"India@143\",\r\n  \"profilePhoto\": \"\",\r\n  \"txnId\": \"a825f76b-0696-40f3-864c-5a3a5b389a83\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://healthidsbx.abdm.gov.in/api/v1/registration/aadhaar/createHealthIdWithPreVerified",
+					"protocol": "https",
+					"host": [
+						"healthidsbx",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"api",
+						"v1",
+						"registration",
+						"aadhaar",
+						"createHealthIdWithPreVerified"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

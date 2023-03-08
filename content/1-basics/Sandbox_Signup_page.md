@@ -29,7 +29,7 @@ https://sandbox.ndhm.gov.in/applications/Home/admin
 
 ![HomePage](/abdm-docs/img/HomePage.png)  
 
-![Fill_Form](/abdm-docs/img/Fill_Form.png)
+![Fill_Form](../Fill_Form.png)
 
 Select appropriate _Entity_, _Type of Application_, _Category_ value.
 
