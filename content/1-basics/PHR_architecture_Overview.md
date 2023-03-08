@@ -140,16 +140,3 @@ Try out the following
 2. [National Health Stack](https://abdm.gov.in/publications)
 3. [Electronic Consent Framework](https://dla.gov.in/sites/default/files/pdf/MeitY-Consent-Tech-Framework%20v1.1.pdf)
 
-
-{{< mermaid >}}
-%%{init:{"fontFamily":"monospace", "sequence":{"showSequenceNumbers":true}}}%%
-sequenceDiagram
-    Alice->>John: Hello John, how are you?
-    loop Healthcheck
-        John->>John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts!
-    John-->>Alice: Great!
-    John->>Bob: How about you?
-    Bob-->>John: Jolly good!
-{{< /mermaid >}}
