@@ -136,7 +136,7 @@ Try out the following
 5. Try adding your COVID vaccination record from CoWIN to your PHR address 
 
 ## Other relevant documents
-1. [National Digital Health Blueprint](https://www.nhp.gov.in/NHPfiles/National_Digital_Health_Blueprint_Report_comments_invited.pdf)
-2. [National Health Stack](https://abdm.gov.in/publications)
+1. [National Digital Health Blueprint](https://abdm.gov.in:8081/uploads/ndhb_1_56ec695bc8.pdf)
+2. [National Health Stack](https://abdm.gov.in:8081/uploads/NHS_Strategy_and_Approach_1_89e2dd8f87.pdf)
 3. [Electronic Consent Framework](https://dla.gov.in/sites/default/files/pdf/MeitY-Consent-Tech-Framework%20v1.1.pdf)
 
