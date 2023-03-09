@@ -68,7 +68,7 @@ The PHR architecture is inline with the concepts described in the Niti Aayog Nat
 ABDM is implemented as a Federated Architecture, where data is kept by the entity that generates the health data. Only a link called a *care context* is added to the PHR address. The HIE-CM is designed to be data blind, ie it does not know any details of the health records that are linked with the PHR address and the architecture ensures that any exchange of health data does not pass through the HIE-CM. 
 
 The architecture is also fully aligned with the upcoming Data Protection Bill. The MietY consent framework and DEPA architecture is used to ensure that any data shared is only with a fully structured consent artifact. This design should ensure that any health facility using a ABDM compliant software will automatically be compliant to the Data protection bill. 
-![How HIE-CM builds a PHR ](/abdm-docs/img/hie_cm_linking_recs.png)
+![How HIE-CM builds a PHR ](../hie_cm_linking.png)
 
 The Architecture ensures that there is 
 - No central data repository.
