@@ -9,18 +9,18 @@
     <meta name="author" content="NHA">
     <title>Understanding the PHR Framework - ABDM Sandbox Documentation</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/abdm-docs/css/fontawesome-all.min.css?1678273808" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fontawesome-all.min.css?1678273808" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/nucleus.css?1678273808" rel="stylesheet">
-    <link href="/abdm-docs/css/auto-complete.css?1678273808" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/auto-complete.css?1678273808" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/perfect-scrollbar.min.css?1678273808" rel="stylesheet">
-    <link href="/abdm-docs/css/fonts.css?1678273808" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fonts.css?1678273808" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/theme.css?1678273808" rel="stylesheet">
-    <link href="/abdm-docs/css/theme-auto.css?1678273808" rel="stylesheet" id="variant-style">
-    <link href="/abdm-docs/css/variant.css?1678273808" rel="stylesheet">
-    <link href="/abdm-docs/css/print.css?1678273808" rel="stylesheet" media="print">
-    <link href="/abdm-docs/css/ie.css?1678273808" rel="stylesheet">
-    <script src="/abdm-docs/js/url.js?1678273808"></script>
-    <script src="/abdm-docs/js/variant.js?1678273808"></script>
+    <link href="/abdm-docs/css/fontawesome-all.min.css?1678333353" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fontawesome-all.min.css?1678333353" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/nucleus.css?1678333353" rel="stylesheet">
+    <link href="/abdm-docs/css/auto-complete.css?1678333353" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/auto-complete.css?1678333353" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/perfect-scrollbar.min.css?1678333353" rel="stylesheet">
+    <link href="/abdm-docs/css/fonts.css?1678333353" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fonts.css?1678333353" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/theme.css?1678333353" rel="stylesheet">
+    <link href="/abdm-docs/css/theme-auto.css?1678333353" rel="stylesheet" id="variant-style">
+    <link href="/abdm-docs/css/variant.css?1678333353" rel="stylesheet">
+    <link href="/abdm-docs/css/print.css?1678333353" rel="stylesheet" media="print">
+    <link href="/abdm-docs/css/ie.css?1678333353" rel="stylesheet">
+    <script src="/abdm-docs/js/url.js?1678333353"></script>
+    <script src="/abdm-docs/js/variant.js?1678333353"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -84,10 +84,10 @@
 <p>ABDM uses a federated architecture to help users collect their health records across various healthcare providers, view their records from any PHR application and share their records with any requestor with their consent</p>
 <p>The image below shows the various entities/roles involved in the PHR framework</p>
 <p>
-<a href="#image-04d7760bfef0c0b13e8b416c8cdbd739" class="lightbox-link">
+<a href="#image-49766785b91e79167684bacc671b8d52" class="lightbox-link">
 <img src="../phr-architeture.pptx.jpg" alt="ABDM HIP HIU Architecture" style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-04d7760bfef0c0b13e8b416c8cdbd739">
+<a href="javascript:history.back();" class="lightbox" id="image-49766785b91e79167684bacc671b8d52">
 <img src="../phr-architeture.pptx.jpg" alt="ABDM HIP HIU Architecture" class="lightbox-image" loading="lazy">
 </a></p>
 <h2 id="what-is-a-health-information-provider-hip">What is a Health Information Provider (HIP)?</h2>
@@ -128,10 +128,10 @@ researchers, government entities etc. These HIUs will be able to request for hea
 <p>ABDM is implemented as a Federated Architecture, where data is kept by the entity that generates the health data. Only a link called a <em>care context</em> is added to the PHR address. The HIE-CM is designed to be data blind, ie it does not know any details of the health records that are linked with the PHR address and the architecture ensures that any exchange of health data does not pass through the HIE-CM.</p>
 <p>The architecture is also fully aligned with the upcoming Data Protection Bill. The MietY consent framework and DEPA architecture is used to ensure that any data shared is only with a fully structured consent artifact. This design should ensure that any health facility using a ABDM compliant software will automatically be compliant to the Data protection bill.
 
-<a href="#image-48f72a3ad4de5e24301f8e9285f3c2e3" class="lightbox-link">
+<a href="#image-a12452b2f4e58d4c9b808a61406b5ddc" class="lightbox-link">
 <img src="/abdm-docs/img/hie_cm_linking_recs.png" alt="How HIE-CM builds a PHR " style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-48f72a3ad4de5e24301f8e9285f3c2e3">
+<a href="javascript:history.back();" class="lightbox" id="image-a12452b2f4e58d4c9b808a61406b5ddc">
 <img src="/abdm-docs/img/hie_cm_linking_recs.png" alt="How HIE-CM builds a PHR " class="lightbox-image" loading="lazy">
 </a></p>
 <p>The Architecture ensures that there is</p>
@@ -189,10 +189,10 @@ The entire PHR framework including the gateway communicates via asynchronous API
 </ul>
 <p>The following figure provides a view of how the Gateway fits in with other components
 
-<a href="#image-5d1b4f26900e4f693b792c5ba589ee64" class="lightbox-link">
+<a href="#image-aedd2aee6ce6210f1addea92114b770d" class="lightbox-link">
 <img src="/abdm-docs/img/ABDM_digital_health_architecture.png" alt="ABDM digital health architecture" style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-5d1b4f26900e4f693b792c5ba589ee64">
+<a href="javascript:history.back();" class="lightbox" id="image-aedd2aee6ce6210f1addea92114b770d">
 <img src="/abdm-docs/img/ABDM_digital_health_architecture.png" alt="ABDM digital health architecture" class="lightbox-image" loading="lazy">
 </a></p>
 <h2 id="experience-phr-in-action-using-the-abdm-sandbox">Experience PHR in action using the ABDM sandbox</h2>
@@ -218,19 +218,6 @@ The entire PHR framework including the gateway communicates via asynchronous API
 <li><a href="https://dla.gov.in/sites/default/files/pdf/MeitY-Consent-Tech-Framework%20v1.1.pdf" target="_blank">Electronic Consent Framework</a></li>
 </ol>
 
-<div class="mermaid align-center">
-%%{init:{&#34;fontFamily&#34;:&#34;monospace&#34;, &#34;sequence&#34;:{&#34;showSequenceNumbers&#34;:true}}}%%
-sequenceDiagram
-    Alice-&gt;&gt;John: Hello John, how are you?
-    loop Healthcheck
-        John-&gt;&gt;John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts!
-    John--&gt;&gt;Alice: Great!
-    John-&gt;&gt;Bob: How about you?
-    Bob--&gt;&gt;John: Jolly good!
-</div>
-
             <footer class="footline">
             </footer>
           </article>
@@ -252,12 +239,12 @@ sequenceDiagram
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/abdm-docs/js/auto-complete.js?1678273808" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.min.js?1678273808" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.stemmer.support.min.js?1678273808" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.multi.min.js?1678273808" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.en.min.js?1678273808" defer></script>
-        <script src="/abdm-docs/js/search.js?1678273808" defer></script>
+        <script src="/abdm-docs/js/auto-complete.js?1678333353" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.min.js?1678333353" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.stemmer.support.min.js?1678333353" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.multi.min.js?1678333353" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.en.min.js?1678333353" defer></script>
+        <script src="/abdm-docs/js/search.js?1678333353" defer></script>
       </div>
       <div id="content-wrapper" class="highlightable">
         <ul class="topics enlarge morespace collapsible-menu">
@@ -348,7 +335,8 @@ sequenceDiagram
           <li data-nav-id="/abdm-docs/7-exiting-sandbox/index.html" class=""><a class="padding" href="/abdm-docs/7-exiting-sandbox/index.html"><b>7. </b>Sandbox Exit Process</a></li>
           <li data-nav-id="/abdm-docs/8-utilities/index.html" class=""><a class="padding" href="/abdm-docs/8-utilities/index.html"><b>8. </b>Utilities</a></li>
           <li data-nav-id="/abdm-docs/9-more/index.html" class=""><input type="checkbox" id="section-37fde9965a9d63084e124eec04de6bcf" aria-controls="subsections-37fde9965a9d63084e124eec04de6bcf"><label for="section-37fde9965a9d63084e124eec04de6bcf"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu More</span></label><a class="padding" href="/abdm-docs/9-more/index.html"><b>9. </b>More</a><ul id="subsections-37fde9965a9d63084e124eec04de6bcf" class="morespace collapsible-menu">
-          <li data-nav-id="/abdm-docs/9-more/obligations_of_hip/index.html" class=""><a class="padding" href="/abdm-docs/9-more/obligations_of_hip/index.html"><b>9.1 </b>Obligations of HIP</a></li></ul></li>
+          <li data-nav-id="/abdm-docs/9-more/obligations_of_hip/index.html" class=""><a class="padding" href="/abdm-docs/9-more/obligations_of_hip/index.html"><b>9.1 </b>Obligations of HIP</a></li>
+          <li data-nav-id="/abdm-docs/9-more/security_requirements/index.html" class=""><a class="padding" href="/abdm-docs/9-more/security_requirements/index.html"><b>9.2 </b>Security Requirements</a></li></ul></li>
           <li data-nav-id="/abdm-docs/content/index.html" class=""><a class="padding" href="/abdm-docs/content/index.html">Contents</a></li>
         </ul>
         <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
@@ -389,8 +377,8 @@ sequenceDiagram
         </div>
       </div>
     </aside>
-    <script src="/abdm-docs/js/clipboard.min.js?1678273808" defer></script>
-    <script src="/abdm-docs/js/perfect-scrollbar.min.js?1678273808" defer></script>
+    <script src="/abdm-docs/js/clipboard.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/perfect-scrollbar.min.js?1678333353" defer></script>
     <script>
       function useMathJax( config ){
         if( !Object.assign ){
@@ -420,15 +408,15 @@ sequenceDiagram
       useMathJax( JSON.parse("{}") );
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="/abdm-docs/js/d3/d3-color.min.js?1678273808" defer></script>
-    <script src="/abdm-docs/js/d3/d3-dispatch.min.js?1678273808" defer></script>
-    <script src="/abdm-docs/js/d3/d3-drag.min.js?1678273808" defer></script>
-    <script src="/abdm-docs/js/d3/d3-ease.min.js?1678273808" defer></script>
-    <script src="/abdm-docs/js/d3/d3-interpolate.min.js?1678273808" defer></script>
-    <script src="/abdm-docs/js/d3/d3-selection.min.js?1678273808" defer></script>
-    <script src="/abdm-docs/js/d3/d3-timer.min.js?1678273808" defer></script>
-    <script src="/abdm-docs/js/d3/d3-transition.min.js?1678273808" defer></script>
-    <script src="/abdm-docs/js/d3/d3-zoom.min.js?1678273808" defer></script>
+    <script src="/abdm-docs/js/d3/d3-color.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/d3/d3-dispatch.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/d3/d3-drag.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/d3/d3-ease.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/d3/d3-interpolate.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/d3/d3-selection.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/d3/d3-timer.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/d3/d3-transition.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/d3/d3-zoom.min.js?1678333353" defer></script>
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
       mermaid.initialize({ startOnLoad: true });
@@ -440,6 +428,6 @@ sequenceDiagram
     <script>
       window.themeUseSwagger = JSON.parse("{ \"theme\": \"light\" }");
     </script>
-    <script src="/abdm-docs/js/theme.js?1678273808" defer></script>
+    <script src="/abdm-docs/js/theme.js?1678333353" defer></script>
   </body>
 </html>

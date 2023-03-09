@@ -21,7 +21,9 @@ https://sandbox.ndhm.gov.in/applications/Home/login
 
 **Step 4:** Once _Client id_ & _Client Secret_ are received via an email, please verify it and check if the correct response is received. 
 
-# Create Session
+###### Create Session
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-gateway.yml" api="POST /v0.5/sessions" >}}
 
 **URL:** https://dev.abdm.gov.in/gateway/v0.5/sessions  
 **Request:** POST  
@@ -45,38 +47,11 @@ https://sandbox.ndhm.gov.in/applications/Home/login
     "tokenType": "bearer"
 }
 ```
-**Step 5:** To refresh current session, need to generate Refresh Token.  
 
-**URL:** https://dev.abdm.gov.in/gateway/v0.5/sessions  
-**Request:** POST  
-**Body:**  
-```sh
-{
-  "clientId": "String",
-  "clientSecret": "String",
-  "grantType": "client_credentials",
-  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyMWU5NzA4OS00ZTcxLTQyNGEtOTAzYS1jOTAyMWM1NmFlNWYifQ.eyJleHAiOjE2NTA5OTc0NDQsImlhdCI6MTY1MDk5NTY0NCwianRpIjoiZDVhZmNlODQtMjUyZS00YzZkLThjNGYtNjNhMmJlZDdlNTI3IiwiaXNzIjoiaHR0cHM6Ly9kZXYubmRobS5nb3YuaW4vYXV0aC9yZWFsbXMvY2VudHJhbC1yZWdpc3RyeSIsImF1ZCI6Imh0dHBzOi8vZGV2Lm5kaG0uZ292LmluL2F1dGgvcmVhbG1zL2NlbnRyYWwtcmVnaXN0cnkiLCJzdWIiOiJiZGFmZDdjYy05ODBjLTQ1MTAtYjk5Ny1mMjRjZWUwZDI0MzAiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoiVkFTQU5USF9MVEkiLCJzZXNzaW9uX3N0YXRlIjoiNzliODgxOTctN2U4MS00MGU1LWI0NDctMDdhMzA3YWI0MDRlIiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSJ9.16IAfZq_lK2aJ3DzGWww477IH6q4egw9BakboPVeqnU"
-}  
-```
-**Response:**  
-```sh
-{
-    "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJBbFJiNVdDbThUbTlFSl9JZk85ejA2ajlvQ3Y1MXBLS0ZrbkdiX1RCdkswIn0.eyJleHAiOjE2NTEwNTA4NzQsImlhdCI6MTY1MTA1MDI3NCwianRpIjoiMDViN2RmNGEtMmFiNS00MjZhLTg2NjMtZGI0YTk5N2YyOWZmIiwiaXNzIjoiaHR0cHM6Ly9kZXYubmRobS5nb3YuaW4vYXV0aC9yZWFsbXMvY2VudHJhbC1yZWdpc3RyeSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI4NDgxZjM5MC01MmJjLTRkM2UtOGNjZS1lMjRkODQ1YTIyOTAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJQUklZQU5LQV9MVEkiLCJzZXNzaW9uX3N0YXRlIjoiODk1M2IzZGItY2RjNC00OTJjLTlkOTctNTJjOWIwZjI4MzE2IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjkwMDciXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImhpdSIsIm9mZmxpbmVfYWNjZXNzIiwiaGVhbHRoSWQiLCJPSURDIiwiaGlwIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiUFJJWUFOS0FfTFRJIjp7InJvbGVzIjpbInVtYV9wcm90ZWN0aW9uIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjEwLjIzMy42OS45MyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiY2xpZW50SWQiOiJQUklZQU5LQV9MVEkiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtcHJpeWFua2FfbHRpIiwiY2xpZW50QWRkcmVzcyI6IjEwLjIzMy42OS45MyJ9.SAFsIp5LQzAa8JTMeHQVxXCrWmvbLmho69YzxbtOgdRNkESVEGl3JGUzPfFutEQYyRqj9BCn2xbu0LlT7497-XIRrGVHcL680-TQh-iv_M75elQn9O7kmsvyreKf1HtRboSn3cAqSkMbRNsroYsNjcI0XjRX9J8o5auipbrd9B6ZHL8HYl08bdWLr18FqEulEaLe6poJOyw67_R4hwCtJdqW0uIva9hTbgAGik8J5jcUWhcTg9kasKLugF8XWgc0VbD1krnYC6S7yyBYojYBaN_6N5uQtWPUm2DUUXR1E9uJ1TdILIpAt2Pbe3O4eNV2fyV_FA0HdS3GOCZA_knrhw",
+**Step 5:** Get certs for JWT Verification
 
-    "expiresIn": 600,
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-gateway.yml" api="GET /v0.5/certs" >}}
 
-    "refreshExpiresIn": 1800,
-
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyMWU5NzA4OS00ZTcxLTQyNGEtOTAzYS1jOTAyMWM1NmFlNWYifQ.eyJleHAiOjE2NTEwNTIwNzQsImlhdCI6MTY1MTA1MDI3NCwianRpIjoiZDJlZWMyNDAtZDRiMC00OTg5LWFhMWYtNDQ0ZGQwNjk0OWY3IiwiaXNzIjoiaHR0cHM6Ly9kZXYubmRobS5nb3YuaW4vYXV0aC9yZWFsbXMvY2VudHJhbC1yZWdpc3RyeSIsImF1ZCI6Imh0dHBzOi8vZGV2Lm5kaG0uZ292LmluL2F1dGgvcmVhbG1zL2NlbnRyYWwtcmVnaXN0cnkiLCJzdWIiOiI4NDgxZjM5MC01MmJjLTRkM2UtOGNjZS1lMjRkODQ1YTIyOTAiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoiUFJJWUFOS0FfTFRJIiwic2Vzc2lvbl9zdGF0ZSI6Ijg5NTNiM2RiLWNkYzQtNDkyYy05ZDk3LTUyYzliMGYyODMxNiIsInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUifQ.21__jIYFmHZs4DTxbl8iF9SFstrV9PcaY2Hhf4ADOL4",
-
-    "tokenType": "bearer"
-
-}  
-```
-
-Validitiy of Refresh Token is for 600sec.
-
-**Step 6:** Get certs for JWT Verification  
 
 **URL:** https://dev.abdm.gov.in/gateway/v0.5/certs  
 **Request:** GET  

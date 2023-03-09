@@ -9,18 +9,18 @@
     <meta name="author" content="NHA">
     <title>Setup for Teleconsultation - ABDM Sandbox Documentation</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/abdm-docs/css/fontawesome-all.min.css?1678273808" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fontawesome-all.min.css?1678273808" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/nucleus.css?1678273808" rel="stylesheet">
-    <link href="/abdm-docs/css/auto-complete.css?1678273808" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/auto-complete.css?1678273808" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/perfect-scrollbar.min.css?1678273808" rel="stylesheet">
-    <link href="/abdm-docs/css/fonts.css?1678273808" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fonts.css?1678273808" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/theme.css?1678273808" rel="stylesheet">
-    <link href="/abdm-docs/css/theme-auto.css?1678273808" rel="stylesheet" id="variant-style">
-    <link href="/abdm-docs/css/variant.css?1678273808" rel="stylesheet">
-    <link href="/abdm-docs/css/print.css?1678273808" rel="stylesheet" media="print">
-    <link href="/abdm-docs/css/ie.css?1678273808" rel="stylesheet">
-    <script src="/abdm-docs/js/url.js?1678273808"></script>
-    <script src="/abdm-docs/js/variant.js?1678273808"></script>
+    <link href="/abdm-docs/css/fontawesome-all.min.css?1678333353" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fontawesome-all.min.css?1678333353" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/nucleus.css?1678333353" rel="stylesheet">
+    <link href="/abdm-docs/css/auto-complete.css?1678333353" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/auto-complete.css?1678333353" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/perfect-scrollbar.min.css?1678333353" rel="stylesheet">
+    <link href="/abdm-docs/css/fonts.css?1678333353" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fonts.css?1678333353" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/theme.css?1678333353" rel="stylesheet">
+    <link href="/abdm-docs/css/theme-auto.css?1678333353" rel="stylesheet" id="variant-style">
+    <link href="/abdm-docs/css/variant.css?1678333353" rel="stylesheet">
+    <link href="/abdm-docs/css/print.css?1678333353" rel="stylesheet" media="print">
+    <link href="/abdm-docs/css/ie.css?1678333353" rel="stylesheet">
+    <script src="/abdm-docs/js/url.js?1678333353"></script>
+    <script src="/abdm-docs/js/variant.js?1678333353"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -123,20 +123,20 @@ The doctor can chose to set their available timings on set days. There are two o
 </ul>
 <h2 id="ui-reference">UI Reference</h2>
 <p>
-<a href="#image-7bfa264f2b04926696b831d75e38ab66" class="lightbox-link">
+<a href="#image-f0695fd9822a7f165b65d3328a828abe" class="lightbox-link">
 <img src="../Telecon.png" alt="Reference Screen" style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-7bfa264f2b04926696b831d75e38ab66">
+<a href="javascript:history.back();" class="lightbox" id="image-f0695fd9822a7f165b65d3328a828abe">
 <img src="../Telecon.png" alt="Reference Screen" class="lightbox-image" loading="lazy">
 </a></p>
 <h2 id="api-sequence">API Sequence</h2>
 <p>A teleconsultation starts with a /search which is broadcasted to all the registered HSPAs through the gateway. The next set of API calls happen directly with the HSPA and EUA. These include /init and /confirm APIs to which the HSPA responds via /on_init and /on_confirm.</p>
 <h3 id="responding-to-a-search-request">Responding to a search request</h3>
 <p>
-<a href="#image-249859c6b6a2a65cead25a504de0ec31" class="lightbox-link">
+<a href="#image-6a70f480cd61191b0b17b45b34b3b601" class="lightbox-link">
 <img src="..//Search_HSPAs_SeqAPI.png" alt="Search HSPAs Sequence API" style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-249859c6b6a2a65cead25a504de0ec31">
+<a href="javascript:history.back();" class="lightbox" id="image-6a70f480cd61191b0b17b45b34b3b601">
 <img src="..//Search_HSPAs_SeqAPI.png" alt="Search HSPAs Sequence API" class="lightbox-image" loading="lazy">
 </a></p>
 <h3 id="example-jsons">Example JSONs</h3>
@@ -475,10 +475,10 @@ The URL, Method and Headers are the same for all:</p>
 <h2 id="displaying-search-results">Displaying search results</h2>
 <h3 id="api-sequence-1">API Sequence</h3>
 <p>
-<a href="#image-3b5951379ed374cb8e4c9bb1b2142e63" class="lightbox-link">
+<a href="#image-2022291de82b828e0cc92649bdc547d6" class="lightbox-link">
 <img src="../Display_Results_SeqAPI.png" alt="Display results to the patient" style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-3b5951379ed374cb8e4c9bb1b2142e63">
+<a href="javascript:history.back();" class="lightbox" id="image-2022291de82b828e0cc92649bdc547d6">
 <img src="../Display_Results_SeqAPI.png" alt="Display results to the patient" class="lightbox-image" loading="lazy">
 </a></p>
 <h3 id="example-jsons-1">Example JSONs</h3>
@@ -662,10 +662,10 @@ The URL, Method and Headers are the same for all:</p>
 </blockquote>
 <h2 id="book-the-selected-doctor-initialization-of-the-service">Book the selected doctor (Initialization of the service)</h2>
 <h3 id="book-selected-doctor-or-facilitybook_selected_seqapipng">
-<a href="#image-0ecadcd719911eacf641a8c8029f28e4" class="lightbox-link">
+<a href="#image-0bf0397474aa5ff0b05e618aa837b472" class="lightbox-link">
 <img src="../Book_Selected_SeqAPI.png" alt="Book Selected Doctor or Facility" style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-0ecadcd719911eacf641a8c8029f28e4">
+<a href="javascript:history.back();" class="lightbox" id="image-0bf0397474aa5ff0b05e618aa837b472">
 <img src="../Book_Selected_SeqAPI.png" alt="Book Selected Doctor or Facility" class="lightbox-image" loading="lazy">
 </a></h3>
 <h3 id="example-jsons-2">Example JSONs</h3>
@@ -899,10 +899,10 @@ The URL, Method and Headers are the same for all:</p>
 </code></pre><h2 id="confirm-booking">Confirm booking</h2>
 <h3 id="api-sequence-2">API Sequence</h3>
 <p>
-<a href="#image-c6276457ab09087372a7f64a55274b21" class="lightbox-link">
+<a href="#image-dcf6773ff588def77297dd8ad6cd1cb6" class="lightbox-link">
 <img src="../Confirm_Booking_SeqAPI.png" alt="Confirm Booking" style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-c6276457ab09087372a7f64a55274b21">
+<a href="javascript:history.back();" class="lightbox" id="image-dcf6773ff588def77297dd8ad6cd1cb6">
 <img src="../Confirm_Booking_SeqAPI.png" alt="Confirm Booking" class="lightbox-image" loading="lazy">
 </a></p>
 <h3 id="example-jsons-3">Example JSONs</h3>
@@ -1208,12 +1208,12 @@ Headers: Authorisation</p>
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/abdm-docs/js/auto-complete.js?1678273809" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.min.js?1678273809" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.stemmer.support.min.js?1678273809" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.multi.min.js?1678273809" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.en.min.js?1678273809" defer></script>
-        <script src="/abdm-docs/js/search.js?1678273809" defer></script>
+        <script src="/abdm-docs/js/auto-complete.js?1678333353" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.min.js?1678333353" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.stemmer.support.min.js?1678333353" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.multi.min.js?1678333353" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.en.min.js?1678333353" defer></script>
+        <script src="/abdm-docs/js/search.js?1678333353" defer></script>
       </div>
       <div id="content-wrapper" class="highlightable">
         <ul class="topics enlarge morespace collapsible-menu">
@@ -1304,7 +1304,8 @@ Headers: Authorisation</p>
           <li data-nav-id="/abdm-docs/7-exiting-sandbox/index.html" class=""><a class="padding" href="/abdm-docs/7-exiting-sandbox/index.html"><b>7. </b>Sandbox Exit Process</a></li>
           <li data-nav-id="/abdm-docs/8-utilities/index.html" class=""><a class="padding" href="/abdm-docs/8-utilities/index.html"><b>8. </b>Utilities</a></li>
           <li data-nav-id="/abdm-docs/9-more/index.html" class=""><input type="checkbox" id="section-37fde9965a9d63084e124eec04de6bcf" aria-controls="subsections-37fde9965a9d63084e124eec04de6bcf"><label for="section-37fde9965a9d63084e124eec04de6bcf"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu More</span></label><a class="padding" href="/abdm-docs/9-more/index.html"><b>9. </b>More</a><ul id="subsections-37fde9965a9d63084e124eec04de6bcf" class="morespace collapsible-menu">
-          <li data-nav-id="/abdm-docs/9-more/obligations_of_hip/index.html" class=""><a class="padding" href="/abdm-docs/9-more/obligations_of_hip/index.html"><b>9.1 </b>Obligations of HIP</a></li></ul></li>
+          <li data-nav-id="/abdm-docs/9-more/obligations_of_hip/index.html" class=""><a class="padding" href="/abdm-docs/9-more/obligations_of_hip/index.html"><b>9.1 </b>Obligations of HIP</a></li>
+          <li data-nav-id="/abdm-docs/9-more/security_requirements/index.html" class=""><a class="padding" href="/abdm-docs/9-more/security_requirements/index.html"><b>9.2 </b>Security Requirements</a></li></ul></li>
           <li data-nav-id="/abdm-docs/content/index.html" class=""><a class="padding" href="/abdm-docs/content/index.html">Contents</a></li>
         </ul>
         <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
@@ -1345,8 +1346,8 @@ Headers: Authorisation</p>
         </div>
       </div>
     </aside>
-    <script src="/abdm-docs/js/clipboard.min.js?1678273809" defer></script>
-    <script src="/abdm-docs/js/perfect-scrollbar.min.js?1678273809" defer></script>
+    <script src="/abdm-docs/js/clipboard.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/perfect-scrollbar.min.js?1678333353" defer></script>
     <script>
       function useMathJax( config ){
         if( !Object.assign ){
@@ -1376,15 +1377,15 @@ Headers: Authorisation</p>
       useMathJax( JSON.parse("{}") );
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="/abdm-docs/js/d3/d3-color.min.js?1678273809" defer></script>
-    <script src="/abdm-docs/js/d3/d3-dispatch.min.js?1678273809" defer></script>
-    <script src="/abdm-docs/js/d3/d3-drag.min.js?1678273809" defer></script>
-    <script src="/abdm-docs/js/d3/d3-ease.min.js?1678273809" defer></script>
-    <script src="/abdm-docs/js/d3/d3-interpolate.min.js?1678273809" defer></script>
-    <script src="/abdm-docs/js/d3/d3-selection.min.js?1678273809" defer></script>
-    <script src="/abdm-docs/js/d3/d3-timer.min.js?1678273809" defer></script>
-    <script src="/abdm-docs/js/d3/d3-transition.min.js?1678273809" defer></script>
-    <script src="/abdm-docs/js/d3/d3-zoom.min.js?1678273809" defer></script>
+    <script src="/abdm-docs/js/d3/d3-color.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/d3/d3-dispatch.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/d3/d3-drag.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/d3/d3-ease.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/d3/d3-interpolate.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/d3/d3-selection.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/d3/d3-timer.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/d3/d3-transition.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/d3/d3-zoom.min.js?1678333353" defer></script>
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
       mermaid.initialize({ startOnLoad: true });
@@ -1396,6 +1397,6 @@ Headers: Authorisation</p>
     <script>
       window.themeUseSwagger = JSON.parse("{ \"theme\": \"light\" }");
     </script>
-    <script src="/abdm-docs/js/theme.js?1678273809" defer></script>
+    <script src="/abdm-docs/js/theme.js?1678333353" defer></script>
   </body>
 </html>
