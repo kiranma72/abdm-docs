@@ -9,18 +9,18 @@
     <meta name="author" content="NHA">
     <title>Working with ABDM APIs - ABDM Sandbox Documentation</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/abdm-docs/css/fontawesome-all.min.css?1678333353" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fontawesome-all.min.css?1678333353" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/nucleus.css?1678333353" rel="stylesheet">
-    <link href="/abdm-docs/css/auto-complete.css?1678333353" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/auto-complete.css?1678333353" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/perfect-scrollbar.min.css?1678333353" rel="stylesheet">
-    <link href="/abdm-docs/css/fonts.css?1678333353" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fonts.css?1678333353" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/theme.css?1678333353" rel="stylesheet">
-    <link href="/abdm-docs/css/theme-auto.css?1678333353" rel="stylesheet" id="variant-style">
-    <link href="/abdm-docs/css/variant.css?1678333353" rel="stylesheet">
-    <link href="/abdm-docs/css/print.css?1678333353" rel="stylesheet" media="print">
-    <link href="/abdm-docs/css/ie.css?1678333353" rel="stylesheet">
-    <script src="/abdm-docs/js/url.js?1678333353"></script>
-    <script src="/abdm-docs/js/variant.js?1678333353"></script>
+    <link href="/abdm-docs/css/fontawesome-all.min.css?1678433984" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fontawesome-all.min.css?1678433984" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/nucleus.css?1678433984" rel="stylesheet">
+    <link href="/abdm-docs/css/auto-complete.css?1678433984" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/auto-complete.css?1678433984" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/perfect-scrollbar.min.css?1678433984" rel="stylesheet">
+    <link href="/abdm-docs/css/fonts.css?1678433984" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fonts.css?1678433984" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/theme.css?1678433984" rel="stylesheet">
+    <link href="/abdm-docs/css/theme-auto.css?1678433984" rel="stylesheet" id="variant-style">
+    <link href="/abdm-docs/css/variant.css?1678433984" rel="stylesheet">
+    <link href="/abdm-docs/css/print.css?1678433984" rel="stylesheet" media="print">
+    <link href="/abdm-docs/css/ie.css?1678433984" rel="stylesheet">
+    <script src="/abdm-docs/js/url.js?1678433984"></script>
+    <script src="/abdm-docs/js/variant.js?1678433984"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -68,7 +68,7 @@
         <li><a href="#check-your-configuration">Check your configuration</a></li>
         <li><a href="#request-ids-and-correlation-ids">Request IDs and Correlation IDs</a></li>
         <li><a href="#timestamp-format">Timestamp format</a></li>
-        <li><a href="#encrypting-data-feilds">Encrypting data feilds</a></li>
+        <li><a href="#encrypting-data-fields">Encrypting data fields</a></li>
         <li><a href="#securing-your-callbacks">Securing your callbacks</a></li>
       </ul>
     </li>
@@ -91,10 +91,10 @@
 <p>Each instance of the software can hold health records for one or more health facilities</p>
 <p>The figure below explains this using e-Hospital as an example</p>
 <p>
-<a href="#image-db67c962af60b70df212b8886e6c2554" class="lightbox-link">
+<a href="#image-9a69f591b71ea876b3d8814f3a72e059" class="lightbox-link">
 <img src="/abdm-docs/img/abdm-gateway-registry.png" alt="adbm-gw-registry" style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-db67c962af60b70df212b8886e6c2554">
+<a href="javascript:history.back();" class="lightbox" id="image-9a69f591b71ea876b3d8814f3a72e059">
 <img src="/abdm-docs/img/abdm-gateway-registry.png" alt="adbm-gw-registry" class="lightbox-image" loading="lazy">
 </a></p>
 <h3 id="the-authorization-header">The Authorization Header</h3>
@@ -103,7 +103,7 @@
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6IC.....
 </code></pre><h3 id="abdm-client-ids-and-call-back-urls">ABDM Client IDs and Call back URLs</h3>
 <p>HRPs and PHR apps that integrate with the HIE-CM do so via the ABDM gateway.</p>
-<p>The HIE-CM APIs are designed to be asyncronous. When you call an API on the gateway, if the request is accepted you will merely get a HTTP 200 response acknowledging that the request has been recorded. Once the response is available, the gateway is will invoke the callback URL registered for the Client ID</p>
+<p>The HIE-CM APIs are designed to be asyncronous. When you call an API on the gateway, if the request is accepted you will merely get a HTTP 200 response acknowledging that the request has been recorded. Once the response is available, the gateway will invoke the callback URL registered for the Client ID</p>
 <p>All integrators developing either a HRP or a PHR app must register a call back URL for their Client ID</p>
 
 <div class="mermaid align-center">
@@ -131,7 +131,7 @@ client-&gt;&gt;gateway: Response: 200 (as acknowledgment)
 <p>After registering the callback url, if we fire any API which has a callback, ABDM will post the response of the fired API to that callback url.</p>
 <h3 id="linking-the-hips--hius-for-a-client-id">Linking the HIPs / HIUs for a Client ID</h3>
 <p>The HIP code used by ABDM is the same as the health facility registry ID. For details on how to register a health facility that uses your software go <a href="https://facility.abdm.gov.in/" target="_blank">here</a>.</p>
-<p>The API below is only available in the Sandbox for quick setups. You can use it to link ONE HIP / HIU ID with your Client ID with no validations.</p>
+<p>The API below is only available in the Sandbox for quick setups. You can use it to link one HIP / HIU ID with your Client ID with no validations.</p>
 <p>Example</p>
 <blockquote>
 <p>unique-hip-id: HIP5234127</p>
@@ -153,16 +153,16 @@ Example</p>
 <ol>
 <li>Go to <a href="https://webhook.site" target="_blank">https://webhook.site</a></li>
 <li>Copy your unique URL shown on the page</li>
-<li>Register it with ABDM Gateway as shown in Registering your callback URL. Ensure you get a Response: 200</li>
+<li>Register it with ABDM Gateway as shown <a href="#registering-your-callback-url">here</a> in Registering your callback URL. Ensure you get a Response: 200</li>
 <li>Register a HIP / HIU of your choice with your client id as above. Ensure you get a Response: 200</li>
 <li>Call a async Gateway API using a @sbx PHR address (if you need a phraddress create it at <a href="https://phrsbx.abdm.gov.in" target="_blank">https://phrsbx.abdm.gov.in</a>)</li>
 <li>Verify you get a callback at your webhook site. It should look like the image below</li>
 </ol>
 <p>
-<a href="#image-65baa4182c1e4533bd244bcadef4405c" class="lightbox-link">
+<a href="#image-a971840d7f58c61429104846f94ae2dc" class="lightbox-link">
 <img src="/abdm-docs/img/webhook-site-demo.png" alt="webhook-site" style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-65baa4182c1e4533bd244bcadef4405c">
+<a href="javascript:history.back();" class="lightbox" id="image-a971840d7f58c61429104846f94ae2dc">
 <img src="/abdm-docs/img/webhook-site-demo.png" alt="webhook-site" class="lightbox-image" loading="lazy">
 </a></p>
 <h3 id="abdm-http-headers">ABDM HTTP Headers</h3>
@@ -214,7 +214,7 @@ Example</p>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="request-ids-and-correlation-ids">Request IDs and Correlation IDs</h3>
 <h3 id="timestamp-format">Timestamp format</h3>
-<h3 id="encrypting-data-feilds">Encrypting data feilds</h3>
+<h3 id="encrypting-data-fields">Encrypting data fields</h3>
 <p>Several APIs have enhanced security measures and you will need to encrypt the content of some fields.</p>
 <p>i. Sensitive data(Data like OTP, Aadhaar Number, Password, Username etc) have to be encrypted.
 ii. Data is encrypted by the public certificate. The certificate can be downloaded from the /v2/auth/cert API under Authentication tag in the version 2.
@@ -243,12 +243,12 @@ iii. RSA Encryption to encrypt the data. Cipher Type - RSA/ECB/PKCS1Padding.</p>
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/abdm-docs/js/auto-complete.js?1678333353" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.min.js?1678333353" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.stemmer.support.min.js?1678333353" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.multi.min.js?1678333353" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.en.min.js?1678333353" defer></script>
-        <script src="/abdm-docs/js/search.js?1678333353" defer></script>
+        <script src="/abdm-docs/js/auto-complete.js?1678433984" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.min.js?1678433984" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.stemmer.support.min.js?1678433984" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.multi.min.js?1678433984" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.en.min.js?1678433984" defer></script>
+        <script src="/abdm-docs/js/search.js?1678433984" defer></script>
       </div>
       <div id="content-wrapper" class="highlightable">
         <ul class="topics enlarge morespace collapsible-menu">
@@ -381,8 +381,8 @@ iii. RSA Encryption to encrypt the data. Cipher Type - RSA/ECB/PKCS1Padding.</p>
         </div>
       </div>
     </aside>
-    <script src="/abdm-docs/js/clipboard.min.js?1678333353" defer></script>
-    <script src="/abdm-docs/js/perfect-scrollbar.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/clipboard.min.js?1678433984" defer></script>
+    <script src="/abdm-docs/js/perfect-scrollbar.min.js?1678433984" defer></script>
     <script>
       function useMathJax( config ){
         if( !Object.assign ){
@@ -412,15 +412,15 @@ iii. RSA Encryption to encrypt the data. Cipher Type - RSA/ECB/PKCS1Padding.</p>
       useMathJax( JSON.parse("{}") );
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="/abdm-docs/js/d3/d3-color.min.js?1678333353" defer></script>
-    <script src="/abdm-docs/js/d3/d3-dispatch.min.js?1678333353" defer></script>
-    <script src="/abdm-docs/js/d3/d3-drag.min.js?1678333353" defer></script>
-    <script src="/abdm-docs/js/d3/d3-ease.min.js?1678333353" defer></script>
-    <script src="/abdm-docs/js/d3/d3-interpolate.min.js?1678333353" defer></script>
-    <script src="/abdm-docs/js/d3/d3-selection.min.js?1678333353" defer></script>
-    <script src="/abdm-docs/js/d3/d3-timer.min.js?1678333353" defer></script>
-    <script src="/abdm-docs/js/d3/d3-transition.min.js?1678333353" defer></script>
-    <script src="/abdm-docs/js/d3/d3-zoom.min.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/d3/d3-color.min.js?1678433984" defer></script>
+    <script src="/abdm-docs/js/d3/d3-dispatch.min.js?1678433984" defer></script>
+    <script src="/abdm-docs/js/d3/d3-drag.min.js?1678433984" defer></script>
+    <script src="/abdm-docs/js/d3/d3-ease.min.js?1678433984" defer></script>
+    <script src="/abdm-docs/js/d3/d3-interpolate.min.js?1678433984" defer></script>
+    <script src="/abdm-docs/js/d3/d3-selection.min.js?1678433984" defer></script>
+    <script src="/abdm-docs/js/d3/d3-timer.min.js?1678433984" defer></script>
+    <script src="/abdm-docs/js/d3/d3-transition.min.js?1678433984" defer></script>
+    <script src="/abdm-docs/js/d3/d3-zoom.min.js?1678433984" defer></script>
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
       mermaid.initialize({ startOnLoad: true });
@@ -432,6 +432,6 @@ iii. RSA Encryption to encrypt the data. Cipher Type - RSA/ECB/PKCS1Padding.</p>
     <script>
       window.themeUseSwagger = JSON.parse("{ \"theme\": \"light\" }");
     </script>
-    <script src="/abdm-docs/js/theme.js?1678333353" defer></script>
+    <script src="/abdm-docs/js/theme.js?1678433984" defer></script>
   </body>
 </html>

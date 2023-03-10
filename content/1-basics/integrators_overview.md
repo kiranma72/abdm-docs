@@ -23,7 +23,7 @@ First decide on the roles that your application will play in the ABDM ecosystem
  | PHR App | Consumer applications that want to help users manage their health records & consents | PHR Apps | 
  | Integrated Programs | Healthcare applications from the goverment | CoWIN, Nikshay, eHospital, PMJAY, |  
 
-ABDM compliance testing will be have to be passed for each role you wish to support in your application 
+ABDM compliance testing will have to be passed for each role you wish to support in your application 
 
 For an explaination of the various roles read the [PHR Architecture Overview](/abdm-docs/1-basics/phr_architecture_overview/)
 

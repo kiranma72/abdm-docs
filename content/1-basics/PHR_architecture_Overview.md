@@ -30,20 +30,20 @@ researchers, government entities etc. These HIUs will be able to request for hea
 ## What is a HIE-CM?
 HIE-CM is Healthcare Information Exchange - Consent Manager. This is the key ABDM building block that enables managing consents related to user's personal health data and supports exchange of interoperable health data across ecosystem players who want to be HIPs and HIUs.
 
-The architecture is designed to support multiple HIE-CMs to operate in the network. Each HIE-CM is reffered to by a domain. NHA operates 2 HIE-CMs currently. A Sandbox HIE-CM with the domain @sbx and a production HIE-CM with the domain @abdm.  
+The architecture is designed to support multiple HIE-CMs to operate in the network. Each HIE-CM is referred to by a domain. NHA operates 2 HIE-CMs currently. A Sandbox HIE-CM with the domain @sbx and a production HIE-CM with the domain @abdm.  
 
 ## What is an ABHA address?
-In order to manage their personal health records, Users must first create an account on a HIE-CM -- called their Ayushman Bharath Health Account (ABHA) addresses. This looks like sandeep321@abdm and is also called as PHR Address. The @abdm tells us which HIE-CM is responsibile for this address.
+In order to manage their personal health records, users must first create an account on a HIE-CM -- called their Ayushman Bharath Health Account (ABHA) addresses. This looks like sandeep321@abdm and is also called as PHR Address. The @abdm tells us which HIE-CM is responsibile for this address.
 
 Users can create an ABHA address by downloading a PHR mobile application or a portal provided by the HIE-CM. Use [phr.abdm.gov.in](https://phr.abdm.gov.in) to create a new ABHA address 
 
 Users can createa an ABHA addresses in one of two ways:
-1.  Using self declared information - This requires Name, Year of Birth gender along with a mobile no or email 
+1.  Using self declared information - This requires Name, Year of Birth gender along with a mobile number or email 
 2.  Using an ABHA Number - This requires users to first create an ABHA number with strong KYC 
 
 Users can start with a self declared ABHA address and later link it to an ABHA number 
 
-While users are allowed to create more than one ABHA address, ABDM encourages every induvidual to have only ONE ABHA address. The processes of obtaining aa ABHA address is designed to ensure that users dont accidentally create multiple addresses
+While users are allowed to create more than one ABHA address, ABDM encourages every induvidual to have only ONE ABHA address. The process of obtaining an ABHA address is designed to ensure that users don't accidentally create multiple addresses
 
 Try it out - Create an ABHA address that you can use on the ABDM sandbox at [phrsbx.abdm.gov.in](https://phrsbx.abdm.gov.in). This will create an ABHA address on the @sbx HIE-CM hosted within the sandbox 
 
@@ -52,12 +52,12 @@ ABHA number is a 14 digit number that is unique (only one per person) issued onl
 
 You can obtain an ABHA by signing up at [https://abha.abdm.gov.in](https://abha.abdm.gov.in)
 
-ABHA numbers extremely important for helping those who use feature phones or do not use a phone to create their personal health records. ABHA numbers are issued in assisted mode extensively by all Government health programs. Each of these ABHA numbers is also issues a PHR address on the @abdm HIE-CM. They look like <14digitabhano>@abdm. Government programs link any health records they create to this ABHA address.
+ABHA numbers are extremely important for helping those who use feature phones or do not use a phone to create their personal health records. ABHA numbers are issued in assisted mode extensively by all Government health programs. Each of these ABHA numbers also issues a PHR address on the @abdm HIE-CM. They look like <14digitabhano>@abdm. Government programs link any health records they create to this ABHA address.
 
 You can play around with the sandbox instance of the ABHA building block at [https://abhasbx.abdm.gov.in](https://abhasbx.abdm.gov.in)
 
 ## What is a PHR application? 
-Personal Health Record Applications are software service providers who offer front ends to Individuals and enable them to create a ABHA address, discover and link health records from various HIPs, allow users to view their records, offer long term storage of records, upload users health records and share records on the ABDM network. PHR Apps work closely with the HIE-CM and provide a front end for HIE-CM actions like viewing and granting consents. 
+Personal Health Record Applications are software service providers who offer front ends to individuals and enable them to create a ABHA address, discover and link health records from various HIPs, allow users to view their records, offer long term storage of records, upload users health records and share records on the ABDM network. PHR Apps work closely with the HIE-CM and provide a front end for HIE-CM actions like viewing and granting consents. 
 (Note: That PHR Apps now subsume the entity type termed Health Lockers in earlier version of the HIP/HIU guidelines) 
 
 You can play around with the sandbox instance of the ABHA PHR app at  [https://phrsbx.abdm.gov.in](https://phrsbx.abdm.gov.in)
@@ -71,7 +71,7 @@ The architecture is also fully aligned with the upcoming Data Protection Bill. T
 ![How HIE-CM builds a PHR ](../hie_cm_linking.png)
 
 The Architecture ensures that there is 
-- No central data repository.
+- No central data repository
 - Your PHR Address only holds links
 - Each Health record is held by Health Facility that generated the record
 - Health facilities that become HIPs collect & save your PHR address during registration
@@ -125,7 +125,7 @@ The following figure provides a view of how the Gateway fits in with other compo
 ![ABDM digital health architecture](/abdm-docs/img/ABDM_digital_health_architecture.png)
 
 ## Experience PHR in action using the ABDM sandbox
-ABDM is providing a sandbox environment with core essential services that enable integrators who want to become HIPs/HIUs/HRPs or PHR apps build and test their integration. 
+ABDM provides a sandbox environment with core essential services that enable integrators who want to become HIPs/HIUs/HRPs or PHR apps build and test their integration. 
 
 Try out the following 
 

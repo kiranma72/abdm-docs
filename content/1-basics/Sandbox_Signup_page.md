@@ -7,13 +7,13 @@ pre : "<b>1.3 </b>"
 ---
 
 ## Sign up for the ABDM Sandbox
-The building blocks of ABDM uses a JWT token based auth mechanism for all API requests. Signing up to the ABDM sandbox provides you a client ID / client secret which can be used to generate the authorization token. 
+The building blocks of ABDM uses a JWT(JSON Web Token) token based auth mechanism for all API requests. Signing up to the ABDM sandbox provides you a client ID / client secret which can be used to generate the authorization token. 
 
 The ABDM sandbox is open to everyone including individuals. You use the sandbox environment to integrate your application and make sure it is compliant to the ABDM requirements. Access to ABDM production APIs requires you to exit the sandbox post integration. 
 
-# User Manual for Sandbox Sign Up
+## User Manual for Sandbox Sign Up
 **Step 1:**  
-Start by registering yourself on ABDM Sandbox at the below URL  
+Start by registering yourself on ABDM Sandbox at the below URL . Refer [here](#user-activity-with-new-application) for signup details.
 https://sandbox.abdm.gov.in/applications/Home/signup_form  
 
 **Step 2:**  
@@ -39,9 +39,9 @@ Select appropriate _Entity_, _Type of Application_, _Category_ value.
 
 ![Intent_FOr_Request](/abdm-docs/img/Intent_For_Request.png)
 
-If your application creates health records that need to be shared with a user, select HIP & HRP. 
-if your application would like to access health records linked with a user select HRP & HIU.
-If your application will act as consumer application that will help users to view records, manage consents, etc select HIU, HRP, Health Locker & PHR App.
+- If your application creates health records that need to be shared with a user, select HIP & HRP. 
+- if your application would like to access health records linked with a user select HRP & HIU.
+- If your application will act as consumer application that will help users to view records, manage consents, etc select HIU, HRP, Health Locker & PHR App.
 
 Try to select the appropriate _Intent For Request_ as per your understanding. In case, you are unsure, _Don't worry_ this can changed later.
 

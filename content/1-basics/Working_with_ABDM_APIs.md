@@ -34,7 +34,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6IC.....
 
 HRPs and PHR apps that integrate with the HIE-CM do so via the ABDM gateway. 
 
-The HIE-CM APIs are designed to be asyncronous. When you call an API on the gateway, if the request is accepted you will merely get a HTTP 200 response acknowledging that the request has been recorded. Once the response is available, the gateway is will invoke the callback URL registered for the Client ID
+The HIE-CM APIs are designed to be asyncronous. When you call an API on the gateway, if the request is accepted you will merely get a HTTP 200 response acknowledging that the request has been recorded. Once the response is available, the gateway will invoke the callback URL registered for the Client ID
 
 All integrators developing either a HRP or a PHR app must register a call back URL for their Client ID
 
@@ -73,7 +73,7 @@ After registering the callback url, if we fire any API which has a callback, ABD
 
 The HIP code used by ABDM is the same as the health facility registry ID. For details on how to register a health facility that uses your software go [here](https://facility.abdm.gov.in/). 
 
-The API below is only available in the Sandbox for quick setups. You can use it to link ONE HIP / HIU ID with your Client ID with no validations.  
+The API below is only available in the Sandbox for quick setups. You can use it to link one HIP / HIU ID with your Client ID with no validations.  
 
 Example
 > 
@@ -109,7 +109,7 @@ You can quickly try out how async APIs work using webhook
 
 1. Go to https://webhook.site 
 2. Copy your unique URL shown on the page 
-3. Register it with ABDM Gateway as shown in Registering your callback URL. Ensure you get a Response: 200 
+3. Register it with ABDM Gateway as shown [here](#registering-your-callback-url) in Registering your callback URL. Ensure you get a Response: 200 
 4. Register a HIP / HIU of your choice with your client id as above. Ensure you get a Response: 200 
 4. Call a async Gateway API using a @sbx PHR address (if you need a phraddress create it at https://phrsbx.abdm.gov.in)
 5. Verify you get a callback at your webhook site. It should look like the image below
@@ -175,7 +175,7 @@ The ABDM architecture is designed to support multiple HIE-CMs. Whenever you call
 
 ### Timestamp format 
 
-### Encrypting data feilds 
+### Encrypting data fields 
 
 Several APIs have enhanced security measures and you will need to encrypt the content of some fields.
 
