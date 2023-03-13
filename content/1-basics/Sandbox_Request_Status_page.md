@@ -23,7 +23,7 @@ https://sandbox.ndhm.gov.in/applications/Home/login
 
 ###### Create Session
 
-{{< swaggermin src="/abdm-docs/yaml/ndhm-gateway.yml" api="POST /v0.5/sessions" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-gateway.yml" api="POST /v0.5/sessions" >}}
 
 **URL:** https://dev.abdm.gov.in/gateway/v0.5/sessions  
 **Request:** POST  
@@ -51,7 +51,7 @@ https://sandbox.ndhm.gov.in/applications/Home/login
 **Step 5:** Get certs for JWT Verification
 
 
-{{< swaggermin src="/abdm-docs/yaml/ndhm-gateway.yml" api="GET /v0.5/certs" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-gateway.yml" api="GET /v0.5/certs" >}}
 
 **URL:** https://dev.abdm.gov.in/gateway/v0.5/certs  
 **Request:** GET  
