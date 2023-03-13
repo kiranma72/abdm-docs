@@ -20,7 +20,7 @@ HIPs are required to maintain a digital copy of both the inpatient and outpatien
 ## What is a Health Repository Provider (HRP)?
  Health repository providers are software service providers who offer ABDM compliant software to health facilities like hospitals, diagnostic centers etc. The HRP enables healthcare providers to become HIPs or HIUs and meet their obligations of sharing and securely maintaining health records of patients digitally. HRPs offer long term storage of health records on behalf of a HIP. For example, a hosted lab information management system provider (LIMS) may update their software to become a ABDM compatible Health Repository Provider. Any lab using this hosted LIMS software can rapidly become a HIP by adopting the software.
 
-The ABDM sandbox hosts a reference HRP -- You can play with it at [https://emrsbx.abdm.gov.in](https://emrsbx.abdm.gov.in)
+The ABDM sandbox hosts a reference HRP -- *You can play with it at* [https://emrsbx.abdm.gov.in](https://emrsbx.abdm.gov.in)
 
 ## What is an HIU?
 An HIU (Health Information User) is an entity that wants access to digital health information from HIPs, in order to provide services to the patient to 
@@ -37,30 +37,32 @@ In order to manage their personal health records, users must first create an acc
 
 Users can create an ABHA address by downloading a PHR mobile application or a portal provided by the HIE-CM. Use [phr.abdm.gov.in](https://phr.abdm.gov.in) to create a new ABHA address 
 
+{{% notice%}}
 Users can createa an ABHA addresses in one of two ways:
 1.  Using self declared information - This requires Name, Year of Birth gender along with a mobile number or email 
 2.  Using an ABHA Number - This requires users to first create an ABHA number with strong KYC 
 
+{{% /notice %}}
 Users can start with a self declared ABHA address and later link it to an ABHA number 
 
 While users are allowed to create more than one ABHA address, ABDM encourages every induvidual to have only ONE ABHA address. The process of obtaining an ABHA address is designed to ensure that users don't accidentally create multiple addresses
 
-Try it out - Create an ABHA address that you can use on the ABDM sandbox at [phrsbx.abdm.gov.in](https://phrsbx.abdm.gov.in). This will create an ABHA address on the @sbx HIE-CM hosted within the sandbox 
+{{% icon icon="user-check" %}} *Try it out* - Create an ABHA address that you can use on the ABDM sandbox at [phrsbx.abdm.gov.in](https://phrsbx.abdm.gov.in). This will create an ABHA address on the @sbx HIE-CM hosted within the sandbox 
 
 ## What is an ABHA Number?
-ABHA number is a 14 digit number that is unique (only one per person) issued only after a strong KYC. You can link a PHR address with an ABHA number ABHA is a core building block of the ABDM ecosystem and integrates with several other systems to provide online KYC including Aadhaar, Driving licence and PAN 
+ABHA number is a *14 digit number* that is unique (only one per person) issued only after a strong KYC. You can link a PHR address with an ABHA number ABHA is a core building block of the ABDM ecosystem and integrates with several other systems to provide online KYC including Aadhaar, Driving licence and PAN 
 
 You can obtain an ABHA by signing up at [https://abha.abdm.gov.in](https://abha.abdm.gov.in)
 
 ABHA numbers are extremely important for helping those who use feature phones or do not use a phone to create their personal health records. ABHA numbers are issued in assisted mode extensively by all Government health programs. Each of these ABHA numbers also issues a PHR address on the @abdm HIE-CM. They look like <14digitabhano>@abdm. Government programs link any health records they create to this ABHA address.
 
-You can play around with the sandbox instance of the ABHA building block at [https://abhasbx.abdm.gov.in](https://abhasbx.abdm.gov.in)
+*You can play around with the sandbox instance of the ABHA building block at* [https://abhasbx.abdm.gov.in](https://abhasbx.abdm.gov.in)
 
 ## What is a PHR application? 
 Personal Health Record Applications are software service providers who offer front ends to individuals and enable them to create a ABHA address, discover and link health records from various HIPs, allow users to view their records, offer long term storage of records, upload users health records and share records on the ABDM network. PHR Apps work closely with the HIE-CM and provide a front end for HIE-CM actions like viewing and granting consents. 
 (Note: That PHR Apps now subsume the entity type termed Health Lockers in earlier version of the HIP/HIU guidelines) 
 
-You can play around with the sandbox instance of the ABHA PHR app at  [https://phrsbx.abdm.gov.in](https://phrsbx.abdm.gov.in)
+*You can play around with the sandbox instance of the ABHA PHR app at*  [https://phrsbx.abdm.gov.in](https://phrsbx.abdm.gov.in)
 
 ## How does a HIE-CM create a longitudinal Health record 
 The PHR architecture is inline with the concepts described in the Niti Aayog National Health Stack (NHS) strategy and the National Digital Health Blueprint documents.
@@ -70,6 +72,7 @@ ABDM is implemented as a Federated Architecture, where data is kept by the entit
 The architecture is also fully aligned with the upcoming Data Protection Bill. The MietY consent framework and DEPA architecture is used to ensure that any data shared is only with a fully structured consent artifact. This design should ensure that any health facility using a ABDM compliant software will automatically be compliant to the Data protection bill. 
 ![How HIE-CM builds a PHR ](../hie_cm_linking.png)
 
+{{% notice%}}
 The Architecture ensures that there is 
 - No central data repository
 - Your PHR Address only holds links
@@ -81,6 +84,7 @@ The Architecture ensures that there is
 - PHR apps act as repositories that hold the health records long term for the user
 - Patients can also upload records by scanning them or from their wearables via PHR apps 
 - Only HIPs that are part of the Health Facility Registry can link health records with a PHR address
+{{% /notice%}}
 
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
@@ -127,7 +131,7 @@ The following figure provides a view of how the Gateway fits in with other compo
 ## Experience PHR in action using the ABDM sandbox
 ABDM provides a sandbox environment with core essential services that enable integrators who want to become HIPs/HIUs/HRPs or PHR apps build and test their integration. 
 
-Try out the following 
+{{% icon icon="tasks" %}} Try out the following 
 
 1. Create a PHR address on the sandbox from [https://phrsbx.abdm.gov.in/](https://phrsbx.abdm.gov.in/)
 2. Use [EMRSBX](https://emrsbx.abdm.gov.in/) to register your PHR address and link it with a new health record 
