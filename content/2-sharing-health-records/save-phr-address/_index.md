@@ -10,9 +10,10 @@ pre = "<b>2.1 </b>"
 
 This section covers the methods that must be supported for collecting the PHR Address from the user
 
+{{% notice %}}
 - By Scanning HIP QR code during registration
 - By scanning the User's PHR Address QR code during registration
 - By sharing the PHR address verbally during registration
 - Using the discovery method from a PHR app 
-
+{{% /notice %}}
 ![sharing phr addr](/abdm-docs/img/sharing-phr-address-during-reg.png)

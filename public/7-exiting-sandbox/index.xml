@@ -7,5 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 May 2022 17:53:25 +0530</lastBuildDate><atom:link href="http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> Milestone 1 - Test Cases</title>
+      <link>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/milestone-1-test-cases/index.html</link>
+      <pubDate>Mon, 13 Mar 2023 14:30:25 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/milestone-1-test-cases/index.html</guid>
+      <description>Milestone 1 - Test Cases Milestone 1: ABHA creation and capture &amp;amp; verification for seamless patient registration
+S.No. Purpose Serial API Description 1 Registration 1.0.1 v1/auth/cert Authentication token public certificate. This certificate is also used to encrypt the data. 1.1 Registration Via Aadhaar 1.1.1 v1/registration/aadhaar/generateOtp Generate Aadhaar OTP on Registered mobile number 1.1.2 v1/registration/aadhaar/verifyOTP Verify Aadhaar OTP received on Registered mobile number 1.1.3 v1/registration/aadhaar/generateMobileOTP Generate Mobile OTP for verification. 1.1.4 v1/registration/aadhaar/verifyMobileOTP Verify Mobile OTP in an existing transaction.</description>
+    </item>
+    <item>
+      <title> Milestone 2 - Test Cases</title>
+      <link>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/milestone-2-test-cases/index.html</link>
+      <pubDate>Mon, 13 Mar 2023 14:30:25 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/milestone-2-test-cases/index.html</guid>
+      <description>Milestone 2 - Test Cases Milestone 1 - Test cases Milestone 2 - Test cases </description>
+    </item>
   </channel>
 </rss>

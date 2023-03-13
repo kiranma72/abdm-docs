@@ -161,7 +161,7 @@
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/1-basics/phr_architecture_overview/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/1-basics/understanding_the_phr_framework/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
@@ -205,7 +205,7 @@
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/1-basics/sandbox_signup_page/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/1-basics/sign_up_to_the_abdm_sandbox/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
@@ -253,7 +253,7 @@
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/1-basics/sandbox_request_status_page/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/1-basics/verify_you_can_access_the_sandbox/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
@@ -273,6 +273,10 @@
     <lastmod>2022-05-07T17:53:25+05:30</lastmod>
   </url>
   <url>
+    <loc>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/milestone-1-test-cases/index.html</loc>
+    <lastmod>2023-03-13T14:30:25+05:30</lastmod>
+  </url>
+  <url>
     <loc>http://kiranma72.github.io/abdm-docs/3-get-health-records/consent-flow/status-notification/index.html</loc>
     <lastmod>2022-06-23T11:30:25+05:30</lastmod>
   </url>
@@ -285,7 +289,7 @@
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/1-basics/integrators_overview/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/1-basics/making_your_app_abdm_compliant/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
@@ -307,6 +311,10 @@
   <url>
     <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/delete-abha/index.html</loc>
     <lastmod>2022-05-07T17:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/milestone-2-test-cases/index.html</loc>
+    <lastmod>2023-03-13T14:30:25+05:30</lastmod>
   </url>
   <url>
     <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/teleconsults/exchange-messages-with-doctor/index.html</loc>

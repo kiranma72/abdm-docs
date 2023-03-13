@@ -3858,25 +3858,36 @@ components:
       properties:
         e:
           type: string
+          example: AQAB
         kid:
           type: string
+          example: AlRb5WCm8Tm9EJ_IfO9z06j9oCv51pKKFknGb_TBvK0
         kty:
           type: string
+          example: RSA
         n:
           type: string
+          example: mgmW7W5ZGF_G5cJevwYi8HiPcI-6qS_psnZxa4v3bkwAkyOoOd8-6ketrOI-ZA2PbRbGnxFfZHiI94rdFXJ4Q9ampscsz9NocTIPMPmWydJ8A50pZaYWyikYDSJiDltq7i3WspPKSOuQHrC5h9dMcCVveX5oeg0tO68Z79gwDlpcxiqDbFaphsqDvx-5XkfwiqvOBaybK6_BCBPuTqWMUEuUklLYXu2X7ESHdVNFMFAjxCcCXUtP7LFdvT3nnFekRmG82QbSQSVe4N5tPH8q0MCxSWWn2c15bDnzOF-dvfRCVPRabCzw0M-utHR9diTrWtq6Koi5buxgwM1rbk0p8Q
         use:
           type: string
+          example: sig
         x5c:
           type: array
           items:
             description: A PKIX certificate [RFC5280]
             type: string
+          example: [
+                "MIICrzCCAZcCBgFy/3WZBjANBgkqhkiG9w0BAQsFADAbMRkwFwYDVQQDDBBjZW50cmFsLXJlZ2lzdHJ5MB4XDTIwMDYyOTA5NDEzNloXDTMwMDYyOTA5NDMxNlowGzEZMBcGA1UEAwwQY2VudHJhbC1yZWdpc3RyeTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJoJlu1uWRhfxuXCXr8GIvB4j3CPuqkv6bJ2cWuL925MAJMjqDnfPupHraziPmQNj20Wxp8RX2R4iPeK3RVyeEPWpqbHLM/TaHEyDzD5lsnSfAOdKWWmFsopGA0iYg5bau4t1rKTykjrkB6wuYfXTHAlb3l+aHoNLTuvGe/YMA5aXMYqg2xWqYbKg78fuV5H8IqrzgWsmyuvwQgT7k6ljFBLlJJS2F7tl+xEh3VTRTBQI8QnAl1LT+yxXb0955xXpEZhvNkG0kElXuDebTx/KtDAsUllp9nNeWw58zhfnb30QlT0Wmws8NDPrrR0fXYk61rauiqIuW7sYMDNa25NKfECAwEAATANBgkqhkiG9w0BAQsFAAOCAQEACkC3TijrXIgi4vn+l1uL1nfdK6vOIL5UZ6yCjSOq7zYW6b3Qe8j7NrPb9RJC+pbIERyNbB+t9hsa5g1L7lkjCNlUuxfJprsJ9LJKlM5g7dYEA6XPCJ7C6AVlarj72vlWXQvwjnQMO2/CM9/Jp5Hnv2Qwjn7NME2OWM0iblc/TD+DEZK5L5mlWMyuBSQo2o/AcOmfG4MoE5Gm/CaOJ47rSrf+lq83e5+dyKh7uLVAa+5WK8Im5nEs6BLSGyo2KlaV0mW9yCkoRLLbipjH8+rJwkUU6iu7QVjz0peGZzYldya5n35gMWH7Bu4HqFneKNRwwD6w8rGNC+uWtgWejDZ3yQ=="
+            ]
         x5t:
           type: string
+          example: EaMhYGUIvMkp8tvSM3QoaqaF8xM
         x5t#S256:
           type: string
+          example: vGer6Pt8AhZn8RlbHhAFksOCcGf3u1UWU7Qq-Doy7ro
         alg:
           type: string
+          example: RS256
     ConsentArtefactResponse:
       type: object
       required:
