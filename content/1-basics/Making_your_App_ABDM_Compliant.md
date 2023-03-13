@@ -1,5 +1,5 @@
 ---
-title: "Making your App ABDM Compilant"
+title: "Making your App ABDM Compliant"
 date: 2022-05-07T18:00:04+05:30
 Weight: 5
 draft: false
