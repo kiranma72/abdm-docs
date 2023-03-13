@@ -7,3 +7,6 @@ pre = "<b>7. </b>"
 +++
 
 # Sandbox Exit Process
+
+1. Milestone 1 - Test cases
+2. Milestone 2 - Test cases
