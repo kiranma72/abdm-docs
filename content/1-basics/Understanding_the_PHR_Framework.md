@@ -38,7 +38,7 @@ In order to manage their personal health records, users must first create an acc
 Users can create an ABHA address by downloading a PHR mobile application or a portal provided by the HIE-CM. Use [phr.abdm.gov.in](https://phr.abdm.gov.in) to create a new ABHA address 
 
 {{% notice%}}
-Users can createa an ABHA addresses in one of two ways:
+Users can create an ABHA addresses in one of two ways:
 1.  Using self declared information - This requires Name, Year of Birth gender along with a mobile number or email 
 2.  Using an ABHA Number - This requires users to first create an ABHA number with strong KYC 
 

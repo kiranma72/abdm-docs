@@ -16,6 +16,7 @@ https://sandbox.ndhm.gov.in/applications/Home/login
 **Step 2:** On login, _Application Submitted_ status (the current application status) is displayed in green.  
 
 ![Landing_Page](../Landing_Page.png) 
+{{%icon icon="info-circle" %}} [For additional information on the various application status](../about_abdm_sandbox#abdm-sandbox-journey)
 
 **Step 3:** Once the application is _Approved_ by the committee, the user will receive an email containing stating _Client id_ & _Client Secret_. On Frontend, the user will see the status changed to _Sandbox Application Status_.  
 
