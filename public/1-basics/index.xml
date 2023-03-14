@@ -17,7 +17,7 @@ Here&amp;rsquo;s a picture to help you understand different interaction touchpoi
 ABDM Sandbox Journey ABDM aims at bringing out inoperability and sharing of health information among all the participants in India.</description>
     </item>
     <item>
-      <title>Understanding the PHR Framework</title>
+      <title>The PHR Framework</title>
       <link>http://kiranma72.github.io/abdm-docs/1-basics/understanding_the_phr_framework/index.html</link>
       <pubDate>Sat, 07 May 2022 18:00:04 +0530</pubDate>
       <guid>http://kiranma72.github.io/abdm-docs/1-basics/understanding_the_phr_framework/index.html</guid>
@@ -26,7 +26,7 @@ The image below shows the various entities/roles involved in the PHR framework
 What is a Health Information Provider (HIP)? Any entity that agrees to share digital health records with their users using the ABDM specified methods is called an HIP (Health Information Provider).</description>
     </item>
     <item>
-      <title>Sign up to the ABDM Sandbox</title>
+      <title>ABDM Sandbox Signup</title>
       <link>http://kiranma72.github.io/abdm-docs/1-basics/sign_up_to_the_abdm_sandbox/index.html</link>
       <pubDate>Sat, 07 May 2022 18:00:04 +0530</pubDate>
       <guid>http://kiranma72.github.io/abdm-docs/1-basics/sign_up_to_the_abdm_sandbox/index.html</guid>
@@ -34,14 +34,15 @@ What is a Health Information Provider (HIP)? Any entity that agrees to share dig
 The ABDM sandbox is open to everyone including individuals. You use the sandbox environment to integrate your application and make sure it is compliant to the ABDM requirements.</description>
     </item>
     <item>
-      <title>Verify you can access the Sandbox</title>
+      <title>Verify Sandbox Access</title>
       <link>http://kiranma72.github.io/abdm-docs/1-basics/verify_you_can_access_the_sandbox/index.html</link>
       <pubDate>Sat, 07 May 2022 18:00:04 +0530</pubDate>
       <guid>http://kiranma72.github.io/abdm-docs/1-basics/verify_you_can_access_the_sandbox/index.html</guid>
       <description>Signing in for the ABDM Sandbox Step 1: Once the Sandbox request form is submitted, the user can see the application submitted status by login in with Email id and Password.
 https://sandbox.ndhm.gov.in/applications/Home/login
 Step 2: On login, Application Submitted status (the current application status) is displayed in green.
-Step 3: Once the application is Approved by the committee, the user will receive an email containing stating Client id &amp;amp; Client Secret. On Frontend, the user will see the status changed to Sandbox Application Status.</description>
+For additional information on the various application status
+Step 3: Once the application is Approved by the committee, the user will receive an email containing stating Client id &amp;amp; Client Secret.</description>
     </item>
     <item>
       <title>Working with ABDM APIs</title>

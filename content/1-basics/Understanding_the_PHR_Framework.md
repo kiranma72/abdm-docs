@@ -1,5 +1,5 @@
 ---
-title: "Understanding the PHR Framework"
+title: "The PHR Framework"
 date: 2022-05-07T18:00:04+05:30
 Weight: 2
 draft: false
@@ -85,6 +85,8 @@ The Architecture ensures that there is
 - Patients can also upload records by scanning them or from their wearables via PHR apps 
 - Only HIPs that are part of the Health Facility Registry can link health records with a PHR address
 {{% /notice%}}
+
+## Sharing Health Records With Consent
 
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%

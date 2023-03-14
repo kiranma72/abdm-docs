@@ -157,11 +157,11 @@
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/uhi_architecture_overview/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/1-basics/understanding_the_phr_framework/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/1-basics/understanding_the_phr_framework/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/uhi/uhi_architecture_overview/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
@@ -179,6 +179,10 @@
   <url>
     <loc>http://kiranma72.github.io/abdm-docs/3-get-health-records/consent-flow/fetch-consent-artefact/index.html</loc>
     <lastmod>2022-06-22T11:07:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/1-basics/sign_up_to_the_abdm_sandbox/index.html</loc>
+    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
     <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/teleconsults/book-selected-doctor-or-facility/index.html</loc>
@@ -202,10 +206,6 @@
   </url>
   <url>
     <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-hspa/setup-for-physical-consultation/index.html</loc>
-    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/1-basics/sign_up_to_the_abdm_sandbox/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>

@@ -2957,6 +2957,44 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+  /v1/bridges:
+    patch:
+      servers:
+        - url: https://dev.abdm.gov.in/devservice
+          description: Override base path for the GET /ping operation
+      tags:
+        - bridges
+      summary: Update Callback URL
+      parameters:
+        - name: Authorization
+          description: Bearer Token received after successful gateway Login.
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BridgesResponse'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BridgesResponse'
+      responses:
+        '200':
+          description: OK.
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'             
 
 components:
   parameters:
@@ -4369,6 +4407,15 @@ components:
           $ref: '#/components/schemas/Error'
         resp:
           $ref: '#/components/schemas/RequestReference'
+    BridgesResponse:
+      type: object
+      required:
+        - url
+      description: identification of requester
+      properties:
+        url:
+          type: string
+          example: https://abcdef123.com
 
 
     AuthenticationMode:
@@ -5521,3 +5568,4 @@ components:
                 id:
                   type: string
                   example: hina@ncg
+                  

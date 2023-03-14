@@ -57,6 +57,8 @@ client->>gateway: Response: 200 (as acknowledgment)
 ### Registering your callback URL 
 The callback URL is the url for the site where the HIP/HRP stores its records. Callback URL cannot be registered without a client Id and the client secret. After obtaining the client ID and the secret, use the gateway sessions api [here](../verify_you_can_access_the_sandbox/#create-session) to get the accessToken. Use the below api, to register the callback  url, for "Authorization:" [refer here](#the-authorization-header) and mention the callback url in the "url:".  
 
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-gateway-v1.yml" api="PATCH /v1/bridges$" >}}
+
 ```
 curl --location --request PATCH 'https://dev.abdm.gov.in/devservice/v1/bridges' --header 'Content-Type: application/json' --header 'Authorization: Bearer your-access-token-from-gateway-session' --data-raw '{
 	"url": "https://my-emr-site.in"

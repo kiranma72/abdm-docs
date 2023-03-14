@@ -1,5 +1,5 @@
 ---
-title: "Verify you can access the Sandbox"
+title: "Verify Sandbox Access"
 date: 2022-05-07T18:00:04+05:30
 Weight: 4 
 draft: false
@@ -20,19 +20,21 @@ https://sandbox.ndhm.gov.in/applications/Home/login
 
 **Step 3:** Once the application is _Approved_ by the committee, the user will receive an email containing stating _Client id_ & _Client Secret_. On Frontend, the user will see the status changed to _Sandbox Application Status_.  
 ![Sandbox_Application_Status](../SandboxApplicationStatus.png) 
-{{%icon icon="info-circle" %}} If the user hasn't received the email. Kindly drop a mail{{%icon icon="envelope" %}} to Integration.support@nha.gov.in
+{{%icon icon="info-circle" %}} If the status is approved and the user hasn't received the client secret via email, kindly drop a mail{{%icon icon="envelope" %}} to Integration.support@nha.gov.in
 
 **Step 4:** Once _Client id_ & _Client Secret_ are received via an email, please verify it and check if the correct response is received. 
 
-###### Create Session
+###### Create Session 
+Server : https://dev.abdm.gov.in/gateway
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-gateway.yml" api="POST /v0.5/sessions" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-gateway-v1.yml" api="POST /v0.5/sessions" >}}
 
 
 **Step 5:** Get certs for JWT Verification
 
+Server : https://dev.abdm.gov.in/gateway
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-gateway.yml" api="GET /v0.5/certs" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-gateway-v1.yml" api="GET /v0.5/certs" >}}
 
 
 **Download the Postman Collection** [here](/abdm-docs/Postman/Gateway_Session.json)

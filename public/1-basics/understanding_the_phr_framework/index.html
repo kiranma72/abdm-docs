@@ -7,20 +7,20 @@
     <meta name="generator" content="Relearn 5.12.0+tip">
     <meta name="description" content="Documentation of various ABDM Building Blocks">
     <meta name="author" content="NHA">
-    <title>Understanding the PHR Framework - ABDM Sandbox Documentation</title>
+    <title>The PHR Framework - ABDM Sandbox Documentation</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/abdm-docs/css/fontawesome-all.min.css?1678734797" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fontawesome-all.min.css?1678734797" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/nucleus.css?1678734797" rel="stylesheet">
-    <link href="/abdm-docs/css/auto-complete.css?1678734797" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/auto-complete.css?1678734797" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/perfect-scrollbar.min.css?1678734797" rel="stylesheet">
-    <link href="/abdm-docs/css/fonts.css?1678734797" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fonts.css?1678734797" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/theme.css?1678734797" rel="stylesheet">
-    <link href="/abdm-docs/css/theme-auto.css?1678734797" rel="stylesheet" id="variant-style">
-    <link href="/abdm-docs/css/variant.css?1678734797" rel="stylesheet">
-    <link href="/abdm-docs/css/print.css?1678734797" rel="stylesheet" media="print">
-    <link href="/abdm-docs/css/ie.css?1678734797" rel="stylesheet">
-    <script src="/abdm-docs/js/url.js?1678734797"></script>
-    <script src="/abdm-docs/js/variant.js?1678734797"></script>
+    <link href="/abdm-docs/css/fontawesome-all.min.css?1678776743" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fontawesome-all.min.css?1678776743" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/nucleus.css?1678776743" rel="stylesheet">
+    <link href="/abdm-docs/css/auto-complete.css?1678776743" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/auto-complete.css?1678776743" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/perfect-scrollbar.min.css?1678776743" rel="stylesheet">
+    <link href="/abdm-docs/css/fonts.css?1678776743" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fonts.css?1678776743" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/theme.css?1678776743" rel="stylesheet">
+    <link href="/abdm-docs/css/theme-auto.css?1678776743" rel="stylesheet" id="variant-style">
+    <link href="/abdm-docs/css/variant.css?1678776743" rel="stylesheet">
+    <link href="/abdm-docs/css/print.css?1678776743" rel="stylesheet" media="print">
+    <link href="/abdm-docs/css/ie.css?1678776743" rel="stylesheet">
+    <script src="/abdm-docs/js/url.js?1678776743"></script>
+    <script src="/abdm-docs/js/variant.js?1678776743"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -51,7 +51,7 @@
             </span>
             <span id="toc-menu" title='Table of Contents (CTRL+ALT+t)'><i class="fas fa-list-alt fa-fw"></i></span>
             <span class="links">
-              Understanding the PHR Framework
+              The PHR Framework
             </span>
           </div>
           <div class="default-animation progress">
@@ -65,6 +65,7 @@
     <li><a href="#what-is-an-abha-number">What is an ABHA Number?</a></li>
     <li><a href="#what-is-a-phr-application">What is a PHR application?</a></li>
     <li><a href="#how-does-a-hie-cm-create-a-longitudinal-health-record">How does a HIE-CM create a longitudinal Health record</a></li>
+    <li><a href="#sharing-health-records-with-consent">Sharing Health Records With Consent</a></li>
     <li><a href="#the-abdm-gateway">The ABDM Gateway</a></li>
     <li><a href="#experience-phr-in-action-using-the-abdm-sandbox">Experience PHR in action using the ABDM sandbox</a></li>
     <li><a href="#other-relevant-documents">Other relevant documents</a></li>
@@ -79,15 +80,15 @@
           <div id="head-tags">
           </div>
           <article class="default">
-<h1 id="understanding-the-phr-framework">Understanding the PHR Framework</h1>
+<h1 id="the-phr-framework">The PHR Framework</h1>
 
 <p>ABDM uses a federated architecture to help users collect their health records across various healthcare providers, view their records from any PHR application and share their records with any requestor with their consent</p>
 <p>The image below shows the various entities/roles involved in the PHR framework</p>
 <p>
-<a href="#image-82353e3553561b2dc7e241f6db63cf53" class="lightbox-link">
+<a href="#image-517609572bbb97d1a94f90882488b9e8" class="lightbox-link">
 <img src="../phr-architeture.pptx.jpg" alt="ABDM HIP HIU Architecture" style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-82353e3553561b2dc7e241f6db63cf53">
+<a href="javascript:history.back();" class="lightbox" id="image-517609572bbb97d1a94f90882488b9e8">
 <img src="../phr-architeture.pptx.jpg" alt="ABDM HIP HIU Architecture" class="lightbox-image" loading="lazy">
 </a></p>
 <h2 id="what-is-a-health-information-provider-hip">What is a Health Information Provider (HIP)?</h2>
@@ -95,7 +96,7 @@
 <p>HIPs are required to maintain a digital copy of both the inpatient and outpatient records for each person in their care. In order to become an HIP, health facilities must enrol in the ABDM <a href="https://facility.abdm.gov.in" target="_blank">health facility registry</a></p>
 <h2 id="what-is-a-health-repository-provider-hrp">What is a Health Repository Provider (HRP)?</h2>
 <p>Health repository providers are software service providers who offer ABDM compliant software to health facilities like hospitals, diagnostic centers etc. The HRP enables healthcare providers to become HIPs or HIUs and meet their obligations of sharing and securely maintaining health records of patients digitally. HRPs offer long term storage of health records on behalf of a HIP. For example, a hosted lab information management system provider (LIMS) may update their software to become a ABDM compatible Health Repository Provider. Any lab using this hosted LIMS software can rapidly become a HIP by adopting the software.</p>
-<p>The ABDM sandbox hosts a reference HRP &ndash; You can play with it at <a href="https://emrsbx.abdm.gov.in" target="_blank">https://emrsbx.abdm.gov.in</a></p>
+<p>The ABDM sandbox hosts a reference HRP &ndash; <em>You can play with it at</em> <a href="https://emrsbx.abdm.gov.in" target="_blank">https://emrsbx.abdm.gov.in</a></p>
 <h2 id="what-is-an-hiu">What is an HIU?</h2>
 <p>An HIU (Health Information User) is an entity that wants access to digital health information from HIPs, in order to provide services to the patient to
 whom the information belongs. An HIU can be a hospital, clinic, healthcare technology company, organizations working on health analytics, insurers, medical
@@ -106,34 +107,45 @@ researchers, government entities etc. These HIUs will be able to request for hea
 <h2 id="what-is-an-abha-address">What is an ABHA address?</h2>
 <p>In order to manage their personal health records, users must first create an account on a HIE-CM &ndash; called their Ayushman Bharath Health Account (ABHA) addresses. This looks like sandeep321@abdm and is also called as PHR Address. The @abdm tells us which HIE-CM is responsibile for this address.</p>
 <p>Users can create an ABHA address by downloading a PHR mobile application or a portal provided by the HIE-CM. Use <a href="https://phr.abdm.gov.in" target="_blank">phr.abdm.gov.in</a> to create a new ABHA address</p>
-<p>Users can createa an ABHA addresses in one of two ways:</p>
+<p>
+<div class="box notices cstyle default">
+  <div class="box-label"></div>
+  <div class="box-content">
+<p>Users can create an ABHA addresses in one of two ways:</p>
 <ol>
 <li>Using self declared information - This requires Name, Year of Birth gender along with a mobile number or email</li>
 <li>Using an ABHA Number - This requires users to first create an ABHA number with strong KYC</li>
 </ol>
-<p>Users can start with a self declared ABHA address and later link it to an ABHA number</p>
+  </div>
+</div>
+Users can start with a self declared ABHA address and later link it to an ABHA number</p>
 <p>While users are allowed to create more than one ABHA address, ABDM encourages every induvidual to have only ONE ABHA address. The process of obtaining an ABHA address is designed to ensure that users don&rsquo;t accidentally create multiple addresses</p>
-<p>Try it out - Create an ABHA address that you can use on the ABDM sandbox at <a href="https://phrsbx.abdm.gov.in" target="_blank">phrsbx.abdm.gov.in</a>. This will create an ABHA address on the @sbx HIE-CM hosted within the sandbox</p>
+<p>
+<i class="fa-fw fas fa-user-check"></i> <em>Try it out</em> - Create an ABHA address that you can use on the ABDM sandbox at <a href="https://phrsbx.abdm.gov.in" target="_blank">phrsbx.abdm.gov.in</a>. This will create an ABHA address on the @sbx HIE-CM hosted within the sandbox</p>
 <h2 id="what-is-an-abha-number">What is an ABHA Number?</h2>
-<p>ABHA number is a 14 digit number that is unique (only one per person) issued only after a strong KYC. You can link a PHR address with an ABHA number ABHA is a core building block of the ABDM ecosystem and integrates with several other systems to provide online KYC including Aadhaar, Driving licence and PAN</p>
+<p>ABHA number is a <em>14 digit number</em> that is unique (only one per person) issued only after a strong KYC. You can link a PHR address with an ABHA number ABHA is a core building block of the ABDM ecosystem and integrates with several other systems to provide online KYC including Aadhaar, Driving licence and PAN</p>
 <p>You can obtain an ABHA by signing up at <a href="https://abha.abdm.gov.in" target="_blank">https://abha.abdm.gov.in</a></p>
 <p>ABHA numbers are extremely important for helping those who use feature phones or do not use a phone to create their personal health records. ABHA numbers are issued in assisted mode extensively by all Government health programs. Each of these ABHA numbers also issues a PHR address on the @abdm HIE-CM. They look like &lt;14digitabhano&gt;@abdm. Government programs link any health records they create to this ABHA address.</p>
-<p>You can play around with the sandbox instance of the ABHA building block at <a href="https://abhasbx.abdm.gov.in" target="_blank">https://abhasbx.abdm.gov.in</a></p>
+<p><em>You can play around with the sandbox instance of the ABHA building block at</em> <a href="https://abhasbx.abdm.gov.in" target="_blank">https://abhasbx.abdm.gov.in</a></p>
 <h2 id="what-is-a-phr-application">What is a PHR application?</h2>
 <p>Personal Health Record Applications are software service providers who offer front ends to individuals and enable them to create a ABHA address, discover and link health records from various HIPs, allow users to view their records, offer long term storage of records, upload users health records and share records on the ABDM network. PHR Apps work closely with the HIE-CM and provide a front end for HIE-CM actions like viewing and granting consents.
 (Note: That PHR Apps now subsume the entity type termed Health Lockers in earlier version of the HIP/HIU guidelines)</p>
-<p>You can play around with the sandbox instance of the ABHA PHR app at  <a href="https://phrsbx.abdm.gov.in" target="_blank">https://phrsbx.abdm.gov.in</a></p>
+<p><em>You can play around with the sandbox instance of the ABHA PHR app at</em>  <a href="https://phrsbx.abdm.gov.in" target="_blank">https://phrsbx.abdm.gov.in</a></p>
 <h2 id="how-does-a-hie-cm-create-a-longitudinal-health-record">How does a HIE-CM create a longitudinal Health record</h2>
 <p>The PHR architecture is inline with the concepts described in the Niti Aayog National Health Stack (NHS) strategy and the National Digital Health Blueprint documents.</p>
 <p>ABDM is implemented as a Federated Architecture, where data is kept by the entity that generates the health data. Only a link called a <em>care context</em> is added to the PHR address. The HIE-CM is designed to be data blind, ie it does not know any details of the health records that are linked with the PHR address and the architecture ensures that any exchange of health data does not pass through the HIE-CM.</p>
 <p>The architecture is also fully aligned with the upcoming Data Protection Bill. The MietY consent framework and DEPA architecture is used to ensure that any data shared is only with a fully structured consent artifact. This design should ensure that any health facility using a ABDM compliant software will automatically be compliant to the Data protection bill.
 
-<a href="#image-452151d415abef52abcbae83f017117f" class="lightbox-link">
+<a href="#image-abee3426bddc123d74d61e594f047d80" class="lightbox-link">
 <img src="../hie_cm_linking.png" alt="How HIE-CM builds a PHR " style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-452151d415abef52abcbae83f017117f">
+<a href="javascript:history.back();" class="lightbox" id="image-abee3426bddc123d74d61e594f047d80">
 <img src="../hie_cm_linking.png" alt="How HIE-CM builds a PHR " class="lightbox-image" loading="lazy">
 </a></p>
+
+<div class="box notices cstyle default">
+  <div class="box-label"></div>
+  <div class="box-content">
 <p>The Architecture ensures that there is</p>
 <ul>
 <li>No central data repository</li>
@@ -147,6 +159,9 @@ researchers, government entities etc. These HIUs will be able to request for hea
 <li>Patients can also upload records by scanning them or from their wearables via PHR apps</li>
 <li>Only HIPs that are part of the Health Facility Registry can link health records with a PHR address</li>
 </ul>
+  </div>
+</div>
+<h2 id="sharing-health-records-with-consent">Sharing Health Records With Consent</h2>
 
 <div class="mermaid align-center">
 %%{init:{&#34;fontSize&#34;: &#34;1.0rem&#34;, &#34;sequence&#34;:{&#34;showSequenceNumbers&#34;:true}}}%%
@@ -189,15 +204,16 @@ The entire PHR framework including the gateway communicates via asynchronous API
 </ul>
 <p>The following figure provides a view of how the Gateway fits in with other components
 
-<a href="#image-b945da8162d820573f14aff5ec7f363a" class="lightbox-link">
+<a href="#image-e53e3c268174bb8c3fbb8d8d59c4aac9" class="lightbox-link">
 <img src="/abdm-docs/img/ABDM_digital_health_architecture.png" alt="ABDM digital health architecture" style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-b945da8162d820573f14aff5ec7f363a">
+<a href="javascript:history.back();" class="lightbox" id="image-e53e3c268174bb8c3fbb8d8d59c4aac9">
 <img src="/abdm-docs/img/ABDM_digital_health_architecture.png" alt="ABDM digital health architecture" class="lightbox-image" loading="lazy">
 </a></p>
 <h2 id="experience-phr-in-action-using-the-abdm-sandbox">Experience PHR in action using the ABDM sandbox</h2>
 <p>ABDM provides a sandbox environment with core essential services that enable integrators who want to become HIPs/HIUs/HRPs or PHR apps build and test their integration.</p>
-<p>Try out the following</p>
+<p>
+<i class="fa-fw fas fa-tasks"></i> Try out the following</p>
 <ol>
 <li>Create a PHR address on the sandbox from <a href="https://phrsbx.abdm.gov.in/" target="_blank">https://phrsbx.abdm.gov.in/</a></li>
 <li>Use <a href="https://emrsbx.abdm.gov.in/" target="_blank">EMRSBX</a> to register your PHR address and link it with a new health record</li>
@@ -239,28 +255,28 @@ The entire PHR framework including the gateway communicates via asynchronous API
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/abdm-docs/js/auto-complete.js?1678734797" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.min.js?1678734797" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.stemmer.support.min.js?1678734797" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.multi.min.js?1678734797" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.en.min.js?1678734797" defer></script>
-        <script src="/abdm-docs/js/search.js?1678734797" defer></script>
+        <script src="/abdm-docs/js/auto-complete.js?1678776743" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.min.js?1678776743" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.stemmer.support.min.js?1678776743" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.multi.min.js?1678776743" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.en.min.js?1678776743" defer></script>
+        <script src="/abdm-docs/js/search.js?1678776743" defer></script>
       </div>
       <div id="content-wrapper" class="highlightable">
         <ul class="topics enlarge morespace collapsible-menu">
           <li data-nav-id="/abdm-docs/1-basics/index.html" class="parent "><input type="checkbox" id="section-2cbea2d4a47e950d26b555aab1d7607b" aria-controls="subsections-2cbea2d4a47e950d26b555aab1d7607b" checked><label for="section-2cbea2d4a47e950d26b555aab1d7607b"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu Getting Started</span></label><a class="padding" href="/abdm-docs/1-basics/index.html"><b>1. </b>Getting Started</a><ul id="subsections-2cbea2d4a47e950d26b555aab1d7607b" class="morespace collapsible-menu">
           <li data-nav-id="/abdm-docs/1-basics/about_abdm_sandbox/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/about_abdm_sandbox/index.html"><b>1.1 </b>About ABDM Sandbox</a></li>
-          <li data-nav-id="/abdm-docs/1-basics/understanding_the_phr_framework/index.html" class="active"><a class="padding" href="/abdm-docs/1-basics/understanding_the_phr_framework/index.html"><b>1.2 </b>Understanding the PHR Framework</a></li>
-          <li data-nav-id="/abdm-docs/1-basics/sign_up_to_the_abdm_sandbox/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/sign_up_to_the_abdm_sandbox/index.html"><b>1.3 </b>Sign up to the ABDM Sandbox</a></li>
-          <li data-nav-id="/abdm-docs/1-basics/verify_you_can_access_the_sandbox/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/verify_you_can_access_the_sandbox/index.html"><b>1.4 </b>Verify you can access the Sandbox</a></li>
+          <li data-nav-id="/abdm-docs/1-basics/understanding_the_phr_framework/index.html" class="active"><a class="padding" href="/abdm-docs/1-basics/understanding_the_phr_framework/index.html"><b>1.2 </b>The PHR Framework</a></li>
+          <li data-nav-id="/abdm-docs/1-basics/sign_up_to_the_abdm_sandbox/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/sign_up_to_the_abdm_sandbox/index.html"><b>1.3 </b>ABDM Sandbox Signup</a></li>
+          <li data-nav-id="/abdm-docs/1-basics/verify_you_can_access_the_sandbox/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/verify_you_can_access_the_sandbox/index.html"><b>1.4 </b>Verify Sandbox Access</a></li>
           <li data-nav-id="/abdm-docs/1-basics/working_with_abdm_apis/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/working_with_abdm_apis/index.html"><b>1.5 </b>Working with ABDM APIs</a></li>
           <li data-nav-id="/abdm-docs/1-basics/making_your_app_abdm_compliant/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/making_your_app_abdm_compliant/index.html"><b>1.6 </b>Making your App ABDM Compliant</a></li></ul></li>
           <li data-nav-id="/abdm-docs/2-sharing-health-records/index.html" class=""><input type="checkbox" id="section-7cdf3b49dbbca87921df1a2ef79cf6fa" aria-controls="subsections-7cdf3b49dbbca87921df1a2ef79cf6fa"><label for="section-7cdf3b49dbbca87921df1a2ef79cf6fa"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu Building a HRP</span></label><a class="padding" href="/abdm-docs/2-sharing-health-records/index.html"><b>2. </b>Building a HRP</a><ul id="subsections-7cdf3b49dbbca87921df1a2ef79cf6fa" class="morespace collapsible-menu">
           <li data-nav-id="/abdm-docs/2-sharing-health-records/save-phr-address/index.html" class=""><input type="checkbox" id="section-6519cb42dd205e8a01257900b6acdbdb" aria-controls="subsections-6519cb42dd205e8a01257900b6acdbdb"><label for="section-6519cb42dd205e8a01257900b6acdbdb"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu Collect &amp; Save PHR Address</span></label><a class="padding" href="/abdm-docs/2-sharing-health-records/save-phr-address/index.html"><b>2.1 </b>Collect &amp; Save PHR Address</a><ul id="subsections-6519cb42dd205e8a01257900b6acdbdb" class="morespace collapsible-menu">
-          <li data-nav-id="/abdm-docs/2-sharing-health-records/save-phr-address/scanning-hip-qr2/index.html" class=""><a class="padding" href="/abdm-docs/2-sharing-health-records/save-phr-address/scanning-hip-qr2/index.html">By scanning HIP QR code</a></li>
-          <li data-nav-id="/abdm-docs/2-sharing-health-records/save-phr-address/scanning-phraddr-qr/index.html" class=""><a class="padding" href="/abdm-docs/2-sharing-health-records/save-phr-address/scanning-phraddr-qr/index.html">By scanning PHR Address QR</a></li>
-          <li data-nav-id="/abdm-docs/2-sharing-health-records/save-phr-address/shared-verbally/index.html" class=""><a class="padding" href="/abdm-docs/2-sharing-health-records/save-phr-address/shared-verbally/index.html">By sharing PHR Address verbally</a></li>
-          <li data-nav-id="/abdm-docs/2-sharing-health-records/save-phr-address/new-vs-returning-patients/index.html" class=""><a class="padding" href="/abdm-docs/2-sharing-health-records/save-phr-address/new-vs-returning-patients/index.html">New vs Returning Patients</a></li></ul></li>
+          <li data-nav-id="/abdm-docs/2-sharing-health-records/save-phr-address/scanning-hip-qr2/index.html" class=""><a class="padding" href="/abdm-docs/2-sharing-health-records/save-phr-address/scanning-hip-qr2/index.html"><b>2.1.1 </b>By scanning HIP QR code</a></li>
+          <li data-nav-id="/abdm-docs/2-sharing-health-records/save-phr-address/scanning-phraddr-qr/index.html" class=""><a class="padding" href="/abdm-docs/2-sharing-health-records/save-phr-address/scanning-phraddr-qr/index.html"><b>2.1.2 </b>By scanning PHR Address QR</a></li>
+          <li data-nav-id="/abdm-docs/2-sharing-health-records/save-phr-address/shared-verbally/index.html" class=""><a class="padding" href="/abdm-docs/2-sharing-health-records/save-phr-address/shared-verbally/index.html"><b>2.1.3 </b>By sharing PHR Address verbally</a></li>
+          <li data-nav-id="/abdm-docs/2-sharing-health-records/save-phr-address/new-vs-returning-patients/index.html" class=""><a class="padding" href="/abdm-docs/2-sharing-health-records/save-phr-address/new-vs-returning-patients/index.html"><b>2.1.4 </b>New vs Returning Patients</a></li></ul></li>
           <li data-nav-id="/abdm-docs/2-sharing-health-records/discovery-from-phrapp/index.html" class=""><a class="padding" href="/abdm-docs/2-sharing-health-records/discovery-from-phrapp/index.html"><b>2.2 </b>Support Discovery of Records</a></li>
           <li data-nav-id="/abdm-docs/2-sharing-health-records/notify-on-new-records/index.html" class=""><input type="checkbox" id="section-e9cbe31296ab1bc55d92c2da5c32555e" aria-controls="subsections-e9cbe31296ab1bc55d92c2da5c32555e"><label for="section-e9cbe31296ab1bc55d92c2da5c32555e"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu Notify or Link new records</span></label><a class="padding" href="/abdm-docs/2-sharing-health-records/notify-on-new-records/index.html"><b>2.3 </b>Notify or Link new records</a><ul id="subsections-e9cbe31296ab1bc55d92c2da5c32555e" class="morespace collapsible-menu">
           <li data-nav-id="/abdm-docs/2-sharing-health-records/notify-on-new-records/notify-via-sms/index.html" class=""><a class="padding" href="/abdm-docs/2-sharing-health-records/notify-on-new-records/notify-via-sms/index.html">Notify via SMS</a></li>
@@ -379,8 +395,8 @@ The entire PHR framework including the gateway communicates via asynchronous API
         </div>
       </div>
     </aside>
-    <script src="/abdm-docs/js/clipboard.min.js?1678734797" defer></script>
-    <script src="/abdm-docs/js/perfect-scrollbar.min.js?1678734797" defer></script>
+    <script src="/abdm-docs/js/clipboard.min.js?1678776743" defer></script>
+    <script src="/abdm-docs/js/perfect-scrollbar.min.js?1678776743" defer></script>
     <script>
       function useMathJax( config ){
         if( !Object.assign ){
@@ -410,15 +426,15 @@ The entire PHR framework including the gateway communicates via asynchronous API
       useMathJax( JSON.parse("{}") );
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="/abdm-docs/js/d3/d3-color.min.js?1678734797" defer></script>
-    <script src="/abdm-docs/js/d3/d3-dispatch.min.js?1678734797" defer></script>
-    <script src="/abdm-docs/js/d3/d3-drag.min.js?1678734797" defer></script>
-    <script src="/abdm-docs/js/d3/d3-ease.min.js?1678734797" defer></script>
-    <script src="/abdm-docs/js/d3/d3-interpolate.min.js?1678734797" defer></script>
-    <script src="/abdm-docs/js/d3/d3-selection.min.js?1678734797" defer></script>
-    <script src="/abdm-docs/js/d3/d3-timer.min.js?1678734797" defer></script>
-    <script src="/abdm-docs/js/d3/d3-transition.min.js?1678734797" defer></script>
-    <script src="/abdm-docs/js/d3/d3-zoom.min.js?1678734797" defer></script>
+    <script src="/abdm-docs/js/d3/d3-color.min.js?1678776743" defer></script>
+    <script src="/abdm-docs/js/d3/d3-dispatch.min.js?1678776743" defer></script>
+    <script src="/abdm-docs/js/d3/d3-drag.min.js?1678776743" defer></script>
+    <script src="/abdm-docs/js/d3/d3-ease.min.js?1678776743" defer></script>
+    <script src="/abdm-docs/js/d3/d3-interpolate.min.js?1678776743" defer></script>
+    <script src="/abdm-docs/js/d3/d3-selection.min.js?1678776743" defer></script>
+    <script src="/abdm-docs/js/d3/d3-timer.min.js?1678776743" defer></script>
+    <script src="/abdm-docs/js/d3/d3-transition.min.js?1678776743" defer></script>
+    <script src="/abdm-docs/js/d3/d3-zoom.min.js?1678776743" defer></script>
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
       mermaid.initialize({ startOnLoad: true });
@@ -430,6 +446,6 @@ The entire PHR framework including the gateway communicates via asynchronous API
     <script>
       window.themeUseSwagger = JSON.parse("{ \"theme\": \"light\" }");
     </script>
-    <script src="/abdm-docs/js/theme.js?1678734797" defer></script>
+    <script src="/abdm-docs/js/theme.js?1678776743" defer></script>
   </body>
 </html>
