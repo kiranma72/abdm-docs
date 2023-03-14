@@ -18,7 +18,7 @@ paths:
     patch:
       tags:
         - bridges
-      summary: Update Callback URL
+      summary: Register a callback URL (sandbox only)
       parameters:
         - name: Authorization
           description: Bearer Token received after successful gateway Login.
@@ -118,7 +118,7 @@ paths:
     post:
       tags:
         - bridges
-      summary: Register multiple Bridge services.
+      summary: Linking the HIPs / HIUs for a Client ID
       parameters:
         - name: Authorization
           description: Bearer Token received after successful gateway Login.
