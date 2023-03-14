@@ -57,7 +57,7 @@ client->>gateway: Response: 200 (as acknowledgment)
 ### Registering your callback URL 
 The callback URL is the url for the site where the HIP/HRP stores its records. Callback URL cannot be registered without a client Id and the client secret. After obtaining the client ID and the secret, use the gateway sessions api [here](../verify_you_can_access_the_sandbox/#create-session) to get the accessToken. Use the below api, to register the callback  url, for "Authorization:" [refer here](#the-authorization-header) and mention the callback url in the "url:".  
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-gateway-v1.yml" api="PATCH /v1/bridges$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-devservice.yml" api="PATCH /v1/bridges$" >}}
 
 ```
 curl --location --request PATCH 'https://dev.abdm.gov.in/devservice/v1/bridges' --header 'Content-Type: application/json' --header 'Authorization: Bearer your-access-token-from-gateway-session' --data-raw '{
@@ -83,6 +83,8 @@ Example
 >
 > Your-facility-name: My Nursing Home
 >
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-devservice.yml" api="POST /v1/bridges/services$" >}}
 
 ``` 
 curl --location --request PUT 'https://dev.abdm.gov.in/devservice/v1/bridges/services' --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer your-access-token-from-gateway-session' --data-raw '{"id":"unique-hip-id","name":"Your-facility-name","type":"HIP","active":true,"alias":["EG"]}'
@@ -131,6 +133,8 @@ The ABDM architecture is designed to support multiple HIE-CMs. Whenever you call
 1. X-CM-ID -- Pass 'sbx' if you are in the sandbox, Pass 'abdm' if you are in production. You must get this from HIE-CM domain name suffixed after the @ symbol in a PHR address. 
 
 ### Check your configuration 
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-devservice.yml" api="GET /v1/bridges/getServices$" >}}
 
 **URL:** https://dev.abdm.gov.in/gateway/v1/bridges/getServices
 

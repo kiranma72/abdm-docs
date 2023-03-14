@@ -1,0 +1,285 @@
+openapi: 3.0.0
+info:
+  version: 0.0.1
+  title: ABHA Devservice
+  description: Each health repository obtains a time-limited token, valid for X number of seconds, with which it identifies itself to the Gateway. When the token's time limit elapses, the health repository should call sessions API to renew the token. When calling any API, the health repository should pass the authentication token as part of the 'Authorization' http header. In order to obtain the authentication token, the health repository can call /sessions API along with the clientId and ClientSecret they have received.
+
+
+servers:
+  - url: https://dev.abdm.gov.in/gateway
+    description: Sandbox
+
+tags:
+  - name: bridges
+
+paths:
+  # discovery service
+  /v1/bridges:
+    patch:
+      tags:
+        - bridges
+      summary: Update Callback URL
+      parameters:
+        - name: Authorization
+          description: Bearer Token received after successful gateway Login.
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BridgesResponse'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/BridgesResponse'
+      responses:
+        '200':
+          description: OK.
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/bridges/getServices:
+    get:
+      tags:
+        - bridges
+      summary: Get registered Bridge services.
+      parameters:
+        - name: Authorization
+          description: Bearer Token received after successful gateway Login.
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetServiceResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/bridges/addUpdateServices:
+    post:
+      tags:
+        - bridges
+      summary: Register multiple Bridge services.
+      parameters:
+        - name: Authorization
+          description: Bearer Token received after successful gateway Login.
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddUpdateServicesRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AddUpdateServicesRequest'
+      responses:
+        '200':
+          description: OK.
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/bridges/services:
+    post:
+      tags:
+        - bridges
+      summary: Register multiple Bridge services.
+      parameters:
+        - name: Authorization
+          description: Bearer Token received after successful gateway Login.
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddUpdateServicesRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AddUpdateServicesRequest'
+      responses:
+        '200':
+          description: OK.
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/Error'
+      xml:
+        name: ErrorResponse
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+          enum: [1000, 10001]
+        message:
+          type: string
+      xml:
+        name: Error
+
+    AddUpdateServicesRequest:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+            example: "SERVICE_ID"
+            description: 'this will be the service id'
+          name:
+            type: string
+            example: "BRIDGE-TEST-HIP"
+          type:
+            type: string
+            enum: [HEALTH_LOCKER, HIP, HIU]
+            description: 'this will be the service type like HIP, HIU,   HEALTH_LOCKER'
+          active:
+            type: boolean
+            example: true
+            description: 'Status of service if it is active or not'
+          alias:
+            type: array
+            items:
+              type: string
+              example: allias-name
+          endpoints:
+            type: array
+            items:
+              $ref: '#/components/schemas/HIServiceEndpoint'
+    BridgesResponse:
+      type: object
+      required:
+        - url
+      description: identification of requester
+      properties:
+        url:
+          type: string
+          example: https://abcdef123.com
+    GetServiceResponse:
+      type: object
+      properties:
+        bridge:
+          type: object
+          properties:
+            id:
+              type: string
+              example: "SERVICE_ID"
+              description: 'this will be the service id'
+            name:
+              type: string
+              example: "BRIDGE-TEST-HIP"
+            url:
+              type: string
+              example: "https://webhook.site"
+            active:
+              type: boolean
+              example: true
+            blocklisted:
+              type: boolean
+              example: false
+        services:
+          type: array
+          items:
+            properties:
+              id:
+                type: string
+                example: HIP-Webinar
+              name:
+                type: string
+                example: HIP for Webinar
+              types:
+                type: array
+                items:
+                  type: string
+                  example: HEALTH_LOCKER
+                  description: Services active for that perticular service-id will be shown.
+              endpoints:
+                type: object
+                items:
+                $ref: '#/components/schemas/HIServiceEndpoint'
+              active:
+                type: boolean
+                example: true
+    HIServiceEndpoint:
+      type: object
+      properties:
+        address:
+          type: string
+          description: The invocation URL for connecting to this endpoint
+          example: https://webhook.site/registration
+        connectionType:
+          type: string
+          description: Protocol/Profile/Standard to be used with this endpoint connection
+          example: https
+        use:
+          type: string
+          description: The purpose of this endpoint
+          example: registration
+
+
+
+
+
+
+
+
+
+
+
+
+
+
