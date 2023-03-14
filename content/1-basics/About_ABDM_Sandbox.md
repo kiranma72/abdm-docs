@@ -47,20 +47,8 @@ The Sandbox hosts of the following digital building blocks that are useful for a
 ## ABHA Sandbox Setup Milestones
 It is recommended developing this experience in three milestones, each building over the previous:
 - **Milestone 1**: ABHA Number creation and capture & verification for seamless patient registration.[{{% icon icon="download" %}}](https://sandbox.abdm.gov.in/documents/ABHA_APIs.xlsx)
-- **Milestone 2**: Building Health Information Provider (HIP) services to share digital records via Personal Health Records (ABHA) app. [{{% icon icon="download" %}}](https://sandbox.abdm.gov.in/documents/Milestone_M2_APIs.xlsx)
+- **Milestone 2**: Building Health Information Provider (HIP) services to share digital records via any Personal Health Records (PHR) app. [{{% icon icon="download" %}}](https://sandbox.abdm.gov.in/documents/Milestone_M2_APIs.xlsx)
 - **Milestone 3**: Developing Health Information User (HIU) services to provide view of patient’s medical history to authorized healthcare workers with complete consent
-
-## ABHA Address
-
-Hospitals & Labs are expected to link records with their patients ABHA Address (also called PHR address)
-Creating an PHR (Public Health Record) Address is super simple – all it needs is your Name, Year of birth, Gender along with a Mobile number.
-
-Key benefits of creating an PHR Address are:
-- Easy access to health information in a paperless manner
-- Voluntary opt-in and opt-out at anytime
-- Enables authentication for consent driven access to health data along with capabilities  to manage and revoke consent
-- Inclusive access to people with smartphones, feature phones, and even no phones using assisted methods
-![Get ABHA Address](../Abha-address.png)
 
 This section offers step-by-step guidance on the following for interested stakeholders:
 Guidelines to integrate ABDM-powered services (ABHA Number capture & verification, HIP services, HIU application) in the testing environment called Sandbox

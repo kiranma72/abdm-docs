@@ -33,7 +33,17 @@ HIE-CM is Healthcare Information Exchange - Consent Manager. This is the key ABD
 The architecture is designed to support multiple HIE-CMs to operate in the network. Each HIE-CM is referred to by a domain. NHA operates 2 HIE-CMs currently. A Sandbox HIE-CM with the domain @sbx and a production HIE-CM with the domain @abdm.  
 
 ## What is an ABHA address?
-In order to manage their personal health records, users must first create an account on a HIE-CM -- called their Ayushman Bharath Health Account (ABHA) addresses. This looks like sandeep321@abdm and is also called as PHR Address. The @abdm tells us which HIE-CM is responsibile for this address.
+
+In order to manage their personal health records, users must first create an account on a HIE-CM -- called their Ayushman Bharath Health Account (ABHA) addresses. This looks like sandeep321@abdm and is also called as PHR Address. The @abdm tells us which HIE-CM is responsibile for this address. 
+Hospitals & Labs are expected to link records with their patients ABHA Address (also called PHR address)
+Creating an PHR (Public Health Record) Address is super simple – all it needs is your Name, Year of birth, Gender along with a Mobile number.
+
+Key benefits of creating an ABHA Address are:
+- Easy access to health information in a paperless manner
+- Voluntary opt-in and opt-out at anytime
+- Enables authentication for consent driven access to health data along with capabilities  to manage and revoke consent
+- Inclusive access to people with smartphones, feature phones, and even no phones using assisted methods
+![Get ABHA Address](../Abha-address.png)
 
 Users can create an ABHA address by downloading a PHR mobile application or a portal provided by the HIE-CM. Use [phr.abdm.gov.in](https://phr.abdm.gov.in) to create a new ABHA address 
 
@@ -45,7 +55,7 @@ Users can create an ABHA addresses in one of two ways:
 {{% /notice %}}
 Users can start with a self declared ABHA address and later link it to an ABHA number 
 
-While users are allowed to create more than one ABHA address, ABDM encourages every induvidual to have only ONE ABHA address. The process of obtaining an ABHA address is designed to ensure that users don't accidentally create multiple addresses
+{{% icon icon="user-check" %}} *Note* : While users are allowed to create more than one ABHA address, ABDM encourages every induvidual to have only ONE ABHA address. The process of obtaining an ABHA address is designed to ensure that users don't accidentally create multiple addresses
 
 {{% icon icon="user-check" %}} *Try it out* - Create an ABHA address that you can use on the ABDM sandbox at [phrsbx.abdm.gov.in](https://phrsbx.abdm.gov.in). This will create an ABHA address on the @sbx HIE-CM hosted within the sandbox 
 
