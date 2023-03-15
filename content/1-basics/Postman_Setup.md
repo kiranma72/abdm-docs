@@ -7,7 +7,6 @@ pre : "<b>1.5 </b>"
 ---
 
 
-# Postman Setup
 Postman is one of the most popular software testing tools which is used for API testing. With the help of this tool, developers can easily create, test, share, and document APIs.
 
 {{% notice style="primary" title="Overview " icon="list-alt" %}}
