@@ -1,9 +1,9 @@
 ---
 title: "Making your App ABDM Compliant"
 date: 2022-05-07T18:00:04+05:30
-Weight: 5
+Weight: 7
 draft: false
-pre : "<b>1.6 </b>"
+pre : "<b>1.7 </b>"
 ---
 
 To become an **ABDM Compliant Application**, you need to get certified. 
