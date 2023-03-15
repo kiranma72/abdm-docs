@@ -22,21 +22,22 @@ https://sandbox.ndhm.gov.in/applications/Home/login
 ![Sandbox_Application_Status](../SandboxApplicationStatus.png) 
 {{%icon icon="info-circle" %}} If the status is approved and the user hasn't received the client secret via email, kindly drop a mail{{%icon icon="envelope" %}} to Integration.support@nha.gov.in
 
-**Step 4:** Once _Client id_ & _Client Secret_ are received via an email, please verify it and check if the correct response is received. 
+**Step 4:** Once _Client id_ & _Client Secret_ are received via an email, please verify it works using the and check if the correct using by creating a gateway session token. 
 
-###### Create Session 
+###### Create Gateway Session Token 
 Server : https://dev.abdm.gov.in/gateway
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-gateway-v1.yml" api="POST /v0.5/sessions" >}}
 
 
-**Step 5:** Get certs for JWT Verification
+###### Check using Postman 
 
-Server : https://dev.abdm.gov.in/gateway
-
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-gateway-v1.yml" api="GET /v0.5/certs" >}}
+Verify you are able to create a session using POSTMAN
 
 
-**Download the Postman Collection** [here](/abdm-docs/Postman/Gateway_Session.json)
+##### Check your JWT token
 
-**Download the Curls** [here](/abdm-docs/Curls/Gateway_session.txt)
+You can use [jwt.io](https://jwt.io) to see the contents of your gateway session token. Paste the accessToken and see what roles have been assigned to your client id. Some ABDM APIs requires your clientID to have specific roles to assigned. You can mail{{%icon icon="envelope" %}} to Integration.support@nha.gov.in to get specific roles added. 
+
+![JWT-IO](../jwt-io.png) 
+
