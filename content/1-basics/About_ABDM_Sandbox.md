@@ -6,25 +6,24 @@ draft: false
 pre : "<b>1.1 </b>"
 ---
 
-## ABDM Sandbox
 
 The **Ayushman Bharat Digital Mission** has developed building blocks and APIs to offer a seamless digital healthcare experience for all stakeholders – health facilities, patients and healthcare workers. The digital infrastructure developed is now accessible to health facilities and health tech players for integration.
 
-Here's a picture to help you understand different interaction touchpoints of a patient with the system:
+Here's a picture to help you understand how ABDM can improve the experience you deliver to your patients :
 
 ![Experience](../experience.png)
 
 ## ABDM Sandbox Journey
 
 ABDM aims at bringing out inoperability and sharing of health information among all the participants in India. For this to happen, we expect the software developers to implement certain functionalities by integrating with ABDM building blocks.
-Integration with ABDM sandbox is designed for them to test the integration. Once integrated, the software developers (companies) can get independent functional validation and apply for ABDM certification (called as Sandbox Exit) via Sandbox.
+The sandbox provides tools and support to test the integration. Once integrated, the software developers (companies) can get independent functional validation and apply for ABDM certification (by applying for as Sandbox Exit).
 The certified version of the software can then be deployed for the various health service providers.
 
 Here's how your **journey through the sandbox looks like:**
 
 1. Submit your Sandbox application
 2. Receive a Sandbox client ID & secret (key) from National Health Authority (NHA)
-3. Understand the various functionalities (test cases) to be implemented for each milestone
+3. Understand the various functionalities (test cases) to be implemented for each integration milestone
 4. Ensure you are comfortable with the APIs to implement each functionality (using Postman)
 5. Implement the functionality in your application
 6. Get functional validation report from one of the 3 empanelled companies
@@ -34,23 +33,19 @@ Here's how your **journey through the sandbox looks like:**
 10. Obtain a Production client ID & secret (key) from NHA
 11. Deploy your certified application with NHA
 
-## Building Blocks
-The Sandbox hosts of the following digital building blocks that are useful for anyone wanting to comply to the HIP, HRP and HIU guidelines:
 
-1. ABHA Number Service - Create a ABHA Number, integrate your software with the ABHA Number APIs
-2. Consent Manager and Gateway - Register your software as a HIP or HIU and ensure you are able to correctly link records, process consent requests
-3. Sandbox ABHA Mobile Application for Android - Use the application to manage your ABHA Number, view health records and manage consents
-4. Sandbox HIU application to create consent requests for a ABHA Number
-5. Sandbox DigiDoctor and APIs to register and verify doctors
-6. Sandbox Health Facility Registry and APIs to register and verify facilities
-
-## ABHA Sandbox Setup Milestones
-It is recommended developing this experience in three milestones, each building over the previous:
+## ABDM Integration Milestones
+The integration steps have been broken into milestones to make it easier for integrators. Each Milestone has a set of functional test cases that must be supported by your application as part of certification
 - **Milestone 1**: ABHA Number creation and capture & verification for seamless patient registration.[{{% icon icon="download" %}}](https://sandbox.abdm.gov.in/documents/ABHA_APIs.xlsx)
 - **Milestone 2**: Building Health Information Provider (HIP) services to share digital records via any Personal Health Records (PHR) app. [{{% icon icon="download" %}}](https://sandbox.abdm.gov.in/documents/Milestone_M2_APIs.xlsx)
 - **Milestone 3**: Developing Health Information User (HIU) services to provide view of patient’s medical history to authorized healthcare workers with complete consent
+- **PHR & Locker Apps**: Subscriptions for notifications, helping users manage consents, upload of user scanned records and more 
 
-This section offers step-by-step guidance on the following for interested stakeholders:
-Guidelines to integrate ABDM-powered services (ABHA Number capture & verification, HIP services, HIU application) in the testing environment called Sandbox
-More details are provided in the given document
-Process to exit sandbox and deploy application in facilities located across all States and UTs.
+## Before you start integration
+
+- Check which milestones are applicable for your [type of application here](/abdm-docs/1-basics/making_your_app_abdm_compliant/)
+- Understand the concepts & functionality required for each milestone
+- Review the test cases for each milestone
+- Download the Postman collection and validate each API that is part of a test case in the sandbox
+- Integrate the APIs with your application only once you are confident on how it works using Postman 
+
