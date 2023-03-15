@@ -23,12 +23,12 @@ Steps to download and install the native Postman application
 - **Step-2:** Click Download.
 - **Step-3:** Now check for the executable file in downloads in your system and run it.
 - **Step-4:** Postman Installation Starts. Wait for some time to Complete the Installation of Postman.
-- **Step-5:** Signup for Postman Account. In the next window, Signup for a Postman Account.
+- **Step-5:** Screen will have "Create an account or sign in"
+- **Step-6:** Signup for Postman Account(If you already don't have an account). In the next window, Signup for a Postman Account.
 
     NOTE: There are two ways to sign up for a Postman account. One is to create an own Postman account, and the other is to use a Google account. Though Postman allows users to use the tool without logging in, signing up ensures that your collection is saved and can be accessed for later use.
-- **Step-6:** Click on Save My Preferences. Select the workspace tools you need and click Save My Preferences
-- **Step-5:** Now you will see the Startup Screen.
-- **Step-6:** Postman is successfully installed on the system.
+- **Step-7:** After signing in,in the Postman interface click on *Workspaces* dropdown on the top left. Click on *Create Workspace* button. Enter the name and select the visibility of the workspace and click *Create Workspace*.
+- **Step-5:** Now you have the workspace created to enable you to organize your Postman work.
 
 
 ## Download and import collections
@@ -38,16 +38,16 @@ Download ABDM Collections [here](../ABDM_API_postman_collection.json) (ABDM API.
 
 We can import Collections in Postman. To perform this task, follow the below steps −
 
-**Step-1:** Select the **Collections** in the left and then click on Import button in the Postman application.
+- **Step-1:** Select the **Collections** in the left and then click on Import button in the Postman application.
 ![import button](../import_postman_collection.png)
-**Step-2:** Import pop-up shall open with the options to import from a File, Folder, Link, Raw text and Code Repository.
+- **Step-2:** Import pop-up shall open with the options to import from a File, Folder, Link, Raw text and Code Repository.
 ![import menu](../import_menu.png)
-**Step-3:** click on choose files and select the Postman collection (ABDM API.postman_collection.json - which was downloaded earlier) to import. 
+- **Step-3:** click on choose files and select the Postman collection (ABDM API.postman_collection.json - which was downloaded earlier) to import. 
 ![import collection](../import_collection.png)
-**Step-4:** Click on Import button. The collection would have been imported.
+- **Step-4:** Click on Import button. The collection would have been imported.
 ![import menu](../after_collection_import.png)
 
-###### List of collections 
+###### Sample List of collections 
 ![import menu](../sample_collection_list.png)
 
 ## Download and Import environments variables
@@ -55,12 +55,12 @@ The Environment variables allow developers to store and reuse parameter values i
 
 Download ABDM Environment variables [here]({{file name='ABDM.postman_environment.json'}}) (ABDM.postman_environment.json)
 
-**Step-1:** Select the **Environments** in the left and then click on Import button in the Postman application.
+- **Step-1:** Select the **Environments** in the left and then click on Import button in the Postman application.
 ![import button](../environment_import.png)
-**Step-2:** Import pop-up shall open with the options to import from a File, Folder, Link, Raw text and Code Repository.
-**Step-3:** click on choose files and select the Postman environment variables json file (ABDM.postman_environment.json - which was downloaded earlier) to import. 
+- **Step-2:** Import pop-up shall open with the options to import from a File, Folder, Link, Raw text and Code Repository.
+- **Step-3:** click on choose files and select the Postman environment variables json file (ABDM.postman_environment.json - which was downloaded earlier) to import. 
 ![import collection](../environment_variables_files_imported.png)
-**Step-4:** Click on Import button. The environment variables would have been imported.
+- **Step-4:** Click on Import button. The environment variables would have been imported.
 ![import menu](../after_environment_import.png)
 
 select the downloaded variable from the dropdown in the right to resolve the variables. 
@@ -70,7 +70,7 @@ Now you can see the variables has been resolved
 ![environment variable resolved](../variables_resolved.png)
 
 ## Verify your access to sandbox using Postman
-- Enter the client Id and client secret in the body of  Gateway Token api which has the **v0.5/sessions** endpoint 
+- **Step-1:** Enter the client Id and client secret in the body of  Gateway Token api which has the **v0.5/sessions** endpoint 
 ![sessions api](../sessions_api.png)
-- Now click the *Send* button to see the access Token as part of response below
+- **Step-2:** Now click the *Send* button to see the access Token as part of response below
 ![sessions api](../sessions_api_response.png)
