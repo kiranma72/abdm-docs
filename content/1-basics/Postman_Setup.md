@@ -53,7 +53,7 @@ We can import Collections in Postman. To perform this task, follow the below ste
 ## Download and Import environments variables
 The Environment variables allow developers to store and reuse parameter values in API requests and scripts. If you need to update a variable value, you can do it in one place and the value will be automatically changed throughout your request collections. The environment variables in Postman can be used in the URLs, in the POST parameters, in the JavaScript code, etc. To specify the variable, use the brackets as a variable name placeholder({{ }}. For example, {{access_token}}).
 
-Download ABDM Environment variables [here](../ABDM.postman_environment.json) (ABDM.postman_environment.json)
+Download ABDM Environment variables [here]({{file name='ABDM.postman_environment.json'}}) (ABDM.postman_environment.json)
 
 **Step-1:** Select the **Environments** in the left and then click on Import button in the Postman application.
 ![import button](../environment_import.png)
@@ -67,6 +67,10 @@ select the downloaded variable from the dropdown in the right to resolve the var
 ![set environment variable dropdown](../select_environment_variable_dropdown.png)
 
 Now you can see the variables has been resolved
-![set environment variable dropdown](../variables_resolved.png)
+![environment variable resolved](../variables_resolved.png)
 
 ## Verify your access to sandbox using Postman
+- Enter the client Id and client secret in the body of  Gateway Token api which has the **v0.5/sessions** endpoint 
+![sessions api](../sessions_api.png)
+- Now click the *Send* button to see the access Token as part of response below
+![sessions api](../sessions_api_response.png)
