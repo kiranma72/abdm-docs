@@ -131,10 +131,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AddUpdateServicesRequest'
+              $ref: '#/components/schemas/ServicesRequest'
           application/xml:
             schema:
-              $ref: '#/components/schemas/AddUpdateServicesRequest'
+              $ref: '#/components/schemas/ServicesRequest'
       responses:
         '200':
           description: OK.
@@ -171,35 +171,31 @@ components:
       xml:
         name: Error
 
-    AddUpdateServicesRequest:
+    ServicesRequest:
       type: array
       items:
         type: object
         properties:
           id:
             type: string
-            example: "SERVICE_ID"
-            description: 'this will be the service id'
+            example: "HIP5234127"
+            description: 'the unique HIP ID'
           name:
             type: string
-            example: "BRIDGE-TEST-HIP"
+            example: "My Nursing Home"
+            description: 'the facility name'
           type:
             type: string
-            enum: [HEALTH_LOCKER, HIP, HIU]
-            description: 'this will be the service type like HIP, HIU,   HEALTH_LOCKER'
+            example: "HIP"
+            description: 'type of the facility like HIP/HIU'
           active:
             type: boolean
             example: true
-            description: 'Status of service if it is active or not'
           alias:
             type: array
             items:
               type: string
-              example: allias-name
-          endpoints:
-            type: array
-            items:
-              $ref: '#/components/schemas/HIServiceEndpoint'
+            example: ["EG"]
     BridgesResponse:
       type: object
       required:
