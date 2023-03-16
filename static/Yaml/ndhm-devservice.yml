@@ -83,7 +83,7 @@ paths:
     post:
       tags:
         - bridges
-      summary: Register multiple Bridge services.
+      summary: Linking the facility.
       parameters:
         - name: Authorization
           description: Bearer Token received after successful gateway Login.
@@ -100,41 +100,6 @@ paths:
           application/xml:
             schema:
               $ref: '#/components/schemas/AddUpdateServicesRequest'
-      responses:
-        '200':
-          description: OK.
-        '500':
-          description: >
-            **Causes:**
-              * Downstream services are down
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-  /v1/bridges/services:
-    post:
-      tags:
-        - bridges
-      summary: Linking the HIPs / HIUs for a Client ID
-      parameters:
-        - name: Authorization
-          description: Bearer Token received after successful gateway Login.
-          in: header
-          required: true
-          schema:
-            type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ServicesRequest'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/ServicesRequest'
       responses:
         '200':
           description: OK.
@@ -171,7 +136,7 @@ components:
       xml:
         name: Error
 
-    ServicesRequest:
+    AddUpdateServicesRequest:
       type: array
       items:
         type: object
@@ -179,7 +144,7 @@ components:
           id:
             type: string
             example: "HIP5234127"
-            description: 'the unique HIP ID'
+            description: 'this will be the service id'
           name:
             type: string
             example: "My Nursing Home"
@@ -187,15 +152,13 @@ components:
           type:
             type: string
             example: "HIP"
-            description: 'type of the facility like HIP/HIU'
+            enum: [HEALTH_LOCKER, HIP, HIU]
+            description: 'this will be the service type like HIP, HIU,   HEALTH_LOCKER'
           active:
             type: boolean
             example: true
-          alias:
-            type: array
-            items:
-              type: string
-            example: ["EG"]
+            description: 'Status of service if it is active or not'
+         
     BridgesResponse:
       type: object
       required:

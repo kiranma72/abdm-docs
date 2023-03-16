@@ -73,32 +73,12 @@ The HIP code used by ABDM is the same as the [health facility registry ID](https
 
 In the Sandbox you can simply declare a HIP/HIU ID without it being part of the health facility registry. You can use it to link one HIP / HIU ID with your Client ID with no validations.  
 
-Example
-> 
-> unique-hip-id: HIP5234127
->
-> Your-facility-name: My Nursing Home
->
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-devservice.yml" api="POST /v1/bridges/services$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-devservice.yml" api="POST /v1/bridges/addUpdateServices$" >}}
 
-``` 
-curl --location --request PUT 'https://dev.abdm.gov.in/devservice/v1/bridges/services' --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer your-access-token-from-gateway-session' --data-raw '{"id":"unique-hip-id","name":"Your-facility-name","type":"HIP","active":true,"alias":["EG"]}'
-
-```
 
 All HIUs including PHR apps also need to register a HIU code. 
-Example
-> 
-> unique-hiu-id: MyAppName
->
-> Your-App-Name: My App Name
->
 
-``` 
-curl --location --request PUT 'https://dev.abdm.gov.in/devservice/v1/bridges/services' --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: Bearer your-access-token-from-gateway-session' --data-raw '{"id":"unique-hiu-id","name":"Your-App-name","type":"HIU","active":true,"alias":["EG"]}'
-
-```
 
 ### Check your configuration 
 
