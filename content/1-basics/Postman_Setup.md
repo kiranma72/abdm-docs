@@ -24,10 +24,10 @@ Steps to download and install the native Postman application
 - **Step-2:** Click Download.
 - **Step-3:** Now check for the executable file in downloads in your system and run it.
 - **Step-4:** Postman Installation Starts. Wait for some time to Complete the Installation of Postman.
-- **Step-5:** Screen will have "Create an account or sign in"
-- **Step-6:** Signup for Postman Account(If you already don't have an account). In the next window, Signup for a Postman Account.
+- **Step-5:** Startup screen will have "Create an account or sign in"
+- **Step-6:** Create Account for Postman Account(If you already don't have an account).
 
-    NOTE: There are two ways to sign up for a Postman account. One is to create an own Postman account, and the other is to use a Google account. Though Postman allows users to use the tool without logging in, signing up ensures that your collection is saved and can be accessed for later use.
+    NOTE: There are two ways to sign up for a Postman account. One is to create the Postman account, and the other is to use a Google account. Though Postman allows users to use the tool without logging in, signing up ensures that your collection is saved and can be accessed for later use.
 - **Step-7:** After signing in,in the Postman interface click on *Workspaces* dropdown on the top left. Click on *Create Workspace* button. Enter the name and select the visibility of the workspace and click *Create Workspace*.
 - **Step-8:** Now you have the workspace created to enable you to organize your Postman work.
 
