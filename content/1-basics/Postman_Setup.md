@@ -29,7 +29,7 @@ Steps to download and install the native Postman application
 
     NOTE: There are two ways to sign up for a Postman account. One is to create an own Postman account, and the other is to use a Google account. Though Postman allows users to use the tool without logging in, signing up ensures that your collection is saved and can be accessed for later use.
 - **Step-7:** After signing in,in the Postman interface click on *Workspaces* dropdown on the top left. Click on *Create Workspace* button. Enter the name and select the visibility of the workspace and click *Create Workspace*.
-- **Step-5:** Now you have the workspace created to enable you to organize your Postman work.
+- **Step-8:** Now you have the workspace created to enable you to organize your Postman work.
 
 ## Download Collections And Environment Variables 
 
