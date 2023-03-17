@@ -6,26 +6,38 @@ chapter = true
 pre = "<b>2.1.1 </b>"
 +++
 
-# Registration via Aadhaar Linked Number & OTP
+# Registration via Aadhaar OTP
 
-### Functionality Overview 
+## Functionality Overview 
 
-- User can register ABHA ID with their Aadhaar registered contact number.
-- To enable beneficiary registration using Aadhaar OTP, an integrator needs to generate an Aadhaar OTP, followed by OTP verification.
-- Once the OTP is verified, the client is returned complete profile data along with ABHA (Health ID) Number.
+ABHA Number can be obtained via self-registration using Aadhaar as KYC with valid user consent where user is giving his consent to create ABHA number. **ABHA enrolment using Aadhaar has strong KYC validation.** Once user is successfully authenticated, the system will generate 14 digit ABHA number
+
+Following are the steps to successfully integrate the ABHA registration via Aadhaar:
+
+1. The User should input the Aadhaar number as an input.
+2. To enable beneficiary registration using Aadhaar, an integrator needs to generate an OTP and send the same on the linked mobile number.
+3. For the OTP verification process there is a primary mobile number which user wants to link with ABHA number.
+4. Once the OTP is verified, system should returns the complete profile data along with 14 digit ABHA (Health ID) Number to the user.
+5. if the OTP is verified:
+    - System checks whether the primary mobile number is matching with Aadhaar linked mobile number. If the aadhaar number matches then it will automatically link with ABHA number.
+    - If the primary mobile number is not matching with Aadhaar linked mobile, user must authenticate the mobile number via OTP authentication
 
 **Note:** Mobile Number can be linked/verify with ABHA via using API  
 
+Example user experience
+< insert example user example gif >
 
 ### API Sequence 
 
 The sequence of APIs used via this method are shown in the diagram below.
 
-![ABHA ID registration via Aadhaar](/abdm-docs/img/Creation_With_Aadhaar_on_registered_mobile_number.png)
+![ABHA ID registration via Aadhaar](/abdm-docs/img/Creation_With_Aadhaar_on_registered_mobile_number.png) --- create mermaid
 
 ### API Information Request Response 
 
 **1. Generate the Gateway session**
+
+Replace with swagger-mins & working postman collection
 
 Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
 
@@ -260,7 +272,7 @@ accountRequest (body)
 }
 ```
 
-### Postman + Curl Collection 
+REMOVE:: ### Postman + Curl Collection 
 
 **Download the Postman Collection** [here](/abdm-docs/Postman/ABHA_Registration_Via_Aadhaar.json)
 
