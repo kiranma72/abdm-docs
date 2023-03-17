@@ -24,14 +24,16 @@ Following are the steps to successfully integrate the ABHA registration via Aadh
 
 **Note:** Mobile Number can be linked/verify with ABHA via using API  
 
-Example user experience
-< insert example user example gif >
+**Sample User experience:**
 
-### API Sequence 
+![sample user experienece](/abdm-docs/img/aadhaar-otp.gif)
+
+
+## API Sequence 
 
 The sequence of APIs used via this method are shown in the diagram below.
 
-![ABHA ID registration via Aadhaar](/abdm-docs/img/Creation_With_Aadhaar_on_registered_mobile_number.png) --- create mermaid
+[![](https://mermaid.ink/img/pako:eNq9VE2P2jAQ_SuWT7tSQkgwu2xUIdHuAQ7tooXuofXFicfBbWJTx4EixH-vY5KWVmjVQ9VTnPF8vDdvPEecaw44xTV8a0Dl8ChZYVhFlZW2BDR7O5-hdwaYlVqhppaqQDPGN8xQxXKrDZovPkbzxTJazp-p-qAtoBKERVpc3qTo-CYzU0RxqQup5lJZilOKWZuKmTS4vF1wf6d4zTLyMExGER_ULBK8Lkbk_mAOk73g8PULxT5qMBj474mqi4rhdNpiT2-WT6t1ithWRrtR1Joi01KtbaTt9raDbGSx8Zh9zOtgKf4naBFVbbEe5wsYKQ6_jJfNe4Yc5A6e1kt0EycjMr67DdDaMFU7CVpdHIbXWt_XdJAdZwfX_32m2MoKVpZVW08hGSZJGCdhQlBM0jhJCem5Ivu9J8om_C6PBQlHRPCQkHgcsji-C7MsBphkD8Nc3P8M8wVfWNmAj3VNIeOa7_ZFtRd7EAr21_pyRUavYiciKKPLsgJlz8coO8w6aa6r2eXu2A96df-evfP9b_x_HwvUzYV_h7M8142y6BEsk2WNmLBgUN69zqujcw70LsCDPzPgAFdgKia52wBHqjzTDVQtWnfkIFhTuuGn6uRcWWP16qBynFrTQICbLXdZu4WBU8HK2lmBS7cW3p-3il8uAd4y9Unr3uf0A1TPZtc?type=png)](https://mermaid.live/edit#pako:eNq9VE2P2jAQ_SuWT7tSQkgwu2xUIdHuAQ7tooXuofXFicfBbWJTx4EixH-vY5KWVmjVQ9VTnPF8vDdvPEecaw44xTV8a0Dl8ChZYVhFlZW2BDR7O5-hdwaYlVqhppaqQDPGN8xQxXKrDZovPkbzxTJazp-p-qAtoBKERVpc3qTo-CYzU0RxqQup5lJZilOKWZuKmTS4vF1wf6d4zTLyMExGER_ULBK8Lkbk_mAOk73g8PULxT5qMBj474mqi4rhdNpiT2-WT6t1ithWRrtR1Joi01KtbaTt9raDbGSx8Zh9zOtgKf4naBFVbbEe5wsYKQ6_jJfNe4Yc5A6e1kt0EycjMr67DdDaMFU7CVpdHIbXWt_XdJAdZwfX_32m2MoKVpZVW08hGSZJGCdhQlBM0jhJCem5Ivu9J8om_C6PBQlHRPCQkHgcsji-C7MsBphkD8Nc3P8M8wVfWNmAj3VNIeOa7_ZFtRd7EAr21_pyRUavYiciKKPLsgJlz8coO8w6aa6r2eXu2A96df-evfP9b_x_HwvUzYV_h7M8142y6BEsk2WNmLBgUN69zqujcw70LsCDPzPgAFdgKia52wBHqjzTDVQtWnfkIFhTuuGn6uRcWWP16qBynFrTQICbLXdZu4WBU8HK2lmBS7cW3p-3il8uAd4y9Unr3uf0A1TPZtc)
 
 ### API Information Request Response 
 
@@ -271,11 +273,3 @@ accountRequest (body)
     "new": true
 }
 ```
-
-REMOVE:: ### Postman + Curl Collection 
-
-**Download the Postman Collection** [here](/abdm-docs/Postman/ABHA_Registration_Via_Aadhaar.json)
-
-**Download the Curls** [here](/abdm-docs/Curls/)
-
-
