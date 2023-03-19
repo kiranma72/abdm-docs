@@ -10,13 +10,15 @@ pre = "<b>2.1.2 </b>"
 
 {{% notice style="primary" title="Overview " icon="list-alt" %}}
 
-- To enable beneficiary registration using Aadhaar Biometric, a client needs to have a Aadhaar Registered Device (RD Device) that allows capture and processing of Biometrics of the beneficiary.
+- To enable beneficiary registration using Aadhaar Biometric, a client needs to have a [Aadhaar Registered Device (RD Device)](https://uidai.gov.in/images/resource/Aadhaar_Registered_Devices_2_0_4.pdf) that allows capture and processing of Biometrics of the beneficiary.
 - This RD Service returns an encrypted PID block containing signed biometrics (using device private key within the registered devices secure zone) back to the calling application.
 - To enable beneficiary registration using biometrics, this PID is passed in the request along with Aadhaar and other required details.
 - Post verification, the client is returned complete profile data along with ABHA (Health ID).
 {{% /notice %}}
 
 ### API Sequence 
+point api in aadaar documentation to get biometric (PID block) from RD device   
+
 
 The sequence of APIs used via this method are shown in the diagram below.
 

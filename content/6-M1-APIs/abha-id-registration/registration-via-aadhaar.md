@@ -326,8 +326,8 @@ verifyAadharOtpRequest (body)
   "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
 }
 ```
-
-
+swagger
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-healthid.yml" api="POST /v1/registration/aadhaar/verifyBio$" >}}
 
 **2. Create ABHA Number using pre-verified Aadhaar & Mobile.**
 
