@@ -7,71 +7,52 @@ pre = "<b>2.1.4 </b>"
 +++
 
 
-# ABHA ID Registration via Other Documents
+# ABHA ID Registration via Driving Licence
 
 
-## Overview of the functionality cdccdcc
+## Overview of the functionality
 
-{{%icon icon="hand-point-right" %}} Currently we support Driving License (DL) & PAN for ABHA number generation, apart from Aadhaar. 
+{{%icon icon="hand-point-right" %}} Currently ABDM support Driving License (DL) for ABHA number generation, apart from Aadhaar. 
 
-{{%icon icon="hand-point-right" %}} ABDM plans to roll out other ID documents as well to enable creation.
-
-{{%icon icon="hand-point-right" %}} The same will be communicated and updated in the documentation as necessary.
-
-{{%icon icon="hand-point-right" %}} However, the integration flow will remain as the DL/PAN flow. 
-
-{{%icon icon="hand-point-right" %}} To enable beneficiary registration using other documents, the user is requested his/her mobile number to be linked with ABHA (Health ID) Number.
+{{%icon icon="hand-point-right" %}} To enable beneficiary registration using other documents, the user is requested his/her mobile number to be linked with ABHA Number.
 
 {{%icon icon="hand-point-right" %}} An OTP is sent to the given mobile number and after verifying the OTP , demographic information of the user is captured along with the driving license number . 
 
 {{%icon icon="hand-point-right" %}} Following demographic details are expected from the end user
    - Name
-   - Date of birth
+   - Date of birth (DOB)
    - Gender
 
-{{%icon icon="hand-point-right" %}} The submitted demographic details are then matched against the DL/PAN database.
+{{%icon icon="hand-point-right" %}} The submitted demographic details are then matched against the DL database.
 
-{{%icon icon="hand-point-right" %}} ABHA system also checks the details against the existing ABHA (Health ID) or Enrolment number database to prevent duplication.
+{{%icon icon="hand-point-right" %}} ABHA system also checks the details against the existing ABHA or Enrolment number database to prevent duplication.
 
-{{%icon icon="hand-point-right" %}} Users are requested to upload scanned front and back images of their DL/PAN.
+{{%icon icon="hand-point-right" %}} Users are requested to upload scanned front and back images of their DL.
 
 {{%icon icon="hand-point-right" %}} Post submission, an enrollment number is generated.
 
-{{%icon icon="hand-point-right" %}} Health care workers/Facility Managers are expected to ensure that the submitted DL/PAN is of the end user requesting *creation of ABHA.*
+{{%icon icon="hand-point-right" %}} Health care workers/Facility Managers are expected to ensure that the submitted DL is of the end user requesting *creation of ABHA.*
 
 {{%icon icon="hand-point-right" %}} They can ensure the same by matching the picture in the uploaded document with the requesting person.
 
 {{% notice %}} ABHA creation via Aadhaar is a one step process wherein, ABHA is created instantaneously. However, in case of other ID documents, an enrollment 
 number is generated first which can only be converted to ABHA once the manual verification of identity is complete. 
 
-
-ABHA (Health ID) created through Self mode via using Driving license/PAN, an 
+ABHA created through Self mode via using Driving license, an 
 Enrolment number has been issued which can be verified at any facility centers.
 {{% /notice %}}
 
-{{%icon icon="clipboard-list" %}}**Note:** ABDM will soon roll out features that will support ABHA (Health ID) creation with other ID documents such as PAN card, Driving License, etc. in assisted mode at 
-participating health facilities.
+*Documents Required* – Since this process is online, the ABHA registration will not require you to submit any documents physically. However, since the user will have to enter the details and some important information for proper verification, the user will need:
 
-
-*Documents Required* – Since this process is online, the ABHA registration will not require you to submit any documents physically. However, since you will have to enter the details and some important information for proper verification, you will need:
-
-{{%icon icon="arrow-right" %}} Your active mobile number
+{{%icon icon="arrow-right" %}} His/Her active mobile number
 
 {{%icon icon="arrow-right" %}} Driving license number (only for the generation of the enrollment number)
 
-## Steps To Generate The Enrollment Number
-- Visit the [official website](https://abha.abdm.gov.in/) 
-- Click on the “Create ABHA Number” 
-- Select "Using Driving Licence" option and click Next
+## Sample User Experience
+- Site: https://abha.abdm.gov.in/ 
 ![initial_page](../register_via_dl.gif)
-- In *Consent Collection*, read and then you can express your consent by clicking on "I Agree" and then click Next
-- In *Mobile Authentication* you will be asked to enter your mobile number and answer for the human verification question and click Next
-- Enter an OTP sent to the entered mobile number for verification and click Next
 ![dl_login_validate_via_otp_page](../dl_validate_via_otp.gif)
-- In *Driving Licence Verification*, you will have to enter your details – driving licence number, name, Date of Birth, gender and click Verify
 ![verify_dl_for_abha_number_reg](../verify_dl_for_ABHA_number.png)
-- ???????????
-- Once you submit these, you will be get the enrollment number.
 
 
 ## API Sequence 
@@ -82,42 +63,28 @@ The sequence of APIs used via this method are shown in the diagram below.
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
 actor Client
-participant Health Id Server
+participant ABHA Server
 participant Document Database Server
- note left of Health Id Server : Generate OTP on given mobile number
-    Client->>+Health Id Server: /v2/document/generate/mobile/otp
-   Health Id Server-->>-Client: Response: 200 OK 
+ note left of ABHA Server : Generate OTP on given mobile number
+    Client->>+ABHA Server: /v3/enrollment/request/otp
+   ABHA Server-->>-Client: Response: 200 OK 
    note right of Client : txnId
-    Client->>+Health Id Server: /v2/document/verify/mobile/otp
-  note left of Health Id Server : OTP,trxnId
-
-   Health Id Server-->>-Client: Response: 200 OK 
+    Client->>+ABHA Server: /v3/enrollment/enrol/byAadhaar
+  note left of ABHA Server : OTP,trxnId
+   ABHA Server-->>-Client: Response: 200 OK 
    note right of Client : returns Verified Token
-   Client->>+Health Id Server: /v2/document/validate
-      Health Id Server->>Document Database Server: Request for document verification
-   Document Database Server-->>Health Id Server: 
-   Health Id Server-->>-Client: Validates the document & match the detail ie: Name, DOB, Gender
-   note left of Health Id Server : Document detail, Trxn Token Document, Trxn Token
-    Client->>+Health Id Server: /v2/document
-   Health Id Server-->>-Client: ABHA Number
-   {{< /mermaid >}}
-
-![ABHA ID registration via Aadhaar](/abdm-docs/img/Creation_With_Other_Document.png)
-
+   Client->>+ABHA Server: /api/v3/enrollment/enrol/byDocument
+      ABHA Server->>Document Database Server: Match Document ID with Name, DOB, Gender
+   Document Database Server-->>ABHA Server: 
+   ABHA Server-->>-Client: 
+   note right of Client : Enrollment number 
+{{< /mermaid >}}
 
 
 ## API Information Request Response 
-![DL_ApiList](..//DL_api_list.png)
 
 
-**1. Generate the Gateway session**
-
-Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
-
-**URL:** https://dev.ndhm.gov.in/gateway/v0.5/sessions
-
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-gateway-v1.yml" api="POST /v0.5/sessions" >}}
-
+**1. [Generate the Gateway session](/abdm-docs/1-basics/verify_sandbox_access/#create-gateway-session-token)**
 
 
 **2. Authentication token public certificate. This certificate is also used to encrypt the data.**
