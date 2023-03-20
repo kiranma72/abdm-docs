@@ -12,25 +12,42 @@ pre : "<b>8.1 </b>"
 {{% /notice %}}
 
 ## Convert Image to Base64 
+Converting an image into Base64 string means taking the binary representation of an image and converting it into a string of ASCII digits (A-Z, a-z, 0-9).
 
-https://codebeautify.org/image-to-base64-converter
+To convert an image into Base64 :
+- use https://codebeautify.org/image-to-base64-converter
+- After uploading the image and converting into Base64 string, copy the string and use it in the response body of API which expects it.
+
+#### Sample User Experience
+
+![convert_image_to_base64](../convert_image_to_base64.gif)
 
 
 ## RSA Encryption
 RSA(Rivest-Shamir-Adleman) is an Asymmetric encryption technique that uses two different keys as public and private keys to perform the encryption and decryption. With RSA, you can encrypt sensitive information with a public key and a matching private key is used to decrypt the encrypted message.
 
 
+To encrypt the data :
 - [API to generate public key](#api-to-generate-public-key)
 - [RSA Encryption via online](#rsa-encryption-via-online)
 
 
-
 #### API to retrieve the public key
-url: https://healthidsbx.abdm.gov.in/api/v1/auth/cert
+Authentication token public certificate. This certificate is also used to encrypt the data.
+
+**url: https://healthidsbx.abdm.gov.in/api/v1/auth/cert**
+![retrieve the public key](../retrieve_public_keey_api.png)
 
 //yaml
 //response
 
 #### RSA Encryption via online (while using Postman)
+
 https://www.devglan.com/online-tools/rsa-encryption-decryption
+
+After encrypting, copy the string and use it in the response body of API which expects it.
+
+#### Sample User Experience
+
+
 

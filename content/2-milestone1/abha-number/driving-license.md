@@ -96,8 +96,9 @@ CRT_ABHA_03 - HRPs / HIPs|ABHA creation - Assisted |Hospital user will create AB
 **1. [Create Gateway Session Token](/abdm-docs/1-basics/verify_sandbox_access/#create-gateway-session-token)**
 
 
-**2. Encrypt the mobile no.
-Authentication token public certificate. This certificate is also used to encrypt the data.**
+**2. Utilities**
+- For encrypting the mobile number and otp refer the [link](/abdm-docs/8-utilities/utilities/#rsa-encryption)
+- For converting an image into Base64 string refer the [link](/abdm-docs/8-utilities/utilities/#convert-image-to-base64)
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/cert
 
