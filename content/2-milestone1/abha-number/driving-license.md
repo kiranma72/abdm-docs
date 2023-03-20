@@ -59,6 +59,7 @@ Enrolment number has been issued which can be verified at any facility centers.
 
 The sequence of APIs used via this method are shown in the diagram below.
 
+
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
@@ -81,13 +82,16 @@ ABHA Server-->>-Client:
 note right of Client : Enrollment number 
 {{< /mermaid >}}
 
+
+
 ## API Information Request Response 
 
 
-**1. [Generate the Gateway session](/abdm-docs/1-basics/verify_sandbox_access/#create-gateway-session-token)**
+**1. [Create Gateway Session Token](/abdm-docs/1-basics/verify_sandbox_access/#create-gateway-session-token)**
 
 
-**2. Authentication token public certificate. This certificate is also used to encrypt the data.**
+**2. Encrypt the mobile no.
+Authentication token public certificate. This certificate is also used to encrypt the data.**
 
 **URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/cert
 
