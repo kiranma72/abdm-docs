@@ -81,7 +81,6 @@ ABHA Server-->>-Client:
 note right of Client : Enrollment number 
 {{< /mermaid >}}
 
-
 ## API Information Request Response 
 
 
