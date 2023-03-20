@@ -35,6 +35,12 @@ The sequence of APIs used via this method are shown in the diagram below:
 
 [![](https://mermaid.ink/img/pako:eNp9kk9Lw0AQxb_KsAexUInoLQehtkiDWEOrgrKXbXbSLiSzcTOplNLv7iZpa-K_2zL75s3Ob99OJFajCEWJ7xVSghOjVk7lkthwhjC6nY5g7FCxsQRVaWgFI6XXysHjUyxJJWwdTKPnYBrFQTydS5pZRsgwZbBp0x_CwusRvL3bFoy6dfAWVOVLdJI6_Rc3N23Pefy4eApBFSbYXAd1LXD1G0sOLBcDSXXJq5-jySgKf1g25dP1CzqTbv8UtRPnWBaWSoSry8uTfedpfQWcs1NUegA1mWgy-LLr9swxQbPBllaDxpnVumHTs76z7kM5XevgDPrWwBY27Qb_sTqgQnI2y3Ikbo_BcnvY-we0ztDvxOCArHfV_c0jS7y4fx2DRlYmK08DWmUvPb8jbSSz5j_83rGzqclQDEWOLldG-2TuJAFIwWvMUYrQHzWmqspYCkl7L1UV28WWEhGyq3AoqkIrPgZZhKnKSl9FbXxUH9q0N6EfikLRm7VHzf4TSdz7yg?type=png)](https://mermaid.live/edit#pako:eNp9kk9Lw0AQxb_KsAexUInoLQehtkiDWEOrgrKXbXbSLiSzcTOplNLv7iZpa-K_2zL75s3Ob99OJFajCEWJ7xVSghOjVk7lkthwhjC6nY5g7FCxsQRVaWgFI6XXysHjUyxJJWwdTKPnYBrFQTydS5pZRsgwZbBp0x_CwusRvL3bFoy6dfAWVOVLdJI6_Rc3N23Pefy4eApBFSbYXAd1LXD1G0sOLBcDSXXJq5-jySgKf1g25dP1CzqTbv8UtRPnWBaWSoSry8uTfedpfQWcs1NUegA1mWgy-LLr9swxQbPBllaDxpnVumHTs76z7kM5XevgDPrWwBY27Qb_sTqgQnI2y3Ikbo_BcnvY-we0ztDvxOCArHfV_c0jS7y4fx2DRlYmK08DWmUvPb8jbSSz5j_83rGzqclQDEWOLldG-2TuJAFIwWvMUYrQHzWmqspYCkl7L1UV28WWEhGyq3AoqkIrPgZZhKnKSl9FbXxUH9q0N6EfikLRm7VHzf4TSdz7yg)
 
+## ABHA OTP Test Cases:
+
+Applicable | Test Title | Test Summary | Optional or Mandatory | Test Scenario | API Sequence | Expected Result | Actual Result
+| ------| ----------- | ----------- | ----- | -------------- | ----------- | ------------- | -------------- |
+CRT_ABHA_02 - HRPs / HIPs|ABHA creation - Assisted |Hospital user will create ABHA using patient Aadhaar based mobile OTP|Optional|EMR/HMIS system will take the Aadhaar number, OTP and consent of the patient to create ABHA.|v1/registration/aadhaar/generateOtp, v1/registration/aadhaar/verifyOTP, v1/registration/aadhaar/generateMobileOTP, v1/registration/aadhaar/verifyMobileOTP, v1/registration/aadhaar/createHealthIdbyAadhar, v1/search/existsByHealthId"|Successful creation of ABHA |ABHA generated
+
 ## API Information Request Response 
 
 **1. Generate the Gateway session**
