@@ -72,7 +72,7 @@ Client->>+ABHA Server: /v3/enrollment/request/otp
 ABHA Server-->>-Client: Response: 200 OK 
 note right of Client : txnId
 Client->>+ABHA Server: /v3/enrollment/enrol/byAadhaar
-note left of ABHA Server : OTP,trxnId
+note left of ABHA Server : OTP, trxnId
 ABHA Server-->>-Client: Response: 200 OK 
 note right of Client : returns Verified Token
 Client->>+ABHA Server: /api/v3/enrollment/enrol/byDocument
@@ -82,7 +82,13 @@ ABHA Server-->>-Client:
 note right of Client : Enrollment number 
 {{< /mermaid >}}
 
+## ABHA OTP Test Cases:
 
+Unavailable?
+
+Applicable | Test Title | Test Summary | Optional or Mandatory | Test Scenario | API Sequence | Expected Result | Actual Result
+| ------| ----------- | ----------- | ----- | -------------- | ----------- | ------------- | -------------- |
+CRT_ABHA_03 - HRPs / HIPs|ABHA creation - Assisted |Hospital user will create ABHA using patient Aadhaar based mobile OTP|Optional|EMR/HMIS system will take the Aadhaar number, OTP and consent of the patient to create ABHA.|v1/registration/aadhaar/generateOtp, v1/registration/aadhaar/verifyOTP, v1/registration/aadhaar/generateMobileOTP, v1/registration/aadhaar/verifyMobileOTP, v1/registration/aadhaar/createHealthIdbyAadhar, v1/search/existsByHealthId"|Successful creation of ABHA |ABHA generated
 
 ## API Information Request Response 
 
