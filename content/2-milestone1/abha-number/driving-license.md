@@ -62,22 +62,23 @@ The sequence of APIs used via this method are shown in the diagram below.
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
+autonumber
 actor Client
 participant ABHA Server
 participant Document Database Server
- note left of ABHA Server : Generate OTP on given mobile number
-    Client->>+ABHA Server: /v3/enrollment/request/otp
-   ABHA Server-->>-Client: Response: 200 OK 
-   note right of Client : txnId
-    Client->>+ABHA Server: /v3/enrollment/enrol/byAadhaar
-  note left of ABHA Server : OTP,trxnId
-   ABHA Server-->>-Client: Response: 200 OK 
-   note right of Client : returns Verified Token
-   Client->>+ABHA Server: /api/v3/enrollment/enrol/byDocument
-      ABHA Server->>Document Database Server: Match Document ID with Name, DOB, Gender
-   Document Database Server-->>ABHA Server: 
-   ABHA Server-->>-Client: 
-   note right of Client : Enrollment number 
+note left of ABHA Server : Generate OTP on given mobile number
+Client->>+ABHA Server: /v3/enrollment/request/otp
+ABHA Server-->>-Client: Response: 200 OK 
+note right of Client : txnId
+Client->>+ABHA Server: /v3/enrollment/enrol/byAadhaar
+note left of ABHA Server : OTP,trxnId
+ABHA Server-->>-Client: Response: 200 OK 
+note right of Client : returns Verified Token
+Client->>+ABHA Server: /api/v3/enrollment/enrol/byDocument
+ABHA Server->>Document Database Server: Match Document ID with Name, DOB, Gender
+Document Database Server-->>ABHA Server: 
+ABHA Server-->>-Client: 
+note right of Client : Enrollment number 
 {{< /mermaid >}}
 
 
