@@ -32,7 +32,7 @@ Server : https://dev.abdm.gov.in/gateway
 
 ###### Check using Postman 
 
-[Click here](../postman_setup) for downloading and setting up the Postman Collection and checking whether session Token can be created using Postman 
+[Click here](../postman_setup) for downloading Postman, setting up the Collection and checking whether session Token can be created using Postman 
 
 
 ##### Check your JWT token
