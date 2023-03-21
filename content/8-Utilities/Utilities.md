@@ -18,9 +18,9 @@ To convert an image into Base64 :
 - use https://codebeautify.org/image-to-base64-converter
 - After uploading the image and converting into Base64 string, copy the string and use it in the response body of API which expects it.
 
-#### Sample User Experience
+#### Sample User Experience for Converting Image to Base64
 
-![convert_image_to_base64](../process-flow.gif)
+![convert_image_to_base64](../convert_image_to_base64.gif)
 
 
 ## RSA Encryption
@@ -28,8 +28,8 @@ RSA(Rivest-Shamir-Adleman) is an Asymmetric encryption technique that uses two d
 
 
 To encrypt the data :
-- [API to generate public key](#api-to-generate-public-key)
-- [RSA Encryption via online](#rsa-encryption-via-online)
+- *Step-1:* [API to retrieve public key](#api-to-generate-public-key)
+- *Step-2:* [RSA Encryption via online](#rsa-encryption-via-online)
 
 
 #### API to retrieve the public key
@@ -47,7 +47,8 @@ https://www.devglan.com/online-tools/rsa-encryption-decryption
 
 After encrypting, copy the string and use it in the response body of API which expects it.
 
-#### Sample User Experience
+#### Sample User Experience for RSA Encryption
+![rsa_encryption_flow](../process-flow.gif)
 
 
 
