@@ -20,7 +20,7 @@ To convert an image into Base64 :
 
 #### Sample User Experience
 
-![convert_image_to_base64](../convert_image_to_base64.gif)
+![convert_image_to_base64](../process-flow.gif)
 
 
 ## RSA Encryption
