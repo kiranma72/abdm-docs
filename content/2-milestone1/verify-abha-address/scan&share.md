@@ -56,3 +56,13 @@ Your HIP ID is the same as the Health Facility Registry ID. You must have linked
 *(confirm with Kiran)*
 
 [![](https://mermaid.ink/img/pako:eNqVkU9LA0EMxb_KkJPC1vHiZQ4FpaCXYnE9yVziTrY7sJOs80ctpd_dqdaTpdRbCO_3XsjbQieOwECit0Lc0cLjOmKwfHu3WKoW2b3Kp7rHTB-4mc3nD08rs3psn_W7XN3oCbMnzklPUXo_kk4DRrJcVVV7zOIULDw7l7-ufEkUNZY8aM8-K6UuHAVR-83lyfuPetTwvc2_szvh3sdzHvYn74BCA4FiQO9qD1vLSlnIAwWyYOroqMcyZguWd1VaYWk33IHJsVADZXI161AbmB7HVLfkfJa4_On2u-IGJuQXkV_N7guWsayK?type=png)](https://mermaid.live/edit#pako:eNqVkU9LA0EMxb_KkJPC1vHiZQ4FpaCXYnE9yVziTrY7sJOs80ctpd_dqdaTpdRbCO_3XsjbQieOwECit0Lc0cLjOmKwfHu3WKoW2b3Kp7rHTB-4mc3nD08rs3psn_W7XN3oCbMnzklPUXo_kk4DRrJcVVV7zOIULDw7l7-ufEkUNZY8aM8-K6UuHAVR-83lyfuPetTwvc2_szvh3sdzHvYn74BCA4FiQO9qD1vLSlnIAwWyYOroqMcyZguWd1VaYWk33IHJsVADZXI161AbmB7HVLfkfJa4_On2u-IGJuQXkV_N7guWsayK)
+
+
+## Test Cases:
+
+Applicable | Test Title | Test Summary | Optional or Mandatory | Test Scenario | API Sequence | Expected Result |
+| ------| ----------- | ----------- | ----- | ------------------- | ------- | --------- |
+VRFY_ABHA_02 - EMR/HMIS sharing its facility QR code | Share Patient Profile with HIP by scanning HIP QR code (patient scans the HIP QR code) |Patient scans HIP QR code using their PHR mobile app|Mandatory|-QR code with HIP details is pasted at Health facility Registration desk. -Patients scans the HIP's QR code from PHR app. -Patient's ABHA address is shared with the Integrators system. -EMR/HMIS then does demographic auth to verify the contents (KYC & LINK) and saves linking token | {{CM_HOST}}/providers/{provider-id}, {{CM_HOST}}/patients/profile/share, {GATEWAY_HOST}/v0.5/users/auth/fetch-modes, {GATEWAY_HOST}/v0.5/users/auth/init, {GATEWAY_HOST}/v0.5/users/auth/confirm | 1. EMR/HMIS system will allow the patient to see & select from the list of profiles shared at the counter. 2. EMR/HMIS system will save ABHA Address as part of its patient's registration. 3. EMR/HMIS system will save Linking token
+
+
+
