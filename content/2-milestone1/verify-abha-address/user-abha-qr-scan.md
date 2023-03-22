@@ -58,7 +58,7 @@ The link token will be used for linking multiple number of care contexts, and co
 ## Test Cases:
 
 Applicable | Test Title | Test Summary | Optional or Mandatory | Test Scenario | API Sequence | Expected Result | Actual Result
-| ------| ----------- | ----------- | ----- | ------------------- | ------- | --------- | --------- |
-Sample|Sample|Sample|Sample|Sample|Sample|Sample|Sample|
+| ---| ----------- | --------------- | --- | ------------------- | ------- | ------------- | --------- |
+All|VRFY_ABHA_501 - Reading ABHA Profile Info using ABHA QR Code|System must allow scanning of ABHA QR code to read the ABHA information|Optional|EMR/HMIS scans the user's ABHA QR code|**No content??**|System reads the user information from the ABHA QR code - name, date of birth, gender, mobile and other details into the system for registration.|**No content??**|
 
 
