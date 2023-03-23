@@ -22,9 +22,38 @@ info:
        
   
 servers:
-  - url: https://abhasbx.abdm.gov.in/abha/api/v3
+  - url: https://abhasbx.abdm.gov.in/abha/api
+  - url: https://healthidsbx.abdm.gov.in/api
 paths:
-  /enrollment/request/otp:
+  /v1/auth/cert:
+    get:
+      tags: 
+        - ABHA Enrollment
+      summary: retrieve public key
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              example: |
+                -----BEGIN PUBLIC KEY-----
+                MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAstWB95C5pHLXiYW59qyO
+                4Xb+59KYVm9Hywbo77qETZVAyc6VIsxU+UWhd/k/YtjZibCznB+HaXWX9TVTFs9N
+                wgv7LRGq5uLczpZQDrU7dnGkl/urRA8p0Jv/f8T0MZdFWQgks91uFffeBmJOb58u
+                68ZRxSYGMPe4hb9XXKDVsgoSJaRNYviH7RgAI2QhTCwLEiMqIaUX3p1SAc178ZlN
+                8qHXSSGXvhDR1GKM+y2DIyJqlzfik7lD14mDY/I4lcbftib8cv7llkybtjX1Aayf
+                Zp4XpmIXKWv8nRM488/jOAF81Bi13paKgpjQUUuwq9tb5Qd/DChytYgBTBTJFe7i
+                rDFCmTIcqPr8+IMB7tXA3YXPp3z605Z6cGoYxezUm2Nz2o6oUmarDUntDhq/PnkN
+                ergmSeSvS8gD9DHBuJkJWZweG3xOPXiKQAUBr92mdFhJGm6fitO5jsBxgpmulxpG
+                0oKDy9lAOLWSqK92JMcbMNHn4wRikdI9HSiXrrI7fLhJYTbyU3I4v5ESdEsayHXu
+                iwO/1C8y56egzKSw44GAtEpbAkTNEEfK5H5R0QnVBIXOvfeF4tzGvmkfOO6nNXU3
+                o/WAdOyV3xSQ9dqLY5MEL4sJCGY1iJBIAQ452s8v0ynJG5Yq+8hNhsCVnklCzAls
+                IzQpnSVDUVEzv17grVAw078CAwEAAQ==
+                -----END PUBLIC KEY-----                  
+              
+  /v3/enrollment/request/otp:
     post:
       tags: 
         - ABHA Enrollment
@@ -53,13 +82,17 @@ paths:
                     otpSystem: abdm
               Request OTP for mobile verfication:
                  value:
-                    txnId: <previousTxnId>
                     scope:
                       - abha-enrol
                       - mobile-verify
-                    loginHint: mobile
-                    loginId: <RSA Encrypted mobile>
-                    otpSystem: abdm
+                      - dl-flow
+                    authData:
+                      authMethods: 
+                        - otp
+                      otp:
+                        timeStamp: <current_simple_timestamp>
+                        txnId: <previousTxnId>
+                        otpValue: <RSA Encrypted otp>
                     
               Request OTP for email verfication:
                  value:
@@ -109,14 +142,15 @@ paths:
                 Request OTP for mobile verfication:
                   value:
                     txnId: b7ffebe2-8be8-433a-b447-62eecc45e397
-                    message: OTP is sent to Mobile number ending with ******0161
+                    authResult: success
+                    message: OTP verified successfully
                 Request OTP for email verfication:
                   value:
                     txnId: b7ffebe2-8be8-433a-b447-62eecc45e397
                     message: OTP is sent to email ending with gk1*****@gmail.com
       security:
         - JWT: []
-  /enrollment/enrol/byAadhaar:
+  /v3/enrollment/enrol/byAadhaar:
     post:
       tags: 
         - ABHA Enrollment
@@ -238,7 +272,7 @@ paths:
                     attribute: null
       security:
         - JWT: []
-  /enrollment/auth/byAbdm:
+  /v3/enrollment/auth/byAbdm:
     post:
       tags:
         - ABHA Enrollment
@@ -338,7 +372,7 @@ paths:
                       - ABHANumber: 91-5408-0214-0264
       security:
         - JWT: []
-  /enrollment/enrol/byDocument:
+  /v3/enrollment/enrol/byDocument:
     post:
       tags:
         - ABHA Enrollment
@@ -416,7 +450,7 @@ paths:
                     - '91540802140264@sbx'
       security:
         - JWT: []
-  /enrollment/enrol/suggestion:
+  /v3/enrollment/enrol/suggestion:
     get:
       tags:
         - ABHA Enrollment
@@ -465,7 +499,7 @@ paths:
                   - string3
       security:
         - JWT: []
-  /enrollment/enrol/abha-address:
+  /v3/enrollment/enrol/abha-address:
     post:
       tags:
         - ABHA Enrollment

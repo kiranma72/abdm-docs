@@ -17,7 +17,7 @@ Following are the steps to successfully integrate the ABHA registration via Aadh
 1. The User should input the Aadhaar number as an input.
 2. To enable beneficiary registration using Aadhaar, an integrator needs to generate an OTP and send the same on the linked mobile number.
 3. For the OTP verification process there is a primary mobile number which user wants to link with ABHA number.
-4. Once the OTP is verified, system should returns the complete profile data along with 14 digit ABHA (Health ID) Number to the user.
+4. Once the OTP is verified, system should returns the complete profile data along with 14 digit ABHA Number to the user.
 5. if the OTP is verified:
     - System checks whether the primary mobile number is matching with Aadhaar linked mobile number. If the aadhaar number matches then it will automatically link with ABHA number.
     - If the primary mobile number is not matching with Aadhaar linked mobile, user must authenticate the mobile number via OTP authentication
@@ -39,14 +39,14 @@ sequenceDiagram
 title ABHA Creation using Aadhar OTP
 actor HIU/HIP/PHR
 Note left of ABHA: Share encrypted Aadhaar number
-HIU/HIP/PHR->>ABHA: (POST: api/v3/ABHA/request/otp)
+HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/request/otp)
 ABHA->>UIDAI: Aadhaar number
 UIDAI->>UIDAI:Verify Aadhaar number
 UIDAI->>ABHA: Response 200
 ABHA->>HIU/HIP/PHR: Response 200 (transaction ID)
 UIDAI->>HIU/HIP/PHR:Receive OTP
 Note right of HIU/HIP/PHR: Forward OTP & transaction ID to verify
-HIU/HIP/PHR->>ABHA: (POST:api/v3/enrollment/enrol/byAadhaar)
+HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/enrol/byAadhaar)
 ABHA->>UIDAI: Forward OTP
 UIDAI->>UIDAI: Verify OTP
 UIDAI->>ABHA: Share Aadhaar e-KYC details
@@ -154,7 +154,9 @@ Api accepts Aadhar Card Number and then Generates OTP for Registered Mobile Numb
 
 **URL:** https://abhasbx.abdm.gov.in/abha/api/v3/enrollment/request/otp
 
-{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /enrollment/request/otp$" >}}
+Refer to example “Request OTP Aadhaar based enrollment”
+
+{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/request/otp$" >}}
 
 
 
@@ -164,6 +166,6 @@ API creates ABHA Number using Aadhaar & Mobile which are already Registered.
 
 **URL:** https://abhasbx.abdm.gov.in/abha/api/v3/enrollment/enrol/byAadhaar
 
-{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /enrollment/enrol/byAadhaar$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/enrol/byAadhaar$" >}}
 
 

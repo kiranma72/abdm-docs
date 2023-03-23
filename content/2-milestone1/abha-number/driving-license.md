@@ -38,8 +38,8 @@ pre = "<b>2.1.4 </b>"
 {{% notice %}} ABHA creation via Aadhaar is a one step process wherein, ABHA is created instantaneously. However, in case of other ID documents, an enrollment 
 number is generated first which can only be converted to ABHA once the manual verification of identity is complete. 
 
-ABHA created through Self mode via using Driving license, an 
-Enrolment number has been issued which can be verified at any facility centers.
+ABHA created through Self assisted mode via using Driving license, an 
+Enrollment number has been issued which can be verified at any facility centers.
 {{% /notice %}}
 
 *Documents Required* – Since this process is online, the ABHA registration will not require you to submit any documents physically. However, since the user will have to enter the details and some important information for proper verification, the user will need:
@@ -92,276 +92,38 @@ note right of Client : Enrollment number
 
 ## API Information Request Response 
 
+**Utilities**
+- For encrypting the mobileNumber/AadharNumber/otp refer the [link](/abdm-docs/8-utilities/utilities/#rsa-encryption)
+
+  - To get public key for encrypting:
+
+    **URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/cert
+
+{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="GET /v1/auth/cert$" >}}
+
+- For converting an image into Base64 string refer the [link](/abdm-docs/8-utilities/utilities/#convert-image-to-base64)
 
 **1. [Create Gateway Session Token](/abdm-docs/1-basics/verify_sandbox_access/#create-gateway-session-token)**
 
 
-**2. Utilities**
-- For encrypting the mobile number and otp refer the [link](/abdm-docs/8-utilities/utilities/#rsa-encryption)
-- For converting an image into Base64 string refer the [link](/abdm-docs/8-utilities/utilities/#convert-image-to-base64)
+**2. Request otp to mobile**
 
-**URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/cert
+Refer to example "Request OTP For DL based enrollment"
 
-**Request:** GET  
+{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/request/otp$" >}}
 
-**Parameters:**
+**3. Verify the mobile**
 
-- Authorization
-string (header)
+Refer to example "Request OTP for mobile verfication"
 
-- X-HIP-ID
-string (header)
+{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/request/otp$" >}}
 
+**4. Enroll by DL**
 
-**Response:** 200  OK
+{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/enrol/byDocument" >}}
 
-string
 
-
-
-
-**3. Api Accepts Mobile Number and creates OTP for it**
-
-**URL:** https://healthidsbx.abdm.gov.in/api/v2/document/generate/mobile/otp
-
-Explanation - Api Accepts Mobile Number and creates OTP fo it.
-
-Request Body - Required
-
-Responce - Api Accepts Mobile Number and creates OTP fo it. Returns Error for Invalid Mobile number.
-
-
-**Request:** POST  
-
-**Parameters:**
-
-- Authorization
-string (header)
-
-- X-HIP-ID
-string (header)
-
-
-**Body:**
-
-generateOtpRequest (body)
-
-```json
-{
-  "mobile": "9545812125"
-}
-```
-
-**Response:** 200 OK
-
-```json
-{
-  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
-}
-```
-
-
-
-**4. Api Accepts Mobile OTP and validates it**
-
-**URL:** https://healthidsbx.abdm.gov.in/api/v2/document/verify/mobile/otp
-
-Explanation - Api Accepts Mobile OTP and validates it.
-
-Request Body - Required
-
-Responce - Api Accepts Mobile OTP and validates it. Returns Error for Invalid Mobile OTP.
-
-
-**Request:** POST  
-
-**Parameters:**
-
-- Authorization
-string (header)
-
-- X-HIP-ID
-string (header)
-
-
-**Body:**
-
-verifyMobileWebRequest  (body)
-
-```json
-{
-  "otp": "sw1uD+gpv3fj6NHBNhtcII3GksVtkLT9bvcz0svYDyUt/x3jTtedXSYgw4b90GTwfLfs1eow056VsOw9HFS/wB8uH5Ysx+QzpL7PxmAY1WOHwOj04sPKN6Dw8XY8vcXovtvZc1dUB+TPAlGGPNu8iqMVPetukysjRxgbNdLLKMxn46rIRb8NieeyuDx1EHa90jJP9KwKGZdsLr08BysrmMJExzTO9FT93CzoNg50/nxzaQgmkBSbu9D8DxJm7XrLzWSUB05YCknHbokm4iXwyYBsrmfFDE/xCDfzYPhYyhtEmOi4J/GMp+lO+gAHQFQtxkIADhoSR8WXGcAbCUj7uTjFsBU/tc+RtvSotso4FXy8v+Ylzj28jbFTmmOWyAwYi9pThQjXnmRnq43dVdd5OXmxIII6SXs0JzoFvKwSk7VxhuLIRYzKqrkfcnWMrrmRgE8xZ6ZLft6O3IeiHb9WA8b/6/qO8Hdd17FKsSF6te59gSpoajS0FtQIgFn/c+NHzQYo5ZdsuRGM9v+bhHTInI=",
-  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83"
-}
-```
-
-**Response:** 200 OK
-
-```json
-{
-  "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-}
-```
-
-
-
-**5. Validate the document**
-
-Match the provided demographic details (Name, DOB, Gender) against the document. It also checks for already created ABHA Number or Enrolment number against the document
-
-Explanation - API accepts Identity Document details and validates the document. Match the provided demographic details (Name, DOB, Gender) against document. It also check for the already created ABHA Number or Enrolment number against the document.
-
-Request Body - Required
-
-Response - API accepts Identity Document details and validates the document. Match the provided demographic details(Name, DOB, Gender) against document. It also check for the already created ABHA Number or Enrolment number against the document. Returns Error for Invalid Identity Document details.
-
-**URL:** https://healthidsbx.abdm.gov.in/api/v2/document/validate
-
-**Request:** POST  
-
-**Parameters:**
-
-- Authorization
-string (header)
-
-- X-HIP-ID
-string (header)
-
-
-**Body:**
-
-request (body)
-
-```json
-{
-  "dayOfBirth": "21",
-  "documentNumber": "UK0720190567",
-  "documentType": "DRIVING_LICENCE",
-  "firstName": "Deepak",
-  "gender": "M",
-  "lastName": "Pant",
-  "middleName": "Kumar",
-  "monthOfBirth": "03",
-  "yearOfBirth": "1990"
-}
-```
-
-**Response:** 200 OK
-
-```json
-{
-  "address": "b-14 someshwar nagar",
-  "enrolmentNumber": "43-4231-5504-6839",
-  "healthIdNumber": "43-4221-5105-6749",
-  "jwtResponse": {
-    "expiresIn": 1800,
-    "refreshExpiresIn": 86400,
-    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-  },
-  "verification": {
-    "fields": [
-      {
-        "key": "1255477819",
-        "matched": true
-      }
-    ],
-    "matched": true
-  }
-}
-```
-
-
-
-**6.  Create ABHA Number using ID documents like Driving Licence, PAN Card**
-
-Explanation - Api Accepts Identity Document details and Creates HealthID for it.
-
-Request Body - Required
-
-Responce - Api Accepts Identity Document details and Creates HealthID for it. Returns Error for Invalid Identity Document details.
-
-**URL:** https://healthidsbx.abdm.gov.in/api/v2/document
-
-**Request:** POST  
-
-**Parameters:**
-
-- Authorization
-string (header)
-
-- X-HIP-ID
-string (header)
-
-- T-Token
-string (header)
-
-**Body:**
-
-request (body)	
-
-```json
-{
-  "address": "Street No 3, Opp. gali no 2",
-  "dayOfBirth": "04",
-  "districtCode": "401",
-  "documentNumber": "UK0720190567",
-  "documentType": "DRIVING_LICENCE",
-  "firstName": "Deepak",
-  "gender": "M",
-  "lastName": "Pant",
-  "middleName": "Kumar",
-  "mobile": "9545812125",
-  "monthOfBirth": "03",
-  "photo": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
-  "photoBack": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
-  "stateCode": "27",
-  "txnId": "a825f76b-0696-40f3-864c-5a3a5b389a83",
-  "yearOfBirth": "1990"
-}
-```
-
-
-**Response:** 200 OK
-
-```json
-{
-  "address": "b-14 someshwar nagar",
-  "authMethods": "AADHAAR_OTP",
-  "dayOfBirth": "31",
-  "districtCode": "401",
-  "documentNumber": "UK0720190567",
-  "documentPhoto": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
-  "documentType": "DRIVING_LICENCE",
-  "firstName": "Deepak",
-  "gender": "M",
-  "healthId": "deepakndhm",
-  "healthIdNumber": "43-4221-5105-6749",
-  "lastName": "singh",
-  "middleName": "kumar",
-  "mobile": "9545812125",
-  "monthOfBirth": "05",
-  "name": "kishan kumar singh",
-  "photo": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
-  "photoBack": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==",
-  "state": "MH",
-  "stateCode": "27",
-  "stateName": "MAHARASHTRA",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-  "verificationStatus": "verified",
-  "verificationType": "testing",
-  "yearOfBirth": "1994"
-}
-```
-
-
-
-
-## Postman + Curl Collection 
-
-**Download the Postman Collection** [here](/abdm-docs/Postman/ABHA_Registration_Via_OtherDocuments.json)
-
-**Download the Curls** [here](/abdm-docs/Curls/)
-
+## Verification and ABHA number creation:
+After receiving the enrollment number, the user need to approach any facility centers for creating the ABHA number . Health centers would verify the provided demographic details (Name, DOB, Gender) against the document. They also check for already created ABHA Number or Enrollment number against the document
 
 
