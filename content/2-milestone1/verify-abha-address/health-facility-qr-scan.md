@@ -74,3 +74,12 @@ ABDM Sandbox Gateway->>HRP:POST/v3/hip/patient/profile/share
 HRP->>ABDM Sandbox Gateway:POST/v3/hip/patient/profile/on-share
 {{< /mermaid >}}
 
+## API Information Request Response 
+
+**1. Profile Sharing** 
+
+{{< swaggermin src="/abdm-docs/Yaml/HIE_CM_Profile_Share.yml" api="POST /{callback_url}/v3/hip/patient/profile/share$" >}}
+
+**2. Acknowledgement for shared profile**
+
+{{< swaggermin src="/abdm-docs/Yaml/HIE_CM_Profile_Share.yml" api="POST /{callback_url}/v3/app/patient/profile/on-share$" >}}

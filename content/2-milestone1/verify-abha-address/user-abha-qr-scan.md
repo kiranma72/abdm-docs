@@ -75,7 +75,7 @@ HRP-->>ABDM Sandbox Gateway:Response 200
 
 **1. Generate link token**
 
-{{< swaggermin src="/abdm-docs/Yaml/HIECM-LinkTokenService.yml" api="POST /v3/token/generate-token$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/HIECM-LinkTokenService.yml" api="POST /v3/token/generate-token" >}}
 
 **2. Call back API**
 
