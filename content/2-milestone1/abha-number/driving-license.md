@@ -54,6 +54,13 @@ Enrolment number has been issued which can be verified at any facility centers.
 ![dl_login_validate_via_otp_page](../dl_validate_via_otp.gif)
 ![verify_dl_for_abha_number_reg](../verify_dl_for_ABHA_number.png)
 
+## ABHA OTP Test Cases:
+
+Unavailable?
+
+Applicable | Test Title | Test Summary | Optional or Mandatory | Test Scenario | API Sequence | Expected Result | Actual Result
+| ------| ----------- | ----------- | ----- | -------------- | ----------- | ------------- | -------------- |
+CRT_ABHA_03 - HRPs / HIPs|ABHA creation - Assisted |Hospital user will create ABHA using patient Aadhaar based mobile OTP|Optional|EMR/HMIS system will take the Aadhaar number, OTP and consent of the patient to create ABHA.|v1/registration/aadhaar/generateOtp, v1/registration/aadhaar/verifyOTP, v1/registration/aadhaar/generateMobileOTP, v1/registration/aadhaar/verifyMobileOTP, v1/registration/aadhaar/createHealthIdbyAadhar, v1/search/existsByHealthId"|Successful creation of ABHA |ABHA generated
 
 ## API Sequence 
 
@@ -82,13 +89,6 @@ ABHA Server-->>-Client:
 note right of Client : Enrollment number 
 {{< /mermaid >}}
 
-## ABHA OTP Test Cases:
-
-Unavailable?
-
-Applicable | Test Title | Test Summary | Optional or Mandatory | Test Scenario | API Sequence | Expected Result | Actual Result
-| ------| ----------- | ----------- | ----- | -------------- | ----------- | ------------- | -------------- |
-CRT_ABHA_03 - HRPs / HIPs|ABHA creation - Assisted |Hospital user will create ABHA using patient Aadhaar based mobile OTP|Optional|EMR/HMIS system will take the Aadhaar number, OTP and consent of the patient to create ABHA.|v1/registration/aadhaar/generateOtp, v1/registration/aadhaar/verifyOTP, v1/registration/aadhaar/generateMobileOTP, v1/registration/aadhaar/verifyMobileOTP, v1/registration/aadhaar/createHealthIdbyAadhar, v1/search/existsByHealthId"|Successful creation of ABHA |ABHA generated
 
 ## API Information Request Response 
 

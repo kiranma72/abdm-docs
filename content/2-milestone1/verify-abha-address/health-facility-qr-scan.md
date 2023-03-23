@@ -55,6 +55,13 @@ You must have linked this HIP ID to your HRP.
 - The successful message would be shown on application once the on-share callback is given.
 
 
+## Test Cases:
+
+Applicable | Test Title | Test Summary | Optional or Mandatory | Test Scenario | API Sequence | Expected Result | Actual Result
+| ------| ----------- | ----------- | ----- | ------------------- | ------- | --------- | --------- |
+VRFY_ABHA_01 - EMR/HMIS verifying ABHA | ABHA verification during patient registration using ABHA QR code | ABHA verification during patient registration. Health Provider scans the ABHA QR Code shown by the patient in PHR application. | Mandatory | EMR/HMIS scans the patients ABHA address QR code to get patient details into his system for registration. - Read contents of ABHA QR code. - Does demographic auth to verify the contents (KYC & LINK). - Save linking token. | {GATEWAY_HOST}/v0.5/users/auth/fetch-modes, {GATEWAY_HOST}/v0.5/users/auth/init, {GATEWAY_HOST}/v0.5/users/auth/confirm, {GATEWAY_HOST}/v0.5/users/auth/on-notify | EMR/HMIS system will save the ABHA Address as part of its patient's registration. EMR/HMIS system will save the Linking token | Details are fetched |
+VRFY_ABHA_02 - EMR/HMIS sharing its facility QR code | Share Patient Profile with HIP by scanning HIP QR code (patient scans the HIP QR code) |Patient scans HIP QR code using their PHR mobile app|Mandatory|-QR code with HIP details is pasted at Health facility Registration desk. -Patients scans the HIP's QR code from PHR app. -Patient's ABHA address is shared with the Integrators system. -EMR/HMIS then does demographic auth to verify the contents (KYC & LINK) and saves linking token | {{CM_HOST}}/providers/{provider-id}, {{CM_HOST}}/patients/profile/share, {GATEWAY_HOST}/v0.5/users/auth/fetch-modes, {GATEWAY_HOST}/v0.5/users/auth/init, {GATEWAY_HOST}/v0.5/users/auth/confirm | 1. EMR/HMIS system will allow the patient to see & select from the list of profiles shared at the counter. 2. EMR/HMIS system will save ABHA Address as part of its patient's registration. 3. EMR/HMIS system will save Linking token |
+
 ## API Sequence Diagram
 
 {{< mermaid >}}
@@ -66,14 +73,4 @@ User with PHR App->>ABDM Sandbox Gateway:User scans the Health Facility QR code
 ABDM Sandbox Gateway->>HRP:POST/v3/hip/patient/profile/share
 HRP->>ABDM Sandbox Gateway:POST/v3/hip/patient/profile/on-share
 {{< /mermaid >}}
-
-
-## Test Cases:
-
-Applicable | Test Title | Test Summary | Optional or Mandatory | Test Scenario | API Sequence | Expected Result | Actual Result
-| ------| ----------- | ----------- | ----- | ------------------- | ------- | --------- | --------- |
-VRFY_ABHA_01 - EMR/HMIS verifying ABHA | ABHA verification during patient registration using ABHA QR code | ABHA verification during patient registration. Health Provider scans the ABHA QR Code shown by the patient in PHR application. | Mandatory | EMR/HMIS scans the patients ABHA address QR code to get patient details into his system for registration. - Read contents of ABHA QR code. - Does demographic auth to verify the contents (KYC & LINK). - Save linking token. | {GATEWAY_HOST}/v0.5/users/auth/fetch-modes, {GATEWAY_HOST}/v0.5/users/auth/init, {GATEWAY_HOST}/v0.5/users/auth/confirm, {GATEWAY_HOST}/v0.5/users/auth/on-notify | EMR/HMIS system will save the ABHA Address as part of its patient's registration. EMR/HMIS system will save the Linking token | Details are fetched |
-VRFY_ABHA_02 - EMR/HMIS sharing its facility QR code | Share Patient Profile with HIP by scanning HIP QR code (patient scans the HIP QR code) |Patient scans HIP QR code using their PHR mobile app|Mandatory|-QR code with HIP details is pasted at Health facility Registration desk. -Patients scans the HIP's QR code from PHR app. -Patient's ABHA address is shared with the Integrators system. -EMR/HMIS then does demographic auth to verify the contents (KYC & LINK) and saves linking token | {{CM_HOST}}/providers/{provider-id}, {{CM_HOST}}/patients/profile/share, {GATEWAY_HOST}/v0.5/users/auth/fetch-modes, {GATEWAY_HOST}/v0.5/users/auth/init, {GATEWAY_HOST}/v0.5/users/auth/confirm | 1. EMR/HMIS system will allow the patient to see & select from the list of profiles shared at the counter. 2. EMR/HMIS system will save ABHA Address as part of its patient's registration. 3. EMR/HMIS system will save Linking token |
-
-
 

@@ -50,6 +50,12 @@ The link token will be used for linking multiple number of care contexts, and co
 3. The software must use the information scanned to register the patient and save the ABHA Address
 
 
+## Test Cases:
+
+Applicable | Test Title | Test Summary | Optional or Mandatory | Test Scenario | API Sequence | Expected Result | Actual Result
+| ---| ----------- | --------------- | --- | ------------------- | ------- | ------------- | --------- |
+All|VRFY_ABHA_501 - Reading ABHA Profile Info using ABHA QR Code|System must allow scanning of ABHA QR code to read the ABHA information|Optional|EMR/HMIS scans the user's ABHA QR code|v3/token/generate-token, v3/token/on-generate-token|System reads the user information from the ABHA QR code - name, date of birth, gender, mobile and other details into the system for registration.|**No content??**|
+
 ## API Sequence Diagram
 
 {{< mermaid >}}
@@ -63,13 +69,6 @@ ABDM Sandbox Gateway-->>HRP:Response 200
 ABDM Sandbox Gateway->>HRP:POST/v3/token/on-generate-token
 HRP-->>ABDM Sandbox Gateway:Response 200
 {{< /mermaid >}}
-
-
-## Test Cases:
-
-Applicable | Test Title | Test Summary | Optional or Mandatory | Test Scenario | API Sequence | Expected Result | Actual Result
-| ---| ----------- | --------------- | --- | ------------------- | ------- | ------------- | --------- |
-All|VRFY_ABHA_501 - Reading ABHA Profile Info using ABHA QR Code|System must allow scanning of ABHA QR code to read the ABHA information|Optional|EMR/HMIS scans the user's ABHA QR code|v3/token/generate-token, v3/token/on-generate-token|System reads the user information from the ABHA QR code - name, date of birth, gender, mobile and other details into the system for registration.|**No content??**|
 
 
 ## API Information Request Response 

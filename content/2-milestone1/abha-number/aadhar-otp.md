@@ -61,6 +61,83 @@ Applicable | Test Title | Test Summary | Optional or Mandatory | Test Scenario |
 | ------| ----------- | ----------- | ----- | -------------- | ----------- | ------------- | -------------- |
 CRT_ABHA_02 - HRPs / HIPs|ABHA creation - Assisted |Hospital user will create ABHA using patient Aadhaar based mobile OTP|Optional|EMR/HMIS system will take the Aadhaar number, OTP and consent of the patient to create ABHA.|v1/registration/aadhaar/generateOtp, v1/registration/aadhaar/verifyOTP, v1/registration/aadhaar/generateMobileOTP, v1/registration/aadhaar/verifyMobileOTP, v1/registration/aadhaar/createHealthIdbyAadhar, v1/search/existsByHealthId"|Successful creation of ABHA |ABHA generated
 
+## ABHA OTP Test Cases:
+
+S.No|Function|Applicable To|Mandatory/ Optional|Test Case ID|Functionality|Test Case(to be checked during functional testing)|Steps To Be Executed (By User or Functional Tester)|Expected Result|Status|Remarks|Suggestions for the Functional Tester|
+|--|---|---|--|--|----|-----|-----|-----|--|---|-----|
+1|||Mandatory|CRT_ABHA_101|Create ABHA Option|The system must provide an option to create ABHA through Aadhaar OTP||User will have an option to create ABHA|||
+2|||Mandatory|CRT_ABHA_102|Consent collection|The system must display the  consent language/ disclaimer language and collect user's consent as per the ABDM published  consent.|1. Read consent language. 2. Agree to the consent language (through 'I agree' checkbox or any other form of signature)|User provides consent for sharing of Aadhaar details and creation of ABHA. System records user consent for compliance with Health Data Management Policy.||||
+
+Standard Consent Language for Aadhaar- I, hereby declare that I am voluntarily sharing my Aadhaar Number and demographic information issued by UIDAI, with National Health Authority (NHA) for the sole purpose of creation of ABHA number . I understand that my ABHA number can be used and shared for purposes as may be notified by ABDM from time to time including provision of healthcare services. Further, I am aware that my personal identifiable information (Name, Address, Age, Date of Birth, Gender and Photograph) may be made available to the entities working in the National Digital Health Ecosystem (NDHE) which inter alia includes stakeholders and entities such as healthcare professionals (e.g. doctors), facilities (e.g. hospitals, laboratories) and data fiduciaries (e.g. health programmes), which are registered with or linked to the Ayushman Bharat Digital Mission (ABDM), and various processes there under. I authorize NHA to use my Aadhaar number for performing Aadhaar based authentication with UIDAI as per the provisions of the Aadhaar (Targeted Delivery of Financial and other Subsidies, Benefits and Services) Act 2016 for the aforesaid purpose. I understand that UIDAI will share my e-KYC details, or response of “Yes” with NHA upon successful authentication. I have been duly informed about the option of using other IDs apart from Aadhaar; however, I consciously choose to use Aadhaar number for the purpose of availing benefits across the NDHE. I am aware that my personal identifiable information excluding Aadhaar number / VID number can be used and shared for purposes as mentioned above. I reserve the right to revoke the given consent at any point of time as per provisions of Aadhaar Act and Regulations.
+
+|||Optional |CRT_ABHA_103|"Suggestions:- 
+Consent collection should be multilingual "|The system should be able to provide the consent in languages other than English also|"1. Read consent language
+2. Agree to the consent language (through 'I agree' checkbox or any other form of signature)"|"User provides consent for sharing of Aadhaar details and creation of ABHA.
+
+System records user consent for compliance with Health Data Management Policy.
+
+"||||||||||||||||||
+1.3|||Mandatory|CRT_ABHA_104|Aadhaar collection and Error Message|System must allow the user to enter Aadhaar Number and the system will display an error message for invalid Aadhaar Number|1. Enter Aadhaar number|"User is prompted to enter correct Aadhaar Number
+
+In case user enters an invalid Aadhaar number (A valid Aadhaar is a 12-digit number)| the system shows an error message ""Aadhaar Number is not valid""."||||||||||||||||||
+1.4|||Mandatory|CRT_ABHA_105|Aadhaar OTP Collection|User receives Aadhaar OTP and System must allow the user to enter Aadhaar OTP|"1. Receive OTP on mobile number registered with Aadhaar
+2. Enter Aadhaar OTP"|User will be able to enter a valid Aadhaar OTP (A valid Aadhaar OTP is a 6-digit number)|||"API Sequence -
+/v1/registration/aadhaar/generateOtp"|||||||||||||||
+1.5|||Mandatory|CRT_ABHA_106|Resend OTP|System may activate the Resend OTP button atleast 2 times after 60 seconds|"1. Click on Resend OTP Button
+2. Receive OTP on mobile"|User will able to send OTP again and verify it|||"API - 
+/v1/registration/aadhaar/resendAadhaarOtp"|||||||||||||||
+1.6|||Mandatory|CRT_ABHA_107|OTP based Aadhaar Authentication|System must verify the OTP|"Click on verify button  (For Resend and Send)
+
+It is recommended that verify button be auto enabled"|"System authenticates the user's Aadhaar through OTP
+
+In case of incorrect OTP| the system displays an error
+In case of correct OTP| the system allows the user to proceed"|||"API - 
+/v1/registration/aadhaar/verifyOTP"|||||||||||||||
+1.7|||Optional|CRT_ABHA_108|Communication Mobile Number|"1. If communication mobile number is same as Aadhaar linked mobile number then it should directly go to ABHA  creation screen .
+
+2. Alternatively | Integrators may also prompt for OTP  again from the user and then post verification of OTP user can go to ABHA  creation screen."|" This is applicable for testcase cell no -G20 | point no-1 
+
+System will check entered mobile is same as Aadhaar linked mobile number. If returns true then user will directed to ABHA  creation screen.
+
+
+2. For point number 2 step are already mentioned in test case cell no- G20 | point no-2 
+
+
+"|Redirect to the ABHA  creation screen.||||||||||||||||||
+1.8|||Mandatory|CRT_ABHA_109|Mobile Number Verification|If communication mobile number is not same as Aadhaar linked mobile number then system must ask for the OTP to verify comuncation mobile number.|"1. System must verify the mobile number.
+1. System must send OTP on mobile number 
+2. User enters the OTP and clicks on verify
+3. In case of incorrect OTP| the system displays an error
+4. In case of correct OTP| the system allows the user to proceed"|System verifies the communication mobile number|||"API for mobile verification - 
+/v2/registration/aadhaar/checkAndGenerateMobileOTP
+
+API for mobile OTP verification - 
+/v1/registration/aadhaar/verifyMobileOTP"|||||||||||||||
+|||Mandatory for Private /Government(Suggested for integrators program using demo auth)|CRT_ABHA_112|Suggested ABHA Address|The system should allow the user to select  the ABHA  address giving atleast 3 available suggestions |"1. Governemnt integrator may use the default ABHA  address.
+2. System should have a provision for private integrators to proceed with the suggested ABHA  and to create a new ABHA  address."|User should able to proceed with the ABHA  Address.||||||||||||||||||
+1.11|||Mandatory|CRT_ABHA_113|Display of ABHA Number|System must display the created ABHA Number|"1. System shows the 14-digit ABHA number and ABHA  address  generated
+"|User should be able to view the generated ABHA Number|||"API - 
+/v1/registration/aadhaar/createHealthIdWithPreVerified"|||||||||||||||
+1.12|||Mandatory for Private |CRT_ABHA_114|"View and Download ABHA details. 
+(If integrators is generating ABHA card) "|System must have a provision to View / Download ABHA card |"1. System should show the user their ABHA Card
+2. ABHA Card should be generated by API and should contain -
+a. ABHA Number (Mandatory)
+b. User Photo-Optional
+c. ABHA QR code
+d. date of birth and gender
+e. ABHA Address"|User should be able to view their ABHA Card|||"API - 
+/v1/account/getCard
+OR 
+/v1/account/getPngCard"|||||||||||||||
+|||"Either of the test cases CRT_ABHA_114 or CRT_ABHA_115 is mandatory for Governement 
+
+
+Optional for Private "|CRT_ABHA_115|"View and Download ABHA details. 
+(If integrators  is not  generating ABHA card) "| If Integrator is not generating ABHA card.|"1. If Integrator is not generating ABHA card then They print the mentioned information on their own card.
+a. ABHA Number (Mandatory)
+b. ABHA Address"|User should be able to view card with ABHA  number and ABHA  address.||||||||||||||||||
+
+
 ## API Information Request Response 
 
 **1. [Create Gateway Session Token](/abdm-docs/1-basics/verify_sandbox_access/#create-gateway-session-token)**
