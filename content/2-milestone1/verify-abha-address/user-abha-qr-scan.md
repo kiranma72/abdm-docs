@@ -52,7 +52,17 @@ The link token will be used for linking multiple number of care contexts, and co
 
 ## API Sequence Diagram
 
-[![](https://mermaid.ink/img/pako:eNp1UU1PAjEQ_SuTXrzsBqK3HkgWiXIhIqsX08vYDtC4O13bLroh_He7iyRK4Dadvq_M2wvtDAkpAn22xJpmFjcea8XRxoqg1MjwGsjfBCim8wKeV3CfGBAd7MjbdXdcF8Z4CkEx6uj8wFA8Xy3zyaSf5Zywilt4QG0rGzsISTecC_dRTqxiOltAiWze3Tc8YqQv7OTyqXwZ7e5G0X0QjzbE5NNPPjwVX6LkSSoJyhWFxnEguB2PryCPwP8WjvNzlz7etXx_XUQmavI1WpOuu1cMoETcUk1KyDQaWmNbRSUUHxIU2-jKjrWQ0beUibYxSfO3DCHXWIW0JWPTdRfHxobiMtEgvzl3whx-AC5NniA?type=png)](https://mermaid.live/edit#pako:eNp1UU1PAjEQ_SuTXrzsBqK3HkgWiXIhIqsX08vYDtC4O13bLroh_He7iyRK4Dadvq_M2wvtDAkpAn22xJpmFjcea8XRxoqg1MjwGsjfBCim8wKeV3CfGBAd7MjbdXdcF8Z4CkEx6uj8wFA8Xy3zyaSf5Zywilt4QG0rGzsISTecC_dRTqxiOltAiWze3Tc8YqQv7OTyqXwZ7e5G0X0QjzbE5NNPPjwVX6LkSSoJyhWFxnEguB2PryCPwP8WjvNzlz7etXx_XUQmavI1WpOuu1cMoETcUk1KyDQaWmNbRSUUHxIU2-jKjrWQ0beUibYxSfO3DCHXWIW0JWPTdRfHxobiMtEgvzl3whx-AC5NniA)
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+title Scan User's ABHA QR Code to verify ABHA Address
+actor User
+HRP->>User:Health Facility scans User's ABHA QR code
+HRP->>ABDM Sandbox Gateway:POST/v3/token/generate-token
+ABDM Sandbox Gateway-->>HRP:Response 200
+ABDM Sandbox Gateway->>HRP:POST/v3/token/on-generate-token
+HRP-->>ABDM Sandbox Gateway:Response 200
+{{< /mermaid >}}
 
 
 ## Test Cases:

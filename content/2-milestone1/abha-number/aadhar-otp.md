@@ -33,7 +33,27 @@ Following are the steps to successfully integrate the ABHA registration via Aadh
 
 The sequence of APIs used via this method are shown in the diagram below:
 
-[![](https://mermaid.ink/img/pako:eNp9kk9Lw0AQxb_KsAexUInoLQehtkiDWEOrgrKXbXbSLiSzcTOplNLv7iZpa-K_2zL75s3Ob99OJFajCEWJ7xVSghOjVk7lkthwhjC6nY5g7FCxsQRVaWgFI6XXysHjUyxJJWwdTKPnYBrFQTydS5pZRsgwZbBp0x_CwusRvL3bFoy6dfAWVOVLdJI6_Rc3N23Pefy4eApBFSbYXAd1LXD1G0sOLBcDSXXJq5-jySgKf1g25dP1CzqTbv8UtRPnWBaWSoSry8uTfedpfQWcs1NUegA1mWgy-LLr9swxQbPBllaDxpnVumHTs76z7kM5XevgDPrWwBY27Qb_sTqgQnI2y3Ikbo_BcnvY-we0ztDvxOCArHfV_c0jS7y4fx2DRlYmK08DWmUvPb8jbSSz5j_83rGzqclQDEWOLldG-2TuJAFIwWvMUYrQHzWmqspYCkl7L1UV28WWEhGyq3AoqkIrPgZZhKnKSl9FbXxUH9q0N6EfikLRm7VHzf4TSdz7yg?type=png)](https://mermaid.live/edit#pako:eNp9kk9Lw0AQxb_KsAexUInoLQehtkiDWEOrgrKXbXbSLiSzcTOplNLv7iZpa-K_2zL75s3Ob99OJFajCEWJ7xVSghOjVk7lkthwhjC6nY5g7FCxsQRVaWgFI6XXysHjUyxJJWwdTKPnYBrFQTydS5pZRsgwZbBp0x_CwusRvL3bFoy6dfAWVOVLdJI6_Rc3N23Pefy4eApBFSbYXAd1LXD1G0sOLBcDSXXJq5-jySgKf1g25dP1CzqTbv8UtRPnWBaWSoSry8uTfedpfQWcs1NUegA1mWgy-LLr9swxQbPBllaDxpnVumHTs76z7kM5XevgDPrWwBY27Qb_sTqgQnI2y3Ikbo_BcnvY-we0ztDvxOCArHfV_c0jS7y4fx2DRlYmK08DWmUvPb8jbSSz5j_83rGzqclQDEWOLldG-2TuJAFIwWvMUYrQHzWmqspYCkl7L1UV28WWEhGyq3AoqkIrPgZZhKnKSl9FbXxUH9q0N6EfikLRm7VHzf4TSdz7yg)
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+title ABHA Creation using Aadhar OTP
+actor HIU/HIP/PHR
+Note left of ABHA: Share encrypted Aadhaar number
+HIU/HIP/PHR->>ABHA: (POST: api/v3/ABHA/request/otp)
+ABHA->>UIDAI: Aadhaar number
+UIDAI->>UIDAI:Verify Aadhaar number
+UIDAI->>ABHA: Response 200
+ABHA->>HIU/HIP/PHR: Response 200 (transaction ID)
+UIDAI->>HIU/HIP/PHR:Receive OTP
+Note right of HIU/HIP/PHR: Forward OTP & transaction ID to verify
+HIU/HIP/PHR->>ABHA: (POST:api/v3/enrollment/enrol/byAadhaar)
+ABHA->>UIDAI: Forward OTP
+UIDAI->>UIDAI: Verify OTP
+UIDAI->>ABHA: Share Aadhaar e-KYC details
+ABHA->>ABHA: ABHA Creation
+ABHA->>HIU/HIP/PHR: ABHA Number & Profile
+{{< /mermaid >}}
+
 
 ## ABHA OTP Test Cases:
 

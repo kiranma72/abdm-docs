@@ -57,8 +57,15 @@ You must have linked this HIP ID to your HRP.
 
 ## API Sequence Diagram
 
-[![](https://mermaid.ink/img/pako:eNp9kT9Pw0AMxb-KdXOrDGwZKqVUkKWiNLCgW0zOISclvuPOaYmqfndMgYk_m2W9n_303sm0wZEpTabXibiljceXhKNl8TIQNC0y1ISD9HCDrR-8zHC_h2ulQAIcKPluhmpdV1A5lyhny9hKSPCYKcHRK7ir91DFaPnHarlaVevNFhpk9xze4BaFjjiXF2HW3xmkp98MfNi2_BusN-v9rtzdNQ_F4arofSwiiieWIqbQ-YGK3GNSWmV_GfiPDry8HDALM1Ia0TvN72QZwBp1O5I1pY6OOpwGscbyWaU4SWhmbk0paaKFmaLTX19xm7LDIeuWnNfstp-dXKpZmIj8FMK35vwOtPyWog?type=png)](https://mermaid.live/edit#pako:eNp9kT9Pw0AMxb-KdXOrDGwZKqVUkKWiNLCgW0zOISclvuPOaYmqfndMgYk_m2W9n_303sm0wZEpTabXibiljceXhKNl8TIQNC0y1ISD9HCDrR-8zHC_h2ulQAIcKPluhmpdV1A5lyhny9hKSPCYKcHRK7ir91DFaPnHarlaVevNFhpk9xze4BaFjjiXF2HW3xmkp98MfNi2_BusN-v9rtzdNQ_F4arofSwiiieWIqbQ-YGK3GNSWmV_GfiPDry8HDALM1Ia0TvN72QZwBp1O5I1pY6OOpwGscbyWaU4SWhmbk0paaKFmaLTX19xm7LDIeuWnNfstp-dXKpZmIj8FMK35vwOtPyWog)
-
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+title Scan Health Facility QR Code to verify ABHA Address
+actor User with PHR App
+User with PHR App->>ABDM Sandbox Gateway:User scans the Health Facility QR code
+ABDM Sandbox Gateway->>HRP:POST/v3/hip/patient/profile/share
+HRP->>ABDM Sandbox Gateway:POST/v3/hip/patient/profile/on-share
+{{< /mermaid >}}
 
 
 ## Test Cases:
