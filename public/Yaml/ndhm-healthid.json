@@ -1,0 +1,2407 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "It is important to standardize the process of identification of an individual across healthcare providers, to ensure that the created medical records are issued to the right individual or accessed by a Health Information User through appropriate consent. \nIn order to issue a Health ID to an individual, one only needs basic demographic details like Name, Year of Birth, Gender. In addition, citizens should be able to update contact information easily. \nThe Health ID will be used for the purposes of uniquely identifying persons, authenticating them, and threading their health records (only with the informed consent of the patient) across multiple systems and stakeholders.\n\n\r<b>API Security</b>\n\rYou need Authorization Token and X-HIP-ID to consume APIs.\n<b>Note:</b>When calling APIs, please ensure that Authorization header must have format as <b>Bearer Token_Value</b>. Please note that prefix Bearer followed by space before token value.    ",
+    "version": "1.0",
+    "title": "Health ID Service"
+  },
+  "host": "healthidsbx.ndhm.gov.in",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Authentication",
+      "description": "Health ID Authentication APIs"
+    },
+    {
+      "name": "Health Facility",
+      "description": "Create Health facility ID APIs"
+    },
+    {
+      "name": "Profile",
+      "description": "Health ID Profile APIs (requires authenticated user token)"
+    },
+    {
+      "name": "Registration with Aadhaar",
+      "description": "APIs to create Health ID using Aadhaar number & mobile number."
+    },
+    {
+      "name": "Registration with mobile number",
+      "description": "APIs to create Health ID using mobile number."
+    },
+    { "name": "Search", "description": "Health ID Search APIs" },
+    { "name": "Tags", "description": "Health ID Tag APIs" },
+    { "name": "Utility", "description": "Health ID Information APIs" }
+  ],
+  "paths": {
+    "/v1/account/getCard": {
+      "get": {
+        "tags": ["Profile"],
+        "summary": "Generate Health ID card in PDF format",
+        "operationId": "generateCardUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "name": "X-Token",
+            "in": "header",
+            "description": "Auth Token",
+            "required": true,
+            "type": "string",
+            "x-example": "Bearer X-Token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/UserDTO" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/account/getPngCard": {
+      "get": {
+        "tags": ["Profile"],
+        "summary": "Generate Health ID card PNG",
+        "operationId": "generatePngCardUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "name": "X-Token",
+            "in": "header",
+            "description": "Auth Token",
+            "required": true,
+            "type": "string",
+            "x-example": "Bearer X-Token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/UserDTO" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/account/getSvgCard": {
+      "get": {
+        "tags": ["Profile"],
+        "summary": "Generate Health ID card SVG",
+        "operationId": "generateSvgCardUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "name": "X-Token",
+            "in": "header",
+            "description": "Auth Token",
+            "required": true,
+            "type": "string",
+            "x-example": "Bearer X-Token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/UserDTO" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/account/profile": {
+      "get": {
+        "tags": ["Profile"],
+        "summary": "Get account information.",
+        "operationId": "getAccountInformationUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "name": "X-Token",
+            "in": "header",
+            "description": "Auth Token",
+            "required": true,
+            "type": "string",
+            "x-example": "Bearer XToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/UserDTO" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["Profile"],
+        "summary": "Update account information",
+        "operationId": "updateAccountInformationUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "name": "X-Token",
+            "in": "header",
+            "description": "Auth Token",
+            "required": true,
+            "type": "string",
+            "x-example": "Bearer X-Token"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": { "$ref": "#/definitions/UpdateAccountRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/UserDTO" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["Profile"],
+        "summary": "Delete account",
+        "operationId": "deleteAccountUsingDELETE",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "name": "X-Token",
+            "in": "header",
+            "description": "Auth Token",
+            "required": true,
+            "type": "string",
+            "x-example": "Bearer X-Token"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK", "schema": { "type": "boolean" } },
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/account/qrCode": {
+      "get": {
+        "tags": ["Profile"],
+        "summary": "Get Quick Response code in PNG format for this account.",
+        "operationId": "getQrCodeUsingGET",
+        "produces": ["*/*", "image/png"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "name": "X-Token",
+            "in": "header",
+            "description": "Auth Token",
+            "required": true,
+            "type": "string",
+            "x-example": "Bearer XToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string", "format": "byte" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/account/resetPassowrd": {
+      "post": {
+        "tags": ["Profile"],
+        "summary": "Reset Password for account",
+        "operationId": "resetPasswordUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "name": "X-Token",
+            "in": "header",
+            "description": "Auth Token",
+            "required": true,
+            "type": "string",
+            "x-example": "Bearer X-Token"
+          },
+          {
+            "in": "body",
+            "name": "resetPassword",
+            "description": "resetPassword",
+            "required": true,
+            "schema": { "$ref": "#/definitions/ResetPasswordRequest" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK", "schema": { "type": "boolean" } },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/account/token": {
+      "post": {
+        "tags": ["Profile"],
+        "summary": "Validate auth token",
+        "operationId": "validateTokenUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": { "$ref": "#/definitions/ValidateTokenRequest" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK", "schema": { "type": "boolean" } },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/auth/authPassword": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Authenticate using Health ID number / Health ID and password",
+        "operationId": "authenticateWithPasswordUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "authenticationRequest",
+            "description": "authenticationRequest",
+            "required": true,
+            "schema": { "$ref": "#/definitions/JwtRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/JwtResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/auth/authWithMobile": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Authenticate request to generate Mobile OTP using Health ID number / Health ID",
+        "operationId": "authenticateUserUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "authRequest",
+            "description": "authRequest",
+            "required": true,
+            "schema": { "$ref": "#/definitions/AuthMobileOTPRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/TxnResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/auth/authWithMobileToken": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Authenticate using verified Mobile Number and user data",
+        "operationId": "authWithMobileTokenUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "authRequest",
+            "description": "authRequest",
+            "required": true,
+            "schema": { "$ref": "#/definitions/AuthWithMobileTxnAndUserData" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/JwtResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/auth/cert": {
+      "get": {
+        "tags": ["Authentication"],
+        "summary": "Auth token public key.",
+        "operationId": "certUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK", "schema": { "type": "string" } },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/auth/confirmWithAadhaarBio": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Authentication with Aadhaar Biometric based auth transaction.",
+        "operationId": "confirmWithAadhaarBioUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "authenticationRequest",
+            "description": "authenticationRequest",
+            "required": true,
+            "schema": { "$ref": "#/definitions/AuthAccountAadhaarBioRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/JwtResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/auth/confirmWithAadhaarOtp": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Authentication with Aadhaar OTP based auth transaction.",
+        "operationId": "confirmWithAadhaarOtpUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "authenticationRequest",
+            "description": "authenticationRequest",
+            "required": true,
+            "schema": { "$ref": "#/definitions/AuthAccountAadhaarOTPRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/JwtResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/auth/confirmWithDemographics": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Authenticate using demographic data of user.",
+        "operationId": "confirmWithDemographicsUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "authenticationRequest",
+            "description": "authenticationRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AuthAccountWithDemographicsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK", "schema": { "type": "string" } },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/auth/confirmWithMobileOTP": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Authentication with Mobile OTP based auth transaction.",
+        "operationId": "confirmWithMobileUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "authenticationRequest",
+            "description": "authenticationRequest",
+            "required": true,
+            "schema": { "$ref": "#/definitions/AuthAccountMobileOTPRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/JwtResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/auth/confirmWithPassword": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Authentication with PASSWORD based auth transaction.",
+        "operationId": "authAccountPasswordRequestUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "authenticationRequest",
+            "description": "authenticationRequest",
+            "required": true,
+            "schema": { "$ref": "#/definitions/AuthWithPasswordRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/JwtResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/auth/init": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Initiate authentication process for given Health ID",
+        "operationId": "initiateAuthUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "authRequest",
+            "description": "authRequest",
+            "required": true,
+            "schema": { "$ref": "#/definitions/AuthInitRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/TxnResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/ha/lgd/districts": {
+      "get": {
+        "tags": ["Utility"],
+        "summary": "Get a list of districts in a given  State as per LGD.",
+        "operationId": "getDistrictsInStateUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "name": "stateCode",
+            "in": "query",
+            "description": "stateCode",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/DistrictDTO" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/ha/lgd/states": {
+      "get": {
+        "tags": ["Utility"],
+        "summary": "Get a list of states as per LGD.",
+        "operationId": "getStatesUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/StatesDTO" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/ha/tags/tags": {
+      "get": {
+        "tags": ["Tags"],
+        "summary": "Get list of Tags against HealthID.",
+        "operationId": "getTagsUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "name": "X-Token",
+            "in": "header",
+            "description": "Auth Token",
+            "required": true,
+            "type": "string",
+            "x-example": "Bearer X-Token"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK", "schema": { "type": "object" } },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["Tags"],
+        "summary": "Add tag against HealthId.",
+        "operationId": "addTagUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "name": "X-Token",
+            "in": "header",
+            "description": "Auth Token",
+            "required": true,
+            "type": "string",
+            "x-example": "Bearer X-Token"
+          },
+          {
+            "in": "body",
+            "name": "tags",
+            "description": "tags",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "additionalProperties": { "type": "string" }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Map" }
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["Tags"],
+        "summary": "Delete tag against HealthId.",
+        "operationId": "deleteTagUsingDELETE",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "name": "X-Token",
+            "in": "header",
+            "description": "Auth Token",
+            "required": true,
+            "type": "string",
+            "x-example": "Bearer X-Token"
+          },
+          {
+            "in": "body",
+            "name": "tags",
+            "description": "tags",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "additionalProperties": { "type": "string" }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Map" }
+            }
+          },
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/health/facility/authenticate": {
+      "post": {
+        "tags": ["Health Facility"],
+        "summary": "Generate token for heath facility id.",
+        "description": "Generate token for heath facility id.",
+        "operationId": "authenticateHealthFacilityUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "healthFacilityAuthenticationRequest",
+            "description": "healthFacilityAuthenticationRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/HealthFacilityAuthenticationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK", "schema": { "type": "string" } },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/health/facility/change/password": {
+      "post": {
+        "tags": ["Health Facility"],
+        "summary": "Change password for heath facility id.",
+        "description": "Change password for heath facility id.",
+        "operationId": "changePasswordUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "healthFacilityPasswordRequest",
+            "description": "healthFacilityPasswordRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/HealthFacilityChangedPasswordRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK", "schema": { "type": "string" } },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/health/facility/generate/password": {
+      "post": {
+        "tags": ["Health Facility"],
+        "summary": "Generates password for heath facility id.",
+        "description": "Generates password for heath facility id.",
+        "operationId": "generatePasswordUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "healthFacilityPasswordRequest",
+            "description": "healthFacilityPasswordRequest",
+            "required": true,
+            "schema": { "$ref": "#/definitions/HealthFacilityPasswordRequest" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK", "schema": { "type": "string" } },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/health/facility/reset/password": {
+      "post": {
+        "tags": ["Health Facility"],
+        "summary": "Reset password for heath facility id.",
+        "description": "Reset password for heath facility id.",
+        "operationId": "resetPasswordUsingPOST_1",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "healthFacilityPasswordRequest",
+            "description": "healthFacilityPasswordRequest",
+            "required": true,
+            "schema": { "$ref": "#/definitions/HealthFacilityPasswordRequest" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK", "schema": { "type": "string" } },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/registration/aadhaar/createHealthIdWithAadhaarOtp": {
+      "post": {
+        "tags": ["Registration with Aadhaar"],
+        "summary": "Verify Aadhaar OTP on registrered mobile number to create Health ID.",
+        "description": "Verify Aadhar OTP received on registrered mobile number",
+        "operationId": "verifyAadharOTPUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "verifyAadharOtpRequest",
+            "description": "verifyAadharOtpRequest",
+            "required": true,
+            "schema": { "$ref": "#/definitions/CreateAccountWithAadhaarOtp" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/CreateAccountJwtResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/registration/aadhaar/createHealthIdWithPreVerified": {
+      "post": {
+        "tags": ["Registration with Aadhaar"],
+        "summary": "Create Health ID using pre-verified Aadhaar & Mobile.",
+        "description": "Create Health ID using pre-verified Aadhaar & Mobile.",
+        "operationId": "createAadhaarAccountUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "accountRequest",
+            "description": "accountRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateAccountWithPreVerifiedAadhaar"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/CreateAccountJwtResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/registration/aadhaar/generateMobileOTP": {
+      "post": {
+        "tags": ["Registration with Aadhaar"],
+        "summary": "Generate Mobile OTP for verification.",
+        "description": "Generate Mobile OTP to verify mobile number.",
+        "operationId": "generateMobileOTPForTxnUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": { "$ref": "#/definitions/GenerateMobileOTPForTxnRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/TxnResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/registration/aadhaar/generateOtp": {
+      "post": {
+        "tags": ["Registration with Aadhaar"],
+        "summary": "Generate Aadhaar OTP on registrered mobile number",
+        "description": "Generate Aadhaar OTP on registrered mobile number",
+        "operationId": "generateAadharOTPUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "generateOtpRequest",
+            "description": "generateOtpRequest",
+            "required": true,
+            "schema": { "$ref": "#/definitions/GenerateAadharOTPRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/TxnResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/registration/aadhaar/resendAadhaarOtp": {
+      "post": {
+        "tags": ["Registration with Aadhaar"],
+        "summary": "Resend Aadhaar OTP on registrered mobile number to create Health ID.",
+        "description": "Resend Aadhar OTP on registrered mobile number",
+        "operationId": "resendAadharOTPUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": { "$ref": "#/definitions/ResendOTPRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/CreateAccountJwtResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/registration/aadhaar/verifyBio": {
+      "post": {
+        "tags": ["Registration with Aadhaar"],
+        "summary": "Verify Aadhaar using biometrics.",
+        "description": "Verify Aadhaar using biometrics",
+        "operationId": "verifyAadharBioUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "name": "aadhaar",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "pattern": "^(\\d{12}|\\d{16})*$"
+          },
+          { "name": "pid", "in": "query", "required": false, "type": "string" },
+          {
+            "name": "restrictions",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/TxnResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/registration/aadhaar/verifyMobileOTP": {
+      "post": {
+        "tags": ["Registration with Aadhaar"],
+        "summary": "Verify Mobile OTP in an existing transaction.",
+        "description": "Verify Mobile OTP in an existing transaction.",
+        "operationId": "verifyMobileOTPForTxnUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": { "$ref": "#/definitions/VerifyMobileRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/TxnResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/registration/aadhaar/verifyOTP": {
+      "post": {
+        "tags": ["Registration with Aadhaar"],
+        "summary": "Verify Aadhaar OTP and continue for mobile verification.",
+        "description": "Verify Aadhaar OTP received on registrered mobile number",
+        "operationId": "verifyAadharOTPOnlyUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": { "$ref": "#/definitions/VerifyAadhaarOtp" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/TxnResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/registration/mobile/aadhaar/verifyOTP": {
+      "post": {
+        "tags": ["Registration with mobile number"],
+        "summary": "verifyAadharOTPOnly",
+        "operationId": "verifyAadharOTPOnlyUsingPOST_1",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": { "$ref": "#/definitions/VerifyAadhaarOtp" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/TxnResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/registration/mobile/createHealthId": {
+      "post": {
+        "tags": ["Registration with mobile number"],
+        "summary": "Create Health ID with verified mobile token",
+        "operationId": "verifyUserViaMobileUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "createAccountRequest",
+            "description": "createAccountRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateAccountByVerifiedMobileRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/CreateAccountJwtResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/registration/mobile/generateOtp": {
+      "post": {
+        "tags": ["Registration with mobile number"],
+        "summary": "Generate Mobile OTP to start registration",
+        "description": "Generate Mobile OTP to start registration transaction.",
+        "operationId": "generateMobileOTPUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "generateOtpRequest",
+            "description": "generateOtpRequest",
+            "required": true,
+            "schema": { "$ref": "#/definitions/GenerateMobileOTPRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/TxnResponse" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/registration/mobile/resendOtp": {
+      "post": {
+        "tags": ["Registration with mobile number"],
+        "summary": "Resend Mobile OTP for Health ID registration",
+        "description": "Resend Mobile OTP in an existing transaction in case previous OTP is not received.",
+        "operationId": "resentOtpUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "resendRequest",
+            "description": "resendRequest",
+            "required": true,
+            "schema": { "$ref": "#/definitions/ResendOTPRequest" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK", "schema": { "type": "boolean" } },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/registration/mobile/verifyOtp": {
+      "post": {
+        "tags": ["Registration with mobile number"],
+        "summary": "Verify Mobile OTP sent as part of registration transaction.",
+        "description": "Verify Mobile OTP in current registration transaction.",
+        "operationId": "verifyMobileOTPUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "verifyOtpRequest",
+            "description": "verifyOtpRequest",
+            "required": true,
+            "schema": { "$ref": "#/definitions/VerifyMobileRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/MobileVerificationToken" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/search/existsByHealthId": {
+      "post": {
+        "tags": ["Search"],
+        "summary": "Search a user by Health IDs.",
+        "operationId": "searchUserByUseridUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "searchDTO",
+            "description": "searchDTO",
+            "required": true,
+            "schema": { "$ref": "#/definitions/SearchByHealthIdRequest" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK", "schema": { "type": "object" } },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/search/searchByHealthId": {
+      "post": {
+        "tags": ["Search"],
+        "summary": "Search a user by Health ID Number.",
+        "operationId": "searchUserByAccountUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "searchRequest",
+            "description": "searchRequest",
+            "required": true,
+            "schema": { "$ref": "#/definitions/SearchByHealthIdRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/SearchResponseSingle" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    },
+    "/v1/search/searchByMobile": {
+      "post": {
+        "tags": ["Search"],
+        "summary": "Search users with a mobile number.",
+        "operationId": "searchUserByMobileUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Accept-Language",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "en-US"
+          },
+          {
+            "in": "body",
+            "name": "searchRequest",
+            "description": "searchRequest",
+            "required": true,
+            "schema": { "$ref": "#/definitions/SearchByMobileRequest" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/SearchResponseSingle" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "security": [
+          { "Authorization": ["global"] },
+          { "X-HIP-ID": ["global"] }
+        ],
+        "deprecated": false
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Authorization": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    },
+    "X-HIP-ID": { "type": "apiKey", "name": "X-HIP-ID", "in": "header" }
+  },
+  "definitions": {
+    "AuthAccountAadhaarBioRequest": {
+      "type": "object",
+      "properties": {
+        "authType": { "type": "string", "enum": ["FINGERSCAN", "IRIS", "OTP"] },
+        "pid": { "type": "string" },
+        "txnId": { "type": "string", "format": "uuid" }
+      },
+      "title": "AuthAccountAadhaarBioRequest"
+    },
+    "AuthAccountAadhaarOTPRequest": {
+      "type": "object",
+      "required": ["otp", "txnId"],
+      "properties": {
+        "otp": { "type": "string", "pattern": "^([1-9][0-9]*)$" },
+        "txnId": { "type": "string", "format": "uuid" }
+      },
+      "title": "AuthAccountAadhaarOTPRequest"
+    },
+    "AuthAccountMobileOTPRequest": {
+      "type": "object",
+      "required": ["otp", "txnId"],
+      "properties": {
+        "otp": { "type": "string", "pattern": "^([1-9][0-9]*)$" },
+        "txnId": { "type": "string", "format": "uuid" }
+      },
+      "title": "AuthAccountMobileOTPRequest"
+    },
+    "AuthAccountWithDemographicsRequest": {
+      "type": "object",
+      "required": ["txnId"],
+      "properties": {
+        "gender": { "type": "string", "pattern": "^(M|F|O|U)$" },
+        "name": { "type": "string" },
+        "txnId": { "type": "string", "format": "uuid" },
+        "yearOfBirth": { "type": "string", "pattern": "^(\\d{4})$" }
+      },
+      "title": "AuthAccountWithDemographicsRequest"
+    },
+    "AuthInitRequest": {
+      "type": "object",
+      "required": ["authMethod"],
+      "properties": {
+        "authMethod": {
+          "type": "string",
+          "enum": [
+            "AADHAAR_OTP",
+            "MOBILE_OTP",
+            "PASSWORD",
+            "DEMOGRAPHICS",
+            "AADHAAR_BIO"
+          ]
+        },
+        "healthid": { "type": "string" }
+      },
+      "title": "AuthInitRequest"
+    },
+    "AuthMobileOTPRequest": {
+      "type": "object",
+      "properties": { "healthid": { "type": "string" } },
+      "title": "AuthMobileOTPRequest"
+    },
+    "AuthWithMobileTxnAndUserData": {
+      "type": "object",
+      "required": ["txnId"],
+      "properties": {
+        "gender": { "type": "string" },
+        "healthId": { "type": "string" },
+        "name": { "type": "string" },
+        "token": { "type": "string" },
+        "txnId": { "type": "string", "format": "uuid" },
+        "yearOfBirth": { "type": "string" }
+      },
+      "title": "AuthWithMobileTxnAndUserData"
+    },
+    "AuthWithPasswordRequest": {
+      "type": "object",
+      "required": ["password", "txnId"],
+      "properties": {
+        "password": { "type": "string" },
+        "txnId": { "type": "string", "format": "uuid" }
+      },
+      "title": "AuthWithPasswordRequest"
+    },
+    "ByteArrayResource": {
+      "type": "object",
+      "properties": {
+        "byteArray": { "type": "string", "format": "byte" },
+        "description": { "type": "string" },
+        "file": { "$ref": "#/definitions/File" },
+        "filename": { "type": "string" },
+        "inputStream": { "$ref": "#/definitions/InputStream" },
+        "open": { "type": "boolean" },
+        "readable": { "type": "boolean" },
+        "uri": { "$ref": "#/definitions/URI" },
+        "url": { "$ref": "#/definitions/URL" }
+      },
+      "title": "ByteArrayResource"
+    },
+    "CreateAccountByVerifiedMobileRequest": {
+      "type": "object",
+      "required": ["txnId"],
+      "properties": {
+        "address": { "type": "string" },
+        "dayOfBirth": {
+          "type": "string",
+          "pattern": "^(0?[1-9]|[12][0-9]|3[01])$"
+        },
+        "districtCode": { "type": "string" },
+        "email": { "type": "string" },
+        "firstName": { "type": "string" },
+        "gender": { "type": "string", "pattern": "^(M|F|O|U)$" },
+        "healthId": { "type": "string" },
+        "lastName": { "type": "string" },
+        "middleName": { "type": "string" },
+        "monthOfBirth": { "type": "string", "pattern": "^([1-9]|1[012])$" },
+        "name": { "type": "string" },
+        "password": { "type": "string" },
+        "pincode": { "type": "integer", "format": "int32" },
+        "profilePhoto": { "type": "string" },
+        "restrictions": { "type": "string" },
+        "stateCode": { "type": "string" },
+        "subdistrictCode": { "type": "string" },
+        "token": { "type": "string" },
+        "townCode": { "type": "string" },
+        "txnId": { "type": "string" },
+        "villageCode": { "type": "string" },
+        "wardCode": { "type": "string" },
+        "yearOfBirth": { "type": "string", "pattern": "^(\\d{4})$" }
+      },
+      "title": "CreateAccountByVerifiedMobileRequest"
+    },
+    "CreateAccountJwtResponse": {
+      "type": "object",
+      "properties": {
+        "authMethods": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "AADHAAR_OTP",
+              "MOBILE_OTP",
+              "PASSWORD",
+              "DEMOGRAPHICS",
+              "AADHAAR_BIO"
+            ]
+          }
+        },
+        "dayOfBirth": { "type": "string" },
+        "districtCode": { "type": "string" },
+        "districtName": { "type": "string" },
+        "email": { "type": "string" },
+        "firstName": { "type": "string" },
+        "gender": { "type": "string" },
+        "healthId": { "type": "string" },
+        "healthIdNumber": { "type": "string" },
+        "kycPhoto": { "type": "string" },
+        "lastName": { "type": "string" },
+        "middleName": { "type": "string" },
+        "mobile": { "type": "string" },
+        "monthOfBirth": { "type": "string" },
+        "name": { "type": "string" },
+        "new": { "type": "boolean" },
+        "stateCode": { "type": "string" },
+        "stateName": { "type": "string" },
+        "tags": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "token": { "type": "string" },
+        "yearOfBirth": { "type": "string" }
+      },
+      "title": "CreateAccountJwtResponse"
+    },
+    "CreateAccountWithAadhaarOtp": {
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "firstName": { "type": "string" },
+        "lastName": { "type": "string" },
+        "middleName": { "type": "string" },
+        "mobile": { "type": "string" },
+        "otp": { "type": "string" },
+        "password": { "type": "string" },
+        "profilePhoto": { "type": "string" },
+        "restrictions": { "type": "string" },
+        "txnId": { "type": "string" },
+        "username": { "type": "string" }
+      },
+      "title": "CreateAccountWithAadhaarOtp"
+    },
+    "CreateAccountWithPreVerifiedAadhaar": {
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "firstName": { "type": "string" },
+        "healthId": { "type": "string" },
+        "lastName": { "type": "string" },
+        "middleName": { "type": "string" },
+        "password": { "type": "string" },
+        "profilePhoto": { "type": "string" },
+        "txnId": { "type": "string" }
+      },
+      "title": "CreateAccountWithPreVerifiedAadhaar"
+    },
+    "DistrictDTO": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "name": { "type": "string" }
+      },
+      "title": "DistrictDTO"
+    },
+    "File": {
+      "type": "object",
+      "properties": {
+        "absolute": { "type": "boolean" },
+        "absoluteFile": { "$ref": "#/definitions/File" },
+        "absolutePath": { "type": "string" },
+        "canonicalFile": { "$ref": "#/definitions/File" },
+        "canonicalPath": { "type": "string" },
+        "directory": { "type": "boolean" },
+        "file": { "type": "boolean" },
+        "freeSpace": { "type": "integer", "format": "int64" },
+        "hidden": { "type": "boolean" },
+        "name": { "type": "string" },
+        "parent": { "type": "string" },
+        "parentFile": { "$ref": "#/definitions/File" },
+        "path": { "type": "string" },
+        "totalSpace": { "type": "integer", "format": "int64" },
+        "usableSpace": { "type": "integer", "format": "int64" }
+      },
+      "title": "File"
+    },
+    "GenerateAadharOTPRequest": {
+      "type": "object",
+      "properties": {
+        "aadhaar": { "type": "string", "pattern": "^(\\d{12}|\\d{16})*$" }
+      },
+      "title": "GenerateAadharOTPRequest"
+    },
+    "GenerateMobileOTPForTxnRequest": {
+      "type": "object",
+      "properties": {
+        "mobile": { "type": "string" },
+        "txnId": { "type": "string" }
+      },
+      "title": "GenerateMobileOTPForTxnRequest"
+    },
+    "GenerateMobileOTPRequest": {
+      "type": "object",
+      "properties": { "mobile": { "type": "string" } },
+      "title": "GenerateMobileOTPRequest"
+    },
+    "HealthFacilityAuthenticationRequest": {
+      "type": "object",
+      "properties": {
+        "hfrUid": { "type": "string" },
+        "password": { "type": "string" }
+      },
+      "title": "HealthFacilityAuthenticationRequest"
+    },
+    "HealthFacilityAuthenticationResponse": {
+      "type": "object",
+      "properties": {
+        "changePassword": { "type": "boolean" },
+        "token": { "type": "string" }
+      },
+      "title": "HealthFacilityAuthenticationResponse"
+    },
+    "HealthFacilityChangedPasswordRequest": {
+      "type": "object",
+      "properties": {
+        "hfrUid": { "type": "string" },
+        "newPassword": { "type": "string" },
+        "oldPassword": { "type": "string" }
+      },
+      "title": "HealthFacilityChangedPasswordRequest"
+    },
+    "HealthFacilityPasswordRequest": {
+      "type": "object",
+      "properties": { "hfrUid": { "type": "string" } },
+      "title": "HealthFacilityPasswordRequest"
+    },
+    "HealthFacilityPasswordResponse": {
+      "type": "object",
+      "properties": { "password": { "type": "string" } },
+      "title": "HealthFacilityPasswordResponse"
+    },
+    "InputStream": { "type": "object", "title": "InputStream" },
+    "JwtRequest": {
+      "type": "object",
+      "properties": {
+        "healthId": { "type": "string" },
+        "password": { "type": "string" }
+      },
+      "title": "JwtRequest"
+    },
+    "JwtResponse": {
+      "type": "object",
+      "properties": { "token": { "type": "string" } },
+      "title": "JwtResponse"
+    },
+    "MobileVerificationToken": {
+      "type": "object",
+      "properties": { "token": { "type": "string" } },
+      "title": "MobileVerificationToken"
+    },
+    "ResendOTPRequest": {
+      "type": "object",
+      "required": ["txnId"],
+      "properties": { "txnId": { "type": "string" } },
+      "title": "ResendOTPRequest"
+    },
+    "ResetPasswordRequest": {
+      "type": "object",
+      "properties": { "password": { "type": "string" } },
+      "title": "ResetPasswordRequest"
+    },
+    "ResponseEntity": {
+      "type": "object",
+      "properties": {
+        "body": { "type": "object" },
+        "statusCode": {
+          "type": "string",
+          "enum": [
+            "100 CONTINUE",
+            "101 SWITCHING_PROTOCOLS",
+            "102 PROCESSING",
+            "103 CHECKPOINT",
+            "200 OK",
+            "201 CREATED",
+            "202 ACCEPTED",
+            "203 NON_AUTHORITATIVE_INFORMATION",
+            "204 NO_CONTENT",
+            "205 RESET_CONTENT",
+            "206 PARTIAL_CONTENT",
+            "207 MULTI_STATUS",
+            "208 ALREADY_REPORTED",
+            "226 IM_USED",
+            "300 MULTIPLE_CHOICES",
+            "301 MOVED_PERMANENTLY",
+            "302 FOUND",
+            "302 MOVED_TEMPORARILY",
+            "303 SEE_OTHER",
+            "304 NOT_MODIFIED",
+            "305 USE_PROXY",
+            "307 TEMPORARY_REDIRECT",
+            "308 PERMANENT_REDIRECT",
+            "400 BAD_REQUEST",
+            "401 UNAUTHORIZED",
+            "402 PAYMENT_REQUIRED",
+            "403 FORBIDDEN",
+            "404 NOT_FOUND",
+            "405 METHOD_NOT_ALLOWED",
+            "406 NOT_ACCEPTABLE",
+            "407 PROXY_AUTHENTICATION_REQUIRED",
+            "408 REQUEST_TIMEOUT",
+            "409 CONFLICT",
+            "410 GONE",
+            "411 LENGTH_REQUIRED",
+            "412 PRECONDITION_FAILED",
+            "413 PAYLOAD_TOO_LARGE",
+            "413 REQUEST_ENTITY_TOO_LARGE",
+            "414 URI_TOO_LONG",
+            "414 REQUEST_URI_TOO_LONG",
+            "415 UNSUPPORTED_MEDIA_TYPE",
+            "416 REQUESTED_RANGE_NOT_SATISFIABLE",
+            "417 EXPECTATION_FAILED",
+            "418 I_AM_A_TEAPOT",
+            "419 INSUFFICIENT_SPACE_ON_RESOURCE",
+            "420 METHOD_FAILURE",
+            "421 DESTINATION_LOCKED",
+            "422 UNPROCESSABLE_ENTITY",
+            "423 LOCKED",
+            "424 FAILED_DEPENDENCY",
+            "426 UPGRADE_REQUIRED",
+            "428 PRECONDITION_REQUIRED",
+            "429 TOO_MANY_REQUESTS",
+            "431 REQUEST_HEADER_FIELDS_TOO_LARGE",
+            "451 UNAVAILABLE_FOR_LEGAL_REASONS",
+            "500 INTERNAL_SERVER_ERROR",
+            "501 NOT_IMPLEMENTED",
+            "502 BAD_GATEWAY",
+            "503 SERVICE_UNAVAILABLE",
+            "504 GATEWAY_TIMEOUT",
+            "505 HTTP_VERSION_NOT_SUPPORTED",
+            "506 VARIANT_ALSO_NEGOTIATES",
+            "507 INSUFFICIENT_STORAGE",
+            "508 LOOP_DETECTED",
+            "509 BANDWIDTH_LIMIT_EXCEEDED",
+            "510 NOT_EXTENDED",
+            "511 NETWORK_AUTHENTICATION_REQUIRED"
+          ]
+        },
+        "statusCodeValue": { "type": "integer", "format": "int32" }
+      },
+      "title": "ResponseEntity"
+    },
+    "SearchByHealthIdRequest": {
+      "type": "object",
+      "properties": { "healthId": { "type": "string" } },
+      "title": "SearchByHealthIdRequest"
+    },
+    "SearchByMobileRequest": {
+      "type": "object",
+      "properties": {
+        "gender": { "type": "string" },
+        "mobile": { "type": "string" },
+        "name": { "type": "string" },
+        "yearOfBirth": { "type": "string" }
+      },
+      "title": "SearchByMobileRequest"
+    },
+    "SearchResponseSingle": {
+      "type": "object",
+      "properties": {
+        "authMethods": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "AADHAAR_OTP",
+              "MOBILE_OTP",
+              "PASSWORD",
+              "DEMOGRAPHICS",
+              "AADHAAR_BIO"
+            ]
+          }
+        },
+        "healthId": { "type": "string" },
+        "healthIdNumber": { "type": "string" },
+        "name": { "type": "string" },
+        "tags": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      },
+      "title": "SearchResponseSingle"
+    },
+    "StatesDTO": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "districts": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/DistrictDTO" }
+        },
+        "name": { "type": "string" }
+      },
+      "title": "StatesDTO"
+    },
+    "TxnResponse": {
+      "type": "object",
+      "properties": { "txnId": { "type": "string", "format": "uuid" } },
+      "title": "TxnResponse"
+    },
+    "URI": {
+      "type": "object",
+      "properties": {
+        "absolute": { "type": "boolean" },
+        "authority": { "type": "string" },
+        "fragment": { "type": "string" },
+        "host": { "type": "string" },
+        "opaque": { "type": "boolean" },
+        "path": { "type": "string" },
+        "port": { "type": "integer", "format": "int32" },
+        "query": { "type": "string" },
+        "rawAuthority": { "type": "string" },
+        "rawFragment": { "type": "string" },
+        "rawPath": { "type": "string" },
+        "rawQuery": { "type": "string" },
+        "rawSchemeSpecificPart": { "type": "string" },
+        "rawUserInfo": { "type": "string" },
+        "scheme": { "type": "string" },
+        "schemeSpecificPart": { "type": "string" },
+        "userInfo": { "type": "string" }
+      },
+      "title": "URI"
+    },
+    "URL": {
+      "type": "object",
+      "properties": {
+        "authority": { "type": "string" },
+        "content": { "type": "object" },
+        "defaultPort": { "type": "integer", "format": "int32" },
+        "file": { "type": "string" },
+        "host": { "type": "string" },
+        "path": { "type": "string" },
+        "port": { "type": "integer", "format": "int32" },
+        "protocol": { "type": "string" },
+        "query": { "type": "string" },
+        "ref": { "type": "string" },
+        "userInfo": { "type": "string" }
+      },
+      "title": "URL"
+    },
+    "UpdateAccountRequest": {
+      "type": "object",
+      "properties": {
+        "address": { "type": "string" },
+        "districtCode": { "type": "string" },
+        "email": { "type": "string" },
+        "firstName": { "type": "string" },
+        "healthId": { "type": "string" },
+        "lastName": { "type": "string" },
+        "middleName": { "type": "string" },
+        "password": { "type": "string" },
+        "pincode": { "type": "integer", "format": "int32" },
+        "profilePhoto": { "type": "string" },
+        "stateCode": { "type": "string" },
+        "subdistrictCode": { "type": "string" },
+        "townCode": { "type": "string" },
+        "villageCode": { "type": "string" },
+        "wardCode": { "type": "string" }
+      },
+      "title": "UpdateAccountRequest"
+    },
+    "UserDTO": {
+      "type": "object",
+      "properties": {
+        "address": { "type": "string" },
+        "authMethods": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "AADHAAR_OTP",
+              "MOBILE_OTP",
+              "PASSWORD",
+              "DEMOGRAPHICS",
+              "AADHAAR_BIO"
+            ]
+          }
+        },
+        "dayOfBirth": { "type": "string" },
+        "districtCode": { "type": "string" },
+        "districtName": { "type": "string" },
+        "email": { "type": "string" },
+        "firstName": { "type": "string" },
+        "gender": { "type": "string" },
+        "healthId": { "type": "string" },
+        "healthIdNumber": { "type": "string" },
+        "kycPhoto": { "type": "string" },
+        "lastName": { "type": "string" },
+        "middleName": { "type": "string" },
+        "mobile": { "type": "string" },
+        "monthOfBirth": { "type": "string" },
+        "name": { "type": "string" },
+        "new": { "type": "boolean" },
+        "pincode": { "type": "string" },
+        "profilePhoto": { "type": "string" },
+        "stateCode": { "type": "string" },
+        "stateName": { "type": "string" },
+        "subDistrictCode": { "type": "string" },
+        "subdistrictName": { "type": "string" },
+        "tags": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "townCode": { "type": "string" },
+        "townName": { "type": "string" },
+        "villageCode": { "type": "string" },
+        "villageName": { "type": "string" },
+        "wardCode": { "type": "string" },
+        "wardName": { "type": "string" },
+        "yearOfBirth": { "type": "string" }
+      },
+      "title": "UserDTO"
+    },
+    "ValidateTokenRequest": {
+      "type": "object",
+      "properties": { "authToken": { "type": "string" } },
+      "title": "ValidateTokenRequest"
+    },
+    "VerifyAadhaarOtp": {
+      "type": "object",
+      "properties": {
+        "otp": { "type": "string" },
+        "restrictions": { "type": "string" },
+        "txnId": { "type": "string" }
+      },
+      "title": "VerifyAadhaarOtp"
+    },
+    "VerifyMobileRequest": {
+      "type": "object",
+      "properties": {
+        "otp": { "type": "string" },
+        "txnId": { "type": "string" }
+      },
+      "title": "VerifyMobileRequest"
+    }
+  }
+}

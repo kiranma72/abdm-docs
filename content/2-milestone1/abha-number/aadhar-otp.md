@@ -57,7 +57,7 @@ Api accepts Aadhar Card Number and then Generates OTP for Registered Mobile Numb
 
 **URL:** https://abhasbx.abdm.gov.in/abha/api/v3/enrollment/request/otp
 
-{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/request/otp$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /enrollment/request/otp$" >}}
 
 
 
@@ -67,6 +67,6 @@ API creates ABHA Number using Aadhaar & Mobile which are already Registered.
 
 **URL:** https://abhasbx.abdm.gov.in/abha/api/v3/enrollment/enrol/byAadhaar
 
-{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /api/v3/enrollment/enrol/byAadhaar$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /enrollment/enrol/byAadhaar$" >}}
 
 

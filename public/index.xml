@@ -12,7 +12,16 @@
       <link>http://kiranma72.github.io/abdm-docs/1-basics/index.html</link>
       <pubDate>Sat, 07 May 2022 17:53:25 +0530</pubDate>
       <guid>http://kiranma72.github.io/abdm-docs/1-basics/index.html</guid>
-      <description>Getting Started with ABDM This section covers Understand how the ABDM Personal Health Records Framework works Learn the ABDM terminology - HIP / HIU / HPR / PHR Apply for access to the Sandbox &amp;amp; verify your credentials Understand what integration is required to make your application ABDM compliant Setup an end point URL for your health repository or consumer health application Link health facilities with your health repository </description>
+      <description>Getting Started with ABDM This section covers Understanding the ABDM Personal Health Records (PHR) Framework Learn the ABDM terminology - HIP / HIU / HPR / PHR / Locker Apply for access to the Sandbox &amp;amp; verify your credentials Understand what integration is required to make your application ABDM compliant Setup an end point URL for your health repository or consumer health application Link health facilities with your health repository </description>
+    </item>
+    <item>
+      <title>Milestone 1</title>
+      <link>http://kiranma72.github.io/abdm-docs/2-milestone1/index.html</link>
+      <pubDate>Thu, 16 Mar 2023 04:10:00 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/2-milestone1/index.html</guid>
+      <description>Get Milestone 1 Certified Functionalities offered by Milestone 1 are:
+Create ABHA number &amp;amp; address - using Aadhaar / Mobile / Driving License Collect &amp;amp; Verify ABHA address during patient registration Here&amp;rsquo;s to help you understand what functionalities are mandatory &amp;amp; optional based on your role:
+Type of application Creation of ABHA number &amp;amp; Address Verification of ABHA address HMIS Application - Used by Hospitals Optional Mandatory LMIS Application - Used only by Labs Optional Mandatory PHR Application - For consumers Mandatory N/A Public Health Application - Used by Health Workers Mandatory Mandatory Teleconsultation Application Optional Mandatory This section covers: Creation of ABHA number Using Aadhaar OTP Using Aadhaar biometric Using Aadhaar demographic(offline mode) Using driving license Creation of ABHA address Using mobile number Using ABHA number Verification of ABHA address By scan &amp;amp; share By OTP By demographic </description>
     </item>
     <item>
       <title>Building a HRP</title>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Verification of ABHA Address on ABDM Sandbox Documentation</title>
+    <link>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/index.html</link>
+    <description>Recent content in Verification of ABHA Address on ABDM Sandbox Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 May 2022 17:53:25 +0530</lastBuildDate><atom:link href="http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>By Scanning Health Facility QR Code</title>
+      <link>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/health-facility-qr-scan/index.html</link>
+      <pubDate>Thu, 16 Mar 2023 09:30:25 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/health-facility-qr-scan/index.html</guid>
+      <description>By Scanning Health Facility QR Code Functionality Overview Patients can scan a Health Facility QR code pasted at the facility registration counter on their ABHA application.
+The User/Patient can share their basic KYC information with the Health Facility (HMIS/LIMS) by scanning the QR Code using the ABHA application. This enables the user/patients to complete the seamless profile share during their visit.
+The authenticity of the profile information is verified by the HIE-CM internally before sharing the data with the Health Facility and before generating and further adding a linking token (Validity of 6 Months) along with the payload which can be used to link the health records through the HIP-initiated Linking service.</description>
+    </item>
+    <item>
+      <title>By Scanning User ABHA QR Code</title>
+      <link>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/index.html</link>
+      <pubDate>Thu, 16 Mar 2023 09:30:25 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/index.html</guid>
+      <description>By Scanning User ABHA QR Code Functionality Overview Health Facility can scan the User&amp;rsquo;s ABHA QR code, whereby User provides consent to link the Health Record to their account.
+Health Facility (HIP) Initiated linking is the process through which an HIP links the patient’s care context (health record) with the patient ABHA Address, after patient registration and creation of health records (in their HMIS/LMIS system).
+Sample QR Codes QR Code in User&amp;rsquo;s ABHA Application QR Code in User&amp;rsquo;s ABHA Card Care context (Health record) linking happens in two steps:</description>
+    </item>
+    <item>
+      <title>By OTP</title>
+      <link>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/by-otp/index.html</link>
+      <pubDate>Thu, 16 Mar 2023 09:30:25 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/by-otp/index.html</guid>
+      <description>By OTP </description>
+    </item>
+    <item>
+      <title>By Demographic</title>
+      <link>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/demographic/index.html</link>
+      <pubDate>Thu, 16 Mar 2023 09:30:25 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/demographic/index.html</guid>
+      <description>By Demographic </description>
+    </item>
+  </channel>
+</rss>

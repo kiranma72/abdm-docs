@@ -83,42 +83,7 @@ paths:
     post:
       tags:
         - bridges
-      summary: Register multiple Bridge services.
-      parameters:
-        - name: Authorization
-          description: Bearer Token received after successful gateway Login.
-          in: header
-          required: true
-          schema:
-            type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AddUpdateServicesRequest'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/AddUpdateServicesRequest'
-      responses:
-        '200':
-          description: OK.
-        '500':
-          description: >
-            **Causes:**
-              * Downstream services are down
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-  /v1/bridges/services:
-    post:
-      tags:
-        - bridges
-      summary: Linking the HIPs / HIUs for a Client ID
+      summary: Linking the facility.
       parameters:
         - name: Authorization
           description: Bearer Token received after successful gateway Login.
@@ -178,28 +143,22 @@ components:
         properties:
           id:
             type: string
-            example: "SERVICE_ID"
+            example: "HIP5234127"
             description: 'this will be the service id'
           name:
             type: string
-            example: "BRIDGE-TEST-HIP"
+            example: "My Nursing Home"
+            description: 'the facility name'
           type:
             type: string
+            example: "HIP"
             enum: [HEALTH_LOCKER, HIP, HIU]
             description: 'this will be the service type like HIP, HIU,   HEALTH_LOCKER'
           active:
             type: boolean
             example: true
             description: 'Status of service if it is active or not'
-          alias:
-            type: array
-            items:
-              type: string
-              example: allias-name
-          endpoints:
-            type: array
-            items:
-              $ref: '#/components/schemas/HIServiceEndpoint'
+         
     BridgesResponse:
       type: object
       required:
