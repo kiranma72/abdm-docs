@@ -62,3 +62,13 @@ Applicable | Test Title | Test Summary | Optional or Mandatory | Test Scenario |
 All|VRFY_ABHA_501 - Reading ABHA Profile Info using ABHA QR Code|System must allow scanning of ABHA QR code to read the ABHA information|Optional|EMR/HMIS scans the user's ABHA QR code|**No content??**|System reads the user information from the ABHA QR code - name, date of birth, gender, mobile and other details into the system for registration.|**No content??**|
 
 
+## API Information Request Response 
+
+**1. Generate link token**
+
+{{< swaggermin src="/abdm-docs/Yaml/HIECM-LinkTokenService.yml" api="POST /v3/token/generate-token$" >}}
+
+**2. Call back API**
+
+{{< swaggermin src="/abdm-docs/Yaml/HIECM-LinkTokenService.yml" api="POST /{callback_url}/v3/hip/token/on-generate-token$" >}}
+
