@@ -129,6 +129,10 @@ Refer to example "Request OTP for mobile verfication"
 {{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/enrol/byDocument" >}}
 
 ## Verification and ABHA number creation:
-After receiving the enrollment number, the user need to approach any facility centers for creating the ABHA number . Health centers would verify the provided demographic details (Name, DOB, Gender) against the document. They also check for already created ABHA Number or Enrollment number against the document
+After receiving the enrollment number, the user need to approach any facility centers for creating the ABHA number .
+![facility_center_link](../facility_center_link.png)
+![search_facility](../search_facility.png)
+
+ Health centers would verify the provided demographic details (Name, DOB, Gender) against the document. They also check for already created ABHA Number or Enrollment number against the document
 
 
