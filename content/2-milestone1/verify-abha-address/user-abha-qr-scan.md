@@ -1,12 +1,12 @@
 +++
-title = "By Scanning User ABHA QR Code"
+title = "Scan User ABHA QR"
 date = 2023-03-16T09:30:25+05:30
 weight = 2
 chapter = true
 pre = "<b>2.3.2 </b>"
 +++
 
-# By Scanning User ABHA QR Code
+# Scan User ABHA QR
 
 ## Functionality Overview
 
@@ -16,13 +16,11 @@ Health Facility (HIP) Initiated linking is the process through which an HIP link
 
 ## Sample QR Codes
 
-1. QR Code in User's ABHA Application
+QR Code|JSON output
+| -------- | ------- |
+Sample QR Code in User's ABHA Application ![ABHA App QR Code](../abha-qr-in-app.png) | ![ABHA App QR Scan](../json-abha-app-qr-scan.png)
+Sample QR Code in User's ABHA Card ![ABHA App QR Code](../abha-card-eg.png) | ![ABHA App QR Scan](../json-abha-card-qr.png)
 
-![PHR App QR Code](../phrqr-in-app.png)
-
-2. QR Code in User's ABHA Card
-
-![ABHA card example](../abha-card-eg.png)
 
 Care context (Health record) linking happens in two steps:
 
@@ -52,9 +50,10 @@ The link token will be used for linking multiple number of care contexts, and co
 
 ## Test Cases:
 
-Applicable | Test Title | Test Summary | Optional or Mandatory | Test Scenario | API Sequence | Expected Result | Actual Result
-| ---| ----------- | --------------- | --- | ------------------- | ------- | ------------- | --------- |
-All|VRFY_ABHA_501 - Reading ABHA Profile Info using ABHA QR Code|System must allow scanning of ABHA QR code to read the ABHA information|Optional|EMR/HMIS scans the user's ABHA QR code|v3/token/generate-token, v3/token/on-generate-token|System reads the user information from the ABHA QR code - name, date of birth, gender, mobile and other details into the system for registration.|**No content??**|
+Applicable To | Test Summary | Test Scenario |
+| --| ----------- | ------------------- |
+{{% badge %}}Optional{{% /badge %}} Applicable to All (VRFY_ABHA_501)| System must allow scanning of ABHA QR code to read the user's ABHA information|EMR/HMIS scans the user's ABHA QR code
+
 
 ## API Sequence Diagram
 
@@ -72,9 +71,6 @@ HRP-->>ABDM Sandbox Gateway:Response 200
 
 
 ## API Information Request Response 
-
-**BASE URL:** https://dev.abdm.gov.in/hiecm/api/ - Sandbox Server URL
-**BASE URL:** https://live.abdm.gov.in/hiecm/api - Production Server URL
 
 **1. Generate link token**
 
