@@ -145,14 +145,14 @@ b. ABHA Address"|User should be able to view card with ABHA  number and ABHA  ad
 
 Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
 
-**URL:** https://dev.ndhm.gov.in/gateway/v0.5/sessions
+**BASE URL:** https://dev.ndhm.gov.in/gateway/
 
 
 **2. Generate Aadhaar OTP on registrered mobile number**
 
 Api accepts Aadhar Card Number and then Generates OTP for Registered Mobile Number
 
-**URL:** https://abhasbx.abdm.gov.in/abha/api/v3/enrollment/request/otp
+**BASE URL:** https://abhasbx.abdm.gov.in/abha/api
 
 Refer to example “Request OTP Aadhaar based enrollment”
 
@@ -164,7 +164,7 @@ Refer to example “Request OTP Aadhaar based enrollment”
 
 API creates ABHA Number using Aadhaar & Mobile which are already Registered.
 
-**URL:** https://abhasbx.abdm.gov.in/abha/api/v3/enrollment/enrol/byAadhaar
+**BASE URL:** https://abhasbx.abdm.gov.in/abha/api
 
 {{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/enrol/byAadhaar$" >}}
 

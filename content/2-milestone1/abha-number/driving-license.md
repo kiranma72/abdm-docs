@@ -97,7 +97,7 @@ note right of Client : Enrollment number
 
   - To get public key for encrypting:
 
-    **URL:** https://healthidsbx.abdm.gov.in/api/v1/auth/cert
+    **BASE URL:** https://healthidsbx.abdm.gov.in/api
 
 {{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="GET /v1/auth/cert$" >}}
 
@@ -110,18 +110,23 @@ note right of Client : Enrollment number
 
 Refer to example "Request OTP For DL based enrollment"
 
+**BASE URL:** https://abhasbx.abdm.gov.in/abha/api
+
 {{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/request/otp$" >}}
 
 **3. Verify the mobile**
 
 Refer to example "Request OTP for mobile verfication"
 
+**BASE URL:** https://abhasbx.abdm.gov.in/abha/api
+
 {{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/request/otp$" >}}
 
 **4. Enroll by DL**
 
-{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/enrol/byDocument" >}}
+**BASE URL:** https://abhasbx.abdm.gov.in/abha/api
 
+{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/enrol/byDocument" >}}
 
 ## Verification and ABHA number creation:
 After receiving the enrollment number, the user need to approach any facility centers for creating the ABHA number . Health centers would verify the provided demographic details (Name, DOB, Gender) against the document. They also check for already created ABHA Number or Enrollment number against the document
