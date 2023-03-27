@@ -91,9 +91,19 @@ HRP->>ABDM Sandbox Gateway:POST/v3/hip/patient/profile/on-share
 
 **1. Profile Sharing** 
 
+**BASE URLs:**
+  - Sandbox Server URL: https://dev.abdm.gov.in/hiecm/api
+  
+  - Production Server URL: https://live.abdm.gov.in/hiecm/api
+
 {{< swaggermin src="/abdm-docs/Yaml/HIE_CM_Profile_Share.yml" api="POST /{callback_url}/v3/hip/patient/profile/share$" >}}
 
 **2. Acknowledgement for shared profile**
+
+**BASE URLs:**
+  - Sandbox Server URL: https://dev.abdm.gov.in/hiecm/api
+
+  - Production Server URL: https://live.abdm.gov.in/hiecm/api
 
 {{< swaggermin src="/abdm-docs/Yaml/HIE_CM_Profile_Share.yml" api="POST /{callback_url}/v3/app/patient/profile/on-share$" >}}
 

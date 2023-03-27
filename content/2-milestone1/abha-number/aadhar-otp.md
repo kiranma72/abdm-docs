@@ -95,7 +95,6 @@ Refer to example “Request OTP Aadhaar based enrollment”
 {{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/request/otp$" >}}
 
 
-
 **3. Create ABHA Number using pre-verified Aadhaar & Mobile.**
 
 API creates ABHA Number using Aadhaar & Mobile which are already Registered.

@@ -74,9 +74,19 @@ HRP-->>ABDM Sandbox Gateway:Response 200
 
 **1. Generate link token**
 
+**BASE URLs:**
+  - Sandbox Server URL: https://dev.abdm.gov.in/hiecm/api/
+
+  - Production Server URL: https://live.abdm.gov.in/hiecm/api
+
 {{< swaggermin src="/abdm-docs/Yaml/HIECM-LinkTokenService.yml" api="POST /v3/token/generate-token" >}}
 
 **2. Call back API**
+
+**BASE URLs:**
+  - Sandbox Server URL: https://dev.abdm.gov.in/hiecm/api/
+
+  - Production Server URL: https://live.abdm.gov.in/hiecm/api
 
 {{< swaggermin src="/abdm-docs/Yaml/HIECM-LinkTokenService.yml" api="POST /{callback_url}/v3/hip/token/on-generate-token$" >}}
 
