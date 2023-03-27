@@ -22,6 +22,10 @@ The user can download the mobile app [here](https://sandbox.abdm.gov.in/docs/phr
 {{< gallery dir="1-basics/SandboxAppInstall" width="200px" height="400px">}} 
 
 ## Create ABHA address
+The user can create ABHA address via:
+ - ABHA Number
+ - Mobile Number
+ - Email ID
 {{< gallery dir="1-basics/createABHAaddress" width="200px" height="400px">}} 
  
 ##### Create via MobileNumber:
