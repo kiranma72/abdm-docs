@@ -9,18 +9,18 @@
     <meta name="author" content="NHA">
     <title>Using Aadhaar OTP - ABDM Sandbox Documentation</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/abdm-docs/css/fontawesome-all.min.css?1679555237" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fontawesome-all.min.css?1679555237" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/nucleus.css?1679555237" rel="stylesheet">
-    <link href="/abdm-docs/css/auto-complete.css?1679555237" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/auto-complete.css?1679555237" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/perfect-scrollbar.min.css?1679555237" rel="stylesheet">
-    <link href="/abdm-docs/css/fonts.css?1679555237" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fonts.css?1679555237" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/theme.css?1679555237" rel="stylesheet">
-    <link href="/abdm-docs/css/theme-auto.css?1679555237" rel="stylesheet" id="variant-style">
-    <link href="/abdm-docs/css/variant.css?1679555237" rel="stylesheet">
-    <link href="/abdm-docs/css/print.css?1679555237" rel="stylesheet" media="print">
-    <link href="/abdm-docs/css/ie.css?1679555237" rel="stylesheet">
-    <script src="/abdm-docs/js/url.js?1679555237"></script>
-    <script src="/abdm-docs/js/variant.js?1679555237"></script>
+    <link href="/abdm-docs/css/fontawesome-all.min.css?1679937968" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fontawesome-all.min.css?1679937968" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/nucleus.css?1679937968" rel="stylesheet">
+    <link href="/abdm-docs/css/auto-complete.css?1679937968" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/auto-complete.css?1679937968" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/perfect-scrollbar.min.css?1679937968" rel="stylesheet">
+    <link href="/abdm-docs/css/fonts.css?1679937968" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fonts.css?1679937968" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/theme.css?1679937968" rel="stylesheet">
+    <link href="/abdm-docs/css/theme-auto.css?1679937968" rel="stylesheet" id="variant-style">
+    <link href="/abdm-docs/css/variant.css?1679937968" rel="stylesheet">
+    <link href="/abdm-docs/css/print.css?1679937968" rel="stylesheet" media="print">
+    <link href="/abdm-docs/css/ie.css?1679937968" rel="stylesheet">
+    <script src="/abdm-docs/js/url.js?1679937968"></script>
+    <script src="/abdm-docs/js/variant.js?1679937968"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -81,7 +81,7 @@
 <li>The User should input the Aadhaar number as an input.</li>
 <li>To enable beneficiary registration using Aadhaar, an integrator needs to generate an OTP and send the same on the linked mobile number.</li>
 <li>For the OTP verification process there is a primary mobile number which user wants to link with ABHA number.</li>
-<li>Once the OTP is verified, system should returns the complete profile data along with 14 digit ABHA (Health ID) Number to the user.</li>
+<li>Once the OTP is verified, system should returns the complete profile data along with 14 digit ABHA Number to the user.</li>
 <li>if the OTP is verified:
 <ul>
 <li>System checks whether the primary mobile number is matching with Aadhaar linked mobile number. If the aadhaar number matches then it will automatically link with ABHA number.</li>
@@ -92,55 +92,134 @@
 <p><strong>Note:</strong> Mobile Number can be linked/verify with ABHA via using API</p>
 <p><strong>Sample User experience:</strong></p>
 <p>
-<a href="#image-6ce9330fb3539db9e461d96c20c7c4dc" class="lightbox-link">
+<a href="#image-10752b4434f7f4ab79f811d034d9d9ea" class="lightbox-link">
 <img src="/abdm-docs/img/aadhaar-otp.gif" alt="sample user experienece" style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-6ce9330fb3539db9e461d96c20c7c4dc">
+<a href="javascript:history.back();" class="lightbox" id="image-10752b4434f7f4ab79f811d034d9d9ea">
 <img src="/abdm-docs/img/aadhaar-otp.gif" alt="sample user experienece" class="lightbox-image" loading="lazy">
 </a></p>
 <h2 id="api-sequence">API Sequence</h2>
 <p>The sequence of APIs used via this method are shown in the diagram below:</p>
-<p><a href="https://mermaid.live/edit#pako:eNp9kk9Lw0AQxb_KsAexUInoLQehtkiDWEOrgrKXbXbSLiSzcTOplNLv7iZpa-K_2zL75s3Ob99OJFajCEWJ7xVSghOjVk7lkthwhjC6nY5g7FCxsQRVaWgFI6XXysHjUyxJJWwdTKPnYBrFQTydS5pZRsgwZbBp0x_CwusRvL3bFoy6dfAWVOVLdJI6_Rc3N23Pefy4eApBFSbYXAd1LXD1G0sOLBcDSXXJq5-jySgKf1g25dP1CzqTbv8UtRPnWBaWSoSry8uTfedpfQWcs1NUegA1mWgy-LLr9swxQbPBllaDxpnVumHTs76z7kM5XevgDPrWwBY27Qb_sTqgQnI2y3Ikbo_BcnvY-we0ztDvxOCArHfV_c0jS7y4fx2DRlYmK08DWmUvPb8jbSSz5j_83rGzqclQDEWOLldG-2TuJAFIwWvMUYrQHzWmqspYCkl7L1UV28WWEhGyq3AoqkIrPgZZhKnKSl9FbXxUH9q0N6EfikLRm7VHzf4TSdz7yg" target="_blank">
-<a href="#image-4b07230d949adeca88080063791db0b0" class="lightbox-link">
-<img src="https://mermaid.ink/img/pako:eNp9kk9Lw0AQxb_KsAexUInoLQehtkiDWEOrgrKXbXbSLiSzcTOplNLv7iZpa-K_2zL75s3Ob99OJFajCEWJ7xVSghOjVk7lkthwhjC6nY5g7FCxsQRVaWgFI6XXysHjUyxJJWwdTKPnYBrFQTydS5pZRsgwZbBp0x_CwusRvL3bFoy6dfAWVOVLdJI6_Rc3N23Pefy4eApBFSbYXAd1LXD1G0sOLBcDSXXJq5-jySgKf1g25dP1CzqTbv8UtRPnWBaWSoSry8uTfedpfQWcs1NUegA1mWgy-LLr9swxQbPBllaDxpnVumHTs76z7kM5XevgDPrWwBY27Qb_sTqgQnI2y3Ikbo_BcnvY-we0ztDvxOCArHfV_c0jS7y4fx2DRlYmK08DWmUvPb8jbSSz5j_83rGzqclQDEWOLldG-2TuJAFIwWvMUYrQHzWmqspYCkl7L1UV28WWEhGyq3AoqkIrPgZZhKnKSl9FbXxUH9q0N6EfikLRm7VHzf4TSdz7yg?type=png" alt="" style="height: auto; width: auto;" loading="lazy">
-</a>
-<a href="javascript:history.back();" class="lightbox" id="image-4b07230d949adeca88080063791db0b0">
-<img src="https://mermaid.ink/img/pako:eNp9kk9Lw0AQxb_KsAexUInoLQehtkiDWEOrgrKXbXbSLiSzcTOplNLv7iZpa-K_2zL75s3Ob99OJFajCEWJ7xVSghOjVk7lkthwhjC6nY5g7FCxsQRVaWgFI6XXysHjUyxJJWwdTKPnYBrFQTydS5pZRsgwZbBp0x_CwusRvL3bFoy6dfAWVOVLdJI6_Rc3N23Pefy4eApBFSbYXAd1LXD1G0sOLBcDSXXJq5-jySgKf1g25dP1CzqTbv8UtRPnWBaWSoSry8uTfedpfQWcs1NUegA1mWgy-LLr9swxQbPBllaDxpnVumHTs76z7kM5XevgDPrWwBY27Qb_sTqgQnI2y3Ikbo_BcnvY-we0ztDvxOCArHfV_c0jS7y4fx2DRlYmK08DWmUvPb8jbSSz5j_83rGzqclQDEWOLldG-2TuJAFIwWvMUYrQHzWmqspYCkl7L1UV28WWEhGyq3AoqkIrPgZZhKnKSl9FbXxUH9q0N6EfikLRm7VHzf4TSdz7yg?type=png" alt="" class="lightbox-image" loading="lazy">
-</a></a></p>
+
+<div class="mermaid align-center">
+%%{init:{&#34;fontSize&#34;: &#34;1.0rem&#34;, &#34;sequence&#34;:{&#34;showSequenceNumbers&#34;:true}}}%%
+sequenceDiagram
+title ABHA Creation using Aadhar OTP
+actor HIU/HIP/PHR
+Note left of ABHA: Share encrypted Aadhaar number
+HIU/HIP/PHR-&gt;&gt;ABHA: (POST: /v3/enrollment/request/otp)
+ABHA-&gt;&gt;UIDAI: Aadhaar number
+UIDAI-&gt;&gt;UIDAI:Verify Aadhaar number
+UIDAI-&gt;&gt;ABHA: Response 200
+ABHA-&gt;&gt;HIU/HIP/PHR: Response 200 (transaction ID)
+UIDAI-&gt;&gt;HIU/HIP/PHR:Receive OTP
+Note right of HIU/HIP/PHR: Forward OTP &amp; transaction ID to verify
+HIU/HIP/PHR-&gt;&gt;ABHA: (POST: /v3/enrollment/enrol/byAadhaar)
+ABHA-&gt;&gt;UIDAI: Forward OTP
+UIDAI-&gt;&gt;UIDAI: Verify OTP
+UIDAI-&gt;&gt;ABHA: Share Aadhaar e-KYC details
+ABHA-&gt;&gt;ABHA: ABHA Creation
+ABHA-&gt;&gt;HIU/HIP/PHR: ABHA Number &amp; Profile
+</div>
 <h2 id="abha-otp-test-cases">ABHA OTP Test Cases:</h2>
 <table>
 <thead>
 <tr>
-<th>Applicable</th>
-<th>Test Title</th>
-<th>Test Summary</th>
-<th>Optional or Mandatory</th>
-<th>Test Scenario</th>
-<th>API Sequence</th>
-<th>Expected Result</th>
-<th>Actual Result</th>
+<th>S.No</th>
+<th>Functionality</th>
+<th>Test Case</th>
+<th>Steps To Be Executed</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>CRT_ABHA_02 - HRPs / HIPs</td>
-<td>ABHA creation - Assisted</td>
-<td>Hospital user will create ABHA using patient Aadhaar based mobile OTP</td>
-<td>Optional</td>
-<td>EMR/HMIS system will take the Aadhaar number, OTP and consent of the patient to create ABHA.</td>
-<td>v1/registration/aadhaar/generateOtp, v1/registration/aadhaar/verifyOTP, v1/registration/aadhaar/generateMobileOTP, v1/registration/aadhaar/verifyMobileOTP, v1/registration/aadhaar/createHealthIdbyAadhar, v1/search/existsByHealthId&quot;</td>
-<td>Successful creation of ABHA</td>
-<td>ABHA generated</td>
+<td>1.1</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> Create ABHA Option (CRT_ABHA_101)</td>
+<td>The system must provide an option to create ABHA through Aadhaar OTP</td>
+<td></td>
+</tr>
+<tr>
+<td>1.2</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> Consent collection (CRT_ABHA_102)</td>
+<td>The system must display the  consent language/ disclaimer language and collect user&rsquo;s consent as per the ABDM published  consent.</td>
+<td>1. Read consent language. 2. Agree to the consent language (through &lsquo;I agree&rsquo; checkbox or any other form of signature)</td>
+</tr>
+<tr>
+<td></td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Consent collection should be multilingual  (CRT_ABHA_103)</td>
+<td>The system should be able to provide the consent in languages other than English also</td>
+<td>1. Read consent language. 2. Agree to the consent language (through &lsquo;I agree&rsquo; checkbox or any other form of signature)</td>
+</tr>
+<tr>
+<td>1.3</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> Aadhaar collection and Error Message (CRT_ABHA_104)</td>
+<td>System must allow the user to enter Aadhaar Number and the system will display an error message for invalid Aadhaar Number</td>
+<td>Enter Aadhaar number</td>
+</tr>
+<tr>
+<td>1.4</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> Aadhaar OTP Collection (CRT_ABHA_105)</td>
+<td>User receives Aadhaar OTP and System must allow the user to enter Aadhaar OTP</td>
+<td>1. Receive OTP on mobile number registered with Aadhaar. 2. Enter Aadhaar OTP</td>
+</tr>
+<tr>
+<td>1.5</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> Resend OTP (CRT_ABHA_106)</td>
+<td>System may activate the Resend OTP button atleast 2 times after 60 seconds</td>
+<td>1. Click on Resend OTP Button. 2. Receive OTP on mobile</td>
+</tr>
+<tr>
+<td>1.6</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> OTP based Aadhaar Authentication (CRT_ABHA_107)</td>
+<td>System must verify the OTP</td>
+<td>Click on verify button(For Resend and Send). It is recommended that verify button be auto enabled</td>
+</tr>
+<tr>
+<td>1.7</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Communication Mobile Number (CRT_ABHA_108)</td>
+<td>1. If communication mobile number is same as Aadhaar linked mobile number then it should directly go to ABHA  creation screen. 2. Alternatively, Integrators may also prompt for OTP  again from the user and then post verification of OTP user can go to ABHA  creation screen.</td>
+<td>System will check entered mobile is same as Aadhaar linked mobile number. If returns true then user will directed to ABHA  creation screen.</td>
+</tr>
+<tr>
+<td>1.8</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> Mobile Number Verification (CRT_ABHA_109)</td>
+<td>If communication mobile number is not same as Aadhaar linked mobile number then system must ask for the OTP to verify comuncation mobile number.</td>
+<td>System must verify the mobile number. 1. System must send OTP on mobile number. 2. User enters the OTP and clicks on verify. 3. In case of incorrect OTP</td>
+</tr>
+<tr>
+<td></td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span>for Private /Government(Suggested for integrators program using demo auth). Suggested ABHA Address (CRT_ABHA_112)</td>
+<td>The system should allow the user to select  the ABHA  address giving atleast 3 available suggestions</td>
+<td>1. Governemnt integrator may use the default ABHA  address. 2. System should have a provision for private integrators to proceed with the suggested ABHA  and to create a new ABHA  address.</td>
+</tr>
+<tr>
+<td>1.9</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> Display of ABHA Number (CRT_ABHA_113)</td>
+<td>System must display the created ABHA Number</td>
+<td>1. System shows the 14-digit ABHA number and ABHA  address  generated</td>
+</tr>
+<tr>
+<td>1.10</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> for Private. View and Download ABHA details (If integrators is generating ABHA card) (CRT_ABHA_114)</td>
+<td>System must have a provision to View / Download ABHA card</td>
+<td>1. System should show the user their ABHA Card. 2. ABHA Card should be generated by API and should contain: a. ABHA Number (Mandatory). b. User Photo-Optional. c. ABHA QR code. d. date of birth and gender. e. ABHA Address</td>
+</tr>
+<tr>
+<td></td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory &amp; Optional</span></span> Either of the test cases CRT_ABHA_114 or CRT_ABHA_115 is mandatory for Governement Optional for Private. View and Download ABHA details. (If integrators  is not  generating ABHA card)  (CRT_ABHA_115)</td>
+<td>If Integrator is not generating ABHA card.</td>
+<td>1. If Integrator is not generating ABHA card then They print the mentioned information on their own card. a. ABHA Number (Mandatory). b. ABHA Address</td>
 </tr>
 </tbody>
 </table>
 <h2 id="api-information-request-response">API Information Request Response</h2>
 <p><strong>1. <a href="/abdm-docs/1-basics/verify_sandbox_access/#create-gateway-session-token">Create Gateway Session Token</a></strong></p>
 <p>Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.</p>
-<p><strong>URL:</strong> <a href="https://dev.ndhm.gov.in/gateway/v0.5/sessions" target="_blank">https://dev.ndhm.gov.in/gateway/v0.5/sessions</a></p>
+<p><strong>BASE URL:</strong> <a href="https://dev.ndhm.gov.in/gateway/" target="_blank">https://dev.ndhm.gov.in/gateway/</a></p>
 <p><strong>2. Generate Aadhaar OTP on registrered mobile number</strong></p>
 <p>Api accepts Aadhar Card Number and then Generates OTP for Registered Mobile Number</p>
-<p><strong>URL:</strong> <a href="https://abhasbx.abdm.gov.in/abha/api/v3/enrollment/request/otp" target="_blank">https://abhasbx.abdm.gov.in/abha/api/v3/enrollment/request/otp</a></p>
+<p><strong>BASE URL:</strong> <a href="https://abhasbx.abdm.gov.in/abha/api" target="_blank">https://abhasbx.abdm.gov.in/abha/api</a></p>
+<p>Refer to example “Request OTP Aadhaar based enrollment”</p>
 
 <rapi-doc-mini
   spec-url="/abdm-docs/Yaml/abha_enrollment_api.yml"
@@ -155,12 +234,12 @@
 ></rapi-doc-mini>
 <p><strong>3. Create ABHA Number using pre-verified Aadhaar &amp; Mobile.</strong></p>
 <p>API creates ABHA Number using Aadhaar &amp; Mobile which are already Registered.</p>
-<p><strong>URL:</strong> <a href="https://abhasbx.abdm.gov.in/abha/api/v3/enrollment/enrol/byAadhaar" target="_blank">https://abhasbx.abdm.gov.in/abha/api/v3/enrollment/enrol/byAadhaar</a></p>
+<p><strong>BASE URL:</strong> <a href="https://abhasbx.abdm.gov.in/abha/api" target="_blank">https://abhasbx.abdm.gov.in/abha/api</a></p>
 
 <rapi-doc-mini
   spec-url="/abdm-docs/Yaml/abha_enrollment_api.yml"
   paths-expanded = "true"
-  match-paths = POST&#32;/api/v3/enrollment/enrol/byAadhaar$
+  match-paths = POST&#32;/v3/enrollment/enrol/byAadhaar$
   match-type = "regex"
   layout="column"
   allow-try="false"
@@ -190,12 +269,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/abdm-docs/js/auto-complete.js?1679555237" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.min.js?1679555237" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.stemmer.support.min.js?1679555237" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.multi.min.js?1679555237" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.en.min.js?1679555237" defer></script>
-        <script src="/abdm-docs/js/search.js?1679555237" defer></script>
+        <script src="/abdm-docs/js/auto-complete.js?1679937969" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.min.js?1679937969" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.stemmer.support.min.js?1679937969" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.multi.min.js?1679937969" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.en.min.js?1679937969" defer></script>
+        <script src="/abdm-docs/js/search.js?1679937969" defer></script>
       </div>
       <div id="content-wrapper" class="highlightable">
         <ul class="topics enlarge morespace collapsible-menu">
@@ -205,8 +284,9 @@
           <li data-nav-id="/abdm-docs/1-basics/abdm_sandbox_signup/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/abdm_sandbox_signup/index.html"><b>1.3 </b>ABDM Sandbox Signup</a></li>
           <li data-nav-id="/abdm-docs/1-basics/verify_sandbox_access/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/verify_sandbox_access/index.html"><b>1.4 </b>Verify Sandbox Access</a></li>
           <li data-nav-id="/abdm-docs/1-basics/postman_setup/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/postman_setup/index.html"><b>1.5 </b>Postman Setup</a></li>
-          <li data-nav-id="/abdm-docs/1-basics/working_with_abdm_apis/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/working_with_abdm_apis/index.html"><b>1.6 </b>Working with ABDM APIs</a></li>
-          <li data-nav-id="/abdm-docs/1-basics/making_your_app_abdm_compliant/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/making_your_app_abdm_compliant/index.html"><b>1.7 </b>Making your App ABDM Compliant</a></li></ul></li>
+          <li data-nav-id="/abdm-docs/1-basics/sandbox_abha_app/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/sandbox_abha_app/index.html"><b>1.6 </b>Sandbox ABHA App</a></li>
+          <li data-nav-id="/abdm-docs/1-basics/working_with_abdm_apis/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/working_with_abdm_apis/index.html"><b>1.7 </b>Working with ABDM APIs</a></li>
+          <li data-nav-id="/abdm-docs/1-basics/making_your_app_abdm_compliant/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/making_your_app_abdm_compliant/index.html"><b>1.8 </b>Making your App ABDM Compliant</a></li></ul></li>
           <li data-nav-id="/abdm-docs/2-milestone1/index.html" class="parent "><input type="checkbox" id="section-e5e5bd8567b0cc0959e119b9f25ebb13" aria-controls="subsections-e5e5bd8567b0cc0959e119b9f25ebb13" checked><label for="section-e5e5bd8567b0cc0959e119b9f25ebb13"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu Milestone 1</span></label><a class="padding" href="/abdm-docs/2-milestone1/index.html"><b>2. </b>Milestone 1</a><ul id="subsections-e5e5bd8567b0cc0959e119b9f25ebb13" class="morespace collapsible-menu">
           <li data-nav-id="/abdm-docs/2-milestone1/abha-number/index.html" class="parent "><input type="checkbox" id="section-11bcd80f90d12117b89b159ff8f0076f" aria-controls="subsections-11bcd80f90d12117b89b159ff8f0076f" checked><label for="section-11bcd80f90d12117b89b159ff8f0076f"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu Creation of ABHA Number</span></label><a class="padding" href="/abdm-docs/2-milestone1/abha-number/index.html"><b>2.1 </b>Creation of ABHA Number</a><ul id="subsections-11bcd80f90d12117b89b159ff8f0076f" class="morespace collapsible-menu">
           <li data-nav-id="/abdm-docs/2-milestone1/abha-number/aadhar-otp/index.html" class="active"><a class="padding" href="/abdm-docs/2-milestone1/abha-number/aadhar-otp/index.html"><b>2.1.1 </b>Using Aadhaar OTP</a></li>
@@ -217,8 +297,8 @@
           <li data-nav-id="/abdm-docs/2-milestone1/abha-address/mobile-no/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/abha-address/mobile-no/index.html"><b>2.2.1 </b>Using Mobile Number</a></li>
           <li data-nav-id="/abdm-docs/2-milestone1/abha-address/abha-no/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/abha-address/abha-no/index.html"><b>2.2.2 </b>Using ABHA Number</a></li></ul></li>
           <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/index.html" class=""><input type="checkbox" id="section-61418145efe2c30ad74c7e5d82f28174" aria-controls="subsections-61418145efe2c30ad74c7e5d82f28174"><label for="section-61418145efe2c30ad74c7e5d82f28174"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu Verification of ABHA Address</span></label><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/index.html"><b>2.3 </b>Verification of ABHA Address</a><ul id="subsections-61418145efe2c30ad74c7e5d82f28174" class="morespace collapsible-menu">
-          <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/health-facility-qr-scan/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/health-facility-qr-scan/index.html"><b>2.3.1 </b>By Scanning Health Facility QR Code</a></li>
-          <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/index.html"><b>2.3.2 </b>By Scanning User ABHA QR Code</a></li>
+          <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/health-facility-qr-scan/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/health-facility-qr-scan/index.html"><b>2.3.1 </b>Scan Health Facility QR</a></li>
+          <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/index.html"><b>2.3.2 </b>Scan User ABHA QR</a></li>
           <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/by-otp/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/by-otp/index.html"><b>2.3.3 </b>By OTP</a></li>
           <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/demographic/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/demographic/index.html"><b>2.3.4 </b>By Demographic</a></li></ul></li></ul></li>
           <li data-nav-id="/abdm-docs/2-sharing-health-records/index.html" class=""><input type="checkbox" id="section-7cdf3b49dbbca87921df1a2ef79cf6fa" aria-controls="subsections-7cdf3b49dbbca87921df1a2ef79cf6fa"><label for="section-7cdf3b49dbbca87921df1a2ef79cf6fa"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu Building a HRP</span></label><a class="padding" href="/abdm-docs/2-sharing-health-records/index.html"><b>2. </b>Building a HRP</a><ul id="subsections-7cdf3b49dbbca87921df1a2ef79cf6fa" class="morespace collapsible-menu">
@@ -346,8 +426,8 @@
         </div>
       </div>
     </aside>
-    <script src="/abdm-docs/js/clipboard.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/perfect-scrollbar.min.js?1679555237" defer></script>
+    <script src="/abdm-docs/js/clipboard.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/perfect-scrollbar.min.js?1679937969" defer></script>
     <script>
       function useMathJax( config ){
         if( !Object.assign ){
@@ -377,15 +457,15 @@
       useMathJax( JSON.parse("{}") );
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="/abdm-docs/js/d3/d3-color.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/d3/d3-dispatch.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/d3/d3-drag.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/d3/d3-ease.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/d3/d3-interpolate.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/d3/d3-selection.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/d3/d3-timer.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/d3/d3-transition.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/d3/d3-zoom.min.js?1679555237" defer></script>
+    <script src="/abdm-docs/js/d3/d3-color.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-dispatch.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-drag.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-ease.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-interpolate.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-selection.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-timer.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-transition.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-zoom.min.js?1679937969" defer></script>
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
       mermaid.initialize({ startOnLoad: true });
@@ -397,6 +477,6 @@
     <script>
       window.themeUseSwagger = JSON.parse("{ \"theme\": \"light\" }");
     </script>
-    <script src="/abdm-docs/js/theme.js?1679555237" defer></script>
+    <script src="/abdm-docs/js/theme.js?1679937969" defer></script>
   </body>
 </html>

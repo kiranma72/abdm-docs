@@ -67,7 +67,7 @@ components:
       name: X_CM_ID
       in: header
       required: true
-      description: Suffix of the consent manager to which the request was intended
+      description: Suffix of the consent manager to which the request was intended (sbx for sandbox & abdm for production)
       schema:
         type: string
         format: string

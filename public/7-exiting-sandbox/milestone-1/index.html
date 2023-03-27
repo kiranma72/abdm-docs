@@ -9,18 +9,18 @@
     <meta name="author" content="NHA">
     <title> Milestone 1 - ABDM Sandbox Documentation</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/abdm-docs/css/fontawesome-all.min.css?1679555237" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fontawesome-all.min.css?1679555237" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/nucleus.css?1679555237" rel="stylesheet">
-    <link href="/abdm-docs/css/auto-complete.css?1679555237" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/auto-complete.css?1679555237" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/perfect-scrollbar.min.css?1679555237" rel="stylesheet">
-    <link href="/abdm-docs/css/fonts.css?1679555237" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fonts.css?1679555237" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/theme.css?1679555237" rel="stylesheet">
-    <link href="/abdm-docs/css/theme-auto.css?1679555237" rel="stylesheet" id="variant-style">
-    <link href="/abdm-docs/css/variant.css?1679555237" rel="stylesheet">
-    <link href="/abdm-docs/css/print.css?1679555237" rel="stylesheet" media="print">
-    <link href="/abdm-docs/css/ie.css?1679555237" rel="stylesheet">
-    <script src="/abdm-docs/js/url.js?1679555237"></script>
-    <script src="/abdm-docs/js/variant.js?1679555237"></script>
+    <link href="/abdm-docs/css/fontawesome-all.min.css?1679937968" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fontawesome-all.min.css?1679937968" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/nucleus.css?1679937968" rel="stylesheet">
+    <link href="/abdm-docs/css/auto-complete.css?1679937968" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/auto-complete.css?1679937968" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/perfect-scrollbar.min.css?1679937968" rel="stylesheet">
+    <link href="/abdm-docs/css/fonts.css?1679937968" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fonts.css?1679937968" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/theme.css?1679937968" rel="stylesheet">
+    <link href="/abdm-docs/css/theme-auto.css?1679937968" rel="stylesheet" id="variant-style">
+    <link href="/abdm-docs/css/variant.css?1679937968" rel="stylesheet">
+    <link href="/abdm-docs/css/print.css?1679937968" rel="stylesheet" media="print">
+    <link href="/abdm-docs/css/ie.css?1679937968" rel="stylesheet">
+    <script src="/abdm-docs/js/url.js?1679937968"></script>
+    <script src="/abdm-docs/js/variant.js?1679937968"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -57,8 +57,8 @@
           <div class="default-animation progress">
             <div class="toc-wrapper"><nav id="TableOfContents">
   <ul>
-    <li><a href="#abha-apis-collection">ABHA APIs Collection</a></li>
     <li><a href="#test-cases">Test Cases</a></li>
+    <li><a href="#abha-apis-collection">ABHA APIs Collection</a></li>
   </ul>
 </nav>
             </div>
@@ -73,6 +73,399 @@
 
 <h1 id="milestone-1">Milestone 1</h1>
 <p><strong>Milestone 1:</strong> ABHA creation and capture &amp; verification for seamless patient registration</p>
+<h2 id="test-cases">Test Cases</h2>
+<p>The Milestone 1 test cases are applicable to All the stakeholders.</p>
+<table>
+<thead>
+<tr>
+<th>S.No</th>
+<th>Function</th>
+<th>Functionality</th>
+<th>Test Case</th>
+<th>Steps To Be Executed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.1</td>
+<td>ABHA Creation Through Aadhaar OTP</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> Create ABHA Option (CRT_ABHA_101)</td>
+<td>The system must provide an option to create ABHA through Aadhaar OTP</td>
+<td></td>
+</tr>
+<tr>
+<td>1.2</td>
+<td>ABHA Creation Through Aadhaar OTP</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> Consent collection (CRT_ABHA_102)</td>
+<td>The system must display the  consent language/ disclaimer language and collect user&rsquo;s consent as per the ABDM published  consent.</td>
+<td>1. Read consent language. 2. Agree to the consent language (through &lsquo;I agree&rsquo; checkbox or any other form of signature)</td>
+</tr>
+<tr>
+<td></td>
+<td>ABHA Creation Through Aadhaar OTP</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Consent collection should be multilingual  (CRT_ABHA_103)</td>
+<td>The system should be able to provide the consent in languages other than English also</td>
+<td>1. Read consent language. 2. Agree to the consent language (through &lsquo;I agree&rsquo; checkbox or any other form of signature)</td>
+</tr>
+<tr>
+<td>1.3</td>
+<td>ABHA Creation Through Aadhaar OTP</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> Aadhaar collection and Error Message (CRT_ABHA_104)</td>
+<td>System must allow the user to enter Aadhaar Number and the system will display an error message for invalid Aadhaar Number</td>
+<td>Enter Aadhaar number</td>
+</tr>
+<tr>
+<td>1.4</td>
+<td>ABHA Creation Through Aadhaar OTP</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> Aadhaar OTP Collection (CRT_ABHA_105)</td>
+<td>User receives Aadhaar OTP and System must allow the user to enter Aadhaar OTP</td>
+<td>1. Receive OTP on mobile number registered with Aadhaar. 2. Enter Aadhaar OTP</td>
+</tr>
+<tr>
+<td>1.5</td>
+<td>ABHA Creation Through Aadhaar OTP</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> Resend OTP (CRT_ABHA_106)</td>
+<td>System may activate the Resend OTP button atleast 2 times after 60 seconds</td>
+<td>1. Click on Resend OTP Button. 2. Receive OTP on mobile</td>
+</tr>
+<tr>
+<td>1.6</td>
+<td>ABHA Creation Through Aadhaar OTP</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> OTP based Aadhaar Authentication (CRT_ABHA_107)</td>
+<td>System must verify the OTP</td>
+<td>Click on verify button(For Resend and Send). It is recommended that verify button be auto enabled</td>
+</tr>
+<tr>
+<td>1.7</td>
+<td>ABHA Creation Through Aadhaar OTP</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Communication Mobile Number (CRT_ABHA_108)</td>
+<td>1. If communication mobile number is same as Aadhaar linked mobile number then it should directly go to ABHA  creation screen. 2. Alternatively, Integrators may also prompt for OTP  again from the user and then post verification of OTP user can go to ABHA  creation screen.</td>
+<td>System will check entered mobile is same as Aadhaar linked mobile number. If returns true then user will directed to ABHA  creation screen.</td>
+</tr>
+<tr>
+<td>1.8</td>
+<td>ABHA Creation Through Aadhaar OTP</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> Mobile Number Verification (CRT_ABHA_109)</td>
+<td>If communication mobile number is not same as Aadhaar linked mobile number then system must ask for the OTP to verify comuncation mobile number.</td>
+<td>System must verify the mobile number. 1. System must send OTP on mobile number. 2. User enters the OTP and clicks on verify. 3. In case of incorrect OTP</td>
+</tr>
+<tr>
+<td></td>
+<td>ABHA Creation Through Aadhaar OTP</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span>for Private /Government(Suggested for integrators program using demo auth). Suggested ABHA Address (CRT_ABHA_112)</td>
+<td>The system should allow the user to select  the ABHA  address giving atleast 3 available suggestions</td>
+<td>1. Governemnt integrator may use the default ABHA  address. 2. System should have a provision for private integrators to proceed with the suggested ABHA  and to create a new ABHA  address.</td>
+</tr>
+<tr>
+<td>1.9</td>
+<td>ABHA Creation Through Aadhaar OTP</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> Display of ABHA Number (CRT_ABHA_113)</td>
+<td>System must display the created ABHA Number</td>
+<td>1. System shows the 14-digit ABHA number and ABHA  address  generated</td>
+</tr>
+<tr>
+<td>1.10</td>
+<td>ABHA Creation Through Aadhaar OTP</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> for Private. View and Download ABHA details (If integrators is generating ABHA card) (CRT_ABHA_114)</td>
+<td>System must have a provision to View / Download ABHA card</td>
+<td>1. System should show the user their ABHA Card. 2. ABHA Card should be generated by API and should contain: a. ABHA Number (Mandatory). b. User Photo-Optional. c. ABHA QR code. d. date of birth and gender. e. ABHA Address</td>
+</tr>
+<tr>
+<td></td>
+<td>ABHA Creation Through Aadhaar OTP</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory &amp; Optional</span></span> Either of the test cases CRT_ABHA_114 or CRT_ABHA_115 is mandatory for Governement Optional for Private. View and Download ABHA details. (If integrators  is not  generating ABHA card)  (CRT_ABHA_115)</td>
+<td>If Integrator is not generating ABHA card.</td>
+<td>1. If Integrator is not generating ABHA card then They print the mentioned information on their own card. a. ABHA Number (Mandatory). b. ABHA Address</td>
+</tr>
+<tr>
+<td>2.1</td>
+<td>ABHA Creation Through Aadhaar Biometric</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span>Create ABHA Option (CRT_ABHA_201)</td>
+<td>The system must provide an option to create ABHA through Aadhaar Biometric</td>
+<td></td>
+</tr>
+<tr>
+<td>2.2</td>
+<td>ABHA Creation Through Aadhaar Biometric</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Consent collection (CRT_ABHA_202)</td>
+<td>The system must display the  consent language/ disclaimer language and collect user&rsquo;s consent as per the ABDM published  consent.</td>
+<td>1. Read consent language. 2. Agree to the consent language (through &lsquo;I agree&rsquo; checkbox or any other form of signature)</td>
+</tr>
+<tr>
+<td></td>
+<td>ABHA Creation Through Aadhaar Biometric</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Consent collection should be multilingual  (CRT_ABHA_203)</td>
+<td>The system should be able to provide the consent in languages other than English also</td>
+<td>1. Read consent language. 2. Agree to the consent language (through &lsquo;I agree&rsquo; checkbox or any other form of signature)</td>
+</tr>
+<tr>
+<td>2.3</td>
+<td>ABHA Creation Through Aadhaar Biometric</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Aadhaar collection and Error Message (CRT_ABHA_204)</td>
+<td>System must allow the user to enter Aadhaar Number and the system will display an error message for invalid Aadhaar Number</td>
+<td>1. Enter Aadhaar number</td>
+</tr>
+<tr>
+<td>2.4</td>
+<td>ABHA Creation Through Aadhaar Biometric</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Biometric based Aadhaar Authentication (CRT_ABHA_205)</td>
+<td>System must verify the biometrics (fingerprint or face) of the user</td>
+<td>1. Scan biometrics (Fingerprint). 2. Click on verify button</td>
+</tr>
+<tr>
+<td>2.5</td>
+<td>ABHA Creation Through Aadhaar Biometric</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Communication Mobile Number (CRT_ABHA_206)</td>
+<td>1. If communication mobile number is same as Aadhaar linked mobile number then it should directly go to ABHA creation screen. 2. Alternatively, Integrators may also prompt for OTP  again from the user and then post verification of OTP user can go to ABHA  creation screen.</td>
+<td>System will check entered mobile is same as Aadhaar linked mobile number. If returns true then user will directed to ABHA  creation screen.</td>
+</tr>
+<tr>
+<td>2.6</td>
+<td>ABHA Creation Through Aadhaar Biometric</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Mobile Number Verification (CRT_ABHA_207)</td>
+<td>If communication mobile number is not same as Aadhaar linked mobile number then system must ask for the OTP to verify comuncation mobile number.</td>
+<td>System must verify the mobile number. 1. System must send OTP on mobile number. 2. User enters the OTP and clicks on verify. 3. In case of incorrect OTP</td>
+</tr>
+<tr>
+<td>2.7</td>
+<td>ABHA Creation Through Aadhaar Biometric</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Display of ABHA Number (CRT_ABHA_208)</td>
+<td>System must display the created ABHA Number</td>
+<td>1. System shows the 14-digit ABHA number and ABHA  address  generated. 2. The Label should read  ABHA Number and not  Health ID</td>
+</tr>
+<tr>
+<td>2.8</td>
+<td>ABHA Creation Through Aadhaar Biometric</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> View and Download ABHA details. (If integrators is generating ABHA card)  (CRT_ABHA_209)</td>
+<td>System must have a provision to View / Download ABHA card</td>
+<td>1. System should show the user their ABHA Card. 2. ABHA Card should be generated by API and should contain: a. ABHA Number (Mandatory). b. User Photo-Optional. c. ABHA QR code.md. date of birth and gender. e. ABHA Address</td>
+</tr>
+<tr>
+<td></td>
+<td>ABHA Creation Through Aadhaar Biometric</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> View and Download ABHA details. (If integrators  is not  generating ABHA card) (CRT_ABHA_210)&quot;</td>
+<td>If Integrator is not generating ABHA card.</td>
+<td>If Integrator is not generating ABHA card then They print the mentioned information on their own card: a. ABHA Number (Mandatory). b. ABHA Address</td>
+</tr>
+<tr>
+<td>3.1</td>
+<td>ABHA Creation Through Demo Auth/ Offline Mode (Avaibale Only for trusted entities. All government Entities are  elligible</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> Create ABHA Option (CRT_ABHA_301)</td>
+<td>The system must provide an option to create ABHA through Aadhaar Demographic/ Offline Mode</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>ABHA Creation Through Demo Auth/ Offline Mode (Avaibale Only for trusted entities. All    government Entities    are  elligible</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> Consent collection (CRT_ABHA_302)</td>
+<td>The system must display the  consent language/ disclaimer language and collect user&rsquo;s consent as per the ABDM published  consent.</td>
+<td>1. Read consent language. 2. Agree to the consent language (through &lsquo;I agree&rsquo; checkbox or any other form of signature)</td>
+</tr>
+<tr>
+<td>3.2</td>
+<td>ABHA Creation Through Demo Auth/ Offline Mode (Avaibale Only for trusted entities. All government Entities are elligible</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Consent collection should be multilingual  (CRT_ABHA_303)</td>
+<td>The system should be able to provide the consent in languages other than English also</td>
+<td>1. Read consent language. 2. Agree to the consent language (through &lsquo;I agree&rsquo; checkbox or any other form of signature)</td>
+</tr>
+<tr>
+<td>3.3</td>
+<td>ABHA Creation Through Demo Auth/ Offline Mode (Avaibale Only for trusted entities. All government Entities are elligible</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Aadhaar collection and Error Message (CRT_ABHA_304)</td>
+<td>System must allow the user to enter Aadhaar Number and the system will display an error message for invalid Aadhaar Number</td>
+<td>Enter Aadhaar number</td>
+</tr>
+<tr>
+<td>3.4</td>
+<td>ABHA Creation Through Demo Auth/ Offline Mode (Avaibale Only for trusted entities. All government Entities are  elligible</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Demographic Information based authentication (CRT_ABHA_305)</td>
+<td>System must verify the demographic information of the user against their Aadhaar</td>
+<td>Enter name, date of birth and gender as per Aadhaar</td>
+</tr>
+<tr>
+<td>3.5</td>
+<td>ABHA Creation Through Demo Auth/ Offline Mode (Avaibale Only for trusted entities. All government Entities are  elligible</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Profile Completion (CRT_ABHA_306)</td>
+<td>System should accepts user&rsquo;s profile information - state, district, photo and mobile number</td>
+<td>1. System auto-populates State,district information. 2. Verifies State and District information and enters Photo and mobile number</td>
+</tr>
+<tr>
+<td>3.6</td>
+<td>ABHA Creation Through Demo Auth/ Offline Mode (Avaibale Only for trusted entities. All government Entities are  elligible</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Display of ABHA Number (CRT_ABHA_307)</td>
+<td>System must display the created ABHA Number</td>
+<td>System shows the 14-digit ABHA number and ABHA  address  generated</td>
+</tr>
+<tr>
+<td></td>
+<td>ABHA Creation Through Demo Auth/ Offline Mode (Avaibale Only for trusted entities. All    government Entities    are  elligible</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> View and Download ABHA details. (If integrators is generating ABHA card)  (CRT_ABHA_308)&quot;</td>
+<td>System must have a provision to View / Download ABHA card</td>
+<td>1. System should show the user their ABHA Card. 2. ABHA Card should be generated by API and should contain: ABHA Number (Mandatory), User Photo(Optional), ABHA QR code, date of birth and gender, ABHA Address</td>
+</tr>
+<tr>
+<td>3.7</td>
+<td>ABHA Creation Through Demo Auth/ Offline Mode (Avaibale Only for trusted entities. All government Entities are  elligible</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> View and Download ABHA details. (If integrators  is not  generating ABHA card)  (CRT_ABHA_309)&quot;</td>
+<td>If Integrator is not generating ABHA card.</td>
+<td>If Integrator is not generating ABHA card then They print the mentioned information on their own card: ABHA Number (Mandatory), ABHA Address</td>
+</tr>
+<tr>
+<td>4.1</td>
+<td>ABHA Creation Through Driving License / PAN</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Create ABHA Option (CRT_ABHA_401)</td>
+<td>The system must provide an option to create ABHA through Driving License / PAN</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>ABHA Creation Through Driving License / PAN</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Consent collection (CRT_ABHA_402)</td>
+<td>The system must display the  consent language/ disclaimer language and collect user&rsquo;s consent as per the ABDM published  consent.</td>
+<td>1. Read consent language. 2. Agree to the consent language (through &lsquo;I agree&rsquo; checkbox or any other form of signature)</td>
+</tr>
+<tr>
+<td>4.2</td>
+<td>ABHA Creation Through Driving License / PAN</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Consent collection should be multilingual  (CRT_ABHA_403)</td>
+<td>The system should be able to provide the consent in languages other than English also</td>
+<td>1. Read consent language. 2. Agree to the consent language (through &lsquo;I agree&rsquo; checkbox or any other form of signature)</td>
+</tr>
+<tr>
+<td>4.3</td>
+<td>ABHA Creation Through Driving License / PAN</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Communication Mobile Number (CRT_ABHA_404)</td>
+<td>1. If communication mobile number is same as Aadhaar linked mobile number then it should directly go to ABHA creation screen. 2. Alternatively, Integrators may also prompt for OTP  again from the user and then post verification of OTP user can go to ABHA  creation screen.</td>
+<td>System will check entered mobile is same as Aadhaar linked mobile number. If returns true then user will directed to ABHA  creation screen.</td>
+</tr>
+<tr>
+<td>4.4</td>
+<td>ABHA Creation Through Driving License / PAN</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Mobile Number Verification (CRT_ABHA_405)</td>
+<td>If communication mobile number is not same as Aadhaar linked mobile number then system must ask for the OTP to verify comuncation mobile number.</td>
+<td>System must verify the mobile number. 1. System must send OTP on mobile number. 2. User enters the OTP and clicks on verify. 3. In case of incorrect OTP</td>
+</tr>
+<tr>
+<td>4.5</td>
+<td>ABHA Creation Through Driving License / PAN</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Document Verification (CRT_ABHA_406)</td>
+<td>System must verify the provided document - Driving License / PAN</td>
+<td>1. Enter the Driving License / PAN number. 2. Enter name, date of birth and gender as per the document</td>
+</tr>
+<tr>
+<td>4.6</td>
+<td>ABHA Creation Through Driving License / PAN</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Document Upload (CRT_ABHA_407)</td>
+<td>System must allow upload of front and back page of the Driving licence/ PAN</td>
+<td>1. Upload the front and back page of the document i.e Driving License / PAN.</td>
+</tr>
+<tr>
+<td>4.7</td>
+<td>ABHA Creation Through Driving License / PAN</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Manual Verification and ABHA Creation (CRT_ABHA_408)</td>
+<td>System Operator / healthcare worker must manually check the documents - Driving License / PAN</td>
+<td>1. A healthcare worker/ system operator manually verifies the Driving License / PAN</td>
+</tr>
+<tr>
+<td>4.8</td>
+<td>ABHA Creation Through Driving License / PAN</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Display of ABHA Number (CRT_ABHA_409)</td>
+<td>System must display the created ABHA Number</td>
+<td>1. System shows the 14-digit ABHA number and ABHA  address  generated. 2. The Label should read  ABHA Number and not  Health ID</td>
+</tr>
+<tr>
+<td></td>
+<td>ABHA Creation Through Driving License / PAN</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> View and Download ABHA details. (If integrators is generating ABHA card)  (CRT_ABHA_410)</td>
+<td>System must have a provision to View / Download ABHA card</td>
+<td>1. System should show the user their ABHA Card. 2. ABHA Card should be generated by API and should contain - ABHA Number (Mandatory), User Photo-Optional, ABHA QR code, date of birth and gender, ABHA Address</td>
+</tr>
+<tr>
+<td>4.9</td>
+<td>ABHA Creation Through Driving License / PAN</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> View and Download ABHA details.(If integrators  is not  generating ABHA card)  (CRT_ABHA_411)&quot;</td>
+<td>If Integrator is not generating ABHA card.</td>
+<td>If Integrator is not generating ABHA card then They print the mentioned information on their own card: ABHA Number (Mandatory), ABHA Address</td>
+</tr>
+<tr>
+<td>5.1</td>
+<td>ABHA Verification</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> ABHA Verification Using ABHA Number/Address and Aadhaar OTP (VRFY_ABHA_101)</td>
+<td>System must allow ABHA verification using Aadhaar OTP</td>
+<td>1. Share ABHA Number or ABHA Address. 2. Receive OTP on the Aadhaar linked mobile number. 3. Enter the OTP.</td>
+</tr>
+<tr>
+<td>6.1</td>
+<td>ABHA Verification</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> ABHA Verification Using ABHA Number/Address and Communication Mobile OTP (VRFY_ABHA_201)</td>
+<td>System must allow ABHA verification using OTP on Communication Mobile Number</td>
+<td>1. Share ABHA Number or ABHA Address. 2. Receive OTP on the Communication mobile number. 3. Enter the OTP</td>
+</tr>
+<tr>
+<td>7.1</td>
+<td>ABHA Verification</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> ABHA Verification Using ABHA Number/Address and Aadhaar Biometric - Fingerprint (VRFY_ABHA_301)</td>
+<td>System must allow ABHA verification using Biometric scan</td>
+<td>1. Share ABHA Number or ABHA Address. 2. Scan fingerprint or face</td>
+</tr>
+<tr>
+<td>8.1</td>
+<td>ABHA Verification</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> ABHA Verification Using Mobile Number and Mobile OTP (VRFY_ABHA_401)</td>
+<td>System must allow ABHA retrieval and verification using communication mobile number and OTP</td>
+<td>1. Share Mobile Number. 2. Receive OTP on Mobile Number. 3. Enter OTP. 4. Get list of ABHA Numbers linked to the Mobile Number. 5. Select one ABHA Number</td>
+</tr>
+<tr>
+<td>9.1</td>
+<td>Reading ABHA Info using ABHA QR Code</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Reading ABHA Profile Info using ABHA QR Code (VRFY_ABHA_501)</td>
+<td>System must allow scanning of ABHA QR code to read the ABHA information</td>
+<td>EMR/HMIS scans the user&rsquo;s ABHA QR code</td>
+</tr>
+<tr>
+<td>10.1</td>
+<td>Profile Update</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Mobile Update (PROF_ABHA_601)</td>
+<td>System must allow the user to update their Mobile number</td>
+<td>1. Enter new mobile number. 2. Enter OTP. 3. Enter Password/ OTP on old mobile number.</td>
+</tr>
+<tr>
+<td>10.2</td>
+<td>Profile Update</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Photo Update (PROF_ABHA_602)</td>
+<td>System must allow the user to update their Photo</td>
+<td>1. Click on Edit Photo. 2. Upload new photo</td>
+</tr>
+<tr>
+<td>10.3</td>
+<td>Profile Update</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Email Update (PROF_ABHA_603)</td>
+<td>System must allow the user to update their Email</td>
+<td>1. Enter new Email ID. 2. Enter OTP</td>
+</tr>
+<tr>
+<td>10.4</td>
+<td>Profile Update</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Re-KYC (PROF_ABHA_604)</td>
+<td>System must allow the user to perform re-KYC</td>
+<td>1. Click on re-KYC option. 2. Enter OTP received on Aadhaar linked mobile number</td>
+</tr>
+<tr>
+<td>10.5</td>
+<td>Profile Update</td>
+<td><span class="badge cstyle default"><span class="badge-content">Optional</span></span> Delete ABHA (PROF_ABHA_605)</td>
+<td>System must allow the user to Delete/ Deactivate ABHA</td>
+<td>1. Click on Delete/ Deactivate ABHA. 2. Enter OTP received on mobile number to confirm deletion/ deactivation. 3. Try to login again using the same ABHA</td>
+</tr>
+<tr>
+<td>9.1</td>
+<td>Linking of ABHA Number and ABHA Address</td>
+<td><span class="badge cstyle default"><span class="badge-content">Mandatory</span></span> Linking of ABHA Number and ABHA Address (LINK_ABHA_701)</td>
+<td>System should have provision to link the  created ABHA  number with existing ABHA address</td>
+<td>1. User will create ABHA  number as deifned in above scenerios. 2. user should be able to link ABHA  number with existing ABHA address</td>
+</tr>
+</tbody>
+</table>
 <h2 id="abha-apis-collection">ABHA APIs Collection</h2>
 <table>
 <thead>
@@ -598,169 +991,6 @@
 </tr>
 </tbody>
 </table>
-<h2 id="test-cases">Test Cases</h2>
-<table>
-<thead>
-<tr>
-<th>Test Case#</th>
-<th>Applicable To</th>
-<th>Test Title</th>
-<th>Test Summary</th>
-<th>Optional/Mandatory</th>
-<th>Test Scenario</th>
-<th>API Sequence</th>
-<th>Expected Result</th>
-<th>Actual Result</th>
-<th>Status</th>
-<th>Remarks</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CRT_ABHA_01</td>
-<td>HRPs / HIPs</td>
-<td>ABHA creation - Modal popup integration</td>
-<td>EMR / HMIS system can optionally add a create health id button that links to the ABHA modal pop up portal. On clicking, the ABHA system should open (usually in a new tab/window). If correctly configured, it should ask for the facility&rsquo;s password, allow the user to create a ABHA in assisted mode and then share the ABHA back to the EMR system&quot;</td>
-<td>Optional</td>
-<td>User clicks on the create ABHA link provided on the Integrators homepage. Clicking on that link will launch the ABHA modal pop up. Verify that details of the ABHA was shared back to the integrators system and the integrator is using it to link to a patient record.</td>
-<td>Not Required</td>
-<td>Successful registration with Health ID number with QR code on the print slip in the health id portal. And control will again go back to the integrator&rsquo;s solution.</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>CRT_ABHA_02</td>
-<td>HRPs / HIPs</td>
-<td>ABHA creation - Assisted</td>
-<td>Hospital user will create ABHA using patient Aadhaar based mobile OTP</td>
-<td>Optional</td>
-<td>EMR/HMIS system will take the Aadhaar number</td>
-<td>OTP and consent of the patient to create ABHA.</td>
-<td>v1/registration/aadhaar/generateOtp, v1/registration/aadhaar/verifyOTP, v1/registration/aadhaar/generateMobileOTP, v1/registration/aadhaar/verifyMobileOTP, v1/registration/aadhaar/createHealthIdbyAadhar, v1/search/existsByHealthId&quot;</td>
-<td>Successful creation of ABHA</td>
-<td>ABHA generated</td>
-<td></td>
-</tr>
-<tr>
-<td>CRT_ABHA_03</td>
-<td>EMR/HMIS who implements biometric auth support via APIs</td>
-<td>ABHA creation - Assisted using Biometric device</td>
-<td>Hospital user will create ABHA using patient Aadhaar through internal system using fingerprint authentication</td>
-<td>Optional</td>
-<td>EMR/HMIS system will take the Aadhaar number and consent of the patient and authenticate using fingerprint to create health id.</td>
-<td>v2/registration/aadhaar/verifyBio, v2/registration/aadhaar/confirm</td>
-<td>Successful creation of ABHA with biometric details</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>VRFY_ABHA_01</td>
-<td>EMR/HMIS verifying ABHA</td>
-<td>ABHA verification during patient registration using ABHA QR code</td>
-<td>ABHA verification during patient registration. 1. Health Provider scans the ABHA QR Code shown by the patient in PHR app</td>
-<td>Mandatory</td>
-<td>EMR/HMIS scans the patients ABHA address QR code to get patient details into his system for registration. - Read contents of ABHA QR code - Does demographic auth to verify the contents (KYC &amp; LINK) - Save linking token</td>
-<td>{GATEWAY_HOST}/v0.5/users/auth/fetch-modes, {GATEWAY_HOST}/v0.5/users/auth/init, {GATEWAY_HOST}/v0.5/users/auth/confirm, {GATEWAY_HOST}/v0.5/users/auth/on-notify</td>
-<td>EMR/HMIS system will save the ABHA Address as part of its patient&rsquo;s registration. EMR/HMIS system will save the Linking token &quot;</td>
-<td>Details are fetched</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>VRFY_ABHA_02</td>
-<td>EMR/HMIS sharing its facility QR code</td>
-<td>Share Patient Profile with HIP by scanning HIP QR code (patient scans the HIP QR code)</td>
-<td>Patient scans HIP QR code using their PHR mobile app</td>
-<td>Mandatory</td>
-<td>-QR code with HIP details is pasted at Health facility Registration desk. -Patients scans the HIP&rsquo;s QR code from PHR app. -Patient&rsquo;s ABHA address is shared with the Integrators system. -EMR/HMIS then does demographic auth to verify the contents (KYC &amp; LINK) and saves linking token</td>
-<td>{{CM_HOST}}/providers/{provider-id}, {{CM_HOST}}/patients/profile/share, {GATEWAY_HOST}/v0.5/users/auth/fetch-modes, {GATEWAY_HOST}/v0.5/users/auth/init. {GATEWAY_HOST}/v0.5/users/auth/confirm&quot;</td>
-<td>1. EMR/HMIS system will allow the patient to see &amp; select from the list of profiles shared at the counter. 2. EMR/HMIS system will save ABHA Address as part of its patient&rsquo;s registration. 3. EMR/HMIS system will save Linking token</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>VRFY_ABHA_03</td>
-<td>EMR/HMIS verifying ABHA</td>
-<td>ABHA verification during patient registration using ABHA details shared verbally</td>
-<td>ABHA verification during patient registration when patient verbally shares ABHA or ABHA Address</td>
-<td>Mandatory</td>
-<td>&ldquo;Patient verbally shares his/her 14 digit ABHA or PHR address (alias to ABHA) and authorization happens through his mobile OTP. -Patient verbally shares Health ID or PHR Address. -Verification through mobile OTP. -Save ABHA address &amp; linking token</td>
-<td>/v2/search/searchHealthIdToLogin, /v2/auth/init /v2/auth/confirmWithMobileOtp</td>
-<td>1. Check if integrator&rsquo;s system is saving the PHR Address as part of its patient&rsquo;s registration. 2. Check if integrator&rsquo;s system is saving the Linking token</td>
-<td>Fetching ABHA</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>VRFY_ABHA_ID_04</td>
-<td>EMR/HMIS verifying ABHA</td>
-<td>ABHA verification during patient registration using ABHA details shared verbally</td>
-<td>ABHA verification during patient registration when patient verbally shares ABHA or ABHA Address</td>
-<td>Mandatory</td>
-<td>Patient verbally shares his/her ABHA or ABHA address and authorization happens through his/her Aadhaar registered mobile OTP. After successful authentication, patient data fields i.e. First Name,Gender,Year of birth, district and state will be populated from health ID. And, successful registration will be done. -Patient verbally shares Health ID or PHR Address. -Verification through mobile OTP. -Save ABHA address &amp; linking token.</td>
-<td>/v2/search/searchHealthIdToLogin, /v2/auth/init, /v2/auth/confirmWithAadhaarOtp</td>
-<td>SMS will be sent to Aadhaar registered mobile number for verification. After successful authentication, patient record will be displayed on HMIS for registration and further linked to Health ID.</td>
-<td>Fetching ABHA</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>VRFY_ABHA_ID_05</td>
-<td>For returning / existing patients</td>
-<td>ABHA address is provided for an existing patient in EMR/HMIS system</td>
-<td>System must support saving of ABHA address by all 3 sharing methods (VRFY_HLTH_ID_02 to VRFY_HLTH_ID_04) for existing patients. System must compare demographic information (name, age, gender) and save ABHA address only for same patients</td>
-<td>Mandatory</td>
-<td>System must support saving of ABHA address by all 3 sharing methods (VRFY_HLTH_ID_02 to VRFY_HLTH_ID_04) for existing patients. System must compare demographic information (name, age, gender) and save ABHA address only for same patients</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>VRFY_ABHA_ID_06</td>
-<td></td>
-<td>Health ID verification during patient registration</td>
-<td>During ABHA verification all the mandatory fields coming from ABDM should not be editable.</td>
-<td>Mandatory</td>
-<td>During verification all the mandatory fields coming from ABDM should not be editable and should be locked irrespective of how  the health id was created(mobile/aadhar etc).</td>
-<td></td>
-<td>All fields should be auto locked.</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>LINK_ABHA_ID_07</td>
-<td>HIP</td>
-<td>Link Health ID with Episode</td>
-<td>HIP should be able to initiate Health ID linking process.PURPOSE: LINK. AUTHMODE: AADHAAR_OTP</td>
-<td>Mandatory</td>
-<td>HIP should be able to link ABHA with hospital id.</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>LINK_ABHA_ID_08</td>
-<td>HIP</td>
-<td>Link Health ID with Episode(Old records)</td>
-<td>HIP should be able LINK Health ID for AUTHMODE as DEMOGRAPHICS. PURPOSE: LINK. AUTHMODE: DEMOGRAPHICS</td>
-<td>Optional</td>
-<td>HIP should be able to link old records. If a patient is registered without ABHA initially then we should be able to link his visit with his ABHA later on.</td>
-<td></td>
-<td>ABHA will be linked via demographic</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
 
             <footer class="footline">
             </footer>
@@ -783,12 +1013,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/abdm-docs/js/auto-complete.js?1679555238" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.min.js?1679555238" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.stemmer.support.min.js?1679555238" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.multi.min.js?1679555238" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.en.min.js?1679555238" defer></script>
-        <script src="/abdm-docs/js/search.js?1679555238" defer></script>
+        <script src="/abdm-docs/js/auto-complete.js?1679937969" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.min.js?1679937969" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.stemmer.support.min.js?1679937969" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.multi.min.js?1679937969" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.en.min.js?1679937969" defer></script>
+        <script src="/abdm-docs/js/search.js?1679937969" defer></script>
       </div>
       <div id="content-wrapper" class="highlightable">
         <ul class="topics enlarge morespace collapsible-menu">
@@ -798,8 +1028,9 @@
           <li data-nav-id="/abdm-docs/1-basics/abdm_sandbox_signup/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/abdm_sandbox_signup/index.html"><b>1.3 </b>ABDM Sandbox Signup</a></li>
           <li data-nav-id="/abdm-docs/1-basics/verify_sandbox_access/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/verify_sandbox_access/index.html"><b>1.4 </b>Verify Sandbox Access</a></li>
           <li data-nav-id="/abdm-docs/1-basics/postman_setup/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/postman_setup/index.html"><b>1.5 </b>Postman Setup</a></li>
-          <li data-nav-id="/abdm-docs/1-basics/working_with_abdm_apis/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/working_with_abdm_apis/index.html"><b>1.6 </b>Working with ABDM APIs</a></li>
-          <li data-nav-id="/abdm-docs/1-basics/making_your_app_abdm_compliant/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/making_your_app_abdm_compliant/index.html"><b>1.7 </b>Making your App ABDM Compliant</a></li></ul></li>
+          <li data-nav-id="/abdm-docs/1-basics/sandbox_abha_app/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/sandbox_abha_app/index.html"><b>1.6 </b>Sandbox ABHA App</a></li>
+          <li data-nav-id="/abdm-docs/1-basics/working_with_abdm_apis/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/working_with_abdm_apis/index.html"><b>1.7 </b>Working with ABDM APIs</a></li>
+          <li data-nav-id="/abdm-docs/1-basics/making_your_app_abdm_compliant/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/making_your_app_abdm_compliant/index.html"><b>1.8 </b>Making your App ABDM Compliant</a></li></ul></li>
           <li data-nav-id="/abdm-docs/2-milestone1/index.html" class=""><input type="checkbox" id="section-e5e5bd8567b0cc0959e119b9f25ebb13" aria-controls="subsections-e5e5bd8567b0cc0959e119b9f25ebb13"><label for="section-e5e5bd8567b0cc0959e119b9f25ebb13"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu Milestone 1</span></label><a class="padding" href="/abdm-docs/2-milestone1/index.html"><b>2. </b>Milestone 1</a><ul id="subsections-e5e5bd8567b0cc0959e119b9f25ebb13" class="morespace collapsible-menu">
           <li data-nav-id="/abdm-docs/2-milestone1/abha-number/index.html" class=""><input type="checkbox" id="section-11bcd80f90d12117b89b159ff8f0076f" aria-controls="subsections-11bcd80f90d12117b89b159ff8f0076f"><label for="section-11bcd80f90d12117b89b159ff8f0076f"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu Creation of ABHA Number</span></label><a class="padding" href="/abdm-docs/2-milestone1/abha-number/index.html"><b>2.1 </b>Creation of ABHA Number</a><ul id="subsections-11bcd80f90d12117b89b159ff8f0076f" class="morespace collapsible-menu">
           <li data-nav-id="/abdm-docs/2-milestone1/abha-number/aadhar-otp/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/abha-number/aadhar-otp/index.html"><b>2.1.1 </b>Using Aadhaar OTP</a></li>
@@ -810,8 +1041,8 @@
           <li data-nav-id="/abdm-docs/2-milestone1/abha-address/mobile-no/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/abha-address/mobile-no/index.html"><b>2.2.1 </b>Using Mobile Number</a></li>
           <li data-nav-id="/abdm-docs/2-milestone1/abha-address/abha-no/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/abha-address/abha-no/index.html"><b>2.2.2 </b>Using ABHA Number</a></li></ul></li>
           <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/index.html" class=""><input type="checkbox" id="section-61418145efe2c30ad74c7e5d82f28174" aria-controls="subsections-61418145efe2c30ad74c7e5d82f28174"><label for="section-61418145efe2c30ad74c7e5d82f28174"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu Verification of ABHA Address</span></label><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/index.html"><b>2.3 </b>Verification of ABHA Address</a><ul id="subsections-61418145efe2c30ad74c7e5d82f28174" class="morespace collapsible-menu">
-          <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/health-facility-qr-scan/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/health-facility-qr-scan/index.html"><b>2.3.1 </b>By Scanning Health Facility QR Code</a></li>
-          <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/index.html"><b>2.3.2 </b>By Scanning User ABHA QR Code</a></li>
+          <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/health-facility-qr-scan/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/health-facility-qr-scan/index.html"><b>2.3.1 </b>Scan Health Facility QR</a></li>
+          <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/index.html"><b>2.3.2 </b>Scan User ABHA QR</a></li>
           <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/by-otp/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/by-otp/index.html"><b>2.3.3 </b>By OTP</a></li>
           <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/demographic/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/demographic/index.html"><b>2.3.4 </b>By Demographic</a></li></ul></li></ul></li>
           <li data-nav-id="/abdm-docs/2-sharing-health-records/index.html" class=""><input type="checkbox" id="section-7cdf3b49dbbca87921df1a2ef79cf6fa" aria-controls="subsections-7cdf3b49dbbca87921df1a2ef79cf6fa"><label for="section-7cdf3b49dbbca87921df1a2ef79cf6fa"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu Building a HRP</span></label><a class="padding" href="/abdm-docs/2-sharing-health-records/index.html"><b>2. </b>Building a HRP</a><ul id="subsections-7cdf3b49dbbca87921df1a2ef79cf6fa" class="morespace collapsible-menu">
@@ -939,8 +1170,8 @@
         </div>
       </div>
     </aside>
-    <script src="/abdm-docs/js/clipboard.min.js?1679555238" defer></script>
-    <script src="/abdm-docs/js/perfect-scrollbar.min.js?1679555238" defer></script>
+    <script src="/abdm-docs/js/clipboard.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/perfect-scrollbar.min.js?1679937969" defer></script>
     <script>
       function useMathJax( config ){
         if( !Object.assign ){
@@ -970,15 +1201,15 @@
       useMathJax( JSON.parse("{}") );
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="/abdm-docs/js/d3/d3-color.min.js?1679555238" defer></script>
-    <script src="/abdm-docs/js/d3/d3-dispatch.min.js?1679555238" defer></script>
-    <script src="/abdm-docs/js/d3/d3-drag.min.js?1679555238" defer></script>
-    <script src="/abdm-docs/js/d3/d3-ease.min.js?1679555238" defer></script>
-    <script src="/abdm-docs/js/d3/d3-interpolate.min.js?1679555238" defer></script>
-    <script src="/abdm-docs/js/d3/d3-selection.min.js?1679555238" defer></script>
-    <script src="/abdm-docs/js/d3/d3-timer.min.js?1679555238" defer></script>
-    <script src="/abdm-docs/js/d3/d3-transition.min.js?1679555238" defer></script>
-    <script src="/abdm-docs/js/d3/d3-zoom.min.js?1679555238" defer></script>
+    <script src="/abdm-docs/js/d3/d3-color.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-dispatch.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-drag.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-ease.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-interpolate.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-selection.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-timer.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-transition.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-zoom.min.js?1679937969" defer></script>
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
       mermaid.initialize({ startOnLoad: true });
@@ -990,6 +1221,6 @@
     <script>
       window.themeUseSwagger = JSON.parse("{ \"theme\": \"light\" }");
     </script>
-    <script src="/abdm-docs/js/theme.js?1679555238" defer></script>
+    <script src="/abdm-docs/js/theme.js?1679937969" defer></script>
   </body>
 </html>

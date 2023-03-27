@@ -9,18 +9,18 @@
     <meta name="author" content="NHA">
     <title>The PHR Framework - ABDM Sandbox Documentation</title>
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/abdm-docs/css/fontawesome-all.min.css?1679555237" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fontawesome-all.min.css?1679555237" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/nucleus.css?1679555237" rel="stylesheet">
-    <link href="/abdm-docs/css/auto-complete.css?1679555237" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/auto-complete.css?1679555237" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/perfect-scrollbar.min.css?1679555237" rel="stylesheet">
-    <link href="/abdm-docs/css/fonts.css?1679555237" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fonts.css?1679555237" rel="stylesheet"></noscript>
-    <link href="/abdm-docs/css/theme.css?1679555237" rel="stylesheet">
-    <link href="/abdm-docs/css/theme-auto.css?1679555237" rel="stylesheet" id="variant-style">
-    <link href="/abdm-docs/css/variant.css?1679555237" rel="stylesheet">
-    <link href="/abdm-docs/css/print.css?1679555237" rel="stylesheet" media="print">
-    <link href="/abdm-docs/css/ie.css?1679555237" rel="stylesheet">
-    <script src="/abdm-docs/js/url.js?1679555237"></script>
-    <script src="/abdm-docs/js/variant.js?1679555237"></script>
+    <link href="/abdm-docs/css/fontawesome-all.min.css?1679937968" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fontawesome-all.min.css?1679937968" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/nucleus.css?1679937968" rel="stylesheet">
+    <link href="/abdm-docs/css/auto-complete.css?1679937968" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/auto-complete.css?1679937968" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/perfect-scrollbar.min.css?1679937968" rel="stylesheet">
+    <link href="/abdm-docs/css/fonts.css?1679937968" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/abdm-docs/css/fonts.css?1679937968" rel="stylesheet"></noscript>
+    <link href="/abdm-docs/css/theme.css?1679937968" rel="stylesheet">
+    <link href="/abdm-docs/css/theme-auto.css?1679937968" rel="stylesheet" id="variant-style">
+    <link href="/abdm-docs/css/variant.css?1679937968" rel="stylesheet">
+    <link href="/abdm-docs/css/print.css?1679937968" rel="stylesheet" media="print">
+    <link href="/abdm-docs/css/ie.css?1679937968" rel="stylesheet">
+    <script src="/abdm-docs/js/url.js?1679937968"></script>
+    <script src="/abdm-docs/js/variant.js?1679937968"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -85,10 +85,10 @@
 <p>ABDM uses a federated architecture to help users collect their health records across various healthcare providers, view their records from any PHR application and share their records with any requestor with their consent</p>
 <p>The image below shows the various entities/roles involved in the PHR framework</p>
 <p>
-<a href="#image-615a28d94c9b3acebb3729cc87e70759" class="lightbox-link">
+<a href="#image-6fede5a9dff1e2397b8b8af73fa81a18" class="lightbox-link">
 <img src="../phr-architeture.pptx.jpg" alt="ABDM HIP HIU Architecture" style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-615a28d94c9b3acebb3729cc87e70759">
+<a href="javascript:history.back();" class="lightbox" id="image-6fede5a9dff1e2397b8b8af73fa81a18">
 <img src="../phr-architeture.pptx.jpg" alt="ABDM HIP HIU Architecture" class="lightbox-image" loading="lazy">
 </a></p>
 <h2 id="what-is-a-health-information-provider-hip">What is a Health Information Provider (HIP)?</h2>
@@ -121,10 +121,10 @@ researchers, government entities etc.  HIUs will be able to request for health r
 <li>Enables authentication for consent driven access to health data along with capabilities  to manage and revoke consent</li>
 <li>Inclusive access to people with smartphones, feature phones, and even no phones using assisted methods
 
-<a href="#image-3384938477b88b187d9c2019bf364ffd" class="lightbox-link">
+<a href="#image-e2dff06d368f6c5990b85eef4d8f2868" class="lightbox-link">
 <img src="../Abha-address.png" alt="Get ABHA Address" style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-3384938477b88b187d9c2019bf364ffd">
+<a href="javascript:history.back();" class="lightbox" id="image-e2dff06d368f6c5990b85eef4d8f2868">
 <img src="../Abha-address.png" alt="Get ABHA Address" class="lightbox-image" loading="lazy">
 </a></li>
 </ul>
@@ -158,10 +158,10 @@ Users can start with a self declared ABHA address and later link it to an ABHA n
 <p>ABDM is implemented as a Federated Architecture, where data is kept by the entity that generates the health data (HRP). When a new record is generated by health facility it adds a link called a <em>care context</em> to the user&rsquo;s PHR address. A PHR address holds the set of links to the health data across multiple facilities (HRPs). The HIE-CM is designed to be data blind, ie it does not know any details of the health records that are linked with the PHR address and the architecture ensures that any exchange of health data does not pass through the HIE-CM.</p>
 <p>The architecture is also fully aligned with the upcoming Data Protection Bill. The intent is to enable any health facility using a ABDM compliant software to be automatically compliant to the Data protection bill. The HIE-CM as keeps track of all consents provided by the user. Consents are structured as digital consent artifacts that is based on the MietY consent framework</p>
 <p>
-<a href="#image-4cbb10ae8b010808c9a0ef234381ad3d" class="lightbox-link">
+<a href="#image-7127d1ab4b45c550a397e7935c59400a" class="lightbox-link">
 <img src="../hie_cm_linking.png" alt="How HIE-CM builds a PHR " style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-4cbb10ae8b010808c9a0ef234381ad3d">
+<a href="javascript:history.back();" class="lightbox" id="image-7127d1ab4b45c550a397e7935c59400a">
 <img src="../hie_cm_linking.png" alt="How HIE-CM builds a PHR " class="lightbox-image" loading="lazy">
 </a></p>
 
@@ -226,10 +226,10 @@ The entire PHR framework including the gateway communicates via asynchronous API
 </ul>
 <p>The following figure provides a view of how the Gateway fits in with other components
 
-<a href="#image-72a820a955770cb04ae68bf4b50f2afb" class="lightbox-link">
+<a href="#image-f183cd3635f7404ea9b35a71606a5063" class="lightbox-link">
 <img src="/abdm-docs/img/ABDM_digital_health_architecture.png" alt="ABDM digital health architecture" style="height: auto; width: auto;" loading="lazy">
 </a>
-<a href="javascript:history.back();" class="lightbox" id="image-72a820a955770cb04ae68bf4b50f2afb">
+<a href="javascript:history.back();" class="lightbox" id="image-f183cd3635f7404ea9b35a71606a5063">
 <img src="/abdm-docs/img/ABDM_digital_health_architecture.png" alt="ABDM digital health architecture" class="lightbox-image" loading="lazy">
 </a></p>
 <h2 id="experience-phr-in-action-using-the-abdm-sandbox">Experience PHR in action using the ABDM sandbox</h2>
@@ -277,12 +277,12 @@ The entire PHR framework including the gateway communicates via asynchronous API
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/abdm-docs/js/auto-complete.js?1679555237" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.min.js?1679555237" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.stemmer.support.min.js?1679555237" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.multi.min.js?1679555237" defer></script>
-        <script src="/abdm-docs/js/lunr/lunr.en.min.js?1679555237" defer></script>
-        <script src="/abdm-docs/js/search.js?1679555237" defer></script>
+        <script src="/abdm-docs/js/auto-complete.js?1679937969" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.min.js?1679937969" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.stemmer.support.min.js?1679937969" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.multi.min.js?1679937969" defer></script>
+        <script src="/abdm-docs/js/lunr/lunr.en.min.js?1679937969" defer></script>
+        <script src="/abdm-docs/js/search.js?1679937969" defer></script>
       </div>
       <div id="content-wrapper" class="highlightable">
         <ul class="topics enlarge morespace collapsible-menu">
@@ -292,8 +292,9 @@ The entire PHR framework including the gateway communicates via asynchronous API
           <li data-nav-id="/abdm-docs/1-basics/abdm_sandbox_signup/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/abdm_sandbox_signup/index.html"><b>1.3 </b>ABDM Sandbox Signup</a></li>
           <li data-nav-id="/abdm-docs/1-basics/verify_sandbox_access/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/verify_sandbox_access/index.html"><b>1.4 </b>Verify Sandbox Access</a></li>
           <li data-nav-id="/abdm-docs/1-basics/postman_setup/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/postman_setup/index.html"><b>1.5 </b>Postman Setup</a></li>
-          <li data-nav-id="/abdm-docs/1-basics/working_with_abdm_apis/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/working_with_abdm_apis/index.html"><b>1.6 </b>Working with ABDM APIs</a></li>
-          <li data-nav-id="/abdm-docs/1-basics/making_your_app_abdm_compliant/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/making_your_app_abdm_compliant/index.html"><b>1.7 </b>Making your App ABDM Compliant</a></li></ul></li>
+          <li data-nav-id="/abdm-docs/1-basics/sandbox_abha_app/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/sandbox_abha_app/index.html"><b>1.6 </b>Sandbox ABHA App</a></li>
+          <li data-nav-id="/abdm-docs/1-basics/working_with_abdm_apis/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/working_with_abdm_apis/index.html"><b>1.7 </b>Working with ABDM APIs</a></li>
+          <li data-nav-id="/abdm-docs/1-basics/making_your_app_abdm_compliant/index.html" class=""><a class="padding" href="/abdm-docs/1-basics/making_your_app_abdm_compliant/index.html"><b>1.8 </b>Making your App ABDM Compliant</a></li></ul></li>
           <li data-nav-id="/abdm-docs/2-milestone1/index.html" class=""><input type="checkbox" id="section-e5e5bd8567b0cc0959e119b9f25ebb13" aria-controls="subsections-e5e5bd8567b0cc0959e119b9f25ebb13"><label for="section-e5e5bd8567b0cc0959e119b9f25ebb13"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu Milestone 1</span></label><a class="padding" href="/abdm-docs/2-milestone1/index.html"><b>2. </b>Milestone 1</a><ul id="subsections-e5e5bd8567b0cc0959e119b9f25ebb13" class="morespace collapsible-menu">
           <li data-nav-id="/abdm-docs/2-milestone1/abha-number/index.html" class=""><input type="checkbox" id="section-11bcd80f90d12117b89b159ff8f0076f" aria-controls="subsections-11bcd80f90d12117b89b159ff8f0076f"><label for="section-11bcd80f90d12117b89b159ff8f0076f"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu Creation of ABHA Number</span></label><a class="padding" href="/abdm-docs/2-milestone1/abha-number/index.html"><b>2.1 </b>Creation of ABHA Number</a><ul id="subsections-11bcd80f90d12117b89b159ff8f0076f" class="morespace collapsible-menu">
           <li data-nav-id="/abdm-docs/2-milestone1/abha-number/aadhar-otp/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/abha-number/aadhar-otp/index.html"><b>2.1.1 </b>Using Aadhaar OTP</a></li>
@@ -304,8 +305,8 @@ The entire PHR framework including the gateway communicates via asynchronous API
           <li data-nav-id="/abdm-docs/2-milestone1/abha-address/mobile-no/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/abha-address/mobile-no/index.html"><b>2.2.1 </b>Using Mobile Number</a></li>
           <li data-nav-id="/abdm-docs/2-milestone1/abha-address/abha-no/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/abha-address/abha-no/index.html"><b>2.2.2 </b>Using ABHA Number</a></li></ul></li>
           <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/index.html" class=""><input type="checkbox" id="section-61418145efe2c30ad74c7e5d82f28174" aria-controls="subsections-61418145efe2c30ad74c7e5d82f28174"><label for="section-61418145efe2c30ad74c7e5d82f28174"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu Verification of ABHA Address</span></label><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/index.html"><b>2.3 </b>Verification of ABHA Address</a><ul id="subsections-61418145efe2c30ad74c7e5d82f28174" class="morespace collapsible-menu">
-          <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/health-facility-qr-scan/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/health-facility-qr-scan/index.html"><b>2.3.1 </b>By Scanning Health Facility QR Code</a></li>
-          <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/index.html"><b>2.3.2 </b>By Scanning User ABHA QR Code</a></li>
+          <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/health-facility-qr-scan/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/health-facility-qr-scan/index.html"><b>2.3.1 </b>Scan Health Facility QR</a></li>
+          <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/index.html"><b>2.3.2 </b>Scan User ABHA QR</a></li>
           <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/by-otp/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/by-otp/index.html"><b>2.3.3 </b>By OTP</a></li>
           <li data-nav-id="/abdm-docs/2-milestone1/verify-abha-address/demographic/index.html" class=""><a class="padding" href="/abdm-docs/2-milestone1/verify-abha-address/demographic/index.html"><b>2.3.4 </b>By Demographic</a></li></ul></li></ul></li>
           <li data-nav-id="/abdm-docs/2-sharing-health-records/index.html" class=""><input type="checkbox" id="section-7cdf3b49dbbca87921df1a2ef79cf6fa" aria-controls="subsections-7cdf3b49dbbca87921df1a2ef79cf6fa"><label for="section-7cdf3b49dbbca87921df1a2ef79cf6fa"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">Submenu Building a HRP</span></label><a class="padding" href="/abdm-docs/2-sharing-health-records/index.html"><b>2. </b>Building a HRP</a><ul id="subsections-7cdf3b49dbbca87921df1a2ef79cf6fa" class="morespace collapsible-menu">
@@ -433,8 +434,8 @@ The entire PHR framework including the gateway communicates via asynchronous API
         </div>
       </div>
     </aside>
-    <script src="/abdm-docs/js/clipboard.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/perfect-scrollbar.min.js?1679555237" defer></script>
+    <script src="/abdm-docs/js/clipboard.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/perfect-scrollbar.min.js?1679937969" defer></script>
     <script>
       function useMathJax( config ){
         if( !Object.assign ){
@@ -464,15 +465,15 @@ The entire PHR framework including the gateway communicates via asynchronous API
       useMathJax( JSON.parse("{}") );
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="/abdm-docs/js/d3/d3-color.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/d3/d3-dispatch.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/d3/d3-drag.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/d3/d3-ease.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/d3/d3-interpolate.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/d3/d3-selection.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/d3/d3-timer.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/d3/d3-transition.min.js?1679555237" defer></script>
-    <script src="/abdm-docs/js/d3/d3-zoom.min.js?1679555237" defer></script>
+    <script src="/abdm-docs/js/d3/d3-color.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-dispatch.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-drag.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-ease.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-interpolate.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-selection.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-timer.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-transition.min.js?1679937969" defer></script>
+    <script src="/abdm-docs/js/d3/d3-zoom.min.js?1679937969" defer></script>
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
       mermaid.initialize({ startOnLoad: true });
@@ -484,6 +485,6 @@ The entire PHR framework including the gateway communicates via asynchronous API
     <script>
       window.themeUseSwagger = JSON.parse("{ \"theme\": \"light\" }");
     </script>
-    <script src="/abdm-docs/js/theme.js?1679555237" defer></script>
+    <script src="/abdm-docs/js/theme.js?1679937969" defer></script>
   </body>
 </html>

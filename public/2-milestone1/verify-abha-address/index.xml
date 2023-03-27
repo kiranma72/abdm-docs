@@ -8,29 +8,37 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 07 May 2022 17:53:25 +0530</lastBuildDate><atom:link href="http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>By Scanning Health Facility QR Code</title>
+      <title>Scan Health Facility QR</title>
       <link>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/health-facility-qr-scan/index.html</link>
       <pubDate>Thu, 16 Mar 2023 09:30:25 +0530</pubDate>
       <guid>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/health-facility-qr-scan/index.html</guid>
-      <description>By Scanning Health Facility QR Code Functionality Overview Patients can scan a Health Facility QR code pasted at the facility registration counter on their ABHA application.
+      <description>Scan Health Facility QR Functionality Overview Patients can scan a Health Facility QR code pasted at the facility registration counter on their ABHA application.
 The User/Patient can share their basic KYC information with the Health Facility (HMIS/LIMS) by scanning the QR Code using the ABHA application. This enables the user/patients to complete the seamless profile share during their visit.
-The authenticity of the profile information is verified by the HIE-CM internally before sharing the data with the Health Facility and before generating and further adding a linking token (Validity of 6 Months) along with the payload which can be used to link the health records through the HIP-initiated Linking service.</description>
+Steps to scanning the QR Code: Patient must have an ABHA app and have a valid ABHA address Hospital must generate a Health Facility QR code and display it at the registration counter Patient can then scan the QR code from his phone camera or his ABHA application If scanned from phone camera &amp;ndash; The list of installed PHR apps is shown on the phone.</description>
     </item>
     <item>
-      <title>By Scanning User ABHA QR Code</title>
+      <title>Scan User ABHA QR</title>
       <link>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/index.html</link>
       <pubDate>Thu, 16 Mar 2023 09:30:25 +0530</pubDate>
       <guid>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/index.html</guid>
-      <description>By Scanning User ABHA QR Code Functionality Overview Health Facility can scan the User&amp;rsquo;s ABHA QR code, whereby User provides consent to link the Health Record to their account.
+      <description>Scan User ABHA QR Functionality Overview Health Facility can scan the User&amp;rsquo;s ABHA QR code, whereby User provides consent to link the Health Record to their account.
 Health Facility (HIP) Initiated linking is the process through which an HIP links the patient’s care context (health record) with the patient ABHA Address, after patient registration and creation of health records (in their HMIS/LMIS system).
-Sample QR Codes QR Code in User&amp;rsquo;s ABHA Application QR Code in User&amp;rsquo;s ABHA Card Care context (Health record) linking happens in two steps:</description>
+Sample QR Codes QR Code JSON output Sample QR Code in User&amp;rsquo;s ABHA Application Sample QR Code in User&amp;rsquo;s ABHA Card Care context (Health record) linking happens in two steps:</description>
     </item>
     <item>
       <title>By OTP</title>
       <link>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/by-otp/index.html</link>
       <pubDate>Thu, 16 Mar 2023 09:30:25 +0530</pubDate>
       <guid>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/by-otp/index.html</guid>
-      <description>By OTP </description>
+      <description>By OTP API Information Request Response 1. Get a patient&amp;rsquo;s authentication modes
+URL: https://dev.abdm.gov.in/gateway/v0.5/users/auth/fetch-modes
+2. Accept callback with supported authentication modes for this PHR Address
+URL: {HRP CALLBACK URL}/v0.5/users/auth/on-fetch-modes
+3. Initialize authentication from HIP
+URL: https://dev.abdm.gov.in/gateway/v0.5/users/auth/init
+4. Response to user authentication initialization
+URL: {HRP CALLBACK URL}/v0.5/users/auth/on-init
+User will get a SMS on their mobile phone with a OTP from the HIE-CM. Collect this OTP from the user and send it via the next API</description>
     </item>
     <item>
       <title>By Demographic</title>

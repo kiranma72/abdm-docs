@@ -57,6 +57,14 @@ Overview Download And Install Postman Download Collections and Environment Varia
 Step-1: Visit the https://www.postman.com/ website using any web browser and choose your desired platform among Mac, Windows or Linux.</description>
     </item>
     <item>
+      <title>Sandbox ABHA App</title>
+      <link>http://kiranma72.github.io/abdm-docs/1-basics/sandbox_abha_app/index.html</link>
+      <pubDate>Sat, 07 May 2022 18:00:04 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/1-basics/sandbox_abha_app/index.html</guid>
+      <description>While building and testing your health repository in integration with the sandbox’s network components, you’ll need to test patient flows as well. For example:
+Signup of patient with Consent Manager (CM) Linking patient’s CM account with HIP’s patient reference and health care contexts Granting or revoking consents Download Sandbox ABDM App Download Sandbox ABHA App app-nhsSandbox-release_2.2.8.apk (21 MB) The user can download the mobile app here Install Sandbox ABDM App Create ABHA address </description>
+    </item>
+    <item>
       <title>Working with ABDM APIs</title>
       <link>http://kiranma72.github.io/abdm-docs/1-basics/working_with_abdm_apis/index.html</link>
       <pubDate>Sat, 07 May 2022 18:00:04 +0530</pubDate>

@@ -13,7 +13,8 @@
       <pubDate>Mon, 13 Mar 2023 14:30:25 +0530</pubDate>
       <guid>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/milestone-1/index.html</guid>
       <description>Milestone 1 Milestone 1: ABHA creation and capture &amp;amp; verification for seamless patient registration
-ABHA APIs Collection S.No. Purpose Serial API Description 1 Registration 1.0.1 v1/auth/cert Authentication token public certificate. This certificate is also used to encrypt the data. 1.1 Registration Via Aadhaar 1.1.1 v1/registration/aadhaar/generateOtp Generate Aadhaar OTP on Registered mobile number 1.1.2 v1/registration/aadhaar/verifyOTP Verify Aadhaar OTP received on Registered mobile number 1.1.3 v1/registration/aadhaar/generateMobileOTP Generate Mobile OTP for verification. 1.1.4 v1/registration/aadhaar/verifyMobileOTP Verify Mobile OTP in an existing transaction.</description>
+Test Cases The Milestone 1 test cases are applicable to All the stakeholders.
+S.No Function Functionality Test Case Steps To Be Executed 1.1 ABHA Creation Through Aadhaar OTP Mandatory Create ABHA Option (CRT_ABHA_101) The system must provide an option to create ABHA through Aadhaar OTP 1.2 ABHA Creation Through Aadhaar OTP Mandatory Consent collection (CRT_ABHA_102) The system must display the consent language/ disclaimer language and collect user&amp;rsquo;s consent as per the ABDM published consent.</description>
     </item>
     <item>
       <title> Milestone 2</title>

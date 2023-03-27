@@ -377,11 +377,11 @@
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-hspa/view-settlements/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/1-basics/sandbox_abha_app/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/1-basics/working_with_abdm_apis/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-hspa/view-settlements/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
@@ -393,11 +393,11 @@
     <lastmod>2022-05-07T17:53:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/1-basics/making_your_app_abdm_compliant/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/teleconsults/share-health-records/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/teleconsults/share-health-records/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/1-basics/working_with_abdm_apis/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
@@ -411,6 +411,10 @@
   <url>
     <loc>http://kiranma72.github.io/abdm-docs/8-utilities/index.html</loc>
     <lastmod>2023-03-07T17:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/1-basics/making_your_app_abdm_compliant/index.html</loc>
+    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
     <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/teleconsults/setup-webrtc/index.html</loc>

@@ -21,7 +21,7 @@ The User should input the Aadhaar number as an input.</description>
       <link>http://kiranma72.github.io/abdm-docs/2-milestone1/abha-number/aadhar-biometric/index.html</link>
       <pubDate>Thu, 16 Mar 2023 09:30:25 +0530</pubDate>
       <guid>http://kiranma72.github.io/abdm-docs/2-milestone1/abha-number/aadhar-biometric/index.html</guid>
-      <description>Using Aadhar Biometric Overview To enable beneficiary registration using Aadhaar Biometric, a client needs to have a Aadhaar Registered Device (RD Device) that allows capture and processing of Biometrics of the beneficiary. This RD Service returns an encrypted PID block containing signed biometrics (using device private key within the registered devices secure zone) back to the calling application. To enable beneficiary registration using biometrics, this PID is passed in the request along with Aadhaar and other required details.</description>
+      <description>Coming Soon.. Overview To enable beneficiary registration using Aadhaar Biometric, a client needs to have a Aadhaar Registered Device (RD Device) that allows capture and processing of Biometrics of the beneficiary. This RD Service returns an encrypted PID block containing signed biometrics (using device private key within the registered devices secure zone) back to the calling application. To enable beneficiary registration using biometrics, this PID is passed in the request along with Aadhaar and other required details.</description>
     </item>
     <item>
       <title>Using Aadhar Demographic</title>
