@@ -6,7 +6,7 @@ chapter = true
 pre = "<b>2.1.2 </b>"
 +++
 
-# Using Aadhar Biometric
+# {{%icon icon="bullhorn" %}}Coming Soon.. {{%icon icon="shipping-fast" %}}
 
 {{% notice style="primary" title="Overview " icon="list-alt" %}}
 
