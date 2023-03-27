@@ -95,11 +95,7 @@ note right of Client : Enrollment number
 **Utilities**
 - For encrypting the mobileNumber/AadharNumber/otp refer the [link](/abdm-docs/8-utilities/utilities/#rsa-encryption)
 
-  - To get public key for encrypting:
-
-    **BASE URL:** https://healthidsbx.abdm.gov.in/api
-
-{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="GET /v1/auth/cert$" >}}
+  - To get public key for encrypting refer the [link](/abdm-docs/8-utilities/utilities/#api-to-retrieve-the-public-key)
 
 - For converting an image into Base64 string refer the [link](/abdm-docs/8-utilities/utilities/#convert-image-to-base64)
 

@@ -35,11 +35,12 @@ To encrypt the data :
 #### API to retrieve the public key
 Authentication token public certificate. This certificate is also used to encrypt the data.
 
-**url: https://healthidsbx.abdm.gov.in/api/v1/auth/cert**
 ![retrieve the public key](../retrieve_public_keey_api.png)
 
-//yaml
-//response
+
+**BASE URL:** https://healthidsbx.abdm.gov.in/api
+
+{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="GET /v1/auth/cert$" >}}
 
 #### RSA Encryption via online (while using Postman)
 
