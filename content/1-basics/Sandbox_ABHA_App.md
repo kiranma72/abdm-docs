@@ -15,8 +15,6 @@ While building and testing your health repository in integration with the sandbo
 ## Download Sandbox ABDM App
 
 {{% attachments title="Download Sandbox ABHA App" icon="download"/%}}
-The user can download the mobile app [here](https://sandbox.abdm.gov.in/docs/phr_app)
-![download_abha_app](../Download_sandbox_abha_app.png)
 
 ## Install Sandbox ABDM App
 {{< gallery dir="1-basics/SandboxAppInstall" width="200px" height="400px">}} 
