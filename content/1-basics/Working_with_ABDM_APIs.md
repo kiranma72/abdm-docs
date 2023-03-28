@@ -106,14 +106,18 @@ The ABDM architecture is designed to support multiple HIE-CMs. Whenever you call
 We recommend using a combination of Postman & webhook to quickly understand ABDM APIs. Use your postman collection and ensure your async callbacks are working in sandbox
 
 1. Go to https://webhook.site 
-2. Copy your unique URL shown on the page 
+2. Copy your unique URL (which would be your callback url) shown on the page 
 3. [Register it with ABDM Gateway](#registering-your-callback-url). Ensure you get a Response: 200 
 4. [Link a HIP / HIU ID of your choice to your client id](#linking-the-hips--hius-id-for-a-client-id). Ensure you get a Response: 200
 5. Create a Sandbox ABHA address at [https://phrsbx.abdm.gov.in](https://phrsbx.abdm.gov.in)
 4. Call an async Gateway API like /v0.5/users/auth/fetch-modes with the @sbx ABHA address 
-5. Verify you get a callback at your webhook site. It should look like the image below
+5. Verify you get a callback (like /v0.5/users/auth/on-fetch-modes) at your webhook site. It should look like the image below
 
 ![webhook-site](/abdm-docs/img/webhook-site-demo.png) 
+
+## Sample User Experience for Callback
+
+{{< gallery dir="1-basics/callbackUrl_with_webhook">}} 
 
 
 
