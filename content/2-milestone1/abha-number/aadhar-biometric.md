@@ -6,7 +6,8 @@ chapter = true
 pre = "<b>2.1.2 </b>"
 +++
 
-# {{%icon icon="bullhorn" %}}Coming Soon.. {{%icon icon="shipping-fast" %}}
+# {{%icon icon="bullhorn" %}}Coming Soon.. 
+{{% badge style="note" title=" "%}}Note{{% /badge %}} To be documented after V3 Api's are released
 
 {{% notice style="primary" title="Overview " icon="list-alt" %}}
 
