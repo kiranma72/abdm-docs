@@ -90,3 +90,6 @@ HRP-->>ABDM Sandbox Gateway:Response 200
 
 {{< swaggermin src="/abdm-docs/Yaml/HIECM-LinkTokenService.yml" api="POST /{callback_url}/v3/hip/token/on-generate-token$" >}}
 
+## Verify ABHA Address by demographic
+
+If Linking token has expired (more than 6 months old or it has been already used once). In that case, all the demographic information is available and can be used directly.
