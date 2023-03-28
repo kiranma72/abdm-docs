@@ -3419,12 +3419,14 @@ components:
           $ref: '#/components/schemas/TimestampSchema'
         transactionId:
           type: string
+          example: 518c1790-67ea-4a28-92dd-cf9e4eee92d2
         credential:
           type: object
           description: note, demographic details are only required for demographic auth at this point.
           properties:
             authCode:
               type: string
+              example: 519316
 
     PatientAuthInitRequest:
       type: object
