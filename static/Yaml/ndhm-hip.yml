@@ -3425,8 +3425,6 @@ components:
           properties:
             authCode:
               type: string
-            demographic:
-              $ref: '#/components/schemas/PatientDemographic'
 
     PatientAuthInitRequest:
       type: object
