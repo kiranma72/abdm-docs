@@ -3426,7 +3426,7 @@ components:
           properties:
             authCode:
               type: string
-              example: 519316
+              example: "519316"
 
     PatientAuthInitRequest:
       type: object
