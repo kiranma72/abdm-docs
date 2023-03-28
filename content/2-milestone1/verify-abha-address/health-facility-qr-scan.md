@@ -16,7 +16,7 @@ The User/Patient can share their basic KYC information with the Health Facility 
 
 ![Scan health facility QR Code](../scan-hf-qr.png)
 
-## Steps to scanning the QR Code:
+**Steps to scanning the QR Code:**
 
 1. Patient must have an ABHA app and have a valid ABHA address
 2. Hospital must **generate a Health Facility QR code** and display it at the registration counter
@@ -38,7 +38,7 @@ The User/Patient can share their basic KYC information with the Health Facility 
 
 *insert image slider for UX, awaiting Kiran to share the refernce*
 
-## Steps to create a QR code for your Health Facility:
+**Steps to create a QR code for your Health Facility:**
 
 1. Only ABDM compliant HFR registered facility/clinic and a doctor registered in HPR will be allowed to generate QR code from ABDM system with ABDM branding guidelines
 2. ABDM logo unit must be placed at the center of the ABDM QR to indicate that the QR scanning functionality has been routed through ABDM
@@ -61,7 +61,6 @@ The User/Patient can share their basic KYC information with the Health Facility 
 	- While scanning the QR code from an android device, the experience may differ based on android version, brand of the mobile and skin of the android OS. Tech team to also provide list of exceptions, if any along with the list of devices/operating system on which this experience will not work or will have limited experience.
 	- The experience may also differ based on the QR scanning application from which the user is scanning the QR code.
 
-
 **Steps to open ABHA Application QR code scanner:**
 - Go to ABHA Mobile Application **>** My Profile **>** Scan option on the top right
 - Scan the QR code, the app should fetch details of QR code along with User profile details.
@@ -73,7 +72,7 @@ The User/Patient can share their basic KYC information with the Health Facility 
 
 Applicable To | Test Summary | Test Scenario |
 | --| ----------- | ------------------- |
-{{% badge %}}Mandatory{{% /badge %}}  EMR/HMIS verifying ABHA (SHARE_PATIENT_PROFILE_701) | Share Patient Profile when the User scans the QR code which is placed the facility premises | 1. Log into PHR app. 2. User will scan the QR code which is placed the facility premises. 3. Post scanning, patient profile details are displayed including ABHA number, ABHA address, Name, Gender, DoB, Mobile No and Address. Below this consent language is displayed - "You consent to the above information to be shared with (Health facility Name). They can use this information for your registration and linking your health records and both Cancel/Share buttons are provided. 4.Check that after clicking on "Share" button, user profile is successfully shared with the HIP and if user click on "Cancel" button then user profile is not shared with the HIP. 5. User clicks on share and gets a token number. 6. User clicks on ok and gets token number with validity of 30 minutes.
+{{% badge style="blue"%}}Mandatory{{% /badge %}}  EMR/HMIS verifying ABHA (SHARE_PATIENT_PROFILE_701) | Share Patient Profile when the User scans the QR code which is placed the facility premises | 1. Log into PHR app. 2. User will scan the QR code which is placed the facility premises. 3. Post scanning, patient profile details are displayed including ABHA number, ABHA address, Name, Gender, DoB, Mobile No and Address. Below this consent language is displayed - "You consent to the above information to be shared with (Health facility Name). They can use this information for your registration and linking your health records and both Cancel/Share buttons are provided. 4.Check that after clicking on "Share" button, user profile is successfully shared with the HIP and if user click on "Cancel" button then user profile is not shared with the HIP. 5. User clicks on share and gets a token number. 6. User clicks on ok and gets token number with validity of 30 minutes.
 
 ## API Sequence Diagram
 

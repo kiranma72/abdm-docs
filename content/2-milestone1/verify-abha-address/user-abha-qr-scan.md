@@ -14,13 +14,12 @@ Health Facility can scan the **User's ABHA QR code**, whereby User provides cons
 
 Health Facility (HIP) Initiated linking is the process through which an HIP links the patient’s care context (health record) with the patient ABHA Address, after patient registration and creation of health records (in their HMIS/LMIS system).
 
-## Sample QR Codes
+**Sample QR Codes**
 
 QR Code|JSON output
 | -------- | ------- |
 Sample QR Code in User's ABHA Application ![ABHA App QR Code](../abha-qr-in-app.png) | ![ABHA App QR Scan](../json-abha-app-qr-scan.png)
 Sample QR Code in User's ABHA Card ![ABHA App QR Code](../abha-card-eg.png) | ![ABHA App QR Scan](../json-abha-card-qr.png)
-
 
 Care context (Health record) linking happens in two steps:
 
@@ -50,9 +49,9 @@ The link token will be used for linking multiple number of care contexts, and co
 
 ## Test Cases:
 
-Applicable To | Test Summary | Test Scenario |
-| --| ----------- | ------------------- |
-{{% badge %}}Optional{{% /badge %}} Applicable to All (VRFY_ABHA_501)| System must allow scanning of ABHA QR code to read the user's ABHA information|EMR/HMIS scans the user's ABHA QR code
+S.no.|Applicable To | Test Summary | Test Scenario |
+|--| --| ----------- | ------------------- |
+1.|{{% badge %}}Optional{{% /badge %}} Applicable to All (VRFY_ABHA_501)| System must allow scanning of ABHA QR code to read the user's ABHA information|EMR/HMIS scans the user's ABHA QR code
 
 
 ## API Sequence Diagram
