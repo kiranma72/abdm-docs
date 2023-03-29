@@ -118,4 +118,24 @@ API creates ABHA Number using Aadhaar & Mobile which are already Registered.
 
 {{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/enrol/byAadhaar$" >}}
 
+**For Mobile verification and Mobile Update**
 
+**4. Generate OTP on requested mobile number**
+
+Api accepts Encrypted Mobile Number and then Generates OTP to that Mobile Number
+
+**BASE URL:** https://abhasbx.abdm.gov.in/abha/api
+
+Refer to example “Request OTP for mobile verification”
+
+{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/request/otp$" >}}
+
+**5. Link mobile number**
+
+Api accepts Encrypted OTP and then link that Mobile Number
+
+**BASE URL:** https://abhasbx.abdm.gov.in/abha/api
+
+Refer to example “Request Verify Mobile”
+
+{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/auth/byAbdm$" >}}
