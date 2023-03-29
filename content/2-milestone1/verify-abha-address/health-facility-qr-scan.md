@@ -7,6 +7,7 @@ pre = "<b>2.3.1 </b>"
 +++
 
 # Scan Health Facility QR
+{{% badge style="primary" icon="angle-double-right"%}}Mandatory{{% /badge %}} **For HMIS / LMIS , Government Health App , PHR / Locker**
 
 ## Functionality Overview
 

@@ -8,6 +8,7 @@ pre = "<b>2.1.4 </b>"
 
 
 # ABHA Number Creation via Driving Licence
+{{% badge style="accent" icon="angle-right" %}}Optional{{% /badge %}} **For HMIS / LMIS , Government Health App , PHR / Locker**
 
 ## Functionality Overview
 

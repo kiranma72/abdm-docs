@@ -22,6 +22,24 @@ PHR Application - For consumers|Mandatory|N/A|
 Public Health Application - Used by Health Workers|Mandatory|Mandatory|
 Teleconsultation Application|Optional|Mandatory|
 
+## M1 Testcases mapping by Role
+
+|                               |   HMIS / LMIS (PVT)  |   Government Health APP  |   PHR / LOCKER    |
+|-------------------------------|----------------------|--------------------|-------------------|
+|   **Creation of ABHA Number**            |                      |                    |                   |
+|   Using Aadhar OTP                      |   Mandatory          |   Mandatory        |   Mandatory       |
+|   Using Aadhar Demographics (OFFLINE)                     |   Not Applicable     |   Mandatory        |   Not Applicable  |
+|   Using Aadhar Biometrics                      |   Optional           |   Mandatory        |   Optional        |
+|   Using Driving License              |   Optional           |   Optional         |   Optional        |
+|   **Creation of ABHA Address**       |                      |                    |                   |
+|   Using Mobile Number               |   Optional           |   Optional         |   Mandatory       |
+|   Using ABHA Number                  |   Optional           |   Optional         |   Mandatory       |
+|   **Verification of ABHA Address**   |                      |                    |                   |
+|   Scan Health Facility QR Code     |   Mandatory          |   Mandatory        |   Mandatory       |
+|   Scan User ABHA QR Code          |   Mandatory          |   Mandatory        |   Not Applicable  |
+|   By OTP             |   Mandatory          |   Mandatory        |   Not Applicable  |
+|   New vs Returning Patients  |   Mandatory          |   Mandatory        |   Not Applicable  |
+
 This section covers:
 {{% notice %}}
 - Creation of ABHA number

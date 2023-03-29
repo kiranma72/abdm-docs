@@ -7,6 +7,8 @@ pre = "<b>2.1.1 </b>"
 +++
 
 # Registration via Aadhaar OTP
+{{% badge style="primary" icon="angle-double-right"%}}Mandatory{{% /badge %}} **For HMIS / LMIS , Government Health App , PHR / Locker**
+
 
 ## Functionality Overview 
 
@@ -107,7 +109,7 @@ Refer to example “Request OTP Aadhaar based enrollment”
 
 {{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/request/otp$" >}}
 
-{{% badge style="note" title=" "%}}Note{{% /badge %}} The above api is also used for **Resend OTP**
+{{% badge style="note" title=" "%}}Note{{% /badge %}} System may activate the Resend OTP button atleast 2 times after 60 seconds. The above api is also used for **Resend OTP**
 
 
 **3. Create ABHA Number using pre-verified Aadhaar & Mobile.**

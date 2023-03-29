@@ -7,6 +7,7 @@ pre = "<b>2.3.4 </b>"
 +++
 
 # New vs Returning Patients
+{{% badge style="primary" icon="angle-double-right"%}}Mandatory{{% /badge %}} **For HMIS / LMIS , Government Health App**
 
 Every Health Facility has to do deal with both new and returning patients. It is important that the capture and saving of a ABHA address be offered to both new and returning patients by the HRP softwares.
 

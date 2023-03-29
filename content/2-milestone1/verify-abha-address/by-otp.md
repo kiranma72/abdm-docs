@@ -7,6 +7,7 @@ pre = "<b>2.3.3 </b>"
 +++
 
 # By OTP
+{{% badge style="primary" icon="angle-double-right"%}}Mandatory{{% /badge %}} **For HMIS / LMIS , Government Health App**
 
 ## Functionality Overview
 

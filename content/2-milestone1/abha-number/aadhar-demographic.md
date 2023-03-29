@@ -7,5 +7,6 @@ pre = "<b>2.1.3 </b>"
 +++
 
 # Using Aadhar Demographic
+{{% badge style="primary" icon="angle-double-right"%}}Mandatory{{% /badge %}} **For Government Health App**
 
 
