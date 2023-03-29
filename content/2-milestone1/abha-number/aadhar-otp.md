@@ -69,6 +69,21 @@ UIDAI->>UIDAI: Verify OTP
 UIDAI->>ABHA: Share Aadhaar e-KYC details
 ABHA->>ABHA: ABHA Creation
 ABHA->>HIU/HIP/PHR: ABHA Number & Profile
+Note over HIU/HIP/PHR,UIDAI: Mobile verification and Mobile Update
+Note left of ABHA: Share encrypted mobile number,transaction ID
+HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/request/otp)
+ABHA->>UIDAI: Mobile number
+UIDAI->>UIDAI:Verify Mobile number
+UIDAI->>ABHA: Response 200
+ABHA->>HIU/HIP/PHR: Response 200 
+UIDAI->>HIU/HIP/PHR:Receive OTP
+Note right of HIU/HIP/PHR: Forward Encrypted OTP & transaction ID to verify
+HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/auth/byAbdm)
+ABHA->>UIDAI: Forward OTP
+UIDAI->>UIDAI: Verify OTP
+UIDAI->>ABHA: Response 200
+ABHA->>ABHA: Mobile Number Linked
+ABHA->>HIU/HIP/PHR: Response 200
 {{< /mermaid >}}
 
 
