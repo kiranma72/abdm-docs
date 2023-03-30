@@ -3636,8 +3636,6 @@ components:
             accessToken :
               type: string
               description: access token for initialization of subsequent action.
-            validity:
-              $ref: '#/components/schemas/AccessTokenValidity'
             patient:
               $ref: '#/components/schemas/PatientDemographicResponse'
         error:
@@ -3684,12 +3682,16 @@ components:
       properties:
         line:
           type: string
+          example: "2nd cross street"
         district:
           type: string
+          example: "Chennai"
         state:
           type: string
+          example: "TamilNadu"
         pincode:
           type: string
+          example: "600301"
     PatientAuthNotification:
       type: object
       required:
