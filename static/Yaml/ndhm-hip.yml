@@ -2324,12 +2324,13 @@ components:
           $ref: '#/components/schemas/IdentifierType'
         value:
           type: string
-          example: "+919800083232"
+          example: "9800083232"
       xml:
         name: Identifier
     IdentifierType:
       type: string
       enum: [MR, MOBILE, NDHM_HEALTH_NUMBER, HEALTH_ID]
+      example: MOBILE
     AuthConfirmIdentifier:
       type: object
       required:
@@ -3663,6 +3664,12 @@ components:
         yearOfBirth:
           type: integer
           example: 2000
+        monthOfBirth:
+          type: integer
+          example: 12
+        dayOfBirth:
+          type: integer
+          example: 31
         address:
           $ref: '#/components/schemas/PatientAddress'
         identifiers:

@@ -101,7 +101,7 @@ Document Database Server-->>ABHA Server:
 ABHA Server-->>-Client: 
 note right of Client : Enrollment number 
 {{< /mermaid >}}
-
+![DL_sequence_flow](../DL_sequence_flow.png)
 
 ## API Information Request Response 
 
