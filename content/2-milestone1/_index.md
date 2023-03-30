@@ -12,22 +12,13 @@ Functionalities offered by Milestone 1 are:
 1. Create ABHA number & address - using Aadhaar / Mobile / Driving License
 2. Collect & Verify ABHA address during patient registration
 
-Here's to help you understand what functionalities are mandatory & optional based on your role:
-
-Type of application|Creation of ABHA number & Address|Verification of ABHA address|
-| --------------- | ------------ | ------------ |
-HMIS Application - Used by Hospitals|Optional|Mandatory|
-LMIS Application - Used only by Labs|Optional|Mandatory|
-PHR Application - For consumers|Mandatory|N/A|
-Public Health Application - Used by Health Workers|Mandatory|Mandatory|
-Teleconsultation Application|Optional|Mandatory|
 
 ## M1 Testcases mapping by Role
 
-|                               |   HMIS / LMIS (PVT)  |   Government Health APP  |   PHR / LOCKER    |
+|                               |   HMIS / LMIS (PVT)  |   Government Health App  |   PHR / LOCKER    |
 |-------------------------------|----------------------|--------------------|-------------------|
-|   **Creation of ABHA Number**            |                      |                    |                   |
-|   Using Aadhar OTP                      |   Mandatory          |   Mandatory        |   Mandatory       |
+|   **2.1 Creation of ABHA Number**            |                      |                    |                   |
+|   2.1.1 Using Aadhar OTP                      |   Mandatory          |   Mandatory        |   Mandatory       |
 |   Using Aadhar Demographics (OFFLINE)                     |   Not Applicable     |   Mandatory        |   Not Applicable  |
 |   Using Aadhar Biometrics                      |   Optional           |   Mandatory        |   Optional        |
 |   Using Driving License              |   Optional           |   Optional         |   Optional        |

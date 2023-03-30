@@ -7,7 +7,11 @@ pre = "<b>2.1.1 </b>"
 +++
 
 # Registration via Aadhaar OTP
-{{% badge style="primary" icon="angle-double-right"%}}Mandatory{{% /badge %}} **For HMIS / LMIS , Government Health App , PHR / Locker**
+
+
+|  Applicable To                             |   HMIS / LMIS (PVT)  |   Government Health App  |   PHR / LOCKER    |
+|-------------------------------|----------------------|--------------------|-------------------|
+|   Using Aadhar OTP                      |  {{% badge style="blue" %}}Mandatory{{% /badge %}}       |  {{% badge style="blue" %}} Mandatory{{% /badge %}}        |  {{% badge style="blue" %}} Mandatory{{% /badge %}}       |
 
 
 ## Functionality Overview 
@@ -74,17 +78,11 @@ ABHA->>HIU/HIP/PHR: ABHA Number & Profile
 Note over HIU/HIP/PHR,UIDAI: Mobile verification and Mobile Update
 Note left of ABHA: Share encrypted mobile number,transaction ID
 HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/request/otp)
-ABHA->>UIDAI: Mobile number
-UIDAI->>UIDAI:Verify Mobile number
-UIDAI->>ABHA: Response 200
 ABHA->>HIU/HIP/PHR: Response 200 
-UIDAI->>HIU/HIP/PHR:Receive OTP
+ABHA->>HIU/HIP/PHR:Receive OTP
 Note right of HIU/HIP/PHR: Forward Encrypted OTP & transaction ID to verify
 HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/auth/byAbdm)
-ABHA->>UIDAI: Forward OTP
-UIDAI->>UIDAI: Verify OTP
-UIDAI->>ABHA: Response 200
-ABHA->>ABHA: Mobile Number Linked
+ABHA->>ABHA: OTP Verified & Mobile Number Linked
 ABHA->>HIU/HIP/PHR: Response 200
 {{< /mermaid >}}
 
