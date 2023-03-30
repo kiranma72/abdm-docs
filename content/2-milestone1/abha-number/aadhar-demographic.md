@@ -7,6 +7,9 @@ pre = "<b>2.1.3 </b>"
 +++
 
 # Using Aadhar Demographic
-{{% badge style="primary" icon="angle-double-right"%}}Mandatory{{% /badge %}} **For Government Health App**
+|  Applicable To                             |   HMIS / LMIS (PVT)  |   Government Health App  |     PHR / LOCKER    |
+|-------------------------------|:----------------------:|:--------------------:|:-------------------:|
+|   Using Aadhar Demographic                      |  {{% badge color="red"%}}Not Applicable{{% /badge %}}       |  {{% badge style="blue" %}} Mandatory{{% /badge %}}        |  {{% badge color="red"%}}Not Applicable{{% /badge %}}     |
+
 
 

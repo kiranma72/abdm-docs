@@ -7,7 +7,10 @@ pre = "<b>2.3.2 </b>"
 +++
 
 # Scan User ABHA QR
-{{% badge style="primary" icon="angle-double-right"%}}Mandatory{{% /badge %}} **For HMIS / LMIS , Government Health App**
+|  Applicable To                             |   HMIS / LMIS (PVT)  |   Government Health App  |     PHR / LOCKER    |
+|-------------------------------|:----------------------:|:--------------------:|:-------------------:|
+|   Scan User ABHA QR                      |  {{% badge style="blue" %}} Mandatory{{% /badge %}}       |  {{% badge style="blue" %}} Mandatory{{% /badge %}}        |  {{% badge color="red"%}}Not Applicable{{% /badge %}}     |
+
 
 ## Functionality Overview
 

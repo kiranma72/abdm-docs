@@ -15,21 +15,21 @@ Functionalities offered by Milestone 1 are:
 
 ## M1 Testcases mapping by Role
 
-|                               |   HMIS / LMIS (PVT)  |   Government Health App  |   PHR / LOCKER    |
+|      Applicable To                         |   HMIS / LMIS (PVT)  |   Government Health App  |   PHR / LOCKER    |
 |-------------------------------|----------------------|--------------------|-------------------|
 |   **2.1 Creation of ABHA Number**            |                      |                    |                   |
 |   2.1.1 Using Aadhar OTP                      |   Mandatory          |   Mandatory        |   Mandatory       |
-|   Using Aadhar Demographics (OFFLINE)                     |   Not Applicable     |   Mandatory        |   Not Applicable  |
-|   Using Aadhar Biometrics                      |   Optional           |   Mandatory        |   Optional        |
-|   Using Driving License              |   Optional           |   Optional         |   Optional        |
-|   **Creation of ABHA Address**       |                      |                    |                   |
-|   Using Mobile Number               |   Optional           |   Optional         |   Mandatory       |
-|   Using ABHA Number                  |   Optional           |   Optional         |   Mandatory       |
-|   **Verification of ABHA Address**   |                      |                    |                   |
-|   Scan Health Facility QR Code     |   Mandatory          |   Mandatory        |   Mandatory       |
-|   Scan User ABHA QR Code          |   Mandatory          |   Mandatory        |   Not Applicable  |
-|   By OTP             |   Mandatory          |   Mandatory        |   Not Applicable  |
-|   New vs Returning Patients  |   Mandatory          |   Mandatory        |   Not Applicable  |
+|   2.1.2 Using Aadhar Biometrics                      |   Optional           |   Mandatory        |   Optional        |
+|   2.1.3 Using Aadhar Demographics (OFFLINE)                     |   Not Applicable     |   Mandatory        |   Not Applicable  |
+|   2.1.4 Using Driving License              |   Optional           |   Optional         |   Optional        |
+|   **2.2 Creation of ABHA Address**       |                      |                    |                   |
+|   2.2.1 Using Mobile Number               |   Optional           |   Optional         |   Mandatory       |
+|   2.2.2 Using ABHA Number                  |   Optional           |   Optional         |   Mandatory       |
+|   **2.3 Verification of ABHA Address**   |                      |                    |                   |
+|   2.3.1 Scan Health Facility QR      |   Mandatory          |   Mandatory        |   Mandatory       |
+|   2.3.2 Scan User ABHA QR          |   Mandatory          |   Mandatory        |   Not Applicable  |
+|   2.3.3 By OTP             |   Mandatory          |   Mandatory        |   Not Applicable  |
+|   2.3.4 New vs Returning Patients  |   Mandatory          |   Mandatory        |   Not Applicable  |
 
 This section covers:
 {{% notice %}}

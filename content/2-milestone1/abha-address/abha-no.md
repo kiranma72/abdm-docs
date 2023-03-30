@@ -7,7 +7,9 @@ pre = "<b>2.2.2 </b>"
 +++
 
 # Using ABHA Number
-{{% badge style="primary" icon="angle-double-right"%}}Mandatory{{% /badge %}} **For PHR / Locker**
+|  Applicable To                             |   HMIS / LMIS (PVT)  |   Government Health App  |   PHR / LOCKER    |
+|-------------------------------|:----------------------:|:--------------------:|:-------------------:|
+|   Using ABHA Number                     |  {{% badge %}}Optional{{% /badge %}}       |  {{% badge %}}Optional{{% /badge %}}         |  {{% badge style="blue"%}} Mandatory{{% /badge %}}       |
 
-{{% badge style="accent" icon="angle-right" %}}Optional{{% /badge %}} **For HMIS / LMIS , Government Health App**
+
 

@@ -7,7 +7,10 @@ pre = "<b>2.3.3 </b>"
 +++
 
 # By OTP
-{{% badge style="primary" icon="angle-double-right"%}}Mandatory{{% /badge %}} **For HMIS / LMIS , Government Health App**
+
+|  Applicable To                             |   HMIS / LMIS (PVT)  |   Government Health App  |     PHR / LOCKER    |
+|-------------------------------|:----------------------:|:--------------------:|:-------------------:|
+|   By OTP                      |  {{% badge style="blue" %}} Mandatory{{% /badge %}}       |  {{% badge style="blue" %}} Mandatory{{% /badge %}}        |  {{% badge color="red"%}}Not Applicable{{% /badge %}}     |
 
 ## Functionality Overview
 

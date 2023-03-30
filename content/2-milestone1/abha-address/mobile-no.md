@@ -7,7 +7,10 @@ pre = "<b>2.2.1 </b>"
 +++
 
 # Using Mobile Number
-{{% badge style="primary" icon="angle-double-right"%}}Mandatory{{% /badge %}} **For PHR / Locker**
 
-{{% badge style="accent" icon="angle-right" %}}Optional{{% /badge %}} **For HMIS / LMIS , Government Health App**
+|  Applicable To                             |   HMIS / LMIS (PVT)  |   Government Health App  |   PHR / LOCKER    |
+|-------------------------------|:----------------------:|:--------------------:|:-------------------:|
+|   Using Mobile Number                     |  {{% badge %}}Optional{{% /badge %}}       |  {{% badge %}}Optional{{% /badge %}}         |  {{% badge style="blue"%}} Mandatory{{% /badge %}}       |
+
+
 
