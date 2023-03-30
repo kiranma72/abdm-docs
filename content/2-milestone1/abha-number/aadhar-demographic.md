@@ -51,3 +51,23 @@ When calling this API, care must be taken to ensure:
 ## API Sequence Diagram
 
 
+
+## API Information Request Response 
+
+**1. Creates ABHA Number using Aadhaar Demo Auth.**
+
+API accepts Aadhaar Demo Auth. and creates ABHA Number using it.
+
+**BASE URL:** https://healthidsbx.abdm.gov.in/api
+
+{{< swaggermin src="/abdm-docs/Yaml/abdm-abha-service-1_0.yml" api="POST /v1/hid/benefit/createHealthId/demo/auth$" >}}
+
+**2. Update Account Information**
+
+API Accepts Account Details and Updates it.
+
+**BASE URL:** https://healthidsbx.abdm.gov.in/api
+
+{{< swaggermin src="/abdm-docs/Yaml/abdm-abha-service-1_0.yml" api="POST /v1/hid/benefit/update/profile$" >}}
+
+
