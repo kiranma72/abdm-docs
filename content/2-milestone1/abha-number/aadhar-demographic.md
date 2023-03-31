@@ -50,7 +50,20 @@ When calling this API, care must be taken to ensure:
 
 ## API Sequence Diagram
 
+The sequence of APIs used via this method are shown in the diagram below:
 
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+title Create ABHA Address using Demographic details (Offline)
+Government Health Application (HIP)->>ABHA:Shares the demographic details
+ABHA->>UIDAI:Requests for verification of details
+UIDAI->>UIDAI:Details verified
+UIDAI->>ABHA:Verifies user
+Note over ABHA:Checks if there’s an existing ABHA
+ABHA->>Government Health Application(HIP): Returns ABHA Address
+Note right of Government Health Application (HIP):Returns already created ABHA or creates new ABHA
+{{< /mermaid >}}
 
 ## API Information Request Response 
 
