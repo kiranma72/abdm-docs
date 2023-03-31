@@ -8,8 +8,10 @@ pre = "<b>7. </b>"
 
 # Sandbox Exit Process
 
-## Test Cases
+This section covers:
 
-1. **[Milestone 1](/abdm-docs/7-exiting-sandbox/milestone-1/)**
-2. **[Milestone 2](/abdm-docs/7-exiting-sandbox/milestone-2/)**
-3. **[Milestone 3](/abdm-docs/7-exiting-sandbox/milestone-3/)**
+{{% notice %}}
+1. **[Milestone 1 Test Cases](/abdm-docs/7-exiting-sandbox/milestone-1/)**
+2. **[Milestone 2 Test Cases](/abdm-docs/7-exiting-sandbox/milestone-2/)**
+3. **[Milestone 3 Test Cases](/abdm-docs/7-exiting-sandbox/milestone-3/)**
+{{% /notice %}}
