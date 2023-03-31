@@ -14,6 +14,12 @@ pre = "<b>2.3.3 </b>"
 - ABHA number can be linked or de-linked with the ABHA address. 
 - API links the given ABHA Address to the ABHA number and defines whether it is the preferred ABHA Address
 
+## Test Cases
+
+Functionality|Test Case|Steps To Be Executed|
+| ----- | ----- | ----- |
+{{% badge style="blue" %}}Mandatory{{% /badge %}} Linking of ABHA Number and ABHA Address (LINK_ABHA_701)|System should have provision to link the  created ABHA  number with existing ABHA address |**1.** User will create ABHA  number as deifned in above scenerios. **2.** user should be able to link ABHA  number with existing ABHA address 
+
 ## API Sequence Diagram
 
 *check with Kiran*
