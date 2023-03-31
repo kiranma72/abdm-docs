@@ -7,3 +7,11 @@ pre = "<b>8. </b>"
 +++
 
 # Utilities
+
+## This section covers:
+
+{{% notice %}}
+1. Utilities
+	- Convert Image to Base64
+	- RSA Encryption
+{{% /notice %}}
