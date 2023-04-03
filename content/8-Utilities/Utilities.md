@@ -28,8 +28,8 @@ RSA(Rivest-Shamir-Adleman) is an Asymmetric encryption technique that uses two d
 
 
 To encrypt the data :
-- *Step-1:* [API to retrieve public key](#api-to-generate-public-key)
-- *Step-2:* [RSA Encryption via online](#rsa-encryption-via-online)
+- *Step-1:* [API to retrieve public key](#api-to-retrieve-the-public-key)
+- *Step-2:* [RSA Encryption via online](#rsa-encryption-via-online-while-using-postman)
 
 
 #### API to retrieve the public key
