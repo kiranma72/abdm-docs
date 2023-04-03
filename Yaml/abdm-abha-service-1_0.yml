@@ -6173,6 +6173,9 @@ definitions:
     - dateOfBirth
     - gender
     - name
+    - stateCode
+    - districtCode
+    - consentHealthId
     properties:
       aadhaarNumber:
         type: string
