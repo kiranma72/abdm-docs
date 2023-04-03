@@ -32,5 +32,35 @@ S.No.|Functionality|Test Case|Steps To Be Executed|
 
 ## API Information 
 
-*Need inputs from Kiran*
+**Get Quick Response code in PNG format**
+
+API Accepts Auth Token and then returns Account Info for QR Code.
+
+**BASE URL:** https://healthidsbx.abdm.gov.in/api
+
+{{< swaggermin src="/abdm-docs/Yaml/abdm-abha-service-1_0.yml" api="GET /v1/account/qrCode$" >}}
+
+**Generate ABHA Card in PDF Format**
+
+API Accepts Auth Token and then Returns Account Details for PDF format.
+
+**BASE URL:** https://healthidsbx.abdm.gov.in/api
+
+{{< swaggermin src="/abdm-docs/Yaml/abdm-abha-service-1_0.yml" api="GET /v1/account/getCard$" >}}
+
+**Generate ABHA card SVG**
+
+API Accepts Auth Token and then Returns Account Details for SVG format.
+
+**BASE URL:** https://healthidsbx.abdm.gov.in/api
+
+{{< swaggermin src="/abdm-docs/Yaml/abdm-abha-service-1_0.yml" api="GET /v1/account/getSvgCard$" >}}
+
+**Generate ABHA card PNG**
+
+API Accepts Auth Token and then Returns Account Details for PNG format.
+
+**BASE URL:** https://healthidsbx.abdm.gov.in/api
+
+{{< swaggermin src="/abdm-docs/Yaml/abdm-abha-service-1_0.yml" api="GET /v1/account/getPngCard$" >}}
 
