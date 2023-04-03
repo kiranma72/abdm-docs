@@ -61,7 +61,7 @@ ABHA->>UIDAI:Requests for verification of details
 UIDAI->>UIDAI:Details verified
 UIDAI->>ABHA:Verifies user
 Note over ABHA:Checks if there’s an existing ABHA
-ABHA->>Government Health Application(HIP): Returns ABHA Address
+ABHA->>Government Health Application (HIP): Returns ABHA Address
 Note right of Government Health Application (HIP):Returns already created ABHA or creates new ABHA
 {{< /mermaid >}}
 
