@@ -65,7 +65,11 @@ ABHA->>Government Health Application (HIP): Returns ABHA Address
 Note right of Government Health Application (HIP):Returns already created ABHA or creates new ABHA
 {{< /mermaid >}}
 
+{{% badge icon="info" %}}Information{{% /badge %}} Kindly use the [link](/abdm-docs/1-basics/verify_sandbox_access/#check-your-jwt-token) to check whether you have roles to access the integrated Program APIs.
+
 ## API Information Request Response 
+
+{{% badge icon="info-circle" %}}Note{{% /badge %}} Kindly check the schema tab for the list of mandatory & optional fields in request body.
 
 **1. Creates ABHA Number using Aadhaar Demo Auth.**
 
