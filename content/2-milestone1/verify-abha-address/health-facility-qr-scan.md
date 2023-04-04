@@ -71,6 +71,12 @@ The User/Patient can share their basic KYC information with the Health Facility 
 - Click on share which will make Health Facility call the expected API on Health Facility side.
 - The successful message would be shown on application once the on-share callback is given.
 
+## Sample User Experience
+
+Here's how the user journey looks on the Health Facility's side:
+
+![Scan Health Facility QR Code](/abdm-docs/img/scan-hf-qr.gif)
+
 
 ## Test Cases:
 

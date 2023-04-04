@@ -50,6 +50,12 @@ The link token will be used for linking multiple number of care contexts, and co
 2. HRP software must validate the scanned data and collect a Linking Token from ABDM Gateway
 3. The software must use the information scanned to register the patient and save the ABHA Address
 
+## Sample User Experience
+
+Here's how the user journey looks on the Health Facility's side:
+
+![Scan User ABHA QR Code](/abdm-docs/img/scan-user-qr.gif)
+
 
 ## Test Cases:
 
