@@ -1,14 +1,13 @@
 +++
-title = "Creation of ABHA Address"
-date = 2022-05-07T17:53:25+05:30
-weight = 2
+title = "Default ABHA Address"
+date = 2023-04-05T01:30:25+05:30
+weight = 6
 chapter = true
-pre = "<b>2.2 </b>"
+pre = "<b>2.1.6 </b>"
 +++
 
-# Creation of ABHA Address
 
-## Understanding ABHA Address
+# Default ABHA Address
 
 **What is ABHA Address?**
 
@@ -23,11 +22,3 @@ The user can also create a user defined name on the HIE-CM that can be linked to
 It is also possible to create an ABHA address that is not linked to an ABHA number on the HIE-CM using mobile, name, age & gender.
 
 ![Understanding ABHA Address](/abdm-docs/img/abha-address-intro.png)
-
-**This section covers:**
-{{% notice %}}
-- Using Mobile Number
-- Using ABHA Number
-{{% /notice %}}
-
-

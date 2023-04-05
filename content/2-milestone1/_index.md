@@ -38,10 +38,9 @@ Functionalities offered by Milestone 1 are:
 	- Using Aadhaar biometric
 	- Using Aadhaar demographics (offline)
 	- Using driving license
-2. Creation of ABHA address
-	- Using mobile number
-	- Using ABHA number
-3. Verification of ABHA address
+	- Download ABHA Card
+	- Default ABHA Address
+2. Verification of ABHA address
 	- By scan & share
 	- By OTP
 	- By demographics
