@@ -51,7 +51,62 @@ Functionality|Test Case|Steps To Be Executed|
 
 *check with Kiran*
 
-## API Informaion
+## API Information Request Response 
 
-*check with Kiran*
+**1. Search a user by Health ID Number**
+
+Api Checks Health ID Number to find User.
+
+**BASE URL:** https://phrsbx.abdm.gov.in
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/hid/search/auth-methods$" >}}
+
+
+**2. Resend OTP**
+
+Api Accepts Transaction Number and then Resend OTP for it.
+
+**BASE URL:** https://phrsbx.abdm.gov.in
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/hid/init/transaction$" >}}
+
+**3. Validate OTP**
+
+API to verify the Mobile OTP
+
+**BASE URL:** https://phrsbx.abdm.gov.in
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/hid/init/resendOtp$" >}}
+
+**4. Pass the Beneficiary Details**
+
+API to pass the Beneficiary Details so based on the details suggestions of PHR Addresses can be obtained
+
+**BASE URL:** https://phrsbx.abdm.gov.in
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/hid/confirm/credential$" >}}
+
+**5. Generate Suggestions**
+
+API to Generate List phrAddresses as suggestions
+
+**BASE URL:** https://phrsbx.abdm.gov.in
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/phr/suggestion$" >}}
+
+**6. Check PHR Address Already Exists**
+
+API to check the PHR Address exist or not
+
+**BASE URL:** https://phrsbx.abdm.gov.in
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="GET /api/v1/phr/search/isExist$" >}}
+
+**7. Register the Beneficiary**
+
+Register the Beneficiary to the PHR using the Mobile/Email Address
+
+**BASE URL:** https://phrsbx.abdm.gov.in
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/hid/create-phr-address$" >}}
 
