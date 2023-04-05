@@ -9,9 +9,9 @@ pre = "<b>2.1.5 </b>"
 
 # Download ABHA Card
 
-|  Applicable To | HMIS / LMIS (PVT)| Government Health App| PHR / LOCKER |
-|-------------------------------|:----------------------:|:--------------------:|:-------------------:|
-|   Using Driving License|{{% badge style="blue"%}}Mandatory{{% /badge %}}|{{% badge style="blue"%}}Mandatory{{% /badge %}}| {{% badge style="blue"%}}Mandatory{{% /badge %}}|
+|  Applicable To | HMIS / LMIS (PVT)| Government Health App| 
+|-------------------------------|:----------------------:|:--------------------:|
+|   Download ABHA Card |{{% badge style="blue"%}}Mandatory{{% /badge %}}|{{% badge style="blue"%}}Mandatory{{% /badge %}}| 
 
 ## Functionality Overview
 

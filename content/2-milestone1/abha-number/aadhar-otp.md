@@ -9,9 +9,9 @@ pre = "<b>2.1.1 </b>"
 # Registration via Aadhaar OTP
 
 
-|  Applicable To                             |   HMIS / LMIS (PVT)  |   Government Health App  |   PHR / LOCKER    |
-|-------------------------------|:----------------------:|:--------------------:|:-------------------:|
-|   Using Aadhar OTP                      |  {{% badge style="blue" %}}Mandatory{{% /badge %}}       |  {{% badge style="blue" %}} Mandatory{{% /badge %}}        |  {{% badge style="blue" %}} Mandatory{{% /badge %}}       |
+|  Applicable To                             |   HMIS / LMIS (PVT)  |   Government Health App  |  
+|-------------------------------|:----------------------:|:--------------------:|
+|   Using Aadhar OTP                      |  {{% badge style="blue" %}}Mandatory{{% /badge %}}       |  {{% badge style="blue" %}} Mandatory{{% /badge %}}        |  
 
 
 ## Functionality Overview 
