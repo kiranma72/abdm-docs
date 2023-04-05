@@ -12,10 +12,14 @@ pre = "<b>2.1 </b>"
 
 ABHA numbers are extremely important for helping those who use feature phones or do not use a phone to manage their personal health records. ABHA numbers are issued in assisted mode extensively by all Government health programs.
 
-This section covers:
+**This section covers:**
+
 {{% notice %}}
 - Using Aadhaar OTP
 - Using Aadhaar biometric
 - Using Aadhaar demographic(offline mode)
 - Using driving license
+- Download ABHA Card
+- Default ABHA Address
+- Profile Update
 {{% /notice %}}
