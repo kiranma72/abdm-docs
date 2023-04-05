@@ -62,25 +62,25 @@ Api Checks Health ID Number to find User.
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/hid/search/auth-methods$" >}}
 
 
-**2. Resend OTP**
+**2. Send OTP**
 
-Api Accepts Transaction Number and then Resend OTP for it.
+Api to create the transaction and send the otp on mobile number.
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/hid/init/transaction$" >}}
 
-**3. Validate OTP**
+**3. Resend OTP**
 
-API to verify the Mobile OTP
+API to resend the Mobile OTP
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/hid/init/resendOtp$" >}}
 
-**4. Pass the Beneficiary Details**
+**4. Verify OTP**
 
-API to pass the Beneficiary Details so based on the details suggestions of PHR Addresses can be obtained
+API to verify OTP
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
@@ -102,9 +102,7 @@ API to check the PHR Address exist or not
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="GET /api/v1/phr/search/isExist$" >}}
 
-**7. Register the Beneficiary**
-
-Register the Beneficiary to the PHR using the Mobile/Email Address
+**7. Create PHR Address**
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
