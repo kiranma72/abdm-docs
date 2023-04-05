@@ -21,10 +21,10 @@ Functionalities offered by Milestone 1 are:
 |   Using Aadhar OTP                      |   Mandatory          |   Mandatory        |  
 |   Using Aadhar Biometrics                      |   Optional           |   Mandatory        |  
 |   Using Aadhar Demographics (Offline)                     |   NA     |   Mandatory        |  
-|   Using Driving License              |   Optional           |   Optional         |   
-|   **Creation of ABHA Address**       |                      |                    |                  
-|   Using Mobile Number               |   Optional           |   Optional         |  
-|   Using ABHA Number                  |   Optional           |   Optional         |  
+|   Using Driving License              |   Optional           |   Optional         |
+Download ABHA Card | Mandatory | Mandatory
+Default ABHA Address | NA | NA
+Profile Update | *check with Kiran* |  *check with Kiran*
 |   **Verification of ABHA Address**   |                      |                    |                
 |   Scan Health Facility QR      |   Mandatory          |   Mandatory        |  
 |   Scan User ABHA QR          |   Mandatory          |   Mandatory        |  
@@ -40,6 +40,7 @@ Functionalities offered by Milestone 1 are:
 	- Using driving license
 	- Download ABHA Card
 	- Default ABHA Address
+	- Profile Update
 2. Verification of ABHA address
 	- By scan & share
 	- By OTP

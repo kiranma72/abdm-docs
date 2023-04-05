@@ -1,9 +1,9 @@
 +++
 title = "Verification of ABHA Address"
 date = 2022-05-07T17:53:25+05:30
-weight = 3
+weight = 2
 chapter = true
-pre = "<b>2.3 </b>"
+pre = "<b>2.2 </b>"
 +++
 
 # Verify ABHA Address
