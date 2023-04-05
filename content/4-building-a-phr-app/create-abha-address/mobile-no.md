@@ -8,9 +8,9 @@ pre = "<b>4.2.1 </b>"
 
 # Using Mobile Number
 
-|  Applicable To                             |   HMIS / LMIS (PVT)  |   Government Health App  |   PHR / LOCKER    |
-|-------------------------------|:----------------------:|:--------------------:|:-------------------:|
-|   Using Mobile Number                     |  {{% badge %}}Optional{{% /badge %}}       |  {{% badge %}}Optional{{% /badge %}}         |  {{% badge style="blue"%}} Mandatory{{% /badge %}}       |
+|  Applicable To                             |   HMIS / LMIS (PVT)  |   Government Health App  |  
+|-------------------------------|:----------------------:|:--------------------:|
+|   Using Mobile Number                     |  {{% badge %}}Optional{{% /badge %}}       |  {{% badge %}}Optional{{% /badge %}}         | 
 
 ## Functionality Overview
 

@@ -7,9 +7,9 @@ pre = "<b>4.2.2 </b>"
 +++
 
 # Using ABHA Number
-|  Applicable To                             |   HMIS / LMIS (PVT)  |   Government Health App  |   PHR / LOCKER    |
-|-------------------------------|:----------------------:|:--------------------:|:-------------------:|
-|   Using ABHA Number                     |  {{% badge %}}Optional{{% /badge %}}       |  {{% badge %}}Optional{{% /badge %}}         |  {{% badge style="blue"%}} Mandatory{{% /badge %}}       |
+|  Applicable To                             |   HMIS / LMIS (PVT)  |   Government Health App  |  
+|-------------------------------|:----------------------:|:--------------------:|
+|   Using ABHA Number                     |  {{% badge %}}Optional{{% /badge %}}       |  {{% badge %}}Optional{{% /badge %}}         |  
 
 ## Functionality Overview
 
