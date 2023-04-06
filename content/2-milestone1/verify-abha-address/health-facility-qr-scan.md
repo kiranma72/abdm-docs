@@ -36,11 +36,11 @@ The User/Patient can share their basic KYC information with the Health Facility 
 
 **Use Case 1: ABDM compliant ABHA application is already installed in user’s phone**
 
-*insert image slider for UX, awaiting Kiran to share the refernce*
+![Use Case 1](../scan-hf-abha1.gif)
 
-**Use Case 1: No ABDM compliant ABHA application is installed**
+**Use Case 2: No ABDM compliant ABHA application is installed**
 
-*insert image slider for UX, awaiting Kiran to share the refernce*
+![Use Case 2](../scan-hf-abha2.png)
 
 **Steps to create a QR code for your Health Facility:**
 
@@ -52,10 +52,12 @@ The User/Patient can share their basic KYC information with the Health Facility 
 
 **QR Code Content**
 
-{{% button href="https://phrsbx.abdm.gov.in/share-profile?hip-id=IN3410000260&counter-id=12345" style="info" %}}Try out the QR Code Generator here{{% /button %}}
+{{% button style="info" %}}Try this out{{% /button %}} The content of the QR code is a URL in the following format:
+
+https://phrsbx.abdm.gov.in/share-profile?hip-id=IN3410000260&counter-id=12345
 
 - **Health Facility-ID:** Must be a valid Health Facility Registry ID issued by HFR
-- Counter-ID:
+- **Counter-ID:**
 	- Can be any facility decided alphanumeric string. This field is passed back to the facility as part of the share-profile API call and can be used to identify the physical location where the QR code is present.
 	- Given that the patient profile will be shared among all the counters and dynamic logic would be used for mapping the QR code to the counter,the counter number should be optional in payload for both QR code generation and scanning
 - **URL:**
@@ -82,7 +84,7 @@ Here's how the user journey looks on the Health Facility's side:
 
 Applicable To | Test Summary | Test Scenario |
 | --| ----------- | ------------------- |
-{{% badge style="blue"%}}Mandatory{{% /badge %}}  EMR/HMIS verifying ABHA (SHARE_PATIENT_PROFILE_701) | Share Patient Profile when the User scans the QR code which is placed the facility premises | 1. Log into PHR app. 2. User will scan the QR code which is placed the facility premises. 3. Post scanning, patient profile details are displayed including ABHA number, ABHA address, Name, Gender, DoB, Mobile No and Address. Below this consent language is displayed - "You consent to the above information to be shared with (Health facility Name). They can use this information for your registration and linking your health records and both Cancel/Share buttons are provided. 4.Check that after clicking on "Share" button, user profile is successfully shared with the HIP and if user click on "Cancel" button then user profile is not shared with the HIP. 5. User clicks on share and gets a token number. 6. User clicks on ok and gets token number with validity of 30 minutes.
+{{% badge style="blue"%}}Mandatory{{% /badge %}}  EMR/HMIS verifying ABHA (SHARE_PATIENT_PROFILE_701) | Share Patient Profile when the User scans the QR code which is placed the facility premises | **1.** Log into PHR app. **2.** User will scan the QR code which is placed the facility premises. **3.** Post scanning, patient profile details are displayed including ABHA number, ABHA address, Name, Gender, DoB, Mobile No and Address. Below this consent language is displayed - "You consent to the above information to be shared with (Health facility Name). They can use this information for your registration and linking your health records and both Cancel/Share buttons are provided. **4.** Check that after clicking on "Share" button, user profile is successfully shared with the HIP and if user click on "Cancel" button then user profile is not shared with the HIP. **5.** User clicks on share and gets a token number. **6.** User clicks on ok and gets token number with validity of 30 minutes.
 
 ## API Sequence Diagram
 
@@ -117,11 +119,12 @@ HRP->>ABDM Sandbox Gateway:POST/v3/hip/patient/profile/on-share
 {{< swaggermin src="/abdm-docs/Yaml/HIE_CM_Profile_Share.yml" api="POST /{callback_url}/v3/app/patient/profile/on-share$" >}}
 
 
+
 {{% button style="tip" %}}  Try it out for yourself  {{% /button %}}
 
 - Step 1: [Install ABHA Sandbox application](https://sandbox.abdm.gov.in/docs/phr_app) & Try it out 
-- Step 2: Register a callback URL
-- Step 3: Link a *fake* Health Facility ID to your client ID, and [add link here]( https://kiranma72.github.io/abdm-docs/1-basics/working_with_abdm_apis/index.html#registering-your-callback-url)
+- Step 2: [Register a callback URL](/abdm-docs/1-basics/working_with_abdm_apis/index.html#registering-your-callback-url)
+- Step 3: Link a *fake* Health Facility ID to your client ID, [refer here](http://localhost:1313/abdm-docs/1-basics/working_with_abdm_apis/#linking-the-hips--hius-id-for-a-client-id)
 - Step 4: Create QR code for your *fake* Health Facility ID
 - Step 5: Scan QR code using ABHA sandbox Application
 - Step 6: Get a share profile call from Sandbox on your callback URL

@@ -1,9 +1,9 @@
 +++
 title = "Profile Update"
 date = 2023-04-05T01:30:25+05:30
-weight = 6
+weight = 7
 chapter = true
-pre = "<b>2.1.6 </b>"
+pre = "<b>2.1.7 </b>"
 +++
 
 
