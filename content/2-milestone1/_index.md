@@ -24,7 +24,7 @@ Functionalities offered by Milestone 1 are:
 |   Using Driving License              |   Optional           |   Optional         |
 Download ABHA Card | Mandatory | Mandatory
 Default ABHA Address | NA | NA
-Profile Update | *check with Kiran* |  *check with Kiran*
+Profile Update | Optional |  Optional
 |   **Verification of ABHA Address**   |                      |                    |                
 |   Scan Health Facility QR      |   Mandatory          |   Mandatory        |  
 |   Scan User ABHA QR          |   Mandatory          |   Mandatory        |  

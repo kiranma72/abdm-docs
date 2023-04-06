@@ -9,9 +9,16 @@ pre = "<b>2.1.6 </b>"
 
 # Profile Update
 
+|  Applicable To                             |   HMIS / LMIS (PVT)  |   Government Health App  |     
+|-------------------------------|:----------------------:|:--------------------:|
+|   Using Aadhar Demographic                      |  {{% badge %}}Optional{{% /badge %}}       |  {{% badge %}} Optional{{% /badge %}}        |  
 
-- If you want to do profile update for any user, you can do it via 
-[**ABHA website**](https://abha.abdm.gov.in/)
+
+
+- If you want to do profile update for any user, you can do it by using their ABHA number, via:
+	1. [**ABHA Website**](https://abha.abdm.gov.in/), if you ABHA number was created on Production website.
+	2. [**ABHA Sandbox**](https://sandbox.abdm.gov.in//), if you ABHA number was created on Sandbox environment.
+
 - If you want to do it in your application,  more information is documented under PHR Application section
 
 ## Test Cases
