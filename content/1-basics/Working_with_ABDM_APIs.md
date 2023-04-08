@@ -117,7 +117,7 @@ We recommend using a combination of Postman & webhook to quickly understand ABDM
 
 ## Sample User Experience for Callback
 
-{{< gallery dir="1-basics/webhook_callback_flow">}} 
+{{< gallery dir="1-basics/webhook_callback_flow" />}} 
 
 
 
