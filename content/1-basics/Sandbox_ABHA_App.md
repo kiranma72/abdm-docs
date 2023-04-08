@@ -17,15 +17,15 @@ While building and testing your health repository in integration with the sandbo
 {{% attachments title="Download Sandbox ABHA App" icon="download"/%}}
 
 ## Install Sandbox ABDM App
-{{< gallery dir="1-basics/SandboxAppInstall" width="200px" height="400px">}} 
+{{< gallery dir="1-basics/SandboxAppInstall" />}} {{< load-photoswipe >}}
 
 ## Create ABHA address
 The user can create ABHA address via:
  - ABHA Number
  - Mobile Number
  - Email ID
-{{< gallery dir="1-basics/createABHAaddress" width="200px" height="400px">}} 
+{{< gallery dir="1-basics/createABHAaddress" />}} 
  
 ##### Create via MobileNumber:
-{{< gallery dir="1-basics/viaMobile" width="200px" height="400px">}} 
+{{< gallery dir="1-basics/viaMobile" />}} 
 
