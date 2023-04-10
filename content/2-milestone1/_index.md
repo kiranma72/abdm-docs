@@ -8,7 +8,7 @@ pre = "<b>2. </b>"
 
 ## Get Milestone 1 Certified
 
-Functionalities offered by Milestone 1 are:
+**Functionalities offered by Milestone 1 are:**
 1. Create ABHA number - using Aadhaar / Mobile / Demographic / Driving License
 2. Collect & Verify ABHA address during patient registration
 
