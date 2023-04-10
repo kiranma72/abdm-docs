@@ -8,7 +8,7 @@ pre = "<b>3.3.3 </b>"
 
 # Discovery & link
 
-## Discovery of the patient’s information at the HIP
+### **Discovery of patient’s information at the HIP**
 
 - When the gateway calls an HIP system and requests for a particular patient’s records with a set of verifiable Ids, the process of information discovery begins. 
 
@@ -20,10 +20,12 @@ The following flow diagram details the flows that take place during patient info
 %%{init:{"fontSize": "1.0rem", sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
 title Discovery of patient's information at the HIP
+PHR App->>Gateway:Discover records at Health Facility
 Gateway->>Repository:POST/care-contexts/discover
 activate Repository
 Repository-->>HIP System:Discovery Request
 HIP System-->>Repository:Response
+Repository->>Repository:Check if they have an existing care context
 deactivate Repository
 Repository->>Gateway:POST/care-contexts/on-discover
 {{< /mermaid >}}
@@ -34,7 +36,21 @@ The discovery process occurs when a consent manager sends out a request to the c
 2. The matching logic is as depicted in the flowchart below and also in API specifications:
 Note: Look for APIs with tag discovery and link
 
-![Discovery Linking Flowchart](/abdm-docs/img/DiscoveryLinking.png)
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", sequence":{"showSequenceNumbers":true}}}%%
+flowchart LR
+id1 -->|Yes| id5{Return matching Records}
+id1{Do I have any records for ABHA Address?} -->|No| id2{Do I have any records for Mobile Phone?}
+id2 -->|No| id4{No matching records found}
+id2 -->|Yes| id3{Does the gender match?}
+id3 --> |No| id4
+id3 -->|Yes| id6{Is the age within +/- 5 years?}
+id6 --> |No| id4
+id6 --> |Yes| id7{Is the name phonetically similar?}
+id7 --> |No| id4
+id7 --> |Yes| id8{Return matching Records}
+{{< /mermaid >}}
+
 
 3. As response to the discovery request, the HIP must send several masked details, as follows:
 	- Patient reference: MHCXX111 - typically the identifier for the patient at the HIP.
@@ -79,7 +95,7 @@ The following flow diagrams details the flows that take place while linking to a
 %%{init:{"fontSize": "1.0rem", sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
 title Linking (HIP side)
-actor User
+PHR App->>Gateway:Link Care Context
 Gateway->>Repository:POST/v0.5/links/link/init
 activate Repository
 Repository-->>HIP System:Link init Request
@@ -92,3 +108,5 @@ HIP System-->>Repository: Response
 Repository->>Gateway:POST/v0.5/links/link/on-confirm
 deactivate Repository
 {{< /mermaid >}}
+
+
