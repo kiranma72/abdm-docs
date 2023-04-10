@@ -9,7 +9,7 @@ pre = "<b>2. </b>"
 ## Get Milestone 1 Certified
 
 Functionalities offered by Milestone 1 are:
-1. Create ABHA number & address - using Aadhaar / Mobile / Driving License
+1. Create ABHA number - using Aadhaar / Mobile / Demographic / Driving License
 2. Collect & Verify ABHA address during patient registration
 
 
@@ -33,7 +33,7 @@ Profile Update | Optional |  Optional
 
 ## This section covers:
 {{% notice %}}
-1. Creation of ABHA number
+1. **Creation of ABHA number**
 	- Using Aadhaar OTP
 	- Using Aadhaar biometric
 	- Using Aadhaar demographics (offline)
@@ -41,7 +41,7 @@ Profile Update | Optional |  Optional
 	- Download ABHA Card
 	- Default ABHA Address
 	- Profile Update
-2. Verification of ABHA address
+2. **Verification of ABHA address**
 	- By scan & share
 	- By OTP
 	- By demographics
