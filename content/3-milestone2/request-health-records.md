@@ -56,6 +56,32 @@ When HIP gets the request for data transfer, it first **validates the consent:**
 4. Only data types that are granted in the consent, are shared
 
 
+## API Information Request Response 
+
+**1. Request Health Information**
+
+API called by CM to request Health information from HIP against a validated consent artefact.
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/health-information/hip/request$" >}}
+
+**2. Acknowledge Health Information Request receipt**
+
+API called by HIP to acknowledge Health information request receipt
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/health-information/hip/on-request$" >}}
+
+**3. Data Transfer**
+
+Health information transfer API.
+
+**BASE URL:** https://dev.abdm.gov.in/patient-hiu
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST  /v0.5/health-information/transfer$" >}}
+
+
+
+
+
 
 
 
