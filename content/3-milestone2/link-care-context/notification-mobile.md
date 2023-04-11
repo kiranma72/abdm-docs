@@ -47,5 +47,20 @@ deactivate Repository
 Repository->>HIP System:POST/v0.5/patients/sms/on-notify
 {{< /mermaid >}}
 
-## API Collection
+## API Information Request Response 
 
+**1. Send SMS Notifications**
+
+API to send SMS notifications to patient with custom deeplink.
+
+**BASE URL:** https://dev.abdm.gov.in/gateway
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/patients/sms/notify2$" >}}
+
+**2. Acknowledgment Response For SMS Notification**
+
+Acknowledgment response for SMS notification sent to patient by HIP
+
+**BASE URL:** https://dev.abdm.gov.in/gateway
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/patients/sms/on-notify$" >}}

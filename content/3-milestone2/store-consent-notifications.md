@@ -24,3 +24,17 @@ HIE-CM->>HRP/HIP: POST/v0.5/consents/hip/notify
 HRP/HIP->>HIE-CM: POST/v0.5/consents/hip/on-notify
 {{< /mermaid >}}
 
+
+## API Information Request Response 
+
+**1. Consent Notification**
+
+**BASE URL:** https://your-hrp-server.com
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/consents/hip/notify$" >}}
+
+**2. Acknowledgement To Notification Of Consents**
+
+**BASE URL:** https://dev.abdm.gov.in/gateway
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/consents/hip/on-notify$" >}}

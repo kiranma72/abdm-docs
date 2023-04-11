@@ -109,4 +109,36 @@ Repository->>Gateway:POST/v0.5/links/link/on-confirm
 deactivate Repository
 {{< /mermaid >}}
 
+## API Information Request Response 
 
+#### DISCOVERY
+
+**1. Discover patient's accounts**
+
+Request for patient care context discover, made by Gateway intended for a specific HIP.
+
+**BASE URL:** https://your-hrp-server.com
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/care-contexts/discover$" >}}
+
+**2. Response To Patient's Account Discovery Request**
+
+**BASE URL:** https://dev.abdm.gov.in/gateway
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/care-contexts/on-discover$" >}}
+
+#### LINKING
+
+**1. Link Patient's Care Contexts**
+
+**BASE URL:** https://your-hrp-server.com
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/links/link/init$" >}}
+
+**2. Token Submission For Link Confirmation**
+
+API to submit the token that was sent by HIP during the link request.
+
+**BASE URL:** https://your-hrp-server.com
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/links/link/confirm$" >}}

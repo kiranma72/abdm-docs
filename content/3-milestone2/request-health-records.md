@@ -76,7 +76,7 @@ Health information transfer API.
 
 **BASE URL:** https://dev.abdm.gov.in/patient-hiu
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST  /v0.5/health-information/transfer$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/health-information/transfer$" >}}
 
 
 
