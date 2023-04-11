@@ -30,3 +30,22 @@ Functionality|Test Case|Steps To Be Executed|
 {{% badge %}}Optional{{% /badge %}} Email Update (PROF_ABHA_603)|System must allow the user to update their Email|1. Enter new Email ID. 2. Enter OTP|
 {{% badge %}}Optional{{% /badge %}} Re-KYC (PROF_ABHA_604)|System must allow the user to perform re-KYC|1. Click on re-KYC option. 2. Enter OTP received on Aadhaar linked mobile number|
 {{% badge %}}Optional{{% /badge %}} Delete ABHA (PROF_ABHA_605)|System must allow the user to Delete/ Deactivate ABHA|1. Click on Delete/ Deactivate ABHA. 2. Enter OTP received on mobile number to confirm deletion/ deactivation. 3. Try to login again using the same ABHA|
+
+
+## API Information Request Response 
+
+**Get Profile Details**
+
+API to get the profile details.
+
+**BASE URL:** https://healthidsbx.abdm.gov.in/api
+
+{{< swaggermin src="/abdm-docs/Yaml/abdm-abha-service-1_0.yml" api="GET /v1/account/profile$" >}}
+
+**Update Profile Details**
+
+API to update the profile details.
+
+**BASE URL:** https://healthidsbx.abdm.gov.in/api
+
+{{< swaggermin src="/abdm-docs/Yaml/abdm-abha-service-1_0.yml" api="POST /v1/account/profile$" >}}
