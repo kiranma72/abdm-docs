@@ -49,7 +49,42 @@ Functionality|Test Case|Steps To Be Executed|
 
 ## API Sequnce Diagram
 
-*check with Kiran*
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+autonumber
+actor User
+participant HIE-CM
+note left of HIE-CM : ABHA number
+User->>+HIE-CM: /api/v1/phr/registration/hid/search/auth-methods
+HIE-CM-->>-User: Response: 200 OK 
+note left of HIE-CM : authmethod, ABHA number
+User->>+HIE-CM: /api/v1/phr/registration/hid/init/transaction
+HIE-CM-->>-User: Response: 200 OK 
+note right of User : Returns transactionId
+note over User,HIE-CM : Resend OTP
+note left of HIE-CM : transactionId
+User->>+HIE-CM: /api/v1/phr/registration/hid/init/resendOtp
+HIE-CM-->>-User: Response: 200 OK 
+note right of User : Resends OTP
+note right of User : Returns transactionId
+note left of HIE-CM : transactionId,RSA Encrypted OTP
+User->>+HIE-CM: /api/v1/phr/registration/hid/confirm/credential
+HIE-CM-->>-User: Response: 200 OK 
+note right of User : Returns transactionId,details of ABHA number
+note left of HIE-CM : transactionId
+User->>+HIE-CM: /api/v1/phr/registration/phr/suggestion
+HIE-CM-->>-User: Response: 200 OK 
+note right of User :Returns suggested phrAddresses 
+note left of HIE-CM : PHRAddress
+User->>+HIE-CM: /api/v1/phr/search/isExist
+HIE-CM-->>-User: Response: 200 OK 
+note right of User :Return PHR ADDRESS exist or not
+note left of HIE-CM : transactionId,PHRAddress,RSA Encrypted password
+User->>+HIE-CM: /api/v1/phr/registration/hid/create-phr-address
+HIE-CM-->>-User: Response: 200 OK 
+note right of User :Return user token id 
+{{< /mermaid >}}
 
 ## API Information Request Response 
 
