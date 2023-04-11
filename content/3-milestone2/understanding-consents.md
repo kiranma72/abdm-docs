@@ -8,7 +8,7 @@ pre = "<b>3.4 </b>"
 
 # Understanding Consents
 
-- ABDM design is aligned with India's Personal Data Protection Bill, that is the exchange of health data can only happen with the consent of the User.
+- ABDM design is aligned with **India's Personal Data Protection Bill,** that is the exchange of health data can only happen with the consent of the User.
 
 - The entity requesting access to the data (HIU), needs to provide the following information:
 	1. The purpose for which they want access to data
@@ -16,7 +16,7 @@ pre = "<b>3.4 </b>"
 	3. The type of health records
 	4. How long they wish to keep a copy the data
 
-- ABDM uses an electronic consent artefact based on [MEITY's electronic consent framework](https://dla.gov.in/sites/default/files/pdf/MeitY-Consent-Tech-Framework%20v1.1.pdf) to allow HIUs to specify their consent request.
+- ABDM uses an electronic consent artefact based on [**MEITY's electronic consent framework**](https://dla.gov.in/sites/default/files/pdf/MeitY-Consent-Tech-Framework%20v1.1.pdf) to allow HIUs to specify their consent request.
 
 - Users can modify any of the request consent parameters, and provide a consent approval that suits them.
 
@@ -74,4 +74,63 @@ PUBHLTH|Public Health||
 HPAYMT|Healthcare Payment|Typically for payers conducting financial or contractual activities related to payment for provision of health care
 DSRCH|Disease Specific Healthcare Research||
 PATRQT|Self Requested|Only applicable if patient herself is requesting information
+
+## JSON Structure of COnsents
+
+- Request data with signed consent
+
+```JSON
+{
+  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+  "timestamp": "1970-01-01T00:00:00.000Z",
+  "notification": {
+    "status": "GRANTED",
+    "consentId": "1876f69b-c9c0-4000-88a4-01933ae7df01",
+    "consentDetail": {
+      "schemaVersion": "",
+      "consentId": "1876f69b-c9c0-4000-85e5-f8d1a5f1a701",
+      "createdAt": "1970-01-01T00:00:00.000Z",
+      "patient": {
+        "id": "hinapatel79@ndhm"
+      },
+      "careContexts": [
+        {
+          "patientReference": "hinapatel79@hospital",
+          "careContextReference": "Episode1"
+        }
+      ],
+      "purpose": {
+        "text": "string",
+        "code": "string",
+        "refUri": "http://example.com"
+      },
+      "hip": {
+        "id": "string",
+        "name": "TESI-HIP"
+      },
+      "consentManager": {
+        "id": "string"
+      },
+      "hiTypes": [
+        "OPConsultation"
+      ],
+      "permission": {
+        "accessMode": "VIEW",
+        "dateRange": {
+          "from": "1970-01-01T00:00:00.000Z",
+          "to": "1970-01-01T00:00:00.000Z"
+        },
+        "dataEraseAt": "1970-01-01T00:00:00.000Z",
+        "frequency": {
+          "unit": "HOUR",
+          "value": 0,
+          "repeats": 0
+        }
+      }
+    },
+    "signature": "Signature of CM as defined in W3C standards; Base64 encoded",
+    "grantAcknowledgement": false
+  }
+}
+```
 
