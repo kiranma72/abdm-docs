@@ -28,115 +28,53 @@ Functionality|Test Case|Steps To Be Executed|
 
 Links the given ABHA Address to the ABHA number
 
-Explanation - API links the given ABHA Address to the ABHA number and defines whether it is the preferred ABHA Address
 
-Request Body - Required
+## API Information Request Response 
 
-**URL:** https://healthidsbx.abdm.gov.in/api/v2/account/phr-linked
+**1. Search a user by Health ID Number**
 
-**Request:** POST  
+Api Checks Health ID Number to find User.
 
-**Parameters:**
+**BASE URL:** https://phrsbx.abdm.gov.in
 
-- Authorization  string (header)
-
-- X-HIP-ID  string (header)
-
-- X-Token  string (header)
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/hid/search/auth-methods$" >}}
 
 
-**Body:**
+**2. Generate OTP**
 
-phrLinkedOrDeLinkedRequestPayLoad  object (body)
+Api to create the transaction and send the otp on mobile number.
 
-```json
-{
-  "phrAddress": "string",
-  "preferred": true
-}
-```
+**BASE URL:** https://phrsbx.abdm.gov.in
 
-**Response:** 200 OK
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/login/init/transaction$" >}}
 
-true
+**3. Resend OTP**
+
+API to resend the Mobile OTP
+
+**BASE URL:** https://phrsbx.abdm.gov.in
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/hid/init/resendOtp$" >}}
+
+**4. Verify OTP**
+
+API to verify OTP
+
+**BASE URL:** https://phrsbx.abdm.gov.in
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/login/mobileEmail/preVerification$" >}}
+
+**5. Link the ABHA Address with ABHA Number**
+
+API to verify OTP
+
+**BASE URL:** https://phrsbx.abdm.gov.in
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/profile/link/hid$" >}}
 
 
 ## De-Link the ABHA address with ABHA Number
 
 
-API de-links the given ABHA Address to the ABHA number.
-
-
-### API Sequence 	
-
-
-### API Information Request Response 
-
-De-links the given ABHA Address from the ABHA number
-
-Explanation - API delinks a given ABHA Address from the ABHA number
-
-Request Body - Required
-
-**URL:** https://healthidsbx.abdm.gov.in/api/v2/account/phr-delinked
-
-**Request:** POST  
-
-**Parameters:**
-
-
-- Authorization string (header)
-
-- X-HIP-ID string (header)
-
-- X-Token string (header)
-
-
-
-**Body:**
-
-phrLinkedOrDeLinkedRequestPayLoad  (body)
-
-```json
-{
-  "phrAddress": "string"
-}
-```
-
-**Response:** 200  OK
-
-true 
-
-
-## Auto Creation of ABHA address
-
-
-API used to create the auto creation of ABHA address. X-token has been used in the request body.
-
-
-### API Information Request Response 
-
-Create ABHA Address With ABHA Number.
-
-Explanation - API Accepts ABHA Number and Creates ABHA Address.
-
-Request Body - Required
-
-Response - API Accepts ABHA Number and Creates ABHA Address. Returns Error for Invalid/Incorrect Info..
-
-**URL:** https://healthidsbx.abdm.gov.in/api/v1/account/update/phr-address
-
-**Request:** POST  
-
-**Parameters:**
-
-- Authorization string (header)
-
-- X-HIP-ID string (header)
-
-- X-Token string (header)
-
-**Response:** 200  OK
-
-1234567890@sbx
+API de-links the given ABHA Address from the ABHA number.
 
