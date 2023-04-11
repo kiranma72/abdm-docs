@@ -48,7 +48,44 @@ Functionality|Test Case|Steps To Be Executed|
 
 ## API Sequnce Diagram
 
-*check with Kiran*
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+autonumber
+actor User
+participant HIE-CM
+note right of User : RSA Encrypted mobile number/Email
+User->>+HIE-CM: /api/v1/phr/registration/generate/otp
+HIE-CM-->>-User: Response: 200 OK 
+note right of User : Generate OTP on given mobile number/email
+note right of User : Returns transactionId
+note over User,HIE-CM : Resend OTP
+note left of HIE-CM : transactionId
+User->>+HIE-CM: /api/v1/phr/registration/resend/otp
+HIE-CM-->>-User: Response: 200 OK 
+note right of User : Resends OTP
+note right of User : Returns transactionId
+note left of HIE-CM : transactionId,RSA Encrypted OTP
+User->>+HIE-CM: /api/v1/phr/registration/verify/otp
+HIE-CM-->>-User: Response: 200 OK 
+note right of User : Returns transactionId,mapped PHR Address
+note left of HIE-CM: Beneficiary data
+User->>+HIE-CM: /api/v1/phr/registration/details
+HIE-CM-->>-User: Response: 200 OK 
+note right of User : Returns transactionId
+note left of HIE-CM : transactionId
+User->>+HIE-CM: /api/v1/phr/registration/phr/suggestion
+HIE-CM-->>-User: Response: 200 OK 
+note right of User :Returns suggested phrAddresses 
+note left of HIE-CM : PHRAddress
+User->>+HIE-CM: /api/v1/phr/search/isExist
+HIE-CM-->>-User: Response: 200 OK 
+note right of User :Return PHR ADDRESS exist or not
+note left of HIE-CM : transactionId,PHRAddress,RSA Encrypted password
+User->>+HIE-CM: /api/v1/phr/registration/create/phr 
+HIE-CM-->>-User: Response: 200 OK 
+note right of User :Returns user token id 
+{{< /mermaid >}}
 
 ## API Information Request Response 
 
@@ -79,7 +116,7 @@ API to verify the Mobile OTP
 
 **4. Pass the Beneficiary Details**
 
-API to pass the Beneficiary Details so based on the details suggestions of PHR Addresses can be obtained
+API to Pass the Beneficiary Details so based on the details suggestions of PHR Addresses can be obtained
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
