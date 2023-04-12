@@ -1,5 +1,5 @@
 +++
-title = "Building a HRP"
+title = "Building an HRP"
 date = 2022-05-07T17:53:25+05:30
 weight = 5
 chapter = true

@@ -1,9 +1,9 @@
 +++
 title = "Building UHI Apps"
 date = 2022-05-07T17:53:25+05:30
-weight = 5
+weight = 7
 chapter = true
-pre = "<b>5. </b>"
+pre = "<b>7. </b>"
 +++
 
 This documentation is designed for developers who want to integrate with the UHI Building Block
