@@ -1,9 +1,9 @@
 +++
 title = "Building a PHR App"
 date = 2022-05-07T17:53:25+05:30
-weight = 4
+weight = 6
 chapter = true
-pre = "<b>4. </b>"
+pre = "<b>6. </b>"
 +++
 
 This section describes the steps to build a PHR App 
