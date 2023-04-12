@@ -84,21 +84,26 @@ The sequence of APIs used via this method are shown in the diagram below:
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
-title ABHA Number Creation via Driving Licence
+title Notification on Consent Grant
 actor Client
-note left of ABHA Server: Generate OTP on given mobile number
-Client->>ABHA Server: /v3/enrollment/request/otp
-ABHA Server-->>Client: Response: 200 OK 
-note right of Client: txnId
-Client->>+ABHA Server: /v3/enrollment/enrol/byAadhaar
-note left of ABHA Server: OTP, trxnId
-ABHA Server-->>Client: Response: 200 OK 
-note right of Client : returns Verified Token
-Client->>ABHA Server: /api/v3/enrollment/enrol/byDocument
-ABHA Server->>Document Database Server: Match Document ID with Name, DOB, Gender
-Document Database Server-->>ABHA Server: 
-ABHA Server-->>Client: 
-note right of Client: Enrollment number 
+Note right of Client: Generate OTP on given Mobile Number
+Client->>ABHA Server:v3/enrollment/request/otp
+activate ABHA Server
+ABHA Server-->> Client: Response 200 OK
+deactivate ABHA Server
+Note right of Client: Txn Id
+Client->>ABHA Server:v3/enrol/byAadhaar
+activate ABHA Server
+Note left of ABHA Server: OTP, Txn Id
+ABHA Server-->> Client: Response 200 OK
+Note right of Client: Returns verified Token
+deactivate ABHA Server
+Client->>ABHA Server:v3/enrol/byDocument
+activate ABHA Server
+ABHA Server->> Document Database Server: Match Document ID with Name, Gender & DOB
+deactivate ABHA Server
+ABHA Server-->> Client: 
+Note right of Client: Enrollment number
 {{< /mermaid >}}
 
 
