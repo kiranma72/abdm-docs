@@ -65,7 +65,11 @@ ABHA->>Government Health Application (HIP): Returns ABHA Address
 Note right of Government Health Application (HIP):Returns already created ABHA or creates new ABHA
 {{< /mermaid >}}
 
-{{% badge icon="info" %}}Information{{% /badge %}} Kindly use the [link](/abdm-docs/1-basics/verify_sandbox_access/#check-your-jwt-token) to check whether you have roles to access the integrated Program APIs.
+{{% badge icon="info" %}}Information{{% /badge %}} Kindly use the [link](/abdm-docs/1-basics/verify_sandbox_access/#check-your-jwt-token) to check whether you have roles (HidIntegratedProgram) to access the integrated Program APIs.
+
+Contact integration support to 
+1. Provide the HidIntegratedProgram role to your client id
+2. Configure a benefit name specific to your government program
 
 ## API Information Request Response 
 
