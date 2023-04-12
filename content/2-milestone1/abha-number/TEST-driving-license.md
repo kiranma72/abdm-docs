@@ -82,9 +82,8 @@ S.No.|Functionality|Test Case|Steps To Be Executed|
 The sequence of APIs used via this method are shown in the diagram below:
 
 {{< mermaid >}}
-%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
-title Notification on Consent Grant
+title ABHA Number creation using Driving Licence
 actor Client
 Note right of Client: Generate OTP on given Mobile Number
 Client->>ABHA Server:v3/enrollment/request/otp
