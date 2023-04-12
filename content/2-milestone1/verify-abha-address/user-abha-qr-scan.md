@@ -1,21 +1,29 @@
 +++
-title = "Scan User ABHA QR"
+title = "By Demographics"
 date = 2023-03-16T09:30:25+05:30
 weight = 2
 chapter = true
 pre = "<b>2.2.2 </b>"
 +++
 
-# Scan User ABHA QR
+# By Demographics
 |  Applicable To                             |   HMIS / LMIS (PVT)  |   Government Health App  |    
 |-------------------------------|:----------------------:|:--------------------:|
-|   Scan User ABHA QR                      |  {{% badge style="blue" %}} Mandatory{{% /badge %}}       |  {{% badge style="blue" %}} Mandatory{{% /badge %}}        |  
+|   Scan User ABHA QR/Demographics                     |  {{% badge style="blue" %}} Mandatory{{% /badge %}}       |  {{% badge style="blue" %}} Mandatory{{% /badge %}}        |  
 
 ## Functionality Overview
 
+ABDM requires HMIS/LMIS to generate a link token that can be used for linking of health records. A demographic authentication where the ABHA address, name, year of birth and gender (as in the ABHA address) is required to generate this linking token.
+
+The user's demographic information can be obtained either via:
+1. Scanning the Health Faciilty QR Code
+2. By (Health Facility) Scanning the User's ABHA QR Code
+3. By OTP
+
 Health Facility can scan the **User's ABHA QR code**, whereby User provides consent to link the Health Record to their account.
 
-Health Facility (HIP) Initiated linking is the process through which an HIP links the patient’s care context (health record) with the patient ABHA Address, after patient registration and creation of health records (in their HMIS/LMIS system).
+Health Facility (HIP) Initiated linking is the process through which an HIP links the patient’s care context (health record) with the patient ABHA Address, after patient registration and creation of health records (in their HMIS/LMIS system)
+
 
 **Sample QR Codes**
 
