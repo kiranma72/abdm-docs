@@ -98,7 +98,7 @@ ABDM Sandbox Gateway->>HRP:POST/v3/hip/patient/profile/share
 HRP->>ABDM Sandbox Gateway:POST/v3/hip/patient/profile/on-share
 {{< /mermaid >}}
 
-## API Information Request Response 
+## Information Request Response for V3 API
 
 **1. Profile Sharing** 
 
@@ -118,7 +118,18 @@ HRP->>ABDM Sandbox Gateway:POST/v3/hip/patient/profile/on-share
 
 {{< swaggermin src="/abdm-docs/Yaml/HIE_CM_Profile_Share.yml" api="POST /{callback_url}/v3/app/patient/profile/on-share$" >}}
 
+## Information Request Response for V1 API
 
+**1. Profile Sharing** 
+
+**BASE URLs:** https://your-hrp-server.com
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v1.0/patients/profile/share$" >}}
+
+**2. Acknowledgement for shared profile**
+
+**BASE URLs:** https://dev.abdm.gov.in/gateway
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v1.0/patients/profile/on-share$" >}}
 
 {{% button style="tip" %}}  Try it out for yourself  {{% /button %}}
 
