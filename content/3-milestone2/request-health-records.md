@@ -38,15 +38,11 @@ All above 3 stages that pertains to HIP are shown in the following diagram:
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
-HIU System->>Gateway: 
-Gateway->>HIP Repository:POST/health-information/hip/request
-activate HIP Repository
-HIP Repository-->>HIP System:notification
-HIP Repository->>Gateway:POST/health-information/hip/on-request
-Note over HIP Repository,HIP System:Prepare data
-HIP Repository->>HIU System: 
-Note over HIP Repository,HIU System:POST datapush-url<br/>Direct data transfer
-HIP Repository->>Gateway:POST/health-information/notify
+title Request for Health Records 
+HIE-CM->>HIP/HRP:POST/v0.5/health-information/hip/request
+activate HIP/HRP
+HIP/HRP-->>HIP/HRP System:notification
+HIP/HRP->>HIE-CM:POST/v0.5/health-information/hip/on-request
 {{< /mermaid >}}
 
 When HIP gets the request for data transfer, it first **validates the consent:**
