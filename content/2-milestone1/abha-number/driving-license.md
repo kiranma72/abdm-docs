@@ -83,24 +83,35 @@ The sequence of APIs used via this method are shown in the diagram below:
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
-autonumber
-actor Client
-participant ABHA Server
-participant Document Database Server
-note left of ABHA Server : Generate OTP on given mobile number
-Client->>+ABHA Server: /v3/enrollment/request/otp
-ABHA Server-->>-Client: Response: 200 OK 
-note right of Client : txnId
-Client->>+ABHA Server: /v3/enrollment/enrol/byAadhaar
-note left of ABHA Server : OTP, trxnId
-ABHA Server-->>-Client: Response: 200 OK 
-note right of Client : returns Verified Token
-Client->>+ABHA Server: /api/v3/enrollment/enrol/byDocument
-ABHA Server->>Document Database Server: Match Document ID with Name, DOB, Gender
-Document Database Server-->>ABHA Server: 
-ABHA Server-->>-Client: 
-note right of Client : Enrollment number 
+title ABHA Creation using Aadhar OTP
+actor HIU/HIP/PHR
+Note left of ABHA: Share encrypted Aadhaar number
+HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/request/otp)
+ABHA->>UIDAI: Aadhaar number
+UIDAI->>UIDAI:Verify Aadhaar number
+UIDAI->>ABHA: Response 200
+ABHA->>HIU/HIP/PHR: Response 200 (transaction ID)
+UIDAI->>HIU/HIP/PHR:Receive OTP
+Note right of HIU/HIP/PHR: Forward OTP & transaction ID to verify
+HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/enrol/byAadhaar)
+ABHA->>UIDAI: Forward OTP
+UIDAI->>UIDAI: Verify OTP
+UIDAI->>ABHA: Share Aadhaar e-KYC details
+ABHA->>ABHA: ABHA Creation
+ABHA->>HIU/HIP/PHR: ABHA Number & Profile
+Note over HIU/HIP/PHR,UIDAI: Mobile verification and Mobile Update
+Note left of ABHA: Share encrypted mobile number,transaction ID
+HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/request/otp)
+ABHA->>HIU/HIP/PHR: Response 200 
+ABHA->>HIU/HIP/PHR:Receive OTP
+Note right of HIU/HIP/PHR: Forward Encrypted OTP & transaction ID to verify
+HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/auth/byAbdm)
+ABHA->>ABHA: OTP Verified & Mobile Number Linked
+ABHA->>HIU/HIP/PHR: Response 200
 {{< /mermaid >}}
+
+------
+
 ![DL_sequence_flow](../DL_sequence_flow.png)
 
 ## API Information Request Response 
