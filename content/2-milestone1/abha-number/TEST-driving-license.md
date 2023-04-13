@@ -91,6 +91,12 @@ activate ABHA Server
 ABHA Server-->> Client: Response 200 OK
 deactivate ABHA Server
 Note right of Client: Txn Id
+Client->>ABHA Server:v3/enrol/byAadhaar
+activate ABHA Server
+Note left of ABHA Server: OTP, Txn Id
+ABHA Server-->> Client: Response 200 OK
+Note right of Client: Returns verified Token
+deactivate ABHA Server
 HIE-CM->>HRP/HIP: POST/v0.5/consents/hip/notify
 HRP/HIP->>HIE-CM: POST/v0.5/consents/hip/on-notify
 {{< /mermaid >}}
