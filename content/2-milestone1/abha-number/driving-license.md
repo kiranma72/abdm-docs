@@ -1,13 +1,14 @@
 +++
-title = "Using Driving License"
+title = "Using Driving Licence"
 date = 2023-03-16T09:30:25+05:30
-weight = 4
+weight = 4.5
 chapter = true
 pre = "<b>2.1.4 </b>"
 +++
 
 
 # ABHA Number Creation via Driving Licence
+
 |  Applicable To                             |   HMIS / LMIS (PVT)  |   Government Health App  |  
 |-------------------------------|:----------------------:|:--------------------:|
 |   Using Driving License                     |  {{% badge %}}Optional{{% /badge %}}       |  {{% badge %}}Optional{{% /badge %}}         |  
@@ -83,36 +84,28 @@ The sequence of APIs used via this method are shown in the diagram below:
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
-title ABHA Creation using Aadhar OTP
-actor HIU/HIP/PHR
-Note left of ABHA: Share encrypted Aadhaar number
-HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/request/otp)
-ABHA->>UIDAI: Aadhaar number
-UIDAI->>UIDAI:Verify Aadhaar number
-UIDAI->>ABHA: Response 200
-ABHA->>HIU/HIP/PHR: Response 200 (transaction ID)
-UIDAI->>HIU/HIP/PHR:Receive OTP
-Note right of HIU/HIP/PHR: Forward OTP & transaction ID to verify
-HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/enrol/byAadhaar)
-ABHA->>UIDAI: Forward OTP
-UIDAI->>UIDAI: Verify OTP
-UIDAI->>ABHA: Share Aadhaar e-KYC details
-ABHA->>ABHA: ABHA Creation
-ABHA->>HIU/HIP/PHR: ABHA Number & Profile
-Note over HIU/HIP/PHR,UIDAI: Mobile verification and Mobile Update
-Note left of ABHA: Share encrypted mobile number,transaction ID
-HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/request/otp)
-ABHA->>HIU/HIP/PHR: Response 200 
-ABHA->>HIU/HIP/PHR:Receive OTP
-Note right of HIU/HIP/PHR: Forward Encrypted OTP & transaction ID to verify
-HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/auth/byAbdm)
-ABHA->>ABHA: OTP Verified & Mobile Number Linked
-ABHA->>HIU/HIP/PHR: Response 200
+title Notification on Consent Grant
+actor Client
+Note right of Client: Generate OTP on given Mobile Number
+Client->>ABHA Server:v3/enrollment/request/otp
+activate ABHA Server
+ABHA Server-->> Client: Response 200 OK
+deactivate ABHA Server
+Note right of Client: Txn Id
+Client->>ABHA Server:v3/enrol/byAadhaar
+activate ABHA Server
+Note left of ABHA Server: OTP, Txn Id
+ABHA Server-->> Client: Response 200 OK
+Note right of Client: Returns verified Token
+deactivate ABHA Server
+Client->>ABHA Server:v3/enrol/byDocument
+activate ABHA Server
+ABHA Server->> Document Database Server: Match Document ID with Name, Gender & DOB
+deactivate ABHA Server
+Document Database Server->>ABHA Server:Information matches
+Note right of Client: Return Enrollment number to Client
 {{< /mermaid >}}
 
-------
-
-![DL_sequence_flow](../DL_sequence_flow.png)
 
 ## API Information Request Response 
 
