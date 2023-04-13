@@ -86,6 +86,11 @@ sequenceDiagram
 title Notification on Consent Grant
 actor Client
 Note right of Client: Generate OTP on given Mobile Number
+Client->>ABHA Server:v3/enrollment/request/otp
+activate ABHA Server
+ABHA Server-->> Client: Response 200 OK
+deactivate ABHA Server
+Note right of Client: Txn Id
 HIE-CM->>HRP/HIP: POST/v0.5/consents/hip/notify
 HRP/HIP->>HIE-CM: POST/v0.5/consents/hip/on-notify
 {{< /mermaid >}}
