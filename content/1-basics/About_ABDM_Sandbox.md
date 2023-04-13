@@ -41,6 +41,8 @@ The integration steps have been broken into milestones to make it easier for int
 - **Milestone 3**: Developing Health Information User (HIU) services to provide view of patient’s medical history to authorized healthcare workers with complete consent
 - **PHR & Locker Apps**: Subscriptions for notifications, helping users manage consents, upload of user scanned records and more 
 
+![Integration journey](../sandbox-integration-journey.jpeg)
+
 ## Before you start integration
 
 - Check which milestones are applicable for your [type of application here](/abdm-docs/1-basics/making_your_app_abdm_compliant/)
