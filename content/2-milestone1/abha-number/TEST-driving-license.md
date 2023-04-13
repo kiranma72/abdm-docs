@@ -101,8 +101,7 @@ Client->>ABHA Server:v3/enrol/byDocument
 activate ABHA Server
 ABHA Server->> Document Database Server: Match Document ID with Name, Gender & DOB
 deactivate ABHA Server
-ABHA Server-->> Client: 
-Note right of Client: Enrollment number
+Note right of Client: Return Enrollment number to Client
 HIE-CM->>HRP/HIP: POST/v0.5/consents/hip/notify
 HRP/HIP->>HIE-CM: POST/v0.5/consents/hip/on-notify
 {{< /mermaid >}}
