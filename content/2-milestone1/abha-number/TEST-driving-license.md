@@ -83,26 +83,11 @@ The sequence of APIs used via this method are shown in the diagram below:
 
 {{< mermaid >}}
 sequenceDiagram
-title ABHA Number creation using Driving Licence
+title Notification on Consent Grant
 actor Client
 Note right of Client: Generate OTP on given Mobile Number
-Client->>ABHA Server:v3/enrollment/request/otp
-activate ABHA Server
-ABHA Server-->> Client: Response 200 OK
-deactivate ABHA Server
-Note right of Client: Txn Id
-Client->>ABHA Server:v3/enrol/byAadhaar
-activate ABHA Server
-Note left of ABHA Server: OTP, Txn Id
-ABHA Server-->> Client: Response 200 OK
-Note right of Client: Returns verified Token
-deactivate ABHA Server
-Client->>ABHA Server:v3/enrol/byDocument
-activate ABHA Server
-ABHA Server->> Document Database Server: Match Document ID with Name, Gender & DOB
-deactivate ABHA Server
-ABHA Server-->> Client: 
-Note right of Client: Enrollment number
+HIE-CM->>HRP/HIP: POST/v0.5/consents/hip/notify
+HRP/HIP->>HIE-CM: POST/v0.5/consents/hip/on-notify
 {{< /mermaid >}}
 
 
