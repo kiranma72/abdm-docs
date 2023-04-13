@@ -82,6 +82,7 @@ S.No.|Functionality|Test Case|Steps To Be Executed|
 The sequence of APIs used via this method are shown in the diagram below:
 
 {{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
 title Notification on Consent Grant
 actor Client
