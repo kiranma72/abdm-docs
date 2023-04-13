@@ -97,6 +97,10 @@ Note left of ABHA Server: OTP, Txn Id
 ABHA Server-->> Client: Response 200 OK
 Note right of Client: Returns verified Token
 deactivate ABHA Server
+Client->>ABHA Server:v3/enrol/byDocument
+activate ABHA Server
+ABHA Server->> Document Database Server: Match Document ID with Name, Gender & DOB
+deactivate ABHA Server
 HIE-CM->>HRP/HIP: POST/v0.5/consents/hip/notify
 HRP/HIP->>HIE-CM: POST/v0.5/consents/hip/on-notify
 {{< /mermaid >}}
