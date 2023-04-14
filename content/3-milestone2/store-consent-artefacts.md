@@ -1,12 +1,12 @@
 +++
-title = "Store Consent Notifications"
+title = "Store Consent Artefacts"
 date = 2023-04-10T12:10:00+05:30
 weight = 5
 chapter = true
 pre = "<b>3.5 </b>"
 +++
 
-# Store Consent Notifications
+# Store Consent Artefacts
 
 - Users have the option to **revoke the consent** they have provided to the Health Information User (HIU), at any time. The HIUs must remove any copy of the users' data when the consent is revoked.
 
