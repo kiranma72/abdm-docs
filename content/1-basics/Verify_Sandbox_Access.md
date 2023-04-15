@@ -6,7 +6,7 @@ draft: false
 pre : "<b>1.4 </b>"
 ---
 
-## Signing in for the ABDM Sandbox
+## Sign in to check application status
 
 **Step 1:** Once the Sandbox request form is submitted, the user can see the application submitted status by login in with _Email id_ and _Password_.  
 https://sandbox.ndhm.gov.in/applications/Home/login  
@@ -20,7 +20,7 @@ https://sandbox.ndhm.gov.in/applications/Home/login
 
 **Step 3:** Once the application is _Approved_ by the committee, the user will receive an email containing stating _Client id_ & _Client Secret_. On Frontend, the user will see the status changed to _Sandbox Application Status_.  
 ![Sandbox_Application_Status](../SandboxApplicationStatus.png) 
-{{%icon icon="info-circle" %}} If the status is approved and the user hasn't received the client secret via email, kindly drop a mail{{%icon icon="envelope" %}} to Integration.support@nha.gov.in
+{{%icon icon="info-circle" %}} If the status is approved and you havent received the client secret via email, kindly drop a mail{{%icon icon="envelope" %}} to Integration.support@nha.gov.in. Please note that the committee currently meets once a week and it can take 7 - 10 days for you to get your application approved. 
 
 **Step 4:** Once _Client id_ & _Client Secret_ are received via an email, please verify it works using the and check if the correct using by creating a gateway session token. 
 
@@ -30,14 +30,14 @@ Server : https://dev.abdm.gov.in/gateway
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-gateway-v1.yml" api="POST /v0.5/sessions" >}}
 
 
-###### Check using Postman 
+###### Verify using Postman 
 
-[Click here](../postman_setup) for downloading Postman, setting up the Collection and checking whether session Token can be created using Postman 
+We recommened you get comfortable using POSTMAN to check various ABDM APIs like the sessions API above. [Click here](../postman_setup) Setup Postman, the ABDM API collection and use POSTMAN to verify your client id and secret is able to get you a session token. 
 
 
 ##### Check your JWT token
 
-You can use [jwt.io](https://jwt.io) to see the contents of your gateway session token. Paste the accessToken and see what roles have been assigned to your client id. Some ABDM APIs requires your clientID to have specific roles to assigned. You can mail{{%icon icon="envelope" %}} to Integration.support@nha.gov.in to get specific roles added. 
+You can use [jwt.io](https://jwt.io) to see the contents of your gateway session token (accessToken). Paste the accessToken and see what roles have been assigned to your client id. Some ABDM APIs requires your clientID to have specific roles to assigned. You can mail{{%icon icon="envelope" %}} to Integration.support@nha.gov.in to get specific roles added. 
 
 ![JWT-IO](../jwt-io.png) 
 

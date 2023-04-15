@@ -6,6 +6,10 @@ draft: false
 pre : "<b>1.2 </b>"
 ---
 
+{{% notice %}}
+Read this section to understand how various building blocks of ABDM works and where your application fits in the ecosystem
+{{% /notice %}}
+
 ABDM uses a federated architecture to help users collect their health records across various healthcare providers, view their records from any PHR application and share their records with any requestor with their consent 
 
 The image below shows the various entities/roles involved in the PHR framework

@@ -6,17 +6,17 @@ draft: false
 pre : "<b>1.6 </b>"
 ---
 
-While building and testing your health repository in integration with the sandbox’s network components, you’ll need to test patient flows as well. For example:
+The ABDM Sandbox features a reference PHR application which can be used to simulate the consumer side experience. If the software you are integrating is a HMIS / LMIS, we highly recommend that you 
 
-- Signup of patient with Consent Manager (CM)
-- Linking patient’s CM account with HIP’s patient reference and health care contexts
-- Granting or revoking consents
+- Download and install the Sandbox ABHA app on an android phone
+- Create an ABHA address that you will use during integration. This looks like *yourid@sbx*
+- Setup a password for your ABHA address. This will be useful when we work with some APIs
 
-## Download Sandbox ABDM App
+## Download Sandbox ABHA App
 
 {{% attachments title="Download Sandbox ABHA App" icon="download"/%}}
 
-## Install Sandbox ABDM App
+## Install Sandbox ABHA App
 {{< gallery dir="1-basics/SandboxAppInstall" />}} {{< load-photoswipe >}}
 
 ## Create ABHA address
@@ -29,3 +29,7 @@ The user can create ABHA address via:
 ##### Create via MobileNumber:
 {{< gallery dir="1-basics/viaMobile" />}} 
 
+
+## Your Sandbox ABHA Address 
+
+You can also login and view your sandbox ABHA address profile at [https://abhasbx.abdm.gov.in](https://abhasbx.abdm.gov.in)

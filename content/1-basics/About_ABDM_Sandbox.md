@@ -7,7 +7,7 @@ pre : "<b>1.1 </b>"
 ---
 
 
-The **Ayushman Bharat Digital Mission** has developed building blocks and APIs to offer a seamless digital healthcare experience for all stakeholders – health facilities, patients and healthcare workers. The digital infrastructure developed is now accessible to health facilities and health tech players for integration.
+The **Ayushman Bharat Digital Mission** (ABDM) has developed building blocks and APIs to offer a seamless digital healthcare experience for all stakeholders – health facilities, patients and healthcare workers. The digital infrastructure developed is now accessible to health facilities and health tech players for integration.
 
 Here's a picture to help you understand how ABDM can improve the experience you deliver to your patients :
 
@@ -15,24 +15,23 @@ Here's a picture to help you understand how ABDM can improve the experience you 
 
 ## ABDM Sandbox Journey
 
-ABDM aims at bringing out inoperability and sharing of health information among all the participants in India. For this to happen, we expect the software developers to implement certain functionalities by integrating with ABDM building blocks.
-The sandbox provides tools and support to test the integration. Once integrated, the software developers (companies) can get independent functional validation and apply for ABDM certification (by applying for as Sandbox Exit).
-The certified version of the software can then be deployed for the various health service providers.
+ABDM aims at bringing out inoperability and sharing of health information among all the participants in India. For this to happen, we expect organizations that build software for hospitals, labs, insurers, consumers to implement certain functionalities by integrating with ABDM building blocks. The ABDM sandbox provides tools and support to test the integration. Once integrated, the software developers (companies) can get independent functional validation and apply for ABDM certification (by applying for Sandbox Exit). The certified version of the software can then be deployed for the various health service providers.
 
 Here's how your **journey through the sandbox looks like:**
 
-1. Submit your Sandbox application
+1. Register for access to the Sandbox 
 2. Receive a Sandbox client ID & secret (key) from National Health Authority (NHA)
 3. Understand the various functionalities (test cases) to be implemented for each integration milestone
-4. Ensure you are comfortable with the APIs to implement each functionality (using Postman)
+4. Get comfortable with the APIs for each functionality using Postman
 5. Implement the functionality in your application
 6. Get functional validation report from one of the 3 empanelled companies
-7. Get security test report from one of the 3 empanelled companies
+7. Get security test report from any CERT-in empanelled organization
 8. Apply for Sandbox Exit
 9. Demo your app to NHA team
 10. Obtain a Production client ID & secret (key) from NHA
-11. Deploy your certified application with NHA
+11. Deploy your ABDM certified application with your customers
 
+![Integration journey](../sandbox-integration-journey.jpeg)
 
 ## ABDM Integration Milestones
 The integration steps have been broken into milestones to make it easier for integrators. Each Milestone has a set of functional test cases that must be supported by your application as part of certification
@@ -41,7 +40,7 @@ The integration steps have been broken into milestones to make it easier for int
 - **Milestone 3**: Developing Health Information User (HIU) services to provide view of patient’s medical history to authorized healthcare workers with complete consent
 - **PHR & Locker Apps**: Subscriptions for notifications, helping users manage consents, upload of user scanned records and more 
 
-![Integration journey](../sandbox-integration-journey.jpeg)
+
 
 ## Before you start integration
 
