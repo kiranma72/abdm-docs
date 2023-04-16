@@ -131,6 +131,9 @@ HRP->>ABDM Sandbox Gateway:POST/v3/hip/patient/profile/on-share
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v1.0/patients/profile/on-share$" >}}
 
+**3. Link Token Generation**
+For generating the link token use [demographics](/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/#api-information-request-response) api.
+
 {{% button style="tip" %}}  Try it out for yourself  {{% /button %}}
 
 - Step 1: [Install ABHA Sandbox application](https://sandbox.abdm.gov.in/docs/phr_app) & Try it out 

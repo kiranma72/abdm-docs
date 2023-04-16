@@ -40,7 +40,7 @@ The ABDM architecture is designed to support multiple HIE-CMs to operate in the 
 In order to manage their personal health records, users must first create an account on a HIE-CM -- called their Ayushman Bharath Health Account (ABHA) address. This looks like sandeep321@abdm. The @abdm tells us which HIE-CM is responsibile for this address. 
 
 {{% notice%}}
-The term ABHA address is also reffered to as PHR address across the documentation
+The term ABHA address is also referred to as PHR address across the documentation
 {{% /notice%}}
 
 
