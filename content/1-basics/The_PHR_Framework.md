@@ -1,43 +1,62 @@
 ---
-title: "The PHR Framework"
+title: "The FHR Framework"
 date: 2022-05-07T18:00:04+05:30
-Weight: 2
+Weight: 1
 draft: false
-pre : "<b>1.2 </b>"
+pre : "<b>1.1 </b>"
 ---
 
 {{% notice %}}
-Read this section to understand how various building blocks of ABDM works and where your application fits in the ecosystem
+This section provides a conceptual overview of the ABDM federated health record framework. Read this to understand how various building blocks of ABDM works and where your application fits in this ecosystem. 
+
+- Electronic Health Records 
+- Health Facility Registry (HFR) for facility identity
+- What is a Health Information Provider (HIP)?
+- What is a Health repository Provider (HRP)?  
+- Identifying patients via ABHA address 
+- Supporting patients with phones using ABHA Number 
+- Health Information Exchange & Consent Manager 
+- Capturing ABHA address during patient registration
+- Linking of records by HRP / HIP 
+- Discovery of records by patients
+- Federated Health Records Architecture
+- Consent Management - Grant / Revoke
+- What are Health Information Users (HIUs)  
+- Sharing Health records with consent
+- HIP / HIU Guidelines 
+- HDCM Policy
+
 {{% /notice %}}
 
-ABDM uses a federated architecture to help users collect their health records across various healthcare providers, view their records from any PHR application and share their records with any requestor with their consent 
+ABDM uses a federated health record (FHR) framework that allows users (patients)  to collect their health records across various healthcare providers, view their records from any Personal Health Record (PHR) application and share their records with their consent 
 
-The image below shows the various entities/roles involved in the PHR framework
+The image below shows the various entities/roles involved in the FHR framework
 
 ![ABDM HIP HIU Architecture](../phr-architeture.pptx.jpg)
 
-## What is a Health Information Provider (HIP)?
-Any entity that agrees to share digital health records with their users using the ABDM APIs  is called an HIP (Health Information Provider). HIPs can be hospitals, labs, health care centers, government health programs, teleconsultation players, clinics or pharmacies - basically any entity which creates medical data pertaining to a patient. 
+## Electronic Health Records
+Electronic Health records are digital records that are created by Health service providers as part of their interactions with patients. Health Providers use specialized software called electroic medical record (EMR), health information management systems (HIMS) or Lab information management systems (LIMS) to create these health records. 
 
-HIPs are required to maintain a digital copy of both the inpatient and outpatient records for each person in their care. In order to become an HIP, health facilities must enrol in the ABDM [health facility registry](https://facility.abdm.gov.in) and adhere to the [HIP HIU Guidelines](https://old.abdm.gov.in/assets/uploads/HIP_HIU_Policy.pdf)
+Health records include Diagnostic reports, discharge summaries, prescriptions, OP consultation notes, etc. The ABDM FHR framework deals with the format of health records (to enable interoperability), the storage of health records (to ensure they are available) and the sharing of health records with consent. Every Health record contains information about who is the patient, which health professional provided the treatment and at which facility. ABDM requires each of these entities to obtain a digital identifier and use that identifer when creating / linking health records under ABDM.  
+
+## Health Facility Registry (HFR) for facility identity
+Health Facilities are issued a HFR ID when their register their facility with ABDM. They can register via [https://facility.abdm.gov.in](https://facility.abdm.gov.in). Digital Solution Companies can also help their customers register with HFR within their software by integrating with the HFR APIs.  
+
+## What is a Health Information Provider (HIP)?
+Any entity that agrees to share digital health records with their users using the ABDM APIs is called an HIP (Health Information Provider). HIPs can be hospitals, labs, health care centers, government health programs, teleconsultation players, clinics or pharmacies - basically any entity which creates medical data pertaining to a patient. The HFR ID is used to identify which facility has agreed to become a HIP and is sharing health information. (HFR ID == HIP ID)
+
+HIPs are required to maintain a digital copy of both the inpatient and outpatient records for each person in their care. They also need to adhere to the [HIP HIU Guidelines](https://old.abdm.gov.in/assets/uploads/HIP_HIU_Policy.pdf)
+
+HIPs are eligible for financial incentives under the [ABDM Digital Health Incentive Scheme](https://abdm.gov.in/DHIS) 
 
 ## What is a Health Repository Provider (HRP)?
- Health repository providers are software service providers who offer ABDM compliant software to health facilities like hospitals, diagnostic centers etc. An instance of an ABDM certified software is a HRP. The HRP enables healthcare providers to become HIPs or HIUs and meet their obligations of sharing and securely maintaining health records of patients digitally. HRPs offer long term storage of health records on behalf of a HIP. For example, a hosted lab information management system provider (LIMS) may update their software to become a ABDM compatible Health Repository Provider. Any lab using this hosted LIMS software can rapidly become a HIP by adopting the software. The organizations that make ABDM certified software are reffered to as Digital Solution Companies (DSCs) by NHA. 
+ Health repository providers are digital solution companies who offer ABDM compliant software to health facilities like hospitals, diagnostic centers etc. An instance of an ABDM certified software is a HRP. The HRP enables healthcare providers to become HIPs or HIUs and meet their obligations of sharing and securely maintaining health records of patients digitally. HRPs offer long term storage of health records on behalf of a HIP. For example, a hosted lab information management system provider (LIMS) may update their software to become a ABDM compatible Health Repository Provider. Any lab using this hosted LIMS software can rapidly become a HIP by adopting the software.
 
 The ABDM sandbox hosts a reference HRP -- *You can play with it at* [https://emrsbx.abdm.gov.in](https://emrsbx.abdm.gov.in)
 
-## What is an HIU?
-An HIU (Health Information User) is an entity that wants access to digital health information about a user. An HIU can be a hospital, clinic, healthcare technology company, organizations working on health analytics, insurers, medical 
-researchers, government entities etc.  HIUs will be able to request for health records of a user, and upon obtaining the user's digital consent, access a copy of the patients records and use them for the time period consented by the user.  
+## Identifying patients via ABHA address 
 
-## What is a HIE-CM?
-HIE-CM stands for Healthcare Information Exchange and Consent Manager. This is the key ABDM building block that enables creating ABHA addresses,  managing consents related to user's personal health data and supports exchange of interoperable health data across HIPs and HIUs.
-
-The ABDM architecture is designed to support multiple HIE-CMs to operate in the network. Each HIE-CM is referred to by a domain. NHA operates 2 HIE-CMs currently. A Sandbox HIE-CM with the domain @sbx and a production HIE-CM with the domain @abdm.  
-
-## What is an ABHA address?
-
-In order to manage their personal health records, users must first create an account on a HIE-CM -- called their Ayushman Bharath Health Account (ABHA) address. This looks like sandeep321@abdm. The @abdm tells us which HIE-CM is responsibile for this address. 
+In order to manage their personal health records, users (patients) must first create an account on a HIE-CM -- called their Ayushman Bharath Health Account (ABHA) address. This looks like sandeep321@abdm. The @abdm tells us which HIE-CM is responsibile for this address. 
 
 {{% notice%}}
 The term ABHA address is also reffered to as PHR address across the documentation
@@ -46,14 +65,8 @@ The term ABHA address is also reffered to as PHR address across the documentatio
 
 Hospitals & Labs are expected to link records with their patients ABHA Address. Creating an ABHA Address is super simple – You can start with just Name, Year of birth, Gender along with a Mobile number. ABHA address can be linked to a strongly validated & unique ABHA Number
 
-ABDM is designed to work for people with smartphones, features phones and even those without phones. Users with smartphones can be encourgaed to get their ABHA address via a PHR app. They can create a easy to remember ABHA address that is alphanumeric like sandeep321@abdm. Users with only feature phones or without phones will require assitance in creating an ABHA address. It is recommended that they create an ABHA number (preferably with Aadhaar). Every ABHA number also automatically acts as a ABHA address on the HIE-CM and looks like <14digitabha>@abdm 
+ABDM is designed to work for people with smartphones, features phones and even those without phones. Users with smartphones can be encourgaed to get their ABHA address via a PHR app. They can create a easy to remember ABHA address that is alphanumeric like sandeep321@abdm. Users with only feature phones or without phones will require assitance in creating an ABHA address. It is recommended that they create an ABHA number (preferably with Aadhaar). Every ABHA number also automatically acts as a ABHA address on the NHA HIE-CM and looks like <14digitabha>@abdm 
 
-
-Key benefits of creating an ABHA Address are:
-- Easy access to health information in a paperless manner
-- Voluntary opt-in and opt-out at anytime
-- Enables authentication for consent driven access to health data along with capabilities  to manage and revoke consent
-- Inclusive access to people with smartphones, feature phones, and even no phones using assisted methods
 ![Get ABHA Address](../Abha-address.png)
 
 Users can create an ABHA address by downloading a PHR mobile application or on a portal provided by the HIE-CM. Use [phr.abdm.gov.in](https://phr.abdm.gov.in) to create a new ABHA address 
@@ -70,14 +83,26 @@ Users can start with a self declared ABHA address and later link it to an ABHA n
 
 {{% icon icon="user-check" %}} *Try it out* - Create an ABHA address that you can use on the ABDM sandbox at [phrsbx.abdm.gov.in](https://phrsbx.abdm.gov.in). This will create an ABHA address on the @sbx HIE-CM hosted within the sandbox 
 
-## What is an ABHA Number?
-ABHA number is a *14 digit number* that is unique (only one per person) issued only after a strong KYC. Every ABHA number is automatically available as an ABHA address like <14digitabhano>@abdm. ABHA is a core building block of the ABDM ecosystem and integrates with several other systems to provide online KYC including Aadhaar, Driving licence and PAN 
+## Supporting patients without phones using ABHA Number 
+ABHA number is a *14 digit number* that is unique (only one per person) issued only after a strong KYC. Every ABHA number is automatically available as an ABHA address on the NHA HIE-CM like <14digitabhano>@abdm. ABHA is a core building block of the ABDM ecosystem and integrates with several other systems to provide online KYC including Aadhaar, Driving licence and PAN 
 
 You can obtain an ABHA number by signing up at [https://abha.abdm.gov.in](https://abha.abdm.gov.in)
 
 ABHA numbers are extremely important for helping those who use feature phones or do not use a phone to manage their personal health records. ABHA numbers are issued in assisted mode extensively by all Government health programs. Government programs are encouraged to link any health records they create to <14digitabhano>@abdm.
 
 *You can play around with the sandbox instance of the ABHA building block at* [https://abhasbx.abdm.gov.in](https://abhasbx.abdm.gov.in)
+
+## Health Information Exchange & Consent Manager (HIE-CM)
+This is the key ABDM building block that manages ABHA addresses, maintains links to health data for each ABHA address and manages consents provided by the user for sharing of their health data. It also supports exchange of interoperable health data between HIPs and HIUs.
+
+The ABDM architecture is designed to support multiple HIE-CMs to operate in the network. Each HIE-CM is referred to by a domain. NHA operates 2 HIE-CMs currently. A Sandbox HIE-CM with the domain @sbx and a production HIE-CM with the domain @abdm.  
+
+
+## What is an HIU?
+An HIU (Health Information User) is an entity that wants access to digital health information about a user. An HIU can be a hospital, clinic, healthcare technology company, organizations working on health analytics, insurers, medical 
+researchers, government entities etc.  HIUs will be able to request for health records of a user, and upon obtaining the user's digital consent, access a copy of the patients records and use them for the time period consented by the user.  
+
+
 
 ## What is a PHR application? 
 Personal Health Record Applications are software service providers who offer front ends to individuals and enable them to create a ABHA address, discover and link health records from various HIPs, allow users to view their records, offer long term storage of records, upload users health records and share records on the ABDM network. PHR Apps work closely with the HIE-CM and provide a front end for HIE-CM actions like viewing and granting consents. 

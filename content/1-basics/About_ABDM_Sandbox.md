@@ -1,9 +1,9 @@
 ---
 title: "About ABDM Sandbox"
 date: 2023-03-07T18:00:04+05:30
-Weight: 1
+Weight: 2
 draft: false
-pre : "<b>1.1 </b>"
+pre : "<b>1.2 </b>"
 ---
 
 
@@ -19,6 +19,9 @@ ABDM aims at bringing out inoperability and sharing of health information among 
 
 Here's how your **journey through the sandbox looks like:**
 
+![Integration journey](../sandbox-integration-journey.jpeg)
+
+
 1. Register for access to the Sandbox 
 2. Receive a Sandbox client ID & secret (key) from National Health Authority (NHA)
 3. Understand the various functionalities (test cases) to be implemented for each integration milestone
@@ -31,7 +34,6 @@ Here's how your **journey through the sandbox looks like:**
 10. Obtain a Production client ID & secret (key) from NHA
 11. Deploy your ABDM certified application with your customers
 
-![Integration journey](../sandbox-integration-journey.jpeg)
 
 ## ABDM Integration Milestones
 The integration steps have been broken into milestones to make it easier for integrators. Each Milestone has a set of functional test cases that must be supported by your application as part of certification
