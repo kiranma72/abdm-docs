@@ -70,23 +70,87 @@ S.no.|Applicable To | Test Summary | Test Scenario |
 |--| --| ----------- | ------------------- |
 1.|{{% badge %}}Optional{{% /badge %}} Applicable to All (VRFY_ABHA_501)| System must allow scanning of ABHA QR code to read the user's ABHA information|EMR/HMIS scans the user's ABHA QR code
 
+{{% notice title="API Versions" %}}
 
-## API Sequence Diagram
+- **V0.5 API**
+  - [Sequence Diagram for V0.5 API](#v05-api-sequence-diagram)
+  - [API Information Request Response for V0.5](#v05-api-information-request-response)
+- **V3 API**
+  - [Sequence Diagram for V3 API](#v3-api-sequence-diagram)
+  - [API Information Request Response for V3](#v3-api-information-request-response)
+
+**Note:** V0.5 APIs are currently in production. V3 APIs are currently only available in sandbox
+{{% /notice %}}
+
+## V0.5 API Sequence Diagram
 
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
-title Scan User's ABHA QR Code to verify ABHA Address
+title V0.5 APIs - Scan User's ABHA QR Code to verify ABHA Address
 actor User
-HRP->>User:Health Facility scans User's ABHA QR code
-HRP->>ABDM Sandbox Gateway:POST/v3/token/generate-token
-ABDM Sandbox Gateway-->>HRP:Response 200
-ABDM Sandbox Gateway->>HRP:POST/v3/token/on-generate-token
-HRP-->>ABDM Sandbox Gateway:Response 200
+HRP->>User: Health Facility scans User's ABHA QR code
+HRP->>HIE-CM: POST /v0.5/users/auth/init
+HIE-CM-->>HRP: Response 200
+HIE-CM->>HRP: POST /v0.5/users/auth/on-init
+HRP-->>HIE-CM: Response 200
+HRP->>HIE-CM: /v0.5/users/auth/confirm
+HIE-CM-->>HRP: Response 200
+HRP->>HIE-CM: /v0.5/users/auth/on-confirm
+HIE-CM-->>HRP: Response 200
 {{< /mermaid >}}
 
 
-## API Information Request Response 
+## V0.5 API Information Request Response
+
+**1. Initiate Authentication of users**
+
+This API is called by HIPs to initiate authentication of users. A transactionId is retuned by the corresponding callback API for confirmation of user auth.
+
+**BASE URLs:**  https://dev.abdm.gov.in/gateway
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/users/auth/init" >}}
+
+**2. Call Back API For Init**
+
+Response to user authentication initialization from HIP. If the patient's id is valid, CM will return a transactionId as initialization of user auth. If the request is valid, then 'auth.mode' will convey how the authentication should be done.
+
+**BASE URLs:**  https://your-hrp-server.com
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/users/auth/on-init" >}}
+
+**3. Confirm Authentication Of Users**
+
+This API is called by HIP/HIUs to confirm authentication of users. The transactionId returned by the previous callback API /users/auth/on-init must be sent. If Authentication is successful the callback API will send an "access token" for subsequent purpose specific API calls.
+
+**BASE URLs:**  https://dev.abdm.gov.in/gateway
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/users/auth/confirm" >}}
+
+**4. Call Back API For Confirm**
+
+This API is called by CM to confirm authentication of users.
+
+**BASE URLs:**  https://your-hrp-server.com
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/users/auth/on-confirm" >}}
+
+
+## V3 API Sequence Diagram
+
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+title V3 API- Scan User's ABHA QR Code to verify ABHA Address
+actor User
+HRP->>User:Health Facility scans User's ABHA QR code
+HRP->>ABDM Sandbox Gateway:POST /v3/token/generate-token
+ABDM Sandbox Gateway-->>HRP:Response 200
+ABDM Sandbox Gateway->>HRP:POST /v3/token/on-generate-token
+HRP-->>ABDM Sandbox Gateway:Response 200
+{{< /mermaid >}}
+
+## V3 API Information Request Response
 
 **1. Generate link token**
 

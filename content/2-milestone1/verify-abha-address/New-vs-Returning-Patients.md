@@ -36,7 +36,7 @@ The HRP may also first find a returning patient using a Hosptital MRD Number. In
 It is quite possible that several patients may not share their ABHA address at the time of registration because 
 
 - They do not have a ABHA Address or not aware of ABDM
-- The have a ABHA address but decide not to share it with the health facility 
+- They have an ABHA address but decide not to share it with the health facility 
 
 This is prefectly valid and ABDM principles are designed such that users can decide when to join ABDM and collect their records. 
 
