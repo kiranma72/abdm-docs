@@ -21,7 +21,9 @@ The latest Fidelius CLI release (v1.2.0 as of this writing) can be [downloaded f
 
 - We also have a short video demonstrating Fidelius CLI’s usage in the context of a HIP.
 
-( insert video from Saiki )
 
-{{% badge style="blue" %}}Source{{% /badge %}}  [Click here](https://devforum.abdm.gov.in/t/fidelius-cli-a-complete-end-to-end-cryptography-solution/3906) for the source of the above information.
+{{< youtube id="iDcCP9h5hZs" >}}
+
+
+**{{% badge style="blue" %}}Source{{% /badge %}}  [Click here](https://devforum.abdm.gov.in/t/fidelius-cli-a-complete-end-to-end-cryptography-solution/3906) for the source of the above information.**
 
