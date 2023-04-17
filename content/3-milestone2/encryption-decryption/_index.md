@@ -31,7 +31,7 @@ HIP Repository-->>HIP System:notification
 HIP Repository->>Gateway:POST/health-information/hip/on-request
 Note over HIP Repository,HIP System:Prepare data (encryption)
 HIP Repository-->>HIU System: Direct data transfer<br/>POST/datapush-url
-HIP Repository->>Gateway:Notify on the consent<br/>POST/health-information/notify
+HIP Repository->>Gateway:Notify on the transfer<br/>POST/health-information/notify
 {{< /mermaid >}}
 
 
