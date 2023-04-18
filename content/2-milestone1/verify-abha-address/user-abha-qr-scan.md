@@ -89,15 +89,15 @@ S.no.|Applicable To | Test Summary | Test Scenario |
 sequenceDiagram
 title V0.5 APIs - Scan User's ABHA QR Code to verify ABHA Address
 actor User
-HRP->>User: Health Facility scans User's ABHA QR code
-HRP->>HIE-CM: POST /v0.5/users/auth/init
-HIE-CM-->>HRP: Response 200
-HIE-CM->>HRP: POST /v0.5/users/auth/on-init
-HRP-->>HIE-CM: Response 200
-HRP->>HIE-CM: /v0.5/users/auth/confirm
-HIE-CM-->>HRP: Response 200
-HRP->>HIE-CM: /v0.5/users/auth/on-confirm
-HIE-CM-->>HRP: Response 200
+HRP/HIP->>User: Health Facility scans User's ABHA QR code
+HRP/HIP->>HIE-CM: POST /v0.5/users/auth/init
+HIE-CM-->>HRP/HIP: Response 200
+HIE-CM->>HRP/HIP: POST /v0.5/users/auth/on-init
+HRP/HIP-->>HIE-CM: Response 200
+HRP/HIP->>HIE-CM: /v0.5/users/auth/confirm
+HIE-CM-->>HRP/HIP: Response 200
+HRP/HIP->>HIE-CM: /v0.5/users/auth/on-confirm
+HIE-CM-->>HRP/HIP: Response 200
 {{< /mermaid >}}
 
 
@@ -143,11 +143,11 @@ This API is called by CM to confirm authentication of users.
 sequenceDiagram
 title V3 API- Scan User's ABHA QR Code to verify ABHA Address
 actor User
-HRP->>User:Health Facility scans User's ABHA QR code
-HRP->>ABDM Sandbox Gateway:POST /v3/token/generate-token
-ABDM Sandbox Gateway-->>HRP:Response 200
-ABDM Sandbox Gateway->>HRP:POST /v3/token/on-generate-token
-HRP-->>ABDM Sandbox Gateway:Response 200
+HRP/HIP->>User:Health Facility scans User's ABHA QR code
+HRP/HIP->>ABDM Sandbox Gateway:POST /v3/token/generate-token
+ABDM Sandbox Gateway-->>HRP/HIP:Response 200
+ABDM Sandbox Gateway->>HRP/HIP:POST /v3/token/on-generate-token
+HRP/HIP-->>ABDM Sandbox Gateway:Response 200
 {{< /mermaid >}}
 
 ## V3 API Information Request Response
