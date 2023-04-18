@@ -10,6 +10,9 @@ pre = "<b>4. </b>"
 
 **Functionalities of Milestone 3:** Developing Health Information User (HIU) services to provide view of patient’s medical history to authorized healthcare workers with complete consent.
 
+Milestone 3 revolves around HIUs, here's a quick snapshot to understand what functionalities will be covered in this section:
+
+![HIU Milestone 3 Functionalities](/abdm-docs/img/hiu-milestone3.jpg)  
 
 ## M3 Test Cases mapping by Role
 
