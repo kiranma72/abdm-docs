@@ -38,3 +38,9 @@ HRP/HIP->>HIE-CM: POST/v0.5/consents/hip/on-notify
 **BASE URL:** https://dev.abdm.gov.in/gateway
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/consents/hip/on-notify$" >}}
+
+## Sample User Experience 
+
+{{< gallery dir="3-milestone2/user-experience" />}} {{< load-photoswipe >}}
+
+{{%icon icon="info-circle" %}} To request HIU (https://dev.ndhm.gov.in/hiu#/hiu/login) login access, kindly drop a mail{{%icon icon="envelope" %}} to integration.support@nha.gov.in.

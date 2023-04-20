@@ -65,24 +65,77 @@ Functionality|Test Case|Steps To Be Executed
 {{% badge style="blue" %}}Mandatory{{% /badge %}} Validate the demographic details  (HIP_INTI_LINK_503)|The HIP validates demographic details of patient|1. Validate Demographic Details ( Provided by the user and fetch by the ABHA address). 2.Upon successful validation of OTP| linking token is generated.
 {{% badge style="blue" %}}Mandatory{{% /badge %}} Linking of Health Records (HIP_INTI_LINK_505)|HIP system links the ABHA Address with the patient records|1. Link Health Records. 2. Through PHR Application| check if the linked records can be pulled"
 
-## API Sequence Diagram
+{{% notice title="API Versions" %}}
+
+- **V0.5 API**
+  - [Sequence Diagram for V0.5 API](#v05-api-sequence-diagram)
+  - [API Information Request Response for V0.5](#v05-api-information-request-response)
+- **V3 API**
+  - [Sequence Diagram for V3 API](#v3-api-sequence-diagram)
+  - [API Information Request Response for V3](#v3-api-information-request-response)
+
+**Note:** V0.5 APIs are currently in production. V3 APIs are currently only available in sandbox
+{{% /notice %}}
+
+## V0.5 API Sequence Diagram
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+title HIP Initiated Linking
+activate HRP/HIP
+activate HIE-CM
+HRP/HIP->>HIE-CM: POST V0.5/links/link/add-contexts
+HIE-CM-->>HRP/HIP: return
+deactivate HRP/HIP 
+deactivate HIE-CM
+activate HRP/HIP  
+activate HIE-CM 
+HIE-CM->>HRP/HIP: (callback_url)V0.5/links/link/on-add-contexts
+HRP/HIP-->>HIE-CM:return
+deactivate HRP/HIP 
+deactivate HIE-CM
+{{< /mermaid >}}
+
+
+## V0.5 API Information Request Response
+
+**1. Care-Context Linking**
+
+API to submit care-context to CM for HIP initiated linking. The API must accompany the "accessToken" fetched in the users/auth process.
+
+**BASE URLs:**  https://dev.abdm.gov.in/gateway
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/links/link/add-contexts" >}}
+
+**2. Call Back API For add-contexts**
+
+Callback API for HIP initiated patient linking /link/add-context.If the accessToken is valid for purpose of linking, and specified details provided, CM will send "acknoweldgement.status" as SUCCESS.
+
+**BASE URLs:**  https://your-hrp-server.com
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/links/link/on-add-contexts" >}}
+
+
+## V3 API Sequence Diagram
 
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
 title HIP Initiated Linking
 activate HRP/HIP
-activate ABDM Gateway
-HRP/HIP->>ABDM Gateway: POST/hiecm/api/v3/link/carecontext
-ABDM Gateway-->>HRP/HIP: return
+activate HIE-CM 
+HRP/HIP->>HIE-CM : POST/hiecm/api/v3/link/carecontext
+HIE-CM-->>HRP/HIP: return
 deactivate HRP/HIP 
-deactivate ABDM Gateway
+deactivate HIE-CM 
 activate HRP/HIP  
-activate ABDM Gateway  
-ABDM Gateway->>HRP/HIP:(callback_url)/v3/hip/link/on-carecontext
-HRP/HIP-->>ABDM Gateway:return
+activate HIE-CM   
+HIE-CM->>HRP/HIP:(callback_url)/v3/hip/link/on-carecontext
+HRP/HIP-->>HIE-CM :return
 deactivate HRP/HIP 
-deactivate ABDM Gateway
-ABDM Gateway->>PHR App:(callback_url)/v3/hiu/subscriptions/notify
-PHR App-->>ABDM Gateway:s
+deactivate HIE-CM 
+HIE-CM->>PHR App:(callback_url)/v3/hiu/subscriptions/notify
+PHR App-->>HIE-CM :s
 {{< /mermaid >}}
+
+## V3 API Information Request Response

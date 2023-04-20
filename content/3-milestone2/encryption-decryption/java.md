@@ -54,4 +54,4 @@ Response:
 ```{ "decryptedData": "FHIR document" }```
 
 
-{{% badge style="blue" %}}Source{{% /badge %}} [Click here](https://github.com/sukreet/fidelius/tree/84bc68c8a80d91a665dd88b05e5757a09a2d663a/src/main/java/in/projecteka/fidelius) for the source of the above information.
+**{{% badge style="blue" %}}Source{{% /badge %}} [Click here](https://github.com/sukreet/fidelius/tree/84bc68c8a80d91a665dd88b05e5757a09a2d663a/src/main/java/in/projecteka/fidelius) for the source of the above information.**

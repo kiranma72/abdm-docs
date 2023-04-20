@@ -1,9 +1,9 @@
 +++
 title = "Building an HRP"
 date = 2022-05-07T17:53:25+05:30
-weight = 5
+weight = 7
 chapter = true
-pre = "<b>5. </b>"
+pre = "<b>7. </b>"
 +++
 
 >In this section we will cover the steps to build an ABDM compliant Health Repsitory Provider. This sections is for any healthcare provider that generates health records and wishes to link these records to a user's PHR address and share it on demand
