@@ -16,10 +16,12 @@ Milestone 3 revolves around HIUs, here's a quick snapshot to understand what fun
 
 ## M3 Test Cases mapping by Role
 
-|Applicable To | HMIS / LMIS (PVT) | Govt. Health App | PHR / LOCKER |
-|--------|----------------------|--------------------|-------------------|
-| to be added | to be added | to be added | to be added |
-
+|      Applicable To                         |   HMIS / LMIS (PVT)  |   Govt. Health App  |   
+|-------------------------------|----------------------|--------------------|                 
+|   **Requesting Consent**                      |   Mandatory          |   Mandatory        |  
+|  **Storing Consent Artefacts**  |  Mandatory                    |  Mandatory                 |                
+|   **Getting Health Records**     |   Mandatory          |   Mandatory        |  
+|   **Display Health Records**         |   Mandatory          |   Mandatory        |  
 
 ## This section covers:
 {{% notice %}}

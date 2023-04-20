@@ -79,6 +79,7 @@ In the Sandbox you can simply declare a HIP/HIU ID without it being part of the 
 
 All HIUs including PHR apps also need to register a HIU code. 
 
+**Note :** Create unique (fake) HIP/HIU (both Id & Name should be unique) so it can be searched and discovered in the PHR app.
 
 ### Check your configuration 
 
