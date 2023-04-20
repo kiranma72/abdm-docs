@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "4003f206-50af-4c64-bf38-f55bb719f029",
+		"name": "Gateway",
+		"description": "You can use this collection to test and understand how the token is getting generated, refreshed and get cert for JWT verification.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sessions",
+			"item": [
+				{
+					"name": "Get_cert_for_jwt_verification",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dev.abdm.gov.in/gateway/v0.5/certs",
+							"protocol": "https",
+							"host": [
+								"dev",
+								"abdm",
+								"gov",
+								"in"
+							],
+							"path": [
+								"gateway",
+								"v0.5",
+								"certs"
+							]
+						},
+						"description": "This is API endpoint used to get certs for JWT verification"
+					},
+					"response": []
+				},
+				{
+					"name": "New_token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"clientId\": \"String\",\r\n  \"clientSecret\": \"String\",\r\n  \"grantType\": \"client_credentials\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev.abdm.gov.in/gateway/v0.5/sessions",
+							"protocol": "https",
+							"host": [
+								"dev",
+								"abdm",
+								"gov",
+								"in"
+							],
+							"path": [
+								"gateway",
+								"v0.5",
+								"sessions"
+							]
+						},
+						"description": "This is API end point used to generate the new access token"
+					},
+					"response": []
+				}
+			],
+			"description": "This folder contains the list of sessions API used to generate the authentication token generation"
+		},
+		{
+			"name": "Refresh_token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"clientId\": \"String\",\r\n  \"clientSecret\": \"String\",\r\n  \"grantType\": \"client_credentials\",\r\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyMWU5NzA4OS00ZTcxLTQyNGEtOTAzYS1jOTAyMWM1NmFlNWYifQ.eyJleHAiOjE2NTA5OTc0NDQsImlhdCI6MTY1MDk5NTY0NCwianRpIjoiZDVhZmNlODQtMjUyZS00YzZkLThjNGYtNjNhMmJlZDdlNTI3IiwiaXNzIjoiaHR0cHM6Ly9kZXYubmRobS5nb3YuaW4vYXV0aC9yZWFsbXMvY2VudHJhbC1yZWdpc3RyeSIsImF1ZCI6Imh0dHBzOi8vZGV2Lm5kaG0uZ292LmluL2F1dGgvcmVhbG1zL2NlbnRyYWwtcmVnaXN0cnkiLCJzdWIiOiJiZGFmZDdjYy05ODBjLTQ1MTAtYjk5Ny1mMjRjZWUwZDI0MzAiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoiVkFTQU5USF9MVEkiLCJzZXNzaW9uX3N0YXRlIjoiNzliODgxOTctN2U4MS00MGU1LWI0NDctMDdhMzA3YWI0MDRlIiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcHJvZmlsZSJ9.16IAfZq_lK2aJ3DzGWww477IH6q4egw9BakboPVeqnU\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/gateway/v0.5/sessions",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway",
+						"v0.5",
+						"sessions"
+					]
+				},
+				"description": "This is API end point used to generate the refresh access token(session extension) using the generated token"
+			},
+			"response": []
+		}
+	]
+}

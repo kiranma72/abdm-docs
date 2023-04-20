@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sandbox Exit Process on ABDM Sandbox Documentation</title>
+    <link>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/index.html</link>
+    <description>Recent content in Sandbox Exit Process on ABDM Sandbox Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 May 2022 17:53:25 +0530</lastBuildDate><atom:link href="http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> Milestone 1</title>
+      <link>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/milestone-1/index.html</link>
+      <pubDate>Mon, 13 Mar 2023 14:30:25 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/milestone-1/index.html</guid>
+      <description>Milestone 1 Description of Milestone 1: ABHA creation and capture &amp;amp; verification for seamless patient registration
+Test Cases The Milestone 1 test cases are applicable to All the stakeholders.
+   S.No Function Functionality Test Case Steps To Be Executed     1.1 ABHA Creation Through Aadhaar OTP Mandatory Create ABHA Option (CRT_ABHA_101) The system must provide an option to create ABHA through Aadhaar OTP    1.</description>
+    </item>
+    <item>
+      <title> Milestone 2</title>
+      <link>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/milestone-2/index.html</link>
+      <pubDate>Mon, 13 Mar 2023 14:30:25 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/milestone-2/index.html</guid>
+      <description>Milestone 2 Description of Milestone 2: Building Health Information Provider (HIP) services to share digital records via any Personal Health Records (ABHA) app.
+Test Cases Health Information Provider initiated for Health Records (Any of the 4 methods defined must be demonstrated for HIP Initiated Linking. It is recommended to implement all the 4 methods)
+Test Cases for Health Information Providers (HIP)    S.No Function Functionality Test Case Steps To Be Executed     1.</description>
+    </item>
+    <item>
+      <title> Milestone 3</title>
+      <link>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/milestone-3/index.html</link>
+      <pubDate>Mon, 27 Mar 2023 14:30:25 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/milestone-3/index.html</guid>
+      <description>Milestone 3 </description>
+    </item>
+  </channel>
+</rss>

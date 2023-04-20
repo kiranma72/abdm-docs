@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Milestone 1 on ABDM Sandbox Documentation</title>
+    <link>http://kiranma72.github.io/abdm-docs/2-milestone1/index.html</link>
+    <description>Recent content in Milestone 1 on ABDM Sandbox Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Mar 2023 04:10:00 +0530</lastBuildDate><atom:link href="http://kiranma72.github.io/abdm-docs/2-milestone1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creation of ABHA Number</title>
+      <link>http://kiranma72.github.io/abdm-docs/2-milestone1/abha-number/index.html</link>
+      <pubDate>Sat, 07 May 2022 17:53:25 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/2-milestone1/abha-number/index.html</guid>
+      <description>Creation of ABHA Number ABHA number is a 14 digit number that is unique (only one per person) issued only after a strong KYC. ABHA is a core building block of the ABDM ecosystem that was essentially designed to ensure that people can have a unique ID (identifier) for healthcare.
+ABHA numbers are extremely important for helping those who use feature phones or do not use a phone to manage their personal health records.</description>
+    </item>
+    <item>
+      <title>Verification of ABHA Address</title>
+      <link>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/index.html</link>
+      <pubDate>Sat, 07 May 2022 17:53:25 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/index.html</guid>
+      <description>Verify ABHA Address What is ABHA Address?
+ABHA Address is an easy to remember username that enables a user to access their health records digitally and share their records with various healthcare providers.
+An ABHA address may look like ‘name@abdm’. It is required to sign up on ABHA Application.
+  
+This section covers the methods that must be supported for collecting &amp;amp; verifying the ABHA Address from the user:   Scan Health Facility QR Scan User ABHA QR By OTP New vs Returning Patients</description>
+    </item>
+  </channel>
+</rss>

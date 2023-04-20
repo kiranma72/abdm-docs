@@ -1,0 +1,29 @@
+Share patient profile details
+curl -L -X POST 'https://dev.abdm.gov.in/cm/v0.5/patients/profile/share' -H 'Authorization:string' -H 'X-HIP-ID:string' --data-raw '{
+  "requestId": "5388cc41-131c-46f2-95dd-8df9246b7d12",
+  "timestamp": "2022-05-10T14:11:31.893000",
+  "profile": {
+    "hipCode": "12345 (CounterId)",
+    "patient": {
+      "healthId": "<username>@<suffix>",
+      "healthIdNumber": "1111-1111-1111-11",
+      "name": "Jane Doe",
+      "gender": "M",
+      "address": {
+        "line": "string",
+        "district": "string",
+        "state": "string",
+        "pincode": "string"
+      },
+      "yearOfBirth": 2000,
+      "dayOfBirth": 0,
+      "monthOfBirth": 0,
+      "identifiers": [
+        {
+          "type": "MR",
+          "value": "+919800083232"
+        }
+      ]
+    }
+  }
+}'

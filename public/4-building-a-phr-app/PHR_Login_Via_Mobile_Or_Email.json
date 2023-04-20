@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "92403975-789e-4f15-b683-bfd86a46637d",
+		"name": "PHR_Login_Via_Mobile_Or_Email",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01_Gateway_Session",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clientId\": \"your-clientID\",\r\n    \"clientSecret\": \"your-clientSecret\",\r\n    \"grantType\": \"client_credentials\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.ndhm.gov.in/gateway/v0.5/sessions",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"ndhm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway",
+						"v0.5",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02_Generate_Mobile_Or_Email_Otp",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"value\": \"yJ2hY5bc2g3P2pQyca/ER6VYQ8TGMj/VN42h9xkh/3jAwJQtZEspnhrtEKqwFXt1+8budi64CPlUEzbkwUsCotIOMm8idfSX+SQyb8VlqLxxIkAzGvmXjWrbQUNEUWnnJjzkIjweNmj8GJ2u0uRdrAGpBc1vMoMz5XD2SGfFttvmziTtucq5w2dOoAPOni4Bl7sfii3Qyo8Szl1/tXNnZbDZi8HH9Cpajno4pFiu6mQDVTkkyDHTqyo7Bv3IFpdNYiRDAZ1yh1cBOfufMy1gSZQetCwETFxdsOgw7JvKL/gEN+RAFKZF2oUriCsAkYYbxW1cfrqa/YRXUw0ho+n4Jw==\",\r\n    \"purpose\": \"CM_ACCESS\",\r\n    \"authMode\": \"MOBILE_OTP\",\r\n    \"requester\": {\r\n        \"type\": \"PHR\",\r\n        \"id\": \"IN0400XX\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/cm/v1/apps/login/mobileEmail/auth-init",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"cm",
+						"v1",
+						"apps",
+						"login",
+						"mobileEmail",
+						"auth-init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03_Verify_Otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"transactionId\": \"a825f76b-0696-40f3-864c-5a3a5b389a83\",\r\n    \"authCode\": \"tSCaVUjHwHiMVCokz7u3ogfop5r7ON5GmVY4rJNaQhoVAMlZl5lDqbb4vobfFMsQ1zO404gkWqPqLoDCdavx+JJ5pxprDpRo+PbeV44q51xr5OoNW2ITy9x6WM81KF9o7OnIU3FOGg09jqcJ/By3S8ICWxzJDKVwCJPehHtjhSFiy+mdWEjKkBTrEWJRTy3ZOkij+fskm+JjLoJlIF0TmA94Jb/avX0/LrnacpWEYWAHd0R/8/HIeITVNwG5hnsuRyIcIKKy7bEuYul8wJDD8RPBhL/gIAV4c5zDCb518o1MJGQtNg8Yf/zcROdaynWrBHIh2tacPrxmLHiZHD+BHQ==\",\r\n    \"requesterId\": \"IN0410XX\"\r\n}"
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/cm/v1/apps/login/mobileEmail/pre-Verify",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"cm",
+						"v1",
+						"apps",
+						"login",
+						"mobileEmail",
+						"pre-Verify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04_Auth_Confirm",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"patientId\": \"user@abdm\",\r\n    \"transactionId\": \"a825f76b-0696-40f3-864c-5a3a5b389a83\",\r\n    \"requesterId\": \"IN0401XX\"\r\n}"
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/cm/v1/apps/login/mobileEmail/auth-confirm",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"cm",
+						"v1",
+						"apps",
+						"login",
+						"mobileEmail",
+						"auth-confirm"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

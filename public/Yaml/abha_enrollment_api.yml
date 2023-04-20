@@ -1,0 +1,555 @@
+openapi: 3.0.0
+info:
+  title: ABHA Enrollment & Profile Management API V3
+  version: v3
+  description: >-
+    It is important to standardize the process of identification of an
+    individual across healthcare providers, to ensure that the created medical
+    records are issued to the right individual or accessed by a Health
+    Information User through appropriate consent. In order to issue an ABHA
+    Number to an individual, one only needs basic demographic details like Name,
+    Year of Birth, Gender. In addition, citizens should be able to update
+    contact information easily. The ABHA Number will be used for the purposes of
+    uniquely identifying persons and authenticating them. An ABHA Address will
+    be used for threading their health records (only with the informed consent
+    of the patient) across multiple systems and stakeholders.
+     
+    Notes:
+      1. In case you want to consume the ABHA APIs and use creation on your own interface, use authentication methods as OTP only.
+      2. In order to have access to ABHA APIs, your clientId must have hid role in gateway. So if you want access to these APIs then please request it in your ABDM on-boarding request.
+      3. In order to have access to Integrated Programs ABHA APIs, your clientId must have integrated_program role in gateway. So if you want access to these APIs then please request it in your ABDM on-boarding request. Also you will need to share integrated program benefit name to be used in this case.
+      4. When calling APIs, please ensure that Authorization header must have format as Bearer {Token_Value}. Please note that prefix Bearer is followed by space before the token value.
+       
+  
+servers:
+  - url: https://abhasbx.abdm.gov.in/abha/api
+  - url: https://healthidsbx.abdm.gov.in/api
+paths:
+  /v1/auth/cert:
+    get:
+      tags: 
+        - ABHA Enrollment
+      summary: retrieve public key
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+              example: |
+                -----BEGIN PUBLIC KEY-----
+                MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAstWB95C5pHLXiYW59qyO
+                4Xb+59KYVm9Hywbo77qETZVAyc6VIsxU+UWhd/k/YtjZibCznB+HaXWX9TVTFs9N
+                wgv7LRGq5uLczpZQDrU7dnGkl/urRA8p0Jv/f8T0MZdFWQgks91uFffeBmJOb58u
+                68ZRxSYGMPe4hb9XXKDVsgoSJaRNYviH7RgAI2QhTCwLEiMqIaUX3p1SAc178ZlN
+                8qHXSSGXvhDR1GKM+y2DIyJqlzfik7lD14mDY/I4lcbftib8cv7llkybtjX1Aayf
+                Zp4XpmIXKWv8nRM488/jOAF81Bi13paKgpjQUUuwq9tb5Qd/DChytYgBTBTJFe7i
+                rDFCmTIcqPr8+IMB7tXA3YXPp3z605Z6cGoYxezUm2Nz2o6oUmarDUntDhq/PnkN
+                ergmSeSvS8gD9DHBuJkJWZweG3xOPXiKQAUBr92mdFhJGm6fitO5jsBxgpmulxpG
+                0oKDy9lAOLWSqK92JMcbMNHn4wRikdI9HSiXrrI7fLhJYTbyU3I4v5ESdEsayHXu
+                iwO/1C8y56egzKSw44GAtEpbAkTNEEfK5H5R0QnVBIXOvfeF4tzGvmkfOO6nNXU3
+                o/WAdOyV3xSQ9dqLY5MEL4sJCGY1iJBIAQ452s8v0ynJG5Yq+8hNhsCVnklCzAls
+                IzQpnSVDUVEzv17grVAw078CAwEAAQ==
+                -----END PUBLIC KEY-----                  
+              
+  /v3/enrollment/request/otp:
+    post:
+      tags: 
+        - ABHA Enrollment
+      summary: REQUEST - OTP FOR ENROLLMENT, UPDATE MOBILE and UPDATE EMAIL
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              type: object
+            examples:
+              Request OTP Aadhaar based enrollment:
+                 value:
+                    scope:
+                      - abha-enrol
+                    loginHint: aadhaar
+                    loginId: <RSA Encrypted aadhaar number>
+                    otpSystem: aadhaar
+              Request OTP For DL based enrollment:
+                 value:
+                    scope:
+                      - abha-enrol
+                      - mobile-verify
+                      - dl-flow
+                    loginHint: mobile
+                    loginId: <RSA Encrypted mobile number>
+                    otpSystem: abdm
+              Request OTP for mobile verfication:
+                 value:
+                    scope:
+                      - abha-enrol
+                      - mobile-verify
+                      - dl-flow
+                    authData:
+                      authMethods: 
+                        - otp
+                      otp:
+                        timeStamp: <current_simple_timestamp>
+                        txnId: <previousTxnId>
+                        otpValue: <RSA Encrypted otp>
+                    
+              Request OTP for email verfication:
+                 value:
+                    txnId: <previousTxnId>
+                    scope:
+                      - abha-enrol
+                      - email-verify
+                    loginHint: email
+                    loginId: <RSA Encrypted email id>
+                    otpSystem: abdm
+                    
+      parameters:
+        - name: REQUEST-ID
+          description: A random UUID.
+          example: 839ede87-6bad-48df-a0d5-e93305c88e75
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: TIMESTAMP
+          description: Current ISO format timestamp. yyyy-MM-DD'T'HH:mm:ss.SSS'Z'
+          example: 2023-03-22'T'23:45:07.027'+05:30'
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                Request OTP Aadhaar based enrollment:
+                  value:
+                    txnId: b7ffebe2-8be8-433a-b447-62eecc45e397
+                    message: OTP is sent to Aadhaar registered mobile number ending with *******0161
+                Request OTP For DL based enrollment:
+                  value:
+                    txnId: b7ffebe2-8be8-433a-b447-62eecc45e397
+                    message: OTP is sent to Mobile number ending with ******0161
+                Request OTP for mobile verfication:
+                  value:
+                    txnId: b7ffebe2-8be8-433a-b447-62eecc45e397
+                    authResult: success
+                    message: OTP verified successfully
+                Request OTP for email verfication:
+                  value:
+                    txnId: b7ffebe2-8be8-433a-b447-62eecc45e397
+                    message: OTP is sent to email ending with gk1*****@gmail.com
+      security:
+        - JWT: []
+  /v3/enrollment/enrol/byAadhaar:
+    post:
+      tags: 
+        - ABHA Enrollment
+      summary: ENROL - BY AADHAAR VERIFICATION
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              type: string
+              example: 
+               authData:
+                 authMethods:
+                   - otp
+                 otp:
+                   timeStamp: <YYYY-MM-DD HH:mm:ss - current timestamp>
+                   txnId: <previousTxnId>
+                   otpValue: <RSA encrypted OTP Value>
+                   mobile: <10 digit mobile number>
+               consent:
+                 code: abha-enrollment
+                 version: '1.4'
+               
+      parameters:
+        - name: REQUEST-ID
+          description: A random UUID.
+          example: 839ede87-6bad-48df-a0d5-e93305c88e75
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: TIMESTAMP
+          description: Current ISO format timestamp. yyyy-MM-DD'T'HH:mm:ss.SSS'Z'
+          example: 2023-03-22'T'23:45:07.027'+05:30'
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: SUCCESS
+                  value:
+                    txnId: 8ef0d735-8541-4e9b-a215-6d45a59d2017
+                    tokens:
+                      id_token: <jwt x-token>
+                      expires_in: 1800
+                      refresh_token: <jwt r-token>
+                      refreshExpiresIn: 1296000
+                    ABHAProfile:
+                      firstName: Gaurav
+                      middleName: ''
+                      lastName: Kumar
+                      dob: 22-10-1991
+                      gender: M
+                      photo: >-
+                       <Base64 String photo>
+                      mobile: <mobile number>
+                      email: null
+                      phrAddress: 
+                        - '91628545755116@sbx'
+                      addressLine1: Near Urvashi Hotel, Gandhi Nagar, Ward- 28, Road No- 3, Dehri, Rohtas, Bihar
+                      districtCode: '215'
+                      stateCode: '10'
+                      pinCode: '821307'
+                      abhatype: STANDARD
+                      ABHANumber: 91-6285-4575-5116
+                      abhaStatus: ACTIVE
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: 400 - BAD REQUEST
+                  value:
+                    authMethods: AuthMethod cannot be null or empty
+                    Timestamp: Invalid Timestamp
+                    otpValue: Invalid OTP Value
+                    consentVersion: Invalid Consent Version
+                    txnId: Invalid Transaction Id
+                    consentCode: Invalid Consent Code
+                    mobile: Invalid Mobile Number
+                    timestamp: 24-11-2022 20:38:44
+                example-1:
+                  summary: 400 - BAD REQUEST 1
+                  value:
+                    authMethods: AuthMethod cannot be null or empty
+                    consent: Consent cannot be null or empty
+                    otp: >-
+                      otp cannot be null or empty OR timeStamp ,txnId or
+                      otpValue cannot be null or empty
+                    timestamp: 24-11-2022 20:41:02
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                code: HIS-422
+                message: >-
+                  Unable to process the current request due to incorrect data
+                  entered.
+                details:
+                  - message: Ensure correct Aadhaar Information is entered.
+                    code: HIS-2018
+                    attribute: null
+      security:
+        - JWT: []
+  /v3/enrollment/auth/byAbdm:
+    post:
+      tags:
+        - ABHA Enrollment
+      summary: VERIFY - DL MOBILE OTP, EMAIL and MOBILE UPDATE
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              type: object
+            examples:
+              Request Verify DL OTP:
+                value:
+                  scope:
+                    - abha-enrol
+                    - mobile-verify
+                    - dl-flow
+                  authData:
+                    authMethods:
+                      - otp
+                    otp:
+                      timeStamp: <YYYY-MM-DD HH:mm:ss - current timestamp>
+                      txnId: <previousTxnId>
+                      otpValue: <RSA Encrypted OTP Value>
+              Request Verify Mobile:
+                value:
+                  scope:
+                    - abha-enrol
+                    - mobile-verify
+                  authData:
+                    authMethods:
+                      - otp
+                    otp:
+                      timeStamp: <YYYY-MM-DD HH:mm:ss - current timestamp>
+                      txnId: <previousTxnId>
+                      otpValue: <RSA Encrypted OTP Value>
+              Request Verify Email:
+                value:
+                  scope:
+                    - abha-enrol
+                    - email-verify
+                  authData:
+                    authMethods:
+                      - otp
+                    otp:
+                      timeStamp: <YYYY-MM-DD HH:mm:ss - current timestamp>
+                      txnId: <previousTxnId>
+                      otpValue: <RSA Encrypted OTP Value>
+                
+      parameters:
+        - name: REQUEST-ID
+          description: A random UUID.
+          example: 839ede87-6bad-48df-a0d5-e93305c88e75
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: TIMESTAMP
+          description: Current ISO format timestamp. yyyy-MM-DD'T'HH:mm:ss.SSS'Z'
+          example: 2023-03-22'T'23:45:07.027'+05:30'
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: Request Verify DL OTP
+                  value: 
+                    txnId: b7ffebe2-8be8-433a-b447-62eecc45e397
+                    authResult: success
+                    message: OTP verified successfully.
+                example-1:
+                  summary: Request Verify Mobile
+                  value: 
+                    txnId: b7ffebe2-8be8-433a-b447-62eecc45e397
+                    authResult: success
+                    message: Mobile Number linked successfully.
+                    accounts:
+                      - ABHANumber: 91-5408-0214-0264
+                example-2:
+                  summary: Request Verify Email
+                  value: 
+                    txnId: b7ffebe2-8be8-433a-b447-62eecc45e397
+                    authResult: success
+                    message: Email linked successfully.
+                    accounts:
+                      - ABHANumber: 91-5408-0214-0264
+      security:
+        - JWT: []
+  /v3/enrollment/enrol/byDocument:
+    post:
+      tags:
+        - ABHA Enrollment
+      summary: ENROL - BY DOCUMENT
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              type: string
+              example: 
+                txnId: <previousTxnId>
+                documentType: DRIVING_LICENCE
+                documentId: <DL_ID - BR5720100099999>
+                firstName: abc
+                middleName: ''
+                lastName: xyz
+                dob: '1991-10-22'
+                gender: M
+                frontSidePhoto: <base64 photo - jpg|png>
+                backSidePhoto: <base64 photo - jpg|png>
+                address: 'yuiop'
+                state: bihar
+                district: rohtas
+                pinCode: '875545'
+                consent:
+                 code: abha-enrollment
+                 version: '1.4'
+                
+      parameters:
+        - name: REQUEST-ID
+          description: A random UUID.
+          example: 839ede87-6bad-48df-a0d5-e93305c88e75
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: TIMESTAMP
+          description: Current ISO format timestamp. yyyy-MM-DD'T'HH:mm:ss.SSS'Z'
+          example: 2023-03-22'T'23:45:07.027'+05:30'
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                EnrolProfile:
+                  enrolmentNumber: 91-5408-0214-0264
+                  enrolmentState: PROVISIONAL
+                  firstName: abc
+                  middleName: ''
+                  lastName: xyz
+                  dob: 1991-10-22
+                  gender: M
+                  mobile: <mobile_number>
+                  email: 
+                  address: yuiop
+                  districtCode: '215'
+                  district: rohtas
+                  stateCode: '10'
+                  state: bihar
+                  abhaType: STANDARD
+                  pinCode: '875545'
+                  abhaStatus: ACTIVE
+                  phrAddress:
+                    - '91540802140264@sbx'
+      security:
+        - JWT: []
+  /v3/enrollment/enrol/suggestion:
+    get:
+      tags:
+        - ABHA Enrollment
+      summary: SUGGESTION
+      parameters:
+        - name: REQUEST-ID
+          description: A random UUID.
+          example: 839ede87-6bad-48df-a0d5-e93305c88e75
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: TIMESTAMP
+          description: Current ISO format timestamp. yyyy-MM-DD'T'HH:mm:ss.SSS'Z'
+          example: 2023-03-22'T'23:45:07.027'+05:30'
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: TRANSACTION_ID
+          description: Previous response txnId.
+          example: f7357347-440a-4c2d-b862-71cc787c763e
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+          
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                txnId: b7ffebe2-8be8-433a-b447-62eecc45e397
+                abhaAddressList: 
+                  - string1
+                  - string2
+                  - string3
+      security:
+        - JWT: []
+  /v3/enrollment/enrol/abha-address:
+    post:
+      tags:
+        - ABHA Enrollment
+      summary: CREATE ABHA ADDRESS
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              type: string
+              example: 
+                txnId: <previousTxnId>
+                abhaAddress: gaurav_22101991
+                preferred: 1
+                
+      parameters:
+        - name: REQUEST-ID
+          description: A random UUID.
+          example: 839ede87-6bad-48df-a0d5-e93305c88e75
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: TIMESTAMP
+          description: Current ISO format timestamp. yyyy-MM-DD'T'HH:mm:ss.SSS'Z'
+          example: 2023-03-22'T'23:45:07.027'+05:30'
+          in: header
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                txnId: b7ffebe2-8be8-433a-b447-62eecc45e397
+                healthIdNumber: 91-6285-4575-5116
+                preferredAbhaAddress: gaurav_22101991
+      security:
+        - JWT: []
+components:
+  securitySchemes:
+    JWT:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Bearer token. Add the token with suffix 'Bearer '
