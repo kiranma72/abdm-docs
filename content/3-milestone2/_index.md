@@ -20,6 +20,9 @@ The Milestone 2 can be explained with 2 scenarios:
 - User has not shared ABHA Address during Registration.
 - Expectation is to send an SMS that a new health record is available with a deep link; and to support user initiated discovery & linking
 
+Milestone 2 revolves around HRPs, here's a quick snapshot to understand what functionalities will be covered in this section:
+
+![HRP Milestone 2 Functionalities](/abdm-docs/img/hrp-milestone2.jpg) 
 
 ## M2 Test Cases mapping by Role
 
