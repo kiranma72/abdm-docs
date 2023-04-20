@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Building a PHR App on ABDM Sandbox Documentation</title>
+    <link>http://kiranma72.github.io/abdm-docs/4-building-a-phr-app/index.html</link>
+    <description>Recent content in Building a PHR App on ABDM Sandbox Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 May 2022 17:53:25 +0530</lastBuildDate><atom:link href="http://kiranma72.github.io/abdm-docs/4-building-a-phr-app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sign Up or Sign in</title>
+      <link>http://kiranma72.github.io/abdm-docs/4-building-a-phr-app/signup-or-signin/index.html</link>
+      <pubDate>Sat, 07 May 2022 18:00:04 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/4-building-a-phr-app/signup-or-signin/index.html</guid>
+      <description>Sign up / Sign in Every PHR App user needs to have an ABHA Address (also reffered to as PHR Address). The address looks like &amp;ldquo;username@hie-cm&amp;rdquo;. Currently ABDM manages 2 HIE-CMs. The Sandbox HIE-CM @sbx and the production HIE-CM @abdm. PHR Apps use APIs provided by the HIE-CM to create a new ABHA address for users.
+The user chosen ABHA address has to be alphanumeric. The only numeric address allowed is 14 digits and that must be a valid ABHA number.</description>
+    </item>
+    <item>
+      <title>Creation of ABHA Address</title>
+      <link>http://kiranma72.github.io/abdm-docs/4-building-a-phr-app/create-abha-address/index.html</link>
+      <pubDate>Sat, 07 May 2022 17:53:25 +0530</pubDate>
+      <guid>http://kiranma72.github.io/abdm-docs/4-building-a-phr-app/create-abha-address/index.html</guid>
+      <description>Creation of ABHA Address Understanding ABHA Address What is ABHA Address?
+ABHA Address is an easy to remember username that enables a user to access their health records digitally and share their records with various healthcare providers. An ABHA address may look like ‘name@abdm’. It is required to sign up on ABHA Application
+Every 14-digit ABHA number is automatically issued a default ABHA address on the ABDM HIE-CM, which looks like 14-digit@sbx or 14-digit@abdm.</description>
+    </item>
+  </channel>
+</rss>

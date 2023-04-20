@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "59722085-7002-46df-9946-92620fae5b28",
+		"name": "PHR_Sign_Up_Via_Mobile_Or_Email",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01_Generate_Mobile/Email_Otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"value\": \"yJ2hY5bc2g3P2pQyca/ER6VYQ8TGMj/VN42h9xkh/3jAwJQtZEspnhrtEKqwFXt1+8budi64CPlUEzbkwUsCotIOMm8idfSX+SQyb8VlqLxxIkAzGvmXjWrbQUNEUWnnJjzkIjweNmj8GJ2u0uRdrAGpBc1vMoMz5XD2SGfFttvmziTtucq5w2dOoAPOni4Bl7sfii3Qyo8Szl1/tXNnZbDZi8HH9Cpajno4pFiu6mQDVTkkyDHTqyo7Bv3IFpdNYiRDAZ1yh1cBOfufMy1gSZQetCwETFxdsOgw7JvKL/gEN+RAFKZF2oUriCsAkYYbxW1cfrqa/YRXUw0ho+n4Jw==\",\r\n    \"authMode\": \"MOBILE_OTP / EMAIL_OTP\"\r\n}"
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/cm/v1/apps/generate/otp",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"cm",
+						"v1",
+						"apps",
+						"generate",
+						"otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02_Resend_Otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sessionId\": \"a825f76b-0696-40f3-864c-5a3a5b389a83\"\r\n}"
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/cm/v1/apps/resend/otp",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"cm",
+						"v1",
+						"apps",
+						"resend",
+						"otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03_Validate_Otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"value\": \"tSCaVUjHwHiMVCokz7u3ogfop5r7ON5GmVY4rJNaQhoVAMlZl5lDqbb4vobfFMsQ1zO404gkWqPqLoDCdavx+JJ5pxprDpRo+PbeV44q51xr5OoNW2ITy9x6WM81KF9o7OnIU3FOGg09jqcJ/By3S8ICWxzJDKVwCJPehHtjhSFiy+mdWEjKkBTrEWJRTy3ZOkij+fskm+JjLoJlIF0TmA94Jb/avX0/LrnacpWEYWAHd0R/8/HIeITVNwG5hnsuRyIcIKKy7bEuYul8wJDD8RPBhL/gIAV4c5zDCb518o1MJGQtNg8Yf/zcROdaynWrBHIh2tacPrxmLHiZHD+BHQ==\",\r\n    \"sessionId\": \"a825f76b-0696-40f3-864c-5a3a5b389a83\"\r\n}"
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/cm/v1/apps/validate/otp",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"cm",
+						"v1",
+						"apps",
+						"validate",
+						"otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04_Registration_Details",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sessionId\": \"a825f76b-0696-40f3-864c-5a3a5b389a83\",\r\n    \"name\": {\r\n        \"first\": \"Shubhanshu\",\r\n        \"middle\": \"Kumar\",\r\n        \"last\": \"Shukla\"\r\n    },\r\n    \"dateOfBirth\": {\r\n        \"date\": 14,\r\n        \"month\": 1,\r\n        \"year\": 1996\r\n    },\r\n    \"gender\": \"M\",\r\n    \"stateCode\": \"7\",\r\n    \"districtCode\": \"77\",\r\n    \"email\": \"6BE4FfCtkOrDZU/Fc545GrhVGgC8JxiK8uU/DSQT7PNebX2Bigz0lUuC3R0F4RA+PoulQCfqqK4OKDe1vi0oAgiSbvAQl4DoCnd4ANmb5k+5YevhouiHCiBCp1zUZZLJ6A28Ux7NBWioNxFuWUYh2syF+nOoQ0kyQ1bUUMYg8tFtm0SLj0MRTowh3fksCFsbYBj6sgx7Hd+5M8xlUDhd/v5mHh4zoTodQNRc5L/2nlT/eBSQPof1iIgkMsgYZjLllS0v1LPSdeGsnsreEVtqkWn/tPyLwcsqkcMxDKrhHbI3odlIkYngBLGqLuBWLVE52pihdCbGrVwpG4S0bpQ0qg==\",\r\n    \"mobile\": \"yJ2hY5bc2g3P2pQyca/ER6VYQ8TGMj/VN42h9xkh/3jAwJQtZEspnhrtEKqwFXt1+8budi64CPlUEzbkwUsCotIOMm8idfSX+SQyb8VlqLxxIkAzGvmXjWrbQUNEUWnnJjzkIjweNmj8GJ2u0uRdrAGpBc1vMoMz5XD2SGfFttvmziTtucq5w2dOoAPOni4Bl7sfii3Qyo8Szl1/tXNnZbDZi8HH9Cpajno4pFiu6mQDVTkkyDHTqyo7Bv3IFpdNYiRDAZ1yh1cBOfufMy1gSZQetCwETFxdsOgw7JvKL/gEN+RAFKZF2oUriCsAkYYbxW1cfrqa/YRXUw0ho+n4Jw==\",\r\n    \"countryCode\": \"+91 \",\r\n    \"pinCode\": \"110001\",\r\n    \"address\": \"9th Floor, Tower-l, Jeevan Bharati Building, Connaught Place, New Delhi - 110001\"\r\n}"
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/cm/v1/apps/registration/details",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"cm",
+						"v1",
+						"apps",
+						"registration",
+						"details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "05_Create_PHR_Address",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"alreadyExistedPHR\": true,\r\n    \"password\": \"HNceo964MVndrs8Z2oMtzIsmmbzagveHbWkDsDKskTue+/YZhHHrMon19J03ggU457upzWMIX0nU3d38xjB3FxA2qWCVmvLZ98A9l0y3i33vq1ywu9cORGF4OEqV8l7H9h4tDnLGDHnbOh9ct85VfOohP4p73lqW6WQSMYcU+xkBfEsRj42pWL19EVsE1UULtQE8gYY1B0SeM63svUp1kQ4Pt5hdgKxibYBq+hRcck2PkEIhp2N7AkjH4Tf+AhXU9956WLwjKgAKMk7K4+Zv8JtxYCcblQitbpN4ImPH5edf4mO5R/L9RpdAVSllAQQfPIDlp5ZGOZ1GrSmhzOSP3g==\",\r\n    \"phrAddress\": \"user@abdm\",\r\n    \"sessionId\": \"a825f76b-0696-40f3-864c-5a3a5b389a83\"\r\n}"
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/cm/v1/apps/create/registration/hid/create/phrAddress",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"cm",
+						"v1",
+						"apps",
+						"create",
+						"registration",
+						"hid",
+						"create",
+						"phrAddress"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

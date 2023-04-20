@@ -1,0 +1,309 @@
+{
+	"info": {
+		"_postman_id": "4f335e6d-d2a4-421d-8b0b-139455193693",
+		"name": "Discover_Link_Flow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01_Session",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"clientId\": \"string\",\r\n    \"clientSecret\": \"string\",\r\n    \"grantType\": \"client_credentials\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.ndhm.gov.in/gateway/v0.5/sessions",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"ndhm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway",
+						"v0.5",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02_Discover",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "your-HIP-ID",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"patient\": {\r\n    \"id\": \"kiranma@sbx\",\r\n    \"name\": \"Kiran Anandampillai\",\r\n    \"gender\": \"M\",\r\n    \"yearOfBirth\": 1973,\r\n    \"verifiedIdentifiers\": [\r\n      {\r\n        \"type\": \"MOBILE\",\r\n        \"value\": \"98XXXXX767\"\r\n      },\r\n      {\r\n        \"type\": \"NDHM_HEALTH_NUMBER\",\r\n        \"value\": \"42-7175-8604-4553\"\r\n      },\r\n      {\r\n        \"type\": \"HEALTH_ID\",\r\n        \"value\": \"kiranma@sbx\"\r\n      }\r\n    ],\r\n    \"unverifiedIdentifiers\": []\r\n  },\r\n  \"requestId\": \"46c1db89-03b2-4bc7-b841-cd413b1dfd4f\",\r\n  \"timestamp\": \"2022-05-25T01:09:02.330549\",\r\n  \"transactionId\": \"f8b66886-1df2-47a3-9939-9504e8e31b32\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/gateway/v0.5/care-contexts/discover",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway",
+						"v0.5",
+						"care-contexts",
+						"discover"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03_On_Discover",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-CM-ID",
+						"value": "Suffix-of-the-consent-manager",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"requestId\": \"5f7a535d-a3fd-416b-b069-c97d021fbacd\",\r\n  \"timestamp\": \"2022-05-23T10:38:59.874Z\",\r\n  \"transactionId\": \"f8b66886-1df2-47a3-9939-9504e8e31b32\",\r\n  \"patient\": {\r\n    \"referenceNumber\": \"DiscoveryRef-352341\",\r\n    \"display\": \"Records found for Kiran Anandampillai\",\r\n    \"careContexts\": [\r\n      {\r\n        \"referenceNumber\": \"HT1254323\",\r\n        \"display\": \"Prescription from OPD Visit on 12-05-22\"\r\n      }, \r\n      {\r\n        \"referenceNumber\": \"HT1254324\",\r\n        \"display\": \"Inpatient records from 16-05-22\"\r\n      } \r\n    ],\r\n    \"matchedBy\": [\r\n      \"MR -- What goes here?\" \r\n    ]\r\n  },\r\n  \"resp\": {\r\n    \"requestId\": \"46c1db89-03b2-4bc7-b841-cd413b1dfd4f\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/gateway/v0.5​/care-contexts​/on-discover",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway",
+						"v0.5​",
+						"care-contexts​",
+						"on-discover"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04_Link_Init",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "your-HIP-ID",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"requestId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"timestamp\": \"2022-05-23T10:50:35.447Z\",\r\n  \"transactionId\": \"f8b66886-1df2-47a3-9939-9504e8e31b32\",\r\n  \"patient\": {\r\n    \"id\": \"kiranma@sbx\",\r\n    \"referenceNumber\": \"DiscoveryRef-352341\",\r\n    \"careContexts\": [\r\n      {\r\n        \"referenceNumber\": \"HT1254323\"\r\n      },\r\n     {\r\n        \"referenceNumber\": \"HT1254324\"\r\n      }\r\n    ]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/gateway/v0.5/links/link/init",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway",
+						"v0.5",
+						"links",
+						"link",
+						"init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "05_Link_On_Init",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-CM-ID",
+						"value": "Suffix-of-the-consent-manager",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"requestId\": \"5f7a535d-a3fd-416b-b069-c97d021fbacd\",\r\n  \"timestamp\": \"2022-05-23T10:54:45.431Z\",\r\n  \"transactionId\": \"f8b66886-1df2-47a3-9939-9504e8e31b32\",\r\n  \"link\": {\r\n    \"referenceNumber\": \"DiscoveryRef-352341\",\r\n    \"authenticationType\": \"DIRECT\",\r\n    \"meta\": {\r\n      \"communicationMedium\": \"MOBILE\",\r\n      \"communicationHint\": \"OTP sent to mobile no 9845XXX767\",\r\n      \"communicationExpiry\": \"2022-05-23T15:30:35.237Z\"\r\n    }\r\n  },\r\n  \"resp\": {\r\n    \"requestId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/gateway/v0.5/links/link/on-init",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway",
+						"v0.5",
+						"links",
+						"link",
+						"on-init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "06_Link_Confirm",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-HIP-ID",
+						"value": "your-HIP-ID",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"requestId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"timestamp\": \"2022-05-23T11:20:44.122Z\",\r\n  \"confirmation\": {\r\n    \"linkRefNumber\": \"DiscoveryRef-352341\",\r\n    \"token\": \"345234\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/gateway​/v0.5​/links​/link​/confirm",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway​",
+						"v0.5​",
+						"links​",
+						"link​",
+						"confirm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07_Links_On_Confirm",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your-access-token-from-gateway-session",
+						"type": "default"
+					},
+					{
+						"key": "X-CM-ID",
+						"value": "Suffix-of-the-consent-manager",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"requestId\": \"5f7a535d-a3fd-416b-b069-c97d021fbacd\",\r\n  \"timestamp\": \"2022-05-23T11:22:33.380Z\",\r\n  \"patient\": {\r\n    \"referenceNumber\": \"DiscoveryRef-352341\",\r\n    \"display\": \"Linked Care contexts for Kiran Anandampillai\",\r\n    \"careContexts\": [\r\n      {\r\n        \"referenceNumber\": \"HT1254323\",\r\n        \"display\": \"Prescription from OPD Visit on 12-05-22\"\r\n      }, \r\n      {\r\n        \"referenceNumber\": \"HT1254324\",\r\n        \"display\": \"Inpatient records from 16-05-22\"\r\n      } \r\n    ]\r\n  },\r\n  \"resp\": {\r\n    \"requestId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev.abdm.gov.in/gateway​/v0.5/links/link/on-confirm",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"abdm",
+						"gov",
+						"in"
+					],
+					"path": [
+						"gateway​",
+						"v0.5",
+						"links",
+						"link",
+						"on-confirm"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
