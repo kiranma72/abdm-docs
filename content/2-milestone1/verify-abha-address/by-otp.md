@@ -14,7 +14,7 @@ pre = "<b>2.2.3 </b>"
 
 ## Functionality Overview
 
-When use visits the hospital, and shares ABHA address with Hospital staff. The staff verifies it with OTP on the mobile number attached to that ABHA address.
+When user visits the hospital, and shares ABHA address with Hospital staff. The staff verifies it with OTP on the mobile number attached to that ABHA address.
 
 **Steps to initiate verification of ABHA Address by OTP:**
 - Patient must have a valid ABHA address

@@ -39,8 +39,13 @@ Electronic Health records are digital records that are created by Health service
 
 Health records include Diagnostic reports, discharge summaries, prescriptions, OP consultation notes, etc. The ABDM FHR framework deals with the format of health records (to enable interoperability), the storage of health records (to ensure they are available) and the sharing of health records with consent. Every Health record contains information about who is the patient, which health professional provided the treatment and at which facility. ABDM requires each of these entities to obtain a digital identifier and use that identifer when creating / linking health records under ABDM.  
 
+<<<<<<< HEAD
 ## Health Facility Registry (HFR) for facility identity
 Health Facilities are issued a HFR ID when their register their facility with ABDM. They can register via [https://facility.abdm.gov.in](https://facility.abdm.gov.in). Digital Solution Companies can also help their customers register with HFR within their software by integrating with the HFR APIs.  
+=======
+## What is a Health Repository Provider (HRP)?
+ Health repository providers are software service providers who offer ABDM compliant software to health facilities like hospitals, diagnostic centers etc. An instance of an ABDM certified software is a HRP. The HRP enables healthcare providers to become HIPs or HIUs and meet their obligations of sharing and securely maintaining health records of patients digitally. HRPs offer long term storage of health records on behalf of a HIP. For example, a hosted lab information management system provider (LIMS) may update their software to become a ABDM compatible Health Repository Provider. Any lab using this hosted LIMS software can rapidly become a HIP by adopting the software. The organizations that make ABDM certified software are referred to as Digital Solution Companies (DSCs) by NHA. 
+>>>>>>> 5196c516c007a4a101f5412ea97f2c7a3abb35a4
 
 ## What is a Health Information Provider (HIP)?
 Any entity that agrees to share digital health records with their users using the ABDM APIs is called an HIP (Health Information Provider). HIPs can be hospitals, labs, health care centers, government health programs, teleconsultation players, clinics or pharmacies - basically any entity which creates medical data pertaining to a patient. The HFR ID is used to identify which facility has agreed to become a HIP and is sharing health information. (HFR ID == HIP ID)
@@ -59,7 +64,7 @@ The ABDM sandbox hosts a reference HRP -- *You can play with it at* [https://emr
 In order to manage their personal health records, users (patients) must first create an account on a HIE-CM -- called their Ayushman Bharath Health Account (ABHA) address. This looks like sandeep321@abdm. The @abdm tells us which HIE-CM is responsibile for this address. 
 
 {{% notice%}}
-The term ABHA address is also reffered to as PHR address across the documentation
+The term ABHA address is also referred to as PHR address across the documentation
 {{% /notice%}}
 
 

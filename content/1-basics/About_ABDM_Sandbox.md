@@ -50,5 +50,5 @@ The integration steps have been broken into milestones to make it easier for int
 - Understand the concepts & functionality required for each milestone
 - Review the test cases for each milestone
 - Download the Postman collection and validate each API that is part of a test case in the sandbox
-- Integrate the APIs with your application only once you are confident on how it works using Postman 
+- Integrate the APIs with your application once you are confident on how it works using Postman 
 
