@@ -39,3 +39,21 @@ The HIU’s health repository sends a notification that the requested informatio
 
 All above 3 stages that pertains to HIU are shown in the following API sequence diagram:
 
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+title Health Data Request & Transfer
+HIU System-->>HIU Repository:Health info request
+activate HIU Repository
+HIU Repository->>Gateway:POST/health-information/cm/request
+Gateway->>HIU Repository:POST/health-information/cm/on-request
+deactivate HIU Repository
+HIU Repository-->>HIU System: Response
+activate HIU System
+activate HIP Repository
+Note over HIU Repository,Gateway:Direct Data Transffer
+HIP Repository->>HIU System:POST datapush-url
+HIU System->>Gateway:POST/health-information/notify
+deactivate HIP Repository
+deactivate HIU System
+{{< /mermaid >}}
