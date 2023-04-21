@@ -35,6 +35,8 @@ Finally, the **CM receives notifications from both the HIP and the HIU.** The HI
 
 The HIU’s health repository sends a notification that the requested information was successfully received, or that the request failed.
 
+{{% badge style="blue" %}}Note{{% /badge %}} For more details on data transfer, please refer this [**Webinar**](https://www.youtube.com/watch?v=oZ9Z2JtO21Q)
+
 ## API Sequence Diagram
 
 All above 3 stages that pertains to HIU are shown in the following API sequence diagram:
