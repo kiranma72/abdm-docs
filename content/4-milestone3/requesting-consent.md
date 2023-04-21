@@ -125,3 +125,12 @@ Result of consent request done previously. Status of request can be GRANTED, DEN
 **BASE URLs:**  https://dev.abdm.gov.in/hiu
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/consent-requests/on-status" >}}
+
+# Sample User Experience
+
+{{< gallery dir="4-milestone3/requestConsentUserExperience" />}} {{< load-photoswipe >}}
+
+- Link a HIU 
+- Raise a consent request init using that HIU
+- Will receive the response on-init api triggered in the callback url
+- User can also check the status of the consent request status(like REQUESTED,GRANTED) by passing the consentid in the consent-requests/status api

@@ -97,3 +97,8 @@ This API is called by HIU as acknowledgement to consent notifications, specifica
 Result of fetch request for a consent artefact
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/consents/on-fetch" >}}
+
+# Sample User Experience
+
+{{< gallery dir="4-milestone3/storingConsentUserExperience" />}} {{< load-photoswipe >}}
+
