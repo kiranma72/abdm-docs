@@ -14,13 +14,13 @@ This section provides a conceptual overview of the ABDM federated health record 
 - What is a Health Information Provider (HIP)?
 - What is a Health repository Provider (HRP)?  
 - Identifying patients via ABHA address 
-- Supporting patients with phones using ABHA Number 
+- Use ABHA number for patients without phones 
 - Health Information Exchange & Consent Manager 
 - Capturing ABHA address during patient registration
 - Linking of records by HRP / HIP 
 - Discovery of records by patients
 - Federated Health Records Architecture
-- Consent Management - Grant / Revoke
+- PHR applications & Health Lockers
 - What are Health Information Users (HIUs)  
 - Sharing Health records with consent
 - HIP / HIU Guidelines 
@@ -83,7 +83,7 @@ Users can start with a self declared ABHA address and later link it to an ABHA n
 
 {{% icon icon="user-check" %}} *Try it out* - Create an ABHA address that you can use on the ABDM sandbox at [phrsbx.abdm.gov.in](https://phrsbx.abdm.gov.in). This will create an ABHA address on the @sbx HIE-CM hosted within the sandbox 
 
-## Supporting patients without phones using ABHA Number 
+## Use ABHA number for patients without phones 
 ABHA number is a *14 digit number* that is unique (only one per person) issued only after a strong KYC. Every ABHA number is automatically available as an ABHA address on the NHA HIE-CM like <14digitabhano>@abdm. ABHA is a core building block of the ABDM ecosystem and integrates with several other systems to provide online KYC including Aadhaar, Driving licence and PAN 
 
 You can obtain an ABHA number by signing up at [https://abha.abdm.gov.in](https://abha.abdm.gov.in)
@@ -97,74 +97,102 @@ This is the key ABDM building block that manages ABHA addresses, maintains links
 
 The ABDM architecture is designed to support multiple HIE-CMs to operate in the network. Each HIE-CM is referred to by a domain. NHA operates 2 HIE-CMs currently. A Sandbox HIE-CM with the domain @sbx and a production HIE-CM with the domain @abdm.  
 
+The diagram below shows how the HIE-CM orchestrates the linking of health records in ABDM. 
+
+![ABHA Address & Record Linking](../FHR-LINKING-FLOW.png)
+
 ## Capturing ABHA address during patient registration
-Health Facilities are required to modify 
+Health Facilities are required to modify their processes during patient registration to include the capture of ABHA address from patients. This is the primary area where a change management is required. All the other ABDM FHR related processes are in the background and do not require significant operational changes by the health facility. 
 
-## What is an HIU?
-An HIU (Health Information User) is an entity that wants access to digital health information about a user. An HIU can be a hospital, clinic, healthcare technology company, organizations working on health analytics, insurers, medical 
-researchers, government entities etc.  HIUs will be able to request for health records of a user, and upon obtaining the user's digital consent, access a copy of the patients records and use them for the time period consented by the user.  
+ABHA address can be captured by the facility by any of the following methods 
+1. Scanning Health Facility QR code - Every health facility can create a QR code that can be displayed at their registration counter. Patients can scan this QR code from any PHR application. This "scan and share" action ensures that patient demograhics (including the ABHA address) is instantly shared from the PHR app to the ABDM compliant EMR / HIMS software being used by the health facility 
 
+2. Scanning the QR on the users ABHA card - Users without phones / feature phones can be issued a ABHA no and a printed ABHA card. This contains a QR code that can be rapidly scanned by the health facility using a 2D barcode scanner. It provides all the demographic information about the patient and also the ABHA address of the user
 
+3. Verbally shared ABHA address - Users may share their ABHA address verbally during registration. Health facilities can verify the ABHA address and obtain the demographic details associated with the address by initiating an authentication request. This will result in an OTP being sent to the user which they can then share with the health facility 
 
-## What is a PHR application? 
-Personal Health Record Applications are software service providers who offer front ends to individuals and enable them to create a ABHA address, discover and link health records from various HIPs, allow users to view their records, offer long term storage of records, upload users health records and share records on the ABDM network. PHR Apps work closely with the HIE-CM and provide a front end for HIE-CM actions like viewing and granting consents. 
-(Note: All PHR Apps are also Health Lockers in earlier version of the HIP/HIU guidelines) 
+## Linking of records by Health facility
 
-*You can play around with the sandbox instance of the ABHA PHR app at*  [https://phrsbx.abdm.gov.in](https://phrsbx.abdm.gov.in)
+If the patient has shared their ABHA address with the health facility, then the facility must link any new health record it creates to the ABHA address. Linking is done by adding a "Care Context" to the ABHA address. The care context only contains - a reference id to the actual health record and a display text that can be shown to the user. The display text should not contain any health information either. The FHR architecture is designed to ensure that the HIE-CM is "data blind", ie does not have access to any health data of the patient. 
 
-## How does a HIE-CM create a longitudinal Health record 
-ABDM is implemented as a Federated Architecture, where data is kept by the entity that generates the health data (HRP). When a new record is generated by health facility it adds a link called a *care context* to the user's PHR address. A PHR address holds the set of links to the health data across multiple facilities (HRPs). The HIE-CM is designed to be data blind, ie it does not know any details of the health records that are linked with the PHR address and the architecture ensures that any exchange of health data does not pass through the HIE-CM. 
+Whenever a new care context is linked to a ABHA address, the HIE-CM notifies all PHR apps being used by the patient that a new care context has been linked (or updated). The PHR app will request for a copy of the health record from the HRP and display it to the user.
 
-The architecture is also fully aligned with the upcoming Data Protection Bill. The intent is to enable any health facility using a ABDM compliant software to be automatically compliant to the Data protection bill. The HIE-CM as keeps track of all consents provided by the user. Consents are structured as digital consent artifacts that is based on the MietY consent framework 
+## Discovery & linking of records by patients
+Several patients may not have a ABHA address or share their ABHA address with the health facility at the time of registration. In such cases, the health facility will send an SMS the patient (via HIE-CM) that a new health record is available and can be accessed via any PHR app. 
+
+All PHR apps provide a "discovery" feature, where the user can search for a health facility and request for their health records. Users provide their name, year of birth, gender and mobile number as the parameters for this search. If there are records available at the health facility for this patient, the HRP will return a set of care contexts. All reocrds for the patient including historical records are expected to be provided via this method. The user can then link these discovered care contexts with their ABHA address using their PHR app. 
+
+## Federated Health Records Architecture
+ABDM is implemented as a Federated Architecture, where data is kept by the entity that generates the health data (HRP). The ABHA address **only** holds a set of care contexts which points to the health data across multiple HRPs. The HIE-CM is designed to be data blind, ie it does not know any details of the health records that are linked with the ABHA address. 
+
+The HIE-CM is also responsible for storing all consents provided by the user. ABDM uses a structured digital consent artifact that is based on the MietY consent framework. Each consent has a clear purpose of use, what type of records and from what period are being shared and how long the reciving entity (HIU) can keep / access these records. ABDM puts the user in control allowing them to easily grant, deny and revoke consents from their PHR app.
+
+The HIE also allows health data to flow from HRPs to HIUs (with appropriate Consents). The health data is encrypted by the HRP so that only the requesting HIU entity can decrypt it. Also the design ensures the flow of data does not pass through the HIE-CM. 
+
+User generated health records like smart watches, home health monitors or even photos of health records can be linked to the ABHA address by PHR apps.  
+
+The FHR architecture is aligned with the upcoming Data Protection Bill. Any health facility using a ABDM compliant software would be able compliant to the provisions of the Data protection bill. 
 
 ![How HIE-CM builds a PHR ](../hie_cm_linking.png)
 
 {{% notice%}}
-The Architecture ensures that there is 
+Summary of the FHR Architecture 
 - No central data repository
-- Your PHR Address only holds links
-- Each Health record is held by Health Facility that generated the record
-- Health facilities that become HIPs collect & save your PHR address during registration
-- HIP / HRPs notify or link new health records with your PHR address 
-- HIP / HRPs share a copy of the linked record after verifying user consent
-- Patient can get a copy of the records and view it using a PHR app
-- PHR apps act as repositories that hold a copy of the the health records long term for the user
-- Patients can also upload records by scanning them or from their wearables via PHR apps 
-- Only HIPs that are part of the Health Facility Registry can link health records with a PHR address
+- Your ABHA Address only holds links to your health records
+- Your Health record is held by Health Facility that generated the record
+- You can get a copy of the record and save it long term using a PHR application
+- You are in control of your health data and can decide what and whom you share it 
+- Even after your share, you can change your mind and revoke your consent at any time. 
+- You can also upload any health records by scanning them or even add data from your wearable devices to your health record via PHR apps 
+- Only verified health facilities that are part of the Health Facility Registry can link health records with your ABHA address
 {{% /notice%}}
+
+
+## PHR applications & Health Lockers
+Personal Health Record Applications are software service providers who offer web / mobile applications to individuals. ABDM is designed to have multiple PHR offerings as choice to user. Every PHR apps can 
+- Help users create an ABHA address
+- Discover and link health records 
+- Help user grant / revoke consents 
+- Allow users to view their records 
+- Offer long term storage of records, 
+- Support uploading of users health records 
+- Share records on the ABDM network. 
+
+NHA has created the ABHA PHR application as a reference application. The Aarogasetu App has also been upgraded to become an ABDM compliant PHR App. 
+
+ABDM also rolled out a specification for a "Health Locker". Lockers are entities that offer long term storage of health records to users. This functionality has been included in the requirements of a PHR application 
+
+*You can play around with the sandbox instance of the ABHA PHR app at*  [https://phrsbx.abdm.gov.in](https://phrsbx.abdm.gov.in)
+
+
+## What is an HIU?
+An HIU (Health Information User) is an entity that wants access to the digital health information linked to a ABHA address. An HIU can be a hospital, clinic, PHR app, healthcare technology company, organizations working on health analytics, insurers, medical researchers, government entities etc.  HIUs first need to collect a consent from the user and then can request for health records. HIUs get a copy of the patients records and use them only for the purpose specified in the consent and must delete them if the consent expires or is revoked by the user. 
+
 
 ## Sharing Health Records With Consent
 
-{{< mermaid >}}
-%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
-sequenceDiagram
-autonumber
-participant hiu as Health Facility HIU
-participant hiecm as HIE-CM
-actor user as User via PHR App
-participant hrp as Health Facility HRP/HIP
-actor user
-Note over hiu : Hospital would like to access medical history with consent
-Note over hrp : Health Repository Providers holding user data
-hiu->>hiecm: Sends consent request to ABHA address(user)
-hiecm->>user: Presents consent request to user
-user->>hiecm: Users grants consent
-hiecm->>hiu: Signed consent from user
-hiu->>hiecm: Request data with signed  consent
-hiecm->>hrp:  Request HRP to Share data with HIU after verifying consent
-hrp->>hiu: Encrypted health data in FHIR format
-{{< /mermaid >}}
+![Consent based data flow](/abdm-docs/3-milestone2/understanding-consents.jpg)
 
 - When any HIU wants to access records linked with a PHR address, it initiates a consent request with the HIE-CM
 - The consent request consists of the purpose for which health records are being sought, why type of records are being sought, from what time period and how long will the HIU like to retain these records
 - HIE-CM forwards the request to the user who can view the request on their PHR app and decide what he actually wants to share when he grants the consent
 - User's can also decide to revoke the consent anytime after it is granted
 - If the user grants the consent, the HIE-CM shares a signed consent artificat with the the requesting HIU
-- The HIU can now request for data for a PHR address along with the signed consent artificat
+- The HIU can now request for data for a ABHA address along with the signed consent artificat
 - The HIE-CM forwards the request to all HRPs that are holding the linked data 
 - The HRPs verify the consent and push the data to the HIU
 - Data has to be in the specified FHIR format to achieve interoperability 
 - Data is encrypted using a method that ensures only the requesting HIU can decrypt the data 
+
+## Health Data Management Policy & HIP / HIU Guidelines
+
+Any entity participating in ABDM will need to adhere to the [Health Data Management Policy](https://abdm.gov.in:8081/uploads/health_data_management_policy_455613409c.pdf) and the [HIP/HIU Guidelines](https://abdm.gov.in:8081/uploads/HIP_HIU_Guidelines_f85df336ec.pdf)
+
+This policy is a guidance document to set out the minimum standard for data privacy protection that should be followed by all the participants/stakeholders of the ABDM ecosystem. It is a first step in realizing ABDM's guiding principle of "Security & Privacy by Design" for the protection of individual's personal digital health data.
+
+The Guidelines cover the responsibilities of  Health Information Providers, Health Repository Providers, Health Information Users and Personal Health Records Apps
+
+Digital Solution Companies must familizarize themselves with the Policy & Guidelines and ensure they support health facilities, consumers and health data users to comply with the same. 
 
  ## The ABDM Gateway 
 Gateway is the hub that mediates and connects HIE-CMs, Health Repository Providers and HIUs in the network. Its primary job is to allow for discovery, routing in the network. The gateway does the following:
