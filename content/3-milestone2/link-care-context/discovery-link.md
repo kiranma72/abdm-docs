@@ -135,10 +135,28 @@ Request for patient care context discover, made by Gateway intended for a specif
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/links/link/init$" >}}
 
-**2. Token Submission For Link Confirmation**
+**2. Response To Patient's Care Context Link Request**
+
+**BASE URL:** https://dev.abdm.gov.in/gateway
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/links/link/on-init$" >}}
+
+**3. Token Submission For Link Confirmation**
 
 API to submit the token that was sent by HIP during the link request.
 
 **BASE URL:** https://your-hrp-server.com
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/links/link/confirm$" >}}
+
+**4. Care Context Linkage Completion**
+
+Token authenticated by HIP, indicating completion of linkage of care-contexts
+
+**BASE URL:** https://dev.abdm.gov.in/gateway
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/links/link/on-confirm$" >}}
+
+## Sample User Experience
+
+{{< gallery dir="3-milestone2/link-care-context/user-experience" />}} {{< load-photoswipe >}}
