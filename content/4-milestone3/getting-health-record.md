@@ -59,3 +59,17 @@ HIU System->>Gateway:POST/health-information/notify
 deactivate HIP Repository
 deactivate HIU System
 {{< /mermaid >}}
+
+## API Information Request Response
+
+**1. Health Information Data Request**
+
+**BASE URLs:**  https://dev.abdm.gov.in/gateway
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/health-information/cm/request" >}}
+
+**2. Acknowledgement Of Health Information Request**
+
+**BASE URLs:**  https://dev.abdm.gov.in/hiu
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/health-information/hiu/on-request" >}}
