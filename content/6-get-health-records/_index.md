@@ -1,9 +1,9 @@
 +++
 title = "Building an HIU"
 date = 2022-05-07T17:53:25+05:30
-weight = 5
+weight = 6
 chapter = true
-pre = "<b>5. </b>"
+pre = "<b>6. </b>"
 +++
 
 This section covers how to build an HIU
