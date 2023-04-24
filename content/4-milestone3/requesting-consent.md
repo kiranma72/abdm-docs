@@ -69,6 +69,14 @@ S.No|Function|Functionality|Test Case|Steps To Be Executed
 1.11|Create Consent Request|{{% badge style="blue"  %}}Mandatory{{% /badge %}}   HIU_FLOW_112|Fetch health data for (HI Type = Health Record-Structured)|1. Approve Consent Request on PHR App 2. Check if data is accessible on the HIU application
 1.12|Create Consent Request|{{% badge style="blue"  %}}Mandatory{{% /badge %}}   HIU_FLOW_113|Fetch health data for (HI Type = Wellness Record-Un-Structured)|1. Approve Consent Request on PHR App. 2. Check if data is accessible on the HIU application
 
+# Sample User Experience
+
+{{< gallery dir="4-milestone3/requestConsentUserExperience" />}} {{< load-photoswipe >}}
+
+- Link a HIU 
+- Raise a consent request init using that HIU
+- Will receive the response on-init api triggered in the callback url
+- User can also check the status of the consent request status(like REQUESTED,GRANTED) by passing the consentid in the consent-requests/status api
 
 ## API Sequence Diagram
 
@@ -126,11 +134,4 @@ Result of consent request done previously. Status of request can be GRANTED, DEN
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/consent-requests/on-status" >}}
 
-# Sample User Experience
 
-{{< gallery dir="4-milestone3/requestConsentUserExperience" />}} {{< load-photoswipe >}}
-
-- Link a HIU 
-- Raise a consent request init using that HIU
-- Will receive the response on-init api triggered in the callback url
-- User can also check the status of the consent request status(like REQUESTED,GRANTED) by passing the consentid in the consent-requests/status api

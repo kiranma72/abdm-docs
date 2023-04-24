@@ -46,6 +46,10 @@ deactivate Repository
 - If the patient grants for multiple HIPs, then multiple consent artefacts are generated - one for each HIP. 
 - The HIU now first fetches all the consent-artefacts that were generated for his request.
 
+# Sample User Experience
+
+{{< gallery dir="4-milestone3/storingConsentUserExperience" />}} {{< load-photoswipe >}}
+
 The following diagram shows the flow of how an HIU requests to fetch the consent Artefacts:
 
 {{< mermaid >}}
@@ -98,7 +102,5 @@ Result of fetch request for a consent artefact
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/consents/on-fetch" >}}
 
-# Sample User Experience
 
-{{< gallery dir="4-milestone3/storingConsentUserExperience" />}} {{< load-photoswipe >}}
 
