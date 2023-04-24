@@ -41,13 +41,34 @@ The user chosen ABHA address has to be alphanumeric. The only numeric address al
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
 title Login & Manager User Profiles with PHR App
-PHR App->>HIE-CM:GET/v1/apps/phrAddres/search/auth-mode
+PHR App->>HIE-CM:GET /v1/apps/phrAddres/search/auth-mode
 note left of HIE-CM: Select any Auth Mode
-HIE-CM->>PHR App:GET/v1/apps/phrAddres/auth-init
-PHR App->>HIE-CM:GET/v1/apps/phrAddres/auth-confirm
+HIE-CM->>PHR App:POST /v1/apps/phrAddres/auth-init
+PHR App->>HIE-CM:POST /v1/apps/phrAddres/auth-confirm
 {{< /mermaid >}}
 
 
-## API Collection
+## API Information Request Response
+
+**1. Get Authentication Methods**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="GET /v1/apps/phrAddress/search/auth-mode$" >}}
+
+
+**2. Initiate Login Transaction**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="POST /v1/apps/phrAddress/auth-init$" >}}
+
+
+**3. Verify Login Transaction**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="POST /v1/apps/phrAddress/auth-confirm$" >}}
+
 
 
