@@ -6,25 +6,31 @@ chapter = true
 pre = "<b>5. </b>"
 +++
 
-This section describes the steps to build a PHR App 
+# Building a PHR Application
 
-- Overview of the functions to be supported by a PHR app 
-- Architecture of a PHR App 
-- Sign Up for a PHR addresss 
-- Sign in for a PHR address 
-- Editing your PHR profile 
-- Sharing your PHR address at a Health facility 
-- Link/Unlik PHR Address to an ABHA number 
-- Subscribing to notifications for a PHR address
-- Discovering Health facilities & requesting for your records 
-- Linking your records 
-- setting up an Auto approval policy to fetch health records 
-- Fetching linked health records 
-- Displaying FHIR records 
-- Listing Consent / Subscription requests 
-- Granting Consent / Subscription requests
-- Revoking Consent / Subscription requests 
-- Sharing Health Records 
-- Uploading & Linking User records
-- Presenting notifications to the user for new records 
-- Supporting UHI: intent 
+Important to understand:
+1. All the APIs here are synchronous
+2. The interaction is between PHR Application & HIE-CM
+
+**This section covers:**
+
+{{% notice %}}
+1. Create ABHA Address
+	- Using Mobile number
+	- Using ABHA number
+	- Ling / De-link of ABHA address & ABHA number
+2. Login & Manage User Profile
+3. Setting up subscription
+4. Setting up Auto-Approval
+5. Handling notifications
+6. Discovery & Linking of records
+7. Supporting UHI: intent
+8. Fetching & Display of Records
+9. Managing Consents / Subscription Requests:
+	- Listing Consents / Subscription requests
+	- Granting Consents / Subscription requests
+	- Revoking Consents / Subscription requests
+10. Uploading User Record
+11. Sharing your PHR address at a Health facility
+12. Link/Unlink PHR Address to an ABHA number
+{{% /notice %}}
