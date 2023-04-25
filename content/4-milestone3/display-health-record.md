@@ -19,7 +19,7 @@ pre = "<b>4.4 </b>"
 
 - If there’s a way to summarise the results, analyse the reports so that it makes it easy for the Doctors / Consultants to make patient analysis easier.
 
-Here: Sample Report display from Bahmni
+Here: Sample Report display from Bahmni on PHR App
 
-![Sample report from Bahmni](/abdm-docs/img/diagnostic-report-sample.png)  
+![Sample report from Bahmni](/abdm-docs/img/diagnostic-report-sample2.gif)  
 
