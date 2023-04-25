@@ -24,9 +24,7 @@ pre = "<b>3.3.2 </b>"
 
 Functionality|Test Case|Steps To Be Executed 
 |------|-----|-----|
-{{% badge style="blue" %}}Mandatory{{% /badge %}} Link record via mobile OTP (HIP_INTI_LINK_201)|The system should have provision to link patient's Health record with ABHA address |1. Enter patient's ABHA address on the System. 2. OTP receive by the patient.
-{{% badge style="blue" %}}Mandatory{{% /badge %}} OTP validation (HIP_INTI_LINK_203)|The user shares the OTP with the HIP for validation|1. Share Mobile OTP with HIP System. 2. Validate the OTP. 3. Upon successful validation of OTP| linking token is generated.
-{{% badge style="blue" %}}Mandatory{{% /badge %}} Linking of Health Records (HIP_INTI_LINK_205)|HIP system links the ABHA Number / Address with the patient records|1. Link Health Records. 2. Through PHR Application| check if the linked records can be pulled
+{{% badge style="blue" %}}Mandatory{{% /badge %}} Sending notification to the patient on their mobile with deep link (HIP_INIT_NOTIFY_HIECM)|HIP should notify HIE-CM when a new health record is generated & ABHA address is not available. This test case is applicable when patient has shared mobile number and has NOT shared ABHA address with HIP during patient registration. | **1.** New health record like Diagnostic report, Prescription, etc is created on EMR/HMIS system for a patient. <br/> **2.** Mobile number of patient is available in EMR/HMIS system  and ABHA address of the patient is NOT available in EMR/HMIS system.<br/> **3.** EMR/HMIS system will call the SMS/notify2 API on the gateway to inform of available of new health record (only the mobile number and the HIP ID is to be shared).<br/> **4.** ABDM should be sending notification to the patient on their mobile with deep link.<br/> **5.** Patient should be able to download/launch PHR app of their choice. <br/> **6.** PHR app will make a discovery request to the HIP.<br/> **7.** Care context for New patient record must be correctly discoverable in the PHR app.
 
 
 ## API Sequence Diagram
