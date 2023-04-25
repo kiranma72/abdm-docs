@@ -42,3 +42,61 @@ pre = "<b>5.3 </b>"
 
 ## API Information Request Response
 
+
+#### Setup Subscription 
+
+
+**1. Request For Subscription**
+
+**BASE URLs:**  https://dev.abdm.gov.in/gateway
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/subscription-requests/cm/init$" >}}
+
+**2.Callback For Request For Subscription**
+
+**BASE URLs:** https://your-hrp-server.com
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/subscription-requests/hiu/on-init$" >}}
+
+#### User Confirms / Denies The Subscription 
+
+**3. Lists Subscription Requests**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="GET /subscription-requests$" >}}
+
+
+**4. Approve Subscription Request**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /subscription-requests/{request-id}/approve$" >}}
+
+**5. Denies Subscription Request**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /subscription-requests/{request-id}/deny$" >}}
+
+#### Notification of subscription to User on PHR app
+
+**6. Notification For Subscription**
+
+**BASE URLs:**  https://dev.abdm.gov.in/gateway
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/subscription-requests/hiu/notify$" >}}
+
+#### Change Notification to an ABHA address
+
+**7. Notification to HIU**
+
+**BASE URLs:**  https://dev.abdm.gov.in/gateway
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/subscriptions/hiu/notify$" >}}
+
+
+
+
+
+
