@@ -45,5 +45,9 @@ HIP/HRP Repository->>Gateway:Notify on the transfer<br/>POST/health-information/
 - Prepare the health record, encrypt & transfer to the data push URL provided by the PHR app
 - Your record should be successfully displayed in the ABHA PHR app
 
+## Test Cases
 
+Function|Functionality|Steps To Be Executed 
+|--|--|---------|
+Data Transfer & Share | {{% badge style="blue" %}}Mandatory{{% /badge %}} HIP must share health records associated with care context on request (HIP_INIT_SHARE_CARECONTEXT)| **1.** Initiate a "Get data" for a linked care context in the PHR app. **2.** HIP will receive a request to share information along with the consent id & end-point URL where the data must be pushed. **3.** HIP must verify that there is a valid consent for sharing this data with the specific HIU making the request. **4.** Health records must be shared only for allowed HIP types withing the date ranges granted in the consent. **5.** HIP should encrypt the health records to be shared with the HIU public key. **6.** HIP should push the encrypted data to the end-point URL. **7.** On successful transfer, HIP must notify HIE-CM of successful transfer by calling health information notify API. **8.** Transfer must be completed within 2 hours of receiving the request.
 
