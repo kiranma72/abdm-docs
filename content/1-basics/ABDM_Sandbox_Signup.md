@@ -36,7 +36,7 @@ Select appropriate _Entity_, _Type of Application_, _Category_ value.
 
 ![Intent_FOr_Request](/abdm-docs/img/Intent_For_Request.png)
 
-- If your application creates health records that need to be shared with a user, select HIP & HRP. 
+- If your application creates health records that need to be shared with a user, select HIP & HRP.
 - if your application would like to access health records linked with a user select HRP & HIU.
 - If your application will act as consumer application that will help users to view records, manage consents, etc select HIU, HRP, Health Locker & PHR App.
 
