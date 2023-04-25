@@ -14,6 +14,14 @@ pre = "<b>3.5 </b>"
 
 - To summarise, if the consent is revoked/expired, they have to get rid of the consent artefacts.
 
+## Test Cases
+
+Function|Functionality|Steps To Be Executed 
+|--|--|---------|
+Grant Consent Request|{{% badge style="blue" %}}Mandatory{{% /badge %}} HIP must save consent (s)granted for a ABHA address in their system (HIP_INIT_GRANT_CONSENT_) | 1. Initiate a new consent request for HIP on HIU web interface on sandbox. 2. Grant the request for this consent on PHR app. 3. HIP will be notified of granted consent request. 4.Verify the HIP has saved the granted consent request as part of EMR/HMIS system
+Revoke Consent Request | {{% badge style="blue" %}}Mandatory{{% /badge %}} HIP must delete consents for  a ABHA address in their system when it is revoked (HIP_INIT_REVOKE_CONSENT) | 1. Select a granted consent request for this HIP in the PHR app. 2. Revoke consent on PHR app. 3. HIP will be notified of revoked consent. 4. Verify the HIP has deleted the consent as part of EMR/HMIS system upon revoke by patient
+Expire Consent Request | {{% badge style="blue" %}}Mandatory{{% /badge %}} HIP must delete consents for  a ABHA address in their system when it is expired (HIP_INIT_EXPIRE_CONSENT) | 1. Initiate a new consent request for HIP on HIU web interface on sandbox. 2. Grant the consent on PHR app; Set the expiry to a short expiry time. 3. HIP will be notified of granted consent request. 4. HIP will be notified of the expired consent post expiry time. 5.Verify the HIP has deleted the expired request as part of EMR/HMIS system
+
 ## API Sequence Diagram
 
 {{< mermaid >}}
