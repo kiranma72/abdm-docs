@@ -86,7 +86,20 @@ Applicable To | Test Summary | Test Scenario |
 | --| ----------- | ------------------- |
 {{% badge style="blue"%}}Mandatory{{% /badge %}}  EMR/HMIS verifying ABHA (SHARE_PATIENT_PROFILE_701) | Share Patient Profile when the User scans the QR code which is placed the facility premises | **1.** Log into PHR app. **2.** User will scan the QR code which is placed the facility premises. **3.** Post scanning, patient profile details are displayed including ABHA number, ABHA address, Name, Gender, DoB, Mobile No and Address. Below this consent language is displayed - "You consent to the above information to be shared with (Health facility Name). They can use this information for your registration and linking your health records and both Cancel/Share buttons are provided. **4.** Check that after clicking on "Share" button, user profile is successfully shared with the HIP and if user click on "Cancel" button then user profile is not shared with the HIP. **5.** User clicks on share and gets a token number. **6.** User clicks on ok and gets token number with validity of 30 minutes.
 
-## API Sequence Diagram
+{{% notice title="API Versions" %}}
+
+- **V0.5 API**
+  - [Sequence Diagram for V1 API](#sequence-diagram-for-v1-api)
+  - [API Information Request Response for V1](#api-information-request-response-for-v1)
+- **V3 API**
+  - [Sequence Diagram for V3 API](#sequence-diagram-for-v3-api)
+  - [API Information Request Response for V3](#api-information-request-response-for-v3)
+
+**Note:** V0.5 APIs are currently in production. V3 APIs are currently only available in sandbox
+{{% /notice %}}
+
+
+## Sequence Diagram for V3 API
 
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
@@ -94,11 +107,11 @@ sequenceDiagram
 title Scan Health Facility QR Code to verify ABHA Address
 actor User with PHR App
 User with PHR App->>ABDM Sandbox Gateway:User scans the Health Facility QR code
-ABDM Sandbox Gateway->>HRP:POST/v3/hip/patient/profile/share
-HRP->>ABDM Sandbox Gateway:POST/v3/hip/patient/profile/on-share
+ABDM Sandbox Gateway->>HIP:POST/v3/hip/patient/profile/share
+HIP->>ABDM Sandbox Gateway:POST/v3/hip/patient/profile/on-share
 {{< /mermaid >}}
 
-## Information Request Response for V3 API
+## API Information Request Response for V3
 
 **1. Profile Sharing** 
 
@@ -118,7 +131,21 @@ HRP->>ABDM Sandbox Gateway:POST/v3/hip/patient/profile/on-share
 
 {{< swaggermin src="/abdm-docs/Yaml/HIE_CM_Profile_Share.yml" api="POST /{callback_url}/v3/app/patient/profile/on-share$" >}}
 
-## Information Request Response for V1 API
+## Sequence Diagram for V1 API
+
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+title Scan Health Facility QR Code to verify ABHA Address using V1 API
+actor User with PHR App
+User with PHR App->>ABDM Sandbox Gateway:User scans the Health Facility QR code
+ABDM Sandbox Gateway->>HIP:POST /v1.0/patients/profile/share
+HIP -->> ABDM Sandbox Gateway:POST /v1.0/patients/profile/on-share
+note over ABDM Sandbox Gateway,HIP: Use Demographics API to generate link token
+{{< /mermaid >}}
+
+
+## API Information Request Response for V1
 
 **1. Profile Sharing** 
 
