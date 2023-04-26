@@ -1,26 +1,14 @@
 +++
-title = "Login & Manager User"
+title = "Manage User Profile"
 date = 2023-04-24T05:53:25+05:30
-weight = 2
+weight = 3
 chapter = true
-pre = "<b>5.2 </b>"
+pre = "<b>5.3 </b>"
 +++
 
-# Login & Manager User Profiles
+# Manage PHR App User's Profile
 
 ## Functionality Overview
-
-- PHR App should **allow the user to log in to the PHR application** with any of the Auth methods.
-
-- It can also save the refresh token and extend the user session to reduce the number of times the user has to keep logging in.
-
-- A single PHR app can manage multiple user profiles by offering a sign in-sign out
-
-- *More information:*
-Every PHR Applicationi user needs to have an ABHA Address (also reffered to as PHR Address). The address looks like "username@hie-cm". Currently ABDM manages 2 HIE-CMs. The Sandbox HIE-CM @sbx and the production HIE-CM @abdm. PHR Apps use APIs provided by the HIE-CM to create a new ABHA address for users. 
-The user chosen ABHA address has to be alphanumeric. The only numeric address allowed is 14 digits and that must be a valid ABHA number. 
-
-**Manage Profile:**
 
 - PHR applications need to have a (this) section, where **users can view their demographic details and update (edit) their information.**
 

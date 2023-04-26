@@ -1,9 +1,9 @@
 +++
 title = "Setup Subscriptions"
 date = 2023-04-25T05:53:25+05:30
-weight = 3
+weight = 4
 chapter = true
-pre = "<b>5.3 </b>"
+pre = "<b>5.4 </b>"
 +++
 
 # Setting up Subscriptions
