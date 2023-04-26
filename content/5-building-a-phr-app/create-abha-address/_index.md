@@ -24,6 +24,17 @@ It is also possible to create an ABHA address that is not linked to an ABHA numb
 
 ![Understanding ABHA Address](/abdm-docs/img/abha-address-intro.png)
 
+## Test Cases Mapping
+
+Applicable To | PHR App
+| ------ | ----- |
+Using Aadhar OTP|Mandatory
+Using Aadhar Biometrics|Optional
+Using Aadhar Demographics (Offline)|NA
+Using Driving License|Optional
+Download ABHA Card|Mandatory
+Profile Update|Mandatory
+
 **This section covers:**
 {{% notice %}}
 - Using Mobile Number
