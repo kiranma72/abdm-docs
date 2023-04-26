@@ -14,8 +14,6 @@ pre = "<b>10.4 </b>"
 
 {{% badge %}}Optional{{% /badge %}} 
 
-## Creation of ABHA Address
-
 **Using Mobile Number** - Registration Flow : ABHA address creation with mobile number flow (Self Declared Flow - without KYC)
 
 S.No|Functionality|Test Scenario|Steps To Be Executed 
@@ -115,10 +113,21 @@ S.No|Functionality|Test Case|Steps To Be Executed
 23.|{{% badge style="blue"  %}}Mandatory{{% /badge %}} Reset Password|A message is displayed called "Your password is successfully changed" | Check if an individual new password is created by login with new password
 
 
-**ABHA number creation with KYC** - ABHA number creation with KYC such as aadhar, DL, etc. Suppose an individual is creating ABHA number using Aadhar as KYC
+**Health and Facility records linking: User initiated linking flow (Discovery Flow) - Complete Discovery of HIP, linking, fetching and viewing of records in PHR app** 
 
 S.No|Functionality|Test Case|Steps To Be Executed 
 |--|------|-----|-----|
+1.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Link HIP|After Login : Click on "Link my Health Records" tab in "My Records" tab|Click on "Link my Health Records" tab / "+" symbol in "Linked Facility" tab to search records in HIP
+2.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Discover HIP|Search HIP 's such as hospital, clinic, lab to discover them based on typed string by the individual|When individual will search the visited facilty (HIP), the entire facilty name with complete address will be discovered by the individual. This "Search" is based on string, i.e HIP name entered by the patient in the search bar of PHR app.
+3.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Display of patient details	| After searching facility: The details visible to patient on the PHR app are: Verified mobile number, ABHA address, ABHA number, Patient ID, Full Name, Year of Birth, Gender. | Details of Patient will be visible when individual search for the HIP in PHR app while user initiated linking flow.
+4.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Fill Patient ID (Optional)	| This customizable lable is: Patient ID - In case of linking health records created at health facility. And this field is optional for patient to enter. | Check, if exact match of record is found after entering correct Patient ID 
+5. | {{% badge style="blue"  %}}Mandatory{{% /badge %}}  Matching of API specifications to link record | Click on "Fetch Records". After matching following fields, records will be fetched from facility (HIP) to PHR app: Name (Mandatory), Year of Birth (Mandatory), Gender (Mandatory), Mobile Number (Mandatory), Patient ID (Optional) | Ensure that already linked care context should not be discovered in PHR mobile app. If all care context of discovered facilty are already linked, then display message called ""All your existing records are linked. No additional records availaible for linking". Ensure that the linked care context is shown in the ""Linked Facility"" tab of the PHR mobile app
+6.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Link records|Display of records details like HI type | Display of all correct details of records, after matching of API specifications. Select the record which patient wants to link and click on "Link Selected"
+7.|{{% badge %}}Optional{{% /badge %}}  Fill mobile OTP received to complete linking of record. | Mobile OTP will be received once individual clicks on fetch records. After successful validation of OTP, display message called “Records are successfully linked”. This OTP is sent by HIP to the patient's mobile. | Fill mobile OTP for successful linking of facility. Error message display, for following scenarios : **Scenario 1:** If there is Communication Gap, between HIP and individual – Due to some technical issue at HIP end like if server is down then, error message is displayed as “Couldn’t Connect: We are sorry. Unable to contact your hospital. Please try again later”. **Scenario 2:** If individual have never visited the hospital – An error message is displayed as “No health records found”. **Scenario 3:** Records of all visits are already linked and there is nothing new to link - – An error message is displayed as “No new health record to link: Records of all visits are already linked and there is nothing new to link
+8.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Linked facility will be visible in "Linked Facility" tab. Click on "Pull Records" button to fetch and view records.| Ensure that the patient's health-records are getting fetched. | 1. Check that PHR app sends data transfer request to HIP within 5 minutes after an individual click on "Pull Records" button. 2. Ensure that the patient health records are fetched within 2 hours in the PHR mobile app. Ensure that the patient's health-records are fetched without ERRORED"
+9.|{{% badge %}}Optional{{% /badge %}}  Display message regarding fetching of records may take time in "My Records" tab | 1. Keep "I" button in ""My Records"", so that message is displayed regarding fetching of records may take time when patient hovers over i button. 2. Check that proper error or status message will be displayed if records are taking time in fetching. For e.g. Refresh to fetch record, Data fetch in progress etc.."|Since, fetching of records take time. Display message called "Recently linked records might take some time to show" when patient hover over "i button" in "My Records" tab.
+10. | {{% badge %}}Optional{{% /badge %}} Records will be displayed in "My Records" tab. | Click on the attached report to view the health record. | After clicking on record: Details of health record will be displayed alongwith an attachment consisting of record. Details of health record included structured data such as: Facility Name, Visit type, Prescribed By, Date and Time
+11.| {{% badge %}}Optional{{% /badge %}} View record in mobile device |	Record will open when individual clicks on the attachment consisting health record | Records will open in the device and patient can view it
 
 
 **ABHA number creation with KYC** - ABHA number creation with KYC such as aadhar, DL, etc. Suppose an individual is creating ABHA number using Aadhar as KYC
