@@ -86,10 +86,33 @@ S.No|Functionality|Test Case|Steps To Be Executed
 6.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|ABHA number card is created using aadhar demographic information. Click on "Download ABHA number card" to download the ABHA number card. All details in the ABHA number card are as per aadhar KYC. | Check that ABHA number card is created and it can also be downloaded. Also, check that all information in card is as per aadhar KYC. 
 
 
-**ABHA number creation with KYC** - ABHA number creation with KYC such as aadhar, DL, etc. Suppose an individual is creating ABHA number using Aadhar as KYC
+**Login Flow** 
 
 S.No|Functionality|Test Case|Steps To Be Executed 
 |--|------|-----|-----|
+1.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Login with mobile number flow|Enter mobile number linked with ABHA address||
+2.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Login with mobile number flow|Validate mobile number via mobile OTP	| Check if an individual receives mobile OTP and able to login with mobile number
+3.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Login with mobile number flow|Resend Mobile OTP after 60 seconds post clicking on "Resend OTP". ||
+4.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Login with mobile number flow|Display ABHA addresses linked with entered validated mobile number. So that an individul can select an ABHA address in which one wishes to login.	||
+5.|{{% badge style="blue"  %}}Mandatory{{% /badge %}} Login with e-mail ID flow	| Enter e-mail ID linked with ABHA address
+6.|{{% badge style="blue"  %}}Mandatory{{% /badge %}} Login with e-mail ID flow	| Validate e-mail ID via e-mail OTP|Check if an individual receive email OTP and login with e-mail OTP
+7.|{{% badge style="blue"  %}}Mandatory{{% /badge %}} Login with e-mail ID flow| Resend e-mail OTP after 60 seconds post clicking on "Resend OTP"|Check if an individual receive email OTP after 60 seconds  and login with e-mail OTP
+8.|{{% badge style="blue"  %}}Mandatory{{% /badge %}} Login with e-mail ID flow	| Display ABHA addresses linked with entered validated e-mail ID. So that an individul can select an ABHA address in which one wishes to login.|Check if all ABHA addresses linked with entered email ID are displayed and an individual is able to login in selected ABHA address
+9.|{{% badge style="blue"  %}}Mandatory{{% /badge %}} Login with easy to remember ABHA address (name@abdm) flow|Enter easy to remember ABHA address - name@abdm||
+10.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Login with easy to remember ABHA address (name@abdm) flow|Validate ABHA address via password / mobile OTP / e-mail OTP / aadhar OTP as per auth mode|Check if an individual is able to login with easy to remember ABHA address via password
+11.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Login with easy to remember ABHA address (name@abdm) flow|Validate ABHA address via password / mobile OTP / e-mail OTP / aadhar OTP as per auth mode|Check if an individual is able to login with easy to remember ABHA address via mobile OTP / e-mail OTP / aadhar OTP as per auth mode
+12.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Login with easy to remember ABHA address (name@abdm) flow|Resend aadhar OTP / mobile OTP / e-mail OTP after clicking on "Resend OTP"|Check if an individual receive aadhar OTP / mobile OTP/e-mail OTP after 60 seconds and an individual is able to login post validation of ABHA address
+13.|{{% badge style="blue"  %}}Mandatory{{% /badge %}} Login with default ABHA address (14-digit@abdm) flow|Enter default ABHA address such as 14-digit@abdm||
+14.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Login with default ABHA address (14-digit@abdm) flow|Validate ABHA address via mobile OTP / aadhar OTP | Check if aadhar OTP / mobile OTP is received and post validation of ABHA number, an individual is able to successfully login 
+15.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Login with default ABHA address (14-digit@abdm) flow|Resend aadhar OTP / mobile OTP after clicking on "Resend OTP" | Check if an individual receive aadhar OTP / mobile OTP after 60 seconds and an individual is able to login post validation of ABHA address
+16.|{{% badge style="blue"  %}}Mandatory{{% /badge %}} Login with ABHA number flow|Enter 14 digit ABHA number||
+17.|{{% badge style="blue"  %}}Mandatory{{% /badge %}} Login with ABHA number flow|Validate ABHA number via aadhar OTP / mobile OTP	| Check if aadhar OTP / mobile OTP is received and post validation of ABHA number, an individual is able to successfully login 
+18.|{{% badge style="blue"  %}}Mandatory{{% /badge %}} Login with ABHA number flow| Resend aadhar OTP / mobile OTP after clicking on "Resend OTP"| Check if an individual receive aadhar OTP / mobile OTP after 60 seconds and an individual is able to login post validation of ABHA number
+19.|{{% badge style="blue"  %}}Mandatory{{% /badge %}} Reset Password|Login with any mode - mobile number / email ID / default ABHA address / easy to remember ABHA address / ABHA number|Check if password can be updated by an individual post login with any mode
+20.|{{% badge style="blue"  %}}Mandatory{{% /badge %}} Reset Password|Post successful login, click on reset password withing setting of the menu bar||
+21.|{{% badge style="blue"  %}}Mandatory{{% /badge %}} Reset Password|Create password as per password policy. Password policy: 8 characters or longer, one A-Z, one a-z, one 0-9, atleast one symbol, no space and not more than 2 consecutive characters or keyboard keys. | Check if password is created as per password policy
+22.|{{% badge style="blue"  %}}Mandatory{{% /badge %}} Reset Password|Confirm password	| Check new password is created only after same password is confirmed again
+23.|{{% badge style="blue"  %}}Mandatory{{% /badge %}} Reset Password|A message is displayed called "Your password is successfully changed" | Check if an individual new password is created by login with new password
 
 
 **ABHA number creation with KYC** - ABHA number creation with KYC such as aadhar, DL, etc. Suppose an individual is creating ABHA number using Aadhar as KYC
