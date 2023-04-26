@@ -87,18 +87,18 @@ sequenceDiagram
 title Notification on Consent Grant
 actor Client
 Note right of Client: Generate OTP on given Mobile Number
-Client->>ABHA Server:v3/enrollment/request/otp
+Client->>ABHA Server:/v3/enrollment/request/otp
 activate ABHA Server
 ABHA Server-->> Client: Response 200 OK
 deactivate ABHA Server
 Note right of Client: Txn Id
-Client->>ABHA Server:v3/enrol/byAadhaar
+Client->>ABHA Server:/v3/enrollment/auth/byAbdm
 activate ABHA Server
 Note left of ABHA Server: OTP, Txn Id
 ABHA Server-->> Client: Response 200 OK
 Note right of Client: Returns verified Token
 deactivate ABHA Server
-Client->>ABHA Server:v3/enrol/byDocument
+Client->>ABHA Server:/v3/enrollment/enrol/byDocument
 activate ABHA Server
 ABHA Server->> Document Database Server: Match Document ID with Name, Gender & DOB
 deactivate ABHA Server
@@ -119,7 +119,7 @@ Note right of Client: Return Enrollment number to Client
 **1. [Create Gateway Session Token](/abdm-docs/1-basics/verify_sandbox_access/#create-gateway-session-token)**
 
 
-**2. Request otp to mobile**
+**2. Request Otp To Mobile**
 
 Refer to example "Request OTP For DL based enrollment"
 
@@ -127,15 +127,13 @@ Refer to example "Request OTP For DL based enrollment"
 
 {{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/request/otp$" >}}
 
-**3. Verify the mobile**
-
-Refer to example "Request OTP for mobile verfication"
+**3. Verify The Mobile**
 
 **BASE URL:** https://abhasbx.abdm.gov.in/abha/api
 
-{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/request/otp$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/auth/byAbdm$" >}}
 
-**4. Enroll by DL**
+**4. Enroll By DrivingLicense**
 
 **BASE URL:** https://abhasbx.abdm.gov.in/abha/api
 
