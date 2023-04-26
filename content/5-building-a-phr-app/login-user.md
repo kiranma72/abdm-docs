@@ -35,6 +35,8 @@ HIE-CM->>PHR App:POST /v1/apps/phrAddres/auth-init
 PHR App->>HIE-CM:POST /v1/apps/phrAddres/auth-confirm
 {{< /mermaid >}}
 
+![Different Login Methods](../different_login_methods.jpeg)
+
 
 ## API Information Request Response
 
