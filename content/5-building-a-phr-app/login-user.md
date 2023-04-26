@@ -40,6 +40,15 @@ PHR App->>HIE-CM:POST /v1/apps/phrAddres/auth-confirm
 
 ## API Information Request Response
 
+**Utilities**
+- For encrypting the mobileNumber/AadharNumber/otp refer the [link](/abdm-docs/8-utilities/utilities/#rsa-encryption)
+
+  - To get public key for encrypting refer the [link](/abdm-docs/8-utilities/utilities/#api-to-retrieve-the-public-key)
+
+- For converting an image into Base64 string refer the [link](/abdm-docs/8-utilities/utilities/#convert-image-to-base64)
+
+#### Login Using ABHA Address
+
 **1. Get Authentication Methods**
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
@@ -59,6 +68,32 @@ PHR App->>HIE-CM:POST /v1/apps/phrAddres/auth-confirm
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="POST /v1/apps/phrAddress/auth-confirm$" >}}
+
+#### Login Using Mobile Number/Email
+
+**4. Generate Mobile/Email OTP**
+
+Generate Mobile/Email OTP to start Login transaction
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="POST /v1/apps/login/mobileEmail/auth-init$" >}}
+
+**5. Get User Token**
+
+Get the User Token in the mobile/email login flow
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="POST /v1/apps/login/mobileEmail/auth-confirm$" >}}
+
+#### Login Using ABHA Number
+
+**6. Initiate Login Transaction Using HealthId Number**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="POST /v1/apps/login/hid/auth-init$" >}}
 
 
 

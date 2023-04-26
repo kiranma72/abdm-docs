@@ -38,25 +38,71 @@ PHR App->>HIE-CM:POST /v1/apps/phrAddres/auth-confirm
 
 ## API Information Request Response
 
-**1. Get Authentication Methods**
+#### Profile Collection API
+
+**1. Get User Details**
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="GET /v1/apps/phrAddress/search/auth-mode$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="GET /v1/apps/profile/me$" >}}
 
 
-**2. Initiate Login Transaction**
-
-**BASE URLs:**  https://dev.abdm.gov.in/cm
-
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="POST /v1/apps/phrAddress/auth-init$" >}}
-
-
-**3. Verify Login Transaction**
+**2. Reset Password**
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="POST /v1/apps/phrAddress/auth-confirm$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="POST /v1/apps/patients/profile/reset-password$" >}}
+
+
+**3. Get Patient's QR Code**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="GET /v1/apps/patients/qr-code$" >}}
+
+#### Manage Consent Pin
+
+
+**4. Create Transaction Pin**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /patients/pin$" >}}
+
+**5. Verify Pin**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /patients/verify-pin$" >}}
+
+**6. Change Pin**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /patients/change-pin$" >}}
+
+**7. Generate OTP For Forgot Pin**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /patients/forgot-pin/generate-otp$" >}}
+
+**8. Validate OTP For Forgot Pin**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /patients/forgot-pin/validate-otp$" >}}
+
+**9. Reset Pin**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="PUT /patients/reset-pin$" >}}
+
+
+
+
+
 
 
 
