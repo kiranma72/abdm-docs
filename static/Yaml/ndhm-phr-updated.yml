@@ -1015,11 +1015,9 @@ paths:
         '200':
           description: link and delink phr address with health id number
           content:
-            "*/*":
+            application/json:
               schema:
                 type: object
-                additionalProperties:
-                  type: boolean
               examples:
                 Link:
                   value:
