@@ -151,6 +151,38 @@ S.No|Functionality|Test Case|Steps To Be Executed
 
 
 
+**HIP initiated linking flow**  - When health records are linked with ABHA address at the health facility / health programme
+
+S.No|Functionality|Test Case|Steps To Be Executed 
+|--|------|-----|-----|
+1|{{% badge style="blue" %}}Mandatory{{% /badge %}}  Post linking of health records with ABHA address by the HIP with patient consent| the individual can view the health records on the PHR mobile app|Health data will be visible in PHR app once HIP link health records with the ABHA address.|Once Individual visits the hospital. • ABHA address is shared with the health programme / health facility. • Individual validates the ABHA address with the mobile OTP. • Post linking of health records with ABHA address by the HIP| the individual can open any PHR app  and click on ""Pull Records"" button against the visited health programme / health facility| where the record is created and linked to ABHA address to view the record in mobile device.
+
+**Sharing of health records with patient's consent to the HIU** 
+
+S.No|Functionality|Test Case|Steps To Be Executed 
+|--|------|-----|-----|
+1|{{% badge style="blue" %}}Mandatory{{% /badge %}}  HIU should be able to view the health data of a APPROVED consent request"|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.(HI Type = DiagnostocReport Structured)||||||||||||
+2|{{% badge style="blue" %}}Mandatory{{% /badge %}}  HIU should be able to view the health data of a APPROVED consent request|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.(HI Type = DiagnostocReport Un-Structured)||||||||||||
+3|{{% badge style="blue" %}}Mandatory{{% /badge %}}  HIU should be able to view the health data of a APPROVED consent request|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.(HI Type = Prescription-Structured)||||||||||||
+4|{{% badge style="blue" %}}Mandatory{{% /badge %}}  HIU should be able to view the health data of a APPROVED consent request|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.(HI Type = Prescription-Un-Structured)||||||||||||
+5|{{% badge style="blue" %}}Mandatory{{% /badge %}}  HIU should be able to view the health data of a APPROVED consent request|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.(HI Type = DischargeSummary-Structured)||||||||||||
+6|{{% badge style="blue" %}}Mandatory{{% /badge %}}  HIU should be able to view the health data of a APPROVED consent request|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.(HI Type = DischargeSummary-Un-Structured)||||||||||||
+7|{{% badge style="blue" %}}Mandatory{{% /badge %}}  HIU should be able to view the health data of a APPROVED consent request|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.(HI Type = CosultingNote-Structured)||||||||||||
+8|{{% badge style="blue" %}}Mandatory{{% /badge %}}  HIU should be able to view the health data of a APPROVED consent request|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient. (HI Type = CosultingNote-Un-Structured)||||||||||||
+9|{{% badge style="blue" %}}Mandatory{{% /badge %}}  HIU should be able to view the health data of a APPROVED consent request|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient. (HI Type = Immunization record-Structured)||||||||||||
+10|{{% badge style="blue" %}}Mandatory{{% /badge %}}  HIU should be able to view the health data of a APPROVED consent request"|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient. (HI Type = Immunization record-Un-Structured)||||||||||||
+11|{{% badge style="blue" %}}Mandatory{{% /badge %}}  HIU should be able to view the health data of a APPROVED consent request"|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient/ (HI Type = Wellness Record-Structured)||||||||||||
+12|{{% badge style="blue" %}}Mandatory{{% /badge %}}  HIU should be able to view the health data of a APPROVED consent request"|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient. (HI Type = Wellness Record-Un-Structured)||||||||||||
+13|{{% badge style="blue" %}}Mandatory{{% /badge %}}  HIU should be able to view the health data of a APPROVED consent request"|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient. (HI Type = Health Record-Structured)||||||||||||
+14|{{% badge style="blue" %}}Mandatory{{% /badge %}}  HIU should be able to view the health data of a APPROVED consent request"|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient.|Check whether HIU individual is able to fetch health data for the consent request created for a patient and APPROVED by the patient. (HI Type = Health Record-Un-Structured)
+
+**Display Profile Details with status as KYC Verified / Self-Declared**
+
+S.No|Functionality|Test Case|Steps To Be Executed 
+|--|------|-----|-----|
+1| {{% badge style="blue" %}}Mandatory{{% /badge %}} Showing individual's profile details in the PHR app|Individual's profile is displayed in the PHR app with their status such as KYC verified and Self-Declared. | Display all profile details filled to the individual, when individual click on Profile after Login. Also| display KYC Verified" with green tick mark for those profiles where ABHA address is linked with ABHA number. Display Self Delared with exclaimation mark for those profiles where ABHA address is not linked with ABHA number. ABHA number is visible in KYC verified profile and ABHA number is not visible in Self-Declared profile.
+
+
 **ABHA number creation with KYC** 
 
 S.No|Functionality|Test Case|Steps To Be Executed 
@@ -163,10 +195,12 @@ S.No|Functionality|Test Case|Steps To Be Executed
 |--|------|-----|-----|
 
 
+
 **ABHA number creation with KYC** 
 
 S.No|Functionality|Test Case|Steps To Be Executed 
 |--|------|-----|-----|
+
 
 
 **ABHA number creation with KYC** 
