@@ -121,11 +121,11 @@ S.No|Functionality|Test Case|Steps To Be Executed
 2.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Discover HIP|Search HIP 's such as hospital, clinic, lab to discover them based on typed string by the individual|When individual will search the visited facilty (HIP), the entire facilty name with complete address will be discovered by the individual. This "Search" is based on string, i.e HIP name entered by the patient in the search bar of PHR app.
 3.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Display of patient details	| After searching facility: The details visible to patient on the PHR app are: Verified mobile number, ABHA address, ABHA number, Patient ID, Full Name, Year of Birth, Gender. | Details of Patient will be visible when individual search for the HIP in PHR app while user initiated linking flow.
 4.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Fill Patient ID (Optional)	| This customizable lable is: Patient ID - In case of linking health records created at health facility. And this field is optional for patient to enter. | Check, if exact match of record is found after entering correct Patient ID 
-5. | {{% badge style="blue"  %}}Mandatory{{% /badge %}}  Matching of API specifications to link record | Click on "Fetch Records". After matching following fields, records will be fetched from facility (HIP) to PHR app: Name (Mandatory), Year of Birth (Mandatory), Gender (Mandatory), Mobile Number (Mandatory), Patient ID (Optional) | Ensure that already linked care context should not be discovered in PHR mobile app. If all care context of discovered facilty are already linked, then display message called ""All your existing records are linked. No additional records availaible for linking". Ensure that the linked care context is shown in the ""Linked Facility"" tab of the PHR mobile app
+5. | {{% badge style="blue"  %}}Mandatory{{% /badge %}}  Matching of API specifications to link record | Click on "Fetch Records". After matching following fields, records will be fetched from facility (HIP) to PHR app: Name (Mandatory), Year of Birth (Mandatory), Gender (Mandatory), Mobile Number (Mandatory), Patient ID (Optional) | Ensure that already linked care context should not be discovered in PHR mobile app. If all care context of discovered facilty are already linked, then display message called "All your existing records are linked. No additional records availaible for linking". Ensure that the linked care context is shown in the "Linked Facility" tab of the PHR mobile app
 6.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Link records|Display of records details like HI type | Display of all correct details of records, after matching of API specifications. Select the record which patient wants to link and click on "Link Selected"
 7.|{{% badge %}}Optional{{% /badge %}}  Fill mobile OTP received to complete linking of record. | Mobile OTP will be received once individual clicks on fetch records. After successful validation of OTP, display message called “Records are successfully linked”. This OTP is sent by HIP to the patient's mobile. | Fill mobile OTP for successful linking of facility. Error message display, for following scenarios : **Scenario 1:** If there is Communication Gap, between HIP and individual – Due to some technical issue at HIP end like if server is down then, error message is displayed as “Couldn’t Connect: We are sorry. Unable to contact your hospital. Please try again later”. **Scenario 2:** If individual have never visited the hospital – An error message is displayed as “No health records found”. **Scenario 3:** Records of all visits are already linked and there is nothing new to link - – An error message is displayed as “No new health record to link: Records of all visits are already linked and there is nothing new to link
 8.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}  Linked facility will be visible in "Linked Facility" tab. Click on "Pull Records" button to fetch and view records.| Ensure that the patient's health-records are getting fetched. | 1. Check that PHR app sends data transfer request to HIP within 5 minutes after an individual click on "Pull Records" button. 2. Ensure that the patient health records are fetched within 2 hours in the PHR mobile app. Ensure that the patient's health-records are fetched without ERRORED"
-9.|{{% badge %}}Optional{{% /badge %}}  Display message regarding fetching of records may take time in "My Records" tab | 1. Keep "I" button in ""My Records"", so that message is displayed regarding fetching of records may take time when patient hovers over i button. 2. Check that proper error or status message will be displayed if records are taking time in fetching. For e.g. Refresh to fetch record, Data fetch in progress etc.."|Since, fetching of records take time. Display message called "Recently linked records might take some time to show" when patient hover over "i button" in "My Records" tab.
+9.|{{% badge %}}Optional{{% /badge %}}  Display message regarding fetching of records may take time in "My Records" tab | 1. Keep "I" button in "My Records", so that message is displayed regarding fetching of records may take time when patient hovers over i button. 2. Check that proper error or status message will be displayed if records are taking time in fetching. For e.g. Refresh to fetch record, Data fetch in progress etc.."|Since, fetching of records take time. Display message called "Recently linked records might take some time to show" when patient hover over "i button" in "My Records" tab.
 10. | {{% badge %}}Optional{{% /badge %}} Records will be displayed in "My Records" tab. | Click on the attached report to view the health record. | After clicking on record: Details of health record will be displayed alongwith an attachment consisting of record. Details of health record included structured data such as: Facility Name, Visit type, Prescribed By, Date and Time
 11.| {{% badge %}}Optional{{% /badge %}} View record in mobile device |	Record will open when individual clicks on the attachment consisting health record | Records will open in the device and patient can view it
 
@@ -155,7 +155,7 @@ S.No|Functionality|Test Case|Steps To Be Executed
 
 S.No|Functionality|Test Case|Steps To Be Executed 
 |--|------|-----|-----|
-1|{{% badge style="blue" %}}Mandatory{{% /badge %}}  Post linking of health records with ABHA address by the HIP with patient consent| the individual can view the health records on the PHR mobile app|Health data will be visible in PHR app once HIP link health records with the ABHA address.|Once Individual visits the hospital. • ABHA address is shared with the health programme / health facility. • Individual validates the ABHA address with the mobile OTP. • Post linking of health records with ABHA address by the HIP| the individual can open any PHR app  and click on ""Pull Records"" button against the visited health programme / health facility| where the record is created and linked to ABHA address to view the record in mobile device.
+1|{{% badge style="blue" %}}Mandatory{{% /badge %}}  Post linking of health records with ABHA address by the HIP with patient consent| the individual can view the health records on the PHR mobile app|Health data will be visible in PHR app once HIP link health records with the ABHA address.|Once Individual visits the hospital. • ABHA address is shared with the health programme / health facility. • Individual validates the ABHA address with the mobile OTP. • Post linking of health records with ABHA address by the HIP| the individual can open any PHR app  and click on "Pull Records" button against the visited health programme / health facility| where the record is created and linked to ABHA address to view the record in mobile device.
 
 **Sharing of health records with patient's consent to the HIU** 
 
@@ -208,6 +208,64 @@ S.No|Functionality|Test Case|Steps To Be Executed
 12|{{% badge style="blue" %}}Mandatory{{% /badge %}} Forgot Consent Pin|Enter 4 digit new consent pin|4 digit consent pin is only accepted 
 13|{{% badge style="blue" %}}Mandatory{{% /badge %}} Forgot Consent Pin|Confirm new consent pin|Re-enter the consent pin to confirm the consent pin. Check that confirmation of consent pin is taken by re-entering it.
 14|{{% badge style="blue" %}}Mandatory{{% /badge %}} Forgot Consent Pin|Display message, so that an individual knows that consent pin is updated|Display message "Congratulations! Your new consent pin is successfully updated". Below this message "Go Back To Home Screen" tab is provided to navigate the individual to home screen.
+
+
+**Tabs in PHR app (My Records/Linked Facility/Consents)** 
+
+S.No|Functionality|Test Case|Steps To Be Executed 
+|--|------|-----|-----|
+1| {{% badge style="blue" %}}Mandatory{{% /badge %}}  "Requests" section in the "Consents" tab of PHR app"|1) Requested - Not yet any action is taken by individual on consent request received from HIU to PHR app. |All request (consent / subscription / locker) sent by HIU to patiet are seen  in "Requested" dropdown within "Requests" section of PHR app
+2| {{% badge style="blue" %}}Mandatory{{% /badge %}}  "Requests" section in the "Consents" tab of PHR app|2) Denied - Individual have "Denied" consent request received from HIU to PHR app. |All denied request (consent / subscription / locker) by patient are seen in "Denied" dropdown within "Requests" section of PHR app. 
+3| {{% badge style="blue" %}}Mandatory{{% /badge %}}  "Requests" section in the "Consents" tab of PHR app|3) Expired -  Requests is expired because patient have not acted on consent request received in PHR app within the time duration set by HIU|All expired request (consent / subscription / locker) by patient are seen in "Expired" dropdown within "Requests" section of PHR app.
+4| {{% badge style="blue" %}}Mandatory{{% /badge %}}  "Approved" section in the "Consents" tab of PHR app|1) Granted - Patient had granted the consent request received from HIU to PHR app|All granted request (consent / subscription / locker) by patient are seen in "Granted" dropdown within "Approved" section of PHR app. 
+5| {{% badge style="blue" %}}Mandatory{{% /badge %}}  "Approved" section in the "Consents" tab of PHR app|2) Revoked - Patient had revoked consent requests after granting it in PHR app. |All revoked request (consent / subscription / locker) by patient are seen in "Revoked" dropdown within "Approved" section of PHR app. 
+6| {{% badge style="blue" %}}Mandatory{{% /badge %}}  View patient helth records in "My Records" tab of PHR app|To view records, post linking and fetching from healthcare providers (health locker, health facility and health programme)|Click on record fetched in the "My Records" tab
+7| {{% badge style="blue" %}}Mandatory{{% /badge %}}  View patient helth records in "My Records" tab of PHR app|To view records, post linking and fetching from healthcare providers (health locker, health facility and health programme) |Details of records are viewed with attachment
+8| {{% badge style="blue" %}}Mandatory{{% /badge %}}  View patient helth records in "My Records" tab of PHR app|To view records, post linking and fetching from healthcare providers (health locker, health facility and health programme) |Click on the attachment to view the health record / report in the device
+9| {{% badge style="blue" %}}Mandatory{{% /badge %}}  "Linked Facility" tab in PHR app| Linked providers includes health lockers| health facility and health programme"|"Ckeck list of all linked providers are displayed and "Pull Record" button is against each one of them. So that patient can click on it to fetch and view record in "My Records" tab.
+
+
+**Edit Subscription Request/Disable auto approval request** 
+
+S.No|Functionality|Test Case|Steps To Be Executed 
+|--|------|-----|-----|
+1| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit active subscription request"|Already granted subscription request can be edited|"Check if HI types, types of visit and time period can be edited and saved by clicking on "Save Changes" button"
+2| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Disable auto approval requests"|Already granted auto approval policy can be disabled|Check if already granted auto approval policy for health locker can be disabled by clickicking on "Disable" button. Post disble of auto - approval policy|locker request is received from health locker for each record.
+
+
+**ABHA number creation with KYC** 
+
+S.No|Functionality|Test Case|Steps To Be Executed 
+|--|------|-----|-----|
+
+
+
+**ABHA number creation with KYC** 
+
+S.No|Functionality|Test Case|Steps To Be Executed 
+|--|------|-----|-----|
+
+
+
+**ABHA number creation with KYC** 
+
+S.No|Functionality|Test Case|Steps To Be Executed 
+|--|------|-----|-----|
+
+
+
+**ABHA number creation with KYC** 
+
+S.No|Functionality|Test Case|Steps To Be Executed 
+|--|------|-----|-----|
+
+
+
+**ABHA number creation with KYC** 
+
+S.No|Functionality|Test Case|Steps To Be Executed 
+|--|------|-----|-----|
+
 
 
 **ABHA number creation with KYC** 
