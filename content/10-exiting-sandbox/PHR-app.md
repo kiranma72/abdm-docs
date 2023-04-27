@@ -10,9 +10,6 @@ pre = "<b>10.4 </b>"
 
 **Functionalities of PHR Applications:** Creation of ABHA address, Subscriptions for notifications, helping users manage consents, upload of user scanned records and more
 
-{{% badge style="blue"  %}}Mandatory{{% /badge %}} 
-
-{{% badge %}}Optional{{% /badge %}} 
 
 **Using Mobile Number** - Registration Flow : ABHA address creation with mobile number flow (Self Declared Flow - without KYC)
 
