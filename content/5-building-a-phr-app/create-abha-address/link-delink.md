@@ -73,8 +73,9 @@ API to verify OTP
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/login/mobileEmail/preVerification$" >}}
 
 **5. Link the ABHA Address with ABHA Number**
+API links the given ABHA Address with the ABHA number.
 
-API to verify OTP
+Refer to example “Link”
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
@@ -83,6 +84,9 @@ API to verify OTP
 
 ## De-Link the ABHA address with ABHA Number
 
-
 API de-links the given ABHA Address from the ABHA number.
+
+Refer to example “Delink”
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/profile/link/hid$" >}}
 

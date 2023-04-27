@@ -1002,8 +1002,13 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
+          examples:
+            Link:
+              schema:
               "$ref": "#/components/schemas/LinkedPlayLoad"
+            Delink:
+              value:
+                action: DELINK
       responses:
         '200':
           description: link and delink phr address with health id number
@@ -1013,6 +1018,8 @@ paths:
                 type: object
                 additionalProperties:
                   type: boolean
+              examples:
+                success: true
         '201':
           description: Created
         '400':
