@@ -88,7 +88,7 @@ Applicable To | Test Summary | Test Scenario |
 
 {{% notice title="API Versions" %}}
 
-- **V0.5 API**
+- **V1.0 API**
   - [Sequence Diagram for V1 API](#sequence-diagram-for-v1-api)
   - [API Information Request Response for V1](#api-information-request-response-for-v1)
 - **V3 API**

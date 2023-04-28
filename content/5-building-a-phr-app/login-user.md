@@ -37,6 +37,8 @@ PHR App->>HIE-CM:POST /v1/apps/phrAddres/auth-confirm
 
 ![Different Login Methods](../different_login_methods.jpeg)
 
+To Use Login APIs (PHR id is required under request body), the user need to setup his/her own PHR id
+![Creating PHR ID](../creating_phr_id.png)
 
 ## API Information Request Response
 
