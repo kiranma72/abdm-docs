@@ -1580,7 +1580,7 @@ paths:
     post:
       tags:
       - Registration By Health ID Number
-      summary: sequence_2_2
+      summary: Resend OTP
       operationId: sequence_2_2UsingPOST
       requestBody:
         content:
