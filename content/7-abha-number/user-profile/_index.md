@@ -1,9 +1,9 @@
 +++
 title = "User Profile"
 date = 2022-05-07T17:53:25+05:30
-weight = 4
+weight = 1
 chapter = true
-pre = "<b>6.4 </b>"
+pre = "<b>7.1 </b>"
 +++
 
 # User Profile

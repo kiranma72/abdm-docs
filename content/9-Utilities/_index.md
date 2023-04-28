@@ -1,9 +1,9 @@
 +++
 title = "Utilities"
 date = 2023-03-07T17:53:25+05:30
-weight = 12
+weight = 9
 chapter = true
-pre = "<b>12. </b>"
+pre = "<b>9. </b>"
 +++
 
 # Utilities
