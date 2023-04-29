@@ -59,7 +59,7 @@ paths:
     post:
       tags:
         - Login Collection API's
-      summary: Get the User Token in the mobile/email login flow
+      summary: Get the User Token using the mobile/email 
       description: 'fetch the User token '
       operationId: postVerificationViaMobileEmailUsingPOST
       requestBody:

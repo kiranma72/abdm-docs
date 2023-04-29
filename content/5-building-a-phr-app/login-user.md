@@ -41,6 +41,13 @@ To Use Login APIs (PHR id is required under request body), the user need to setu
 ![Creating PHR ID](../creating_phr_id.png)
 
 ## API Information Request Response
+{{% notice title="Different Methods Of Login" %}}
+
+  - [Login Using ABHA Address](#login-using-abha-address)
+  - [Login Using Mobile Number/Email](#login-using-mobile-numberemail)
+  - [Login Using ABHA Number](#login-using-abha-number)
+
+{{% /notice %}}
 
 **Utilities**
 - For encrypting the mobileNumber/AadharNumber/otp refer the [link](/abdm-docs/8-utilities/utilities/#rsa-encryption)
@@ -51,21 +58,13 @@ To Use Login APIs (PHR id is required under request body), the user need to setu
 
 #### Login Using ABHA Address
 
-**1. Get Authentication Methods**
-
-**BASE URLs:**  https://dev.abdm.gov.in/cm
-
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="GET /v1/apps/phrAddress/search/auth-mode$" >}}
-
-
-**2. Initiate Login Transaction**
+**1. Initiate Login Transaction**
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="POST /v1/apps/phrAddress/auth-init$" >}}
 
-
-**3. Verify Login Transaction**
+**2. Verify Login Transaction**
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
@@ -73,13 +72,19 @@ To Use Login APIs (PHR id is required under request body), the user need to setu
 
 #### Login Using Mobile Number/Email
 
-**4. Generate Mobile/Email OTP**
+**3. Generate Mobile/Email OTP**
 
 Generate Mobile/Email OTP to start Login transaction
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="POST /v1/apps/login/mobileEmail/auth-init$" >}}
+
+**4. Verify Mobile/Email OTP**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="POST /v1/apps/login/mobileEmail/pre-Verify$" >}}
 
 **5. Get User Token**
 
@@ -91,11 +96,29 @@ Get the User Token in the mobile/email login flow
 
 #### Login Using ABHA Number
 
-**6. Initiate Login Transaction Using HealthId Number**
+**6. Search User by Health ID Number**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="POST /v1/apps/login/hid/search/auth-mode$" >}}
+
+**7. Initiate Login Transaction Using HealthId Number**
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="POST /v1/apps/login/hid/auth-init$" >}}
+
+**8. Verify Mobile OTP**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="POST /v1/apps/login/mobileEmail/pre-Verify$" >}}
+
+**9. Get the User Token**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="POST /v1/apps/login/mobileEmail/auth-confirm$" >}}
 
 
 
