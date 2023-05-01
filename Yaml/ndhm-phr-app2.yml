@@ -342,7 +342,6 @@ paths:
           description: |-
             Downstream system(s) is down.
             Unhandled exceptions.
-
   /v1/apps/patients/profile/reset-password:
     post:
       tags:
