@@ -38,6 +38,20 @@ PHR App->>HIE-CM:POST /v1/apps/phrAddres/auth-confirm
 
 ## API Information Request Response
 
+{{% notice title="Manage User Profiles" %}}
+
+  - [Profile Collection API](#profile-collection-api)
+  - [Manage Consent Pin](#manage-consent-pin)
+
+{{% /notice %}}
+
+**Utilities**
+- For encrypting the mobileNumber/AadharNumber/otp refer the [link](/abdm-docs/8-utilities/utilities/#rsa-encryption)
+
+  - To get public key for encrypting refer the [link](/abdm-docs/8-utilities/utilities/#api-to-retrieve-the-public-key)
+
+- For converting an image into Base64 string refer the [link](/abdm-docs/8-utilities/utilities/#convert-image-to-base64)
+
 #### Profile Collection API
 
 **1. Get User Details**
@@ -46,6 +60,11 @@ PHR App->>HIE-CM:POST /v1/apps/phrAddres/auth-confirm
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="GET /v1/apps/profile/me$" >}}
 
+**2. Update User Profile Details**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+-- YET TO ADD --
 
 **2. Reset Password**
 

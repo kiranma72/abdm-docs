@@ -32,6 +32,9 @@ pre = "<b>5.4 </b>"
 ## Test Cases
 
 
+
+{{< gallery dir="5-building-a-phr-app/subscriptions_apiflow" />}} {{< load-photoswipe >}}
+
 ## API Sequence Diagram
 
 {{< mermaid >}}
@@ -66,7 +69,6 @@ pre = "<b>5.4 </b>"
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="GET /subscription-requests$" >}}
 
-
 **4. Approve Subscription Request**
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
@@ -83,17 +85,29 @@ pre = "<b>5.4 </b>"
 
 **6. Notification For Subscription**
 
-**BASE URLs:**  https://dev.abdm.gov.in/gateway
+**BASE URLs:** https://your-hrp-server.com
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/subscription-requests/hiu/notify$" >}}
 
-#### Change Notification to an ABHA address
-
-**7. Notification to HIU**
+**7. Acknowledge Receipt Of Notification**
 
 **BASE URLs:**  https://dev.abdm.gov.in/gateway
 
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/subscription-requests/hiu/on-notify$" >}}
+
+#### Change Notification to an ABHA address
+
+**8. Notification to HIU**
+
+**BASE URLs:** https://your-hrp-server.com
+
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/subscriptions/hiu/notify$" >}}
+
+**9. Acknowledge Receipt Of Notification**
+
+**BASE URLs:**  https://dev.abdm.gov.in/gateway
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/subscriptions/hiu/on-notify$" >}}
 
 
 
