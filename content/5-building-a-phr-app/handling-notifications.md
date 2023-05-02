@@ -25,5 +25,20 @@ S.No|Functionality|Test Case|Steps To Be Executed
 ## API Sequence Diagram
 
 
-## API Collection
+## API Information Request Response
 
+#### Change Notification to an ABHA address
+
+Notification to subscribers if care contexts is added / updated.
+
+**8. Notification to HIU**
+
+**BASE URLs:** https://your-hrp-server.com
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/subscriptions/hiu/notify$" >}}
+
+**9. Acknowledge Receipt Of Notification**
+
+**BASE URLs:**  https://dev.abdm.gov.in/gateway
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/subscriptions/hiu/on-notify$" >}}

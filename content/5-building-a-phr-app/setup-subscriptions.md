@@ -95,19 +95,7 @@ pre = "<b>5.4 </b>"
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/subscription-requests/hiu/on-notify$" >}}
 
-#### Change Notification to an ABHA address
 
-**8. Notification to HIU**
-
-**BASE URLs:** https://your-hrp-server.com
-
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/subscriptions/hiu/notify$" >}}
-
-**9. Acknowledge Receipt Of Notification**
-
-**BASE URLs:**  https://dev.abdm.gov.in/gateway
-
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/subscriptions/hiu/on-notify$" >}}
 
 
 
