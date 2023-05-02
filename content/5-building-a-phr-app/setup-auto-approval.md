@@ -19,5 +19,28 @@ pre = "<b>5.5 </b>"
 ## API Sequence Diagram
 
 
-## API Collection
+## API Information Request Response
+
+
+#### Auto Approval
+
+**1. Notification to HIU**
+
+**BASE URLs:** https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /consents/auto-approve$" >}}
+
+#### Enable/Disable Auto-Approval 
+
+**2. Disable Auto-Approval Policy**
+
+**BASE URLs:** https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /consents/auto-approval-policy/{auto-approval-id}/disable$" >}}
+
+**3. Enable Auto-Approval Policy**
+
+**BASE URLs:** https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /consents/auto-approval-policy/{auto-approval-id}/enable$" >}}
 
