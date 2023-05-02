@@ -22,6 +22,41 @@ pre = "<b>5.3 </b>"
 
 ## Test Cases
 
+**Display Profile Details with status as KYC Verified / Self-Declared**
+
+S.No|Functionality|Test Case|Steps To Be Executed 
+|--|------|-----|-----|
+1| {{% badge style="blue" %}}Mandatory{{% /badge %}} Showing individual's profile details in the PHR app|Individual's profile is displayed in the PHR app with their status such as KYC verified and Self-Declared. | Display all profile details filled to the individual, when individual click on Profile after Login. Also| display KYC Verified" with green tick mark for those profiles where ABHA address is linked with ABHA number. Display Self Delared with exclaimation mark for those profiles where ABHA address is not linked with ABHA number. ABHA number is visible in KYC verified profile and ABHA number is not visible in Self-Declared profile.
+
+
+**Download ABHA address card in the PDF format** 
+
+S.No|Functionality|Test Case|Steps To Be Executed 
+|--|------|-----|-----|
+1| {{% badge style="blue" %}}Mandatory{{% /badge %}} Download ABHA address card | Post clicking on "QR Code" icon, an individual can scan QR Code, share ABHA address card and download ABHA address card | Following fields will be displayed in the ABHA address card: Profile Photo, Full Name, ABHA number - It will be displayed if, 14-digit Health ID number is linked to the ABHA address. ABHA number is displayed as XX-XXXX-XXXX-3421 (Hide starting 12 digits of ABHA number), ABHA address  - It will be displayed as XXXXam@abdm (Hide starting alphabets of ABHA address), QR Code, Date of Birth, Gender, Mobile Number - It will be displayed as XXXXXX2278 (Hide starting 6 digits of ABHA number)
+
+
+**Consent Pin** 
+
+S.No|Functionality|Test Case|Steps To Be Executed 
+|--|------|-----|-----|
+1|{{% badge style="blue" %}}Mandatory{{% /badge %}} Set Consent Pin|Validate OTP received on registered mobile number|Check that OTP is received on registered mobile number. 
+2|{{% badge style="blue" %}}Mandatory{{% /badge %}} Set Consent Pin|Validate OTP received on registered mobile number|Resend OTP option is provided| if OTP is not received on mobile in 60 seconds
+3|{{% badge style="blue" %}}Mandatory{{% /badge %}} Set Consent Pin|Enter 4 digit consent pin|Check that only 4 digit consent pin is accepted 
+4|{{% badge style="blue" %}}Mandatory{{% /badge %}} Set Consent Pin|Confirm Consent Pin|Re-enter the consent pin to confirm the consent pin. Check that confirmation of consent pin is taken by re-entering it.
+5|{{% badge style="blue" %}}Mandatory{{% /badge %}} Set Consent Pin|Display message, so that an individual knows that consent pin is set successfully|Display message "Congratulations! Your consent pin is successfully updated". Below this message "Go Back To Home Screen" tab is provided to navigate the individual to home screen.
+6|{{% badge style="blue" %}}Mandatory{{% /badge %}} Reset Consent Pin|Enter 4 digit old consent pin|Check if old consent pin entered is correct
+7|{{% badge style="blue" %}}Mandatory{{% /badge %}} Reset Consent Pin|Enter 4 digit new consent pin|Check that only 4 digit consent pin are accepted
+8|{{% badge style="blue" %}}Mandatory{{% /badge %}} Reset Consent Pin|Confirm new consent pin|Re-enter the consent pin to confirm the consent pin. Check that confirmation of consent pin is taken by re-entering it.
+9|{{% badge style="blue" %}}Mandatory{{% /badge %}} Reset Consent Pin|Display message, so that an individual knows that consent pin is updated|Display message Congratulations! Your new consent pin is successfully updated. Below this message "Go Back To Home Screen tab is provided to navigate the individual to home screen.
+10|{{% badge style="blue" %}}Mandatory{{% /badge %}} Forgot Consent Pin|Enter OTP|Check that OTP is received on registered mobile number. 
+11|{{% badge style="blue" %}}Mandatory{{% /badge %}} Forgot Consent Pin|Resend OTP, if OTP is not received in 60 seconds|Check that resend OTP option is provided, if OTP is not received on mobile device
+12|{{% badge style="blue" %}}Mandatory{{% /badge %}} Forgot Consent Pin|Enter 4 digit new consent pin|4 digit consent pin is only accepted 
+13|{{% badge style="blue" %}}Mandatory{{% /badge %}} Forgot Consent Pin|Confirm new consent pin|Re-enter the consent pin to confirm the consent pin. Check that confirmation of consent pin is taken by re-entering it.
+14|{{% badge style="blue" %}}Mandatory{{% /badge %}} Forgot Consent Pin|Display message, so that an individual knows that consent pin is updated|Display message "Congratulations! Your new consent pin is successfully updated". Below this message "Go Back To Home Screen" tab is provided to navigate the individual to home screen.
+
+
+
 
 ## API Sequence Diagram
 
