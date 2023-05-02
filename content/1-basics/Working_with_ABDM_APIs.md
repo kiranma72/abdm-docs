@@ -50,7 +50,9 @@ gateway->>client: Response: 200 (as acknowledgment)
 Note right of client : asynchronous calls 
 gateway->>client: /v0.5/users/auth/on-fetch-modes
 client->>gateway: Response: 200 (as acknowledgment)
-{{< /mermaid >}}
+{{< /mermaid >}}s
+
+**Note :** Use ISO timestamps for current timestamps while working with apis in postman (For example: 2023-05-09T21:10:36.177Z)
 
 ### Registering your callback URL 
 The callback URL is the url for your site where your application recieves APIs calls from the ABDM gateway. After obtaining the client ID and the secret, use the [gateway sessions api](../verify_you_can_access_the_sandbox/#create-session) to get the accessToken. Use the below api, to register the callback  url. Pass the Gateway Session Token in the  ["Authorization:"](#the-authorization-header) header and  the callback url in "url:".  
