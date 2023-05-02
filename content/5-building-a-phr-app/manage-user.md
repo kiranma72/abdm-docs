@@ -55,7 +55,20 @@ S.No|Functionality|Test Case|Steps To Be Executed
 13|{{% badge style="blue" %}}Mandatory{{% /badge %}} Forgot Consent Pin|Confirm new consent pin|Re-enter the consent pin to confirm the consent pin. Check that confirmation of consent pin is taken by re-entering it.
 14|{{% badge style="blue" %}}Mandatory{{% /badge %}} Forgot Consent Pin|Display message, so that an individual knows that consent pin is updated|Display message "Congratulations! Your new consent pin is successfully updated". Below this message "Go Back To Home Screen" tab is provided to navigate the individual to home screen.
 
+**Edit Profile** 
 
+S.No|Functionality|Test Case|Steps To Be Executed 
+|--|------|-----|-----|
+1| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for KYC verified profiles |Update mobile number| Mobile OTP is received on updated mobile no. Post mobile OTP validation, mobile no is updated. 
+2| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for KYC verified profiles |Update email ID| E-mail OTP is received on updated e-mail ID. Post e-mail OTP validation, e-mail ID is updated. 
+3| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for KYC verified profiles |Update address| All fields of address such as address line 1, district, state and pin-code can be updated. 
+4| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for Self-Declared profile |Update Photo|Photo can be edited by an individul taking the picture from mobile camera / upload photo from gallery of the device 
+5| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for Self-Declared profile |Update Full Name| Update First Name, Middle name and Last Name
+6| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for Self-Declared profile |Update Gender | Update Gender
+7| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for Self-Declared profile |Update DoB| Update Day, Month and Year
+8| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for Self-Declared profile |Update Mobile No| Mobile OTP is received on updated mobile no. Post mobile OTP validation, mobile no is updated.
+9| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for Self-Declared profile |Update Email ID| E-mail OTP is received on updated e-mail ID. Post e-mail OTP validation, e-mail ID is updated.  
+10| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for Self-Declared profile |Update Address| All fields of address such as address line 1, district, state and pin-code can be updated. 
 
 
 ## API Sequence Diagram
