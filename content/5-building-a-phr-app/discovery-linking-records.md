@@ -10,6 +10,26 @@ pre = "<b>5.7 </b>"
 
 ## Functionality Overview
 
+- This is applicable when the user has not shared ABHA address when they visit a Health facility.
+- This can also be used by users to discover and link historical records from health facility.
+
+How to do this:
+1. User should be able to search the Healthcare provider (health facility) by name in the PHR application
+2. The Discovery and Link feature can also be used to find & link records held by large govt. programs, like CoWin
+3. Only healthcare providers participating in the ABDM will be discoverable here.
+4. Once the healthcare provider is selected, the PHR app triggers a discovery request with the HIE-CM. The discovery request includes the patient’s name, Year of Birth, Gender, ABHA Address & verified mobile number. The user can also add the patient registration number issued by the healthcare provider to make it easier to locate their health records.
+5. The HIE-CM forwards it to the selected healthcare provider (HIP).
+6. Currently the HIP is expected to respond to the discovery request within 10 seconds.
+7. If there are health records for this patient the list of care contexts is sent back by the HIP and PHR app presents this to the user.
+8. The user can now initiate linking of these care contexts with their ABHA address
+9. The HIP is expected to verify that the user credentials by sending an OTP to the user’s registered mobile number before allowing the linkage.
+
+For more information on how the HIP finds / searches for records, [**read here**](abdm-docs/3-milestone2/link-care-context/discovery-link/index.html)
+
+
+## Sample User Experience
+
+{{< gallery dir="5-building-a-phr-app/Discover_Linking_flow" />}} {{< load-photoswipe >}}
 
 
 ## Test Cases
@@ -49,11 +69,19 @@ S.No|Functionality|Test Case|Steps To Be Executed
 13. | {{% badge %}}Optional{{% /badge %}} Records will be displayed in "My Records" tab. Click on the attached report to view the health record.|After clicking on record: Details of health record will be displayed alongwith an attachment consisting of record	| Details of health record included structured data such as: Facility Name, Visit type, Prescribed By, Date and Time
 14. | {{% badge %}}Optional{{% /badge %}} View record in mobile device |	Record will open when individual clicks on the attachment consisting health record|Records will open in the device and patient can view it
 
-## Sample User Experience
-
-{{< gallery dir="5-building-a-phr-app/Discover_Linking_flow" />}} {{< load-photoswipe >}}
 
 ## API Sequence Diagram
+
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+title Discovering & Linking Health Records
+PHR App->>HIE-CM: List providers by given name <br/> GET/providers
+PHR App->>HIE-CM: List Governement Programs <br/> GET/govt-programs
+PHR App->>HIE-CM: Discover patient <br/> POST/v1/care-contexts/discover
+PHR App->>HIE-CM: Link care contexts <br/> POST/v1/links/link/init
+PHR App->>HIE-CM: Verify Link <br/> POST/v1/links/link/confirm/{linkRefNumber}
+{{< /mermaid >}}
 
 
 ## API Collection
