@@ -76,11 +76,23 @@ S.No|Functionality|Test Case|Steps To Be Executed
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
-title Login & Manager User Profiles with PHR App
-PHR App->>HIE-CM:GET /v1/apps/phrAddres/search/auth-mode
-note left of HIE-CM: Select any Auth Mode
-HIE-CM->>PHR App:POST /v1/apps/phrAddres/auth-init
-PHR App->>HIE-CM:POST /v1/apps/phrAddres/auth-confirm
+title Manager User Profiles with PHR App
+PHR App->>HIE-CM:GET /v1/apps/profile/me
+note over PHR App,HIE-CM: Update Profile
+PHR App->>HIE-CM:POST v1/apps/profile/update
+note over PHR App,HIE-CM: Reset Password
+PHR App->>HIE-CM:/v1/apps/patients/profile/reset-password
+note over PHR App,HIE-CM: Get patient QR Code
+PHR App->>HIE-CM:GET /v1/apps/patients/qr-code
+note over PHR App,HIE-CM: Create Consent Pin
+PHR App->>HIE-CM:POST /patients/pin
+note over PHR App,HIE-CM: Reset Consent Pin
+PHR App->>HIE-CM:POST /patients/verify-pin
+PHR App->>HIE-CM:POST /patients/change-pin
+note over PHR App,HIE-CM: Forgot Consent Pin
+PHR App->>HIE-CM:POST /patients/forgot-pin/generate-otp
+PHR App->>HIE-CM:POST /patients/forgot-pin/validate-otp
+PHR App->>HIE-CM:POST /patients/reset-pin
 {{< /mermaid >}}
 
 

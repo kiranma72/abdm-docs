@@ -24,6 +24,7 @@ pre = "<b>5.5 </b>"
 sequenceDiagram
 title Setup Auto-Approval
 PHR App->>HIE-CM: Setup auto-approval for HIU<br/>POST/consents/auto-approve
+HIE-CM-->>PHR App:Auto-Approval Id
 PHR App->>HIE-CM: Enable auto-approval-policy<br/>POST/consents/auto-approval-policy/{auto-approval-id}/enable
 PHR App->>HIE-CM: Disable auto-approval-policy<br/>POST/consents/auto-approval-policy/{auto-approval-id}/disable 
 {{< /mermaid >}}

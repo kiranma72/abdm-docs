@@ -40,9 +40,16 @@ pre = "<b>5.4 </b>"
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
-title Set-up Subscriptions
-PHR App->>HIE-CM:add
-HIE-CM->>PHR App:add
+title Setup Subscriptions
+HIU (PHR App)->>HIE-CM:POST /v0.5/subscription-requests/cm/init
+HIE-CM-->>HIU (PHR App):POST /v0.5/subscription-requests/hiu/on-init
+HIU (PHR App)->>HIE-CM:List Subscription Requests <br/>GET /subscription-requests
+HIE-CM-->>HIU (PHR App): Shows the list of Subscriptions Requests
+HIU (PHR App)->>HIE-CM: Get subscription details for a subscription ID <br/> GET /subscription-requests/{subscription-id}
+HIU (PHR App)->>HIE-CM:Approve Request <br/> POST /subscription-requests/{request-id}/approve
+HIU (PHR App)->>HIE-CM:Deny Request <br/> POST /subscription-requests/{request-id}/deny
+HIU (PHR App)->>HIE-CM:Notification of request <br/>POST /v0.5/subscription-requests/hiu/notify
+HIE-CM-->>HIU (PHR App):POST /v0.5/subscription-requests/hiu/on-notify
 {{< /mermaid >}}
 
 

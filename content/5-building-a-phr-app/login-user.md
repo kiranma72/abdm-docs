@@ -60,13 +60,35 @@ S.No|Functionality|Test Case|Steps To Be Executed
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
-title Login & Manager User Profiles with PHR App
+title Login to PHR App using ABHA Address
 PHR App->>HIE-CM:GET /v1/apps/phrAddres/search/auth-mode
 note left of HIE-CM: Select any Auth Mode
-HIE-CM->>PHR App:POST /v1/apps/phrAddres/auth-init
+PHR App->>HIE-CM:POST /v1/apps/phrAddres/auth-init
 PHR App->>HIE-CM:POST /v1/apps/phrAddres/auth-confirm
 {{< /mermaid >}}
 
+---
+
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+title Login to PHR App using Mobile number/Email
+PHR App->>HIE-CM:POST /v1/apps/login/mobileEmail/auth-init
+PHR App->>HIE-CM:Verify mobile number/email<br/>POST /v1/apps/login/mobileEmail/pre-Verify
+PHR App->>HIE-CM:POST /v1/apps/login/mobileEmail/auth-confirm
+{{< /mermaid >}}
+
+---
+
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+title Login to PHR App using ABHA number
+PHR App->>HIE-CM:POST /v1/apps/login/hid/search/auth-mode
+PHR App->>HIE-CM:POST /v1/apps/login/hid/auth-init
+PHR App->>HIE-CM:POST /v1/apps/login/mobileEmail/pre-Verify
+PHR App->>HIE-CM:POST /v1/apps/login/mobileEmail/auth-confirm
+{{< /mermaid >}}
 
 ## API Information Request Response
 {{% notice title="Different Methods Of Login" %}}
