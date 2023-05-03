@@ -58,3 +58,34 @@ S.No|Functionality|Test Case|Steps To Be Executed
 
 ## API Collection
 
+**1. List Providers**
+
+**BASE URLs:** https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="GET /providers$" >}}
+
+**2. List Government Programs**
+
+**BASE URLs:** https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="GET /govt-programs$" >}}
+
+**3. Discover Patient**
+
+**BASE URLs:** https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /v1/care-contexts/discover$" >}}
+
+**4. Link Care Contexts**
+
+**BASE URLs:** https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /v1/links/link/init/$" >}}
+
+**5. Verify Link**
+
+**BASE URLs:** https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /v1/links/link/confirm/{linkRefNumber}$" >}}
+
+
