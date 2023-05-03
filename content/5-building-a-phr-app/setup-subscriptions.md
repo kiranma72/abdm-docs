@@ -53,6 +53,7 @@ HIE-CM-->>HIU (PHR App):POST /v0.5/subscription-requests/hiu/on-notify
 {{< /mermaid >}}
 
 
+
 ## API Information Request Response
 
 
@@ -79,13 +80,19 @@ HIE-CM-->>HIU (PHR App):POST /v0.5/subscription-requests/hiu/on-notify
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="GET /subscription-requests$" >}}
 
-**4. Approve Subscription Request**
+**4. Get Subscription Details Of A Subscription ID**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="GET ​/subscription-requests​/{subscription-id}$" >}}
+
+**5. Approve Subscription Request**
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /subscription-requests/{request-id}/approve$" >}}
 
-**5. Denies Subscription Request**
+**6. Denies Subscription Request**
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
@@ -93,17 +100,27 @@ HIE-CM-->>HIU (PHR App):POST /v0.5/subscription-requests/hiu/on-notify
 
 #### Notification of subscription to User on PHR app
 
-**6. Notification For Subscription**
+**7. Notification For Subscription**
 
 **BASE URLs:** https://your-hrp-server.com
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/subscription-requests/hiu/notify$" >}}
 
-**7. Acknowledge Receipt Of Notification**
+**.8 Acknowledge Receipt Of Notification**
 
 **BASE URLs:**  https://dev.abdm.gov.in/gateway
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/subscription-requests/hiu/on-notify$" >}}
+
+
+
+
+
+
+
+
+
+
 
 
 
