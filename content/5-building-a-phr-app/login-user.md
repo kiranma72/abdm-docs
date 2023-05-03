@@ -20,7 +20,15 @@ pre = "<b>5.2 </b>"
 Every PHR Applicationi user needs to have an ABHA Address (also reffered to as PHR Address). The address looks like "username@hie-cm". Currently ABDM manages 2 HIE-CMs. The Sandbox HIE-CM @sbx and the production HIE-CM @abdm. PHR Apps use APIs provided by the HIE-CM to create a new ABHA address for users. 
 The user chosen ABHA address has to be alphanumeric. The only numeric address allowed is 14 digits and that must be a valid ABHA number. 
 
+![Different Login Methods](../different_login_methods.png)
+
+To Use Login APIs (PHR id is required under request body), the user need to setup his/her own PHR id
+![Creating PHR ID](../creating_phr_id.png)
+
+
 ## Test Cases
+
+Check with Rachna and Team
 
 
 ## API Sequence Diagram
@@ -35,10 +43,6 @@ HIE-CM->>PHR App:POST /v1/apps/phrAddres/auth-init
 PHR App->>HIE-CM:POST /v1/apps/phrAddres/auth-confirm
 {{< /mermaid >}}
 
-![Different Login Methods](../different_login_methods.jpeg)
-
-To Use Login APIs (PHR id is required under request body), the user need to setup his/her own PHR id
-![Creating PHR ID](../creating_phr_id.png)
 
 ## API Information Request Response
 {{% notice title="Different Methods Of Login" %}}
