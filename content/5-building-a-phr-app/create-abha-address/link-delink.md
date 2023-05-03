@@ -22,7 +22,21 @@ Functionality|Test Case|Steps To Be Executed|
 
 ## API Sequence Diagram
 
-*check with Kiran*
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+title Link/Delink ABHA Address & ABHA number
+actor User
+User->>HIE-CM: POST /v1/phr/registration/hid/search/auth-methods
+User->>HIE-CM: POST /v1/phr/login/init/transaction
+User->>HIE-CM: POST /v1/phr/registration/hid/init/resendOtp
+User->>HIE-CM: POST /v1/phr/login/mobileEmail/preVerification
+note over HIE-CM,User: Link ABHA Address & ABHA Number
+User->>HIE-CM: POST /v1/phr/profile/link/hid
+note over HIE-CM,User: Delink ABHA Address & ABHA Number
+User->>HIE-CM: POST /v1/phr/profile/link/hid
+{{< /mermaid >}}
+
 
 ## API Information Request Response 
 
