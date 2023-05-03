@@ -49,6 +49,9 @@ S.No|Functionality|Test Case|Steps To Be Executed
 13. | {{% badge %}}Optional{{% /badge %}} Records will be displayed in "My Records" tab. Click on the attached report to view the health record.|After clicking on record: Details of health record will be displayed alongwith an attachment consisting of record	| Details of health record included structured data such as: Facility Name, Visit type, Prescribed By, Date and Time
 14. | {{% badge %}}Optional{{% /badge %}} View record in mobile device |	Record will open when individual clicks on the attachment consisting health record|Records will open in the device and patient can view it
 
+## Sample User Experience
+
+{{< gallery dir="5-building-a-phr-app/Discover_Linking_flow" />}} {{< load-photoswipe >}}
 
 ## API Sequence Diagram
 
