@@ -39,16 +39,18 @@ Note: Look for APIs with tag discovery and link
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", sequence":{"showSequenceNumbers":true}}}%%
 flowchart LR
-id1 -->|Yes| id5{Return matching Records}
+id1 -->|Yes| id5((Return<br/>matching Records))
 id1{Do I have any records for ABHA Address?} -->|No| id2{Do I have any records for Mobile Phone?}
-id2 -->|No| id4{No matching records found}
+id2 --> |No| id9{Do I have records for <br/>Medical Record Registration number?}
+id9 --> |Yes|id3
+id9 --> |No|id4((No<br/>matching records<br/>found))
 id2 -->|Yes| id3{Does the gender match?}
 id3 --> |No| id4
 id3 -->|Yes| id6{Is the age within +/- 5 years?}
 id6 --> |No| id4
 id6 --> |Yes| id7{Is the name phonetically similar?}
 id7 --> |No| id4
-id7 --> |Yes| id8{Return matching Records}
+id7 --> |Yes| id8((Return<br/>matching Records))
 {{< /mermaid >}}
 
 
