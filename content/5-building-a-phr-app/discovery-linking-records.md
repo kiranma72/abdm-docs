@@ -58,7 +58,7 @@ S.No|Functionality|Test Case|Steps To Be Executed
 
 ## API Collection
 
-**1. List Providers**
+**1. Search Providers**
 
 **BASE URLs:** https://dev.abdm.gov.in/cm
 
