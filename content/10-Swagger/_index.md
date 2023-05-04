@@ -12,8 +12,10 @@ pre = "<b>10. </b>"
 ## This section covers:
 
 {{% notice %}}
-1. Complete Swagger For
+- Complete Swagger For
 	- ABHA Number APIs
+		- ABHA Devservice V1 API
+		- Gateway V0.5 API
 	- HIP APIs 
 		- HIP API 0.5
 		- HIP API V3
