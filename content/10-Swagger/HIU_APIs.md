@@ -7,5 +7,7 @@ pre : "<b>10.3 </b>"
 ---
 
 
-## Swagger for HIU APIs
+## Complete Swagger for HIU APIs
+
+{{< swagger src="/abdm-docs/Yaml/ndhm-hiu.yml">}}
 
