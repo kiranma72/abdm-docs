@@ -92,7 +92,7 @@ PHR App->>HIE-CM: Verify Link <br/> POST/v1/links/link/confirm/{linkRefNumber}
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="GET /providers$" >}}
 
-**2. List Government Programs**
+**2. Search Government Programs**
 
 **BASE URLs:** https://dev.abdm.gov.in/cm
 
