@@ -1,9 +1,9 @@
 +++
-title = "Managing Consents/Subscriptions"
+title = "Managing Subscriptions"
 date = 2023-05-02T03:53:25+05:30
-weight = 10
+weight = 11
 chapter = true
-pre = "<b>5.10 </b>"
+pre = "<b>5.11 </b>"
 +++
 
 # Managing Consents and Subscription Requests
