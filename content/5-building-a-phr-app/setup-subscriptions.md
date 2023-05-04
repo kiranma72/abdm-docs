@@ -24,11 +24,7 @@ pre = "<b>5.4 </b>"
 	3. New consent request
 	4. New subscription request
 
-![setup-subscriptions](/abdm-docs/img/setup-subscriptions.png)
-
 - The PHR app is responsible for showing up notifications on the Mobile application (for example using Firebase in Android).
-
-![Understanding flow](/abdm-docs/img/setup-subscription.png)
 
 
 ## User Experience 

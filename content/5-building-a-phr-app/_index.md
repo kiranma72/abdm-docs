@@ -12,6 +12,14 @@ Important to understand:
 1. All the APIs here are synchronous
 2. The interaction is between PHR Application & HIE-CM
 
+The PHR Application has 2 components:
+1. PHR App UI
+2. PHR App Cloud
+
+Here's a diagram to understand the functionalities of the 2 components:
+
+![setup-subscriptions](/abdm-docs/img/setup-subscriptions.png)
+
 **This section covers:**
 
 {{% notice %}}

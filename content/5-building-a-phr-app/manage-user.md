@@ -77,6 +77,7 @@ S.No|Functionality|Test Case|Steps To Be Executed
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
 title Manager User Profiles with PHR App
+note over PHR App,HIE-CM: Get User Profile
 PHR App->>HIE-CM:GET /v1/apps/profile/me
 note over PHR App,HIE-CM: Update Profile
 PHR App->>HIE-CM:POST v1/apps/profile/update

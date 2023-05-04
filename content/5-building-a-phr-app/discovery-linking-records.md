@@ -75,12 +75,18 @@ S.No|Functionality|Test Case|Steps To Be Executed
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
-title Discovering & Linking Health Records
+title Discovering & Linking Health Records in PHR App
+actor User
 PHR App->>HIE-CM: List providers by given name <br/> GET/providers
-PHR App->>HIE-CM: List Governement Programs <br/> GET/govt-programs
-PHR App->>HIE-CM: Discover patient <br/> POST/v1/care-contexts/discover
+PHR App->>HIE-CM: List govt-programs <br/> GET/govt-programs
+PHR App->>HIE-CM: Discover patient Records <br/> POST/v1/care-contexts/discover 
+HIE-CM->>HRP/HIP:Discover Patient Records
+HRP/HIP->>HIE-CM:Returns care contexts
+note right of HIE-CM: in 10 seconds
 PHR App->>HIE-CM: Link care contexts <br/> POST/v1/links/link/init
+HRP/HIP-->>User: Send OTP to verified mobile number
 PHR App->>HIE-CM: Verify Link <br/> POST/v1/links/link/confirm/{linkRefNumber}
+HIE-CM->>HRP/HIP: Confirm & Link Care Context
 {{< /mermaid >}}
 
 
