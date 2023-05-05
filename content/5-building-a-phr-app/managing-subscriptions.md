@@ -6,11 +6,24 @@ chapter = true
 pre = "<b>5.11 </b>"
 +++
 
-# Managing Consents and Subscription Requests
+# Managing Subscription Requests
 
 ## Functionality Overview
 
+- ABDM allows HIUs & PHR applications to setup subscriptions against an ABHA address. [You can find more information here.](abdm-docs/5-building-a-phr-app/setup-subscriptions/)
 
+- When the user approves the subscription, HIU/PHR App is notified whenever a new care context is linked or updated to the PHR address.
+
+- PHR applications are expected to provide a UI layer where the user can:
+1. View the list of subscriptions
+2. Approve subscriptions
+3. Deny subscriptions
+
+## User Experience
+
+Here's a reference of an ABHA App to help you understand how PHR Applications can do this:
+
+*((add screenshots))*
 
 ## Test Cases
 

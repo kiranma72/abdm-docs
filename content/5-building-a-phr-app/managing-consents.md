@@ -24,6 +24,10 @@ pre = "<b>5.10 </b>"
 
 ## User Experience 
 
+Here's a reference of an ABHA App to help you understand how PHR Applications can do this:
+
+*((add screenshots))*
+
 ## Test Cases
 
 **Edit Subscription Request/Disable auto approval request** 
