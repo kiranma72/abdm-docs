@@ -10,6 +10,7 @@ pre = "<b>8.3 </b>"
 
 **Functionalities of Milestone 3:** Developing Health Information User (HIU) services to provide view of patient’s medical history to authorized healthcare workers with complete consent.
 
+# Test Cases
 
 S.No|Function|Functionality|Test Case|Steps To Be Executed 
 |--|----|------|-----|-----|

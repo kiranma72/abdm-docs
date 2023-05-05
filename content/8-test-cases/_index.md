@@ -11,8 +11,8 @@ pre = "<b>8. </b>"
 This section covers:
 
 {{% notice %}}
-1. **[Milestone 1 Test Cases](/abdm-docs/8-exiting-sandbox/milestone-1/)**
-2. **[Milestone 2 Test Cases](/abdm-docs/8-exiting-sandbox/milestone-2/)**
-3. **[Milestone 3 Test Cases](/abdm-docs/8-exiting-sandbox/milestone-3/)**
-4. **[PHR Application Test Cases](/abdm-docs/8-exiting-sandbox/phr-app/)**
+1. **[Milestone 1 Test Cases](/abdm-docs/8-test-cases/milestone-1/)**
+2. **[Milestone 2 Test Cases](/abdm-docs/8-test-cases/milestone-2/)**
+3. **[Milestone 3 Test Cases](/abdm-docs/8-test-cases/milestone-3/)**
+4. **[PHR Application Test Cases](/abdm-docs/8-test-cases/phr-app/)**
 {{% /notice %}}
