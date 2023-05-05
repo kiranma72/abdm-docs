@@ -35,5 +35,15 @@ S.No|Functionality|Test Case|Steps To Be Executed
 
 ## API Sequence Diagram
 
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+title Managing Consents
+PHR App->>HIE-CM: List all consent artefacts <br/> GET /consent-artefacts
+PHR App->>HIE-CM: Approve Request <br/> POST/consent-requests/{request-id}/approve
+PHR App->>HIE-CM: Deny Request <br/> POST/consent-requests/{request-id}/deny
+PHR App->>HIE-CM: Revoke Consents <br/> POST/consents/revoke
+{{< /mermaid >}}
+
 ## API Collection
 
