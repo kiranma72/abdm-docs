@@ -1,5 +1,5 @@
 +++
-title = "Fetching & Display Records"
+title = "Fetch & Display Records"
 date = 2023-05-02T03:53:25+05:30
 weight = 9
 chapter = true
@@ -10,7 +10,14 @@ pre = "<b>5.9 </b>"
 
 ## Functionality Overview
 
-
+- Every PHR Application also needs to implement an HIU (Health Information User)
+- The process for implementing HIU is described in [**Milestone 3.**](/abdm-docs/4-milestone3/index.html)
+- Whenever a new care context is linked to the ABHA address, the PHR App receives a notification.
+- The PHR app is expected to **create a consent request** for that health record and send it to the HIE-CM.
+- If auto-approval policy is in place, the consent is immediately approved.
+- The PHR App must then initiate the health information request along with the consent to **obtain the health record from the HIP.**
+- The PHR App must offer a long term storage for these health records for the user.
+- The PHR app must **display the fetched records to the user** within the app organised ideally in chronological order.
 
 ## Test Cases
 
