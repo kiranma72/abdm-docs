@@ -30,12 +30,16 @@ Here's a reference of an ABHA App to help you understand how PHR Applications ca
 
 ## Test Cases
 
-**Edit Subscription Request/Disable auto approval request** 
+**Tabs in PHR app (My Records/Linked Facility/Consents)** 
 
 S.No|Functionality|Test Case|Steps To Be Executed 
 |--|------|-----|-----|
-1| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit active subscription request|Already granted subscription request can be edited|Check if HI types, types of visit and time period can be edited and saved by clicking on "Save Changes" button"
-2| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Disable auto approval requests|Already granted auto approval policy can be disabled|Check if already granted auto approval policy for health locker can be disabled by clickicking on "Disable" button. Post disble of auto - approval policy|locker request is received from health locker for each record.
+1| {{% badge style="blue" %}}Mandatory{{% /badge %}}  "Requests" section in the "Consents" tab of PHR app|1) Requested - Not yet any action is taken by individual on consent request received from HIU to PHR app. |All request (consent / subscription / locker) sent by HIU to patiet are seen  in "Requested" dropdown within "Requests" section of PHR app
+2| {{% badge style="blue" %}}Mandatory{{% /badge %}}  "Requests" section in the "Consents" tab of PHR app|2) Denied - Individual have "Denied" consent request received from HIU to PHR app. |All denied request (consent / subscription / locker) by patient are seen in "Denied" dropdown within "Requests" section of PHR app. 
+3| {{% badge style="blue" %}}Mandatory{{% /badge %}}  "Requests" section in the "Consents" tab of PHR app|3) Expired -  Requests is expired because patient have not acted on consent request received in PHR app within the time duration set by HIU|All expired request (consent / subscription / locker) by patient are seen in "Expired" dropdown within "Requests" section of PHR app.
+4| {{% badge style="blue" %}}Mandatory{{% /badge %}}  "Approved" section in the "Consents" tab of PHR app|1) Granted - Patient had granted the consent request received from HIU to PHR app|All granted request (consent / subscription / locker) by patient are seen in "Granted" dropdown within "Approved" section of PHR app. 
+5| {{% badge style="blue" %}}Mandatory{{% /badge %}}  "Approved" section in the "Consents" tab of PHR app|2) Revoked - Patient had revoked consent requests after granting it in PHR app. |All revoked request (consent / subscription / locker) by patient are seen in "Revoked" dropdown within "Approved" section of PHR app. 
+
 
 ## API Sequence Diagram
 
