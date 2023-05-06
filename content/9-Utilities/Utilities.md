@@ -16,7 +16,7 @@ Converting an image into Base64 string means taking the binary representation of
 
 To convert an image into Base64 :
 - use https://codebeautify.org/image-to-base64-converter
-- After uploading the image and converting into Base64 string, copy the string and use it in the response body of API which expects it.
+- After uploading the image and converting into Base64 string, copy the string and use it in the request body of API which expects it.
 
 #### Sample User Experience for Converting Image to Base64
 
@@ -31,8 +31,16 @@ To encrypt the data :
 - *Step-1:* [API to retrieve public key](#api-to-retrieve-the-public-key)
 - *Step-2:* [RSA Encryption via online](#rsa-encryption-via-online-while-using-postman)
 
+{{% notice title="RSA Encryption" %}}
 
-#### API to retrieve the public key
+  - [For V3 APIs](#rsa-encryption-for-v3-apis)
+  - [For Other API](#rsa-encryption-for-other-api)
+
+{{% /notice %}}
+
+## RSA Encryption For V3 APIs
+
+### API to retrieve the public key
 Authentication token public certificate. This certificate is also used to encrypt the data.
 
 ![retrieve the public key](../retrieve_public_keey_api.png)
@@ -42,14 +50,41 @@ Authentication token public certificate. This certificate is also used to encryp
 
 {{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="GET /v1/auth/cert$" >}}
 
-#### RSA Encryption via online (while using Postman)
+### RSA Encryption via online (while using Postman)
 
 https://www.devglan.com/online-tools/rsa-encryption-decryption
 
+**Select cipher type - RSA/ECB/OAEPWithSHA-1AndMGF1Padding**
+
+![retrieve the public key](../cipher_type.png)
+
 After encrypting, copy the string and use it in the response body of API which expects it.
 
+## RSA Encryption For Other API
+
+### API to retrieve the public key
+Authentication token public certificate. This certificate is also used to encrypt the data.
+
+![retrieve the public key](../public_certificate_for_other_api.png)
+
+
+**BASE URL:** https://phrsbx.abdm.gov.in/
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="GET /api/v1/phr/public/certificate$" >}}
+
+### RSA Encryption via online (while using Postman)
+
+https://www.devglan.com/online-tools/rsa-encryption-decryption
+
+**Select cipher type - RSA/ECB/PKCS1Padding**
+
+![retrieve the public key](../cipher_type_others.png)
+
+After encrypting, copy the string and use it in the response body of API which expects it.
+
+
 #### Sample User Experience for RSA Encryption
-![rsa_encryption_flow](../process-flow.gif)
+![rsa_encryption_flow](../rsa_encryption.gif)
 
 
 
