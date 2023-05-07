@@ -23,6 +23,10 @@ Revoke Consent Request | {{% badge style="blue" %}}Mandatory{{% /badge %}} HIP m
 Expire Consent Request | {{% badge style="blue" %}}Mandatory{{% /badge %}} HIP must delete consents for  a ABHA address in their system when it is expired (HIP_INIT_EXPIRE_CONSENT) | **1.** Initiate a new consent request for HIP on HIU web interface on sandbox. **2.** Grant the consent on PHR app; Set the expiry to a short expiry time. **3.** HIP will be notified of granted consent request. **4.** HIP will be notified of the expired consent post expiry time. **5.** Verify the HIP has deleted the expired request as part of EMR/HMIS system
 ABHA Deactivation | {{% badge style="blue" %}}Mandatory{{% /badge %}} HIP must delete ABHA address  & all associated consents in their system when patient opts out of ABDM (HIP_INIT_ABHA_OPTOUT_DEACTIVATE ) | HIP must delete ABHA address  & all associated consents in their system when patient opts out of ABDM.
 
+## Sample User Experience 
+
+{{< gallery dir="3-milestone2/user-experience" />}} {{< load-photoswipe >}}
+
 ## API Sequence Diagram
 
 {{< mermaid >}}
@@ -47,9 +51,5 @@ HRP/HIP->>HIE-CM: POST/v0.5/consents/hip/on-notify
 **BASE URL:** https://dev.abdm.gov.in/gateway
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/consents/hip/on-notify$" >}}
-
-## Sample User Experience 
-
-{{< gallery dir="3-milestone2/user-experience" />}} {{< load-photoswipe >}}
 
 {{%icon icon="info-circle" %}} To request HIU (https://dev.ndhm.gov.in/hiu#/hiu/login) login access, kindly drop a mail{{%icon icon="envelope" %}} to integration.support@nha.gov.in.
