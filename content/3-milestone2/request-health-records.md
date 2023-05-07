@@ -51,15 +51,16 @@ When HIP gets the request for data transfer, it first **validates the consent:**
 3. Data requested is within the consent granted range
 4. Only data types that are granted in the consent, are shared
 
+## Sample User Experience 
+
+{{< gallery dir="3-milestone2/data_request_flow" />}} {{< load-photoswipe >}}
+
 ## Test Cases
 
 Function|Functionality|Steps To Be Executed 
 |--|--|---------|
 Data Transfer & Share | {{% badge style="blue" %}}Mandatory{{% /badge %}} HIP must share health records associated with care context on request (HIP_INIT_SHARE_CARECONTEXT)| **1.** Initiate a "Get data" for a linked care context in the PHR app. **2.** HIP will receive a request to share information along with the consent id & end-point URL where the data must be pushed. **3.** HIP must verify that there is a valid consent for sharing this data with the specific HIU making the request. **4.** Health records must be shared only for allowed HIP types withing the date ranges granted in the consent. **5.** HIP should encrypt the health records to be shared with the HIU public key. **6.** HIP should push the encrypted data to the end-point URL. **7.** On successful transfer, HIP must notify HIE-CM of successful transfer by calling health information notify API. **8.** Transfer must be completed within 2 hours of receiving the request.
 
-## Sample User Experience 
-
-{{< gallery dir="3-milestone2/data_request_flow" />}} {{< load-photoswipe >}}
 
 ## API Information Request Response 
 
@@ -80,6 +81,10 @@ API called by HIP to acknowledge Health information request receipt
 Health information transfer API.
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/health-information/transfer$" >}}
+
+**Note:** You can send a base64 value of MD5 checksum of the original (pre-encrypted data) so the HIU can verify the integrity of the data once they decrypt it and derive an equivalent checksum and compare it with the value sent as a part of the encrypted data payload.
+- you use any online tool like https://emn178.github.io/online-tools/md5_checksum.html to get checksum of the pre-encrypted data.
+- convert the obtained checksum value to base64 once you get a checksum value from the previous step.
 
 **4. Data Transfer Notification**
 
