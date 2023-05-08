@@ -88,5 +88,34 @@ HIE-CM->>PHR App: POST/v3/patient/profile/on-share
 {{< /mermaid >}}
 
 
-## API Collection
+## API Information Request Response
+
+
+
+### V1 APIs
+
+**1. Share Details**
+
+**BASE URLs:** https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /v1/patients/profile/share$" >}}
+
+### V3 APIs
+
+**2. Share Patient/User Profile**
+
+**BASE URLs:** https://dev.abdm.gov.in/hiecm/api
+
+{{< swaggermin src="/abdm-docs/Yaml/HIE_CM_Profile_Share.yml" api="POST /v3/patient/profile/share$" >}}
+
+**2. Share the Response**
+
+**BASE URLs:** https://your-hrp-server.com
+
+{{< swaggermin src="/abdm-docs/Yaml/HIE_CM_Profile_Share.yml" api="POST /v3/patient/profile/on-share$" >}}
+
+
+
+
+
 
