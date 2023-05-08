@@ -107,11 +107,11 @@ PHR App->>HIE-CM:POST /patients/reset-pin
 {{% /notice %}}
 
 **Utilities**
-- For encrypting the mobileNumber/AadharNumber/otp refer the [link](/abdm-docs/8-utilities/utilities/#rsa-encryption)
+- For encrypting the mobileNumber/AadharNumber/otp refer the [link](/abdm-docs/1-basics/encoding-rsa-encryption/#rsa-encryption)
 
-  - To get public key for encrypting refer the [link](/abdm-docs/8-utilities/utilities/#api-to-retrieve-the-public-key)
+  - To get public key for encrypting refer the [link](/abdm-docs/1-basics/encoding-rsa-encryption/#api-to-retrieve-the-public-key)
 
-- For converting an image into Base64 string refer the [link](/abdm-docs/8-utilities/utilities/#convert-image-to-base64)
+- For converting an image into Base64 string refer the [link](/abdm-docs/1-basics/encoding-rsa-encryption/#convert-image-to-base64)
 
 #### Profile Collection API
 
@@ -154,6 +154,13 @@ PHR App->>HIE-CM:POST /patients/reset-pin
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /patients/verify-pin$" >}}
+
+**Note**
+Scope :
+–> consentrequest.approve for Grant Consent
+–> consent.revoke for Revoke Consent
+–> profile.changepin for Change PIN
+–> consent.autoapprove for Autoapprove all consents for HIU
 
 **6. Change Pin**
 
