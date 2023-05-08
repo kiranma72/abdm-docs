@@ -37,6 +37,10 @@ The HIU’s health repository sends a notification that the requested informatio
 
 {{% badge style="blue" %}}Note{{% /badge %}} For more details on data transfer, please refer this [**Webinar**](https://www.youtube.com/watch?v=oZ9Z2JtO21Q)
 
+# Sample User Experience
+
+{{< gallery dir="4-milestone3/data_request_m3" />}} {{< load-photoswipe >}}
+
 ## API Sequence Diagram
 
 All above 3 stages that pertains to HIU are shown in the following API sequence diagram:
@@ -67,6 +71,15 @@ deactivate HIU System
 **BASE URLs:**  https://dev.abdm.gov.in/gateway
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/health-information/cm/request" >}}
+
+**Note:**
+ ```json
+ "consent": {
+            "id": "5b5f9947-2115-4ac8-baea-b82c93acde3f"
+        }
+```
+The id in the request body is the consent artefact id for which we are requesting the data and we have the consent for.
+
 
 **2. Acknowledgement Of Health Information Request**
 

@@ -46,5 +46,23 @@ PHR App->>HIE-CM: Approve Subscription Request <br/> POST/subscription-requests/
 PHR App->>HIE-CM: Deny Subscription Request <br/> POST/subscription-requests/{request-id}/deny
 {{< /mermaid >}}
 
-## API Collection
+## API Information Request Response
+
+**1. List Subscription Requests**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="GET /subscription-requests$" >}}
+
+**2. Approve Subscription Requests**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /subscription-requests/{request-id}/approve$" >}}
+
+**3. Deny Subscription Requests**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /subscription-requests/{request-id}/deny$" >}}
 

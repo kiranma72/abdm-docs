@@ -94,6 +94,8 @@ This API is called by HIU as acknowledgement to consent notifications, specifica
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/consents/fetch" >}}
 
+**Note:** The  "consentId" in the request body is the consent artefact id.
+
 **4. Acknowledgement For Fetching the consent artefact**
 
 **BASE URLs:**  https://your-hrp-server.com

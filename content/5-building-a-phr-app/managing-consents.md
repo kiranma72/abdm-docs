@@ -53,5 +53,33 @@ PHR App->>HIE-CM: Deny Request <br/> POST/consent-requests/{request-id}/deny
 PHR App->>HIE-CM: Revoke Consents <br/> POST/consents/revoke
 {{< /mermaid >}}
 
-## API Collection
+## API Information Request Response
+
+**1. List Consent Artefacts**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="GET /consent-artefacts$" >}}
+
+**2. Approve Requests**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /consent-requests/{request-id}/approve$" >}}
+
+**3. Deny Requests**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /consent-requests/{request-id}/deny$" >}}
+
+**4. Revoke Consents**
+
+**BASE URLs:**  https://dev.abdm.gov.in/cm
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /consents/revoke$" >}}
+
+
+
+
 
