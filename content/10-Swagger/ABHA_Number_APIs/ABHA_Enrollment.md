@@ -6,7 +6,10 @@ draft: false
 pre : "<b>10.2.2 </b>"
 ---
 
-## Swagger for ABHA Enrollment
+## Download ABHA Enrollment openapi
 
+[{{% icon icon="download" %}}](../abha_enrollment_api.yml "download")
+
+## Swagger for ABHA Enrollment
 
 {{< swagger src="/abdm-docs/Yaml/abha_enrollment_api.yml">}}

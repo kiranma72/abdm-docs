@@ -1,0 +1,3502 @@
+---
+openapi: 3.0.3
+info:
+  title: Patient Health Record Service
+  description: 'Create your PHR ID to track your health records in one place. '
+  version: V.1.0
+servers:
+- url: https://phrsbx.abdm.gov.in:443
+  description: Inferred Url
+tags:
+- name: Authentication
+  description: Authentication Impl
+- name: Location APIs
+  description: Location Controller Impl
+- name: Login Collection API's
+  description: Login API's by Phr Addres, Mobile, Email-Id.
+- name: Profile Collection API's.
+  description: Profile Controller Impl
+- name: Public certificate Collection API's
+  description: Get the Public certificate for the Encryption of the sensetive Data.
+- name: Registration By Health ID Number
+  description: Registration By Hid Number Controller Impl
+- name: Registration by Mobile Or Email APIs
+  description: Registration By Mobile Controller Impl
+- name: Search Collection API's
+  description: Fetch the PHR Address Details.
+- name: Security Captcha
+  description: Generate the Security Captcha.
+paths:
+  "/api/v1/phr/auth/generate/access-token":
+    post:
+      tags:
+      - Authentication
+      summary: create Access Token From Refresh Token
+      description: "<b>Explanation</b>\t- Api Accepts <b>Refresh Token and Creates
+        \ Access Token</b>.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t-
+        Api Accepts <b>Refresh Token and Creates  Access Token</b>. Returns Error
+        for <b>Invalid/Incorrect Info.</b>."
+      operationId: generateAccessTokenUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/RefreshTokenRequest"
+      responses:
+        '200':
+          description: Successful. create Access Token.
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/AccessTokenResponse"
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Could not create Access Token.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/auth/verify/token":
+    post:
+      tags:
+      - Authentication
+      summary: Validate auth token
+      description: "<b>Explanation</b>\t- Api Accepts <b>Auth Token</b> and then Checks
+        is it Valid/Invalid/Expired.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t-
+        Api Accepts <b>Auth Token</b> and then Checks is it Valid/Invalid/Expired.
+        Returns Error for <b>Unauthorized Token</b>."
+      operationId: validateTokenUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ValidateTokenRequest"
+      responses:
+        '200':
+          description: Return Boolean value True in case of success
+          content:
+            "*/*":
+              schema:
+                type: boolean
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Expired or Invalid Token
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/security/captcha/generate":
+    get:
+      tags:
+      - captcha-controller-impl
+      summary: Generate Captcha PNG
+      description: Generate Captcha PNG
+      operationId: generateCaptchaUsingGET
+      parameters:
+      - name: request
+        in: query
+        description: request
+        required: true
+        style: form
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully Generated the Catpacha
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/CaptchaBuilderResponse"
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/CaptchaBuilderResponse"
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/location/districts":
+    get:
+      tags:
+      - Location APIs
+      summary: Fetch The list of districts inside state.
+      operationId: getDistrictsInStateUsingGET
+      parameters:
+      - name: stateCode
+        in: query
+        description: stateCode
+        required: true
+        style: form
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Return district list in case of success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/District"
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Invalid Request data, See API error for more details.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/location/states":
+    get:
+      tags:
+      - Location APIs
+      summary: Fetch the list of states.
+      operationId: getStatesUsingGET
+      responses:
+        '200':
+          description: Return State list in case of success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/States"
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Invalid Request data, See API error for more details.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/login/init/transaction":
+    post:
+      tags:
+      - Login Collection API's
+      summary: Initiate the Login transaction using the healthId number, Based on
+        the Auth mode generate OTP to start Login transaction
+      description: "<b>Explanation</b>\t- Api Accepts <b>PHR ADDRESS</b> and then
+        Generates <b>OTP</b>based on Authentication mode for it.\r\n<b>Request Body</b>\t-
+        Required\r\n<b>Response</b>\t- Api Accepts <b>HealthId Number</b> and then
+        Generates <b>OTP</b>based on the auth methods for it. if number not found
+        then throws error.\r\n\r\n<p>Note : \r\n</p><p>1. <b style='color:red'>OTP
+        will be valid for 10 Minutes only</b>"
+      operationId: healthIdNumberInitUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/AuthIntRequestPayLoad"
+      responses:
+        '200':
+          description: Return transaction id in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/TransactionResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Could not Generate OTP, Invalid request data
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/login/mobileEmail/getUserToken":
+    post:
+      tags:
+      - Login Collection API's
+      summary: Get the User Token in the mobile/email login flow
+      description: 'fetch the User token '
+      operationId: postVerificationViaMobileEmailUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/LoginPostVerificationRequest"
+      responses:
+        '200':
+          description: Return list of phr address mapped with mobile in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/JwtResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Could not Verify OTP , Invalid Request Data.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/login/mobileEmail/init":
+    post:
+      tags:
+      - Login Collection API's
+      summary: Generate Mobile/Email OTP to start Login transaction
+      description: "<b>Explanation</b>\t- Api Accepts <b>Mobile/Email address</b>
+        and then Generates <b>OTP</b> for it.\r\n<b>Request Body</b>\t- Required\r\n<b>Response</b>\t-
+        Api Accepts <b>PHR ADDRESS</b> and then Generates <b>OTP</b>based on the auth
+        methods for it. if number not found then throws error.\r\n\r\n<p>Note : \r\n</p><p>1.
+        <b style='color:red'>OTP will be valid for 10 Minutes only</b>"
+      operationId: initLoginViaMobileEmailUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/LoginViaMobileEmailRequest"
+      responses:
+        '200':
+          description: Return transaction id in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/TransactionResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Could not Generate OTP, Invalid Request data
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/login/mobileEmail/preVerification":
+    post:
+      tags:
+      - Login Collection API's
+      summary: 'Verify Mobile/Email OTP to start Login '
+      description: "<b>Explanation</b>\t- Api Accepts <b>Transaction  Number</b> and
+        <b>OTP(Encrypted form)</b> for it.\r\n<b>Request Body</b>\t- Required\r\n\r\n\r\n<p>Note
+        : \r\n</p><p>1. <b style='color:red'>OTP will be valid for 10 Minutes only</b>"
+      operationId: preVerificationViaMobileEmailUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/LoginPreVerificationRequest"
+      responses:
+        '200':
+          description: Return list of phr address mapped with mobile in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/LoginPreVerificationResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Could not Verify OTP , Invalid Request Data.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/login/phrAddress/init":
+    post:
+      tags:
+      - Login Collection API's
+      summary: Initiate the Login transaction using the PHR ADDRESS, Based on the
+        Auth mode generate Mobile/Email OTP to start Login transaction
+      description: "<b>Explanation</b>\t- Api Accepts <b>PHR ADDRESS</b> and then
+        Generates <b>OTP</b>based on Authentication mode for it.\r\n<b>Request Body</b>\t-
+        Required\r\n<b>Response</b>\t- Api Accepts <b>PHR ADDRESS</b> and then Generates
+        <b>OTP</b>based on the auth methods for it. if number not found then throws
+        error.\r\n\r\n<p>Note : \r\n</p><p>1. <b style='color:red'>OTP will be valid
+        for 10 Minutes only</b>"
+      operationId: initLoginUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/LoginViaPhrRequest"
+      responses:
+        '200':
+          description: Return transaction id in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/TransactionResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Could not Generate OTP, Invalid request data
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/login/phrAddress/verify":
+    post:
+      tags:
+      - Login Collection API's
+      summary: Verify the Login transaction, Based on the Auth mode verify password,
+        Mobile/Email OTP
+      description: "<b>Explanation</b>\t- Api Accepts <b>Transaction Id and Passowrd,
+        Mobile/Email OTP</b> based on Auth methods, Plain text credentails is not
+        allowed.\r\n<b>Request Body</b>\t- Required\r\n\r\n\r\n<p>Note : \r\n</p><p>1.
+        <b style='color:red'>OTP will be valid for 10 Minutes only</b>"
+      operationId: VerifyLoginUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/VerifyPasswordOtpLoginRequest"
+      responses:
+        '200':
+          description: Return user Token id in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/JwtResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Could not Verify OTP or Password, Input Request Data.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/login/resend/otp":
+    post:
+      tags:
+      - Login Collection API's
+      summary: Resend Mobile/Email OTP to provided transaction Id
+      description: "<b>Explanation</b>\t- Api Accepts <b>transaction number</b> and
+        then Re-Generates <b>OTP</b> for it.\r\n<b>Request Body</b>\t- Required\r\n<b>Response</b>\t-
+        Api Accepts <b>Transaction number</b> and then Re-Generates <b>OTP</b>based
+        on the auth methods for it. if number not found then throws error.\r\n\r\n<p>Note
+        : \r\n</p><p>1. <b style='color:red'>OTP will be valid for 10 Minutes only</b>"
+      operationId: resendOtpLoginUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ResendOTPRequest"
+      responses:
+        '200':
+          description: Return transaction id in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/TransactionResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Could not Generate OTP , Invalid request data.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/login/search-healthIdNumber":
+    post:
+      tags:
+      - Login Collection API's
+      summary: 'Sequence_1: Search a user by Health ID Number.'
+      description: "<b>Explanation</b>\t- Api Checks <b>Health ID Number</b> to <b>find
+        User</b>.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t-
+        Retrun partial details of Health ID Number."
+      operationId: SearchByHealthIdNumberUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/SearchByHealthIdNumberRequest"
+      responses:
+        '200':
+          description: Return status as true alone with partail details of Health
+            id number  in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SearchResponsePayLoad"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: No Details Found for Given Health ID Including permanently
+            deleted HIDs.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/login/search/authMethods":
+    get:
+      tags:
+      - Login Collection API's
+      summary: Get the PHR Address authentication methods.
+      operationId: fetchPhrAuthModeUsingGET
+      parameters:
+      - name: phrAddress
+        in: query
+        description: PHR Address
+        required: true
+        style: form
+        allowReserved: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Return PHR ADDRESS Authentication method Details in case of
+            success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SearchPhrAuthResponse"
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Invalid Request data, See API error for more details.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/login/search/userByPhrAddress":
+    get:
+      tags:
+      - Login Collection API's
+      summary: Get the PHR Address authentication methods.
+      operationId: searchPhrAdreesUsingGET
+      parameters:
+      - name: phrAddress
+        in: query
+        description: PHR Address
+        required: true
+        style: form
+        allowReserved: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Return PHR ADDRESS Details in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/User"
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Invalid Request data, See API error for more details.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile/update/mobileEmail/new/generateOTP":
+    post:
+      tags:
+      - Profile Collection API's.
+      summary: Generate Mobile OTP to start mobile update transaction
+      description: "<b>Explanation</b>\t- Api Accepts <b>Mobile Number</b> and then
+        Generates <b>OTP</b> for it.\r\n<b>Request Body</b>\t- Required\r\n<b>Response</b>\t-
+        Api Accepts <b>Mobile Number</b> and then Generates <b>OTP</b> for it.\r\n\r\n<p>Note
+        : \r\n</p><p>1. <b style='color:red'>OTP will be valid for 10 Minutes only</b>"
+      operationId: generateOTPUsingPOST
+      parameters:
+      - name: X-Token
+        in: header
+        description: Auth Token
+        required: true
+        allowReserved: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/GenerateOTPRequest"
+      responses:
+        '200':
+          description: Return transaction id in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/TransactionResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Request is invalid, Please try with valid request format.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile/update/mobileEmail/new/resendOTP":
+    post:
+      tags:
+      - Profile Collection API's.
+      summary: Resend Mobile/Email OTP for updation transaction
+      description: "<b>Explanation</b>\t- Api Accepts <b>Transaction Number</b> and
+        then Resend <b>OTP</b> for it.\r\n<b>Request Body</b>\t- Required\r\n<b>Response</b>\t-
+        Api Accepts <b>Transaction Number</b> and then Resend <b>OTP</b> for it. if
+        transaction number not found then throws error.<p>1. <b style='color:red'>OTP
+        will be valid for 10 Minutes only</b>"
+      operationId: resendMobileEmailOTPUsingPOST
+      parameters:
+      - name: X-Token
+        in: header
+        description: Auth Token
+        required: true
+        allowReserved: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ResendOTPRequest"
+      responses:
+        '200':
+          description: Return true in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SuccessResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Could not Regenerate OTP, Please check the request parameter.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile/update/mobileEmail/new/verifyOTP":
+    post:
+      tags:
+      - Profile Collection API's.
+      summary: Verify the mobile OTP to create the PHR ID.
+      description: "## API to verify the Mobile OTP\r\n## Request\r\nBelow is the
+        Request Parameters description \r\n| Attributes | Description |\r\n| ------
+        | ------ |\r\n| transactionId <sup style='color:red'>* required</sup> | Transaction
+        number, Based on UUID. |\r\n| otp <sup style='color:red'>* required</sup>
+        | OTP recevied on the email/mobile number. |\r\n\r\n\r\n<p>Note : \r\n</p><p>1.
+        <b style='color:red'>OTP must be in encrypted form</b>, Plain text form OTP
+        is not allowed</p>"
+      operationId: verifyMobileEmailOTPUsingPOST
+      parameters:
+      - name: X-Token
+        in: header
+        description: Auth Token
+        required: true
+        allowReserved: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/VerifyOTPRequest"
+      responses:
+        '200':
+          description: Return Transaction Number in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/TransactionResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Could not Find Account or Non-Existing/Expired Token
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile/update/mobileEmail/update":
+    post:
+      tags:
+      - Profile Collection API's.
+      summary: API to Update the Mobile/Email.
+      description: "##  Update the Mobile Number or Email Address in the PHR Account.\r\n##
+        Request\r\nBelow is the Request Parameters description \r\n| Attributes |
+        Description |\r\n| ------ | ------ |\r\n| transactionId <sup style='color:red'>*
+        required</sup> | Transaction number, Based on UUID. |\r\n"
+      operationId: updateMobileEmailUsingPOST
+      parameters:
+      - name: X-Token
+        in: header
+        description: Auth Token
+        required: true
+        allowReserved: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateProfileRequest"
+      responses:
+        '200':
+          description: Return true in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SuccessResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Request in invalid, Check the request Parameter.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile":
+    get:
+      tags:
+      - Profile Collection API's.
+      summary: Get the user details
+      operationId: getUsingGET
+      parameters:
+      - name: X-Token
+        in: header
+        description: Auth Token
+        required: true
+        allowReserved: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Return PHR User Account Details in case of success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/User"
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Invalid Request data, See API error for more details.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile/delete":
+    delete:
+      tags:
+      - Profile Collection API's.
+      summary: Delete the user details
+      operationId: deleteUsingDELETE
+      parameters:
+      - name: X-Token
+        in: header
+        description: Auth Token
+        required: true
+        style: simple
+        allowReserved: false
+        schema:
+          "$ref": Error-ModelName{namespace='com.parserlabs.phr.model.response', name='DeletedUserInfoResponse'}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/DeletePhrRequest"
+      responses:
+        '200':
+          description: PHR ACCOUNT deleted in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/DeletedUserInfoResponse"
+        '204':
+          description: No Content
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '422':
+          description: Invalid Request data, See API error for more details.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile/generateOtp":
+    post:
+      tags:
+      - Profile Collection API's.
+      summary: initLogin
+      operationId: initLoginUsingPOST_1
+      parameters:
+      - name: X-Token
+        in: header
+        description: Auth Token
+        required: true
+        allowReserved: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/PhrGenerateOtpRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/TransactionResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile/link/hid":
+    post:
+      tags:
+      - Profile Collection API's.
+      summary: link and delink phr address with health id number
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              type: object
+            examples:
+              Link:
+                value:
+                  action: LINK
+                  transactionId: a825f76b-0696-40f3-864c-5a3a5b389a83
+                schema:
+                 "$ref": "#/components/schemas/LinkedPlayLoad"
+              Delink:
+                value:
+                  action: DELINK
+      parameters:
+        - name: X-Token
+          in: header
+          description: Auth Token
+          required: true
+          allowReserved: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: link and delink phr address with health id number
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                Link:
+                  value:
+                    success: true
+                Delink:
+                  value:
+                    success: true
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Invalid Request data, See API error for more details.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile/link/phr/hidtoken":
+    post:
+      tags:
+      - Profile Collection API's.
+      summary: link phr address with health id number
+      operationId: linkHidTokenUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/LinkedHidPlayLoad"
+      responses:
+        '200':
+          description: link phr address with health id number use token
+          content:
+            "*/*":
+              schema:
+                type: object
+                additionalProperties:
+                  type: boolean
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Invalid Request data, See API error for more details.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile/link/profileDetails":
+    post:
+      tags:
+      - Profile Collection API's.
+      summary: It will fetch details of User along with the creation and verification
+        of PHR registration transaction.
+      description: "<b>Explanation</b>\t- It will fetch details of User along with
+        the creation and verification of PHR registration transaction.\r\n\r\n<b>Request
+        Body</b>\t- Required\r\n\r\n<b>Response</b>\t- Retruns user details."
+      operationId: linkProfileDetailsUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ValidateTokenRequest"
+      responses:
+        '200':
+          description: Return status as true alone with partail details of Health
+            id number  in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/PHRLinkResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: No Details Found for Given Health ID Including permanently
+            deleted HIDs.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile/logout":
+    get:
+      tags:
+      - Profile Collection API's.
+      summary: Logout the HealthID.
+      description: "<b>Explanation</b>\t- Api Accepts <b>Auth Token</b> and log outs
+        the Phr Address.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t-
+        Api Accepts <b>Auth Token</b> and log outs the Phr Address. Returns Error
+        for <b>Unauthorized token </b>."
+      operationId: logoutUsingGET
+      parameters:
+      - name: X-Token
+        in: header
+        description: Auth Token
+        required: true
+        allowReserved: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Return status ok in case of success
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Could not Log out or Invalid Token
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile/qrCode":
+    get:
+      tags:
+      - Profile Collection API's.
+      summary: Get QR code in PNG format for this account.
+      operationId: getQrCodeUsingGET
+      parameters:
+      - name: X-Token
+        in: header
+        description: Auth Token
+        required: true
+        allowReserved: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: PHR QrCode in case of success
+          content:
+            "*/*":
+              schema:
+                type: string
+                format: byte
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Invalid Request data, See API error for more details.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile/{mediaType}/getCard":
+    get:
+      tags:
+      - Profile Collection API's.
+      summary: Generate ABHA CARD in (PDF, PNG, SVG) format
+      operationId: generateCardUsingGET
+      parameters:
+      - name: X-Token
+        in: header
+        description: Auth Token
+        required: true
+        allowReserved: false
+        schema:
+          type: string
+      - name: mediaType
+        in: path
+        description: mediaType
+        required: true
+        style: simple
+        allowReserved: false
+        schema:
+          type: string
+          enum:
+          - PDF
+          - PNG
+          - SVG
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/ByteArrayResource"
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile/change/password":
+    post:
+      tags:
+      - Profile Collection API's.
+      summary: changesPassword
+      operationId: changesPasswordUsingPOST
+      parameters:
+      - name: X-Token
+        in: header
+        description: Auth Token
+        required: true
+        allowReserved: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ChangesPasswordRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SuccessResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile/edit":
+    post:
+      tags:
+      - Profile Collection API's.
+      summary: API to Update the profile.
+      description: "##  Update the account details in the PHR Account.\r\n\r\n- Beneficiary
+        data required to pass in the request\r\n## Request\r\nBelow is the Request
+        Parameters description \r\n| Attributes | Description |\r\n| ------ | ------
+        |\r\n| firstName <sup style='color:red'>* required</sup> | First Name of the
+        Beneficiary mentioned in the documents |\r\n| middleName | Middle Name of
+        the Beneficiary mentioned in the documents |\r\n| lastName  | Last Name of
+        the Beneficiary mentioned in the documents |\r\n| gender <sup style='color:red'>*
+        required</sup> | Male - <b>M</b>, Female - <b>M</b>, Other - <b>O</b> |\r\n|
+        dayOfBirth <sup style='color:red'>* required</sup> | day of birth |\r\n| monthOfBirth
+        <sup style='color:red'>* required</sup> | month of birth |\r\n| yearOfBirth
+        <sup style='color:red'>* required</sup> | year of birth |\r\n| stateCode <sup
+        style='color:red'>* required</sup> | Valid State Code [(LGD)](https://lgdirectory.gov.in/)
+        |\r\n| districtCode | Valid District Code [(LGD)](https://lgdirectory.gov.in/).
+        |\r\n| pincode <sup style='color:red'>* required</sup> | Pincode |\r\n| addressLine
+        | Valid Address as per documents.|"
+      operationId: profileEditUpdateUsingPOST
+      parameters:
+      - name: X-Token
+        in: header
+        description: Auth Token
+        required: true
+        allowReserved: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ProfileEditRequest"
+      responses:
+        '200':
+          description: Return true in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SuccessResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Request in invalid, Check the request Parameter.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile/update/password":
+    post:
+      tags:
+      - Profile Collection API's.
+      summary: API to Update the password.
+      description: "##  Update the password in the PHR Account.\r\n## Request\r\nBelow
+        is the Request Parameters description \r\n| Attributes | Description |\r\n|
+        ------ | ------ |\r\n| transactionId <sup style='color:red'>* required</sup>
+        | Transaction number, Based on UUID. |\r\n"
+      operationId: updateProfilePasswordUsingPOST
+      parameters:
+      - name: X-Token
+        in: header
+        description: Auth Token
+        required: true
+        allowReserved: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ProfilePasswordUpdateRequest"
+      responses:
+        '200':
+          description: Return true in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SuccessResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Request in invalid, Check the request Parameter.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile/update/passwordFromHid":
+    post:
+      tags:
+      - Profile Collection API's.
+      summary: updateProfilePasswordFromHid
+      operationId: updateProfilePasswordFromHidUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ProfilePasswordUpdateRequestFromHid"
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SuccessResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/profile/update/phrAttribute":
+    post:
+      tags:
+      - Profile Collection API's.
+      summary: updatePhrAttribute
+      operationId: updatePhrAttributeUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdatePhrAttributePayLoad"
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                type: boolean
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/registration/hid/confirm/credential":
+    post:
+      tags:
+      - Registration By Health ID Number
+      summary: 'Sequence_2: it will the transaction and send the otp on mobile number'
+      description: "<b>Explanation</b>\t- Api Checks <b>Health ID Number</b> to <b>find
+        User</b>.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t-
+        Retrun transaction in case of success against request."
+      operationId: sequence_3UsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/LoginRequestPayload"
+      responses:
+        '200':
+          description: Return status as true alone with partail details of Health
+            id number  in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/HidResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: No Details Found for Given Health ID Including permanently
+            deleted HIDs.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/registration/hid/create-phr-address":
+    post:
+      tags:
+      - Registration By Health ID Number
+      summary: sequence_4
+      operationId: sequence_4UsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreatePHRRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/JwtResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/registration/hid/init/resendOtp":
+    post:
+      tags:
+      - Registration By Health ID Number
+      summary: Resend OTP
+      operationId: sequence_2_2UsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ResendOTPRequest"
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/TransactionResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/registration/hid/init/transaction":
+    post:
+      tags:
+      - Registration By Health ID Number
+      summary: 'Sequence_2: It will create the transaction and send the otp on mobile
+        number'
+      description: "<b>Explanation</b>\t- Api Checks <b>Health ID Number</b> to <b>find
+        User</b>.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t-
+        Retrun transaction in case of success against request."
+      operationId: sequence_2UsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/AuthIntRequestPayLoad"
+      responses:
+        '200':
+          description: Return status as true alone with partail details of Health
+            id number  in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/TransactionResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: No Details Found for Given Health ID Including permanently
+            deleted HIDs.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/registration/hid/search/auth-methods":
+    post:
+      tags:
+      - Registration By Health ID Number
+      summary: 'Sequence_1: Search a user by Health ID Number.'
+      description: "<b>Explanation</b>\t- Api Checks <b>Health ID Number</b> to <b>find
+        User</b>.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t-
+        Retrun partial details of Health ID Number."
+      operationId: sequence_1UsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/SearchRequestPayLoad"
+      responses:
+        '200':
+          description: Return status as true alone with partail details of Health
+            id number  in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SearchResponsePayLoad"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: No Details Found for Given Health ID Including permanently
+            deleted HIDs.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/registration/hid/searchPhr":
+    post:
+      tags:
+      - Registration By Health ID Number
+      summary: fetchPhrAddress
+      operationId: fetchPhrAddressUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/SearchPHRWithPHRMetaDetails"
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                uniqueItems: true
+                type: array
+                items:
+                  type: string
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/registration/create/phr":
+    post:
+      tags:
+      - Registration by Mobile Or Email APIs
+      summary: Register the Beneficiary to the PHR using the Mobile/Email Address
+      description: "## To Register the beneficiary.\r\n\r\n- Beneficiary data required
+        to pass in the request\r\n## Request\r\nBelow is the Request Parameters description
+        \r\n| Attributes | Description |\r\n| ------ | ------ |\r\n| transactionId
+        <sup style='color:red'>* required</sup> | Transaction number, Based on UUID.
+        |\r\n| phrAddress <sup style='color:red'>* required</sup> | PHR address of
+        the Beneficiary or user |\r\n| password <sup style='color:red'>* required</sup>|
+        Password for the account. Same will be used to login to PHR Account.<b style='color:red'>
+        Password must contain an uppercase, a lowercase, a number, a special character
+        (@,_$,#) and at least 8 or more characters. It should not contain any sequences
+        (like 123)</b>|\r\n\r\n\r\n<p>Note : \r\n</p><p>1. <b style='color:red'>Password
+        must be in encrypted form</b>, Plain text form Password(like Abdm@india1122)
+        is not allowed in request</p>"
+      operationId: createPHRUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreatePHRRequest"
+      responses:
+        '200':
+          description: Return user token id in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/JwtResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Could not Generate PHR ID, Invalid data in the request. See
+            API error for more details.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/registration/details":
+    post:
+      tags:
+      - Registration by Mobile Or Email APIs
+      summary: Register the Beneficiary to the PHR using the Mobile/Email Address
+      description: "## To Register the beneficiary.\r\n\r\n- Beneficiary data required
+        to pass in the request\r\n## Request\r\nBelow is the Request Parameters description
+        \r\n| Attributes | Description |\r\n| ------ | ------ |\r\n| transactionId
+        <sup style='color:red'>* required</sup> | Transaction number, Based on UUID.
+        |\r\n| firstName <sup style='color:red'>* required</sup> | First Name of the
+        Beneficiary mentioned in the documents |\r\n| middleName | Middle Name of
+        the Beneficiary mentioned in the documents |\r\n| lastName  | Last Name of
+        the Beneficiary mentioned in the documents |\r\n| gender <sup style='color:red'>*
+        required</sup> | Male - <b>M</b>, Female - <b>M</b>, Other - <b>O</b> |\r\n|
+        email <sup style='color:red'>* required</sup> | Valid E-mail address of the
+        beneficiary |\r\n| mobile <sup style='color:red'>* required</sup> | Valid
+        10-digit Mobile Number<sup style='color:red'>(Note - Mobile number must be
+        encrypted)</sup> of the Beneficiary.|\r\n| dayOfBirth | day of birth |\r\n|
+        monthOfBirth | month of birth |\r\n| yearOfBirth <sup style='color:red'>*
+        required</sup> | year of birth |\r\n| stateCode <sup style='color:red'>* required</sup>
+        | Valid State Code [(LGD)](https://lgdirectory.gov.in/) |\r\n| districtCode
+        | Valid District Code [(LGD)](https://lgdirectory.gov.in/). |\r\n| countryCode
+        | Country code. |\r\n| pincode <sup style='color:red'>* required</sup> | Pincode
+        |\r\n| address | Valid Address as per documents.|"
+      operationId: registerDetailsUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/RegistrationByMobileOrEmailRequest"
+      responses:
+        '200':
+          description: Return transaction id in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/TransactionResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Could not Generate PHR ID, Invalid data in the request. See
+            API error for more details.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/registration/generate/otp":
+    post:
+      tags:
+      - Registration by Mobile Or Email APIs
+      summary: Generate Mobile OTP to start registration transaction
+      description: "<b>Explanation</b>\t- Api Accepts <b>Mobile Number</b> and then
+        Generates <b>OTP</b> for it.\r\n<b>Request Body</b>\t- Required\r\n<b>Response</b>\t-
+        Api Accepts <b>Mobile Number</b> and then Generates <b>OTP</b> for it. if
+        number not found then throws error.\r\n\r\n<p>Note : \r\n</p><p>1. <b style='color:red'>OTP
+        will be valid for 10 Minutes only</b>"
+      operationId: generateOTPUsingPOST_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/GenerateOTPRequest"
+      responses:
+        '200':
+          description: Return transaction id in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/TransactionResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Could not Generate OTP or Mobile number may be already used.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/registration/phr/suggestion":
+    post:
+      tags:
+      - Registration by Mobile Or Email APIs
+      summary: Generate List phrAddresses in case
+      operationId: getPHRSuggestionUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/PHRSuggestionRequst"
+      responses:
+        '200':
+          description: Return List phrAddresses in case of success
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  type: string
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: No Suggestion found.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/registration/resend/otp":
+    post:
+      tags:
+      - Registration by Mobile Or Email APIs
+      summary: Resend Mobile OTP f registration transaction
+      description: "<b>Explanation</b>\t- Api Accepts <b>Transaction Number</b> and
+        then Resend <b>OTP</b> for it.\r\n<b>Request Body</b>\t- Required\r\n<b>Response</b>\t-
+        Api Accepts <b>Transaction Number</b> and then Resend <b>OTP</b> for it. if
+        transaction number not found then throws error."
+      operationId: resendOTPUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ResendOTPRequest"
+      responses:
+        '200':
+          description: Return transaction id in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SuccessResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Could not Generate OTP or Mobile number may be already used.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/registration/verify/otp":
+    post:
+      tags:
+      - Registration by Mobile Or Email APIs
+      summary: Verify the mobile OTP to create the PHR ID.
+      description: "## API to verify the Mobile OTP\r\n## Request\r\nBelow is the
+        Request Parameters description \r\n| Attributes | Description |\r\n| ------
+        | ------ |\r\n| transactionId <sup style='color:red'>* required</sup> | Transaction
+        number, Based on UUID. |\r\n| otp <sup style='color:red'>* required</sup>
+        | OTP reviced on the mobile number. |\r\n\r\n\r\n<p>Note : \r\n</p><p>1. <b
+        style='color:red'>OTP must be in encrypted form</b>, Plain text form OTP is
+        not allowed</p>"
+      operationId: verifyOTPUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/VerifyOTPRequest"
+      responses:
+        '200':
+          description: Return Transaction Number in case of success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/TransactionWithPHRResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Could not Find Account or Non-Existing/Expired Tocken
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/search/exists/byhealthId/phrAddress/{phrAddress}":
+    get:
+      tags:
+      - Search Collection API's
+      summary: Check the PHR address mapped with the provided health ID number
+      operationId: doesPhrAddressExistsUsingGET
+      parameters:
+      - name: phrAddress
+        in: path
+        description: phrAddress
+        required: true
+        style: simple
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Return PHR ADDRESS  exist or not in case of success
+          content:
+            "*/*":
+              schema:
+                type: object
+                additionalProperties:
+                  type: boolean
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Invalid Request data, See API error for more details.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/search/authMethods":
+    get:
+      tags:
+      - Search Collection API's
+      summary: Get the PHR Address authentication methods.
+      operationId: fetchPhrAuthModeUsingGET_1
+      parameters:
+      - name: phrAddress
+        in: query
+        description: PHR Address
+        required: true
+        style: form
+        allowReserved: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Return PHR ADDRESS Authentication method Details in case of
+            success
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SearchPhrAuthResponse"
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Invalid Request data, See API error for more details.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/search/isExist":
+    get:
+      tags:
+      - Search Collection API's
+      summary: Check the PHR Address exist or not.
+      operationId: isPhrExistsUsingGET
+      parameters:
+      - name: phrAddress
+        in: query
+        description: PHR Address
+        required: true
+        style: form
+        allowReserved: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Return PHR ADDRESS exist or not
+          content:
+            "*/*":
+              schema:
+                type: boolean
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Invalid Request data, See API error for more details.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+  "/api/v1/phr/public/certificate":
+    get:
+      tags:
+      - Public certificate Collection API's
+      summary: Authentication token public certificate. This certificate is also used
+        to encrypt the data.
+      operationId: certUsingGET
+      responses:
+        '200':
+          description: Return public certificate in case of success
+          content:
+            "*/*":
+              schema:
+                type: string
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Invalid Request data, See API error for more details.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global
+components:
+  schemas:
+    AccessTokenResponse:
+      title: AccessTokenResponse
+      type: object
+      properties:
+        accessToken:
+          type: object
+          description: JWT Bearer Token
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+        expiresIn:
+          type: object
+          description: Access Token expiry time
+          example: '7200'
+    Address:
+      title: Address
+      type: object
+      properties:
+        addressLine:
+          type: string
+          description: Address of the user.
+          example: 9th Floor, Tower-l, Jeevan Bharati Building, Connaught Place, New
+            Delhi - 110001
+        countryCode:
+          type: string
+          description: Country code of the user
+          example: "+91 "
+        countryName:
+          type: string
+          description: Country Name of the user
+          example: India
+        districtCode:
+          type: string
+          description: District Code of the user (LGD).
+          example: '71'
+        districtName:
+          type: string
+          description: District Name of the user (LGD).
+          example: Central
+        pincode:
+          type: string
+          description: 'pincode '
+          example: '110001'
+        stateCode:
+          type: string
+          description: State Code of the user (LGD).
+          example: '7'
+        stateName:
+          type: string
+          description: State Name of the user (LGD).
+          example: Delhi
+        subDistrictCode:
+          type: string
+          description: Sub District Code of the user (LGD).
+          example: " "
+        subDistrictName:
+          type: string
+          description: Sub District Name of the user (LGD).
+        townCode:
+          type: string
+          description: town Code of the user (LGD).
+          example: " "
+        townName:
+          type: string
+          description: town Name of the user (LGD).
+          example: " "
+        villageCode:
+          type: string
+          description: village Code of the user (LGD).
+          example: " "
+        villageName:
+          type: string
+          description: village Name of the user (LGD).
+          example: " "
+        wardCode:
+          type: string
+          description: Ward Code of the user (LGD).
+          example: " "
+        wardName:
+          type: string
+          description: Ward Name of the user (LGD).
+          example: " "
+    AddressDTO:
+      title: AddressDTO
+      type: object
+      properties:
+        addressLine:
+          type: string
+        addressType:
+          type: string
+        countryCode:
+          type: string
+        countryName:
+          type: string
+        districtCode:
+          type: string
+        districtName:
+          type: string
+        pincode:
+          type: string
+        stateCode:
+          type: string
+        stateName:
+          type: string
+        subDistrictCode:
+          type: string
+        subDistrictName:
+          type: string
+        townCode:
+          type: string
+        townName:
+          type: string
+        villageCode:
+          type: string
+        villageName:
+          type: string
+        wardCode:
+          type: string
+        wardName:
+          type: string
+    ApiError:
+      title: ApiError
+      required:
+      - code
+      - details
+      - message
+      type: object
+      properties:
+        code:
+          type: object
+          description: Error Code
+          example: MIS-422
+        details:
+          type: object
+          description: Dril down error details of the API
+          example: '[{"attribute": {"key": "email","value": "email is invalid"},"code":
+            "MIS-1010","message": "Invalid Data"}]'
+        message:
+          type: object
+          description: Error Code
+          example: Unable to process the current request due to some wrong data entered
+    AuthIntRequestPayLoad:
+      title: AuthIntRequestPayLoad
+      required:
+      - authMethod
+      - healhtIdNumber
+      type: object
+      properties:
+        authMethod:
+          type: object
+          example: AADHAAR_OTP or MOBILE_OTP
+        healhtIdNumber:
+          type: object
+          example: 11-1111-1111-1111
+    ByteArrayResource:
+      title: ByteArrayResource
+      type: object
+      properties:
+        byteArray:
+          type: string
+          format: byte
+        description:
+          type: string
+        file:
+          type: string
+          format: binary
+        filename:
+          type: string
+        inputStream:
+          "$ref": "#/components/schemas/InputStream"
+        open:
+          type: boolean
+        readable:
+          type: boolean
+        uri:
+          type: string
+          format: uri
+        url:
+          type: string
+          format: url
+    CaptchaBuilderResponse:
+      title: CaptchaBuilderResponse
+      type: object
+      properties:
+        captcha:
+          type: string
+        captchaId:
+          type: string
+          format: uuid
+    ChangesPasswordRequest:
+      title: ChangesPasswordRequest
+      type: object
+      properties:
+        oldPassword:
+          type: object
+          description: User Password(Encrypted with public key).
+          example: HNceo964MVndrs8Z2oMtzIsmmbzagveHbWkDsDKskTue+/YZhHHrMon19J03ggU457upzWMIX0nU3d38xjB3FxA2qWCVmvLZ98A9l0y3i33vq1ywu9cORGF4OEqV8l7H9h4tDnLGDHnbOh9ct85VfOohP4p73lqW6WQSMYcU+xkBfEsRj42pWL19EVsE1UULtQE8gYY1B0SeM63svUp1kQ4Pt5hdgKxibYBq+hRcck2PkEIhp2N7AkjH4Tf+AhXU9956WLwjKgAKMk7K4+Zv8JtxYCcblQitbpN4ImPH5edf4mO5R/L9RpdAVSllAQQfPIDlp5ZGOZ1GrSmhzOSP3g==
+        password:
+          type: object
+          description: User Password(Encrypted with public key).
+          example: HNceo964MVndrs8Z2oMtzIsmmbzagveHbWkDsDKskTue+/YZhHHrMon19J03ggU457upzWMIX0nU3d38xjB3FxA2qWCVmvLZ98A9l0y3i33vq1ywu9cORGF4OEqV8l7H9h4tDnLGDHnbOh9ct85VfOohP4p73lqW6WQSMYcU+xkBfEsRj42pWL19EVsE1UULtQE8gYY1B0SeM63svUp1kQ4Pt5hdgKxibYBq+hRcck2PkEIhp2N7AkjH4Tf+AhXU9956WLwjKgAKMk7K4+Zv8JtxYCcblQitbpN4ImPH5edf4mO5R/L9RpdAVSllAQQfPIDlp5ZGOZ1GrSmhzOSP3g==
+    CreatePHRFromMobileRequest:
+      title: CreatePHRFromMobileRequest
+      required:
+      - dayOfBirth
+      - firstName
+      - fullName
+      - gender
+      - mobile
+      - monthOfBirth
+      - stateCode
+      - yearOfBirth
+      type: object
+      properties:
+        abhaAddress:
+          type: object
+          example: deepakndhm
+        abhaNumber:
+          type: object
+          example: 43-4221-5105-6749
+        addressLine:
+          type: string
+          description: Address of the user.
+          example: 9th Floor, Tower-l, Jeevan Bharati Building, Connaught Place, New
+            Delhi - 110001
+        authMethods:
+          type: array
+          description: "{PASSWORD, MOBILE_OTP, EMAIL_OTP}"
+          example: "[PASSWORD, MOBILE_OTP, EMAIL_OTP]"
+          items:
+            type: string
+        countryCode:
+          type: string
+          description: Country of the user
+          example: "+91 "
+        dayOfBirth:
+          type: string
+          description: Day of birth of the user.
+          example: '15'
+        districtCode:
+          type: string
+          description: District Code of the user (LGD).
+          example: '77'
+        email:
+          type: string
+          description: Email address of the user
+          example: xyz@gmail.com
+        emailVerified:
+          type: boolean
+          description: mobileVerified
+          example: false
+        firstName:
+          type: string
+          description: First name of the user
+          example: Ayushman
+        fullName:
+          type: string
+          description: full name of the user
+          example: Ayushman Khurana
+        gender:
+          type: string
+          description: Gender
+          example: M
+          enum:
+          - F
+          - M
+          - O
+        kycStatus:
+          type: string
+          description: VERIFIED|PENDING
+          example: VERIFIED
+        lastName:
+          type: string
+          description: 'Last name of the user '
+          example: Mission
+        middleName:
+          type: string
+          description: 'Middle name of the user '
+          example: Bharat
+        mobile:
+          type: string
+          description: Mobile number of the user.
+          example: '9405925999'
+        mobileVerified:
+          type: boolean
+          description: mobileVerified
+          example: false
+        monthOfBirth:
+          type: string
+          description: Month of birth of the user.
+          example: '8'
+        notify:
+          type: boolean
+          description: 'True'
+          example: false
+        password:
+          type: object
+          description: User Password(Encrypted with public key).
+          example: HNceo964MVndrs8Z2oMtzIsmmbzagveHbWkDsDKskTue+/YZhHHrMon19J03ggU457upzWMIX0nU3d38xjB3FxA2qWCVmvLZ98A9l0y3i33vq1ywu9cORGF4OEqV8l7H9h4tDnLGDHnbOh9ct85VfOohP4p73lqW6WQSMYcU+xkBfEsRj42pWL19EVsE1UULtQE8gYY1B0SeM63svUp1kQ4Pt5hdgKxibYBq+hRcck2PkEIhp2N7AkjH4Tf+AhXU9956WLwjKgAKMk7K4+Zv8JtxYCcblQitbpN4ImPH5edf4mO5R/L9RpdAVSllAQQfPIDlp5ZGOZ1GrSmhzOSP3g==
+        pinCode:
+          type: string
+          description: Area Pincode of the user.
+          example: '110001'
+        profilePhoto:
+          type: object
+          description: Encoded with Base 64
+          example: "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q=="
+        stateCode:
+          type: string
+          description: State Code of the user (LGD).
+          example: '7'
+        status:
+          type: string
+          description: ACTIVE|DEACTIVE
+          example: ACTIVE
+        yearOfBirth:
+          type: string
+          description: Year of birth of the user.
+          example: '2018'
+    CreatePHRRequest:
+      title: CreatePHRRequest
+      required:
+      - phrAddress
+      - transactionId
+      type: object
+      properties:
+        alreadyExistedPHR:
+          type: boolean
+        password:
+          type: object
+          description: User Password(Encrypted with public key).
+          example: HNceo964MVndrs8Z2oMtzIsmmbzagveHbWkDsDKskTue+/YZhHHrMon19J03ggU457upzWMIX0nU3d38xjB3FxA2qWCVmvLZ98A9l0y3i33vq1ywu9cORGF4OEqV8l7H9h4tDnLGDHnbOh9ct85VfOohP4p73lqW6WQSMYcU+xkBfEsRj42pWL19EVsE1UULtQE8gYY1B0SeM63svUp1kQ4Pt5hdgKxibYBq+hRcck2PkEIhp2N7AkjH4Tf+AhXU9956WLwjKgAKMk7K4+Zv8JtxYCcblQitbpN4ImPH5edf4mO5R/L9RpdAVSllAQQfPIDlp5ZGOZ1GrSmhzOSP3g==
+        phrAddress:
+          type: object
+          description: Phr address/Id of the User
+          example: user@abdm
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+    DeletePhrRequest:
+      title: DeletePhrRequest
+      required:
+      - input
+      - transactionId
+      type: object
+      properties:
+        authMethod:
+          type: string
+        input:
+          type: object
+          description: Encrypted MobileOTP/Password.
+          example: tSCaVUjHwHiMVCokz7u3ogfop5r7ON5GmVY4rJNaQhoVAMlZl5lDqbb4vobfFMsQ1zO404gkWqPqLoDCdavx+JJ5pxprDpRo+PbeV44q51xr5OoNW2ITy9x6WM81KF9o7OnIU3FOGg09jqcJ/By3S8ICWxzJDKVwCJPehHtjhSFiy+mdWEjKkBTrEWJRTy3ZOkij+fskm+JjLoJlIF0TmA94Jb/avX0/LrnacpWEYWAHd0R/8/HIeITVNwG5hnsuRyIcIKKy7bEuYul8wJDD8RPBhL/gIAV4c5zDCb518o1MJGQtNg8Yf/zcROdaynWrBHIh2tacPrxmLHiZHD+BHQ==
+        reasons:
+          type: object
+          example: Official requirement
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+    DeletedUserInfoResponse:
+      title: DeletedUserInfoResponse
+      type: object
+      properties:
+        fullName:
+          type: string
+          description: Full name of the user
+          example: Ayushman Bharat Mission
+        healthIdNumber:
+          type: string
+          description: HealthcareID Number.
+          example: 20-0878-1213-5055
+        kycStatus:
+          type: string
+          description: Kyc status of the user
+          example: VERIFIED
+        phrAddress:
+          type: object
+          description: Phr address/Id of the User
+          example: user@abdm
+    District:
+      title: District
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+    ErrorAttribute:
+      title: ErrorAttribute
+      required:
+      - key
+      - value
+      type: object
+      properties:
+        key:
+          type: object
+          description: Attribute of the request that data is not valid
+          example: email
+        value:
+          type: object
+          description: Details of the error
+          example: email is invalid
+    ErrorDetails:
+      title: ErrorDetails
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        attribute:
+          "$ref": "#/components/schemas/ErrorAttribute"
+        code:
+          type: object
+          description: Error Code
+          example: MIS-1010
+        message:
+          type: object
+          description: Details of the Api error code
+          example: email is invalid
+    GenerateOTPRequest:
+      title: GenerateOTPRequest
+      required:
+      - value
+      type: object
+      properties:
+        value:
+          type: object
+          description: Mobile Number/Email Address(Encrypted with public key).
+          example: yJ2hY5bc2g3P2pQyca/ER6VYQ8TGMj/VN42h9xkh/3jAwJQtZEspnhrtEKqwFXt1+8budi64CPlUEzbkwUsCotIOMm8idfSX+SQyb8VlqLxxIkAzGvmXjWrbQUNEUWnnJjzkIjweNmj8GJ2u0uRdrAGpBc1vMoMz5XD2SGfFttvmziTtucq5w2dOoAPOni4Bl7sfii3Qyo8Szl1/tXNnZbDZi8HH9Cpajno4pFiu6mQDVTkkyDHTqyo7Bv3IFpdNYiRDAZ1yh1cBOfufMy1gSZQetCwETFxdsOgw7JvKL/gEN+RAFKZF2oUriCsAkYYbxW1cfrqa/YRXUw0ho+n4Jw==
+    HidResponse:
+      title: HidResponse
+      required:
+      - transactionId
+      type: object
+      properties:
+        address:
+          type: object
+          example: b-14 someshwar nagar
+        authMethods:
+          type: object
+          description: Based on authMethods
+          example: AADHAAR_OTP
+        dayOfBirth:
+          type: object
+          example: '31'
+        districtCode:
+          type: object
+          example: '401'
+        districtName:
+          type: object
+          example: Pune
+        email:
+          type: object
+          example: example@demo.com
+        emailVerified:
+          type: boolean
+        firstName:
+          type: object
+          example: kishan
+        gender:
+          type: object
+          example: Male
+        healthIdNumber:
+          type: object
+          example: 43-4221-5105-6749
+        kycPhoto:
+          type: object
+          description: Encoded with Base 64
+          example: sw1uD+gpv3fj6NHBNhtcII3GksVtkLT9bvcz0svYDyUt/x3jTtedXSYgw4b90GTwfLfs1eow056VsOw9HFS/wB8uH5Ysx+QzpL7PxmAY1WOHwOj04sPKN6Dw8XY8vcXovtvZc1dUB+TPAlGGPNu8iqMVPetukysjRxgbNdLLKMxn46rIRb8NieeyuDx1EHa90jJP9KwKGZdsLr08BysrmMJExzTO9FT93CzoNg50/nxzaQgmkBSbu9D8DxJm7XrLzWSUB05YCknHbokm4iXwyYBsrmfFDE/xCDfzYPhYyhtEmOi4J/GMp+lO+gAHQFQtxkIADhoSR8WXGcAbCUj7uTjFsBU/tc+RtvSotso4FXy8v+Ylzj28jbFTmmOWyAwYi9pThQjXnmRnq43dVdd5OXmxIII6SXs0JzoFvKwSk7VxhuLIRYzKqrkfcnWMrrmRgE8xZ6ZLft6O3IeiHb9WA8b/6/qO8Hdd17FKsSF6te59gSpoajS0FtQIgFn/c+NHzQYo5ZdsuRGM9v+bhHTInI=
+        kycVerified:
+          type: object
+          example: 'true'
+        lastName:
+          type: object
+          example: singh
+        linkedPhrAddess:
+          type: integer
+          format: int32
+        middleName:
+          type: object
+          example: kumar
+        mobile:
+          type: object
+          example: '9545812125'
+        monthOfBirth:
+          type: object
+          example: '05'
+        name:
+          type: object
+          example: kishan kumar singh
+        new:
+          type: boolean
+        phrAddress:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        pincode:
+          type: object
+          example: '412306'
+        profilePhoto:
+          type: object
+          description: Encoded with Base 64
+          example: "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q=="
+        stateCode:
+          type: object
+          example: '27'
+        stateName:
+          type: object
+          example: MAHARASHTRA
+        subDistrictCode:
+          type: object
+          example: '213'
+        subdistrictName:
+          type: object
+          example: Baramati
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+        townCode:
+          type: object
+          example: '27'
+        townName:
+          type: object
+          example: Baramati
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+        verificationStatus:
+          type: object
+          example: verified
+        verificationType:
+          type: object
+          example: testing
+        villageCode:
+          type: object
+          example: '412'
+        villageName:
+          type: object
+          example: Someshwar Nagar
+        wardCode:
+          type: object
+          example: '08'
+        wardName:
+          type: object
+          example: Sinhgad fort ward
+        yearOfBirth:
+          type: object
+          example: '1994'
+    InputStream:
+      title: InputStream
+      type: object
+    JwtResponse:
+      title: JwtResponse
+      required:
+      - firstName
+      - phrAdress
+      type: object
+      properties:
+        authTs:
+          type: string
+        expiresIn:
+          type: object
+          description: Access Token expiry time
+          example: '7200'
+        firstName:
+          type: object
+          description: First Name
+          example: Rahul
+        phrAdress:
+          type: object
+          description: PHR Address
+          example: user@abdm
+        refreshExpiresIn:
+          type: object
+          description: Refresh Token expiry time
+          example: '86400'
+        refreshToken:
+          type: object
+          description: JWT Bearer Token
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+        token:
+          type: object
+          description: JWT Bearer Token
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+    LinkedHidPlayLoad:
+      title: LinkedHidPlayLoad
+      required:
+      - authToken
+      - transactionId
+      type: object
+      properties:
+        authToken:
+          type: object
+          example: iZdmIQNgNY4Vc5NjGirJYMH2/8Thh6GCIumygD9HXOfIOTk/KzhSYIA9+wE7pe4ehA2ThRjllrb1IEXx1XwB4Rrm1McBLSC0z838TSsKBYDQI0RD7cybYNQC4oiB/QNOJ6exvuCv1qCiHDWTfufwJwd7HQRTxGBvtSLZI8cgWrGLqe/kGyvWYzBgewFS+8RZbxwyWfA0jdt28HT5uFycHPCyLsDf2HhlM8f3pXr4ce/qo2NNYCOfhGGIujffVpUum3gYJ1ZRuSMIUqh3Q0BE/950pFHFk5yjsmqJg+xNSwW9YDqGs32Bz533nw+OfmgC0TkU8DNwNTXMjlqjl/ZKyHFHT99eH1yAuAdhi4xyz9qPuELIO/UpStugNV5AcgZ6RNdPhMmNNx0/AyPvq6Dy0VPn5ptk8a4KlNVcDZS4BjvRm1zE/QiTck7d1iZTF4L3OP+d3KaFb16avSp6D5p9TEa2buH+CxMdIUMbD6NUGR6EuUMY4beyJbnO+ytuwmJ+xas47FeeNOwCv08i8G2cXAuEVhGVSQFBHFUS+uzqJXbAmsuAvUcR6Wpoo6tF0zrxYmDNTZlC9UsbUjLAOM+08vWgaP1a6YroMF1pvFPcSyKH942jLJgVNYpH/flpC7XK7ds+FO2K4I27X3Mmliaqg10i2pkmcVGWZr9REmDBmec=
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+    LinkedPlayLoad:
+      title: LinkedPlayLoad
+      required:
+      - action
+      - transactionId
+      type: object
+      properties:
+        action:
+          type: object
+          example: LINK
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+    LoginPostVerificationRequest:
+      title: LoginPostVerificationRequest
+      required:
+      - phrAddress
+      - transactionId
+      type: object
+      properties:
+        phrAddress:
+          type: object
+          description: PHR address of the user
+          example: user@abdm
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+    LoginPreVerificationRequest:
+      title: LoginPreVerificationRequest
+      required:
+      - otp
+      - transactionId
+      type: object
+      properties:
+        otp:
+          type: object
+          description: Encrypted Mobile OTP.
+          example: tSCaVUjHwHiMVCokz7u3ogfop5r7ON5GmVY4rJNaQhoVAMlZl5lDqbb4vobfFMsQ1zO404gkWqPqLoDCdavx+JJ5pxprDpRo+PbeV44q51xr5OoNW2ITy9x6WM81KF9o7OnIU3FOGg09jqcJ/By3S8ICWxzJDKVwCJPehHtjhSFiy+mdWEjKkBTrEWJRTy3ZOkij+fskm+JjLoJlIF0TmA94Jb/avX0/LrnacpWEYWAHd0R/8/HIeITVNwG5hnsuRyIcIKKy7bEuYul8wJDD8RPBhL/gIAV4c5zDCb518o1MJGQtNg8Yf/zcROdaynWrBHIh2tacPrxmLHiZHD+BHQ==
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+    LoginPreVerificationResponse:
+      title: LoginPreVerificationResponse
+      required:
+      - mappedPhrAddress
+      - mobileEmail
+      - transactionId
+      type: object
+      properties:
+        mappedPhrAddress:
+          uniqueItems: true
+          type: array
+          description: List of the Phr Address mapped with the Mobile number
+          example: "[user@abdm, user2@abdm]"
+          items:
+            type: object
+        mobileEmail:
+          type: string
+          description: Email/Mobile number registered with PHR ADDRESS.
+          example: '9988776655'
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+    LoginRequestPayload:
+      title: LoginRequestPayload
+      required:
+      - transactionId
+      - value
+      type: object
+      properties:
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+        value:
+          type: object
+          description: Encrypted value.
+          example: sw1uD+gpv3fj6NHBNhtcII3GksVtkLT9bvcz0svYDyUt/x3jTtedXSYgw4b90GTwfLfs1eow056VsOw9HFS/wB8uH5Ysx+QzpL7PxmAY1WOHwOj04sPKN6Dw8XY8vcXovtvZc1dUB+TPAlGGPNu8iqMVPetukysjRxgbNdLLKMxn46rIRb8NieeyuDx1EHa90jJP9KwKGZdsLr08BysrmMJExzTO9FT93CzoNg50/nxzaQgmkBSbu9D8DxJm7XrLzWSUB05YCknHbokm4iXwyYBsrmfFDE/xCDfzYPhYyhtEmOi4J/GMp+lO+gAHQFQtxkIADhoSR8WXGcAbCUj7uTjFsBU/tc+RtvSotso4FXy8v+Ylzj28jbFTmmOWyAwYi9pThQjXnmRnq43dVdd5OXmxIII6SXs0JzoFvKwSk7VxhuLIRYzKqrkfcnWMrrmRgE8xZ6ZLft6O3IeiHb9WA8b/6/qO8Hdd17FKsSF6te59gSpoajS0FtQIgFn/c+NHzQYo5ZdsuRGM9v+bhHTInI=
+    LoginViaMobileEmailRequest:
+      title: LoginViaMobileEmailRequest
+      required:
+      - input
+      type: object
+      properties:
+        input:
+          type: string
+          description: Mobile/Email registered with PHR Address
+          example: yJ2hY5bc2g3P2pQyca/ER6VYQ8TGMj/VN42h9xkh/3jAwJQtZEspnhrtEKqwFXt1+8budi64CPlUEzbkwUsCotIOMm8idfSX+SQyb8VlqLxxIkAzGvmXjWrbQUNEUWnnJjzkIjweNmj8GJ2u0uRdrAGpBc1vMoMz5XD2SGfFttvmziTtucq5w2dOoAPOni4Bl7sfii3Qyo8Szl1/tXNnZbDZi8HH9Cpajno4pFiu6mQDVTkkyDHTqyo7Bv3IFpdNYiRDAZ1yh1cBOfufMy1gSZQetCwETFxdsOgw7JvKL/gEN+RAFKZF2oUriCsAkYYbxW1cfrqa/YRXUw0ho+n4Jw==
+    LoginViaPhrRequest:
+      title: LoginViaPhrRequest
+      required:
+      - authMethod
+      - phrAddress
+      type: object
+      properties:
+        authMethod:
+          type: object
+          description: Based on Login Authentication Methods
+          example: PASSWORD
+        phrAddress:
+          type: object
+          description: PHR Address
+          example: user@abdm
+    PHRLinkResponse:
+      title: PHRLinkResponse
+      required:
+      - transactionId
+      type: object
+      properties:
+        address:
+          type: object
+          example: b-14 someshwar nagar
+        dayOfBirth:
+          type: object
+          example: '31'
+        districtName:
+          type: object
+          example: Pune
+        gender:
+          type: object
+          example: Male
+        monthOfBirth:
+          type: object
+          example: '05'
+        name:
+          type: object
+          example: kishan kumar singh
+        stateName:
+          type: object
+          example: MAHARASHTRA
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+        yearOfBirth:
+          type: object
+          example: '1994'
+    PHRSuggestionRequst:
+      title: PHRSuggestionRequst
+      required:
+      - transactionId
+      type: object
+      properties:
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+    PhrGenerateOtpRequest:
+      title: PhrGenerateOtpRequest
+      required:
+      - authMethod
+      type: object
+      properties:
+        authMethod:
+          type: object
+          description: Based on Login Authentication Methods
+          example: PASSWORD
+    ProfileEditRequest:
+      title: ProfileEditRequest
+      type: object
+      properties:
+        addressLine:
+          type: string
+          description: Address of the user.
+          example: 9th Floor, Tower-l, Jeevan Bharati Building, Connaught Place, New
+            Delhi - 110001
+        dayOfBirth:
+          type: string
+          description: Day of birth of the user.
+          example: '15'
+        districtCode:
+          type: string
+          description: District Code of the user (LGD).
+          example: '71'
+        firstName:
+          type: string
+          description: First name of the user
+          example: Ayushman
+        gender:
+          type: string
+          description: Gender
+          example: M
+          enum:
+          - F
+          - M
+          - O
+        lastName:
+          type: string
+          description: 'Last name of the user '
+          example: Mission
+        middleName:
+          type: string
+          description: 'Middle name of the user '
+          example: Bharat
+        monthOfBirth:
+          type: string
+          description: Month of birth of the user.
+          example: '8'
+        pinCode:
+          type: string
+          description: Area Pincode of the user.
+          example: '110001'
+        profilePhoto:
+          type: string
+          description: Profile photo of the user.
+          format: byte
+        stateCode:
+          type: string
+          description: State Code of the user (LGD).
+          example: '7'
+        yearOfBirth:
+          type: string
+          description: Year of birth of the user.
+          example: '2021'
+    ProfilePasswordUpdateRequest:
+      title: ProfilePasswordUpdateRequest
+      type: object
+      properties:
+        password:
+          type: object
+          description: User Password(Encrypted with public key).
+          example: HNceo964MVndrs8Z2oMtzIsmmbzagveHbWkDsDKskTue+/YZhHHrMon19J03ggU457upzWMIX0nU3d38xjB3FxA2qWCVmvLZ98A9l0y3i33vq1ywu9cORGF4OEqV8l7H9h4tDnLGDHnbOh9ct85VfOohP4p73lqW6WQSMYcU+xkBfEsRj42pWL19EVsE1UULtQE8gYY1B0SeM63svUp1kQ4Pt5hdgKxibYBq+hRcck2PkEIhp2N7AkjH4Tf+AhXU9956WLwjKgAKMk7K4+Zv8JtxYCcblQitbpN4ImPH5edf4mO5R/L9RpdAVSllAQQfPIDlp5ZGOZ1GrSmhzOSP3g==
+    ProfilePasswordUpdateRequestFromHid:
+      title: ProfilePasswordUpdateRequestFromHid
+      required:
+      - phrAddress
+      type: object
+      properties:
+        password:
+          type: object
+          description: User Password(Encrypted with public key).
+          example: HNceo964MVndrs8Z2oMtzIsmmbzagveHbWkDsDKskTue+/YZhHHrMon19J03ggU457upzWMIX0nU3d38xjB3FxA2qWCVmvLZ98A9l0y3i33vq1ywu9cORGF4OEqV8l7H9h4tDnLGDHnbOh9ct85VfOohP4p73lqW6WQSMYcU+xkBfEsRj42pWL19EVsE1UULtQE8gYY1B0SeM63svUp1kQ4Pt5hdgKxibYBq+hRcck2PkEIhp2N7AkjH4Tf+AhXU9956WLwjKgAKMk7K4+Zv8JtxYCcblQitbpN4ImPH5edf4mO5R/L9RpdAVSllAQQfPIDlp5ZGOZ1GrSmhzOSP3g==
+        phrAddress:
+          type: object
+          description: Phr address/Id of the User
+          example: user@abdm
+    RefreshTokenRequest:
+      title: RefreshTokenRequest
+      required:
+      - refreshToken
+      type: object
+      properties:
+        refreshToken:
+          type: object
+          description: JWT Bearer Token
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+    RegistrationByMobileOrEmailRequest:
+      title: RegistrationByMobileOrEmailRequest
+      required:
+      - firstName
+      - gender
+      - mobile
+      - stateCode
+      - transactionId
+      - yearOfBirth
+      type: object
+      properties:
+        address:
+          type: string
+          description: Address of the user.
+          example: 9th Floor, Tower-l, Jeevan Bharati Building, Connaught Place, New
+            Delhi - 110001
+        countryCode:
+          type: string
+          description: Country of the user
+          example: "+91 "
+        dayOfBirth:
+          type: string
+          description: Day of birth of the user.
+          example: '15'
+        districtCode:
+          type: string
+          description: District Code of the user (LGD).
+          example: '77'
+        email:
+          type: string
+          description: Email address of the user
+          example: 6BE4FfCtkOrDZU/Fc545GrhVGgC8JxiK8uU/DSQT7PNebX2Bigz0lUuC3R0F4RA+PoulQCfqqK4OKDe1vi0oAgiSbvAQl4DoCnd4ANmb5k+5YevhouiHCiBCp1zUZZLJ6A28Ux7NBWioNxFuWUYh2syF+nOoQ0kyQ1bUUMYg8tFtm0SLj0MRTowh3fksCFsbYBj6sgx7Hd+5M8xlUDhd/v5mHh4zoTodQNRc5L/2nlT/eBSQPof1iIgkMsgYZjLllS0v1LPSdeGsnsreEVtqkWn/tPyLwcsqkcMxDKrhHbI3odlIkYngBLGqLuBWLVE52pihdCbGrVwpG4S0bpQ0qg==
+        firstName:
+          type: string
+          description: First name of the user
+          example: Ayushman
+        gender:
+          type: string
+          description: Gender
+          example: M
+          enum:
+          - F
+          - M
+          - O
+        lastName:
+          type: string
+          description: 'Last name of the user '
+          example: Mission
+        middleName:
+          type: string
+          description: 'Middle name of the user '
+          example: Bharat
+        mobile:
+          type: string
+          description: Mobile number of the user.
+          example: yJ2hY5bc2g3P2pQyca/ER6VYQ8TGMj/VN42h9xkh/3jAwJQtZEspnhrtEKqwFXt1+8budi64CPlUEzbkwUsCotIOMm8idfSX+SQyb8VlqLxxIkAzGvmXjWrbQUNEUWnnJjzkIjweNmj8GJ2u0uRdrAGpBc1vMoMz5XD2SGfFttvmziTtucq5w2dOoAPOni4Bl7sfii3Qyo8Szl1/tXNnZbDZi8HH9Cpajno4pFiu6mQDVTkkyDHTqyo7Bv3IFpdNYiRDAZ1yh1cBOfufMy1gSZQetCwETFxdsOgw7JvKL/gEN+RAFKZF2oUriCsAkYYbxW1cfrqa/YRXUw0ho+n4Jw==
+        monthOfBirth:
+          type: string
+          description: Month of birth of the user.
+          example: '8'
+        pinCode:
+          type: string
+          description: Area Pincode of the user.
+          example: '110001'
+        stateCode:
+          type: string
+          description: State Code of the user (LGD).
+          example: '7'
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+        yearOfBirth:
+          type: string
+          description: Year of birth of the user.
+          example: '2018'
+    ResendOTPRequest:
+      title: ResendOTPRequest
+      required:
+      - transactionId
+      type: object
+      properties:
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+    SearchByHealthIdNumberRequest:
+      title: SearchByHealthIdNumberRequest
+      required:
+      - healthIdNumber
+      - yearOfBirth
+      type: object
+      properties:
+        healthIdNumber:
+          type: object
+          example: 11-1111-1111-1111
+        yearOfBirth:
+          type: object
+          example: '1994'
+    SearchPHRWithPHRMetaDetails:
+      title: SearchPHRWithPHRMetaDetails
+      type: object
+      properties:
+        dayOfBirth:
+          type: object
+          example: '31'
+        gender:
+          type: object
+          example: M
+        monthOfBirth:
+          type: object
+          example: '05'
+        name:
+          type: object
+          example: kishan kumar singh
+        yearOfBirth:
+          type: object
+          example: '1995'
+    SearchPhrAuthResponse:
+      title: SearchPhrAuthResponse
+      required:
+      - phrAddress
+      type: object
+      properties:
+        authMethods:
+          uniqueItems: true
+          type: array
+          description: Based on Login Methods
+          example: "[PASSWORD, MOBILE_OTP, EMAIL_OTP]"
+          items:
+            type: object
+        healthIdNumber:
+          type: object
+          example: 43-4221-5105-6749
+        name:
+          type: object
+          example: kishan kumar singh
+        phrAddress:
+          type: object
+          description: Phr Address of the user
+          example: user@abdm
+        status:
+          type: object
+          example: Active
+    SearchRequestPayLoad:
+      title: SearchRequestPayLoad
+      required:
+      - healhtIdNumber
+      type: object
+      properties:
+        healhtIdNumber:
+          type: object
+          example: 11-1111-1111-1111
+    SearchResponsePayLoad:
+      title: SearchResponsePayLoad
+      type: object
+      properties:
+        authMethods:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        blockedAuthMethods:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        healthIdNumber:
+          type: string
+        status:
+          type: string
+    States:
+      title: States
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+    SuccessResponse:
+      title: SuccessResponse
+      required:
+      - success
+      type: object
+      properties:
+        success:
+          type: object
+          description: bool
+          example: 'true'
+    TransactionResponse:
+      title: TransactionResponse
+      required:
+      - transactionId
+      type: object
+      properties:
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+    TransactionWithPHRResponse:
+      title: TransactionWithPHRResponse
+      required:
+      - mappedPhrAddress
+      - transactionId
+      type: object
+      properties:
+        mappedPhrAddress:
+          uniqueItems: true
+          type: array
+          description: List of the Phr Address mapped with the Mobile number
+          example: "[user@abdm, user2@abdm]"
+          items:
+            type: object
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+    UpdatePhrAttributePayLoad:
+      title: UpdatePhrAttributePayLoad
+      required:
+      - key
+      - phrAddress
+      - value
+      type: object
+      properties:
+        key:
+          type: object
+          example: status
+        phrAddress:
+          type: object
+          example: xyz@{abdm,sbx}
+        value:
+          type: object
+          example: PENDING
+    UpdatePhrProfilePhoto:
+      title: UpdatePhrProfilePhoto
+      type: object
+      properties:
+        healthIdNumber:
+          type: string
+        phrAddress:
+          type: string
+        profilePhoto:
+          type: string
+        profilePhotoCompressed:
+          type: boolean
+    UpdateProfileRequest:
+      title: UpdateProfileRequest
+      required:
+      - transactionId
+      type: object
+      properties:
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+    User:
+      title: User
+      required:
+      - authMode
+      type: object
+      properties:
+        address:
+          description: 'Complete address of the user '
+          "$ref": "#/components/schemas/Address"
+        authMode:
+          type: object
+          description: Based on Login Authentication Methods
+          example: "[PASSWORD, MOBILE_OTP, EMAIL_OTP, AADHAAR_OTP]"
+        countryCode:
+          type: string
+          description: Country code of the user
+          example: "+91 "
+        dateOfBirth:
+          type: string
+          description: Date of birth of the user.
+          example: 15/08/2021
+        dayOfBirth:
+          type: string
+          description: Day of birth of the user.
+          example: '15'
+        email:
+          type: string
+          description: Email address of the user
+          example: user@nha.com
+        emailVerified:
+          type: object
+          description: Email Address is verified or not
+          example: 'true'
+        firstName:
+          type: string
+          description: First name of the user
+          example: Ayushman
+        fullName:
+          type: string
+          description: Full name of the user
+          example: Ayushman Bharat Mission
+        gender:
+          type: string
+          description: Gender
+          example: M
+          enum:
+          - F
+          - M
+          - O
+        healthIdNumber:
+          type: string
+          description: HealthcareID Number.
+          example: 20-0878-1213-5055
+        kycDocumentType:
+          type: string
+        kycStatus:
+          type: string
+          description: Kyc status of the user
+          example: VERIFIED
+        lastName:
+          type: string
+          description: 'Last name of the user '
+          example: Mission
+        middleName:
+          type: string
+          description: 'Middle name of the user '
+          example: Bharat
+        mobile:
+          type: object
+          description: Mobile Number/Email Address(Encrypted with public key).
+          example: '9988776655'
+        mobileVerified:
+          type: boolean
+          description: Mobile Number is verified or not
+          example: true
+        monthOfBirth:
+          type: string
+          description: Month of birth of the user.
+          example: '8'
+        phrAddress:
+          type: object
+          description: Phr address/Id of the User
+          example: user@abdm
+        profilePhoto:
+          type: string
+          description: Profile photo of the user.
+          example: "<BASE64 ENCODED STRING>"
+        yearOfBirth:
+          type: string
+          description: Year of birth of the user.
+          example: '2021'
+    UserDTO:
+      title: UserDTO
+      type: object
+      properties:
+        address:
+          "$ref": "#/components/schemas/AddressDTO"
+        authMode:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+            - AADHAAR_BIO
+            - AADHAAR_OTP
+            - DEMOGRAPHICS
+            - EMAIL_OTP
+            - MOBILE_OTP
+            - PASSWORD
+        authTransactionId:
+          type: string
+        countryCode:
+          type: string
+        dateOfBirth:
+          type: string
+        dayOfBirth:
+          type: string
+        email:
+          type: string
+        emailVerified:
+          type: boolean
+        firstName:
+          type: string
+        fullName:
+          type: string
+        gender:
+          type: string
+        healthIdNumber:
+          type: string
+        kycDocumentType:
+          type: string
+        kycStatus:
+          type: string
+        lastName:
+          type: string
+        middleName:
+          type: string
+        mobile:
+          type: string
+        mobileVerified:
+          type: boolean
+        monthOfBirth:
+          type: string
+        password:
+          type: string
+        phrAddress:
+          type: string
+        profilePhoto:
+          type: string
+        status:
+          type: string
+        token:
+          type: string
+        updatedBy:
+          type: string
+        yearOfBirth:
+          type: string
+    ValidateTokenRequest:
+      title: ValidateTokenRequest
+      required:
+      - authToken
+      type: object
+      properties:
+        authToken:
+          type: object
+          example: iZdmIQNgNY4Vc5NjGirJYMH2/8Thh6GCIumygD9HXOfIOTk/KzhSYIA9+wE7pe4ehA2ThRjllrb1IEXx1XwB4Rrm1McBLSC0z838TSsKBYDQI0RD7cybYNQC4oiB/QNOJ6exvuCv1qCiHDWTfufwJwd7HQRTxGBvtSLZI8cgWrGLqe/kGyvWYzBgewFS+8RZbxwyWfA0jdt28HT5uFycHPCyLsDf2HhlM8f3pXr4ce/qo2NNYCOfhGGIujffVpUum3gYJ1ZRuSMIUqh3Q0BE/950pFHFk5yjsmqJg+xNSwW9YDqGs32Bz533nw+OfmgC0TkU8DNwNTXMjlqjl/ZKyHFHT99eH1yAuAdhi4xyz9qPuELIO/UpStugNV5AcgZ6RNdPhMmNNx0/AyPvq6Dy0VPn5ptk8a4KlNVcDZS4BjvRm1zE/QiTck7d1iZTF4L3OP+d3KaFb16avSp6D5p9TEa2buH+CxMdIUMbD6NUGR6EuUMY4beyJbnO+ytuwmJ+xas47FeeNOwCv08i8G2cXAuEVhGVSQFBHFUS+uzqJXbAmsuAvUcR6Wpoo6tF0zrxYmDNTZlC9UsbUjLAOM+08vWgaP1a6YroMF1pvFPcSyKH942jLJgVNYpH/flpC7XK7ds+FO2K4I27X3Mmliaqg10i2pkmcVGWZr9REmDBmec=
+    VerifyOTPRequest:
+      title: VerifyOTPRequest
+      required:
+      - otp
+      - transactionId
+      type: object
+      properties:
+        otp:
+          type: object
+          description: Encrypted Mobile OTP.
+          example: tSCaVUjHwHiMVCokz7u3ogfop5r7ON5GmVY4rJNaQhoVAMlZl5lDqbb4vobfFMsQ1zO404gkWqPqLoDCdavx+JJ5pxprDpRo+PbeV44q51xr5OoNW2ITy9x6WM81KF9o7OnIU3FOGg09jqcJ/By3S8ICWxzJDKVwCJPehHtjhSFiy+mdWEjKkBTrEWJRTy3ZOkij+fskm+JjLoJlIF0TmA94Jb/avX0/LrnacpWEYWAHd0R/8/HIeITVNwG5hnsuRyIcIKKy7bEuYul8wJDD8RPBhL/gIAV4c5zDCb518o1MJGQtNg8Yf/zcROdaynWrBHIh2tacPrxmLHiZHD+BHQ==
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+    VerifyPasswordOtpLoginRequest:
+      title: VerifyPasswordOtpLoginRequest
+      required:
+      - input
+      - transactionId
+      type: object
+      properties:
+        input:
+          type: object
+          description: Encrypted MobileOTP/Password.
+          example: tSCaVUjHwHiMVCokz7u3ogfop5r7ON5GmVY4rJNaQhoVAMlZl5lDqbb4vobfFMsQ1zO404gkWqPqLoDCdavx+JJ5pxprDpRo+PbeV44q51xr5OoNW2ITy9x6WM81KF9o7OnIU3FOGg09jqcJ/By3S8ICWxzJDKVwCJPehHtjhSFiy+mdWEjKkBTrEWJRTy3ZOkij+fskm+JjLoJlIF0TmA94Jb/avX0/LrnacpWEYWAHd0R/8/HIeITVNwG5hnsuRyIcIKKy7bEuYul8wJDD8RPBhL/gIAV4c5zDCb518o1MJGQtNg8Yf/zcROdaynWrBHIh2tacPrxmLHiZHD+BHQ==
+        transactionId:
+          type: object
+          description: Based on UUID
+          example: a825f76b-0696-40f3-864c-5a3a5b389a83
+  securitySchemes:
+    Authorization:
+      type: apiKey
+      name: Authorization
+      in: header
+    X-HIP-ID:
+      type: apiKey
+      name: X-HIP-ID
+      in: header

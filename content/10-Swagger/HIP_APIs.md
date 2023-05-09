@@ -6,6 +6,9 @@ draft: false
 pre : "<b>10.2 </b>"
 ---
 
+## Download HIP API openapi
+
+[{{% icon icon="download" %}}](../ndhm-hip.yml "download")
 
 ## Complete Swagger for HIP APIs
 

@@ -155,12 +155,13 @@ PHR App->>HIE-CM:POST /patients/reset-pin
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /patients/verify-pin$" >}}
 
-**Note**
+**Note:**
+
 Scope :
-–> consentrequest.approve for Grant Consent
-–> consent.revoke for Revoke Consent
-–> profile.changepin for Change PIN
-–> consent.autoapprove for Autoapprove all consents for HIU
+- consentrequest.approve for Grant Consent
+- consent.revoke for Revoke Consent
+- profile.changepin for Change PIN
+- consent.autoapprove for Autoapprove all consents for HIU
 
 **6. Change Pin**
 
