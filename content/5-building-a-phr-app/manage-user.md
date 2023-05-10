@@ -125,7 +125,8 @@ PHR App->>HIE-CM:POST /patients/reset-pin
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
--- YET TO ADD --
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /v1/apps/profile/update$" >}}
+
 
 **2. Reset Password**
 
