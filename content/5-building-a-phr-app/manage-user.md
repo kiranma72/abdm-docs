@@ -157,7 +157,7 @@ PHR App->>HIE-CM:POST /patients/reset-pin
 
 **Note:**
 
-Scope :
+scope (in request body):
 - consentrequest.approve for Grant Consent
 - consent.revoke for Revoke Consent
 - profile.changepin for Change PIN

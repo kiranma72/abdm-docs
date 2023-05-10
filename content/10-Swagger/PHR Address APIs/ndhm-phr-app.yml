@@ -2579,6 +2579,53 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+  "/v1/apps/profile/update":
+    post:
+      tags:
+      - Update User profile
+      summary: update user profile
+      description: "<b>Response</b>\t-
+        Api returns <b>user profile</b> data."
+      operationId: updateProfileUsingPOST
+      parameters:
+      - in: header
+        name: X-AUTH-TOKEN
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateProfileRequest"
+      responses:
+        '200':
+          description: Successful. create Access Token.
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SuccessResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Request in invalid, Check the request Parameter.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global              
 
 components:
   parameters:
@@ -2791,6 +2838,80 @@ components:
         format: uuid
       required: true
   schemas:
+    SuccessResponse:
+      title: SuccessResponse
+      required:
+      - success
+      type: object
+      properties:
+        success:
+          type: object
+          description: bool
+          example: 'true'
+   
+    UpdateProfileRequest:
+      type: object
+      required:
+        - address
+        - dateOfBirth
+        - districtCode
+        - gender
+        - name
+        - pinCode
+        - profilePhoto
+        - stateCode
+      properties:
+        address:
+          type: string
+          example: pune apartment
+        dateOfBirth:
+          type: object
+          required:
+            - date
+            - month
+            - year
+          properties:
+            date:
+              type: number
+              example: 9
+            month:
+              type: number
+              example: 8
+            year:
+              type: number
+              example: 1989
+        districtCode:
+          type: string
+          example: 482
+        gender:
+          type: string
+          enum: [M, F, O, U]
+        name:
+          type: object
+          required:
+            - first
+            - last
+            - middle
+          properties:
+            first:
+              type: string
+              example: anu
+            last:
+              type: string
+              example: hasan
+            middle:
+              type: string
+              example: chandra
+        pinCode:
+           type: string
+           example: 600042
+        profilePhoto:
+          type: string
+          example: /9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==
+          description: Encoded with Base 64
+        stateCode:
+          type: string
+          example: 32
     LoginRequest:
       type: object
       properties:

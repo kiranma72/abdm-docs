@@ -3,7 +3,7 @@ title = "ABHA Number APIs"
 date = 2022-05-03T17:53:25+05:30
 weight = 2
 chapter = true
-pre = "<b>10.2 </b>"
+pre = "<b>10.1 </b>"
 +++
 
 # Swagger for ABHA Number APIs
@@ -12,9 +12,6 @@ pre = "<b>10.2 </b>"
 
 {{% notice %}}
 - Complete Swagger for ABHA Number APIs   
-    - ABDM ABHA Service
-    - ABHA Enrollment
-    - NDHM HIP
-    - HIE-CM Profile Share
-    - HIE-CM LinkTokenService
+    - V1/V2 APIs
+    - V3 APIs
 {{% /notice %}}
