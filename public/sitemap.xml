@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://kiranma72.github.io/abdm-docs/5-building-a-phr-app/create-abha-address/index.html</loc>
+    <lastmod>2023-04-24T05:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/3-milestone2/encryption-decryption/java/index.html</loc>
+    <lastmod>2023-04-13T05:10:00+05:30</lastmod>
+  </url>
+  <url>
     <loc>http://kiranma72.github.io/abdm-docs/3-milestone2/health-record-format/index.html</loc>
     <lastmod>2023-04-03T04:10:00+05:30</lastmod>
   </url>
@@ -17,92 +25,48 @@
     <lastmod>2023-03-16T09:30:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/1-basics/about_abdm_sandbox/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/9-utilities/utilities/index.html</loc>
     <lastmod>2023-03-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/9-more/obligations_of_hip/index.html</loc>
-    <lastmod>2023-03-07T18:00:04+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/8-utilities/utilities/index.html</loc>
-    <lastmod>2023-03-07T18:00:04+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/3-get-health-records/consent-flow/consent-request/index.html</loc>
-    <lastmod>2022-06-21T12:53:25+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/3-get-health-records/subscription-flow/index.html</loc>
-    <lastmod>2022-06-21T12:53:25+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/3-get-health-records/subscription-flow/subscription-flow/index.html</loc>
-    <lastmod>2022-06-21T12:53:25+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/notify-on-new-records/notify-via-sms/index.html</loc>
-    <lastmod>2022-05-30T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/push-records/consent-notification/index.html</loc>
-    <lastmod>2022-05-23T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/abha-id-registration/registration-via-aadhaar/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/deactivate-abha/deactivate-via-aadhaar-otp/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/save-phr-address/scanning-hip-qr2/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/delete-abha/delete-via-aadhaar-otp/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/deactivate-abha/deactivate-via-aadhaar-otp/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/user-profile/get-profile/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/delete-abha/delete-via-aadhaar-otp/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/reactivate-abha/reactivate-via-aadhaar-otp/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/user-profile/get-profile/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/retrieve-abha-account/retrieve-abha-aadhaar-otp/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/login-abha-id/login-with-aadhaar-otp/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-eua/teleconsults/search_hspas_for_doctor/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/reactivate-abha/reactivate-via-aadhaar-otp/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-hspa/sign-up-or-sign-in-with-hpr-id/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/retrieve-abha-account/retrieve-abha-aadhaar-otp/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-eua/sign_up_with_phr/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/teleconsults/search_hspas_for_doctor/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/1-basics/the_phr_framework/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-hspa/sign-up-or-sign-in-with-hpr-id/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/about_uhi/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/sign_up_with_phr/index.html</loc>
-    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/4-building-a-phr-app/signup-or-signin/index.html</loc>
-    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/about_uhi/index.html</loc>
-    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/save-phr-address/index.html</loc>
-    <lastmod>2022-05-07T17:53:25+05:30</lastmod>
   </url>
   <url>
     <loc>http://kiranma72.github.io/abdm-docs/2-milestone1/abha-number/index.html</loc>
@@ -113,12 +77,20 @@
     <lastmod>2022-05-07T17:53:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/abha-id-registration/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-eua/teleconsults/index.html</loc>
     <lastmod>2022-05-07T17:53:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/teleconsults/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/user-profile/index.html</loc>
     <lastmod>2022-05-07T17:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/5-building-a-phr-app/login-user/index.html</loc>
+    <lastmod>2023-04-24T05:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/3-milestone2/encryption-decryption/command-line/index.html</loc>
+    <lastmod>2023-04-13T05:10:00+05:30</lastmod>
   </url>
   <url>
     <loc>http://kiranma72.github.io/abdm-docs/3-milestone2/link-care-context/notification-mobile/index.html</loc>
@@ -141,92 +113,68 @@
     <lastmod>2023-03-16T04:10:00+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/9-more/security_requirements/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/1-basics/about_abdm_sandbox/index.html</loc>
     <lastmod>2023-03-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/3-get-health-records/consent-flow/consent-notification/index.html</loc>
-    <lastmod>2022-06-22T11:07:25+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/3-get-health-records/consent-flow/index.html</loc>
-    <lastmod>2022-06-21T12:53:25+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/discovery-from-phrapp/index.html</loc>
-    <lastmod>2022-05-23T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/abha-id-registration/registration-via-other-documents/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/deactivate-abha/deactivate-via-mobile-otp/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/save-phr-address/scanning-phraddr-qr/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/delete-abha/delete-via-mobile-otp/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/deactivate-abha/deactivate-via-mobile-otp/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-eua/teleconsults/display_search_results/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/delete-abha/delete-via-mobile-otp/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/user-profile/get-qr-code/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/teleconsults/display_search_results/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/reactivate-abha/reactivate-via-mobile-otp/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/user-profile/get-qr-code/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/retrieve-abha-account/retrieve-abha-mobile-otp/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/notify-on-new-records/auto-link-withphr/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-hspa/setup-for-teleconsultation/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/login-abha-id/login-with-mobile-otp/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/uhi_architecture_overview/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/reactivate-abha/reactivate-via-mobile-otp/index.html</loc>
-    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/retrieve-abha-account/retrieve-abha-mobile-otp/index.html</loc>
-    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-hspa/setup-for-teleconsultation/index.html</loc>
-    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/1-basics/the_phr_framework/index.html</loc>
-    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/uhi_architecture_overview/index.html</loc>
-    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/index.html</loc>
-    <lastmod>2022-05-07T17:53:25+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/4-building-a-phr-app/create-abha-address/index.html</loc>
-    <lastmod>2022-05-07T17:53:25+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/login-abha-id/index.html</loc>
-    <lastmod>2022-05-07T17:53:25+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/notify-on-new-records/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/deactivate-abha/index.html</loc>
     <lastmod>2022-05-07T17:53:25+05:30</lastmod>
   </url>
   <url>
     <loc>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/index.html</loc>
     <lastmod>2022-05-07T17:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/10-swagger/abha_number_apis/index.html</loc>
+    <lastmod>2022-05-03T17:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/10-swagger/abha_number_apis/abha_service/index.html</loc>
+    <lastmod>2022-03-03T18:00:04+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/10-swagger/phr_abha-address-apis/phr-updated/index.html</loc>
+    <lastmod>2022-03-03T18:00:04+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/5-building-a-phr-app/manage-user/index.html</loc>
+    <lastmod>2023-04-24T05:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/3-milestone2/encryption-decryption/for-c-hash/index.html</loc>
+    <lastmod>2023-04-13T05:10:00+05:30</lastmod>
   </url>
   <url>
     <loc>http://kiranma72.github.io/abdm-docs/3-milestone2/link-care-context/discovery-link/index.html</loc>
@@ -249,63 +197,67 @@
     <lastmod>2023-03-16T09:30:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/4-building-a-phr-app/create-abha-address/mobile-no/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/5-building-a-phr-app/create-abha-address/mobile-no/index.html</loc>
     <lastmod>2023-03-16T09:30:25+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/3-get-health-records/consent-flow/fetch-consent-artefact/index.html</loc>
-    <lastmod>2022-06-22T11:07:25+05:30</lastmod>
   </url>
   <url>
     <loc>http://kiranma72.github.io/abdm-docs/1-basics/abdm_sandbox_signup/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/teleconsults/book-selected-doctor-or-facility/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-eua/teleconsults/book-selected-doctor-or-facility/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/save-phr-address/shared-verbally/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/uhi_sandbox_registry/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/abha-id-registration/link-delink-abha-addr/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-hspa/setup-for-physical-consultation/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/login-abha-id/login-using-mobile/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/user-profile/update-email/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/uhi_sandbox_registry/index.html</loc>
-    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-hspa/setup-for-physical-consultation/index.html</loc>
-    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/user-profile/update-email/index.html</loc>
-    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/3-get-health-records/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/reactivate-abha/index.html</loc>
     <lastmod>2022-05-07T17:53:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/retrieve-abha-account/index.html</loc>
-    <lastmod>2022-05-07T17:53:25+05:30</lastmod>
+    <loc>http://kiranma72.github.io/abdm-docs/10-swagger/abha_number_apis/abha_enrollment/index.html</loc>
+    <lastmod>2022-03-03T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/push-records/index.html</loc>
-    <lastmod>2022-05-07T17:53:25+05:30</lastmod>
+    <loc>http://kiranma72.github.io/abdm-docs/10-swagger/hip_apis/index.html</loc>
+    <lastmod>2022-03-03T18:00:04+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/10-swagger/phr_abha-address-apis/phr-app/index.html</loc>
+    <lastmod>2022-03-03T18:00:04+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/5-building-a-phr-app/setup-subscriptions/index.html</loc>
+    <lastmod>2023-04-25T05:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/3-milestone2/encryption-decryption/new-prog-language/index.html</loc>
+    <lastmod>2023-04-13T05:10:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/3-milestone2/understanding-consents/index.html</loc>
+    <lastmod>2023-04-10T05:10:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/4-milestone3/index.html</loc>
+    <lastmod>2023-04-03T04:10:00+05:30</lastmod>
   </url>
   <url>
     <loc>http://kiranma72.github.io/abdm-docs/2-milestone1/verify-abha-address/new-vs-returning-patients/index.html</loc>
     <lastmod>2023-03-16T09:30:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/4-building-a-phr-app/create-abha-address/abha-no/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/5-building-a-phr-app/create-abha-address/abha-no/index.html</loc>
     <lastmod>2023-03-16T09:30:25+05:30</lastmod>
   </url>
   <url>
@@ -313,31 +265,23 @@
     <lastmod>2023-03-16T09:30:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/3-get-health-records/consent-flow/data-request-and-transfer/index.html</loc>
-    <lastmod>2022-06-22T12:53:25+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/teleconsults/collect-payment-if-required/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-eua/teleconsults/collect-payment-if-required/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/save-phr-address/new-vs-returning-patients/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/uhi_sandbox_gw/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/uhi_sandbox_gw/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-hspa/see-list-of-appointment-and-initiate-consultation/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-hspa/see-list-of-appointment-and-initiate-consultation/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/user-profile/update-mobile-via-aadhaar-otp/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/user-profile/update-mobile-via-aadhaar-otp/index.html</loc>
-    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/user-profile/update-mobile-via-mobile-otp/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/user-profile/update-mobile-via-mobile-otp/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
@@ -345,19 +289,35 @@
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/4-building-a-phr-app/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/delete-abha/index.html</loc>
     <lastmod>2022-05-07T17:53:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/user-profile/index.html</loc>
-    <lastmod>2022-05-07T17:53:25+05:30</lastmod>
+    <loc>http://kiranma72.github.io/abdm-docs/10-swagger/hiu_apis/index.html</loc>
+    <lastmod>2022-03-03T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/using-fhir-for-data/index.html</loc>
-    <lastmod>2022-05-07T17:53:25+05:30</lastmod>
+    <loc>http://kiranma72.github.io/abdm-docs/10-swagger/phr_abha-address-apis/phr-app2/index.html</loc>
+    <lastmod>2022-03-03T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/4-building-a-phr-app/create-abha-address/link-delink/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/5-building-a-phr-app/setup-auto-approval/index.html</loc>
+    <lastmod>2023-05-02T03:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/5-building-a-phr-app/index.html</loc>
+    <lastmod>2023-04-24T05:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/4-milestone3/requesting-consent/index.html</loc>
+    <lastmod>2023-04-17T04:10:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/3-milestone2/store-consent-artefacts/index.html</loc>
+    <lastmod>2023-04-10T12:10:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/5-building-a-phr-app/create-abha-address/link-delink/index.html</loc>
     <lastmod>2023-03-30T09:30:25+05:30</lastmod>
   </url>
   <url>
@@ -369,51 +329,55 @@
     <lastmod>2023-03-14T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/milestone-1/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/8-test-cases/milestone-1/index.html</loc>
     <lastmod>2023-03-13T14:30:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/3-get-health-records/consent-flow/status-notification/index.html</loc>
-    <lastmod>2022-06-23T11:30:25+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/teleconsults/confirm-booking/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-eua/teleconsults/confirm-booking/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/2-sharing-health-records/register_and_link_health_facility/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-hspa/share-opd-notes-or-prescription/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-hspa/share-opd-notes-or-prescription/index.html</loc>
-    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
-  </url>
-  <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-eua/index.html</loc>
     <lastmod>2022-05-07T17:53:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-hspa/index.html</loc>
     <lastmod>2022-05-07T17:53:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-hspa/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/retrieve-abha-account/index.html</loc>
     <lastmod>2022-05-07T17:53:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/delete-abha/index.html</loc>
-    <lastmod>2022-05-07T17:53:25+05:30</lastmod>
+    <loc>http://kiranma72.github.io/abdm-docs/10-swagger/phr_abha-address-apis/index.html</loc>
+    <lastmod>2022-05-03T17:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/5-building-a-phr-app/handling-notifications/index.html</loc>
+    <lastmod>2023-05-02T03:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/4-milestone3/storing-consent-artefact/index.html</loc>
+    <lastmod>2023-04-17T04:10:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/3-milestone2/request-health-records/index.html</loc>
+    <lastmod>2023-04-11T05:10:00+05:30</lastmod>
   </url>
   <url>
     <loc>http://kiranma72.github.io/abdm-docs/2-milestone1/abha-number/default-abha-address/index.html</loc>
     <lastmod>2023-04-05T01:30:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/milestone-2/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/8-test-cases/milestone-2/index.html</loc>
     <lastmod>2023-03-13T14:30:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/teleconsults/exchange-messages-with-doctor/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-eua/teleconsults/exchange-messages-with-doctor/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
@@ -421,27 +385,35 @@
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-hspa/view-settlements/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-hspa/view-settlements/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/index.html</loc>
     <lastmod>2022-05-07T17:53:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/deactivate-abha/index.html</loc>
-    <lastmod>2022-05-07T17:53:25+05:30</lastmod>
+    <loc>http://kiranma72.github.io/abdm-docs/5-building-a-phr-app/discovery-linking-records/index.html</loc>
+    <lastmod>2023-05-02T03:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/4-milestone3/getting-health-record/index.html</loc>
+    <lastmod>2023-04-17T04:10:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/3-milestone2/packaging-health-data/index.html</loc>
+    <lastmod>2023-04-11T05:10:00+05:30</lastmod>
   </url>
   <url>
     <loc>http://kiranma72.github.io/abdm-docs/2-milestone1/abha-number/profile-update/index.html</loc>
     <lastmod>2023-04-05T01:30:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/milestone-3/index.html</loc>
-    <lastmod>2023-03-27T14:30:25+05:30</lastmod>
+    <loc>http://kiranma72.github.io/abdm-docs/8-test-cases/milestone-3/index.html</loc>
+    <lastmod>2023-03-13T14:30:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/teleconsults/share-health-records/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-eua/teleconsults/share-health-records/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
@@ -449,15 +421,47 @@
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/6-m1-apis/reactivate-abha/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/7-abha-number/index.html</loc>
     <lastmod>2022-05-07T17:53:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/7-exiting-sandbox/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/5-building-a-phr-app/support-deep-links/index.html</loc>
+    <lastmod>2023-05-02T03:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/8-test-cases/phr-app/index.html</loc>
+    <lastmod>2023-04-26T01:00:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/4-milestone3/display-health-record/index.html</loc>
+    <lastmod>2023-04-17T04:10:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/3-milestone2/encryption-decryption/index.html</loc>
+    <lastmod>2023-04-11T05:10:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/1-basics/encoding-rsa-encryption/index.html</loc>
+    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-eua/teleconsults/setup-webrtc/index.html</loc>
+    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/8-test-cases/index.html</loc>
     <lastmod>2022-05-07T17:53:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/8-utilities/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/5-building-a-phr-app/fetch-display-records/index.html</loc>
+    <lastmod>2023-05-02T03:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/3-milestone2/transfer-health-data/index.html</loc>
+    <lastmod>2023-04-11T05:10:00+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/9-utilities/index.html</loc>
     <lastmod>2023-03-07T17:53:25+05:30</lastmod>
   </url>
   <url>
@@ -465,20 +469,28 @@
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/teleconsults/setup-webrtc/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/5-building-a-phr-app/managing-consents/index.html</loc>
+    <lastmod>2023-05-02T03:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/10-swagger/index.html</loc>
+    <lastmod>2023-04-03T17:53:25+05:30</lastmod>
+  </url>
+  <url>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-eua/teleconsults/initiate-call-tele-consults/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/9-more/index.html</loc>
-    <lastmod>2023-03-07T17:53:25+05:30</lastmod>
+    <loc>http://kiranma72.github.io/abdm-docs/5-building-a-phr-app/upload-user-records/index.html</loc>
+    <lastmod>2023-05-02T03:53:25+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/teleconsults/initiate-call-tele-consults/index.html</loc>
+    <loc>http://kiranma72.github.io/abdm-docs/6-uhi/building-uhi-eua/teleconsults/get-final-prescription/index.html</loc>
     <lastmod>2022-05-07T18:00:04+05:30</lastmod>
   </url>
   <url>
-    <loc>http://kiranma72.github.io/abdm-docs/uhi/building-uhi-eua/teleconsults/get-final-prescription/index.html</loc>
-    <lastmod>2022-05-07T18:00:04+05:30</lastmod>
+    <loc>http://kiranma72.github.io/abdm-docs/5-building-a-phr-app/scan-share/index.html</loc>
+    <lastmod>2023-05-02T03:53:25+05:30</lastmod>
   </url>
   <url>
     <loc>http://kiranma72.github.io/abdm-docs/index.html</loc>

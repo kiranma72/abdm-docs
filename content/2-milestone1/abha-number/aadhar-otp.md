@@ -16,19 +16,17 @@ pre = "<b>2.1.1 </b>"
 
 ## Functionality Overview 
 
-ABHA Number can be obtained via self-registration using Aadhaar as KYC with valid user consent where user is giving his consent to create ABHA number. **ABHA enrolment using Aadhaar has strong KYC validation.** Once user is successfully authenticated, the system will generate 14 digit ABHA number
+ABHA Number can be created by authenticating with Aadhaar. Those who have their Aadhaar number linked with their mobile number can use this method to generate their ABHA no. Consent must be explained & collected from the user prior to performing AAdhaar OTP authentication.  Once user is successfully authenticated, the system will generate 14 digit ABHA number. 
 
-Following are the steps to successfully integrate the ABHA registration via Aadhaar:
+Following are the steps to create a ABHA Number via Aadhaar OTP authentication:
 
-1. The User should input the Aadhaar number as an input.
-2. To enable beneficiary registration using Aadhaar, an integrator needs to generate an OTP and send the same on the linked mobile number.
-3. For the OTP verification process there is a primary mobile number which user wants to link with ABHA number.
-4. Once the OTP is verified, system should returns the complete profile data along with 14 digit ABHA Number to the user.
-5. if the OTP is verified:
-    - System checks whether the primary mobile number is matching with Aadhaar linked mobile number. If the aadhaar number matches then it will automatically link with ABHA number.
-    - If the primary mobile number is not matching with Aadhaar linked mobile, user must authenticate the mobile number via OTP authentication
+1. The User should input their Aadhaar number.
+2. The ABHA number APIs will make a request to UIDAI to send an OTP to the aadhaar linked mobile number. 
+3. Once the OTP is verified, the system returns the complete profile data along with 14 digit ABHA Number.
+4. The User is asked to input their mobile number.   
+    - System checks whether the user's mobile number is matching with Aadhaar linked mobile number. If it matches then it will automatically link with ABHA number.
+    - If the mobile number is not matching with Aadhaar linked mobile, an OTP is triggered to verify the submitted the mobile number
 
-**Note:** Mobile Number can be linked/verify with ABHA via using API  
 
 ## Sample User experience
 

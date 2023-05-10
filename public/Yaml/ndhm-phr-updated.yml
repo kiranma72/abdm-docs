@@ -990,29 +990,43 @@ paths:
       tags:
       - Profile Collection API's.
       summary: link and delink phr address with health id number
-      operationId: linkUsingPOST
-      parameters:
-      - name: X-Token
-        in: header
-        description: Auth Token
-        required: true
-        allowReserved: false
-        schema:
-          type: string
       requestBody:
         content:
-          application/json:
+          'application/json':
             schema:
-              "$ref": "#/components/schemas/LinkedPlayLoad"
+              type: object
+            examples:
+              Link:
+                value:
+                  action: LINK
+                  transactionId: a825f76b-0696-40f3-864c-5a3a5b389a83
+                schema:
+                 "$ref": "#/components/schemas/LinkedPlayLoad"
+              Delink:
+                value:
+                  action: DELINK
+      parameters:
+        - name: X-Token
+          in: header
+          description: Auth Token
+          required: true
+          allowReserved: false
+          schema:
+            type: string
       responses:
         '200':
           description: link and delink phr address with health id number
           content:
-            "*/*":
+            application/json:
               schema:
                 type: object
-                additionalProperties:
-                  type: boolean
+              examples:
+                Link:
+                  value:
+                    success: true
+                Delink:
+                  value:
+                    success: true
         '201':
           description: Created
         '400':
@@ -1568,7 +1582,7 @@ paths:
     post:
       tags:
       - Registration By Health ID Number
-      summary: sequence_2_2
+      summary: Resend OTP
       operationId: sequence_2_2UsingPOST
       requestBody:
         content:

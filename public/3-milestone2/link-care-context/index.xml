@@ -31,7 +31,7 @@
       <link>http://kiranma72.github.io/abdm-docs/3-milestone2/link-care-context/discovery-link/index.html</link>
       <pubDate>Mon, 03 Apr 2023 04:10:00 +0530</pubDate>
       <guid>http://kiranma72.github.io/abdm-docs/3-milestone2/link-care-context/discovery-link/index.html</guid>
-      <description>Discovery &amp;amp; link Discovery of the patient’s information at the HIP   When the gateway calls an HIP system and requests for a particular patient’s records with a set of verifiable Ids, the process of information discovery begins.
+      <description>Discovery &amp;amp; link Discovery of patient’s information at the HIP   When the gateway calls an HIP system and requests for a particular patient’s records with a set of verifiable Ids, the process of information discovery begins.
   Upon receipt of the request, the HIP health repository reverts with a set of care context labels (in masked form).
   The following flow diagram details the flows that take place during patient information discovery from the HIP perspective:</description>
     </item>

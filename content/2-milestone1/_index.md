@@ -6,9 +6,9 @@ chapter = true
 pre = "<b>2. </b>"
 +++
 
-## Get Milestone 1 Certified
+## Milestone 1 (M1)
 
-**Functionalities offered by Milestone 1 are:**
+**Functionalities to be implemented as part of Milestone 1 are:**
 1. Create ABHA number - using Aadhaar / Mobile / Demographic / Driving License
 2. Collect & Verify ABHA address during patient registration
 

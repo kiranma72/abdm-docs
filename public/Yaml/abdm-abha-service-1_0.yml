@@ -396,7 +396,7 @@ paths:
       tags:
       - Authentication
       summary: create Access Token From Refresh Token
-      description: "<b>Explanation</b>\t- API Accepts <b>Refresh Token and creates  Access Token</b>.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API accepts <b>Refresh Token and creates Access Token</b>. Returns Error for <b>Invalid/Incorrect Info.</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>Refresh Token and creates  Access Token</b>.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API accepts <b>Refresh Token and creates Access Token</b>. Returns Error for <b>Invalid/Incorrect Info.</b>."
       operationId: generateAccessTokenUsingPOST
       consumes:
       - application/json
@@ -440,7 +440,7 @@ paths:
       tags:
       - Forgot ABHA number
       summary: API accepts mobile number and then generates mobile OTP .
-      description: "<b>Explanation</b>\t- API accepts <b>Mobile Number</b> and then generates OTP for it.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>Mobile Number</b> and then generates OTP for it. Returns <b>Transaction ID</b>."
+      description: "<b>Explanation</b>\t- API accepts <b>Mobile Number</b> and then generates OTP for it.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>Mobile Number</b> and then generates OTP for it. Returns <b>Transaction ID</b>."
       operationId: generateMobileOTPUsingPOST
       consumes:
       - application/json
@@ -602,7 +602,7 @@ paths:
       tags:
       - Forgot ABHA number
       summary: Verify aadhaar OTP that has been sent on mobile number linked with Aadhaar.
-      description: "<b>Explanation</b>\t- API accepts <b>OTP</b> and then checks is it Valid as per given Aadhaar Transaction.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- Api Accepts <b>OTP</b> then returns ABHA Number and ABHA Address accordingly."
+      description: "<b>Explanation</b>\t- API accepts <b>OTP</b> and then checks is it Valid as per given Aadhaar Transaction.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- Api Accepts <b>OTP</b> then returns ABHA Number and ABHA Address accordingly."
       operationId: retrievalHealthIdByAadhaarUsingPOST
       consumes:
       - application/json
@@ -656,7 +656,7 @@ paths:
       tags:
       - Integrated Programs
       summary: Create Default ABHA Address With ABHA Number
-      description: "<b>Explanation</b>\t- API Accepts <b>ABHA Number and Creates ABHA Address</b>.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API accepts <b>ABHA Number and creates ABHA Address</b>. Returns Error for <b>Invalid/Incorrect Info.</b>"
+      description: "<b>Explanation</b>\t- API Accepts <b>ABHA Number and Creates ABHA Address</b>.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API accepts <b>ABHA Number and creates ABHA Address</b>. Returns Error for <b>Invalid/Incorrect Info.</b>"
       operationId: createPhrAdressWithHealthIdNumberUsingPOST_1
       consumes:
       - application/json
@@ -872,7 +872,7 @@ paths:
       tags:
       - Integrated Programs
       summary: Create ABHA Number using Aadhaar Demo Auth.
-      description: "<b>Explanation</b>\t- API accepts <b>Aadhaar Demo Auth.</b> and creates ABHA Number using it.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API accepts <b>Aadhaar Demo Auth.</b> and Creates ABHA Number using it. Returns Error for <b>Invalid/Incorrect Aadhaar Demo Auth.</b>."
+      description: "<b>Explanation</b>\t- API accepts <b>Aadhaar Demo Auth.</b> and creates ABHA Number using it.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API accepts <b>Aadhaar Demo Auth.</b> and Creates ABHA Number using it. Returns Error for <b>Invalid/Incorrect Aadhaar Demo Auth.</b>."
       operationId: createHealthIdByDemoAuthUsingPOST
       consumes:
       - application/json
@@ -980,7 +980,7 @@ paths:
       tags:
       - Integrated Programs
       summary: Search ABHA number using Aadhaar or Aadhaar token
-      description: "<b>Explanation</b>\t- Api Accepts <b>Aadhaar Number  or Aadhaar token</b> and finds ABHA number details using it.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- Api Accepts <b>Aadhaar Number or Aadhaar token </b> and finds ABHA number details using it. Returns Error for <b>Invalid/Incorrect Aadhaar or Aadhaar token.</b>."
+      description: "<b>Explanation</b>\t- Api Accepts <b>Aadhaar Number  or Aadhaar token</b> and finds ABHA number details using it.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- Api Accepts <b>Aadhaar Number or Aadhaar token </b> and finds ABHA number details using it. Returns Error for <b>Invalid/Incorrect Aadhaar or Aadhaar token.</b>."
       operationId: findByAadharUsingPOST
       consumes:
       - application/json
@@ -1094,7 +1094,7 @@ paths:
       tags:
       - Integrated Programs
       summary: This API updates mobile number for account.
-      description: "<b>Explanation</b>\t- API Accepts <b>Mobile Number</b> and Updates it for Particular Account.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>Mobile Number</b> and Updates it for Particular Account. Returns Error for <b>Invalid/Incorrect Mobile Number</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>Mobile Number</b> and Updates it for Particular Account.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>Mobile Number</b> and Updates it for Particular Account. Returns Error for <b>Invalid/Incorrect Mobile Number</b>."
       operationId: updateMobileInformationUsingPOST
       consumes:
       - application/json
@@ -1256,7 +1256,7 @@ paths:
       tags:
       - Integrated Programs
       summary: Generates mobile OTP on mobile number registered.
-      description: "<b>Explanation</b>\t- API Accepts <b>Mobile Number</b> and Creates OTP for it.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>Mobile Number</b> and Creates OTP for it. Returns Error for <b>Invalid/Incorrect Mobile Number</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>Mobile Number</b> and Creates OTP for it.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>Mobile Number</b> and Creates OTP for it. Returns Error for <b>Invalid/Incorrect Mobile Number</b>."
       operationId: generateMobileOtpUsingPOST
       consumes:
       - application/json
@@ -1310,7 +1310,7 @@ paths:
       tags:
       - Profile
       summary: Get account information.
-      description: "<b>Explanation</b>\t- API Accepts <b>Auth Token</b> and then Returns Account Details.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>Auth Token</b> and then Returns Account Details. Returns Error for <b>Unauthorized Auth Token</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>Auth Token</b> and then Returns Account Details.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>Auth Token</b> and then Returns Account Details. Returns Error for <b>Unauthorized Auth Token</b>."
       operationId: getAccountInformationUsingGET
       produces:
       - '*/*'
@@ -1359,7 +1359,7 @@ paths:
       tags:
       - Profile
       summary: Update account information
-      description: "<b>Explanation</b>\t- API Accepts <b>Account Details</b> and then Updates Account Details Accordingly.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>Account Details</b> and then Updates Account Details Accordingly. Returns Error for <b>Unauthorized Account Details</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>Account Details</b> and then Updates Account Details Accordingly.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>Account Details</b> and then Updates Account Details Accordingly. Returns Error for <b>Unauthorized Account Details</b>."
       operationId: updateAccountInformationUsingPOST
       consumes:
       - application/json
@@ -1521,7 +1521,7 @@ paths:
       tags:
       - Profile
       summary: Get Quick Response code in PNG format for this account.
-      description: "<b>Explanation</b>\t- API Accepts <b>Auth Token</b> and then returns Account Info for QR Code.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>Auth Token</b> and then returns Account Info for QR Code. Returns Error for <b>Unauthorized Token</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>Auth Token</b> and then returns Account Info for QR Code.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>Auth Token</b> and then returns Account Info for QR Code. Returns Error for <b>Unauthorized Token</b>."
       operationId: getQrCodeUsingGET
       produces:
       - '*/*'
@@ -1573,7 +1573,7 @@ paths:
       tags:
       - Profile
       summary: Generate ABHA card in PDF format
-      description: "<b>Explanation</b>\t- API Accepts <b>Auth Token</b> and then Returns Account Details for PDF format.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>Auth Token</b> and then Returns Account Details for PDF format. Returns Error for <b>Unauthorized Auth Token</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>Auth Token</b> and then Returns Account Details for PDF format.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>Auth Token</b> and then Returns Account Details for PDF format. Returns Error for <b>Unauthorized Auth Token</b>."
       operationId: generateCardUsingGET
       produces:
       - '*/*'
@@ -1623,7 +1623,7 @@ paths:
       tags:
       - Profile
       summary: Generate ABHA card SVG
-      description: "<b>Explanation</b>\t- API Accepts <b>Auth Token</b> and then Returns Account Details for SVG format.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>Auth Token</b> and then Returns Account Details for SVG format. Returns Error for <b>Unauthorized Auth Token</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>Auth Token</b> and then Returns Account Details for SVG format.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>Auth Token</b> and then Returns Account Details for SVG format. Returns Error for <b>Unauthorized Auth Token</b>."
       operationId: generateSvgCardUsingGET
       produces:
       - '*/*'
@@ -1674,7 +1674,7 @@ paths:
       tags:
       - Profile
       summary: Generate ABHA card PNG
-      description: "<b>Explanation</b>\t- API Accepts <b>Auth Token</b> and then Returns Account Details for PNG format.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>Auth Token</b> and then Returns Account Details for PNG format. Returns Error for <b>Unauthorized Auth Token</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>Auth Token</b> and then Returns Account Details for PNG format.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>Auth Token</b> and then Returns Account Details for PNG format. Returns Error for <b>Unauthorized Auth Token</b>."
       operationId: generatePngCardUsingGET
       produces:
       - '*/*'
@@ -1724,7 +1724,7 @@ paths:
       tags:
       - Profile
       summary: Generate Aadhaar OTP on Registered for link account with aadhaar number
-      description: "<b>Explanation</b>\t- API accepts <b>Auth Token</b> and then Generates Aadhaar OTP for Registered Mobile number.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API accepts <b>Auth Token</b> and then Generates Aadhaar OTP for Registered Mobile number. Returns Error for <b>Unauthorized Token</b>."
+      description: "<b>Explanation</b>\t- API accepts <b>Auth Token</b> and then Generates Aadhaar OTP for Registered Mobile number.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API accepts <b>Auth Token</b> and then Generates Aadhaar OTP for Registered Mobile number. Returns Error for <b>Unauthorized Token</b>."
       operationId: generatereKycAadharOTPUsingPOST
       consumes:
       - application/json
@@ -1834,7 +1834,7 @@ paths:
       tags:
       - Profile
       summary: Generate Mobile OTP to start registration.
-      description: "<b>Explanation</b>\t- API accepts <b>Auth Token</b> and creates OTP to start registration.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API accepts <b>Auth Token</b> and creates OTP to start registration. Returns Error for <b>Unauthorized Token</b>."
+      description: "<b>Explanation</b>\t- API accepts <b>Auth Token</b> and creates OTP to start registration.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API accepts <b>Auth Token</b> and creates OTP to start registration. Returns Error for <b>Unauthorized Token</b>."
       operationId: generateMobileOTPUsingGET
       produces:
       - '*/*'
@@ -1944,7 +1944,7 @@ paths:
       tags:
       - Profile
       summary: Change password via mobile for heath id.
-      description: "<b>Explanation</b>\t- API accepts <b>Old And New Password and mobile number</b> and changes the Password via mobile number.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API accepts <b>Old And New Password and mobile number</b> and changes the Password via mobile number. Returns Error for <b>Unauthorized mobile </b>."
+      description: "<b>Explanation</b>\t- API accepts <b>Old And New Password and mobile number</b> and changes the Password via mobile number.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API accepts <b>Old And New Password and mobile number</b> and changes the Password via mobile number. Returns Error for <b>Unauthorized mobile </b>."
       operationId: changePasswordViaMobileUsingPOST
       consumes:
       - application/json
@@ -2004,7 +2004,7 @@ paths:
       tags:
       - Profile
       summary: Change password via password for heath id.
-      description: "<b>Explanation</b>\t- API Accepts <b>Old And New Password</b> and changes the Password via new password.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>Old And New Password</b> and changes the Password via new password. Returns Error for <b>Unauthorized Password</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>Old And New Password</b> and changes the Password via new password.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>Old And New Password</b> and changes the Password via new password. Returns Error for <b>Unauthorized Password</b>."
       operationId: changePasswordViaUsingPOST
       consumes:
       - application/json
@@ -2880,7 +2880,7 @@ paths:
       tags:
       - Profile
       summary: Get List of Benefits associated with HealthID.
-      description: "<b>Explanation</b>\t- API accepts <b>Auth Token</b> and returns List of Benefits associated with HealthID.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API accepts <b>Auth Token</b> and returns List of Benefits associated with HealthID. Returns Error for <b>Unauthorized token </b>."
+      description: "<b>Explanation</b>\t- API accepts <b>Auth Token</b> and returns List of Benefits associated with HealthID.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API accepts <b>Auth Token</b> and returns List of Benefits associated with HealthID. Returns Error for <b>Unauthorized token </b>."
       operationId: getBenefitsUsingGET
       produces:
       - '*/*'
@@ -3010,7 +3010,7 @@ paths:
       tags:
       - Profile
       summary: Validate auth token
-      description: "<b>Explanation</b>\t- API Accepts <b>Auth Token</b> and then Checks is it Valid/Invalid/Expired.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>Auth Token</b> and then Checks is it Valid/Invalid/Expired. Returns Error for <b>Unauthorized Token</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>Auth Token</b> and then Checks is it Valid/Invalid/Expired.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>Auth Token</b> and then Checks is it Valid/Invalid/Expired. Returns Error for <b>Unauthorized Token</b>."
       operationId: validateTokenUsingPOST
       consumes:
       - application/json
@@ -3184,7 +3184,7 @@ paths:
       tags:
       - Profile
       summary: Generate Aadhaar OTP on Registered mobile number to start mobile update.
-      description: "<b>Explanation</b>\t- API Accepts <b>Transaction ID</b> and Creates OTP for linked mobile number.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>Transaction ID</b> and Creates OTP for linked mobile number. Returns Error for <b>Unauthorized Transaction ID</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>Transaction ID</b> and Creates OTP for linked mobile number.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>Transaction ID</b> and Creates OTP for linked mobile number. Returns Error for <b>Unauthorized Transaction ID</b>."
       operationId: generateUpdateMobileAadharOTPUsingPOST
       consumes:
       - application/json
@@ -3244,7 +3244,7 @@ paths:
       tags:
       - Profile
       summary: Generate OTP on new mobile need to update existing account mobile number
-      description: "<b>Explanation</b>\t- API Accepts <b>New Mobile Number and Auth Token</b> and creates OTP.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>New Mobile Number and Auth Token</b> and creates OTP. Returns Error for <b>Unauthorized Auth Token</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>New Mobile Number and Auth Token</b> and creates OTP.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>New Mobile Number and Auth Token</b> and creates OTP. Returns Error for <b>Unauthorized Auth Token</b>."
       operationId: generatereNewMobileOTPUsingPOST
       consumes:
       - application/json
@@ -3304,7 +3304,7 @@ paths:
       tags:
       - Profile
       summary: Generate Mobile OTP to start mobile update.
-      description: "<b>Explanation</b>\t- API Accepts <b>Transaction ID</b> and Creates OTP for mobile number.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>Transaction ID</b> and Creates OTP for mobile number. Returns Error for <b>Unauthorized Transaction ID</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>Transaction ID</b> and Creates OTP for mobile number.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>Transaction ID</b> and Creates OTP for mobile number. Returns Error for <b>Unauthorized Transaction ID</b>."
       operationId: generateUpdateMobileOTPUsingPOST
       consumes:
       - application/json
@@ -3364,7 +3364,7 @@ paths:
       tags:
       - Profile
       summary: Verify Mobile OTP to complete new mobile update verification.
-      description: "<b>Explanation</b>\t- API Accepts <b>New Mobile Number OTP</b> and Verifies it.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>New Mobile Number OTP</b> and Verifies it. Returns Error for <b>Unauthorized OTP</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>New Mobile Number OTP</b> and Verifies it.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>New Mobile Number OTP</b> and Verifies it. Returns Error for <b>Unauthorized OTP</b>."
       operationId: verifyNewMobileOTPUsingPOST
       consumes:
       - application/json
@@ -3475,7 +3475,7 @@ paths:
       tags:
       - Profile
       summary: Change mobile number via password/aadhaar/existing mobile for Health ID.
-      description: "<b>Explanation</b>\t- API Accepts <b>password/aadhaar/existing mobile and new Mobiles OTP</b> and Updates new mobile number.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>password/aadhaar/existing mobile and new Mobiles OTP</b> and Updates new mobile number. Returns Error for <b>Unauthorized OTP</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>password/aadhaar/existing mobile and new Mobiles OTP</b> and Updates new mobile number.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>password/aadhaar/existing mobile and new Mobiles OTP</b> and Updates new mobile number. Returns Error for <b>Unauthorized OTP</b>."
       operationId: changeMobileNumberPasswordViaUsingPOST
       consumes:
       - application/json
@@ -3636,7 +3636,7 @@ paths:
       tags:
       - Profile
       summary: Generate Mobile OTP to start mobile transaction.
-      description: "<b>Explanation</b>\t- API Accepts <b>Auth Token</b> and Generates OTP on mobile number.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>Auth Token</b> and Generates OTP on mobile number. Returns Error for <b>Unauthorized token </b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>Auth Token</b> and Generates OTP on mobile number.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>Auth Token</b> and Generates OTP on mobile number. Returns Error for <b>Unauthorized token </b>."
       operationId: generateMobileOTPUsingPOST_3
       consumes:
       - application/json
@@ -3860,7 +3860,7 @@ paths:
       tags:
       - Utility
       summary: Get a list of districts in a given  State as per LGD.
-      description: "<b>Explanation</b>\t- API Accepts <b>State Code</b> then returns list of district.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>State Code</b> then returns list of district."
+      description: "<b>Explanation</b>\t- API Accepts <b>State Code</b> then returns list of district.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>State Code</b> then returns list of district."
       operationId: getDistrictsInStateUsingGET
       produces:
       - '*/*'
@@ -3911,7 +3911,7 @@ paths:
       tags:
       - Utility
       summary: Get a list of states as per LGD.
-      description: "<b>Explanation</b>\t- API Returns <b>States</b> With its Districts.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Returns <b>States</b> With its Districts."
+      description: "<b>Explanation</b>\t- API Returns <b>States</b> With its Districts.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Returns <b>States</b> With its Districts."
       operationId: getStatesUsingGET
       produces:
       - '*/*'
@@ -5459,7 +5459,7 @@ paths:
       tags:
       - Registration with Other ID Documents
       summary: API accepts mobile number and generates OTP.
-      description: "<b>Explanation</b>\t- API Accepts <b>Mobile Number</b> and creates OTP fo it.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>Mobile Number</b> and creates OTP for it. Returns Error for <b>Invalid Mobile number</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>Mobile Number</b> and creates OTP fo it.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>Mobile Number</b> and creates OTP for it. Returns Error for <b>Invalid Mobile number</b>."
       operationId: generateMobileOTPUsingPOST_4
       consumes:
       - application/json
@@ -5513,7 +5513,7 @@ paths:
       tags:
       - Registration with Other ID Documents
       summary: Verify whether Mobile OTP entered is valid or not
-      description: "<b>Explanation</b>\t- API Accepts <b>Mobile OTP</b> and validates it.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>Mobile OTP</b> and validates it. Returns Error for <b>Invalid Mobile OTP</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>Mobile OTP</b> and validates it.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>Mobile OTP</b> and validates it. Returns Error for <b>Invalid Mobile OTP</b>."
       operationId: verifyMobileOTPUsingPOST_1
       consumes:
       - application/json
@@ -5621,7 +5621,7 @@ paths:
       tags:
       - Registration with Other ID Documents
       summary: "Create ABHA Number using ID documents like Driving Licence, PAN Card"
-      description: "<b>Explanation</b>\t- API Accepts <b>Identity Document details</b> and Creates HealthID for it.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Responce</b>\t- API Accepts <b>Identity Document details</b> and Creates HealthID for it. Returns Error for <b>Invalid Identity Document details</b>."
+      description: "<b>Explanation</b>\t- API Accepts <b>Identity Document details</b> and Creates HealthID for it.\r\n\r\n<b>Request Body</b>\t- Required\r\n\r\n<b>Response</b>\t- API Accepts <b>Identity Document details</b> and Creates HealthID for it. Returns Error for <b>Invalid Identity Document details</b>."
       operationId: createHealthIdUsingPOST
       consumes:
       - application/json
