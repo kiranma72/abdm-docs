@@ -2581,17 +2581,11 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
   "/v1/apps/profile/update":
     post:
-      tags:
-      - Update User profile
-      summary: update user profile
-      description: "<b>Response</b>\t-
-        Api returns <b>user profile</b> data."
-      operationId: updateProfileUsingPOST
       parameters:
-      - in: header
-        name: X-AUTH-TOKEN
-        required: true
-        schema:
+        - in: header
+          name: X-AUTH-TOKEN
+          required: true
+          schema:
           type: string
       requestBody:
         content:
