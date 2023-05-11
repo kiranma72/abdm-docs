@@ -6,9 +6,9 @@ draft: false
 pre : "<b>7.4.3 </b>"
 ---
 
-## Download PHR app2 openapi
 
-[{{% icon icon="download" %}}](../ndhm-phr-app2.yml "download")
+**[PHR app2 yaml{{% icon icon="download" %}}](../ndhm-phr-app2.yml "download")**
+
 
 ## Swagger for HIE-CM Profile Share
 

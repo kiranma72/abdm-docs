@@ -6,9 +6,8 @@ draft: false
 pre : "<b>7.4.1 </b>"
 ---
 
-## Download PHR updated openapi
 
-[{{% icon icon="download" %}}](../ndhm-phr-updated.yml "download")
+**[PHR updated yaml{{% icon icon="download" %}}](../ndhm-phr-updated.yml "download")**
 
 ## Swagger for ABHA Enrollment
 

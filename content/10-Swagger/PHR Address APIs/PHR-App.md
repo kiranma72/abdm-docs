@@ -6,9 +6,7 @@ draft: false
 pre : "<b>7.4.2 </b>"
 ---
 
-## Download PHR app openapi
-
-[{{% icon icon="download" %}}](../ndhm-phr-app.yml "download")
+**[PHR app yaml{{% icon icon="download" %}}](../ndhm-phr-app.yml "download")**
 
 ## Swagger for ABHA Service
 

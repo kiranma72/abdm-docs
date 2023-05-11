@@ -6,9 +6,7 @@ draft: false
 pre : "<b>7.3 </b>"
 ---
 
-## Download HIU API openapi
-
-[{{% icon icon="download" %}}](../ndhm-hiu.yml "download")
+**[HIU yaml{{% icon icon="download" %}}](../ndhm-hiu.yml "download")**
 
 ## Complete Swagger for HIU APIs
 
