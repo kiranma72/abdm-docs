@@ -3,7 +3,7 @@ title: "PHR-Updated"
 date: 2022-03-03T18:00:04+05:30
 Weight: 2
 draft: false
-pre : "<b>10.4.1 </b>"
+pre : "<b>7.4.1 </b>"
 ---
 
 ## Download PHR updated openapi
