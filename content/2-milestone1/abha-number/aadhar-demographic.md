@@ -14,27 +14,26 @@ pre = "<b>2.1.3 </b>"
 
 ## Functional Overview
 
-The aim of this is to ensure whichever Healthcare Facility the user (patient) goes to, they are identified uniquely; that is for unique identification we need ABHA number.
+Aadhaar Demographic authentication allows creation of a new ABHA number or retrival of an existing ABHA number given the Aadhaar number and Demographic details as per Aadhaar. This API also is useful for offline scenarios as the healthcare worker can capture the Aadhaar details when there is no connectivity and generate the ABHA number once connectivity is available. 
 
-When a person is trying to create ABHA number for the user (may be when there's no connectivity, i.e. "offline"), this method is used.
-Supposed to be used for/by health workers (like Asha, A&M) in their public applications.
+Applications used by health workers (like Asha, A&M) in their public applications must support this API. 
 
-- Health worker is expected to capture the Aadhaar number, name, year of birth and gender of the patient (user) as in Aadhaar card.
+- Health worker is expected to capture the Aadhaar number, name, year of birth and gender as in Aadhaar card.
 - These details can be physically captured on paper or in mobile application which works in offline mode as well. Consent of the user must always be obtained (in paper or offline apps) in the recommended language.
 - When connectivity is available, the application calls the ABHA demographic API with the same (Aadhaar number, name, year of birth and gender) information.
 - The ABHA system checks with UIDAI if the information provided is correct.
 - The ABHA system also checks if an ABHA number has already been created in the past.
-- Then the system returns the ABHA number (already created or generates new).
+- The system returns the ABHA number (New or Existing).
 
 When calling this API, care must be taken to ensure:
-1. The correct state and district of the beneficiary are passed.
-2. The mobile number that is passed is assumed to be verified by the government application and is not re-verified by ABHA.
-3. Any public health program specific ID (eg: PMJAY id, CoWin id, RCH Id) can be shared as part of the benefit id in the API.
-4. The client id used to call this API must have the integrated_program roll configured in production.
+1. The correct state and district (LGD codes) of the beneficiary are passed.
+2. The mobile number that is passed is assumed to be verified by the application and is not re-verified by ABHA.
+3. Any ID being issed by the public health program (eg: PMJAY id, CoWin id, RCH Id) can be linked to the ABHA number
+4. The ABDM client id used to call this API must have the *HidIntegratedProgram* role configured in sandbox / production.
 
 ## Test Cases
 
-**Note:** ABHA creation through Demographic Auth/ Offline mode (avaibale only for trusted entities. All Government entities are  elligible)
+**Note:** ABHA creation through Demographic Auth/ Offline mode is currently available only for Government entities
 
 |Functionality|Test Case|Steps to Execute|
 | ----- | --- | ----- |
@@ -65,9 +64,9 @@ ABHA->>Government Health Application (HIP): Returns ABHA Address
 Note right of Government Health Application (HIP):Returns already created ABHA or creates new ABHA
 {{< /mermaid >}}
 
-{{% badge icon="info" %}}Information{{% /badge %}} Kindly use the [link](/abdm-docs/1-basics/verify_sandbox_access/#check-your-jwt-token) to check whether you have roles (HidIntegratedProgram) to access the integrated Program APIs.
+{{% badge icon="info" %}}Information{{% /badge %}} [Check the roles assigned to your client id by decoding your JWT Token] (/abdm-docs/1-basics/verify_sandbox_access/#check-your-jwt-token). If you dont see the *HidIntegratedProgram* role then 
 
-Contact integration support to 
+Contact integration support via your state ABDM nodal officer 
 1. Provide the HidIntegratedProgram role to your client id
 2. Configure a benefit name specific to your government program
 
@@ -75,20 +74,14 @@ Contact integration support to
 
 {{% badge icon="info-circle" %}}Note{{% /badge %}} Kindly check the schema tab for the list of mandatory & optional fields in request body.
 
-**1. Creates ABHA Number using Aadhaar Demo Auth.**
-
-API accepts Aadhaar Demo Auth. and creates ABHA Number using it.
+**1. Create or Get ABHA Number using Aadhaar Demo Auth.**
 
 **BASE URL:** https://healthidsbx.abdm.gov.in/api
 
 {{< swaggermin src="/abdm-docs/Yaml/abdm-abha-service-1_0.yml" api="POST /v1/hid/benefit/createHealthId/demo/auth$" >}}
 
-**2. Update Account Information**
-
-API Accepts Account Details and Updates it.
+**2. Update ABHA Number Information**
 
 **BASE URL:** https://healthidsbx.abdm.gov.in/api
 
 {{< swaggermin src="/abdm-docs/Yaml/abdm-abha-service-1_0.yml" api="POST /v1/hid/benefit/update/profile$" >}}
-
-
