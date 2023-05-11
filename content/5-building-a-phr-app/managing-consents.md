@@ -26,7 +26,7 @@ pre = "<b>5.10 </b>"
 
 Here's a reference of an ABHA App to help you understand how PHR Applications can do this:
 
-*((add screenshots))*
+![sample user experienece](/abdm-docs/img/manage-consents.gif)
 
 ## Test Cases
 
