@@ -3,7 +3,7 @@ title = " Milestone 2"
 date = 2023-03-13T14:30:25+05:30
 weight = 6
 chapter = true
-pre = "<b>8.2 </b>"
+pre = "<b>6.2 </b>"
 +++
 
 # Milestone 2
