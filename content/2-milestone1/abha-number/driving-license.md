@@ -16,9 +16,9 @@ pre = "<b>2.1.4 </b>"
 
 ## Functionality Overview
 
-{{%icon icon="hand-point-right" %}} Currently ABDM support Driving License (DL) for ABHA number generation, apart from Aadhaar. 
+{{%icon icon="hand-point-right" %}} Currently ABDM supports Driving License (DL) for ABHA number generation, apart from Aadhaar. 
 
-{{%icon icon="hand-point-right" %}} To enable beneficiary registration using other documents, the user is requested his/her mobile number to be linked with ABHA Number.
+{{%icon icon="hand-point-right" %}} The user is requested his/her mobile number to be linked with ABHA Number.
 
 {{%icon icon="hand-point-right" %}} An OTP is sent to the given mobile number and after verifying the OTP , demographic information of the user is captured along with the driving license number . 
 
@@ -27,26 +27,23 @@ pre = "<b>2.1.4 </b>"
    - Date of birth (DOB)
    - Gender
 
-{{%icon icon="hand-point-right" %}} The submitted demographic details are then matched against the DL database.
+{{%icon icon="hand-point-right" %}} The DL Number and Demographic details provided are matched against the DL database.
 
-{{%icon icon="hand-point-right" %}} ABHA system also checks the details against the existing ABHA or Enrolment number database to prevent duplication.
+{{%icon icon="hand-point-right" %}} The Demographic infiormation is also checked against the existing ABHA number database to prevent duplication.
 
 {{%icon icon="hand-point-right" %}} Users are requested to upload scanned front and back images of their DL.
 
-{{%icon icon="hand-point-right" %}} Post submission, an enrollment number is generated.
+{{%icon icon="hand-point-right" %}} Post submission, an enrollment number is generated. The user has to go to a participating healthcare facility and request for the same to be verified.
 
-{{%icon icon="hand-point-right" %}} Health care workers/Facility Managers are expected to ensure that the submitted DL is of the end user requesting *creation of ABHA.*
+{{%icon icon="hand-point-right" %}} The Health care workers/Facility Managers are expected to ensure that the submitted DL is of the end user requesting *creation of ABHA number*
 
 {{%icon icon="hand-point-right" %}} They can ensure the same by matching the picture in the uploaded document with the requesting person.
 
-{{% notice %}} ABHA creation via Aadhaar is a one step process wherein, ABHA is created instantaneously. However, in case of other ID documents, an enrollment 
-number is generated first which can only be converted to ABHA once the manual verification of identity is complete. 
-
-ABHA created through Self assisted mode via using Driving license, an 
-Enrollment number has been issued which can be verified at any facility centers.
+{{% notice %}} ABHA number creation via Aadhaar is a one step process wherein, ABHA number is created instantaneously based on Aadhaar authentication. However, in case of other ID documents, an enrollment 
+number is generated and requires manual verification from participating healthcare facilities only post which the ABHA no is issued.  
 {{% /notice %}}
 
-*Documents Required* – Since this process is online, the ABHA registration will not require you to submit any documents physically. However, since the user will have to enter the details and some important information for proper verification, the user will need:
+*Documents Required* – Since this process is online, the ABHA number registration will not require you to submit any documents physically. However, since the user will have to enter the details and some important information for proper verification, the user will need:
 
 {{%icon icon="arrow-right" %}} His/Her active mobile number
 
