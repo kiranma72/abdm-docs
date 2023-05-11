@@ -87,24 +87,21 @@ ABHA->>HIU/HIP/PHR: Response 200
 
 ## API Information Request Response 
 
+{{%notice%}}
 **Utilities**
-- For encrypting the mobileNumber/AadharNumber/otp refer the [link](/abdm-docs/1-basics/encoding-rsa-encryption/#rsa-encryption)
-
-  - To get public key for encrypting refer the [link](/abdm-docs/1-basics/encoding-rsa-encryption/#api-to-retrieve-the-public-key)
-
-- For converting an image into Base64 string refer the [link](/abdm-docs/1-basics/encoding-rsa-encryption/#convert-image-to-base64)
-
-**1. [Create Gateway Session Token](/abdm-docs/1-basics/verify_sandbox_access/#create-gateway-session-token)**
-
-
-Bearer token is received as part of respose and should be passed a Authorization token for subsequent API calls.
+- [To encrypt the mobileNumber/AadharNumber/otp](/abdm-docs/1-basics/encoding-rsa-encryption/#rsa-encryption)
+- [To get public key for encryption](/abdm-docs/1-basics/encoding-rsa-encryption/#api-to-retrieve-the-public-key)
+- [To convert an image into Base64 string](/abdm-docs/1-basics/encoding-rsa-encryption/#convert-image-to-base64)
+- [Use the Postman Collection to try out the APIs](/abdm-docs/1-basics/postman_setup/#download-collections-and-environment-variables)
+- [To obtain Gateway Session Token](/abdm-docs/1-basics/verify_sandbox_access/#create-gateway-session-token)
+{{%/notice%}}
 
 **BASE URL:** https://dev.ndhm.gov.in/gateway/
 
 
-**2. Generate Aadhaar OTP on registrered mobile number**
+**1. Generate Aadhaar OTP on registrered mobile number**
 
-Api accepts Aadhar Card Number and then Generates OTP for Registered Mobile Number
+Api accepts Aadhaar Number and then sends OTP to Aadhaar linked mobile number
 
 **BASE URL:** https://abhasbx.abdm.gov.in/abha/api
 
@@ -115,7 +112,7 @@ Refer to example “Request OTP Aadhaar based enrollment”
 {{% badge style="note" title=" "%}}Note{{% /badge %}} System may activate the Resend OTP button atleast 2 times after 60 seconds. The above api is also used for **Resend OTP**
 
 
-**3. Create ABHA Number using pre-verified Aadhaar & Mobile.**
+**2. Create ABHA Number using pre-verified Aadhaar & Mobile.**
 
 API creates ABHA Number using Aadhaar & Mobile which are already Registered.
 
@@ -123,9 +120,10 @@ API creates ABHA Number using Aadhaar & Mobile which are already Registered.
 
 {{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/enrol/byAadhaar$" >}}
 
-**For Mobile verification and Mobile Update**
+**Verify & Update Mobile**
+This step is required only if the mobile number is different from the Aadhaar linked mobile number
 
-**4. Generate OTP on requested mobile number**
+**3. Generate OTP on mobile number**
 
 Api accepts Encrypted Mobile Number and then Generates OTP to that Mobile Number
 
@@ -135,7 +133,7 @@ Refer to example “Request OTP for mobile verification”
 
 {{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/request/otp$" >}}
 
-**5. Link mobile number**
+**4. Link mobile number**
 
 Api accepts Encrypted OTP and then link that Mobile Number
 
@@ -144,3 +142,5 @@ Api accepts Encrypted OTP and then link that Mobile Number
 Refer to example “Request Verify Mobile”
 
 {{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/auth/byAbdm$" >}}
+
+
