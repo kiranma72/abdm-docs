@@ -16,3 +16,7 @@ pre = "<b>5.11 </b>"
 - The PHR App needs to get a linking token in order to link these health records as a care context to the ABHA address. This is done using the APIs specified in [**Milestone 1.**](/abdm-docs/2-milestone1/verify-abha-address/user-abha-qr-scan/index.html)
 - The PHR App must add a care context to the ABHA address of the user for the uploaded records using [**HIP initiated linking.**](/abdm-docs/3-milestone2/link-care-context/hip-initiated-linking/index.html)
 - The PHR App needs to ensure the uploaded records can be shared in the ABDM ecosystem. This is achieved by supporting the Health Information Transfer APIs which are specified as part of [**Milestone 2.**](/abdm-docs/3-milestone2/index.html)
+
+![sample user experienece](/abdm-docs/img/upload-user-records.jpeg)
+
+

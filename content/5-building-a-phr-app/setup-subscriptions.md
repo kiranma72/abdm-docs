@@ -33,6 +33,8 @@ pre = "<b>5.4 </b>"
 	3. New consent request
 	4. New subscription request
 
+![sample user experienece](/abdm-docs/img/manage-subscriptions.jpg)
+
 ## User Experience 
 
 {{< gallery dir="5-building-a-phr-app/subscriptions_apiflow" />}} {{< load-photoswipe >}}
