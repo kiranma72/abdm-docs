@@ -39,7 +39,7 @@ The HIU’s health repository sends a notification that the requested informatio
 
 # Sample User Experience
 
-{{< gallery dir="4-milestone3/data_request_m3" />}} {{< load-photoswipe >}}
+{{< gallery dir="4-milestone3/m3-getting-data" />}} {{< load-photoswipe >}}
 
 ## API Sequence Diagram
 

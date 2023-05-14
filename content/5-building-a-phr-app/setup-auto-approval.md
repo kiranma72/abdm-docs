@@ -42,6 +42,8 @@ PHR App->>HIE-CM: Disable auto-approval-policy<br/>POST/consents/auto-approval-p
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /consents/auto-approve$" >}}
 
+**Note :** HIU should be associated with the user's client id
+
 #### Enable/Disable Auto-Approval 
 
 **2. Disable Auto-Approval Policy**
