@@ -10,6 +10,6 @@ pre : "<b>11.4.3 </b>"
 **[PHR app2 yaml{{% icon icon="download" %}}](../ndhm-phr-app2.yml "download")**
 
 
-## Swagger for HIE-CM Profile Share
+## Swagger for PHR app2
 
 {{< swagger src="/abdm-docs/Yaml/ndhm-phr-app2.yml">}}
