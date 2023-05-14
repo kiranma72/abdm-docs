@@ -33,7 +33,6 @@ Yeshna Arya and Nandini A from thoughtworks need a special metion for having dev
 Contributors & Reviewers 
 - Kiran Anandampillai
 - Angshuman Sarkar
-- Raunaq Pradhan
 - Meenakshi Jha
 - Kumar Satyam
 - Sai Kishore Komanduri
