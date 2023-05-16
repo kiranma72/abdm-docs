@@ -60,6 +60,19 @@ The following process is **applied to decrypt the data that the HIU receives:**
 
 ---
 
+## Note:
+
+To generate the shared secret key, use DHPK(P), omitting the headers. Adhering to the big endian (network byte order) ensures consistency in deriving the shared secret. As cryptography often deals with large numbers, it's recommended to convert data to a big integer before converting it to binary format. The following libraries can be used for this purpose:
+
+-   OpenSSL
+-   Bouncy Castle (make sure the X DHPK is a big integer)
+-   NaCl
+-   Libgcrypt
+-   PyNaCl
+-   TweetNaCl
+
+Most libraries provide the option to export public keys. However, these keys are usually compressed and encoded. To extract the uncompressed form of the public key, it is advisable to use the libraries. The uncompressed public key will start with a hex 04, and the 32 bytes following the 04, represent the X.
+
 The ECDH mechanism ensures that the shared key DHK(U,P) can also be computed at the other end by the HIU using the values DHPK(P) (HIP's ECDH public key) and DHSK(U) (HIU's ECDH private key). For this reason, the HIP must ensure that the encrypted data is sent along with DHPK(P) and RAND(P).
 
 **Data encryption summary: Choice of Elliptic-curve Diffie–Hellman parameters**
