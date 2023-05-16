@@ -1,9 +1,9 @@
 ---
 title: "Working with ABDM APIs"
 date: 2022-05-07T18:00:04+05:30
-Weight: 7
+Weight: 8
 draft: false
-pre : "<b>1.7 </b>"
+pre : "<b>1.8 </b>"
 ---
 
 ### The Authorization Header

@@ -1,9 +1,9 @@
 ---
 title: "Encoding & RSA Encryption"
 date: 2022-05-07T18:00:04+05:30
-Weight: 8
+Weight: 9
 draft: false
-pre : "<b>1.8 </b>"
+pre : "<b>1.9 </b>"
 ---
 
 

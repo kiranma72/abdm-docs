@@ -70,6 +70,8 @@ API called by CM to request Health information from HIP against a validated cons
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/health-information/hip/request$" >}}
 
+**Note:** Fidelius is designed to automatically handle both formats of public keys (base64 encoded, uncompressed public key format & x509PublicKey format) but the recommended format for sending the public key is *"base64 encoded, uncompressed public key format”*.
+![public key formats](../public_key_formats.png)
 **2. Acknowledge Health Information Request receipt**
 
 API called by HIP to acknowledge Health information request receipt

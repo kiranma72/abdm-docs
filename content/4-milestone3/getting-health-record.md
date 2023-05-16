@@ -73,12 +73,15 @@ deactivate HIU System
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/health-information/cm/request" >}}
 
 **Note:**
+- The id in the request body is the consent artefact id for which we are requesting the data and we have the consent for.
+
  ```json
  "consent": {
             "id": "5b5f9947-2115-4ac8-baea-b82c93acde3f"
         }
 ```
-The id in the request body is the consent artefact id for which we are requesting the data and we have the consent for.
+- Fidelius is designed to automatically handle both formats of public keys (base64 encoded, uncompressed public key format & x509PublicKey format) but the recommended format for sending the public key is *"base64 encoded, uncompressed public key format”*.
+![public key formats](../public_key_formats.png)
 
 
 **2. Acknowledgement Of Health Information Request**
