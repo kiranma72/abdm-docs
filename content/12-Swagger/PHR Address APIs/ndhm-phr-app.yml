@@ -2579,6 +2579,7 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+                
   /v1/apps/profile/update:
     post:
       parameters:
