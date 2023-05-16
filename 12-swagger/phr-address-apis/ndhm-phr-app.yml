@@ -1,0 +1,5332 @@
+openapi: 3.0.0
+info:
+  version: 0.0.1
+  title: Health Data Consent Manager
+  description: >
+    Entity which provides health information aggregation services to customers of health care services.
+    It enables customers to fetch their health information from one or more Health Information Providers
+    (e.g., Hospitals, Diagnostic Labs, Medical Device Companies), based on their explicit Consent and to share such
+    aggregated information with Health Information Users i.e. entities in need of such data (e.g., Insurers,
+    Doctors, Medical Researchers).
+
+servers:
+  - url: https://dev.abdm.gov.in/cm
+    description: Dev
+
+tags:
+  - name: discovery
+  - name: link
+  - name: consent
+  - name: account
+  - name: subscription
+  - name: locker
+  - name : Authorization
+paths:
+  # discovery service
+  /patients/links:
+    get:
+      tags:
+        - link
+      summary: Get linked care contexts
+      description: >
+        Get all linked care contexts from all HIPs for a patient.
+        This api is to be consumed by patient.
+      parameters:
+        - $ref: "#/components/parameters/authorization"
+      responses:
+        '200':
+          description: All linked care contexts of a patient.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkedCareContexts'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LinkedCareContexts'
+        '401':
+          description: >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /providers:
+    get:
+      tags:
+        - discovery
+      summary: List providers by given name
+      description: >
+        Returns a list of providers
+          1. Matching with the given name passed as query parameter
+          3. Restricts the matching for given stateCode and districtCode if passed
+      operationId: listProviders
+      parameters:
+        - $ref: "#/components/parameters/authorization"
+        - $ref: "#/components/parameters/providerName"
+        - $ref: "#/components/parameters/stateCode"
+        - $ref: "#/components/parameters/districtCode"
+      responses:
+        '200':
+          description: List of health information providers.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProvidersRepresentation'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProvidersRepresentation'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /providers/{provider-id}:
+    get:
+      tags:
+        - discovery
+      summary: Get a specific provider
+      description: >
+        Returns a provider
+          1. **Validate token for expiry**
+          3. **Returns a provider associated with the given id**
+      operationId: fetchProvider
+      parameters:
+        - $ref: "#/components/parameters/authorization"
+        - name: provider-id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A provider.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProviderRepresentation'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProviderRepresentation'
+        '401':
+          description:  >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Provider doesn't exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /govt-programs:
+    get:
+      tags:
+        - discovery
+      summary: List govt-programs
+      parameters:
+        - name: X-AUTH-TOKEN
+          description: Authorization token
+          in: header
+          required: true
+          schema:
+            type: string
+      description: >
+        Returns a list government programs
+      responses:
+        '200':
+          description: List of govt-programs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProviderRepresentation'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProviderRepresentation'
+        '401':
+          description: >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  #user-auth Service
+
+  /v1/apps/auth-init:
+    post:
+      tags:
+        - user-auth
+      summary: Initialize authentication for user login.
+      description: >
+        This API is called when user login via application.
+      parameters:
+        - $ref: "#/components/parameters/authorization1"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthInitRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AuthInitRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthInitResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuthInitResponse'
+        '400':
+          description: >
+            **Causes:**
+              * Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: >
+            **Causes:**
+              * Unauthorized request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /v1/apps/auth-confirm:
+    post:
+      tags:
+        - user-auth
+      summary: Confirmation of OTP and requesterId.
+      description: >
+        This API is called by CM  when user login via application and successfully receives OTP from /v1/apps/auth-init .
+      parameters:
+        - $ref: "#/components/parameters/authorization1"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthConfirm'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AuthConfirm'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthConfirmResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuthConfirmResponse'
+        '400':
+          description: >
+            **Causes:**
+              * Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: >
+            **Causes:**
+              * Unauthorized request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+
+  /authorization-requests/{request-id}/approve:
+    post:
+      tags:
+        - Authorization
+      summary: Approve authorization request
+      description: User approves the authorization request.
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - name: request-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthApproveRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AuthApproveRequest'
+      responses:
+        '200':
+          description: Successful approval of authorization request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthApprovalResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuthApprovalResponse'
+        '409':
+          description: authorization request already in approved status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: authorization request doesn't exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description:  >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /authorization-requests/{request-id}/revoke:
+    post:
+      tags:
+        - Authorization
+      summary: Revoke authorization request
+      description: User revokes the authorization request.
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - name: request-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Successful revoke of authorization request.
+        '404':
+          description: authorization request doesn't exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description:  >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /authorization-requests/{request-id}/authorization:
+    get:
+      tags:
+        - Authorization
+      summary: Get granted authorization for request-id
+      description: Get granted authorization for request-id.
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - name: request-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Granted authorization for request id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrantedAuthRepresentation'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GrantedAuthRepresentation'
+        '409':
+          description: authorization request already in approved status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: authorization request doesn't exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /authorization-requests/{request-id}/deny:
+    post:
+      tags:
+        - Authorization
+      summary: Deny authorization request
+      description: User denies the authorization request.
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - name: request-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Successful denial of authorization request.
+        '409':
+          description: authorization request already in approved/denied status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: authorization request doesn't exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: authorization request doesn't belong to the requester.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /authorization-requests:
+    get:
+      tags:
+        - Authorization
+      summary: List authorization requests
+      description: Return list of authorization requests which are matching filter criteria.
+      operationId: listAuthorizationRequests
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/authRequestFilters'
+      responses:
+        '200':
+          description: List of authorization requests.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthorizationRequestsRepresentation'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AuthorizationRequestsRepresentation'
+        '401':
+          description:  >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  #locker
+  /locker-requests/approve:
+    post:
+      tags:
+        - locker
+      summary: Approve locker requests
+      description: Approve locker subscription, authorization requests and create consent auto approval policy
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LockerApprovalRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LockerApprovalRequest'
+      responses:
+        '200':
+          description: Locker requests approval action performed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LockerRequestsApprovalResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LockerRequestsApprovalResponse'
+        '400':
+          description:  >
+            **Causes:**
+              * Invalid locker Approval Request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description:  >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # consent-service
+  /consent-requests/{request-id}:
+    get:
+      tags:
+        - consent
+      summary: Get consent request details
+      description: Fetch a ConsentRequestDetail object associated with the request-id
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - name: request-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Consent Request Details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsentRequestDetails'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ConsentRequestDetails'
+        '404':
+          description: Consent request doesn't exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /consent-requests/{request-id}/approve:
+    post:
+      tags:
+        - consent
+      summary: Approve Request
+      description: User approves the consent request with preferred data access parameters.
+      parameters:
+        - name: X-AUTH-TOKEN
+          description: Token received after successful verification of PIN
+          in: header
+          required: true
+          schema:
+            type: string
+        - name: request-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsentsApproveRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ConsentsApproveRequest'
+      responses:
+        '200':
+          description: Successful creation of consent artefact.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsentApprovalRepresentation'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ConsentApprovalRepresentation'
+        '409':
+          description: Consent request already in approved status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Consent request doesn't exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description:  >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /consent-requests/{request-id}/deny:
+    post:
+      tags:
+        - consent
+      summary: Deny request.
+      description: Deny consent request.
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - name: request-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsentDenyRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ConsentDenyRequest'
+      responses:
+        '204':
+          description: Successfully denied consent request.
+        '409':
+          description: Consent request already in denied status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Consent request doesn't exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description:  >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /consents/{consent-id}:
+    get:
+      tags:
+        - consent
+      summary: Get a specific consent
+      description: Fetch a consent artefact associated with the consent-id
+      operationId: fetchConsentArtefact
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - name: consent-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: a consent artefact.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsentArtefactRepresentation'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ConsentArtefactRepresentation'
+        '404':
+          description: Consent artefact doesn't exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description:  >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /consent-requests/{consent-request-id}/consent-artefacts:
+    get:
+      tags:
+        - consent
+      summary: Gets list of consents given a request id
+      description: Fetch a consent artefact associated with the consent-request-id
+      operationId: consentArtefacts
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - name: consent-request-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: list of consent artefacts.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsentArtefacts'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ConsentArtefacts'
+        '404':
+          description: Consent request doesn't exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description:  >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /consent-artefacts:
+    get:
+      tags:
+        - consent
+      summary: List all consent artefacts
+      description: Return list of consent artefacts which are matching filter criteria.
+      operationId: listConsentArtefacts
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/status'
+      responses:
+        '200':
+          description: List of consent artefacts.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsentArtefactResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ConsentArtefactResponse'
+        '401':
+          description:  >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /consents/auto-approve:
+    post:
+      tags:
+        - consent
+      summary: Setup autoapproval for HIU
+      description: Setup an auto-approval policy for given HIU.
+      parameters:
+        - name: X-AUTH-TOKEN
+          description: Token received after successful verification of PIN
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsentAutoApprovalRequestRepresentation'
+      responses:
+        '200':
+          description: Successful creation of auto approval policy.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsentAutoApprovalResponseRepresentation'
+        '401':
+          description: >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: >
+            **Cause:**
+              * Auto Approval Policy is already disabled
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /consents/auto-approval-policy/{auto-approval-id}/disable:
+    post:
+      tags:
+        - consent
+      summary: Disable auto-approval-policy
+      description: User disables auto approval policy given to HIU.
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - name: auto-approval-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Successfully disabled auto approval policy.
+        '404':
+          description: auto apporval policy for given HIU doesn't exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description:  >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: >
+            **Cause:**
+              * Auto Approval Policy is already disabled
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /consents/auto-approval-policy/{auto-approval-id}/enable:
+    post:
+      tags:
+        - consent
+      summary: Enable auto-approval-policy
+      description: User enables auto approval policy for HIU.
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - name: auto-approval-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Successfully enabled auto approval policy.
+        '401':
+          description: >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: auto apporval policy for given HIU doesn't exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: >
+            **Cause:**
+              * Auto Approval Policy is already enabled
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /consents/revoke:
+    post:
+      tags:
+        - consent
+      summary: Revoke consents
+      description: Patient revoke consents which are given earlier to HIU.
+      parameters:
+        - name: X-AUTH-TOKEN
+          description: Token received after successful verification of PIN
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RevokeRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/RevokeRequest'
+      responses:
+        '204':
+          description: Successful revocation of list of consents.
+        '404':
+          description: >
+            **Causes:**
+              * One or more consents does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: >
+            **Causes:**
+              * One or more consents are already revoked.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: >
+            **Causes:**
+              * Token is invalid
+              * PIN is invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  #account
+  /patients/me:
+    get:
+      tags:
+        - account
+      summary: Get profile.
+      description: Logged in patient profile information.
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+      responses:
+        '200':
+          description: A profile of a patient.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatientProfileRepresentation'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PatientProfileRepresentation'
+        '401':
+          description: >
+            **Causes:**
+              * Token is invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /patients/pin:
+    post:
+      tags:
+        - account
+      summary: Create transaction pin
+      description: Create transaction pin to use it while granting consent.
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePinRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/CreatePinRequest'
+      responses:
+        '204':
+          description: PIN created successfully.
+        '401':
+          description: >
+            **Causes:**
+              * Token is invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /patients/verify-pin:
+    post:
+      tags:
+        - account
+      summary: Verify PIN
+      description: MFA before granting the consent request.
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidatePinRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ValidatePinRequest'
+      responses:
+        '200':
+          description: Successful verification of PIN.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentifierVerifyResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/IdentifierVerifyResponse'
+        '401':
+          description: >
+            **Causes:**
+              * Token is invalid
+              * PIN is invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /patients/change-pin:
+    post:
+      tags:
+        - account
+      summary: Change PIN
+      description: to change the transaction PIN.
+      parameters:
+        - name: X-AUTH-TOKEN
+          description: Token received after successful verification of PIN
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangePinRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ChangePinRequest'
+      responses:
+        '200':
+          description: PIN updated successfully.
+        '400':
+          description: Bad request (Invalid PIN)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description:  >
+            **Causes:**
+              * Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /patients/forgot-pin/generate-otp:
+    post:
+      tags:
+        - account
+      summary: Generate OTP for forgot pin flow
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+      responses:
+        '201':
+          description: OTP generated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateOtpResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /patients/forgot-pin/validate-otp:
+    post:
+      tags:
+        - account
+      summary: Validate OTP for forgot pin flow
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyOtpRequest'
+      responses:
+        '200':
+          description: OTP validation successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerifyOtpResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/VerifyOtpResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /patients/reset-pin:
+    put:
+      tags:
+        - account
+      summary: Update pin with temporary token
+      parameters:
+        - name: X-AUTH-TOKEN
+          description: Token received after successful verification of OTP.
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangePinRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ChangePinRequest'
+      responses:
+        '204':
+          description: Pin updated successfully.
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /patients/profile/share:
+    post:
+      tags:
+        - account
+      summary: Shares details
+      description: Share the healthID and user demographics to the hospital
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShareProfileRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShareProfileRequest'
+      responses:
+        '200':
+          description: Successfully shared patient details to hospital
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShareProfileResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShareProfileResponse'
+        '400':
+          description: >
+            **Causes:**
+              * Invalid Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: >
+            **Causes:**
+              * Invalid/expired token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      deprecated: true
+  /v1/patients/profile/share:
+    post:
+      tags:
+        - account
+      summary: Shares details
+      description: Share the healthID and user demographics to the hospital
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShareProfileRequest1'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ShareProfileRequest1'
+      responses:
+        '200':
+          description: Successfully shared patient details to hospital
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShareProfileResponse1'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ShareProfileResponse1'
+        '400':
+          description: >
+            **Causes:**
+              * Invalid Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: >
+            **Causes:**
+              * Invalid/expired token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /patients/requests:
+    get:
+      tags:
+        - account
+      summary: Get all requests
+      description: Get all consents, locker-setup, subscriptions, and authorizations requests
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - $ref: '#/components/parameters/consentLimit'
+        - $ref: '#/components/parameters/consentOffset'
+        - $ref: '#/components/parameters/lockerSetupLimit'
+        - $ref: '#/components/parameters/lockerSetupOffset'
+        - $ref: '#/components/parameters/subscriptionLimit'
+        - $ref: '#/components/parameters/subscriptionOffset'
+        - $ref: '#/components/parameters/authorizationLimit'
+        - $ref: '#/components/parameters/authorizationOffset'
+        - $ref: '#/components/parameters/status'
+      responses:
+        '200':
+          description: Locker requests approval action performed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatientsRequestsRepresentation'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PatientsRequestsRepresentation'
+        '401':
+          description:  >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  #utils
+  /states:
+    get:
+      tags:
+        - utils
+      summary: List of States
+      description: Getting list of States.
+      responses:
+        '200':
+          description: List of States.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StateRequestResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/StateRequestResponse'
+
+        '400':
+          description: >
+            **Causes:**
+              * Invalid Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >
+            **Causes:**
+              * Not Found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /{state-code}/districts:
+    get:
+      tags:
+        - utils
+      summary: Districts list of specific State.
+      description: Getting list of Districts.
+      parameters:
+        - $ref: "#/components/parameters/state-code"
+      responses:
+        '200':
+          description: List of Districts .
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DistrictRequestResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DistrictRequestResponse'
+
+        '400':
+          description: >
+            **Causes:**
+              * Invalid Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >
+            **Causes:**
+              * Not Found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  #pushnotifications
+  /patients/notification/app-token:
+    post:
+      tags:
+        - app-notification-token
+      summary: Save App Notification Token
+      description: API to save App notification/device token given by the patient
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+      requestBody:
+        description: App notification token sent for device verification
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppNotificationTokenRequest'
+      responses:
+        '201':
+          description: App notification token saved successfully
+        '400':
+          description: >
+            **Causes:**
+              * Invalid Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: >
+            **Causes:**
+              * Invalid/expired token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  # Session
+  /logout:
+    post:
+      description: |
+        Logout active user by invalidating the access and refresh tokens
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogoutRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LogoutRequest'
+      responses:
+        200:
+          description: OK
+        401:
+          description: Unauthorized
+        400:
+          description: Bad request(potentially bad request token)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: Error(On server side) in logging out
+  /sessions:
+    post:
+      summary: Login for users.
+      description: All the users can login. User types are super admin/admin/lab assistants.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: User login successfull.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '400':
+          description: >
+            **Causes:**
+              * Invalid Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream services are down
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /v1/links/link/init/:
+    post:
+      tags:
+        - link
+      summary: Link care contexts
+      description: >
+        Links care contexts associated with only one patient
+          1. **Validates Transaction Id**
+      parameters:
+        - $ref: "#/components/parameters/authorization"
+      requestBody:
+        required: true
+        description: A object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatientLinkReferenceRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PatientLinkReferenceRequest'
+      responses:
+        '200':
+          description: A successful link request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatientLinkReferenceResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PatientLinkReferenceResponse'
+        '400':
+          description: >
+            **Causes:**
+               * Invalid request data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/links/link/confirm/{linkRefNumber}:
+    post:
+      tags:
+        - link
+      summary: Verify link
+      description: >
+        Returns a list of linked care contexts with patient reference number.
+          1. **Validate token for expiry**
+          3. **Returns a list of unmasked linked care contexts with patient reference number**
+      operationId: linkPatientConfirmation
+      parameters:
+        - $ref: "#/components/parameters/authorization"
+        - $ref: "#/components/parameters/linkRefNumber"
+      requestBody:
+        required: true
+        description: A object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatientLinkRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PatientLinkRequest'
+      responses:
+        '200':
+          description: List of linked care contexts of a patient with patient reference number.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatientLinkResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PatientLinkResponse'
+        '400':
+          description: >
+            **Causes:**
+              Invalid Request data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /v1/care-contexts/discover:
+    post:
+      tags:
+        - discovery
+      summary: Discover patient
+      description: >
+        Return only one patient record with (potentially masked) associated care contexts
+        1. **At least one of the verified identifier matches.**
+        2. **Filter out records using unverified, firstName, secondName, gender and dob
+        if there are more than one patient records found from step 1.**
+      operationId: discoverPatient
+      parameters:
+        - $ref: "#/components/parameters/authorization"
+      requestBody:
+        required: true
+        description: A patient discovery request.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatientDiscoveryRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/PatientDiscoveryRequest'
+      responses:
+        '200':
+          description: Found a patient.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatientDiscoveryRepresentation'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PatientDiscoveryRepresentation'
+        '401':
+          description: >
+            **Causes:**
+              * Unauthorized request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >
+            **Causes:**
+              * No Patients found in HIP
+              * Multiple patients found in HIP
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /subscription-requests:
+    get:
+      tags:
+        - subscription
+      summary: List subscription requests
+      description: Return list of subscription requests which are matching filter criteria.
+      operationId: listSubscriptionRequests
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/filters'
+      responses:
+        '200':
+          description: List of consent requests.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionRequestsRepresentation'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SubscriptionRequestsRepresentation'
+        '401':
+          description: >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /subscription-requests/{request-id}/approve:
+    post:
+      tags:
+        - subscription
+      summary: Approve Subscription Request
+      description: User approves the subscription request with preferred given parameters.
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - name: request-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionEditAndApprovalRequestRepresentation'
+      responses:
+        '200':
+          description: Successful creation of Subscriptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionApprovalRepresentation'
+        '409':
+          description: Subscription request already in approved status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Subscription request doesn't exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /subscription-requests/{request-id}/deny:
+    post:
+      tags:
+        - subscription
+      summary: Deny request.
+      description: Deny consent request.
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - name: request-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionDenyRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SubscriptionDenyRequest'
+      responses:
+        '204':
+          description: Successfully denied Subscription request.
+        '409':
+          description: Subscription request already in denied status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Subscription request doesn't exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /patients/lockers:
+    get:
+      tags:
+        - account
+      summary: Get list of subscribed lockers for user
+      description: returns a list of user subscribed lockers. If no locker is found for the user, returns empty array
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - name: patientId
+          in: query
+          required: true
+          schema:
+            type: string
+            format: string
+            example: raj.sharma@ndhm
+        - name: includeInactive
+          in: query
+          required: false
+          schema:
+            type: string
+            format: string
+            example: false
+      responses:
+        '200':
+          description: Array of registered locker for user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserLockersResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UserLockersResponse'
+        '404':
+          description: User doesn't exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /patients/lockers/{lockerId}:
+    get:
+      tags:
+        - account
+      summary: Get settings of a subscribed locker for user
+      description: returns authorizations, subscriptions and consent auto approval settings for the locker. If the specified locker is not found, an error is thrown.
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - name: lockerId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: string
+            example: 1000012
+      responses:
+        '200':
+          description: Lockers settings including authorizations, subscriptions, and consent auto approval settings
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserLockerSettings'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/UserLockerSettings'
+        '404':
+          description: Locker or user doesn't exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /subscription-requests/{subscription-id}:
+    get:
+      tags:
+        - subscription
+      summary: Get subscription details of a subscription id
+      description: Returns subscription details along with all the subscription source.
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - name: subscription-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Subscription details along with subscription sources including Categories, hitypes and sources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HIUSubscriptionRepresentation'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/HIUSubscriptionRepresentation'
+        '404':
+          description: Subscription request with given id not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /patients/subscription-requests/{subscription-id}:
+    put:
+      tags:
+        - subscription
+      summary: Edit Subscription Request
+      description: User edits the subscription request with preferred given parameters.
+      parameters:
+        - $ref: '#/components/parameters/authorization'
+        - name: subscription-id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionEditRequestRepresentation'
+      responses:
+        '200':
+          description: Successful creation of Subscriptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionApprovalRepresentation'
+        '404':
+          description: Subscription request doesn't exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: >
+            **Causes:**
+              * Expired/Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >
+            **Causes:**
+              * Downstream system(s) is down.
+              * Unhandled exceptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+                
+  /v1/apps/profile/update:
+    post:
+      parameters:
+        - in: header
+          name: X-AUTH-TOKEN
+          required: true
+          schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateProfileRequest"
+      responses:
+        '200':
+          description: Successful. create Access Token.
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SuccessResponse"
+        '201':
+          description: Created
+        '400':
+          description: Bad request, check request before retrying
+        '401':
+          description: Unauthorized Access.
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Request in invalid, Check the request Parameter.
+        '500':
+          description: |-
+            Downstream system(s) is down.
+            Unhandled exceptions.
+      security:
+      - Authorization:
+        - global
+      - X-HIP-ID:
+        - global              
+
+components:
+  parameters:
+    authorization1:
+      name: Authorization
+      in: header
+      required: true
+      description: Bearer token which was issued after successful gateway login.
+      schema:
+        type: string
+    authorization:
+      name: X-AUTH-TOKEN
+      in: header
+      required: true
+      description: Bearer token which was issued after successful login.
+      schema:
+        type: string
+    cmAuthorization:
+      name: Authorization
+      in: header
+      required: true
+      description: Authorization token which was issued by central registery to client with role CM.
+      schema:
+        type: string
+    hiuAuthorization:
+      name: Authorization
+      in: header
+      required: true
+      description: Authorization token which was issued by central registery.
+      schema:
+        type: string
+    limit:
+      name: limit
+      in: query
+      description: How many items to return at one time (max 100) (recommended to sent always)
+      required: false
+      schema:
+        type: integer
+        format: int32
+    offset:
+      name: offset
+      in: query
+      description: How many items out of line.
+      required: false
+      schema:
+        type: integer
+        format: int32
+    consentLimit:
+      name: consentLimit
+      in: query
+      description: How many items to return at one time (max 100) (recommended to sent always)
+      required: false
+      schema:
+        type: integer
+        format: int32
+    consentOffset:
+      name: consentOffset
+      in: query
+      description: How many items out of line.
+      required: false
+      schema:
+        type: integer
+        format: int32
+    lockerSetupLimit:
+      name: lockerSetupLimit
+      in: query
+      description: How many items to return at one time (max 100) (recommended to sent always)
+      required: false
+      schema:
+        type: integer
+        format: int32
+    lockerSetupOffset:
+      name: lockerSetupOffset
+      in: query
+      description: How many items out of line.
+      required: false
+      schema:
+        type: integer
+        format: int32
+    subscriptionLimit:
+      name: subscriptionLimit
+      in: query
+      description: How many items to return at one time (max 100) (recommended to sent always)
+      required: false
+      schema:
+        type: integer
+        format: int32
+    subscriptionOffset:
+      name: subscriptionOffset
+      in: query
+      description: How many items out of line.
+      required: false
+      schema:
+        type: integer
+        format: int32
+    authorizationLimit:
+      name: authorizationLimit
+      in: query
+      description: How many items to return at one time (max 100) (recommended to sent always)
+      required: false
+      schema:
+        type: integer
+        format: int32
+    authorizationOffset:
+      name: authorizationOffset
+      in: query
+      description: How many items out of line.
+      required: false
+      schema:
+        type: integer
+        format: int32
+    status:
+      name: status
+      in: query
+      required: false
+      schema:
+        type: string
+      description: >
+        1. Query string parameter restricts the data returned from your request.
+        2. Possible values of status
+            | status | logic |
+            | ------ | ------ |
+            | REQUESTED | Gets all requested consents |
+            | GRANTED | Gets all Granted consent artefacts |
+            | EXPIRED | Gets all Expired consent artefacts |
+            | REVOKED | Gets all Revoked consent artefacts |
+            | ALL | Gets all consent artefacts |
+    healthId:
+      name: HealthId
+      in: query
+      required: true
+      schema:
+        type: string
+    filters:
+      name: filters
+      in: query
+      schema:
+        type: string
+      description: >
+        -        1. Query string parameter restricts the data returned from your request.
+        -        2. Values in filters need to be encoded.
+        -            | filter   | logic|
+        -            | ------- | ----------------    |
+        -            | status%21%3DDENIED     | status != DENIED  |
+        -            | status%3D%3DDENIED,status%3D%3DGRANTED  | status == DENIED **or** status == GRANTED
+      examples:
+        except_denied:
+          value: "filters=cm:status%21%3DDENIED"
+        either_granted_or_denied:
+          value: "filters=cm:status%3D%3DDENIED,cm:status%3D%3DGRANTED"
+      required: false
+    authRequestFilters:
+      name: filters
+      in: query
+      schema:
+        type: string
+      description: >
+        -        1. Query string parameter restricts the data returned from your request.
+        -        2. Values in filters need to be encoded.
+        -            | filter   | logic|
+        -            | ------- | ----------------    |
+        -            | status%21%3DDENIED     | status != DENIED  |
+        -            | status%3D%3DDENIED,status%3D%3DGRANTED  | status == DENIED **or** status == GRANTED
+        -            | authMode%3D%3DIRECT,authMode%3D%3DMOBILE_OTP | authMode == DIRECT **or** authMode == MOBILE_OTP
+      examples:
+        except_denied:
+          value: "filters=cm:status%21%3DDENIED"
+        either_granted_or_denied:
+          value: "filters=cm:status%3D%3DDENIED,cm:status%3D%3DGRANTED"
+      required: false
+    linkRefNumber:
+      name: linkRefNumber
+      in: path
+      schema:
+        type: string
+        format: uuid
+      required: true
+    state-code:
+      name: state-code
+      in: path
+      schema:
+        type: string
+      required: true
+    providerName:
+      name: name
+      in: query
+      schema:
+        type: string
+        example: max
+      required: true
+    stateCode:
+      name: stateCode
+      in: query
+      schema:
+        type: string
+        example: 35
+      required: false
+    districtCode:
+      name: districtCode
+      in: query
+      schema:
+        type: string
+        example: 603
+      required: false
+    enquiryId:
+      name: enquiryId
+      in: path
+      schema:
+        type: string
+        format: uuid
+      required: true
+  schemas:
+    SuccessResponse:
+      title: SuccessResponse
+      required:
+      - success
+      type: object
+      properties:
+        success:
+          type: object
+          description: bool
+          example: 'true'
+   
+    UpdateProfileRequest:
+      type: object
+      required:
+        - address
+        - dateOfBirth
+        - districtCode
+        - gender
+        - name
+        - pinCode
+        - profilePhoto
+        - stateCode
+      properties:
+        address:
+          type: string
+          example: pune apartment
+        dateOfBirth:
+          type: object
+          required:
+            - date
+            - month
+            - year
+          properties:
+            date:
+              type: number
+              example: 9
+            month:
+              type: number
+              example: 8
+            year:
+              type: number
+              example: 1989
+        districtCode:
+          type: string
+          example: 482
+        gender:
+          type: string
+          enum: [M, F, O, U]
+        name:
+          type: object
+          required:
+            - first
+            - last
+            - middle
+          properties:
+            first:
+              type: string
+              example: anu
+            last:
+              type: string
+              example: hasan
+            middle:
+              type: string
+              example: chandra
+        pinCode:
+           type: string
+           example: 600042
+        profilePhoto:
+          type: string
+          example: /9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkJCQkJCQoLCwoODw0PDhQSERESFB4WFxYXFh4uHSEdHSEdLikxKCUoMSlJOTMzOUlUR0NHVGZbW2aBeoGoqOIBCQkJCQkJCgsLCg4PDQ8OFBIRERIUHhYXFhcWHi4dIR0dIR0uKTEoJSgxKUk5MzM5SVRHQ0dUZltbZoF6gaio4v/CABEIBLAHgAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//aAAgBAQAAAADwawLpMspcK7qrlE5F0Vtul2bVywMUNeBHUkW/bmxvYELGuNjh2VDvixxo5ViljKjDRMoahCULjs2JCShjhjh2OGxo0Y2MoXHOLszsKLhw7tD99mpZQxj8xceofmLEKFwXLTIyHwY1Ls+iEotjHY0M0pjRYxtGj4VFKLPohQlFQyy4Qipc0XG9pS+CP/2Q==
+          description: Encoded with Base 64
+        stateCode:
+          type: string
+          example: 32
+    LoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+          format: text
+        password:
+          type: string
+          format: text
+        grantType:
+          type: string
+          format: text
+          example: password/refreshToken
+        refreshToken:
+          type: string
+    PatientDiscoveryRepresentation:
+      type: object
+      properties:
+        transactionId:
+          type: string
+          format: uuid
+        patient:
+          $ref: '#/components/schemas/PatientRepresentation'
+        createdAt:
+          type: string
+          format: date-time
+    PatientRepresentation:
+      type: object
+      properties:
+        referenceNumber:
+          type: string
+        display:
+          type: string
+        careContexts:
+          type: array
+          items:
+            $ref: '#/components/schemas/CareContextRepresentation'
+          xml:
+            wrapped: true
+      xml:
+        name: PatientRepresentation
+    Patient:
+      type: object
+      properties:
+        referenceNumber:
+          type: string
+        careContexts:
+          type: array
+          items:
+            $ref: '#/components/schemas/CareContext'
+          xml:
+            wrapped: true
+      xml:
+        name: Patient
+    CareContextRepresentation:
+      type: object
+      properties:
+        referenceNumber:
+          type: string
+        display:
+          type: string
+      xml:
+        name: CareContextResponse
+    CareContext:
+      type: object
+      properties:
+        referenceNumber:
+          type: string
+      xml:
+        name: CareContext
+    PatientDiscoveryRequest:
+      type: object
+      properties:
+        requestId:
+          type: string
+          format: uuid
+        hip:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Identifier of the health information provider where patient record needs to be looked up.
+        unverifiedIdentifiers:
+          description: additional unverified identifiers may be passed
+          type: array
+          items:
+            $ref: '#/components/schemas/PatientIdentifier'
+          xml:
+            name: unverifiedIdentifiers
+            wrapped: true
+    PatientLinkReferenceRequest:
+      type: object
+      properties:
+        requestId:
+          type: string
+          format: uuid
+        transactionId:
+          type: string
+          format: uuid
+        patient:
+          $ref: '#/components/schemas/Patient'
+      xml:
+        name: PatientLinkReferenceRequest
+    PatientLinkReferenceResponse:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        link:
+          $ref: '#/components/schemas/link'
+      xml:
+        name: PatientLinkReferenceResponse
+    link:
+      type: object
+      properties:
+        referenceNumber:
+          type: string
+        authenticationType:
+          type: string
+          enum: ['DIRECT', 'MEDIATED']
+        meta:
+          $ref: '#/components/schemas/Meta'
+      xml:
+        name: link
+    Meta:
+      type: object
+      required:
+        - communicationMedium
+        - communicationHint
+      properties:
+        communicationMedium:
+          type: string
+          enum: ['MOBILE', 'EMAIL']
+        communicationHint:
+          type: string
+        communicationExpiry:
+          type: string
+          example: "2019-12-30T12:01:55Z"
+      xml:
+        name: Meta
+    PatientLinkRequest:
+      type: object
+      properties:
+        token:
+          type: string
+        linkRefNumber:
+          type: string
+      xml:
+        name: PatientLinkRequest
+    AuthApproveRequest:
+      type: object
+      required:
+        - generatePerpetualToken
+      properties:
+        generatePerpetualToken:
+          type: boolean
+      xml:
+        name: AuthApproveRequest
+    PatientLinkResponse:
+      type: object
+      properties:
+        patient:
+          $ref: '#/components/schemas/PatientRepresentation'
+      xml:
+        name: PatientLinkResponse
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/Error'
+      xml:
+        name: ErrorResponse
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+          enum: [1000, 10001]
+          description: >
+            1. Error code 1000 : No patient found
+            2. Error code 1001: Multiple patients found
+        message:
+          type: string
+      xml:
+        name: Error
+    AuthorizationRequest:
+      type: object
+      properties:
+        requestId:
+          type: string
+          format: uuid
+        patientId:
+          type: string
+        status:
+          $ref: '#/components/schemas/AuthRequestStatus'
+        createdAt:
+          type: string
+          format: date-time
+        lastUpdated:
+          type: string
+          format: date-time
+        purpose:
+          type: object
+          required:
+            - code
+            - text
+          properties:
+            code:
+              $ref: "#/components/schemas/PatientAuthPurpose"
+            text:
+              type: string
+            uri:
+              type: string
+        authMode:
+          $ref: "#/components/schemas/AuthenticationMode"
+        requester:
+          $ref: "#/components/schemas/ServiceRequester"
+      xml:
+        name: AuthorizationRequestRepresentation
+    ConsentRequestsRepresentation:
+      type: object
+      properties:
+        limit:
+          type: integer
+        size:
+          type: integer
+        offset:
+          type: integer
+        requests:
+          type: array
+          maxItems: 100
+          items:
+            $ref: '#/components/schemas/ConsentRequestRepresentation'
+          xml:
+            wrapped: true
+      xml:
+        name: ConsentRequestsResponse
+    AuthorizationRequestsRepresentation:
+      type: object
+      properties:
+        limit:
+          type: integer
+        size:
+          type: integer
+        offset:
+          type: integer
+        requests:
+          type: array
+          maxItems: 100
+          items:
+            $ref: '#/components/schemas/AuthorizationRequest'
+          xml:
+            wrapped: true
+      xml:
+        name: AuthorizationRequestsRepresentation
+    GrantedAuthRepresentation:
+      type: object
+      properties:
+        requestId:
+          type: string
+          format: uuid
+        patientId:
+          type: string
+        status:
+          $ref: '#/components/schemas/AuthRequestStatus'
+        createdAt:
+          type: string
+          format: date-time
+        lastUpdated:
+          type: string
+          format: date-time
+        expiry:
+          type: string
+          format: date-time
+        purpose:
+          type: object
+          required:
+            - code
+            - text
+          properties:
+            code:
+              $ref: "#/components/schemas/PatientAuthPurpose"
+            text:
+              type: string
+            uri:
+              type: string
+        authMode:
+          $ref: "#/components/schemas/AuthenticationMode"
+        requester:
+          $ref: "#/components/schemas/ServiceRequester"
+      xml:
+        name: GrantedAuthRepresentation
+    ConsentRequestRepresentation:
+      type: object
+      required:
+        - createdAt
+        - purpose
+        - patient
+        - hiu
+        - permission
+        - status
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        lastUpdated:
+          type: string
+          format: date-time
+        purpose:
+          $ref: "#/components/schemas/UsePurpose"
+        patient:
+          allOf:
+            - $ref: '#/components/schemas/ConsentManagerPatientID'
+            - xml:
+                name: patient
+        hip:
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/OrganizationRepresentation'
+            - xml:
+                name: hip
+        hiu:
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/OrganizationRepresentation'
+            - xml:
+                name: hiu
+        requester:
+          $ref: '#/components/schemas/Requester'
+        hiTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/HITypeEnum'
+          xml:
+            wrapped: true
+        permission:
+          $ref: '#/components/schemas/Permission'
+        status:
+          $ref: '#/components/schemas/ConsentStatus'
+      xml:
+        name: ConsentRequestResponse
+    ConsentRequestDetails:
+      type: object
+      required:
+        - createdAt
+        - purpose
+        - patient
+        - hiu
+        - permission
+        - status
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        lastUpdated:
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/ConsentStatus'
+        purpose:
+          $ref: "#/components/schemas/UsePurpose"
+        patient:
+          allOf:
+            - $ref: '#/components/schemas/ConsentManagerPatientID'
+            - xml:
+                name: patient
+        hip:
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/OrganizationRepresentation'
+            - xml:
+                name: hip
+        hiu:
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/OrganizationRepresentation'
+            - xml:
+                name: hiu
+        requester:
+          $ref: '#/components/schemas/Requester'
+        hiTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/HITypeEnum'
+          xml:
+            wrapped: true
+        careContexts:
+          type: array
+          items:
+            type: object
+            required:
+              - patientReference
+              - careContextReference
+            properties:
+              patientReference:
+                type: string
+                example: batman@tmh
+              careContextReference:
+                type: string
+                example: Episode1
+
+        permission:
+          $ref: '#/components/schemas/Permission'
+    Requester:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        identifier:
+          $ref: '#/components/schemas/Identifier'
+    ServiceRequester:
+      type: object
+      required:
+        - type
+        - id
+        - name
+      description: identification of requester
+      properties:
+        type:
+          type: string
+          enum: [ HIP, HIU, HIP_AND_HIU, HEALTH_LOCKER ]
+        id:
+          type: string
+          example: 100005
+        name:
+          type: string
+    OrganizationRepresentation:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          xml:
+            attribute: true
+        name:
+          type: string
+          xml:
+            attribute: true
+      xml:
+        name: OrganizationResponse
+    Attribute:
+      type: object
+      required:
+        - hipAttributes
+        - hiuAttributes
+        - healthLockerAttributes
+      properties:
+        hipAttributes:
+          type: string
+          example: null
+        hiuAttributes:
+          type: string
+          example: null
+        healthLockerAttributes:
+          type: string
+          example: null
+
+      xml:
+        name: OrganizationResponse
+
+    Organization:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          xml:
+            attribute: true
+    Identifier:
+      type: object
+      required:
+        - value
+      properties:
+        value:
+          type: string
+        type:
+          type: string
+        system:
+          type: string
+          format: uri
+    HITypeEnum:
+      type: string
+      enum:
+        - Prescription
+        - DiagnosticReport
+        - OPConsultation
+        - DischargeSummary
+        - ImmunizationRecord
+        - HealthDocumentRecord
+        - WellnessRecord
+      xml:
+        name: HIType
+    ConsentsApproveRequest:
+      type: object
+      properties:
+        consents:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConsentApproveRequest'
+          xml:
+            wrapped: true
+    ConsentApproveRequest:
+      type: object
+      properties:
+        hiTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/HITypeEnum'
+          xml:
+            wrapped: true
+        hip:
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/Organization'
+            - xml:
+                name: hip
+        careContexts:
+          type: array
+          items:
+            type: object
+            required:
+              - patientReference
+              - careContextReference
+            properties:
+              patientReference:
+                type: string
+              careContextReference:
+                type: string
+        permission:
+          $ref: '#/components/schemas/Permission'
+      xml:
+        name: ConsentApproveRequest
+    ConsentApprovalRepresentation:
+      type: object
+      properties:
+        consents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Consent'
+          xml:
+            wrapped: true
+      xml:
+        name: ConsentApprovalResponse
+    Consent:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+      xml:
+        name: Consent
+    Permission:
+      type: object
+      properties:
+        accessMode:
+          type: string
+          enum: [VIEW, STORE, QUERY, STREAM]
+        dateRange:
+          type: object
+          properties:
+            from:
+              type: string
+              format: date-time
+            to:
+              type: string
+              format: date-time
+        dataEraseAt:
+          type: string
+          format: date-time
+        frequency:
+          type: object
+          properties:
+            unit:
+              type: string
+              enum: [HOUR, WEEK, DAY, MONTH, YEAR]
+            value:
+              type: integer
+            repeats:
+              type: integer
+      xml:
+        name: Permission
+    ProvidersRepresentation:
+      type: array
+      items:
+        $ref: '#/components/schemas/ProviderRepresentation'
+      xml:
+        name: ProvidersResponse
+    ProviderRepresentation:
+      type: object
+      properties:
+        identifier:
+          allOf:
+            - $ref: '#/components/schemas/OrganizationRepresentation'
+        city:
+          type: string
+        telephone:
+          type: string
+        latitude:
+          type: string
+          example: 11.96
+        longitude:
+          type: string
+          example: 79.73
+        address:
+          type: string
+          example: Nadu street thondamanatham
+        districtCode:
+          type: string
+          example: 600
+        stateCode:
+          type: string
+          example: 34
+        pinCode:
+          type: string
+          example: 605002
+        facilityType:
+          type: array
+          items:
+            type: string
+          example: [HIP, HIU, HEALTH_LOCKER]
+        isHIP:
+          type: boolean
+          example: true
+        attribute:
+          allOf:
+            - $ref: '#/components/schemas/Attribute'
+
+    AuthInitRequest:
+      type: object
+      required:
+        - patientId
+        - purpose
+        - authMode
+        - requester
+      properties:
+        patientId:
+          type: string
+          example: hinapatel@sbx
+        purpose:
+          type: string
+          enum: [ "CM_ACCESS" ]
+        authMode:
+          type: string
+          enum: [ "MOBILE_OTP", "AADHAAR_OTP"]
+          description: >
+            Subjected to CM specific capability
+             1. MOBILE_OTP - for SMS OTP
+             2. AADHAAR_OTP - for auth using OTP sent to Aadhaar number
+        requester:
+          type: object
+          required:
+            - type
+            - id
+          properties:
+            type:
+              type: string
+              enum: [ "PHR" ]
+            id:
+              type: string
+              example: "IN0400XX"
+              description: service id
+    AuthConfirm:
+      type: object
+      required:
+        - transactionId
+        - authCode
+        - requesterId
+      properties:
+        transactionId:
+          type: string
+          example: de277b66-00ea-4a4a-a29f-bb9a467960aa
+        authCode:
+          type: string
+          example: 456456
+          description : OTP
+        requesterId:
+          type: string
+          example: "IN0400XX"
+          description: service id
+
+    ConsentRequest:
+      type: object
+      properties:
+        requestId:
+          type: string
+          format: uuid
+        consent:
+          type: object
+          required:
+            - purpose
+            - patient
+            - hiu
+            - requester
+            - hiTypes
+            - permission
+            - consentNotificationUrl
+          properties:
+            purpose:
+              $ref: '#/components/schemas/UsePurpose'
+            patient:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/ConsentManagerPatientID'
+                - xml:
+                    name: patient
+            hip:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/OrganizationRepresentation'
+                - xml:
+                    name: hip
+            hiu:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/OrganizationRepresentation'
+                - xml:
+                    name: hiu
+            requester:
+              $ref: '#/components/schemas/Requester'
+            hiTypes:
+              type: array
+              items:
+                $ref: '#/components/schemas/HITypeEnum'
+            permission:
+              $ref: '#/components/schemas/Permission'
+            consentNotificationUrl:
+              type: string
+              example: 'http://localhost:8003/consent/notification'
+    ConsentManagerPatientID:
+      type: object
+      properties:
+        id:
+          type: string
+          xml:
+            attribute: true
+          format: <user-id>@<ndhm-id>
+          example: batman@ndhm
+    LinkedCareContexts:
+      type: object
+      properties:
+        patient:
+          $ref: '#/components/schemas/patient'
+    patient:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/links'
+    links:
+      type: object
+      properties:
+        hip:
+          $ref: '#/components/schemas/hip'
+        referenceNumber:
+          type: string
+        display:
+          type: string
+        careContexts:
+          type: array
+          items:
+            $ref: '#/components/schemas/CareContextRepresentation'
+          xml:
+            wrapped: true
+    hip:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+    UsePurpose:
+      type: object
+      required:
+        - text
+        - code
+      properties:
+        text:
+          type: string
+        code:
+          type: string
+          description: From the fixed set, documented at refUri
+        refUri:
+          type: string
+          format: uri
+    AuthRequestStatus:
+      type: string
+      enum:
+        - REQUESTED
+        - ERRORED
+        - DENIED
+        - GRANTED
+    AuthenticationMode:
+      type: string
+      enum: ['MOBILE_OTP', 'DIRECT', 'AADHAAR_OTP', 'DEMOGRAPHICS']
+      description: >
+        Subjected to CM specific capability
+         1. MOBILE_OTP - for SMS OTP
+         2. DIRECT - for auth through apps (usually direct)
+         3. AADHAAR_OTP - for auth using OTP sent to Aadhaar number
+         4. DEMOGRAPHICS - for auth using demographic.
+    PatientAuthPurpose:
+      type: string
+      enum: [LINK, KYC, KYC_AND_LINK]
+      description: what is the purpose of user auth
+    ConsentStatus:
+      type: string
+      enum:
+        - REQUESTED
+        - EXPIRED
+        - DENIED
+        - GRANTED
+        - ROVKED
+    ConsentArtefactRepresentation:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/ConsentStatus'
+        consentDetail:
+          type: object
+          properties:
+            schemaVersion:
+              type: string
+              format: string
+            consentId:
+              type: string
+              format: uuid
+            createdAt:
+              type: string
+              format: date-time
+            patient:
+              $ref: '#/components/schemas/ConsentManagerPatientID'
+            careContexts:
+              type: array
+              items:
+                type: object
+                required:
+                  - patientReference
+                  - careContextReference
+                properties:
+                  patientReference:
+                    type: string
+                    example: batman@tmh
+                  careContextReference:
+                    type: string
+                    example: Episode1
+            purpose:
+              $ref: '#/components/schemas/UsePurpose'
+            hip:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/OrganizationRepresentation'
+                - xml:
+                    name: hip
+            hiu:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/OrganizationRepresentation'
+                - xml:
+                    name: hiu
+            consentManager:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/Organization'
+                - xml:
+                    name: consentManager
+            requester:
+              $ref: '#/components/schemas/Requester'
+            hiTypes:
+              type: array
+              items:
+                $ref: '#/components/schemas/HITypeEnum'
+            permission:
+              $ref: '#/components/schemas/Permission'
+        signature:
+          type: string
+          example: Signature of CM as defined in W3C standards; Base64 encoded
+    ConsentArtefactResponse:
+      type: object
+      properties:
+        limit:
+          type: integer
+        size:
+          type: integer
+        offset:
+          type: integer
+        consentArtefacts:
+          $ref: '#/components/schemas/ConsentArtefacts'
+        signature:
+          type: string
+          example: Signature of CM as defined in W3C standards; Base64 encoded
+    HealthInformationRequest:
+      type: object
+      required:
+        - consentArtefactId
+        - dataPushUrl
+      properties:
+        consent:
+          $ref: '#/components/schemas/consent'
+        dateRange:
+          $ref: '#/components/schemas/dateRange'
+        dataPushUrl:
+          type: string
+          example: 'http://localhost:8003/data/notification'
+        keyMaterial:
+          $ref: '#/components/schemas/keyMaterial'
+    HealthInformationRequestResponse:
+      type: object
+      required:
+        - transactionId
+      properties:
+        transactionId:
+          type: string
+    consent:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+    dateRange:
+      type: object
+      required:
+        - from
+        - to
+      properties:
+        from:
+          type: string
+          format: date-time
+        to:
+          type: string
+          format: date-time
+    keyMaterial:
+      type: object
+      required:
+        - cryptoAlg
+        - curve
+        - DHPublicKey
+        - nonce
+      properties:
+        cryptoAlg:
+          type: string
+          format: string
+          example: ECDH
+        curve:
+          type: string
+          format: string
+          example: Curve25519
+        dhPublicKey:
+          $ref: '#/components/schemas/keyObject'
+        nonce:
+          type: string
+          format: 32 byte string
+          example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+    keyObject:
+      type: object
+      required:
+        - expiry
+        - parameters
+        - keyValue
+      properties:
+        expiry:
+          type: string
+          format: date-time
+        parameters:
+          type: string
+          format: string
+          example: Curve25519/32byte random key
+        keyValue:
+          type: string
+          format: string
+
+    GenerateOtpRequest:
+      type: object
+      required:
+        - username
+      properties:
+        username:
+          type: string
+          format: string
+          example: raj.sharma@ndhm
+
+    GenerateAadharOtpRequest:
+      type: object
+      required:
+        - aadhaar
+      properties:
+        aadhaar:
+          type: string
+          format: string
+
+    GenerateAadharOtpResponse:
+      type: object
+      properties:
+        transactionId:
+          type: string
+          format: string
+
+    GenerateOtpResponse:
+      type: object
+      properties:
+        sessionId:
+          type: string
+          format: uuid
+          example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+        otpMedium:
+          type: string
+          enum: [MOBILE | EMAIL]
+          example: MOBILE
+        otpMediumValue:
+          type: string
+          format: string
+          example: 9999999999
+        expiryInMinutes:
+          type: integer
+          example: 5
+
+    VerifyOtpRequest:
+      type: object
+      required:
+        - sessionId
+        - value
+      properties:
+        sessionId:
+          type: string
+          format: uuid
+          example: 6357247d-6b9d-425e-a9a5-6ba9915c12ea
+        value:
+          type: integer
+          example: 666666
+          description: '6 digit number'
+
+    VerifyAadharOtpRequest:
+      type: object
+      required:
+        - txnId
+        - otp
+      properties:
+        txnId:
+          type: string
+          format: uuid
+          example: 6357247d-6b9d-425e-a9a5-6ba9915c12ea
+        otp:
+          type: string
+          example: 666666
+          description: '6 digit number'
+
+    UpdateAddressRequest:
+      type: object
+      required:
+        - healthId
+        - stateName
+        - districtName
+      properties:
+        healthId:
+          type: string
+          example: 1234-1234-1234-1234
+        districtCode:
+          type: string
+          example: 01
+        stateCode:
+          type: string
+          example: 02
+
+    UpdateAddressResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: JWT Token
+        healthId:
+          type: string
+          example: 1234-1234-1234-1234
+        cmId:
+          type: string
+          example: abc@ndhm
+        name:
+          $ref: '#/components/schemas/PatientName'
+        dateOfBirth:
+          $ref: '#/components/schemas/DateOfBirth'
+        gender:
+          $ref: '#/components/schemas/Gender'
+        stateName:
+          type: string
+          example: Maharashtra
+        districtName:
+          type: string
+          example: Pune
+        newHASUser:
+          type: boolean
+          example: true
+        setPasswordOnly:
+          type: boolean
+          example: true
+
+    VerifyAadharOtpResponse:
+      type: object
+      properties:
+        healthId:
+          type: string
+          example: 1234-1234-1234-1234
+        token:
+          type: string
+        name:
+          type: string
+        dateOfBirth:
+          $ref: '#/components/schemas/DateOfBirth'
+        gender:
+          $ref: '#/components/schemas/Gender'
+
+    VerifyOtpResponse:
+      type: object
+      properties:
+        temporaryToken:
+          type: string
+          description: JWT Token
+    MobileNumberEnquiryRequest:
+      type: object
+      required:
+        - idenitifierType
+      properties:
+        identifierType:
+          type: string
+          enum: [MOBILE]
+        identifier:
+          type: string
+    MobileNumberVerifyRequest:
+      type: object
+      required:
+        - idenitifierType
+      properties:
+        token:
+          type: string
+          description: 6 digits OTP
+    IdentifierEnquiryResponse:
+      type: object
+      properties:
+        enquiryId:
+          type: string
+          format: uuid
+        expiresIn:
+          type: integer
+          example: 300
+          description: OTP expires in seconds.
+    IdentifierVerifyResponse:
+      type: object
+      properties:
+        temporaryToken:
+          type: string
+          description: JWT Token
+    ConsentArtefacts:
+      type: array
+      items:
+        $ref: '#/components/schemas/ConsentArtefactRepresentation'
+    PatientProfileRepresentation:
+      type: object
+      properties:
+        id:
+          type: string
+          example: user@ndhm
+        name:
+          $ref: '#/components/schemas/PatientName'
+        gender:
+          $ref: '#/components/schemas/Gender'
+        dateOfBirth:
+          $ref: '#/components/schemas/DateOfBirth'
+        hasTransactionPin:
+          type: boolean
+        verifiedIdentifiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentifierReference'
+          xml:
+            name: verifiedIdentifiers
+            wrapped: true
+          example:
+            type: "MOBILE"
+            value: "+91-9800083232"
+        unverifiedIdentifiers:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentifierReference'
+          xml:
+            name: unverifiedIdentifiers
+            wrapped: true
+          example:
+            [
+              {type: "PAN", value: "EEE****00J"},
+              {type: "ABPMJAYID", value: "P1234ABCD"}
+            ]
+        healthid:
+          type: string
+          example: 1234-5678-9012-34
+        stateCode:
+          type: string
+          example: "23"
+        stateName:
+          type: string
+          example: Maharashtra
+        distictCode:
+          type: string
+          example: "192"
+        districtName:
+          type: string
+          example: Pune
+        aadhaarVerified:
+          type: boolean
+          example: true
+    LoginModeResponse:
+      type: object
+      properties:
+        loginType:
+          type: string
+          enum: [CREDENTIAL, OTP]
+          example: CREDENTIAL | OTP
+    IdentifierReference:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/IdentifierType'
+        value:
+          type: string
+      xml:
+        name: Identifier
+    IdentifierType:
+      type: string
+      enum: [MOBILE, PAN, ABPMJAYID]
+    Gender:
+      type: string
+      enum:
+        - M
+        - F
+        - O
+        - U
+    CreatePinRequest:
+      type: object
+      properties:
+        pin:
+          type: string
+          maximum: 9999
+          example: "1234"
+          description: '4 digit number'
+      required:
+        - pin
+    ValidatePinRequest:
+      type: object
+      properties:
+        requestId:
+          type: string
+          format: uuid
+        pin:
+          type: string
+          maximum: 9999
+          example: "1234"
+          description: '4 digit number'
+        scope:
+          type: string
+          enum: [consentrequest.approve, consent.revoke, consent.autoaprove, profile.changepin]
+          description: 'Scope the supplied token will be valid for'
+      required:
+        - pin
+        - scope
+    ChangePinRequest:
+      type: object
+      properties:
+        pin:
+          type: string
+          maximum: 9999
+          example: "1234"
+          description: '4 digit number'
+      required:
+        - pin
+    CreatePatientRequest:
+      type: object
+      properties:
+        name:
+          $ref: '#/components/schemas/PatientName'
+        dateOfBirth:
+          $ref: '#/components/schemas/DateOfBirth'
+        gender:
+          $ref: '#/components/schemas/Gender'
+        stateCode:
+          type: string
+        districtCode:
+          type: string
+      required:
+        - name
+        - password
+        - gender
+    PatientName:
+      type: object
+      properties:
+        first:
+          type: string
+          example: Raj
+        last:
+          type: string
+          example: Kumar
+        middle:
+          type: string
+          example: Sharma
+      required:
+        - first
+    DateOfBirth:
+      type: object
+      properties:
+        date:
+          type: integer
+          example: 01
+        month:
+          type: integer
+          example: 01
+        year:
+          type: integer
+          example: 01
+      required:
+        - year
+    CreatePatientResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: JWT Token
+        healthId:
+          type: string
+          example: 1234-1234-1234-1234
+        cmId:
+          type: string
+          example: abc@ndhm
+        name:
+          $ref: '#/components/schemas/PatientName'
+        dateOfBirth:
+          $ref: '#/components/schemas/DateOfBirth'
+        gender:
+          $ref: '#/components/schemas/Gender'
+        stateName:
+          type: string
+          example: Maharashtra
+        districtName:
+          type: string
+          example: Pune
+        newHASUser:
+          type: boolean
+          example: true
+        setPasswordOnly:
+          type: boolean
+          example: true
+    UpdateLoginDetailsRequest:
+      type: object
+      properties:
+        cmId:
+          type: string
+          example: abc@ndhm
+        password:
+          type: string
+        healthId:
+          type: string
+          example: 12345 12345 12345
+      required:
+        - cmId
+        - health-id
+        - password
+
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: JWT Token
+
+    AuthInitResponse:
+      type: object
+      properties:
+        transactionId:
+          type: string
+          example: b6547f6a-f0d1-4f6f-b82b-05f681b4d1f7
+        requesterId:
+          type: string
+          example: "IN0400XX"
+          description: service id
+        authMode:
+          type: string
+          enum: ["AADHAAR_OTP", "MOBILE_OTP"]
+        error:
+          type: string
+          example: null
+
+
+    AuthConfirmResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: JWT Token
+
+
+    RecoverCmIdRequest:
+      type: object
+      properties:
+        name:
+          $ref: '#/components/schemas/PatientName'
+        gender:
+          $ref: '#/components/schemas/Gender'
+        dateOfBirth:
+          $ref: '#/components/schemas/DateOfBirth'
+        verifiedIdentifiers:
+          description: verified identifiers are passed
+          type: array
+          items:
+            $ref: '#/components/schemas/VerifiedIdentifiers'
+          xml:
+            name: verifiedIdentifiers
+            wrapped: true
+        unverifiedIdentifiers:
+          description: additional unverified identifiers may be passed
+          type: array
+          items:
+            $ref: '#/components/schemas/UnverifiedIdentifiers'
+          xml:
+            name: unverifiedIdentifiers
+            wrapped: true
+      required:
+        - name
+        - gender
+        - verifiedIdentifiers
+    RecoveryVerifyOtpResponse:
+      type: object
+      properties:
+        cmId:
+          type: string
+    UpdatePatientRequest:
+      type: object
+      properties:
+        password:
+          type: string
+      required:
+        - password
+    UpdateProfilePassword:
+      type: object
+      properties:
+        oldPassword:
+          type: string
+        newPassword:
+          type: string
+      required:
+        - oldPassword
+        - newPassword
+    AuthResponse:
+      type: object
+      properties:
+        accessToken:
+          type: string
+          example: eyJhbGciOiJSUzI1Ni.IsInR5cCIgOiAiSldUIiwia2lkIiA6ICJrVVp.2MXJQMjRyYXN1UW9wU2lWbkdZQUZIVFowYVZGVWpYNXFLMnNibTk0In0
+        expiresIn:
+          type: integer
+          example: 1800
+          description: In Minutes
+        refreshExpiresIn:
+          type: integer
+          example: 1800
+          description: In Minutes
+        refreshToken:
+          type: string
+          example: eyJhbGciOiJSUzI1Ni.IsInR5cCIgOiAiSldUIiwia2lkIiA6ICJrVVp.2MXJQMjRyYXN1UW9wU2lWbkdZQUZIVFowYVZGVWpYNXFLMnNibTk0In0
+        tokenType:
+          type: string
+          example: bearer
+    RevokeRequest:
+      type: object
+      properties:
+        consents:
+          type: array
+          items:
+            type: string
+            format: uuid
+          uniqueItems: true
+    HINotification:
+      type: object
+      properties:
+        requestId:
+          type: string
+          format: uuid
+        transactionId:
+          type: string
+        consentId:
+          type: string
+        doneAt:
+          type: string
+          format: date-time
+        notifier:
+          type: object
+          properties:
+            type:
+              type: string
+              enum: [HIU, HIP]
+            id:
+              type: string
+              example: tmh
+        statusNotification:
+          type: object
+          properties:
+            sessionStatus:
+              type: string
+              enum: [TRANSFERRED, FAILED]
+            hipId:
+              type: string
+              example: max
+            statusResponses:
+              type: array
+              items:
+                type: object
+                properties:
+                  careContextReference:
+                    type: string
+                  hiStatus:
+                    type: string
+                    enum: [DELIVERED, OK, ERRORED]
+                    example: OK
+                  description:
+                    type: string
+    PatientIdentifier:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/PatientIdentifierType'
+        value:
+          type: string
+          example: "+919800083232"
+      xml:
+        name: Identifier
+    PatientIdentifierType:
+      type: string
+      enum: [MR, MOBILE, NDHM_HEALTH_NUMBER, HEALTH_ID]
+    VerifiedIdentifiers:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/VerifiedIdentifierType'
+        value:
+          type: string
+          example: "+919800083232"
+      xml:
+        name: Identifier
+    VerifiedIdentifierType:
+      type: string
+      enum: [MOBILE]
+    UnverifiedIdentifiers:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/UnverifiedIdentifierType'
+        value:
+          type: string
+      xml:
+        name: Identifier
+    UnverifiedIdentifierType:
+      type: string
+      enum: [PMJAY ID]
+    ConsentDenyRequest:
+      type: object
+      properties:
+        reason:
+          type: string
+    LogoutRequest:
+      type: object
+      properties:
+        refreshToken:
+          type: string
+    OtpVerificationRequest:
+      type: object
+      properties:
+        username:
+          type: string
+      required:
+        - username
+    OtpVerificationResponse:
+      type: object
+      properties:
+        sessionId:
+          type: string
+        meta:
+          $ref: '#/components/schemas/Meta'
+    OtpPermitRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        sessionId:
+          type: string
+        otp:
+          type: string
+      required:
+        - username
+        - otp
+        - sessionId
+    StateRequestResponse:
+      type: object
+      properties:
+        states:
+          type: array
+          items:
+            $ref: '#/components/schemas/state'
+    state:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "maharashtra"
+        code:
+          type: integer
+          example: 27
+    DistrictRequestResponse:
+      type: object
+      properties:
+        districts:
+          type: array
+          items:
+            $ref: '#/components/schemas/district'
+    district:
+      type: object
+      properties:
+        name :
+          type: string
+          example: "pune"
+        code:
+          type: integer
+          example: 490
+    ResendOtpRequest:
+      type: object
+      properties:
+        sessionId:
+          type: string
+          format: text
+    SignUpSessionResponse:
+      type: object
+      properties:
+        sessionId:
+          type: string
+          format: text
+    ShareProfileRequest:
+      type: object
+      required:
+        - requestId
+        - hipDetails
+      properties:
+        requestId:
+          type: string
+          format: uuid
+        hipDetails:
+          $ref: '#/components/schemas/HIPDetails'
+    ShareProfileRequest1:
+      type: object
+      required:
+        - requestId
+        - intent
+        - location
+        - hipDetails
+      properties:
+        requestId:
+          type: string
+          format: uuid
+        intent:
+          type: object
+          required:
+            - type
+          properties:
+            type:
+              type: string
+        location:
+          $ref: '#/components/schemas/Location'
+        hipDetails:
+          $ref: '#/components/schemas/HIPDetails1'
+    HIPDetails:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          description: Identifier of the health information provider where patient record needs to be looked up.
+        customCode:
+          type: string
+    HIPDetails1:
+      type: object
+      required:
+        - hipId
+        - code
+      properties:
+        hipId:
+          type: string
+          example: "HIP_Code"
+          description: HIP id is required.
+        code:
+          type: string
+          example: "12345"
+    Location:
+      type: object
+      required:
+        - latitude
+        - longitude
+      properties:
+        latitude:
+          type: string
+        longitude:
+          type: string
+
+
+    ShareProfileResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: ['SUCCESS', 'FAILURE']
+        healthId:
+          type: string
+    ShareProfileResponse1:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: ['SUCCESS', 'FAILURE']
+        healthId:
+          type: string
+        tokenNumber:
+          type: string
+
+    SubscriptionRequest:
+      type: object
+      properties:
+        requestId:
+          type: string
+          format: uuid
+        subscription:
+          type: object
+          required:
+            - purpose
+            - patient
+            - hiu
+            - categories
+            - period
+          properties:
+            purpose:
+              $ref: '#/components/schemas/UsePurpose'
+            patient:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/ConsentManagerPatientID'
+                - xml:
+                    name: patient
+            hiu:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/OrganizationRepresentation'
+                - xml:
+                    name: hiu
+            hips:
+              type: array
+              items:
+                $ref: '#/components/schemas/OrganizationRepresentation'
+            categories:
+              type: array
+              items:
+                $ref: '#/components/schemas/SubscriptionCategory'
+            period:
+              $ref: '#/components/schemas/SubscriptionPeriod'
+    SubscriptionRequestsRepresentation:
+      type: object
+      properties:
+        limit:
+          type: integer
+        size:
+          type: integer
+        offset:
+          type: integer
+        requests:
+          type: array
+          maxItems: 100
+          items:
+            $ref: '#/components/schemas/SubscriptionRequestRepresentation'
+          xml:
+            wrapped: true
+    SubscriptionCategory:
+      type: string
+      enum: ["LINK", "DATA"]
+    HIServiceType:
+      type: string
+      enum: ["HIU", "HEALTH_LOCKER", "HIP", "HIP_AND_HIU"]
+    SubscriptionStatus:
+      type: string
+      enum: ["GRANTED", "DENIED", "REQUESTED", "REVOKED"]
+    SubscriptionPeriod:
+      type: object
+      required:
+        - from
+        - to
+      properties:
+        from:
+          type: string
+          format: date-time
+        to:
+          type: string
+          format: date-time
+    SubscriptionRequestRepresentation:
+      type: object
+      required:
+        - purpose
+        - patient
+        - hiu
+        - categories
+        - period
+        - status
+        - requesterType
+      properties:
+        id:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        lastUpdated:
+          type: string
+          format: date-time
+        purpose:
+          $ref: '#/components/schemas/UsePurpose'
+        patient:
+          $ref: '#/components/schemas/ConsentManagerPatientID'
+        hiu:
+          $ref: '#/components/schemas/OrganizationRepresentation'
+        hips:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationRepresentation'
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubscriptionCategory'
+        period:
+          $ref: '#/components/schemas/SubscriptionPeriod'
+        status:
+          $ref: '#/components/schemas/SubscriptionStatus'
+        requesterType:
+          $ref: '#/components/schemas/HIServiceType'
+
+    SubscriptionEditAndApprovalRequestRepresentation:
+      type: object
+      properties:
+        isApplicableForAllHIPs:
+          type: boolean
+        includedSources:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubscriptionApprovalSource'
+        excludedSources:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubscriptionApprovalSource'
+    SubscriptionApprovalSource:
+      type: object
+      required:
+        - purpose
+        - categories
+        - period
+        - hip
+        - hiTypes
+      properties:
+        hiTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/HITypeEnum'
+        purpose:
+          $ref: '#/components/schemas/UsePurpose'
+        hip:
+          $ref: '#/components/schemas/OrganizationRepresentation'
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubscriptionCategory'
+        period:
+          $ref: '#/components/schemas/SubscriptionPeriod'
+    SubscriptionApprovalRepresentation:
+      type: object
+      properties:
+        subscriptionId:
+          type: string
+    SubscriptionEditRequestRepresentation:
+      type: object
+      properties:
+        hiuId:
+          type: string
+        subscriptionEditAndApprovalRequest:
+          $ref: '#/components/schemas/SubscriptionEditAndApprovalRequestRepresentation'
+    Subscription:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+    SubscriptionDenyRequest:
+      type: object
+      properties:
+        reason:
+          type: string
+    ConsentAutoApprovalRequestRepresentation:
+      type: object
+      required:
+        - hiu
+        - includedSources
+        - excludedSources
+        - isApplicableForAllHIPs
+      properties:
+        isApplicableForAllHIPs:
+          type: boolean
+        hiu:
+          $ref: '#/components/schemas/OrganizationRepresentation'
+        includedSources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConsentAutoApprovalIncludedSource'
+        excludedSources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConsentAutoApprovalExcludedSource'
+    ConsentAutoApprovalIncludedSource:
+      type: object
+      required:
+        - purpose
+        - period
+        - hiTypes
+      properties:
+        hiTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/HITypeEnum'
+        purpose:
+          $ref: '#/components/schemas/UsePurpose'
+        hip:
+          $ref: '#/components/schemas/OrganizationRepresentation'
+        period:
+          $ref: '#/components/schemas/SubscriptionPeriod'
+    ConsentAutoApprovalExcludedSource:
+      type: object
+      required:
+        - purpose
+        - hip
+        - hiTypes
+      properties:
+        hiTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/HITypeEnum'
+        purpose:
+          $ref: '#/components/schemas/UsePurpose'
+        hip:
+          $ref: '#/components/schemas/OrganizationRepresentation'
+    ConsentAutoApprovalResponseRepresentation:
+      type: object
+      properties:
+        autoApprovalId:
+          type: string
+    UserLocker:
+      type: object
+      properties:
+        patientId:
+          type: string
+          example: "hinapatel78@ndhm"
+        lockerId:
+          type: string
+          example: "XYZ"
+        lockerName:
+          type: string
+          example: "XYZ Locker"
+        active:
+          type: boolean
+        dateCreated:
+          type: string
+          format: date-time
+    UserLockersResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/UserLocker'
+
+    HIServiceEndpoint:
+      type: object
+      properties:
+        address:
+          type: string
+          description: The invocation URL for connecting to this endpoint
+          example: http://sandbox.abdm.gov.in/locker
+        connectionType:
+          type: string
+          description: Protocol/Profile/Standard to be used with this endpoint connection
+          example: http
+        use:
+          type: string
+          description: The purpose of this endpoint
+          example: registration
+
+
+    HIServiceInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "ID in service registry"
+        name:
+          type: string
+          example: "NDHM Locker"
+        type:
+          $ref: '#/components/schemas/HIServiceType'
+        active:
+          type: boolean
+        endpoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/HIServiceEndpoint'
+
+    HIServicesRepresentation:
+      type: object
+      properties:
+        limit:
+          type: integer
+        size:
+          type: integer
+        offset:
+          type: integer
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/HIServiceInfo'
+          xml:
+            wrapped: true
+      xml:
+        name: HIServicesRepresentation
+    SubscriptionResponseRepresentation:
+      type: object
+      properties:
+        limit:
+          type: integer
+        size:
+          type: integer
+        offset:
+          type: integer
+        subscriptions:
+          type: array
+          maxItems: 100
+          items:
+            $ref: '#/components/schemas/SubscriptionResponse'
+          xml:
+            wrapped: true
+    SubscriptionResponse:
+      type: object
+      required:
+        - subscriptionId
+        - purpose
+        - dateCreated
+        - dateGranted
+        - patient
+        - requester
+        - includedSources
+      properties:
+        subscriptionId:
+          type: string
+          example: "2c028ac0-fb35-4b7f-b170-738f78a74578"
+        purpose:
+          $ref: '#/components/schemas/UsePurpose'
+        dateCreated:
+          type: string
+          format: date-time
+        dateGranted:
+          type: string
+          format: date-time
+        patient:
+          $ref: '#/components/schemas/ConsentManagerPatientID'
+        requester:
+          $ref: '#/components/schemas/ServiceRequester'
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubscriptionSources'
+    SubscriptionSources:
+      type: object
+      required:
+        - hip
+        - categories
+        - hiTypes
+        - status
+        - period
+    AuthzHIPAction:
+      type: object
+      properties:
+        patientId:
+          type: string
+        requesterId:
+          type: string
+        requesterType:
+          type: object
+          allOf:
+            - $ref: '#/components/schemas/HIServiceType'
+          example: "HEALTH_LOCKER"
+        purpose:
+          $ref : '#/components/schemas/PatientAuthPurpose'
+        expiry:
+          type: string
+          format: date-time
+        repeat:
+          type: integer
+          example: 1
+        currentCounter:
+          type: integer
+          example: 2
+
+    HIUConsentAutoApprovalPolicy:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        active:
+          type: boolean
+        patient:
+          $ref: '#/components/schemas/ConsentManagerPatientID'
+        hiu:
+          $ref: '#/components/schemas/OrganizationRepresentation'
+        includedSourcs:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConsentAutoApprovalIncludedSource'
+        excludedSources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConsentAutoApprovalExcludedSource'
+
+
+    HIUSubscriptionSource:
+      type: object
+      properties:
+        hip:
+          $ref: '#/components/schemas/OrganizationRepresentation'
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubscriptionCategory'
+        hiTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/HITypeEnum'
+        status:
+          $ref: '#/components/schemas/SubscriptionStatus'
+        period:
+          $ref: '#/components/schemas/SubscriptionPeriod'
+    FeedbackRequest:
+      type: object
+      required:
+        - title
+        - body
+        - emailId
+      properties:
+        title:
+          type: string
+          minLength: 5
+          maxLength: 50
+        body:
+          type: string
+          minLength: 20
+          maxLength: 300
+        emailId:
+          type: string
+          format: email
+    AuthApprovalResponse:
+      type: object
+      properties:
+        authorizationId:
+          type: string
+          format: uuid
+      xml:
+        name: AuthApprovalResponse
+    LockerApprovalRequest:
+      type: object
+      required:
+        - subscription
+        - autoApproval
+        - authorization
+      properties:
+        subscription:
+          $ref: '#/components/schemas/SubscriptionApproval'
+        autoApproval:
+          $ref: '#/components/schemas/ConsentAutoApprovalRequestRepresentation'
+        authorization:
+          $ref: '#/components/schemas/AuthorizationApproval'
+      xml:
+        name: LockerApprovalRequest
+    SubscriptionApproval:
+      type: object
+      properties:
+        requestId:
+          type: string
+          format: uuid
+        isApplicableForAllHIPs:
+          type: boolean
+        includedSources:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubscriptionApprovalSource'
+        excludedSources:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubscriptionApprovalSource'
+      xml:
+        name: SubscriptionApproval
+    AuthorizationApproval:
+      type: object
+      required:
+        - requestId
+        - generatePerpetualToken
+      properties:
+        requestId:
+          type: string
+          format: uuid
+        generatePerpetualToken:
+          type: boolean
+      xml:
+        name: AuthorizationApproval
+    LockerRequestsApprovalResponse:
+      type: object
+      properties:
+        subscriptionId:
+          type: string
+          format: uuid
+        autoApprovalId:
+          type: string
+          format: uuid
+        authorizationId:
+          type: string
+          format: uuid
+      xml:
+        name: LockerRequestsApprovalResponse
+    AppNotificationTokenRequest:
+      type: object
+      required:
+        - appToken
+      properties:
+        appToken:
+          type: string
+          format: text
+        period:
+          $ref: '#/components/schemas/SubscriptionPeriod'
+        status:
+          $ref: '#/components/schemas/SubscriptionStatus'
+
+    HIUSubscriptionRepresentation:
+      type: object
+      properties:
+        subscriptionId:
+          type: string
+          format: uuid
+        purpose:
+          $ref: "#/components/schemas/UsePurpose"
+        dateCreated:
+          type: string
+          format: date-time
+        status:
+          $ref: "#/components/schemas/SubscriptionStatus"
+        dateGranted:
+          type: string
+          format: date-time
+        patient:
+          $ref: "#/components/schemas/ConsentManagerPatientID"
+        requester:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            type:
+              $ref: '#/components/schemas/HIServiceType'
+        includedSources:
+          type: array
+          items:
+            $ref: '#/components/schemas/HIUSubscriptionSource'
+
+    UserLockerSettings:
+      type: object
+      properties:
+        lockerId:
+          type: string
+          example: "HL101"
+        lockerName:
+          type: string
+          example: "NDHM Digital Health Locker"
+        active:
+          type: boolean
+        dateCreated:
+          type: string
+          format: date-time
+        authorizations:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthzHIPAction'
+          description: list of authorized actions for Locker
+        subscriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/HIUSubscriptionRepresentation'
+          description: list of subscriptions by locker
+        autoApprovals:
+          type: array
+          items:
+            $ref: '#/components/schemas/HIUConsentAutoApprovalPolicy'
+          description: list of consent auto approval settings by locker
+    HealthIdShareProfileRequest:
+      type: object
+      required:
+        - requestId
+        - hipDetails
+        - profile
+      properties:
+        requestId:
+          type: string
+          format: uuid
+        hipDetails:
+          $ref: '#/components/schemas/HIPDetails'
+        profile:
+          type: object
+          required:
+            - healthId
+            - healthIdNumber
+            - gender
+            - name
+            - yearOfBirth
+          properties:
+            healthId:
+              type: string
+              example: <username>@<suffix>
+            healthIdNumber:
+              type: string
+              example: 1111-1111-1111-11
+            name:
+              type: string
+              example: "Jane Doe"
+            gender:
+              $ref: '#/components/schemas/Gender'
+            address:
+              type: object
+              properties:
+                line:
+                  type: string
+                district:
+                  type: string
+                state:
+                  type: string
+                pincode:
+                  type: string
+            yearOfBirth:
+              type: integer
+              example: 2000
+            dayOfBirth:
+              type: integer
+            monthOfBirth:
+              type: integer
+            identifiers:
+              type: array
+              items:
+                $ref: '#/components/schemas/PatientIdentifier'
+    LockerSetupRequestsRepresentation:
+      type: object
+      properties:
+        limit:
+          type: integer
+        size:
+          type: integer
+        offset:
+          type: integer
+        requests:
+          type: array
+          maxItems: 100
+          items:
+            $ref: '#/components/schemas/LockerSetupRepresentation'
+          xml:
+            wrapped: true
+      xml:
+        name: LockerSetupRequestsRepresentation
+    LockerSetupRepresentation:
+      type: object
+      properties:
+        subscription:
+          $ref: 'SubscriptionRequestRepresentation'
+        authorization:
+          $ref: 'AuthorizationRequest'
+      xml:
+        name: LockerSetupRequestsRepresentation
+    PatientsRequestsRepresentation:
+      type: object
+      required:
+        - consents
+        - subscriptions
+        - authorizations
+        - lockerSetups
+      properties:
+        consents:
+          $ref: '#/components/schemas/ConsentRequestsRepresentation'
+        subscriptions:
+          $ref: '#/components/schemas/SubscriptionRequestsRepresentation'
+        authorization:
+          $ref: '#/components/schemas/AuthorizationRequestsRepresentation'
+        lockerSetups:
+          $ref: '#/components/schemas/LockerSetupRequestsRepresentation'
