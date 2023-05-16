@@ -34,7 +34,12 @@ The LITE version of Bahmni, (ABDM Compliant) configured for clinics and small ho
 
 URL: https://dev.lite.mybahmni.in/
 
-The environments are currently available only during India hours (8am-9pm IST daily).
+It is usable with the ABDM sandbox.
+
+The environment is currently available only during India hours (8am-9pm IST daily).
+If you need it up longer for specific demos, please contact bahmni via SLACK. 
+
+Please ping on Slack #bahmni-infra channel if you are have issues while accessing the link.
 
 **Credentials**
 
