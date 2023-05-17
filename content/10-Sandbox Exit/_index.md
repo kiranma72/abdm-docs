@@ -6,13 +6,13 @@ chapter = true
 pre = "<b>10. </b>"
 +++
 
-## Sandbox Exit
+# Sandbox Exit
 
 **ABDM Sandbox Journey**
 
 ![Integration journey](./sandbox-integration-journey.jpeg)
 
-## Sandbox exit process
+## Sandbox Exit Process
 
 Post integrations, the following 4-step process will apply for any integrator to exit from the Sandbox. Kindly fill the form in your sandbox user account to initiate exit.
 
