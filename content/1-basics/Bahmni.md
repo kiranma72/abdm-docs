@@ -57,6 +57,7 @@ Please ping on Slack #bahmni-infra channel if you are have issues while accessin
 
 ## Landing Page & Login Page 
 
+{{< gallery dir="1-basics/Bahmni_page" />}} {{< load-photoswipe >}}
 
 ## Communication Tools
 
