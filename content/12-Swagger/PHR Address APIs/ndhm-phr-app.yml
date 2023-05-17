@@ -2587,7 +2587,7 @@ paths:
           name: X-AUTH-TOKEN
           required: true
           schema:
-          type: string
+           type: string
       requestBody:
         content:
           application/json:
@@ -2616,11 +2616,6 @@ paths:
           description: |-
             Downstream system(s) is down.
             Unhandled exceptions.
-      security:
-      - Authorization:
-        - global
-      - X-HIP-ID:
-        - global              
 
 components:
   parameters:
