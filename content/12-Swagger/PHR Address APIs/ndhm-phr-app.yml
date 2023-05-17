@@ -2583,8 +2583,8 @@ paths:
   /v1/apps/profile/update:
     post:
       parameters:
-        - in: header
-          name: X-AUTH-TOKEN
+        - name: X-AUTH-TOKEN
+          in: header
           required: true
           schema:
             type: string
