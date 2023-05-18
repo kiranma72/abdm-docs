@@ -91,28 +91,17 @@ home = [ "HTML", "RSS", "JSON"]
   externalLinkTarget = "_blank"
 
 [[menu.shortcuts]]
-name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
+name = "<i class='fas fa-fw fa-video'></i> Webinars"
 identifier = "ds"
-url = "https://github.com/McShelby/hugo-theme-relearn"
-weight = 10
+url = "https://sandbox.abdm.gov.in/webinars"
+weight = 13
 
 [[menu.shortcuts]]
-name = "<i class='fas fa-fw fa-camera'></i> Showcases"
-url = "showcase/"
-weight = 11
+name = "<i class='fas fa-fw fa-bullhorn'></i> DevForum"
+url = "https://devforum.abdm.gov.in/"
+weight = 14
 
 [[menu.shortcuts]]
-name = "<i class='fas fa-fw fa-bookmark'></i> Hugo Documentation"
-identifier = "hugodoc"
-url = "https://gohugo.io/"
-weight = 20
-
-[[menu.shortcuts]]
-name = "<i class='fas fa-fw fa-bullhorn'></i> Credits"
-url = "more/credits/"
-weight = 30
-
-[[menu.shortcuts]]
-name = "<i class='fas fa-fw fa-tags'></i> Tags"
-url = "tags/"
-weight = 40
+name = "<i class='fas fa-fw fa-envelope'></i> For more information"
+url = "mailto:integration.support@nha.gov.in"
+weight = 15
