@@ -27,6 +27,11 @@ HIU doctors can view patient's health data only when your system is integrated w
 5. Create a Consent Manager ID (CM ID) and set a password to the account to register into the system.
 6. After successful registration, make a note of the CM ID; you will need it for creating a consent request.
 
+![step 2 - user flow](../step2-gif.gif)
+
+![Process Flow Diagram: Registration as a patient using the Patient app](../diagram-step2.png)
+
+
 **Step 3: Discover and link (Action by test patient)**
 
 1. After registering as a consent manager, click on the + sign to begin looking for your patient records and to link to the facilities available.
@@ -34,6 +39,14 @@ HIU doctors can view patient's health data only when your system is integrated w
 3. Search for the test patient's records in the system. You will see the care context information provided by your HIP against the test patient's mobile number, viz., name, year of birth and gender.
 4. Link to the care context; your HIP will send out an OTP to the test patient's mobile number.
 5. Enter the OTP; after successful validation, you'll be able to successfully link the patient's record and care context to the CM ID.
+
+![step 2 - user flow](../step3.png)
+
+![Process Flow Diagram: Discovery of patient information](../step3-1.png)
+
+![Process Flow Diagram: Initiate linking to HIP health repositories](../step3-2.png)
+
+![Process Flow Diagram: Confirm linking to HIP health repositories](../step3-3.png)
 
 **Step 4: Create a consent request (Action as HIU)**
 
