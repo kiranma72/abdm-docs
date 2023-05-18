@@ -56,6 +56,8 @@ The role of the gateway in a UHI service transaction is limited to the search an
 
 ![uhi gateway](/abdm-docs/img/uhi-gateway.png)  
 
+Check out the [**UHI Starter Guide**](../Unified_Health_Interface_Starter_Guide.pdf)
+
 Check out the [**Catalog Mandatory Requirements document for UHI**](https://docs.google.com/spreadsheets/d/14HSsyn1tNaxmXO4y21a4OiXaEID5FbeVLWJXX52OX3E/edit?usp=sharing)
 
 Here is the link to [**Sandbox Request Form**](https://sandbox.abdm.gov.in/applications/Home/signup_form_UHI)
