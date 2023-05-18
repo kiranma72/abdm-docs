@@ -80,3 +80,9 @@ HIU doctors can view patient's health data only when your system is integrated w
 2. Search for the consent request you created previously and click on it.
 3. You should be able to see the data sent by HIP for the test patient.
 
+![step 6 - user flow](../61.png)
+
+![step 6 - user flow](../62.png)
+
+![Process Flow Diagram: Fetch the consent request from CM](../step6-diagram.png)
+
