@@ -58,6 +58,11 @@ HIU doctors can view patient's health data only when your system is integrated w
 6. Select the HI types from the list displayed, for all the data present in your test environment for the test patient.
 7. Set an expiry date for the consent request; you will be able to access test patient data only until the date of expiry.
 
+![step 4 - user flow](../step4-1.png)
+
+![step 4 - user flow](../step4-2.png)
+
+![Process Flow Diagram: Create consent request](../step4-diagram.png)
 
 **Step 5: Grant the consent request (Action by test patient)**
 
@@ -65,6 +70,9 @@ HIU doctors can view patient's health data only when your system is integrated w
 2. You will see the consent request which you created in the previous step.
 3. To grant the consent request, create a consent PIN. Confirm it; after successful PIN validation, the consent will be granted.
 
+![step 5 - user flow](../step5.png)
+
+![Process Flow Diagram: Grant the consent request](../step5-diagram.png)
 
 **Step 6: View the data in the HIU after user grants the consent request (Action as HIU)**
 
