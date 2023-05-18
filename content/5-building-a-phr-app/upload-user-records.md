@@ -17,10 +17,6 @@ pre = "<b>5.11 </b>"
 - The PHR App must add a care context to the ABHA address of the user for the uploaded records using [**HIP initiated linking.**](/abdm-docs/3-milestone2/link-care-context/hip-initiated-linking/index.html)
 - The PHR App needs to ensure the uploaded records can be shared in the ABDM ecosystem. This is achieved by supporting the Health Information Transfer APIs which are specified as part of [**Milestone 2.**](/abdm-docs/3-milestone2/index.html)
 
-![sample user experienece](/abdm-docs/img/upload-user-record.mp4)
-
-![sample user experienece](../upload-user-record.mp4)
-
-add comment { { < video src="/abdm-docs/img/upload-user-record.mp4 > } }
+![sample user experienece](../upload-user-records.gif)
 
 
