@@ -84,25 +84,24 @@ S.No|Functionality|Test Case|Steps To Be Executed|
 sequenceDiagram
 title ABHA Creation using Aadhar OTP
 actor User
-participant HIU/HIP/PHR
 Note left of ABHA: Share RSA Encrypted Aadhaar number
 HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/generateOtp)
 ABHA->>UIDAI: Aadhaar number
-UIDAI->>UIDAI:Verify Aadhaar number
+UIDAI->>UIDAI: Verify Aadhaar number
 UIDAI->>ABHA: Response 200
 ABHA->>HIU/HIP/PHR: Response 200 (transaction ID, last 4 digit mobile number)
 UIDAI->>User: OTP
-Note right of HIU/HIP/PHR:Receive OTP
+Note right of HIU/HIP/PHR: Receive OTP
 Note left of ABHA: Share OTP, transaction ID
 HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/verifyOTP)
-ABHA->>UIDAI: 
+ABHA->>UIDAI: OTP
 UIDAI->>UIDAI:Verify OTP
-UIDAI->>ABHA: 
+UIDAI->>ABHA: Response 200
 ABHA->>HIU/HIP/PHR: Response 200 (user details,transaction ID)
 Note left of ABHA: Share mobile number, transaction ID
 HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/checkAndGenerateMobileOTP)
 ABHA->>HIU/HIP/PHR: Response 200 (mobileLinked,transaction ID)
-Note over HIU/HIP/PHR,UIDAI: mobileLinked : true (mobile number linked with Aadhaar)
+Note over HIU/HIP/PHR,UIDAI: mobileLinked = true (mobile number linked with Aadhaar)
 Note left of ABHA: transaction ID
 HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/createHealthIdByAdhaar)
 Note right of HIU/HIP/PHR: ABHA number created
@@ -116,7 +115,6 @@ ABHA->>HIU/HIP/PHR: Response 200 (user account details)
 sequenceDiagram
 title ABHA Creation using Aadhar OTP
 actor User
-participant HIU/HIP/PHR
 Note left of ABHA: Share RSA Encrypted Aadhaar number
 HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/generateOtp)
 ABHA->>UIDAI: Aadhaar number
@@ -134,7 +132,7 @@ ABHA->>HIU/HIP/PHR: Response 200 (user details,transaction ID)
 Note left of ABHA: Share mobile number, transaction ID
 HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/checkAndGenerateMobileOTP)
 ABHA->>HIU/HIP/PHR: Response 200 (mobileLinked,transaction ID)
-Note over HIU/HIP/PHR,UIDAI: mobileLinked : false (mobile number not linked with Aadhaar)
+Note over HIU/HIP/PHR,UIDAI: mobileLinked = false (mobile number not linked with Aadhaar)
 Note right of HIU/HIP/PHR: sends OTP
 ABHA->>User: OTP
 Note left of ABHA: Share OTP, transaction ID
@@ -152,25 +150,25 @@ ABHA->>HIU/HIP/PHR:  ABHA number created
 **BASE URL:** https://healthidsbx.abdm.gov.in/api
 
 
-{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /v2/registration/aadhaar/generateOtp$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /v2/registration/aadhaar/generateOtp" >}}
 
 **2. Verify OTP**
 
 **BASE URL:** https://healthidsbx.abdm.gov.in/api
 
-{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /v2/registration/aadhaar/verifyOTP$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /v2/registration/aadhaar/verifyOTP" >}}
 
 **3. Check Aadhaar Linked Mobile**
 
 **BASE URL:** https://healthidsbx.abdm.gov.in/api
 
-{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /v2/registration/aadhaar/checkAndGenerateMobileOTP$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /v2/registration/aadhaar/checkAndGenerateMobileOTP" >}}
 
 **4. Verify OTP**
 
 **BASE URL:** https://healthidsbx.abdm.gov.in/api
 
-{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /v2/registration/aadhaar/verifyMobileOTP$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /v2/registration/aadhaar/verifyMobileOTP" >}}
 
 **Note:** This step is required only if the mobile number is different from the Aadhaar linked mobile number
 
@@ -179,7 +177,7 @@ ABHA->>HIU/HIP/PHR:  ABHA number created
 
 **BASE URL:** https://healthidsbx.abdm.gov.in/api
 
-{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /v2/registration/aadhaar/createHealthIdByAdhaar$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /v2/registration/aadhaar/createHealthIdByAdhaar" >}}
 
 
 ## Sequence Diagram for V3 API
