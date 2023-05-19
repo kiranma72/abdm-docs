@@ -128,14 +128,14 @@ PHR App->>HIE-CM:POST /patients/reset-pin
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /v1/apps/profile/update$" >}}
 
 
-**2. Reset Password**
+**3. Reset Password**
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app2.yml" api="POST /v1/apps/patients/profile/reset-password$" >}}
 
 
-**3. Get Patient's QR Code**
+**4. Get Patient's QR Code**
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
@@ -144,13 +144,13 @@ PHR App->>HIE-CM:POST /patients/reset-pin
 #### Manage Consent Pin
 
 
-**4. Create Transaction Pin**
+**5. Create Transaction Pin**
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /patients/pin$" >}}
 
-**5. Verify Pin**
+**6. Verify Pin**
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
@@ -164,25 +164,25 @@ scope (in request body):
 - profile.changepin for Change PIN
 - consent.autoapprove for Autoapprove all consents for HIU
 
-**6. Change Pin**
+**7. Change Pin**
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /patients/change-pin$" >}}
 
-**7. Generate OTP For Forgot Pin**
+**8. Generate OTP For Forgot Pin**
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /patients/forgot-pin/generate-otp$" >}}
 
-**8. Validate OTP For Forgot Pin**
+**9. Validate OTP For Forgot Pin**
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="POST /patients/forgot-pin/validate-otp$" >}}
 
-**9. Reset Pin**
+**10. Reset Pin**
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
