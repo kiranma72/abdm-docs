@@ -4,7 +4,7 @@ info:
   version: 1.0.0
 servers:
   - url: http://{{baseuri}}
-  - url: https://healthidsbx.abdm.gov.in/api
+  - url: https://healthidsbx.abdm.gov.in
   - url: https://dev.abdm.gov.in
   - url: https://dev.ndhm.gov.in
 components:
