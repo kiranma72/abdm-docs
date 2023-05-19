@@ -5,7 +5,7 @@ info:
   description: 'Create your PHR ID to track your health records in one place. '
   version: V.1.0
 servers:
-- url: https://phrsbx.abdm.gov.in:443
+- url: https://phrsbx.abdm.gov.in/api
   description: Inferred Url
 tags:
 - name: Authentication
@@ -27,7 +27,7 @@ tags:
 - name: Security Captcha
   description: Generate the Security Captcha.
 paths:
-  "/api/v1/phr/auth/generate/access-token":
+  "/v1/phr/auth/generate/access-token":
     post:
       tags:
       - Authentication
@@ -64,7 +64,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/auth/verify/token":
+  "/v1/phr/auth/verify/token":
     post:
       tags:
       - Authentication
@@ -101,7 +101,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/security/captcha/generate":
+  "/v1/phr/security/captcha/generate":
     get:
       tags:
       - captcha-controller-impl
@@ -137,7 +137,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/location/districts":
+  "/v1/phr/location/districts":
     get:
       tags:
       - Location APIs
@@ -179,7 +179,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/location/states":
+  "/v1/phr/location/states":
     get:
       tags:
       - Location APIs
@@ -213,7 +213,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/login/init/transaction":
+  "/v1/phr/login/init/transaction":
     post:
       tags:
       - Login Collection API's
@@ -259,7 +259,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/login/mobileEmail/getUserToken":
+  "/v1/phr/login/mobileEmail/getUserToken":
     post:
       tags:
       - Login Collection API's
@@ -299,7 +299,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/login/mobileEmail/init":
+  "/v1/phr/login/mobileEmail/init":
     post:
       tags:
       - Login Collection API's
@@ -343,7 +343,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/login/mobileEmail/preVerification":
+  "/v1/phr/login/mobileEmail/preVerification":
     post:
       tags:
       - Login Collection API's
@@ -385,7 +385,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/login/phrAddress/init":
+  "/v1/phr/login/phrAddress/init":
     post:
       tags:
       - Login Collection API's
@@ -431,7 +431,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/login/phrAddress/verify":
+  "/v1/phr/login/phrAddress/verify":
     post:
       tags:
       - Login Collection API's
@@ -475,7 +475,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/login/resend/otp":
+  "/v1/phr/login/resend/otp":
     post:
       tags:
       - Login Collection API's
@@ -519,7 +519,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/login/search-healthIdNumber":
+  "/v1/phr/login/search-healthIdNumber":
     post:
       tags:
       - Login Collection API's
@@ -563,7 +563,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/login/search/authMethods":
+  "/v1/phr/login/search/authMethods":
     get:
       tags:
       - Login Collection API's
@@ -605,7 +605,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/login/search/userByPhrAddress":
+  "/v1/phr/login/search/userByPhrAddress":
     get:
       tags:
       - Login Collection API's
@@ -646,7 +646,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile/update/mobileEmail/new/generateOTP":
+  "/v1/phr/profile/update/mobileEmail/new/generateOTP":
     post:
       tags:
       - Profile Collection API's.
@@ -697,7 +697,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile/update/mobileEmail/new/resendOTP":
+  "/v1/phr/profile/update/mobileEmail/new/resendOTP":
     post:
       tags:
       - Profile Collection API's.
@@ -749,7 +749,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile/update/mobileEmail/new/verifyOTP":
+  "/v1/phr/profile/update/mobileEmail/new/verifyOTP":
     post:
       tags:
       - Profile Collection API's.
@@ -803,7 +803,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile/update/mobileEmail/update":
+  "/v1/phr/profile/update/mobileEmail/update":
     post:
       tags:
       - Profile Collection API's.
@@ -854,7 +854,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile":
+  "/v1/phr/profile":
     get:
       tags:
       - Profile Collection API's.
@@ -894,7 +894,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile/delete":
+  "/v1/phr/profile/delete":
     delete:
       tags:
       - Profile Collection API's.
@@ -940,7 +940,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile/generateOtp":
+  "/v1/phr/profile/generateOtp":
     post:
       tags:
       - Profile Collection API's.
@@ -985,7 +985,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile/link/hid":
+  "/v1/phr/profile/link/hid":
     post:
       tags:
       - Profile Collection API's.
@@ -1048,7 +1048,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile/link/phr/hidtoken":
+  "/v1/phr/profile/link/phr/hidtoken":
     post:
       tags:
       - Profile Collection API's.
@@ -1089,7 +1089,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile/link/profileDetails":
+  "/v1/phr/profile/link/profileDetails":
     post:
       tags:
       - Profile Collection API's.
@@ -1134,7 +1134,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile/logout":
+  "/v1/phr/profile/logout":
     get:
       tags:
       - Profile Collection API's.
@@ -1174,7 +1174,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile/qrCode":
+  "/v1/phr/profile/qrCode":
     get:
       tags:
       - Profile Collection API's.
@@ -1215,7 +1215,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile/{mediaType}/getCard":
+  "/v1/phr/profile/{mediaType}/getCard":
     get:
       tags:
       - Profile Collection API's.
@@ -1265,7 +1265,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile/change/password":
+  "/v1/phr/profile/change/password":
     post:
       tags:
       - Profile Collection API's.
@@ -1310,7 +1310,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile/edit":
+  "/v1/phr/profile/edit":
     post:
       tags:
       - Profile Collection API's.
@@ -1372,7 +1372,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile/update/password":
+  "/v1/phr/profile/update/password":
     post:
       tags:
       - Profile Collection API's.
@@ -1423,7 +1423,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile/update/passwordFromHid":
+  "/v1/phr/profile/update/passwordFromHid":
     post:
       tags:
       - Profile Collection API's.
@@ -1460,7 +1460,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/profile/update/phrAttribute":
+  "/v1/phr/profile/update/phrAttribute":
     post:
       tags:
       - Profile Collection API's.
@@ -1497,7 +1497,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/registration/hid/confirm/credential":
+  "/v1/phr/registration/hid/confirm/credential":
     post:
       tags:
       - Registration By Health ID Number
@@ -1541,7 +1541,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/registration/hid/create-phr-address":
+  "/v1/phr/registration/hid/create-phr-address":
     post:
       tags:
       - Registration By Health ID Number
@@ -1578,7 +1578,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/registration/hid/init/resendOtp":
+  "/v1/phr/registration/hid/init/resendOtp":
     post:
       tags:
       - Registration By Health ID Number
@@ -1615,7 +1615,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/registration/hid/init/transaction":
+  "/v1/phr/registration/hid/init/transaction":
     post:
       tags:
       - Registration By Health ID Number
@@ -1660,7 +1660,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/registration/hid/search/auth-methods":
+  "/v1/phr/registration/hid/search/auth-methods":
     post:
       tags:
       - Registration By Health ID Number
@@ -1704,7 +1704,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/registration/hid/searchPhr":
+  "/v1/phr/registration/hid/searchPhr":
     post:
       tags:
       - Registration By Health ID Number
@@ -1744,7 +1744,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/registration/create/phr":
+  "/v1/phr/registration/create/phr":
     post:
       tags:
       - Registration by Mobile Or Email APIs
@@ -1796,7 +1796,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/registration/details":
+  "/v1/phr/registration/details":
     post:
       tags:
       - Registration by Mobile Or Email APIs
@@ -1855,7 +1855,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/registration/generate/otp":
+  "/v1/phr/registration/generate/otp":
     post:
       tags:
       - Registration by Mobile Or Email APIs
@@ -1899,7 +1899,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/registration/phr/suggestion":
+  "/v1/phr/registration/phr/suggestion":
     post:
       tags:
       - Registration by Mobile Or Email APIs
@@ -1940,7 +1940,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/registration/resend/otp":
+  "/v1/phr/registration/resend/otp":
     post:
       tags:
       - Registration by Mobile Or Email APIs
@@ -1983,7 +1983,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/registration/verify/otp":
+  "/v1/phr/registration/verify/otp":
     post:
       tags:
       - Registration by Mobile Or Email APIs
@@ -2029,7 +2029,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/search/exists/byhealthId/phrAddress/{phrAddress}":
+  "/v1/phr/search/exists/byhealthId/phrAddress/{phrAddress}":
     get:
       tags:
       - Search Collection API's
@@ -2071,7 +2071,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/search/authMethods":
+  "/v1/phr/search/authMethods":
     get:
       tags:
       - Search Collection API's
@@ -2113,7 +2113,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/search/isExist":
+  "/v1/phr/search/isExist":
     get:
       tags:
       - Search Collection API's
@@ -2154,7 +2154,7 @@ paths:
         - global
       - X-HIP-ID:
         - global
-  "/api/v1/phr/public/certificate":
+  "/v1/phr/public/certificate":
     get:
       tags:
       - Public certificate Collection API's
