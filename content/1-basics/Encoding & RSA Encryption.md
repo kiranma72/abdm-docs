@@ -33,11 +33,12 @@ To encrypt the data :
 - *Step-2:* [RSA Encryption via online](#rsa-encryption-via-online-while-using-postman)
 
 {{% notice title="RSA Encryption" %}}
-
-  - [For V3 APIs](#rsa-encryption-for-v3-apis)
-  - [For PHR System's V1 APIs](#rsa-encryption-for-phr-systems-v1-apis)
-  - [For V1 APIs](#rsa-encryption-for-v1-apis)
-  - [For V2 APIs](#rsa-encryption-for-v2-apis)
+API Type|Certificate URL|Cipher Type
+|--|----|------|
+[For V3 APIs](#rsa-encryption-for-v3-apis)|https://healthidsbx.abdm.gov.in/api/v1/auth/cert|RSA/ECB/OAEPWithSHA-1AndMGF1Padding
+[For PHR V1 APIs](#rsa-encryption-for-phr-v1-apis)|https://phrsbx.abdm.gov.in/api/v1/phr/public/certificate | RSA/ECB/PKCS1Padding
+[For V1 APIs](#rsa-encryption-for-v1-apis)|https://healthidsbx.abdm.gov.in/api/v1/auth/cert | RSA/ECB/PKCS1Padding
+[For V2 APIs](#rsa-encryption-for-v2-apis)|https://healthidsbx.abdm.gov.in/api/v2/auth/cert | RSA/ECB/PKCS1Padding
 
 {{% /notice %}}
 
@@ -64,7 +65,7 @@ https://www.devglan.com/online-tools/rsa-encryption-decryption
 After encrypting, copy the string and use it in the response body of API which expects it.
 
 
-## RSA Encryption For PHR System's V1 APIs
+## RSA Encryption For PHR V1 APIs
 
 ### API to retrieve the public key
 
