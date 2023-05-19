@@ -70,7 +70,7 @@ Authentication token public certificate. This certificate is also used to encryp
 
 **BASE URL:** https://phrsbx.abdm.gov.in/
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="GET /api/v1/phr/public/certificate$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="GET /v1/phr/public/certificate$" >}}
 
 ### RSA Encryption via online (while using Postman)
 

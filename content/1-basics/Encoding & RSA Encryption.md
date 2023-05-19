@@ -75,7 +75,7 @@ After encrypting, copy the string and use it in the response body of API which e
 
 **BASE URL:** https://phrsbx.abdm.gov.in/
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="GET /api/v1/phr/public/certificate$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="GET /v1/phr/public/certificate$" >}}
 
 ### RSA Encryption via online (while using Postman)
 
