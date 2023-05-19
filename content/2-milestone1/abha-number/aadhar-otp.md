@@ -91,7 +91,7 @@ ABHA->>UIDAI: Aadhaar number
 UIDAI->>UIDAI:Verify Aadhaar number
 UIDAI->>ABHA: Response 200
 ABHA->>HIU/HIP/PHR: Response 200 (transaction ID, last 4 digit mobile number)
-UIDAI-->>User: OTP
+UIDAI->>User: OTP
 Note right of HIU/HIP/PHR:Receive OTP
 Note left of ABHA: Share OTP, transaction ID
 HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/verifyOTP)
@@ -123,7 +123,7 @@ ABHA->>UIDAI: Aadhaar number
 UIDAI->>UIDAI:Verify Aadhaar number
 UIDAI->>ABHA: Response 200
 ABHA->>HIU/HIP/PHR: Response 200 (transaction ID, last 4 digit mobile number)
-UIDAI-->>User: OTP
+UIDAI->>User: OTP
 Note right of HIU/HIP/PHR:Receive OTP
 Note left of ABHA: Share OTP, transaction ID
 HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/verifyOTP)
@@ -136,7 +136,7 @@ HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/checkAndGenerateMobileOTP)
 ABHA->>HIU/HIP/PHR: Response 200 (mobileLinked,transaction ID)
 Note over HIU/HIP/PHR,UIDAI: mobileLinked : false (mobile number not linked with Aadhaar)
 Note right of HIU/HIP/PHR: sends OTP
-ABHA-->>User: OTP
+ABHA->>User: OTP
 Note left of ABHA: Share OTP, transaction ID
 HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/verifyMobileOTP)
 ABHA->>HIU/HIP/PHR: Response 200 (transaction ID)
@@ -149,46 +149,37 @@ ABHA->>HIU/HIP/PHR:  ABHA number created
 
 **1. Generate OTP On Aadhaar Registered Mobile**
 
-**BASE URL:** https://healthidsbx.abdm.gov.in
+**BASE URL:** https://healthidsbx.abdm.gov.in/api
 
-BasePath : api
 
-{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /{BasePath}/v2/registration/aadhaar/generateOtp$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /v2/registration/aadhaar/generateOtp$" >}}
 
 **2. Verify OTP**
 
-**BASE URL:** https://healthidsbx.abdm.gov.in
+**BASE URL:** https://healthidsbx.abdm.gov.in/api
 
-BasePath : api
-
-{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /{BasePath}/v2/registration/aadhaar/verifyOTP$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /v2/registration/aadhaar/verifyOTP$" >}}
 
 **3. Check Aadhaar Linked Mobile**
 
-**BASE URL:** https://healthidsbx.abdm.gov.in
+**BASE URL:** https://healthidsbx.abdm.gov.in/api
 
-BasePath : api
-
-{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /{BasePath}/v2/registration/aadhaar/checkAndGenerateMobileOTP$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /v2/registration/aadhaar/checkAndGenerateMobileOTP$" >}}
 
 **4. Verify OTP**
 
-**BASE URL:** https://healthidsbx.abdm.gov.in
+**BASE URL:** https://healthidsbx.abdm.gov.in/api
 
-BasePath : api
-
-{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /{BasePath}/v2/registration/aadhaar/verifyMobileOTP$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /v2/registration/aadhaar/verifyMobileOTP$" >}}
 
 **Note:** This step is required only if the mobile number is different from the Aadhaar linked mobile number
 
 
 **5. Create ABHA Number**
 
-**BASE URL:** https://healthidsbx.abdm.gov.in
+**BASE URL:** https://healthidsbx.abdm.gov.in/api
 
-BasePath : api
-
-{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /{BasePath}/v2/registration/aadhaar/createHealthIdByAdhaar$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="POST /v2/registration/aadhaar/createHealthIdByAdhaar$" >}}
 
 
 ## Sequence Diagram for V3 API
