@@ -119,7 +119,7 @@ After encrypting, copy the string and use it in the response body of API which e
 
 **BASE URL:** https://healthidsbx.abdm.gov.in/api
 
-{{< swaggermin src="/abdm-docs/Yaml/abdm-abha-service-1_0.yml" api="GET /v2/auth/cert$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/hidsbx.yml" api="GET /v2/auth/cert$" >}}
 
 ### RSA Encryption via online (while using Postman)
 
