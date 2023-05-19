@@ -30,7 +30,7 @@ tags:
   - name: Combine V1 & V2 Api > Utility
   - name: Combine V1 & V2 Api > Hid sbx session api
 paths:
-  /{BasePath}/v2/health/facility/authenticate:
+  /v2/health/facility/authenticate:
     post:
       tags:
         - Combine V1 & V2 Api > Create Abha Number in Facility
@@ -135,7 +135,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/registration/aadhaar/generateOtp:
+  /v2/registration/aadhaar/generateOtp:
     post:
       tags:
         - Combine V1 & V2 Api > Abha Number Creation yes flow
@@ -181,7 +181,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/registration/aadhaar/verifyOTP:
+  /v2/registration/aadhaar/verifyOTP:
     post:
       tags:
         - Combine V1 & V2 Api > Abha Number Creation yes flow
@@ -228,7 +228,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/registration/aadhaar/resendAadhaarOtp:
+  /v2/registration/aadhaar/resendAadhaarOtp:
     post:
       tags:
         - Combine V1 & V2 Api > Create Abha Number in Facility
@@ -341,7 +341,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/registration/aadhaar/checkAndGenerateMobileOTP:
+  /v2/registration/aadhaar/checkAndGenerateMobileOTP:
     post:
       tags:
         - Combine V1 & V2 Api > Abha Number Creation yes flow
@@ -382,7 +382,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/registration/mobile/resendOtp:
+  /v2/registration/mobile/resendOtp:
     post:
       tags:
         - Combine V1 & V2 Api > Create Abha Number in Facility
@@ -495,7 +495,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/registration/aadhaar/verifyMobileOTP:
+  /v2/registration/aadhaar/verifyMobileOTP:
     post:
       tags:
         - Combine V1 & V2 Api > Abha Number Creation yes flow
@@ -541,7 +541,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/registration/aadhaar/createHealthIdByAdhaar:
+  /v2/registration/aadhaar/createHealthIdByAdhaar:
     post:
       tags:
         - Combine V1 & V2 Api > Abha Number Creation yes flow
@@ -583,7 +583,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/auth/cert:
+  /v2/auth/cert:
     get:
       tags:
         - Combine V1 & V2 Api > Authentication
@@ -609,7 +609,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/auth/init:
+ /v1/auth/init:
     post:
       tags:
         - Combine V1 & V2 Api > Authentication
@@ -655,7 +655,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/auth/confirmWithAadhaarBio:
+  /v1/auth/confirmWithAadhaarBio:
     post:
       tags:
         - Combine V1 & V2 Api > Authentication
@@ -704,7 +704,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/auth/confirmWithAadhaarOtp:
+  /v1/auth/confirmWithAadhaarOtp:
     post:
       tags:
         - Combine V1 & V2 Api > Authentication
@@ -750,7 +750,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/auth/authPassword:
+  /v1/auth/authPassword:
     post:
       tags:
         - Combine V1 & V2 Api > Authentication
@@ -798,7 +798,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/auth/confirmWithDemographics:
+  /v1/auth/confirmWithDemographics:
     post:
       tags:
         - Combine V1 & V2 Api > Authentication
@@ -846,7 +846,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/auth/confirmWithMobileOTP:
+ /v2/auth/confirmWithMobileOTP:
     post:
       tags:
         - Combine V1 & V2 Api > Authentication
@@ -893,7 +893,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/auth/reactivate/init:
+  /v2/auth/reactivate/init:
     post:
       tags:
         - Combine V1 & V2 Api > Authentication
@@ -934,7 +934,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/auth/reactivate:
+  /v2/auth/reactivate:
     post:
       tags:
         - Combine V1 & V2 Api > Authentication
@@ -1039,7 +1039,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/auth/generate/access-token:
+  /v1/auth/generate/access-token:
     post:
       tags:
         - Combine V1 & V2 Api > Authentication
@@ -1085,7 +1085,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/auth/resendAuthOTP:
+  /v1/auth/resendAuthOTP:
     post:
       tags:
         - Combine V1 & V2 Api > Authentication
@@ -1131,7 +1131,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/forgot/healthId/mobile/generateOtp:
+  /v2/forgot/healthId/mobile/generateOtp:
     post:
       tags:
         - Combine V1 & V2 Api > Forgot Healthid/Number
@@ -1174,7 +1174,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/forgot/healthId/mobile:
+  /v1/forgot/healthId/mobile:
     post:
       tags:
         - Combine V1 & V2 Api > Forgot Healthid/Number
@@ -1228,7 +1228,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/forgot/healthId/aadhaar/generateOtp:
+  /v2/forgot/healthId/aadhaar/generateOtp:
     post:
       tags:
         - Combine V1 & V2 Api > Forgot Healthid/Number
@@ -1274,7 +1274,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BaseURI}/v1/forgot/healthId/aadhaar:
+  /v1/forgot/healthId/aadhaar:
     post:
       tags:
         - Combine V1 & V2 Api > Forgot Healthid/Number
@@ -1318,7 +1318,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/forgot/healthId/mobile:
+  /v2/forgot/healthId/mobile:
     post:
       tags:
         - Combine V1 & V2 Api > Forgot Healthid/Number
@@ -1431,7 +1431,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/v2/forgot/healthId/mobile:
+  /v2/forgot/healthId/mobile:
     post:
       tags:
         - Combine V1 & V2 Api > Forgot Healthid/Number
@@ -1548,7 +1548,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/v2/forgot/healthId/aadhaar/generateOtp:
+  /v2/forgot/healthId/aadhaar/generateOtp:
     post:
       tags:
         - Combine V1 & V2 Api > Forgot Healthid/Number
@@ -1648,7 +1648,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/hid/benefit/update/phr-address:
+  /v1/hid/benefit/update/phr-address:
     post:
       tags:
         - Combine V1 & V2 Api > Integrated Api
@@ -1698,7 +1698,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/hid/benefit/aadhaar/generateOtp:
+  /v1/hid/benefit/aadhaar/generateOtp:
     post:
       tags:
         - Combine V1 & V2 Api > Integrated Api
@@ -1743,7 +1743,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/hid/benefit/aadhaar/verifyAadharOtp:
+  /v1/hid/benefit/aadhaar/verifyAadharOtp:
     post:
       tags:
         - Combine V1 & V2 Api > Integrated Api
@@ -1795,7 +1795,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/hid/benefit/aadhaar/verifyBio:
+  /v1/hid/benefit/aadhaar/verifyBio:
     post:
       tags:
         - Combine V1 & V2 Api > Integrated Api
@@ -1848,7 +1848,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/hid/benefit/createHealthId/demo/auth:
+  /v1/hid/benefit/createHealthId/demo/auth:
     post:
       tags:
         - Combine V1 & V2 Api > Integrated Api
@@ -1897,7 +1897,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/hid/benefit/notify/benefit:
+  /v1/hid/benefit/notify/benefit:
     post:
       tags:
         - Combine V1 & V2 Api > Integrated Api
@@ -1943,7 +1943,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/hid/benefit/search/aadhaar:
+  /v1/hid/benefit/search/aadhaar:
     post:
       tags:
         - Combine V1 & V2 Api > Integrated Api
@@ -1984,7 +1984,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/hid/benefit/search/healthIdNumber:
+  /v1/hid/benefit/search/healthIdNumber:
     post:
       tags:
         - Combine V1 & V2 Api > Integrated Api
@@ -2025,7 +2025,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/hid/benefit/update/mobile:
+  /v1/hid/benefit/update/mobile:
     post:
       tags:
         - Combine V1 & V2 Api > Integrated Api
@@ -2066,7 +2066,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/hid/benefit/update/profile:
+  /v1/hid/benefit/update/profile:
     post:
       tags:
         - Combine V1 & V2 Api > Integrated Api
@@ -2107,7 +2107,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/hid/benefit/update/status:
+  /v1/hid/benefit/update/status:
     post:
       tags:
         - Combine V1 & V2 Api > Integrated Api
@@ -2145,7 +2145,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/hid/benefit/mobile/generateOtp:
+  /v1/hid/benefit/mobile/generateOtp:
     post:
       tags:
         - Combine V1 & V2 Api > Integrated Api
@@ -2190,7 +2190,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/hid/benefit/mobile/createHealthId:
+  /v1/hid/benefit/mobile/createHealthId:
     post:
       tags:
         - Combine V1 & V2 Api > Integrated Api
@@ -2248,7 +2248,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/account/profile:
+  /v1/account/profile:
     get:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2335,7 +2335,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/v1/account/update/phr-address:
+  /v1/account/update/phr-address:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2365,7 +2365,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/account/logout:
+  /v1/account/logout:
     get:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2398,7 +2398,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/account/qrCode:
+  /v1/account/qrCode:
     get:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2431,7 +2431,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/account/getCard:
+  /v1/account/getCard:
     get:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2464,7 +2464,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/account/getSvgCard:
+  /v1/account/getSvgCard:
     get:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2497,7 +2497,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/account/getPngCard:
+  /v1/account/getPngCard:
     get:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2530,7 +2530,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/account/aadhaar/generateOTP:
+  /v1/account/aadhaar/generateOTP:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2580,7 +2580,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/account/change/passwd/generateAadhaarOTP:
+  /v1/account/change/passwd/generateAadhaarOTP:
     get:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2613,7 +2613,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/account/change/passwd/generateMobileOTP:
+  /v1/account/change/passwd/generateMobileOTP:
     get:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2646,7 +2646,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/account/change/passwd/byAadhaar:
+  /v1/account/change/passwd/byAadhaar:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2693,7 +2693,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/account/change/passwd/byMobile:
+  /v1/account/change/passwd/byMobile:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2740,7 +2740,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/account/change/password:
+  /v1/account/change/password:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2786,7 +2786,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/account/benefits:
+  /v1/account/benefits:
     get:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2819,7 +2819,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/account/token:
+  /v1/account/token:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2859,7 +2859,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/account/change/mobile/new/generateOTP:
+  /v2/account/change/mobile/new/generateOTP:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2904,7 +2904,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/account/change/mobile/new/resendOtp:
+  /v2/account/change/mobile/new/resendOtp:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2949,7 +2949,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/account/change/mobile/new/verifyOTP:
+  /v2/account/change/mobile/new/verifyOTP:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -2996,7 +2996,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/account/change/mobile/aadhaar/generateOTP:
+  /v2/account/change/mobile/aadhaar/generateOTP:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -3041,7 +3041,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/account/change/mobile/old/generateOTP:
+  /v2/account/change/mobile/old/generateOTP:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -3086,7 +3086,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/account/change/mobile/update/authentication:
+  /v2/account/change/mobile/update/authentication:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -3136,7 +3136,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/account/email/verification/send/otp:
+  /v2/account/email/verification/send/otp:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -3255,7 +3255,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/account/email/verification/verify/otp:
+  /v2/account/email/verification/verify/otp:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -3302,7 +3302,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/account/mobile/generateOTP:
+  /v2/account/mobile/generateOTP:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -3346,7 +3346,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/account/aadhaar/generateOTP:
+  /v2/account/aadhaar/generateOTP:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -3390,7 +3390,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/account/profile/deactivate:
+  /v2/account/profile/deactivate:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -3441,7 +3441,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/account/profile/delete:
+  /v2/account/profile/delete:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -3546,7 +3546,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/account/aadhaar/verifyOTP:
+  /v1/account/aadhaar/verifyOTP:
     post:
       tags:
         - Combine V1 & V2 Api > Profile
@@ -3594,7 +3594,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/registration/mobile/login/generateOtp:
+  /v2/registration/mobile/login/generateOtp:
     post:
       tags:
         - Combine V1 & V2 Api > LoginWithMobileNumber
@@ -3634,7 +3634,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/registration/mobile/login/resendOtp:
+  /v2/registration/mobile/login/resendOtp:
     post:
       tags:
         - Combine V1 & V2 Api > LoginWithMobileNumber
@@ -3674,7 +3674,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/registration/mobile/login/verifyOtp:
+  /v2/registration/mobile/login/verifyOtp:
     post:
       tags:
         - Combine V1 & V2 Api > LoginWithMobileNumber
@@ -3716,7 +3716,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/registration/mobile/login/userAuthorizedToken:
+  /v2/registration/mobile/login/userAuthorizedToken:
     post:
       tags:
         - Combine V1 & V2 Api > LoginWithMobileNumber
@@ -3762,7 +3762,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/registration/aadhaar/verifyOTP:
+  /v1/registration/aadhaar/verifyOTP:
     post:
       tags:
         - Combine V1 & V2 Api > RegistrationWithAadhaar
@@ -3808,7 +3808,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/registration/aadhaar/resendAadhaarOtp:
+  /v1/registration/aadhaar/resendAadhaarOtp:
     post:
       tags:
         - Combine V1 & V2 Api > RegistrationWithAadhaar
@@ -3851,7 +3851,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/registration/aadhaar/verifyMobileOTP:
+  /v1/registration/aadhaar/verifyMobileOTP:
     post:
       tags:
         - Combine V1 & V2 Api > RegistrationWithAadhaar
@@ -3897,7 +3897,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/registration/aadhaar/generateMobileOTP:
+  /v1/registration/aadhaar/generateMobileOTP:
     post:
       tags:
         - Combine V1 & V2 Api > RegistrationWithAadhaar
@@ -3943,7 +3943,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/registration/aadhaar/createHealthIdWithPreVerified:
+  /v1/registration/aadhaar/createHealthIdWithPreVerified:
     post:
       tags:
         - Combine V1 & V2 Api > RegistrationWithAadhaar
@@ -3988,7 +3988,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/registration/aadhaar/createHealthIdWithAadhaarOtp:
+  /v1/registration/aadhaar/createHealthIdWithAadhaarOtp:
     post:
       tags:
         - Combine V1 & V2 Api > RegistrationWithAadhaar
@@ -4043,7 +4043,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/registration/aadhaar/verifyBio:
+  /v1/registration/aadhaar/verifyBio:
     post:
       tags:
         - Combine V1 & V2 Api > RegistrationWithAadhaar
@@ -4091,7 +4091,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/v2/registration/aadhaar/phr-address:
+  /v2/registration/aadhaar/phr-address:
     post:
       tags:
         - Combine V1 & V2 Api > RegistrationWithAadhaar
@@ -4122,7 +4122,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/registration/aadhaar/confirm:
+  /v2/registration/aadhaar/confirm:
     post:
       tags:
         - Combine V1 & V2 Api > RegistrationWithAadhaar
@@ -4159,7 +4159,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/v2/registration/mobile/resendOtp:
+  /v2/registration/mobile/resendOtp:
     post:
       tags:
         - Combine V1 & V2 Api > RegistrationWithAadhaar
@@ -4257,25 +4257,8 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /gateway/v0.5/sessions:
-    post:
-      tags:
-        - Combine V1 & V2 Api > Hid sbx session api
-      summary: session api
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                clientId: PIRSWASTH_953256
-                clientSecret: c3631213-60ea-4a10-8e30-43523d3e0253
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /api/v1/phr/profile/link/profileDetails:
+  
+  /v1/phr/profile/link/profileDetails:
     post:
       tags:
         - Combine V1 & V2 Api > Abha Number Creation No Flows
@@ -4387,7 +4370,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/v1/phr/registration/phr/suggestion:
+  /v1/phr/registration/phr/suggestion:
     post:
       tags:
         - Combine V1 & V2 Api > Abha Number Creation No Flows
@@ -4501,7 +4484,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/v1/phr/search/isExist:
+  /v1/phr/search/isExist:
     get:
       tags:
         - Combine V1 & V2 Api > Abha Number Creation No Flows
@@ -4601,7 +4584,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/v1/phr/registration/hid/create-phr-address:
+  /v1/phr/registration/hid/create-phr-address:
     post:
       tags:
         - Combine V1 & V2 Api > Abha Number Creation No Flows
@@ -4714,7 +4697,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/v1/phr/search/authMethods:
+  /v1/phr/search/authMethods:
     get:
       tags:
         - Combine V1 & V2 Api > Abha Number Creation yes flow
@@ -4809,7 +4792,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/v1/phr/login/phrAddress/init:
+  /v1/phr/login/phrAddress/init:
     post:
       tags:
         - Combine V1 & V2 Api > Abha Number Creation yes flow
@@ -4915,7 +4898,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/v1/phr/login/phrAddress/verify:
+  /v1/phr/login/phrAddress/verify:
     post:
       tags:
         - Combine V1 & V2 Api > Abha Number Creation yes flow
@@ -5022,7 +5005,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /api/v1/phr/profile/link/phr/hidtoken:
+  /v1/phr/profile/link/phr/hidtoken:
     post:
       tags:
         - Combine V1 & V2 Api > Abha Number Creation yes flow
@@ -5130,7 +5113,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/search/existsByHealthId:
+  /v1/search/existsByHealthId:
     post:
       tags:
         - Combine V1 & V2 Api > Search
@@ -5177,7 +5160,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/search/searchByHealthId:
+  /v1/search/searchByHealthId:
     post:
       tags:
         - Combine V1 & V2 Api > Search
@@ -5217,7 +5200,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/search/searchByMobile:
+  /v1/search/searchByMobile:
     post:
       tags:
         - Combine V1 & V2 Api > Search
@@ -5265,7 +5248,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/document/generate/mobile/otp:
+  /v2/document/generate/mobile/otp:
     post:
       tags:
         - >-
@@ -5312,7 +5295,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/document/verify/mobile/otp:
+  /v2/document/verify/mobile/otp:
     post:
       tags:
         - >-
@@ -5356,7 +5339,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/document/validate:
+  /v2/document/validate:
     post:
       tags:
         - >-
@@ -5406,7 +5389,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/document:
+  /v2/document:
     post:
       tags:
         - >-
@@ -5475,7 +5458,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v2/ha/lgd/states:
+  /v2/ha/lgd/states:
     get:
       tags:
         - Combine V1 & V2 Api > Utility
@@ -5508,7 +5491,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/ha/lgd/districts:
+  /v1/ha/lgd/districts:
     get:
       tags:
         - Combine V1 & V2 Api > Utility
@@ -5541,7 +5524,7 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /{BasePath}/v1/ha/lgd/states:
+  /v1/ha/lgd/states:
     get:
       tags:
         - Combine V1 & V2 Api > Utility
