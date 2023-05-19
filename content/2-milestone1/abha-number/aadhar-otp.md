@@ -77,18 +77,21 @@ S.No|Functionality|Test Case|Steps To Be Executed|
 
 ## Sequence Diagram for V1&V2 API
 
+#### Mobile Number Linked With Aadhaar Flow
 
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
 title ABHA Creation using Aadhar OTP
-actor HIU/HIP/PHR
+actor User
+participant HIU/HIP/PHR
 Note left of ABHA: Share RSA Encrypted Aadhaar number
 HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/generateOtp)
 ABHA->>UIDAI: Aadhaar number
 UIDAI->>UIDAI:Verify Aadhaar number
 UIDAI->>ABHA: Response 200
-ABHA->>HIU/HIP/PHR: Response 200 (transaction ID, mobile number)
+ABHA->>HIU/HIP/PHR: Response 200 (transaction ID, last 4 digit mobile number)
+UIDAI-->>User: OTP
 Note right of HIU/HIP/PHR:Receive OTP
 Note left of ABHA: Share OTP, transaction ID
 HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/verifyOTP)
@@ -98,25 +101,49 @@ UIDAI->>ABHA:
 ABHA->>HIU/HIP/PHR: Response 200 (user details,transaction ID)
 Note left of ABHA: Share mobile number, transaction ID
 HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/checkAndGenerateMobileOTP)
-ABHA->>UIDAI: Mobile number
-UIDAI->>UIDAI:Verify Aadhaar Linked Mobile number
-UIDAI->>ABHA: 
 ABHA->>HIU/HIP/PHR: Response 200 (mobileLinked,transaction ID)
 Note over HIU/HIP/PHR,UIDAI: mobileLinked : true (mobile number linked with Aadhaar)
 Note left of ABHA: transaction ID
 HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/createHealthIdByAdhaar)
 Note right of HIU/HIP/PHR: ABHA number created
 ABHA->>HIU/HIP/PHR: Response 200 (user account details)
+{{< /mermaid >}}
+
+#### Mobile Number Not Linked With Aadhaar Flow
+
+{{< mermaid >}}
+%%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
+sequenceDiagram
+title ABHA Creation using Aadhar OTP
+actor User
+participant HIU/HIP/PHR
+Note left of ABHA: Share RSA Encrypted Aadhaar number
+HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/generateOtp)
+ABHA->>UIDAI: Aadhaar number
+UIDAI->>UIDAI:Verify Aadhaar number
+UIDAI->>ABHA: Response 200
+ABHA->>HIU/HIP/PHR: Response 200 (transaction ID, last 4 digit mobile number)
+UIDAI-->>User: OTP
+Note right of HIU/HIP/PHR:Receive OTP
+Note left of ABHA: Share OTP, transaction ID
+HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/verifyOTP)
+ABHA->>UIDAI: 
+UIDAI->>UIDAI:Verify OTP
+UIDAI->>ABHA: 
+ABHA->>HIU/HIP/PHR: Response 200 (user details,transaction ID)
+Note left of ABHA: Share mobile number, transaction ID
+HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/checkAndGenerateMobileOTP)
+ABHA->>HIU/HIP/PHR: Response 200 (mobileLinked,transaction ID)
 Note over HIU/HIP/PHR,UIDAI: mobileLinked : false (mobile number not linked with Aadhaar)
 Note right of HIU/HIP/PHR: sends OTP
+ABHA-->>User: OTP
 Note left of ABHA: Share OTP, transaction ID
 HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/verifyMobileOTP)
 ABHA->>HIU/HIP/PHR: Response 200 (transaction ID)
 Note left of ABHA: Share transaction ID
 HIU/HIP/PHR->>ABHA: (POST: /v2/registration/aadhaar/createHealthIdByAdhaar)
-Note right of HIU/HIP/PHR: ABHA number created
+ABHA->>HIU/HIP/PHR:  ABHA number created
 {{< /mermaid >}}
-
 
 ## API Information Request Response for V1&V2
 
