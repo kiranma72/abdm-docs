@@ -1,9 +1,9 @@
 +++
 title = "Fetch & Display Records"
 date = 2023-05-02T03:53:25+05:30
-weight = 9
+weight = 10
 chapter = true
-pre = "<b>5.9 </b>"
+pre = "<b>5.10 </b>"
 +++
 
 # Fetching and Display of Records

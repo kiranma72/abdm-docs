@@ -1,9 +1,9 @@
 +++
 title = "Scan & Share"
 date = 2023-05-02T03:53:25+05:30
-weight = 12
+weight = 4
 chapter = true
-pre = "<b>5.12 </b>"
+pre = "<b>5.4 </b>"
 +++
 
 # Scan and Share
