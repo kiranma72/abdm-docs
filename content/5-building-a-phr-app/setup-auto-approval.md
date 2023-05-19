@@ -1,9 +1,9 @@
 +++
 title = "Setup Auto-Approval"
 date = 2023-05-02T03:53:25+05:30
-weight = 5
+weight = 7
 chapter = true
-pre = "<b>5.5 </b>"
+pre = "<b>5.7 </b>"
 +++
 
 # Setting up Auto-Approval
