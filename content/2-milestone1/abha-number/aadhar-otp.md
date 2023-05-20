@@ -16,16 +16,16 @@ pre = "<b>2.1.1 </b>"
 
 ## Functionality Overview 
 
-ABHA Number can be created by authenticating with Aadhaar. Those who have their Aadhaar number linked with their mobile number can use this method to generate their ABHA no. Consent must be explained & collected from the user prior to performing AAdhaar OTP authentication.  Once user is successfully authenticated, the system will generate 14 digit ABHA number. 
+ABHA Number can be created by authenticating with Aadhaar. Those who have their Aadhaar number linked with their mobile number can use this method to generate their ABHA no. Consent must be explained & collected from the user prior to performing Aadhaar OTP authentication.  Once the user is successfully authenticated, the system will generate 14 digit ABHA number. 
 
 Following are the steps to create a ABHA Number via Aadhaar OTP authentication:
 
 1. The User should input their Aadhaar number.
-2. The ABHA number APIs will make a request to UIDAI to send an OTP to the aadhaar linked mobile number. 
-3. Once the OTP is verified, the system returns the complete profile data along with 14 digit ABHA Number.
+2. The ABHA number APIs will make a request to UIDAI to send an OTP to the Aadhaar linked mobile number. 
+3. Once the OTP is verified, the system returns the complete profile data along with 14-digit ABHA Number.
 4. The User is asked to input their mobile number.   
-    - System checks whether the user's mobile number is matching with Aadhaar linked mobile number. If it matches then it will automatically link with ABHA number.
-    - If the mobile number is not matching with Aadhaar linked mobile, an OTP is triggered to verify the submitted the mobile number
+    - System checks whether the user's mobile number is matching with Aadhaar-linked mobile number. If it matches, then it will automatically link with ABHA number.
+    - If the mobile number does not match with Aadhaar-linked mobile, an OTP is triggered to verify the submitted the mobile number.
 
 
 ## Sample User experience
