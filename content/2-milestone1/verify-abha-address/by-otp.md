@@ -17,12 +17,12 @@ pre = "<b>2.2.3 </b>"
 When user visits the hospital, and shares ABHA address with Hospital staff. The staff verifies it with OTP on the mobile number attached to that ABHA address.
 
 **Steps to initiate verification of ABHA Address by OTP:**
-- Patient must have a valid ABHA address
-- Patient verbally shares the ABHA address to the health facility during registration
-- Facility initiates a mobile OTP authentication for this ABHA address
-- Then patient will receive an OTP on their mobile, which they must share with the operator 
-- The facility sends the OTP to the HIE-CM. On successful validations it gets the demographic details of the user and a new linking token 
-- The HRP software must store this access(linking) token in their system for the purpose of linking care contexts to the patient.
+- Patient must have a valid ABHA address.
+- Patient verbally shares the ABHA address to the health facility during registration.
+- Facility initiates a mobile OTP authentication for this ABHA address.
+- Then patient will receive an OTP on their mobile, which they must share with the operator.
+- The facility sends the OTP to the HIE-CM. On successful validations it gets the demographic details of the user and a new linking token.
+- The HRP software must store this access (linking) token in their system for the purpose of linking care contexts to the patient.
 
 ![Sharing PHR Verbally](/abdm-docs/img/share_phr_verbally.PNG)
 

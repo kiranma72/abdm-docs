@@ -26,10 +26,10 @@ The User/Patient can share their basic KYC information with the Health Facility 
 2. Hospital must **generate a Health Facility QR code** and display it at the registration counter
 3. Patient can then scan the QR code from his phone camera or his ABHA application
 	- *If scanned from phone camera* -- The list of installed PHR apps is shown on the phone. The user can select any of the applications.
-	- *If scanned from within the PHR app*, the app will call the share-profile API to the Health Facility.
-4. The Health Facility will verify this is a registered healthcare provider and identify the HRP linked to this Health Facility in the ABDM registry.
-5. The Gateway will call the share-profile API on the callback URL registered for this Health Facility
-6. The HRP software must create a screen to display all the scanned profiles for a (counter) code
+	- *If scanned from within the PHR app* - The app will call the share-profile API to the Health Facility.
+4. The Health Facility will verify this as a registered healthcare provider and identify the HRP linked to this Health Facility in the ABDM registry.
+5. The Gateway will call the share-profile API on the callback URL registered for this Health Facility.
+6. The HRP software must create a screen to display all the scanned profiles for a (counter) code.
 7. The operator (at the counter) should be able to select a shared profile and perform a fast user registration.
 
 *Note: Remember to correctly handle this for both new and returning patients*
@@ -44,9 +44,9 @@ The User/Patient can share their basic KYC information with the Health Facility 
 
 **Steps to create a QR code for your Health Facility:**
 
-1. Only ABDM compliant HFR registered facility/clinic and a doctor registered in HPR will be allowed to generate QR code from ABDM system with ABDM branding guidelines
-2. ABDM logo unit must be placed at the center of the ABDM QR to indicate that the QR scanning functionality has been routed through ABDM
-3. The health facility can generate a printable QR code for its facility using the QR code generator application at this link
+1. Only ABDM compliant HFR registered facility/clinic and a doctor registered in HPR will be allowed to generate QR code from ABDM system with ABDM branding guidelines.
+2. ABDM logo unit must be placed at the center of the ABDM QR to indicate that the QR scanning functionality has been routed through ABDM.
+3. The health facility can generate a printable QR code for its facility using the QR code generator application at this link:
 
 ![Health Facility QR code generator](../hfr-qr-code-generator.png)
 
@@ -56,12 +56,12 @@ The User/Patient can share their basic KYC information with the Health Facility 
 
 https://phrsbx.abdm.gov.in/share-profile?hip-id=IN3410000260&counter-id=12345
 
-- **Health Facility-ID:** Must be a valid Health Facility Registry ID issued by HFR
+- **Health Facility-ID:** Must be a valid Health Facility Registry ID issued by HFR.
 - **Counter-ID:**
-	- Can be any facility decided alphanumeric string. This field is passed back to the facility as part of the share-profile API call and can be used to identify the physical location where the QR code is present.
-	- Given that the patient profile will be shared among all the counters and dynamic logic would be used for mapping the QR code to the counter,the counter number should be optional in payload for both QR code generation and scanning
+	- Can be any facility-decided alphanumeric string. This field is passed back to the facility as part of the share-profile API call and can be used to identify the physical location where the QR code is present.
+	- Given that the patient profile will be shared among all the counters and dynamic logic would be used for mapping the QR code to the counter, the counter number should be optional in payload for both QR code generation and scanning.
 - **URL:**
-	- This URL is static and this needs to be dynamic
+	- This URL is static and this needs to be dynamic.
 	- This URL needs to change to some generic URL aligned with QR code action which is easily understood by user.
 - **Other points:**
 	- While scanning the QR code from an android device, the experience may differ based on android version, brand of the mobile and skin of the android OS. Tech team to also provide list of exceptions, if any along with the list of devices/operating system on which this experience will not work or will have limited experience.
