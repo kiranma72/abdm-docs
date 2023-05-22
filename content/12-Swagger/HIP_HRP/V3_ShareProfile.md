@@ -8,7 +8,7 @@ pre : "<b>12.2.3 </b>"
 
 
 
-**[Share Profile yaml{{% icon icon="download" %}}](./HIE_CM_Profile_Share.yml "download")**
+**[Share Profile yaml{{% icon icon="download" %}}](../HIE_CM_Profile_Share.yml "download")**
 
 ## Complete Swagger for V3 Share Profile APIs
 
