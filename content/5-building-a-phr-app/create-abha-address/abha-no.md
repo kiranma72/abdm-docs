@@ -114,7 +114,7 @@ Api Checks Health ID Number to find User.
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /v1/phr/registration/hid/search/auth-methods$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/hid/search/auth-methods$" >}}
 
 
 **2. Send OTP**
@@ -123,7 +123,7 @@ Api to create the transaction and send the otp on mobile number.
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /v1/phr/registration/hid/init/transaction$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/hid/init/transaction$" >}}
 
 **3. Resend OTP**
 
@@ -131,7 +131,7 @@ API to resend the Mobile OTP
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /v1/phr/registration/hid/init/resendOtp$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/hid/init/resendOtp$" >}}
 
 **4. Verify OTP**
 
@@ -139,7 +139,7 @@ API to verify OTP
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /v1/phr/registration/hid/confirm/credential$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/hid/confirm/credential$" >}}
 
 **5. Generate Suggestions**
 
@@ -147,7 +147,7 @@ API to Generate List phrAddresses as suggestions
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /v1/phr/registration/phr/suggestion$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/phr/suggestion$" >}}
 
 **6. Check PHR Address Already Exists**
 
@@ -155,11 +155,11 @@ API to check the PHR Address exist or not
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="GET /v1/phr/search/isExist$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="GET /api/v1/phr/search/isExist$" >}}
 
 **7. Create PHR Address**
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /v1/phr/registration/hid/create-phr-address$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/hid/create-phr-address$" >}}
 

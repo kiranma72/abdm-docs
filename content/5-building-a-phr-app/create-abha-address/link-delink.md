@@ -92,7 +92,7 @@ Api Checks Health ID Number to find User.
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /v1/phr/registration/hid/search/auth-methods$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/hid/search/auth-methods$" >}}
 
 
 **2. Generate OTP**
@@ -101,7 +101,7 @@ Api to create the transaction and send the otp on mobile number.
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /v1/phr/login/init/transaction$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/login/init/transaction$" >}}
 
 **3. Resend OTP**
 
@@ -109,7 +109,7 @@ API to resend the Mobile OTP
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /v1/phr/registration/hid/init/resendOtp$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/registration/hid/init/resendOtp$" >}}
 
 **4. Verify OTP**
 
@@ -117,7 +117,7 @@ API to verify OTP
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /v1/phr/login/mobileEmail/preVerification$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/login/mobileEmail/preVerification$" >}}
 
 **5. Link the ABHA Address with ABHA Number**
 API links the given ABHA Address with the ABHA number.
@@ -126,7 +126,7 @@ Refer to example “Link”
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /v1/phr/profile/link/hid$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/profile/link/hid$" >}}
 
 
 ## De-Link the ABHA address with ABHA Number
@@ -135,5 +135,5 @@ API de-links the given ABHA Address from the ABHA number.
 
 Refer to example “Delink”
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /v1/phr/profile/link/hid$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="POST /api/v1/phr/profile/link/hid$" >}}
 
