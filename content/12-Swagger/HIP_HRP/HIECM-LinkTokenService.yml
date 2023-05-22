@@ -1,0 +1,281 @@
+openapi: 3.0.3
+info:
+  title: Link Token Service
+  version: 1.0.0
+servers:
+  - url: https://dev.abdm.gov.in/hiecm/api/
+    description: Sandbox Server URL
+  - url: https://live.abdm.gov.in/hiecm/api
+    description: Production Server URL
+components:
+  parameters:
+    REQUEST_ID:
+      name: REQUEST_ID
+      in: header
+      required: true
+      description: Unique UUID for track the end to end request transaction
+      schema:
+        type: string
+        format: uuid
+        minimum: 1
+        maximum: 100
+        example: 18235d89-cb13-479d-ad71-7a57d5f669a8
+      $ref: '#/components/parameters/REQUEST_ID'
+    TIMESTAMP:
+      name: TIMESTAMP
+      in: header
+      required: true
+      description: >-
+        Actual time of the request was initiated, ISO 8601 represents date and
+        time by starting with the year, followed by the month, the day, the
+        hour, the minutes, seconds and milliseconds
+      schema:
+        type: string
+        format: date time
+        minimum: 1
+        maximum: 100
+        example: '2022-10-06T15:10:00.587Z'
+      $ref: '#/components/parameters/TIMESTAMP'
+    Authorization:
+      name: Authorization
+      in: header
+      required: true
+      description: keycloak token is been used for authorization
+      schema:
+        type: string
+        format: bearer
+        minimum: 1
+        maximum: 1000
+        example: >-
+          eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJ2YXNhbnRoYWt1bWFyLmtlc2F2YW5Ac2J4IiwiY2xpZW50SWQiOiJzYngiLCJzeXN0ZW0iOiJBQkhBLUEiLCJyZXF1ZXN0ZXJJZCI6IlBIUi1XRUIiLCJwaHJNb2JpbGUiOm51bGwsImV4cCI6MTY2NzI5ODExNSwiaWF0IjoxNjY3MjkwOTE1LCJwaHJBZGRyZXNzIjoidmFzYW50aGFrdW1hci5rZXNhdmFuQHNieCIsInR4bklkIjoiYjEwMGM4ZDMtNTE1ZC00YWFiLTg1OWQtYzNlMTUwOTE3ZGY1In0.YXw7gzMY-U5Yg41xZdkWr6v0ly2LJL9qMKBsaydlzq7lP7Yd-BIshwWdUAJQInUG2MRoAzSzCKfSLCL9XHMkFgxXE1hTsaHzr_LjXJ--Sj48ftSTrPt5EfVbGVN6ZGv0pY8N1DlUopo7SDzolKjuLaVviLY8OUhX5COQfHtMyJce2oKtmmrl24N_fdEuHVq_4diJ_ZBKRxkpjYYT8myqelMqJbXJW50r6wyPkvBExM0MLz0g2vAZM1g7JqD9e7yWizH7OFtqLsUUC0ksTVwhxEFnki32GpkxEEuJqbB6t9BJXlZeQGX4K0WfCZA6dWtEZcY8HJE4EIQeCfRH5VCjyA
+      $ref: '#/components/parameters/Authorization'
+    X_HIP_ID:
+      name: X_HIP_ID
+      in: header
+      required: true
+      description: >-
+        Identifier of the health information provider to which the request was
+        intended
+      schema:
+        type: string
+        format: string
+        minimum: 1
+        maximum: 100
+        example: IN2810014366
+      $ref: '#/components/parameters/X_HIP_ID'
+    X_CM_ID:
+      name: X_CM_ID
+      in: header
+      required: true
+      description: Suffix of the consent manager to which the request was intended (sbx for sandbox & abdm for production)
+      schema:
+        type: string
+        format: string
+        minimum: 1
+        maximum: 100
+        example: sbx
+      $ref: '#/components/parameters/X_CM_ID'
+paths:
+  /v3/token/generate-token:
+    post:
+      tags:
+        - abdm-link-token
+      operationId: abdm-link-token 1
+      summary: API used to generate link token
+      description: >-
+        This is an API used to generate a link token of maximum validity [6
+        months], which can be used for HIP Initiated Linking.
+      parameters:
+        - $ref: '#/components/parameters/Authorization'
+        - $ref: '#/components/parameters/REQUEST_ID'
+        - $ref: '#/components/parameters/TIMESTAMP'
+        - $ref: '#/components/parameters/X_CM_ID'
+        - $ref: '#/components/parameters/X_HIP_ID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - gender
+                - yearOfBirth
+              properties:
+                abhaNumber:
+                  type: number
+                  nullable: true
+                  example: 12345678901234
+                  description: it can be null if abhaAddress is exist
+                abhaAddress:
+                  type: string
+                  nullable: true
+                  example: abc@abdm
+                  description: it can be null if abhaNumber is exist
+                name:
+                  type: string
+                  nullable: false
+                  example: first_name + middle_name + last_name
+                gender:
+                  type: string
+                  nullable: false
+                  example: M
+                yearOfBirth:
+                  type: number
+                  nullable: false
+                  example: 9999
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: server cannot find the requested resource
+        '500':
+          description: Internal Server Error
+  /{callback_url}/v3/hip/token/on-generate-token:
+    post:
+      servers:
+      - url: https://integrator.callback.url
+        description: Base path [callback_url] for operations with /v3/hip/token/on-generate-token
+      tags:
+        - hip-link-token
+      operationId: link-token 1
+      summary: This is a call back API of [{callback_url}/token/on-generate-token}]
+      description: >-
+        This is a call back API of [{callback_url}/token/on-generate-token}]
+        must be implemented at HIP.
+      parameters:
+        - $ref: '#/components/parameters/REQUEST_ID'
+        - $ref: '#/components/parameters/TIMESTAMP'
+        - $ref: '#/components/parameters/X_HIP_ID'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - type: object
+                  required:
+                    - linkToken
+                    - response
+                  properties:
+                    abhaAddress:
+                      type: string
+                      nullable: false
+                      example: abc@abdm
+                    linkToken:
+                      type: string
+                      format: bearer
+                      nullable: true
+                      example: >-
+                        eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiJ2YXNhbnRoYWt1bWFyLmtlc2F2
+                    response:
+                      type: object
+                      nullable: false
+                      required:
+                        - requestId
+                      properties:
+                        requestId:
+                          type: string
+                          format: uuid
+                          nullable: false
+                          example: 6f0b4665-a915-4c92-aa36-65afb4a2cd71
+                - type: object
+                  required:
+                    - error
+                    - message
+                  properties:
+                    error:
+                      type: object
+                      nullable: false
+                      required:
+                        - code
+                        - message
+                      properties:
+                        code:
+                          type: string
+                          nullable: false
+                          example: ABDM-1027
+                        message:
+                          type: string
+                          nullable: false
+                          example: You are blocked. Please try again after 24 hours.
+                    response:
+                      type: object
+                      nullable: false
+                      required:
+                        - requestId
+                      properties:
+                        requestId:
+                          type: string
+                          format: uuid
+                          nullable: false
+                          example: 6f0b4665-a915-4c92-aa36-65afb4a2cd71
+                - type: object
+                  required:
+                    - error
+                    - message
+                  properties:
+                    error:
+                      type: object
+                      nullable: false
+                      required:
+                        - code
+                        - message
+                      properties:
+                        code:
+                          type: string
+                          nullable: false
+                          example: ABDM-1051
+                        message:
+                          type: string
+                          nullable: false
+                          example: Invalid ABHA Number or ABHA Address
+                    response:
+                      type: object
+                      nullable: false
+                      required:
+                        - requestId
+                      properties:
+                        requestId:
+                          type: string
+                          format: uuid
+                          nullable: false
+                          example: 6f0b4665-a915-4c92-aa36-65afb4a2cd71
+                - type: object
+                  required:
+                    - error
+                    - message
+                  properties:
+                    error:
+                      type: object
+                      nullable: false
+                      required:
+                        - code
+                        - message
+                      properties:
+                        code:
+                          type: string
+                          nullable: false
+                          example: ABDM-1024
+                        message:
+                          type: string
+                          nullable: false
+                          example: Dependent service unavailable
+                    response:
+                      type: object
+                      nullable: false
+                      required:
+                        - requestId
+                      properties:
+                        requestId:
+                          type: string
+                          format: uuid
+                          nullable: false
+                          example: 6f0b4665-a915-4c92-aa36-65afb4a2cd71
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: server cannot find the requested resource
+        '500':
+          description: Internal Server Error
