@@ -89,7 +89,7 @@ The key exchange will be performed over Elliptic Curve Cryptography (ECC) groups
 
 Examples of encryption and decryption using ECDH key exchange:
 
-For Java example, see [here.](https://github.com/sukreet/fidelius/tree/84bc68c8a80d91a665dd88b05e5757a09a2d663a/src/main/java/in/projecteka/fidelius)
+For Java (compatible with Java 11) example, see [here.](https://github.com/sukreet/fidelius/tree/84bc68c8a80d91a665dd88b05e5757a09a2d663a/src/main/java/in/projecteka/fidelius)
 For C# example, see [here.](https://gist.github.com/Nexengineer/23589d0e8eeab0ad0f50cffdf4be6bca)
 For NodeJS, Python, Ruby and PHP example see [here.](https://devforum.abdm.gov.in/t/fidelius-cli-a-complete-end-to-end-cryptography-solution/3906)
 
