@@ -31,7 +31,7 @@ You may send more structured information for a Diagnostic Report (advised), by u
 4. View Health Record Document from [here](https://sandbox.abdm.gov.in/bundles/HealthDocumentRecordDoc.json)
 5. View Wellness Record Document from [here](https://sandbox.abdm.gov.in/bundles/WellnessRecordDoc.json)
 6. View Diagnostic Report Document from [here](https://sandbox.abdm.gov.in/bundles/DiagnosticReportDocument.json)
-7. View Consultation Document from [here]https://sandbox.abdm.gov.in/bundles/ConsultationDoc.json
+7. View Consultation Document from [here](https://sandbox.abdm.gov.in/bundles/ConsultationDoc.json)
 
 ---
 
@@ -167,9 +167,9 @@ In the following code snippet, we're showing you a basic pathological test examp
 
 **Explanation:**
 
-1. **results :** The DiagnosticReport resource has a 'results' tag that refers to another resource within the 'bundle'. Also note the usage of reference (Observation/ id ), specifically the id to resolve the other resource's reference in the same bundle. All such resource references must be resolvable within the same bundle and usage of Id is advised.
+1. **Results :** The DiagnosticReport resource has a 'results' tag that refers to another resource within the 'bundle'. Also note the usage of reference (Observation/ id ), specifically the id to resolve the other resource's reference in the same bundle. All such resource references must be resolvable within the same bundle and usage of Id is advised.
 2. **FHIR references can even be an Http URL :** Do not send over such URL reference.
-3. **conclusion :** This tag is optional. Typically a lab would send over the 'impression' tag and not the conclusive result.
+3. **Conclusion :** This tag is optional. Typically a lab would send over the 'impression' tag and not the conclusive result.
 
 ---
 
@@ -277,10 +277,11 @@ Here's what you do if you want to send over a PDF report of a blood test:
 	- image/jpeg
 	- image/png
 	- application/msword
-	- application/rtf, 
+	- application/rtf
 	- audio/mpeg
+
 2. **data:** This is the base64 encoded inline data of the attachment. In many ways, it's like the [Media resource](https://github.com/ProjectEKA/projecteka.github.io/wiki/PHR-FHIR-Envelope) discussed earlier.
 
-Note for simplicity sake, the example above does not illustrate the full document details like the Practitioner, Patient, Organization etc. They must be included in the document and should be resolvable by the references
+***Note :*** For simplicity sake, the example above does not illustrate the full document details like the Practitioner, Patient, Organization etc. They must be included in the document and should be resolvable by the references
 
 
