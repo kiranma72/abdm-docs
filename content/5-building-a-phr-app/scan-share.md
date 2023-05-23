@@ -64,7 +64,9 @@ S.No|Functionality|Test Scenario|Steps To Be Executed
 16.|{{% badge style="blue" %}}Mandatory{{% /badge %}} Scan Health QR Code using 3rd party camera | No ABDM compliant PHR application is installed in patient's mobile device. |Check that once patient selects any one of the PHR app, he/she is redirected to Google Play Store / app store to download / install the selected mobile PHR app
 17.|{{% badge style="blue" %}}Mandatory{{% /badge %}} Scan Health QR Code using 3rd party camera | No ABDM compliant PHR application is installed in patient's mobile device. |Check that, selected PHR app is launched after installation and patient will create ABHA address and password
 
+## Sample User Experience 
 
+{{< gallery dir="5-building-a-phr-app/scanShareFlow" />}} {{< load-photoswipe >}}
 
 ## API Sequence Diagram
 
