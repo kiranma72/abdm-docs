@@ -101,7 +101,7 @@ deactivate HIE-CM
 
 **1. Care-Context Linking**
 
-API to submit care-context to CM for HIP initiated linking. The API must accompany the "accessToken" fetched in the users/auth process.
+API to submit care-context to CM for HIP initiated linking. The API must accompany the "accessToken" (linking token) fetched in the users/auth process.
 
 **BASE URLs:**  https://dev.abdm.gov.in/gateway
 

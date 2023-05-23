@@ -17,6 +17,10 @@ pre = "<b>5.7 </b>"
 - Since the auto approval policy is in place the HIE-CM will immediately respond with a consent grant to the PHR app.
 - The PHR App can now use the approved consent to retrieve a copy of the health record and save it.
 
+## Sample User Experience
+
+{{< gallery dir="5-building-a-phr-app/autoapproveFlow" />}} {{< load-photoswipe >}}
+
 ## API Sequence Diagram
 
 {{< mermaid >}}
