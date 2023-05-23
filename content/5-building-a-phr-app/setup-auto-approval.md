@@ -1,9 +1,9 @@
 +++
 title = "Setup Auto-Approval"
 date = 2023-05-02T03:53:25+05:30
-weight = 5
+weight = 7
 chapter = true
-pre = "<b>5.5 </b>"
+pre = "<b>5.7 </b>"
 +++
 
 # Setting up Auto-Approval
@@ -16,6 +16,10 @@ pre = "<b>5.5 </b>"
 - When the PHR App receives a notification for a new care context or update of a care context, it is expected to initiate a consent request to the HIE-CM for access to the linked care context
 - Since the auto approval policy is in place the HIE-CM will immediately respond with a consent grant to the PHR app.
 - The PHR App can now use the approved consent to retrieve a copy of the health record and save it.
+
+## Sample User Experience
+
+{{< gallery dir="5-building-a-phr-app/autoapproveFlow" />}} {{< load-photoswipe >}}
 
 ## API Sequence Diagram
 

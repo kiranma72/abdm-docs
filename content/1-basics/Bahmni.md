@@ -41,6 +41,37 @@ If you need it up longer for specific demos, please contact bahmni via SLACK.
 
 Please ping on Slack #bahmni-infra channel if you are have issues while accessing the link.
 
+Note : HIU/HIP id for the above Bahmni environment
+
+
+```json
+{
+        "identifier": {
+            "name": "Bahmni",
+            "id": "Bahmni"
+        },
+        "telephone": null,
+        "city": null,
+        "latitude": null,
+        "longitude": null,
+        "address": null,
+        "districtCode": null,
+        "stateCode": null,
+        "pinCode": null,
+        "facilityType": [
+            "HIP",
+            "HIU"
+        ],
+        "isHIP": true,
+        "attributes": {
+            "hipAttributes": null,
+            "hiuAttributes": null,
+            "healthLockerAttributes": null
+        }
+    }
+```
+
+
 **Credentials**
 
  - Bahmni EMR:
@@ -57,6 +88,7 @@ Please ping on Slack #bahmni-infra channel if you are have issues while accessin
 
 ## Landing Page & Login Page 
 
+{{< gallery dir="1-basics/Bahmni_page" />}} {{< load-photoswipe >}}
 
 ## Communication Tools
 

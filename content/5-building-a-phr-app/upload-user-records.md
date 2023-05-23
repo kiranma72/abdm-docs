@@ -1,9 +1,9 @@
 +++
 title = "Uploading User Record"
 date = 2023-05-02T03:53:25+05:30
-weight = 11
+weight = 12
 chapter = true
-pre = "<b>5.11 </b>"
+pre = "<b>5.12 </b>"
 +++
 
 # Uploading User Record
@@ -17,6 +17,6 @@ pre = "<b>5.11 </b>"
 - The PHR App must add a care context to the ABHA address of the user for the uploaded records using [**HIP initiated linking.**](/abdm-docs/3-milestone2/link-care-context/hip-initiated-linking/index.html)
 - The PHR App needs to ensure the uploaded records can be shared in the ABDM ecosystem. This is achieved by supporting the Health Information Transfer APIs which are specified as part of [**Milestone 2.**](/abdm-docs/3-milestone2/index.html)
 
-![sample user experienece](/abdm-docs/img/upload-user-records.jpeg)
+![sample user experienece](../upload-user-records.gif)
 
 

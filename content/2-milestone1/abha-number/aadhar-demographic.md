@@ -14,7 +14,7 @@ pre = "<b>2.1.3 </b>"
 
 ## Functional Overview
 
-Aadhaar Demographic authentication allows creation of a new ABHA number or retrival of an existing ABHA number given the Aadhaar number and Demographic details as per Aadhaar. This API also is useful for offline scenarios as the healthcare worker can capture the Aadhaar details when there is no connectivity and generate the ABHA number once connectivity is available. 
+Aadhaar Demographic authentication allows creation of a new ABHA number or retrieval of an existing ABHA number, given the Aadhaar number and Demographic details as per Aadhaar. This API is also useful for offline scenarios as the healthcare worker can capture the Aadhaar details when there is no connectivity and generate the ABHA number once connectivity is available. 
 
 Applications used by health workers (like Asha, A&M) in their public applications must support this API. 
 

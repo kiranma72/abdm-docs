@@ -2583,11 +2583,11 @@ paths:
   /v1/apps/profile/update:
     post:
       parameters:
-        - in: header
-          name: X-AUTH-TOKEN
+        - name: X-AUTH-TOKEN
+          in: header
           required: true
           schema:
-          type: string
+            type: string
       requestBody:
         content:
           application/json:
@@ -2616,11 +2616,7 @@ paths:
           description: |-
             Downstream system(s) is down.
             Unhandled exceptions.
-      security:
-      - Authorization:
-        - global
-      - X-HIP-ID:
-        - global              
+                  
 
 components:
   parameters:

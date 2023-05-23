@@ -19,7 +19,7 @@ ABDM aims at bringing out inoperability and sharing of health information among 
 
 Here's how your **journey through the sandbox looks like:**
 
-![Integration journey](../sandbox-integration-journey.jpeg)
+![Integration journey](../sandbox-integration-journey.jpg)
 
 
 1. Register for access to the Sandbox 

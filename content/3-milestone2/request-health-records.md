@@ -53,7 +53,7 @@ When HIP gets the request for data transfer, it first **validates the consent:**
 
 ## Sample User Experience 
 
-{{< gallery dir="3-milestone2/data_request_flow" />}} {{< load-photoswipe >}}
+![data_request_flow](../data_request.gif)
 
 ## Test Cases
 

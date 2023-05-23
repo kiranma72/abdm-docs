@@ -1,10 +1,12 @@
 ---
-title: "Making your App ABDM Compliant"
+title: "Become ABDM Compliant"
 date: 2022-05-07T18:00:04+05:30
 Weight: 10
 draft: false
 pre : "<b>1.10 </b>"
 ---
+
+# Making your App ABDM Compliant
 
 To become an **ABDM Compliant Application**, your application needs to implement specific functional capabilities and pass functional validation.  
 

@@ -89,3 +89,19 @@ home = [ "HTML", "RSS", "JSON"]
   disableExplicitIndexURLs = false
   # For external links you can define how they are opened in your browser; this setting will only be applied to the content area but not the shortcut menu
   externalLinkTarget = "_blank"
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-fw fa-video'></i> Webinars"
+identifier = "ds"
+url = "https://sandbox.abdm.gov.in/webinars"
+weight = 13
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-fw fa-bullhorn'></i> DevForum"
+url = "https://devforum.abdm.gov.in/"
+weight = 14
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-fw fa-envelope'></i> For more information"
+url = "mailto:integration.support@nha.gov.in"
+weight = 15

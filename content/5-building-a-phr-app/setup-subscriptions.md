@@ -1,9 +1,9 @@
 +++
 title = "Setup & Manage Subscriptions"
 date = 2023-04-25T05:53:25+05:30
-weight = 4
+weight = 5
 chapter = true
-pre = "<b>5.4 </b>"
+pre = "<b>5.5 </b>"
 +++
 
 # Setting up & Managing Subscriptions

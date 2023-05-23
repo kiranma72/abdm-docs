@@ -33,9 +33,12 @@ To encrypt the data :
 - *Step-2:* [RSA Encryption via online](#rsa-encryption-via-online-while-using-postman)
 
 {{% notice title="RSA Encryption" %}}
-
-  - [For V3 APIs](#rsa-encryption-for-v3-apis)
-  - [For Other API](#rsa-encryption-for-other-api)
+API Type|Certificate URL|Cipher Type
+|--|----|------|
+[For V3 APIs](#rsa-encryption-for-v3-apis)|https://healthidsbx.abdm.gov.in/api/v1/auth/cert|RSA/ECB/OAEPWithSHA-1AndMGF1Padding
+[For PHR V1 APIs](#rsa-encryption-for-phr-v1-apis)|https://phrsbx.abdm.gov.in/api/v1/phr/public/certificate | RSA/ECB/PKCS1Padding
+[For V1 APIs](#rsa-encryption-for-v1-apis)|https://healthidsbx.abdm.gov.in/api/v1/auth/cert | RSA/ECB/PKCS1Padding
+[For V2 APIs](#rsa-encryption-for-v2-apis)|https://healthidsbx.abdm.gov.in/api/v2/auth/cert | RSA/ECB/PKCS1Padding
 
 {{% /notice %}}
 
@@ -61,17 +64,62 @@ https://www.devglan.com/online-tools/rsa-encryption-decryption
 
 After encrypting, copy the string and use it in the response body of API which expects it.
 
-## RSA Encryption For Other API
+
+## RSA Encryption For PHR V1 APIs
 
 ### API to retrieve the public key
-Authentication token public certificate. This certificate is also used to encrypt the data.
+
 
 ![retrieve the public key](../public_certificate_for_other_api.png)
 
 
 **BASE URL:** https://phrsbx.abdm.gov.in/
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="GET /api/v1/phr/public/certificate$" >}}
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-updated.yml" api="GET /v1/phr/public/certificate$" >}}
+
+### RSA Encryption via online (while using Postman)
+
+https://www.devglan.com/online-tools/rsa-encryption-decryption
+
+**Select cipher type - RSA/ECB/PKCS1Padding**
+
+![retrieve the public key](../cipher_type_others.png)
+
+After encrypting, copy the string and use it in the response body of API which expects it.
+
+
+## RSA Encryption For V1 APIs
+
+### API to retrieve the public key
+
+
+![retrieve the public key](../v1_api.png)
+
+**BASE URL:** https://healthidsbx.abdm.gov.in/api
+
+{{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="GET /v1/auth/cert$" >}}
+
+### RSA Encryption via online (while using Postman)
+
+https://www.devglan.com/online-tools/rsa-encryption-decryption
+
+**Select cipher type - RSA/ECB/PKCS1Padding**
+
+![retrieve the public key](../cipher_type_others.png)
+
+After encrypting, copy the string and use it in the response body of API which expects it.
+
+
+## RSA Encryption For V2 APIs
+
+### API to retrieve the public key
+
+
+![retrieve the public key](../v2_api.png)
+
+**BASE URL:** https://healthidsbx.abdm.gov.in/api
+
+{{< swaggermin src="/abdm-docs/Yaml/abdm-abha-service-1_0.yml" api="GET /v2/auth/cert$" >}}
 
 ### RSA Encryption via online (while using Postman)
 

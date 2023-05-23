@@ -1,9 +1,9 @@
 +++
 title = "Scan & Share"
 date = 2023-05-02T03:53:25+05:30
-weight = 12
+weight = 4
 chapter = true
-pre = "<b>5.12 </b>"
+pre = "<b>5.4 </b>"
 +++
 
 # Scan and Share
@@ -64,7 +64,9 @@ S.No|Functionality|Test Scenario|Steps To Be Executed
 16.|{{% badge style="blue" %}}Mandatory{{% /badge %}} Scan Health QR Code using 3rd party camera | No ABDM compliant PHR application is installed in patient's mobile device. |Check that once patient selects any one of the PHR app, he/she is redirected to Google Play Store / app store to download / install the selected mobile PHR app
 17.|{{% badge style="blue" %}}Mandatory{{% /badge %}} Scan Health QR Code using 3rd party camera | No ABDM compliant PHR application is installed in patient's mobile device. |Check that, selected PHR app is launched after installation and patient will create ABHA address and password
 
+## Sample User Experience 
 
+{{< gallery dir="5-building-a-phr-app/scanShareFlow" />}} {{< load-photoswipe >}}
 
 ## API Sequence Diagram
 
