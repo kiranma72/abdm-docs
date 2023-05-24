@@ -14,7 +14,7 @@ The ABDM Sandbox features a reference PHR application which can be used to simul
 
 ## Download Sandbox ABHA App
 
-{{% attachments title="Download Sandbox ABHA App" icon="download"/%}}
+{{% badge icon="download" %}} Sandbox ABHA App {{% /badge %}} [APK File](../Sandbox_ABHA_App.files/app-nhsSandbox-release_2.2.8.apk)
 
 ## Install Sandbox ABHA App
 {{< gallery dir="1-basics/SandboxAppInstall" />}} {{< load-photoswipe >}}
