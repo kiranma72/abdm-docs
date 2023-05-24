@@ -27,7 +27,7 @@ This documentation was made possible due to many contributions from the ABDM com
 
 {{% notice %}} A big shout out to THOUGHTWORKS for their support to developing better documentation for ABDM. 
 
-Yeshna Arya and Nandini A from thoughtworks need a special metion for having developed most of the content
+Yeshna Arya and Nandini A from thoughtworks need a special mention for having developed most of the content
 {{% /notice %}}
 
 Contributors & Reviewers 

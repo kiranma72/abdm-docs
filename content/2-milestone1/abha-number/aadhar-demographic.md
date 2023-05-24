@@ -16,11 +16,11 @@ pre = "<b>2.1.3 </b>"
 
 Aadhaar Demographic authentication allows creation of a new ABHA number or retrieval of an existing ABHA number, given the Aadhaar number and Demographic details as per Aadhaar. This API is also useful for offline scenarios as the healthcare worker can capture the Aadhaar details when there is no connectivity and generate the ABHA number once connectivity is available. 
 
-Applications used by health workers (like Asha, A&M) in their public applications must support this API. 
+Applications used by health workers (like ASHA, ANM, CHO) must support this API. 
 
 - Health worker is expected to capture the Aadhaar number, name, year of birth and gender as in Aadhaar card.
 - These details can be physically captured on paper or in mobile application which works in offline mode as well. Consent of the user must always be obtained (in paper or offline apps) in the recommended language.
-- When connectivity is available, the application calls the ABHA demographic API with the same (Aadhaar number, name, year of birth and gender) information.
+- When connectivity is available, the application calls the ABHA demographic API with the Aadhaar number, name, year of birth and gender information.
 - The ABHA system checks with UIDAI if the information provided is correct.
 - The ABHA system also checks if an ABHA number has already been created in the past.
 - The system returns the ABHA number (New or Existing).
@@ -29,7 +29,8 @@ When calling this API, care must be taken to ensure:
 1. The correct state and district (LGD codes) of the beneficiary are passed.
 2. The mobile number that is passed is assumed to be verified by the application and is not re-verified by ABHA.
 3. Any ID being issed by the public health program (eg: PMJAY id, CoWin id, RCH Id) can be linked to the ABHA number
-4. The ABDM client id used to call this API must have the *HidIntegratedProgram* role configured in sandbox / production.
+4. The ABDM client id used to call this API must have the *HidIntegratedProgram* role assigned. (This is required in both Sandbox & Production)
+
 
 ## Test Cases
 
@@ -64,12 +65,13 @@ ABHA->>Government Health Application (HIP): Returns ABHA Address
 Note right of Government Health Application (HIP):Returns already created ABHA or creates new ABHA
 {{< /mermaid >}}
 
-{{%notice%}} [Please check the roles assigned to your client id by decoding your JWT Token](/abdm-docs/1-basics/verify_sandbox_access/#check-your-jwt-token) 
-
-If you dont see the *HidIntegratedProgram* role write to {{%icon icon="envelope" %}} integration.support@nha.gov.in via your state ABDM nodal officer 
-1. Request for addition of the HidIntegratedProgram role to your client id
-2. Request NHA to configure a benefit name specific to your government program
+{{%notice%}} 
+1. [See the roles assigned to your Client ID](/abdm-docs/1-basics/verify_sandbox_access/#check-your-jwt-token) 
+2. If you dont see the *HidIntegratedProgram* role write to {{%icon icon="envelope" %}} integration.support@nha.gov.in via your state ABDM nodal officer 
+3. Request for addition of the HidIntegratedProgram role to your client id
+4. Request NHA to configure a benefit name specific to your government program
 {{%/notice%}}
+
 ## API Information Request Response 
 
 {{% badge icon="info-circle" %}}Note{{% /badge %}} Kindly check the schema tab for the list of mandatory & optional fields in request body.
