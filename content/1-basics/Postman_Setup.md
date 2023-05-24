@@ -34,8 +34,8 @@ Steps to download and install the native Postman application
 
 ## Download Collections And Environment Variables 
 
-Download API Collection And Environment Variables and extract the files from zip.
-[{{% icon icon="download" %}}](../Postman_Collection_And_EnvironmentVariables.zip "download"). 
+Download API Collection and extract the files from zip.
+[{{% icon icon="download" %}}](../Postman_Collection.zip "download"). 
 
 ## Import Collections
 Using Postman Collections, you can group related API requests or share sets of API requests.
