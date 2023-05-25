@@ -55,9 +55,9 @@ API to send SMS notifications to patient with custom deeplink.
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/patients/sms/notify2$" >}}
 
-**2. Acknowledgment Response For SMS Notification**
+**2. Acknowledgement Response For SMS Notification**
 
-Acknowledgment response for SMS notification sent to patient by HIP
+Acknowledgement response for SMS notification sent to patient by HIP
 
 **BASE URL:** https://dev.abdm.gov.in/gateway
 
