@@ -8,18 +8,18 @@ pre = "<b>3.6 </b>"
 
 # Request Health Records
 
-The **data request and transfer** process between the HIU, CM and HIP passes through the following three stages:
+The **data request and transfer** process between the HIU, HIE-CM and HIP passes through the following three stages:
 
 **First Stage**
 
-- The HIU system for patient’s health information to the HIP, through the CM against a valid granted consent.
-- The CM assigns a transaction ID for the entire data flow and communicates this Id to the health repositories of the HIU and the HIP.
+- The HIU system for patient’s health information to the HIP, through the HIE-CM against a valid granted consent.
+- The HIE-CM assigns a transaction ID for the entire data flow and communicates this Id to the health repositories of the HIU and the HIP.
 - The HIU’s health repository embeds three key elements within the health information request:
 	- The consent ID corresponding to the consent artefact against which the information request is being made.
-	- A data push URL, which is a callback URL that indicators where the information can be pushed by the HIP’s health repository. This URL can be different from the HIU’s access URL, provided at the time of registration with the gateway. The HIU can specify a different URL for the data flow, in order to keep its identity secret to the extent possible.
+	- A data push URL, which is a callback URL that indicates where the information can be pushed by the HIP’s health repository. This URL can be different from the HIU’s access URL, provided at the time of registration with the gateway. The HIU can specify a different URL for the data flow, in order to keep its identity secret to the possible extent.
 	- Several parameters such as the date-time range for the requested and a set of encryption parameters for the HIP repository to encrypt the information. The Elliptic-curve Diffie–Hellman based encryption standard is used for encrypting health information.
 
-- The HIU’s health repository relays all this information to the CM through the gateway. From the CM, the information is relayed to the HIP’s health repository (via the gateway).
+- The HIU’s health repository relays all this information to the HIE-CM through the gateway. From the HIE-CM, the information is relayed to the HIP’s health repository (via the gateway).
 
 **Second Stage**
 
@@ -31,7 +31,7 @@ Once the HIP repository receives the information, it first validates the informa
 
 **Third Stage**
 
-Finally, the CM receives notifications from both the HIP and the HIU. The HIP’s health repository notifies the CM that the requested information was transmitted to the HIU. The HIU’s health repository sends a notification that the requested information was successfully received, or that the request failed.
+Finally, the HIE-CM receives notifications from both the HIP and the HIU. The HIP’s health repository notifies the HIE-CM that the requested information was transmitted to the HIU. The HIU’s health repository sends a notification that the requested information was successfully received, or that the request failed.
 
 All above 3 stages that pertains to HIP are shown in the following diagram:
 
@@ -66,7 +66,7 @@ Data Transfer & Share | {{% badge style="blue" %}}Mandatory{{% /badge %}} HIP mu
 
 **1. Request Health Information**
 
-API called by CM to request Health information from HIP against a validated consent artefact.
+API called by HIE-CM to request health information from HIP against a validated consent artefact.
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/health-information/hip/request$" >}}
 
@@ -74,7 +74,7 @@ API called by CM to request Health information from HIP against a validated cons
 ![public key formats](../public_key_formats.png)
 **2. Acknowledge Health Information Request receipt**
 
-API called by HIP to acknowledge Health information request receipt
+API called by HIP to acknowledge health information request receipt
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/health-information/hip/on-request$" >}}
 
@@ -85,7 +85,7 @@ Health information transfer API.
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/health-information/transfer$" >}}
 
 **Note:** You can send a base64 value of MD5 checksum of the original (pre-encrypted data) so the HIU can verify the integrity of the data once they decrypt it and derive an equivalent checksum and compare it with the value sent as a part of the encrypted data payload.
-- you use any online tool like https://emn178.github.io/online-tools/md5_checksum.html to get checksum of the pre-encrypted data.
+- you can use any online tool like https://emn178.github.io/online-tools/md5_checksum.html to get checksum of the pre-encrypted data.
 - convert the obtained checksum value to base64 once you get a checksum value from the previous step.
 
 **4. Data Transfer Notification**
