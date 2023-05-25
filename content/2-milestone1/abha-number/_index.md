@@ -12,6 +12,8 @@ pre = "<b>2.1 </b>"
 
 ABHA numbers are extremely important for helping those who use feature phones or do not use a phone to manage their personal health records. ABHA numbers are issued in assisted mode extensively by all Government health programs.
 
+Healthcare providers are encouraged to issue ABHA numbers to patients who dont carry phones and link records to the default ABHA address (<14DigitABHAno>@abdm)
+
 **This section covers:**
 
 {{% notice %}}
