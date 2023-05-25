@@ -33,7 +33,7 @@ Repository->>Gateway:POST/care-contexts/on-discover
 The discovery process occurs when a consent manager sends out a request to the concerned HIP to identify the patient in the HIP system.
 
 1. As part of the discovery request, the HIP will receive a list of verified identifiers along with name and demographic information, for example, the patient's mobile number, name, gender, year of birth and patient Id.
-2. The matching logic is as depicted in the flowchart below and also in API specifications:
+2. The matching logic is as depicted in the flowchart below and also in API specifications.
 Note: Look for APIs with tag discovery and link
 
 {{< mermaid >}}
@@ -64,7 +64,7 @@ Display: A description of the patient, comprising of the following information:
 	- For the patient, you need to send one or more care-context detail, as follows:
 		- Care context reference: ABXXX222
 		- Display: General diagnosis
-	Provide only a general hint of the patient's care context here, staying away from private diagnostic details. Here's an example:
+	provide only a general hint of the patient's care context here, staying away from private diagnostic details. Here's an example:
 		- TB program: Use your Nikshay program ID
 		- PMJAY program: This context is linked with your PMJAY ID - PXXX239
 		- Your last visit was with Dr. Shekhar on 21/03/2020
@@ -87,11 +87,11 @@ Display: A description of the patient, comprising of the following information:
 - To enable the linking, the HIP system returns a link reference number along with the authentication type and its associated parameters.
 
 - The HIP system sends an OTP to the patient’s phone number. 
-Note, the phone number for OTP communication from HIP may be the same as verified by the CM or maybe a different number that the patient has chosen as preferred mode of communication with HIP - meaning it's up to the HIP to choose the phone number it sends OTP to. 
+Note, the phone number for OTP communication from HIP may be the same as verified by the HIE-CM or maybe a different number that the patient has chosen as preferred mode of communication with HIP - meaning it's up to the HIP to choose the phone number it sends OTP to. 
 
 - The patient, via patient app, submits the OTP received from the HIP system within the stipulated time. If the patient is successfully authenticated by the HIP, the linking is now complete. 
 
-The following flow diagrams details the flows that take place while linking to a health repository representing an HIP:
+The following flow diagram details the flows that take place while linking to a health repository representing an HIP:
 
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", sequence":{"showSequenceNumbers":true}}}%%
