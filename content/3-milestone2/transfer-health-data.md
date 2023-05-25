@@ -12,7 +12,7 @@ pre = "<b>3.9 </b>"
 
 - **DataPush URL** - can be any URL specified by the HIU. The HRP system must ensure that its firewall rules are setup in such a way that the outbound HTTPs requests can be to any URL
 
-- Security is ensured by making sure that the encrypted data can be only decrypted by requesting HIU
+- Security is ensured by making sure that the encrypted data can only be decrypted by requesting HIU
 
 ## Posting the Data
 
@@ -37,8 +37,8 @@ HIP/HRP Repository->>Gateway:Notify on the transfer<br/>POST/health-information/
 
 **Testing with PHR Application**
 
-- On the PHR app side, log in with an SBX ABHA address
-- Register a patient with same SBX ABHA address in your HIP/HRP
+- On the PHR app, log in with an SBX ABHA address
+- Register a patient with the same SBX ABHA address in your HIP/HRP
 - Create a new health record for this patient
 - Link a care context for this health record using HIP initiated linking
 - PHR App should automatically make a request for the health record along with apt consents

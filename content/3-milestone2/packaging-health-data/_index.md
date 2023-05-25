@@ -8,7 +8,7 @@ pre = "<b>3.7 </b>"
 
 # Packaging Health Data
 
-This section helps you understand data packaging, what goes into the main envelope, types of health information and much more. The examples provided in this section only explain the syntactic means of the data formats. For expressing symantec meaning via standards, encoding and terminologies please refer to the CDAC NRCeS website or as recommended by NHA.
+This section helps you understand data packaging, what goes into the main envelope, types of health information and much more. The examples provided in this section only explain the syntactic meaning of the data formats. For expressing symantec meaning via standards, encoding and terminologies please refer to the CDAC NRCeS website or as recommended by NHA.
 
 **Developers resource**
 
