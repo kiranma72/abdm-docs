@@ -13,7 +13,7 @@ The aim of encryption is to ensure that only the party (HIU) that has been grant
 Here's a high level overview on how the **process of encyption and decryption** works between HIUs and the HIPs, with the consent of the patient:
 
 1. Every Health Information User (HIU) has 2 keys; that is public & private key.
-2. When the HIU wants to request for any HIP for information, the public key of the HIU (along with other key material pertaining to the HIU and the corresponding request) is shared in the request.
+2. When the HIU wants to request any HIP for information, the public key of the HIU (along with other key material pertaining to the HIU and the corresponding request) is shared in the request.
 3. The HIP validates that the user/patient has granted consent to the HIP (requesting for data) to share health data information.
 4. Once that is validated, the HIP will encrypt the data using a shared key (which is generated using HIP's private key, and HIU's publick key material)
 5. The encrypted data is then shared with HIU, along with the public key of HIP (and other key material).
@@ -48,11 +48,11 @@ Following is a short video demonstrating Fidelius CLI’s usage in the context o
 
 {{< youtube id="iDcCP9h5hZs" >}}
 
-This webinar — [https://youtu.be/rSir2gbkEmk](https://youtu.be/rSir2gbkEmk?t=9232) (from 2:33:52) — also covers the usage of Fidelius CLI in detail, from both the HIP and HIU perspectives.
+[**This webinar**](https://youtu.be/rSir2gbkEmk?t=9232) (from 2:33:52) — also covers the usage of Fidelius CLI in detail, from both the HIP and HIU perspectives.
 
 **Using Fidelius CLI with other Programming Languages**
 
-While Fidelius CLI is a Java implementation, the [`./examples` folder](https://github.com/mgrmtech/fidelius-cli/tree/main/examples) in the [corresponding repository](https://github.com/mgrmtech/fidelius-cli) can be perused for guidance on integrating Fidelius CLI (achieved by invoking the binary as a subprocess) in Node JS, Python, Ruby, and PHP codebases.
+While Fidelius CLI is a Java implementation, the [**`./examples` folder**](https://github.com/mgrmtech/fidelius-cli/tree/main/examples) in the [**corresponding repository**](https://github.com/mgrmtech/fidelius-cli) can be perused for guidance on integrating Fidelius CLI (achieved by invoking the binary as a subprocess) in Node JS, Python, Ruby, and PHP codebases.
 
 1. [NodeJS](https://github.com/mgrmtech/fidelius-cli/blob/main/examples/node/index.js)
 2. [Python](https://github.com/mgrmtech/fidelius-cli/blob/main/examples/python/main.py)

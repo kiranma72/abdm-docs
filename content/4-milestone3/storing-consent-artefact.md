@@ -42,7 +42,7 @@ deactivate Repository
 
 ### Fetching the Consent Artefact
 
-- Once the patient grants consent to the HIU, the CM notifies the HIU system of the consent grant via the gateway. 
+- Once the patient grants consent to the HIU, the HIE-CM notifies the HIU system of the consent grant via the gateway. 
 - If the patient grants for multiple HIPs, then multiple consent artefacts are generated - one for each HIP. 
 - The HIU now first fetches all the consent-artefacts that were generated for his request.
 

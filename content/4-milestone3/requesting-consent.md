@@ -8,18 +8,18 @@ pre = "<b>4.1 </b>"
 
 # Requesting Consent
 
-- Whoever wants to ***access health data,*** they have to request for user consent. They do this by sending a consent request with the user's ABHA address to the HIE-CM
+- Whoever wants to ***access health data,*** they have to request for user consent. They do this by sending a consent request with the user's ABHA address to the HIE-CM.
 
 - From an **HIU perspective,** the flow begins when the HIU (e.g. a Doctor at a Hospital) requests consent to view patient’s data. 
 
-- Upon **receipt of such a request** from Gateway, CM acknowledges and sends back a consent request ID to the HIU via the gateway.
+- Upon **receipt of such a request** from Gateway, HIE-CM acknowledges and sends back a consent request ID to the HIU via the gateway.
 
-- The CM then **notifies the patient** that a HIU has made a consent request. The patient can view the request details, and choose to either grant consent or deny it.
+- The HIE-CM then **notifies the patient** that an HIU has made a consent request. The patient can view the request details, and choose to either grant it or deny it.
 
-- Subsequently, the CM **notifies the HIU requester** of the patient’s consent or denial status via the gateway.
+- Subsequently, the HIE-CM **notifies the HIU requester** of the patient’s consent or denial status via the gateway.
 
-	-	If the request is granted, the CM sends across the Ids of the consent artefacts that were created against the request, to the HIU.
-	- If the request is denied, the CM simply notifies the HIU of the denial of the request.
+	-	If the request is granted, the HIE-CM sends across the Ids of the consent artefacts that were created against the request, to the HIU.
+	- If the request is denied, the HIE-CM simply notifies the HIU of the denial of the request.
 
 At the time when the patient registers with the hospital (for accessing medical history), this is (can be) initiated when the user scans the Heath facility QR code & registers Health Facility now has user's ABHA address and can initiate a consent request.
 
