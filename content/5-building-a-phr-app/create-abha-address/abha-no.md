@@ -13,10 +13,10 @@ pre = "<b>5.1.2 </b>"
 
 ## Functionality Overview
 
-**Description:** Individual enters ABHA address (xyz@abdm), and it is validated depending on auth mode of validation such as mobile OTP/aadhar OTP/email OTP or Password to Login.
+**Description:** Individual enters ABHA address (xyz@abdm), and it is validated depending on auth mode of validation such as mobile OTP/aadhar OTP/email OTP or password to login.
 
- - In this flow Individual is given an option of creating ‘ABHA address through ABHA (Number) via KYC document. Please note, the list of KYC documents may be revised from time to time.
- - Create an ABHA address of the format abc@abdm via 14-digit ABHA (Number). In this case, profile details like photo, name, date of birth, gender, mobile no, email ID, and address are fetched from the ABHA system.
+ - In this flow, individual is given an option of creating ABHA address through ABHA (Number) via KYC document. Please note, the list of KYC documents may be revised from time to time.
+ - Create an ABHA address of the format abc@abdm via 14-digit ABHA (Number). In this case, profile details like photo, name, date of birth, gender, mobile number, email ID, and address are fetched from the ABHA system.
  - Individual creates an easy to remember ABHA Address along with its password to login
    - Individuals may link/unlink ABHA (Number) with ABHA address as per their choice.
 
@@ -24,18 +24,20 @@ pre = "<b>5.1.2 </b>"
 **ABHA Address Policy**
 
 1. ABHA Address Policy:
-	- Minimum length 4 including alphabet, number & dot(.) are allowed. Number cannot be in beginning and dot(.) cannot be in beginning & end.
-	- As a policy we allow creation of all numeric Abha addresses for Abha Number only: 14digit@abdm.
+	- Minimum length is 4 including the allowed alphabet, number & dot(.) 
+	- Cannot begin with Number 
+	- Cannot begin or end with dot(.) 
+	- As a policy, we allow creation of all numeric ABHA addresses for ABHA Number only: 14digit@abdm.
 
 2. 10-digit Mobile number as ABHA Address:
-	- For now, we have restricted the creation of (10 digit) Mobile.No@ABDM
+	- For now, we have restricted the creation of (10 digit) MobileNumber@abdm
 
 3. Creation of (14 digit@abdm):
-	- ABHA Address is not allowed however we have the provision for the user to login with same 14digit@abdm both in web PHR and mobile PHR.
+	- ABHA Address is not allowed however, we have the provision for the user to login with the same 14digit@abdm both in web PHR and mobile PHR.
 
 4. Password validation :
 	- This has been made optional. You may kindly check the below APIs at your end and reach out to us in case of any issues:
-		- Registration via ABHA:/api/v1/phr/registration/hid/create-phr-address
+		- Registration via ABHA: /api/v1/phr/registration/hid/create-phr-address
 		- Registration via Mobile and Email: /api/v1/phr/registration/create/phr
 
 ## Test Cases
@@ -46,17 +48,17 @@ S.No|Functionality|Test Scenario|Steps To Be Executed
 1.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Click on "Register" to create a new ABHA address||
 2.| {{% badge style="blue"  %}}Mandatory{{% /badge %}}|Select the "ABHA number" option to create ABHA address via ABHA number and click on "Continue" button||
 3.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Enter the 14 - digit ABHA number and click on "Continue" button||
-4.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Validate ABHA number by entering aadhar OTP/mobile OTP received on mobile number linked with entered ABHA number. | Check if an individual receives aadhar OTP/mobile OTP and able to validate the ABHA no. 
-5.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Resend aadhar OTP / mobile OTP after 60 seconds.|Check if an individual receive aadhar OTP / mobile OTP after 60 seconds and an individual is able to validate the ABHA no by entering the OTP. 
-6.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Display ABHA addresses linked with entered validated ABHA number. So that an individul can select an ABHA address in which one wishes to login.|Check if all ABHA addresses linked to ABHA no are displayed to select any one and login in PHR app
-7.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Click on "Still want to create a new ABHA address" for creation a new ABHA address ||
+4.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Validate ABHA number by entering aadhar OTP/mobile OTP received on mobile number linked with entered ABHA number. | Check if an individual receives aadhar OTP/mobile OTP and able to validate the ABHA number. 
+5.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Resend aadhar OTP / mobile OTP after 60 seconds.|Check if an individual receive aadhar OTP / mobile OTP after 60 seconds and an individual is able to validate the ABHA number by entering the OTP. 
+6.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Display ABHA addresses linked with entered validated ABHA number. So that an individul can select an ABHA address in which one wishes to login.|Check if all ABHA addresses linked to ABHA number are displayed to select any one and login in PHR app
+7.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Click on "Still want to create a new ABHA address" for creation of a new ABHA address ||
 8.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Following profile details are auto-populated from ABHA portal: • First Name • Middle Name • Last Name  • Date of Birth - Day, Month and Year • Gender • Mobile number • Email ID • Address • State • District • Pin Code | Check that all profile details are popultated from ABHA side to PHR app. 
-9.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Click on checkbox beside "User Information Agreement" to voluntary share profile details with NHA for creating ABHA address and click on "Continue" button. | Check if check box is selected beside user information agreement before clicking on "continue" button .  
+9.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Click on checkbox beside "User Information Agreement" to voluntarily share profile details with NHA for creating ABHA address and click on "Continue" button. | Check if check box is selected beside user information agreement before clicking on "continue" button .  
 10.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Create ABHA address. ABHA address needs to be created as per ABHA address policy. ABHA address policy: Minimum length 4 including alphabet, number & dot (.) are allowed. Number cannot be in beginning and dot (.) cannot be in beginning & end. | Check that adherence to ABHA address policy is must to create ABHA address. 
 11.|{{% badge %}}Optional{{% /badge %}}|Suggestions to create ABHA address as per an individual's name & username of e-mail ID needs to be displayed while creating it.	| Check if suggestions of ABHA address are displayed while creating it. Display "already taken" if entered ABHA address is already created by some other individual. Because no two ABHA address can be same.
 12.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Create password, confirm password and click on "Submit" button. Password needs to be created as per password policy. Password policy:  8 characters or longer, one A-Z, one a-z, one 0-9, atleast one symbol, no space and not more than 2 consecutive characters or keyboard keys. | Check that adherence to password policy is must to create ABHA address. 
-13.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Congratulation Screen is displayed stating "Congratulations! ABHA address name@abdm is created successfully " and click on "Login" button| Check that congratulations message is displayed after creating ABHA address & password. Also, an individual should able to login with updated ABHA address and password.
-14.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Click on "I Agree" against "Personal Data Processing Consent Form". Post this user is able to successfully Login |	Check that when an individual login for first time, post agreeing to the "Personal Data Processing Consent Form" an individual is able to login.
+13.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Congratulation Screen is displayed stating "Congratulations! ABHA address name@abdm is created successfully " and click on "Login" button| Check that congratulations message is displayed after creating ABHA address & password. Also, an individual should be able to login with updated ABHA address and password.
+14.|{{% badge style="blue"  %}}Mandatory{{% /badge %}}|Click on "I Agree" against "Personal Data Processing Consent Form". Post this user is able to successfully login |	Check that when an individual login for first time, post agreeing to the "Personal Data Processing Consent Form" an individual is able to login.
 
 
 ## API Sequnce Diagram
@@ -103,14 +105,14 @@ note right of User :Return user token id
 **Utilities**
 - For encrypting the mobileNumber/AadharNumber/otp refer the [link](/abdm-docs/1-basics/encoding-rsa-encryption/#rsa-encryption)
 
-  - To get public key for encrypting refer the [link](/abdm-docs/1-basics/encoding-rsa-encryption/#api-to-retrieve-the-public-key)
+  - To get public key for encryption refer the [link](/abdm-docs/1-basics/encoding-rsa-encryption/#api-to-retrieve-the-public-key)
 
 - For converting an image into Base64 string refer the [link](/abdm-docs/1-basics/encoding-rsa-encryption/#convert-image-to-base64)
 
 
 **1. Search a user by Health ID Number**
 
-Api Checks Health ID Number to find User.
+Api Checks Health ID Number to find user.
 
 **BASE URL:** https://phrsbx.abdm.gov.in
 
