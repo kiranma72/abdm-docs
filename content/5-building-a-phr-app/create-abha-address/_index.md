@@ -18,7 +18,7 @@ Every 14-digit ABHA number is automatically issued a default ABHA address on the
 
 **Create ABHA Address**
 
-The user can also create a user defined name on the HIE-CM that can be linked to this ABHA number. for example: ramesh123@abdm, so that's easy to remember for them.
+The user can also create a user defined name on the HIE-CM that can be linked to this ABHA number. for example: ramesh123@abdm, so that's easy to remember.
 
 It is also possible to create an ABHA address that is not linked to an ABHA number on the HIE-CM using mobile, name, age & gender.
 
