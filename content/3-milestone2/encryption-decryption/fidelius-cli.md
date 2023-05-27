@@ -8,11 +8,15 @@ pre = "<b>3.8.2 </b>"
 
 # Fidelius CLI
 
-Fidelius CLI is an opinionated ECDH cryptography CLI tool (based on Curve25519, corresponding key-pair generation spec, custom HMAC-based Key Derivation Function for generating AES-GCM data encryption/decryption keys).
+Fidelius CLI is a specialized command-line interface (CLI) tool designed for ECDH cryptography. It is based on Curve25519 and incorporates a custom HMAC-based Key Derivation Function, enabling the generation of AES-GCM keys for data encryption and decryption.
 
-While Fidelius CLI can be used to serve a general purpose end-to-end encryption need, it has primarily been designed for encrypting/decrypting health data in the ABDM ecosystem (Ayushman Bharat Digital Mission — Indian Government's venture at creating a digital backbone to support the integrated digital health infrastructure of the country).
+While Fidelius CLI can be used for various end-to-end encryption needs, its primary purpose is to secure health data within the ABDM ecosystem. ABDM stands for Ayushman Bharat Digital Mission, an initiative by the Indian Government to establish a nationwide digital infrastructure supporting integrated digital health services.
 
-As such, apart from the code in this project, [this link](https://sandbox.abdm.gov.in/docs/data_encrypt_decrypt) can be referred for an abstract overview of the key material generation, encryption, and decryption processes.
+The diagram below provides a visual representation of the health data flow between a Health Information User and a Health Information Provider, who play vital roles in the ABDM system. The encryption and decryption steps in the flowchart are appropriately labeled as "HANDLED BY FIDELIUS CLI" to indicate the involvement of Fidelius CLI in these processes.
+
+![Summary of FHIR Data Flow between HIP and HIU, with Fidelius CLI](/abdm-docs/img/fhir-data-flow-summary-with-fidelius-cli.drawio.png)
+
+For more detailed information on the technical foundations and protocols involved in encrypting and decrypting FHIR data within the ABDM ecosystem, you can refer to [this comprehensive guide](/abdm-docs/3-milestone2/encryption-decryption/implementation-guidelines/).
 
 ## Usage
 
@@ -69,9 +73,6 @@ As such, apart from the code in this project, [this link](https://sandbox.abdm.g
 
 **Key Material Generation**
 
-> Note:
-> While it is recommended to use the `publicKey` field (in its base64 encoded raw uncompressed format) for all encryption/decryption operations; it is important to note: for decryption, certain HIUs only accept the public key in the X.509 format (in key material sent by HIP). The `x509PublicKey` field in the output of the `generate-key-material` command can be used to obtain the X.509 public key. However any of the two public key formats can be used with the `encrypt` and `decrypt` commands of Fidelius CLI.
-
 ```bash
 $ cd fidelius-cli-1.x.x/bin
 $ ./fidelius-cli gkm
@@ -96,6 +97,12 @@ $ ./fidelius-cli gkm
 ```
 
 Let's suppose the above output represents the generated key material of the sender.
+
+{{% notice style="note" %}}
+It is generally recommended to use the `publicKey` field, which represents the base64 encoding of the uncompressed EC public key, for all encryption and decryption operations. However, it is important to note that certain HIUs only accept the public key in the base64-encoded X.509 format, specifically within the key material sent by the HIP, before decryption.
+
+To obtain the X.509 public key, you can utilize the `x509PublicKey` field available in the output of the `gkm` command provided by Fidelius CLI. Both the base64-encoded X.509 and the base64-encoded uncompressed public key formats can be used interchangeably with the `encrypt` and `decrypt` commands of Fidelius CLI, accommodating the requirements of different HIUs.
+{{% /notice %}}
 
 **Encryption**
 
