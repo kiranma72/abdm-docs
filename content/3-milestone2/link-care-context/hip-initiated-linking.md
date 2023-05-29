@@ -39,31 +39,31 @@ Functionality|Test Case|Steps To Be Executed
 Functionality|Test Case|Steps To Be Executed 
 |------|-----|-----|
 {{% badge style="blue" %}}Mandatory{{% /badge %}} Link record via mobile OTP (HIP_INTI_LINK_201)|The system should have provision to link patient's Health record with ABHA address |**1.**  Enter patient's ABHA address on the System. **2.**  OTP receive by the patient.
-{{% badge style="blue" %}}Mandatory{{% /badge %}} OTP validation (HIP_INTI_LINK_203)|The user shares the OTP with the HIP for validation|**1.**  Share Mobile OTP with HIP System. **2.**  Validate the OTP. **3.** Upon successful validation of OTP| linking token is generated.
-{{% badge style="blue" %}}Mandatory{{% /badge %}} Linking of Health Records (HIP_INTI_LINK_205)|HIP system links the ABHA number / address with the patient records|**1.**  Link Health Records. **2.**  Through PHR Application| check if the linked records can be pulled
+{{% badge style="blue" %}}Mandatory{{% /badge %}} OTP validation (HIP_INTI_LINK_203)|The user shares the OTP with the HIP for validation|**1.**  Share Mobile OTP with HIP System. **2.**  Validate the OTP. **3.** Upon successful validation of OTP linking token is generated.
+{{% badge style="blue" %}}Mandatory{{% /badge %}} Linking of Health Records (HIP_INTI_LINK_205)|HIP system links the ABHA number / address with the patient records|**1.**  Link Health Records. **2.**  Through PHR Application check if the linked records can be pulled
 
 **Function:** HIP Initiated Health Record Linking Using Aadhaar OTP
 
 Functionality|Test Case|Steps To Be Executed 
 |------|-----|-----|
-{{% badge style="blue" %}}Mandatory{{% /badge %}} Link record via aadhaar linked mobile  OTP (HIP_INTI_LINK_301)|The system should have provision to link patient's Health record with ABHA address |**1.**  Enter patient's ABHA address on the System. 2. OTP receive by the patient.
-{{% badge style="blue" %}}Mandatory{{% /badge %}} OTP validation (HIP_INTI_LINK_303)|The user shares the OTP with the HIP for validation|**1.**  Share Mobile OTP with HIP System. **2.**  Validate the OTP. **3.** Upon successful validation of OTP| linking token is generated."
-{{% badge style="blue" %}}Mandatory{{% /badge %}} Linking of Health Records (HIP_INTI_LINK_305)|HIP system links the ABHA number / address with the patient records|**1.**  Link Health Records. **2.**  Through PHR Application| check if the linked records can be pulled
+{{% badge style="blue" %}}Mandatory{{% /badge %}} Link record via aadhaar linked mobile  OTP (HIP_INTI_LINK_301)|The system should have provision to link patient's Health record with ABHA address |**1.**  Enter patient's ABHA address on the System. **2.** OTP receive by the patient.
+{{% badge style="blue" %}}Mandatory{{% /badge %}} OTP validation (HIP_INTI_LINK_303)|The user shares the OTP with the HIP for validation|**1.**  Share Mobile OTP with HIP System. **2.**  Validate the OTP. **3.** Upon successful validation of OTP linking token is generated.
+{{% badge style="blue" %}}Mandatory{{% /badge %}} Linking of Health Records (HIP_INTI_LINK_305)|HIP system links the ABHA number / address with the patient records|**1.**  Link Health Records. **2.**  Through PHR Application check if the linked records can be pulled
 
 **Function:** HIP Initiated Health Record Linking Using Direct Auth
 
 Functionality|Test Case|Steps To Be Executed 
 |------|-----|-----|
-{{% badge style="blue" %}}Mandatory for the Govt. Integartors{{% /badge %}} Direct Auth mode for Linking of Health Records (HIP_INTI_LINK_401)|The system should have provision to link patient's Health record with ABHA address |**1.**  Enter patient's ABHA address on the System. 2. The user logs into their PHR Application| receives the request for approval and approves it. 3. Search the request in the Notification tab. 4. Approve the request.(User may approve or reject the request. if the request is rejected process ends there). 5. Upon successful validation of OTP| linking token is generated.
-{{% badge style="blue" %}}Mandatory{{% /badge %}} Linking of Health Records (HIP_INTI_LINK_404)|HIP system links the ABHA Address with the patient records|**1.**  Link Health Records. **2.**  Through PHR Application| check if the linked records can be pulled.
+{{% badge style="blue" %}}Mandatory for the Govt. Integartors{{% /badge %}} Direct Auth mode for Linking of Health Records (HIP_INTI_LINK_401)|The system should have provision to link patient's Health record with ABHA address |**1.**  Enter patient's ABHA address on the System. **2.** The user logs into their PHR Application receives the request for approval and approves it. **3.** Search the request in the Notification tab. **4.** Approve the request.(User may approve or reject the request. if the request is rejected process ends there). **5.** Upon successful validation of OTP linking token is generated.
+{{% badge style="blue" %}}Mandatory{{% /badge %}} Linking of Health Records (HIP_INTI_LINK_404)|HIP system links the ABHA Address with the patient records|**1.**  Link Health Records. **2.**  Through PHR Application check if the linked records can be pulled.
 
 **Function:** HIP Initiated Health Record Linking Using Demographic Auth
 
 Functionality|Test Case|Steps To Be Executed 
 |------|-----|-----|
-{{% badge style="blue" %}}Mandatory for the Govt. Integartors  {{% /badge %}} Link record via Demographic Auth (HIP_INTI_LINK_501)|The system should have provision to link patient's Health record with ABHA address.|**1.**  For the verified ABHA Address of the patient in the HIP System. **2.** The user provides their demographic details (name, gender, DOB, mobile number). 3. Enter user/patient's demographic details in the HIP System
-{{% badge style="blue" %}}Mandatory{{% /badge %}} Validate the demographic details  (HIP_INTI_LINK_503)|The HIP validates demographic details of patient|**1.**  Validate Demographic Details ( Provided by the user and fetch by the ABHA address). **2.** Upon successful validation of OTP| linking token is generated.
-{{% badge style="blue" %}}Mandatory{{% /badge %}} Linking of Health Records (HIP_INTI_LINK_505)|HIP system links the ABHA Address with the patient records|**1.**  Link Health Records. **2.**  Through PHR Application| check if the linked records can be pulled"
+{{% badge style="blue" %}}Mandatory for the Govt. Integartors  {{% /badge %}} Link record via Demographic Auth (HIP_INTI_LINK_501)|The system should have provision to link patient's Health record with ABHA address.|**1.**  For the verified ABHA Address of the patient in the HIP System. **2.** The user provides their demographic details (name, gender, DOB, mobile number). **3.** Enter user/patient's demographic details in the HIP System
+{{% badge style="blue" %}}Mandatory{{% /badge %}} Validate the demographic details  (HIP_INTI_LINK_503)|The HIP validates demographic details of patient|**1.**  Validate Demographic Details ( Provided by the user and fetch by the ABHA address). **2.** Upon successful validation of OTP linking token is generated.
+{{% badge style="blue" %}}Mandatory{{% /badge %}} Linking of Health Records (HIP_INTI_LINK_505)|HIP system links the ABHA Address with the patient records|**1.**  Link Health Records. **2.**  Through PHR Application check if the linked records can be pulled
 
 {{% notice title="API Versions" %}}
 
