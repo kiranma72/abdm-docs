@@ -6,8 +6,6 @@ draft: false
 pre : "<b>1.10 </b>"
 ---
 
-# Making your App ABDM Compliant
-
 To become an **ABDM Compliant Application**, your application needs to implement specific functional capabilities and pass functional validation.  
 
 The functionality has been broken into milestones to make it easier to implement. Your first step is to understand the functionalities that your application must support. This depends on what type of application you are integrating. 
@@ -29,9 +27,9 @@ Here is a quick list of functionalities that must be implemented for each milest
 2. Collect & Verify ABHA address during patient registration
 
 ## Features to be supported for Milestone 2 (M2)
-**Description:** This milestone enables a health care entity/professional to become Health Information Provider (HIP). This implies that the clinical artifacts generated will be linked with the ABHA and is ready for consent-based-sharing within ABDM eco-system. Patient will be able to view the generated and linked health records in any of his/her preferred PHR app downloaded in the mobile device. Functionalities offered are:
+**Description:** This milestone enables a health care entity/professional to become Health Information Provider (HIP). This implies that the clinical artifacts generated will be linked with the ABHA address and is ready for consent-based-sharing within ABDM eco-system. Patient will be able to view the generated and linked health records in any of his/her preferred PHR app downloaded in the mobile device. Functionalities offered are:
 1. Help users discover their health records available in your system 
-2. Notify or link a new health record with a ABHA address when it is created in your system
+2. Notify or link a new health record with an ABHA address when it is created in your system
 3. Share the health record on request after verifying user consent
 4. Structure the health record in an inter-operable format using FHIR
 5. Support Consent revokes, deletion of ABHA address and uptime related heartbeats 
