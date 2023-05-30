@@ -16,7 +16,7 @@ pre = "<b>5.11 </b>"
 
 1. List all of the consent requests that have been sent to the user
 
-2. Allow the User to edit the content of the consent request and modify it as per their requirements.
+2. Allow the user to edit the content of the consent request and modify it as per their requirements.
 
 3. Allow the user to grant / deny a new consent request.
 

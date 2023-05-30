@@ -34,7 +34,6 @@ PHR App->>HIE-CM: Disable auto-approval-policy<br/>POST/consents/auto-approval-p
 {{< /mermaid >}}
 
 
-
 ## API Information Request Response
 
 

@@ -10,20 +10,20 @@ pre = "<b>5.5 </b>"
 
 ## Functionality Overview
 
-- In ABDM, any HIU or **PHR Application can subscribe** (that is help you to watch for changes to PHR address) **for notifications** to be received on its callback URL whenever there is a change in the care context linked to a ABHA Address.
+- In ABDM, any HIU or **PHR Application can subscribe** (that will help to watch for changes to PHR address) **for notifications** to be received on its callback URL whenever there is a change in the care context linked to a ABHA Address.
 
 - Every PHR App must set up a subscription for the ABHA address:
-1. When it creates ABHA address
-2. User logs in with a new ABHA address
+	1. When it creates ABHA address
+	2. User logs in with a new ABHA address
 
 - PHR applications are expected to provide a UI layer where the user can:
-1. View the list of subscriptions
-2. Approve subscriptions
-3. Deny subscriptions
+	1. View the list of subscriptions
+	2. Approve subscriptions
+	3. Deny subscriptions
 
 - The PHR app is responsible for showing up notifications on the Mobile application (for example using Firebase in Android).
 
-- {{% badge %}}Note{{% /badge %}} Users must be explicitly asked to provide a consent to setup the subscription.
+{{% badge %}}Note:{{% /badge %}}  Users must be explicitly asked to provide a consent to setup the subscription.
 
 - When the user approves the subscription, HIU/PHR App is notified whenever a new care context is linked or updated to the PHR address.
 
@@ -56,7 +56,7 @@ S.No|Functionality|Test Case|Steps To Be Executed
 S.No|Functionality|Test Case|Steps To Be Executed 
 |--|------|-----|-----|
 1| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit active subscription request|Already granted subscription request can be edited|Check if HI types, types of visit and time period can be edited and saved by clicking on "Save Changes" button"
-2| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Disable auto approval requests|Already granted auto approval policy can be disabled|Check if already granted auto approval policy for health locker can be disabled by clickicking on "Disable" button. Post disble of auto - approval policy|locker request is received from health locker for each record.
+2| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Disable auto approval requests|Already granted auto approval policy can be disabled|Check if already granted auto approval policy for health locker can be disabled by clickicking on "Disable" button. Post disble of auto - approval policy locker request is received from health locker for each record.
 
 
 ## API Sequence Diagram
@@ -108,7 +108,8 @@ HIE-CM-->>HIU (PHR App):POST /v0.5/subscription-requests/hiu/on-notify
 
 **BASE URLs:**  https://dev.abdm.gov.in/cm
 
-{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="GET ​/subscription-requests​/{subscription-id}$" >}}
+
+{{< swaggermin src="/abdm-docs/Yaml/ndhm-phr-app.yml" api="GET /subscription-requests/{subscription-id}" >}}
 
 **5. Approve Subscription Request**
 
@@ -130,7 +131,7 @@ HIE-CM-->>HIU (PHR App):POST /v0.5/subscription-requests/hiu/on-notify
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hiu.yml" api="POST /v0.5/subscription-requests/hiu/notify$" >}}
 
-**.8 Acknowledge Receipt Of Notification**
+**8. Acknowledge Receipt Of Notification**
 
 **BASE URLs:**  https://dev.abdm.gov.in/gateway
 

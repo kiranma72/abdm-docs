@@ -26,7 +26,7 @@ pre = "<b>5.3 </b>"
 
 S.No|Functionality|Test Case|Steps To Be Executed 
 |--|------|-----|-----|
-1| {{% badge style="blue" %}}Mandatory{{% /badge %}} Showing individual's profile details in the PHR app|Individual's profile is displayed in the PHR app with their status such as KYC verified and Self-Declared. | Display all profile details filled to the individual, when individual click on Profile after Login. Also| display KYC Verified" with green tick mark for those profiles where ABHA address is linked with ABHA number. Display Self Delared with exclaimation mark for those profiles where ABHA address is not linked with ABHA number. ABHA number is visible in KYC verified profile and ABHA number is not visible in Self-Declared profile.
+1| {{% badge style="blue" %}}Mandatory{{% /badge %}} Showing individual's profile details in the PHR app|Individual's profile is displayed in the PHR app with their status such as KYC verified and Self-Declared. | Display all profile details filled by the individual, when individual click on Profile after Login. Also display KYC Verified with green tick mark for those profiles where ABHA address is linked with ABHA number. Display Self Delared with exclaimation mark for those profiles where ABHA address is not linked with ABHA number. ABHA number is visible in KYC verified profile and ABHA number is not visible in Self-Declared profile.
 
 
 **Download ABHA address card in the PDF format** 
@@ -41,7 +41,7 @@ S.No|Functionality|Test Case|Steps To Be Executed
 S.No|Functionality|Test Case|Steps To Be Executed 
 |--|------|-----|-----|
 1|{{% badge style="blue" %}}Mandatory{{% /badge %}} Set Consent Pin|Validate OTP received on registered mobile number|Check that OTP is received on registered mobile number. 
-2|{{% badge style="blue" %}}Mandatory{{% /badge %}} Set Consent Pin|Validate OTP received on registered mobile number|Resend OTP option is provided| if OTP is not received on mobile in 60 seconds
+2|{{% badge style="blue" %}}Mandatory{{% /badge %}} Set Consent Pin|Validate OTP received on registered mobile number|Resend OTP option is provided,if OTP is not received on mobile in 60 seconds
 3|{{% badge style="blue" %}}Mandatory{{% /badge %}} Set Consent Pin|Enter 4 digit consent pin|Check that only 4 digit consent pin is accepted 
 4|{{% badge style="blue" %}}Mandatory{{% /badge %}} Set Consent Pin|Confirm Consent Pin|Re-enter the consent pin to confirm the consent pin. Check that confirmation of consent pin is taken by re-entering it.
 5|{{% badge style="blue" %}}Mandatory{{% /badge %}} Set Consent Pin|Display message, so that an individual knows that consent pin is set successfully|Display message "Congratulations! Your consent pin is successfully updated". Below this message "Go Back To Home Screen" tab is provided to navigate the individual to home screen.
@@ -59,14 +59,14 @@ S.No|Functionality|Test Case|Steps To Be Executed
 
 S.No|Functionality|Test Case|Steps To Be Executed 
 |--|------|-----|-----|
-1| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for KYC verified profiles |Update mobile number| Mobile OTP is received on updated mobile no. Post mobile OTP validation, mobile no is updated. 
+1| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for KYC verified profiles |Update mobile number| Mobile OTP is received on updated mobile number. Post mobile OTP validation, mobile no is updated. 
 2| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for KYC verified profiles |Update email ID| E-mail OTP is received on updated e-mail ID. Post e-mail OTP validation, e-mail ID is updated. 
 3| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for KYC verified profiles |Update address| All fields of address such as address line 1, district, state and pin-code can be updated. 
 4| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for Self-Declared profile |Update Photo|Photo can be edited by an individul taking the picture from mobile camera / upload photo from gallery of the device 
 5| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for Self-Declared profile |Update Full Name| Update First Name, Middle name and Last Name
 6| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for Self-Declared profile |Update Gender | Update Gender
 7| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for Self-Declared profile |Update DoB| Update Day, Month and Year
-8| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for Self-Declared profile |Update Mobile No| Mobile OTP is received on updated mobile no. Post mobile OTP validation, mobile no is updated.
+8| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for Self-Declared profile |Update Mobile No| Mobile OTP is received on updated mobile number. Post mobile OTP validation, mobile number is updated.
 9| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for Self-Declared profile |Update Email ID| E-mail OTP is received on updated e-mail ID. Post e-mail OTP validation, e-mail ID is updated.  
 10| {{% badge style="blue" %}}Mandatory{{% /badge %}}  Edit profile for Self-Declared profile |Update Address| All fields of address such as address line 1, district, state and pin-code can be updated. 
 

@@ -91,6 +91,12 @@ Note, the phone number for OTP communication from HIP may be the same as verifie
 
 - The patient, via patient app, submits the OTP received from the HIP system within the stipulated time. If the patient is successfully authenticated by the HIP, the linking is now complete. 
 
+## Sample User Experience
+
+{{< gallery dir="3-milestone2/link-care-context/user-experience" />}} {{< load-photoswipe >}}
+
+## API Sequence Diagram
+
 The following flow diagram details the flows that take place while linking to a health repository representing an HIP:
 
 {{< mermaid >}}
@@ -159,6 +165,3 @@ Token authenticated by HIP, indicating completion of linkage of care-contexts
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/links/link/on-confirm$" >}}
 
-## Sample User Experience
-
-{{< gallery dir="3-milestone2/link-care-context/user-experience" />}} {{< load-photoswipe >}}

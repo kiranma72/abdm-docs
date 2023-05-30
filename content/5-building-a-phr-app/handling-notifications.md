@@ -14,7 +14,7 @@ A PHR Application **handles a variety of notifications for the User.**
 
 Types on notifications to be handled:
 
-1. Care context - new/updated
+1. Care context - New/Updated
 2. New subscription request (v3 APIs only)
 3. New Consent request (v3 APIs only) 
 4. Approved / Revoked consents
@@ -50,7 +50,7 @@ If there are user-linked records (that is when it acts as an HRP), then they als
 
 S.No|Functionality|Test Case|Steps To Be Executed 
 |--|------|-----|-----|
-1|{{% badge style="blue" %}}Mandatory{{% /badge %}}  Post linking of health records with ABHA address by the HIP with patient consent| the individual can view the health records on the PHR mobile app|Health data will be visible in PHR app once HIP link health records with the ABHA address.|Once Individual visits the hospital. • ABHA address is shared with the health programme / health facility. • Individual validates the ABHA address with the mobile OTP. • Post linking of health records with ABHA address by the HIP| the individual can open any PHR app  and click on "Pull Records" button against the visited health programme / health facility| where the record is created and linked to ABHA address to view the record in mobile device.
+1|{{% badge style="blue" %}}Mandatory{{% /badge %}}  Post linking of health records with ABHA address by the HIP with patient consent, the individual can view the health records on the PHR mobile app|Health data will be visible in PHR app once HIP link health records with the ABHA address.|Once Individual visits the hospital. • ABHA address is shared with the health programme / health facility. • Individual validates the ABHA address with the mobile OTP. • Post linking of health records with ABHA address by the HIP, the individual can open any PHR app  and click on "Pull Records" button against the visited health programme / health facility, where the record is created and linked to ABHA address to view the record in mobile device.
 
 ## API Sequence Diagram
 

@@ -10,10 +10,10 @@ pre = "<b>5.4 </b>"
 
 ## Functionality Overview
 
-Every PHR Application needs to provide the ability for their users to scan a health facility QR code and share their ABHA address, profile information with health facilities.
+Every PHR Application needs to provide the ability for their users to scan a Health Facility QR code; and share their ABHA address, profile information with health facilities.
 
-1. The App must be able to integrate with the phone camera and read the content of QR Code
-2. The App must also support an [**intent**](/abdm-docs/5-building-a-phr-app/support-deep-links/index.html) where it must go directly to the sharing page, if the QR code was scanned with a different camera.
+1. The App must be able to integrate with the phone camera and read the content of QR Code.
+2. The App must also support an [**intent**](/abdm-docs/5-building-a-phr-app/support-deep-links/index.html) where it must directly go to the sharing page, if the QR code was scanned with a different camera.
 3. The content of the QR code is a URL (sample for reference: [https://phrsbx.abdm.gov.in/share-profile?hip-id=IN3410000260&counter-id=12345](https://phrsbx.abdm.gov.in/share-profile?hip-id=IN3410000260&counter-id=12345)) that contains 2 parameters:
    1. The HIP ID
    2. Facility defined context (for example: counter code)

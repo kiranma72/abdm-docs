@@ -55,8 +55,3 @@ S.No|Functionality|Test Case|Steps To Be Executed
 9| {{% badge style="blue" %}}Mandatory{{% /badge %}}  "Linked Facility" tab in PHR app| Linked providers includes health lockers| health facility and health programme|Ckeck list of all linked providers are displayed and "Pull Record" button is against each one of them. So that patient can click on it to fetch and view record in "My Records" tab.
 
 
-## API Sequence Diagram
-
-
-## API Collection
-
