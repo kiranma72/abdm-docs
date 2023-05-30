@@ -17,7 +17,7 @@ pre = "<b>2.1.7 </b>"
 
 - If you want to do profile update for any user, you can do it by using their ABHA number, via:
 	1. [**ABHA Website**](https://abha.abdm.gov.in/), if you ABHA number was created on Production website.
-	2. [**ABHA Sandbox**](https://sandbox.abdm.gov.in//), if you ABHA number was created on Sandbox environment.
+	2. [**ABHA Sandbox**](https://abhasbx.abdm.gov.in/), if you ABHA number was created on Sandbox environment.
 
 - If you want to do it in your application,  more information is documented under PHR Application section
 

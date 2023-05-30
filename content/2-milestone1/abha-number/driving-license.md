@@ -18,24 +18,24 @@ pre = "<b>2.1.4 </b>"
 
 - Currently ABDM supports Driving License (DL) for ABHA number generation, apart from Aadhaar. 
 
-- The user is requested his/her mobile number to be linked with ABHA Number.
+- The user is requested for their mobile number.
 
-- An OTP is sent to the given mobile number and after verifying the OTP , demographic information of the user is captured along with the driving license number . 
+- An OTP is sent to the mobile number. Once the OTP is verified, demographic information of the user is captured along with the driving license number. 
 
 - Following demographic details are expected from the end user
-   - Name
+   - Name as on driving licence
    - Date of birth (DOB)
    - Gender
 
-- The DL Number and Demographic details provided are matched against the DL database.
+- The Driving License (DL) Number and Demographic details provided are matched against the DL database (Sarathi).
 
 - The Demographic infiormation is also checked against the existing ABHA number database to prevent duplication.
 
 - Users are requested to upload scanned front and back images of their DL.
 
-- Post submission, an enrollment number is generated. The user has to go to a participating healthcare facility and request for the same to be verified.
+- Post submission, an enrollment number is generated. The user has to go to any participating healthcare facility and request for the same to be verified.
 
-- The Health care workers/Facility Managers are expected to ensure that the submitted DL is of the end user requesting *creation of ABHA number*
+- The Health care workers/Facility Managers are expected to cross check that the submitted DL is of the end user requesting *creation of ABHA number*
 
 - They can ensure the same by matching the picture in the uploaded document with the requesting person.
 
@@ -80,42 +80,38 @@ The sequence of APIs used via this method are shown in the diagram below:
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
-title Notification on Consent Grant
-actor Client
-Note right of Client: Generate OTP on given Mobile Number
-Client->>ABHA Server:/v3/enrollment/request/otp
-activate ABHA Server
-ABHA Server-->> Client: Response 200 OK
-deactivate ABHA Server
-Note right of Client: Txn Id
-Client->>ABHA Server:/v3/enrollment/auth/byAbdm
-activate ABHA Server
-Note left of ABHA Server: OTP, Txn Id
-ABHA Server-->> Client: Response 200 OK
-Note right of Client: Returns verified Token
-deactivate ABHA Server
-Client->>ABHA Server:/v3/enrollment/enrol/byDocument
-activate ABHA Server
-ABHA Server->> Document Database Server: Match Document ID with Name, Gender & DOB
-deactivate ABHA Server
-Document Database Server->>ABHA Server:Information matches
-Note right of Client: Return Enrollment number to Client
+participant HIP/HIU/PHR
+Note right of HIP/HIU/PHR: Generate OTP on given Mobile Number
+HIP/HIU/PHR->>ABHA:/v3/enrollment/request/otp
+activate ABHA 
+ABHA-->> HIP/HIU/PHR: Response 200 OK
+deactivate ABHA 
+Note right of HIP/HIU/PHR: Txn Id
+HIP/HIU/PHR->>ABHA:/v3/enrollment/auth/byAbdm
+activate ABHA
+Note left of ABHA : OTP, Txn Id
+ABHA-->> HIP/HIU/PHR: Response 200 OK
+Note right of HIP/HIU/PHR: Returns verified Token
+deactivate ABHA
+HIP/HIU/PHR->>ABHA:/v3/enrollment/enrol/byDocument
+activate ABHA
+ABHA->> DL Database: Match Document ID with Name, Gender & DOB
+deactivate ABHA 
+DL Database->>ABHA:Information matches
+Note right of HIP/HIU/PHR: Return Enrollment number to Client
 {{< /mermaid >}}
 
 
 ## API Information Request Response 
 
-**Utilities**
-- For encrypting the mobileNumber/AadharNumber/otp refer the [link](/abdm-docs/1-basics/encoding-rsa-encryption/#rsa-encryption)
+{{% notice %}}
+- [For encrypting the mobileNumber/AadharNumber/otp](/abdm-docs/1-basics/encoding-rsa-encryption/#rsa-encryption)
+- [For converting an image into Base64 string](/abdm-docs/1-basics/encoding-rsa-encryption/#convert-image-to-base64)
+- [To create Gateway Session Token](/abdm-docs/1-basics/verify_sandbox_access/#create-gateway-session-token)
 
-  - To get public key for encrypting refer the [link](/abdm-docs/1-basics/encoding-rsa-encryption/#api-to-retrieve-the-public-key)
+{{%/notice%}}
 
-- For converting an image into Base64 string refer the [link](/abdm-docs/1-basics/encoding-rsa-encryption/#convert-image-to-base64)
-
-**1. [Create Gateway Session Token](/abdm-docs/1-basics/verify_sandbox_access/#create-gateway-session-token)**
-
-
-**2. Request Otp To Mobile**
+**1. Request Otp To Mobile**
 
 Refer to example "Request OTP For DL based enrollment"
 
@@ -123,20 +119,20 @@ Refer to example "Request OTP For DL based enrollment"
 
 {{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/request/otp$" >}}
 
-**3. Verify The Mobile**
+**2. Verify The Mobile**
 
 **BASE URL:** https://abhasbx.abdm.gov.in/abha/api
 
 {{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/auth/byAbdm$" >}}
 
-**4. Enroll By DrivingLicense**
+**3. Enroll By DrivingLicense**
 
 **BASE URL:** https://abhasbx.abdm.gov.in/abha/api
 
 {{< swaggermin src="/abdm-docs/Yaml/abha_enrollment_api.yml" api="POST /v3/enrollment/enrol/byDocument" >}}
 
 ## Verification and ABHA number creation:
-After receiving the enrollment number, the user need to approach any facility centers for creating the ABHA number .
+After receiving the enrollment number, the user need to approach any health care facility for verifying the DL and creating the ABHA number .
 ![facility_center_link](../facility_center_link.png)
 ![search_facility](../search_facility.png)
 

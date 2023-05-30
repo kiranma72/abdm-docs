@@ -21,7 +21,7 @@ ABHA Number can be created by authenticating with Aadhaar. Those who have their 
 Following are the steps to create a ABHA Number via Aadhaar OTP authentication:
 
 1. The User should input their Aadhaar number.
-2. The system must check if this is a valid Aadhaar number using the verhoff algorithm. The last digit of Aadhaar is the checksum digit.
+2. The system must check if this is a valid Aadhaar number using the [verhoeff algorithm](https://medium.com/@krs.sharath03/how-aadhar-number-is-generated-and-validated-3c3e7172e606). The last digit of Aadhaar is the checksum digit.
 2. The ABHA number APIs will make a request to UIDAI to send an OTP to the Aadhaar linked mobile number. 
 3. Once the OTP is verified, the system returns the complete profile data along with 14-digit ABHA Number.
 4. The User is asked to input their mobile number.   
@@ -201,14 +201,15 @@ The sequence of APIs used via this method are shown in the diagram below:
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
 title ABHA Creation using Aadhar OTP
-actor HIU/HIP/PHR
+actor User 
+participant HIU/HIP/PHR
 Note left of ABHA: Share encrypted Aadhaar number
 HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/request/otp)
 ABHA->>UIDAI: Aadhaar number
 UIDAI->>UIDAI:Verify Aadhaar number
 UIDAI->>ABHA: Response 200
 ABHA->>HIU/HIP/PHR: Response 200 (transaction ID)
-UIDAI->>HIU/HIP/PHR:Receive OTP
+UIDAI->>User:Receive OTP
 Note right of HIU/HIP/PHR: Forward OTP & transaction ID to verify
 HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/enrol/byAadhaar)
 ABHA->>UIDAI: Forward OTP
@@ -220,7 +221,7 @@ Note over HIU/HIP/PHR,UIDAI: Mobile verification and Mobile Update
 Note left of ABHA: Share encrypted mobile number,transaction ID
 HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/request/otp)
 ABHA->>HIU/HIP/PHR: Response 200 
-ABHA->>HIU/HIP/PHR:Receive OTP
+ABHA->>User:Receive OTP
 Note right of HIU/HIP/PHR: Forward Encrypted OTP & transaction ID to verify
 HIU/HIP/PHR->>ABHA: (POST: /v3/enrollment/auth/byAbdm)
 ABHA->>ABHA: OTP Verified & Mobile Number Linked
@@ -229,9 +230,6 @@ ABHA->>HIU/HIP/PHR: Response 200
 
 
 ## API Information Request Response for V3
-
-**BASE URL:** https://dev.ndhm.gov.in/gateway/
-
 
 **1. Generate Aadhaar OTP on registrered mobile number**
 

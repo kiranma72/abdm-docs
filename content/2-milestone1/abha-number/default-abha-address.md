@@ -11,9 +11,9 @@ pre = "<b>2.1.6 </b>"
 
 **What is ABHA Address?**
 
-ABHA Address is an easy to remember username that enables a user to access their health records digitally and share their records with various healthcare providers. An ABHA address may look like ‘name@abdm’. It is required to sign up on ABHA Application
+ABHA Address is an easy to remember username that enables a user to access their health records digitally and share their records with various healthcare providers. An ABHA address look like ‘name@abdm’. It is required to sign up on a PHR Application
 
-Every 14-digit ABHA number is automatically issued a default ABHA address on the ABDM HIE-CM, which looks like 14-digit@sbx or 14-digit@abdm.
+Every 14-digit ABHA number is automatically issued a default ABHA address on the ABDM HIE-CM, which looks like 14-digit@sbx (for ABDM sandbox) or 14-digit@abdm (for ABDM production)
 
 **Create ABHA Address**
 

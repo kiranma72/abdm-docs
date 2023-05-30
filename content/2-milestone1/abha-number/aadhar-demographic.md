@@ -30,6 +30,7 @@ When calling this API, care must be taken to ensure:
 2. The mobile number that is passed is assumed to be verified by the application and is not re-verified by ABHA.
 3. Any ID being issed by the public health program (eg: PMJAY id, CoWin id, RCH Id) can be linked to the ABHA number
 4. The ABDM client id used to call this API must have the *HidIntegratedProgram* role assigned. (This is required in both Sandbox & Production)
+5. Note, the Aadhaar number can be stored locally in the device only when the device is in offline mode. The Aadhaar number must be discarded once the ABHA api has been called to ensure compliance with Aadhaar regulations. 
 
 
 ## Test Cases
@@ -56,12 +57,12 @@ The sequence of APIs used via this method are shown in the diagram below:
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
 title Create ABHA Address using Demographic details (Offline)
-Government Health Application (HIP)->>ABHA:Shares the demographic details
+Government Health Application (HIP)->>ABHA:/v1/hid/benefit/createHealthId/demo/auth
 ABHA->>UIDAI:Requests for verification of details
 UIDAI->>UIDAI:Details verified
 UIDAI->>ABHA:Verifies user
 Note over ABHA:Checks if there’s an existing ABHA
-ABHA->>Government Health Application (HIP): Returns ABHA Address
+ABHA->>Government Health Application (HIP): 200 Returns ABHA Address
 Note right of Government Health Application (HIP):Returns already created ABHA or creates new ABHA
 {{< /mermaid >}}
 
