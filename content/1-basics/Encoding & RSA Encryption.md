@@ -8,6 +8,8 @@ pre : "<b>1.9 </b>"
 
 
 {{% notice style="primary" title="Overview " icon="list-alt" %}}
+Several API parameters require encoding / encryption. This section points you to tools that are useful when testing APIs using POSTMAN
+
 - [Convert Image to Base64](#convert-image-to-base64)
 - [RSA Encryption](#rsa-encryption)
 {{% /notice %}}

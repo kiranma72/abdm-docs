@@ -78,7 +78,7 @@ S.No|Functionality|Test Case|Steps To Be Executed|
 
 ## Sequence Diagram for V1&V2 API
 
-#### Mobile Number Linked With Aadhaar Flow
+#### Same mobile Number as linked With Aadhaar Flow
 
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
@@ -110,7 +110,7 @@ Note right of HIU/HIP/PHR: ABHA number created
 ABHA->>HIU/HIP/PHR: Response 200 (user account details)
 {{< /mermaid >}}
 
-#### Mobile Number Not Linked With Aadhaar Flow
+#### Mobile Number different than one linked With Aadhaar Flow
 
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%

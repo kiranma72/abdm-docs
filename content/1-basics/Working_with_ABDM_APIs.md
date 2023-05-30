@@ -19,14 +19,13 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6IC.....
 
 ### ABDM Client IDs & Call Back URLs 
 
-- Every organization that registers with ABDM is issued one or more Client IDs 
+- Every organization that completes certification with ABDM is issued one or more Client IDs 
 - Each Client ID should be used by the organization to register ONE INSTANCE of their ABDM compiliant software
 - One Client ID can be used to **register** only ONE callback URL.
 - Each instance of the software can hold health records for one or more health facilities 
-- Each Health Facility is given an ID from the Health Facility Registry. 
-- The Facility ID & Client ID need to be **registered** in the ABDM Gateway registry 
-- This Facility id must be passed in X-HIP-ID Header in ABDM apis
-
+- Each Health Facility must register in the Health Facility Registry and obtain a HFR ID. This ID also acts as the HIP ID in the ABDM APIs. 
+- The HFR login is used by the facility to **register** the Client ID / Callback URL of the ABDM compliant software being used. 
+-  Facility id must be passed in X-HIP-ID Header in ABDM apis
 
 ![Client ID - Callback URL - HIP ID](../clientid-callback.png)
 
@@ -50,11 +49,11 @@ gateway->>client: Response: 200 (as acknowledgment)
 Note right of client : asynchronous calls 
 gateway->>client: /v0.5/users/auth/on-fetch-modes
 client->>gateway: Response: 200 (as acknowledgment)
-{{< /mermaid >}}s
+{{< /mermaid >}}
 
 **Note :** Use ISO timestamps for current timestamps while working with apis in postman (For example: 2023-05-09T21:10:36.177Z)
 
-### Registering your callback URL 
+### Registering your callback URL (Sandbox Only)
 The callback URL is the url for your site where your application recieves APIs calls from the ABDM gateway. After obtaining the client ID and the secret, use the [gateway sessions api](../verify_you_can_access_the_sandbox/#create-session) to get the accessToken. Use the below api, to register the callback  url. Pass the Gateway Session Token in the  ["Authorization:"](#the-authorization-header) header and  the callback url in "url:".  
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-devservice.yml" api="PATCH /v1/bridges$" >}}
@@ -65,7 +64,7 @@ curl --location --request PATCH 'https://dev.abdm.gov.in/devservice/v1/bridges' 
 }
 ```
 
-{{% badge icon="exclamation-triangle"%}}Disclaimer{{% /badge %}} This API is only available in in sandbox. This is configured via a different API / UI in production
+{{% badge icon="exclamation-triangle"%}}Disclaimer{{% /badge %}} This API is only available in in sandbox. This is configured via Health Facility Registry in production
 
 After registering the callback url, if we fire any API which has a callback, ABDM will post the response of the fired API to that callback url.  You can use the [/v1/bridge/getServices](#check-your-configuration) API to check what is configured for your client ID including the callback URL.
 
@@ -73,15 +72,15 @@ After registering the callback url, if we fire any API which has a callback, ABD
 
 The HIP code used by ABDM is the same as the [health facility registry ID](https://facility.abdm.gov.in/). 
 
-In the Sandbox you can simply declare a HIP/HIU ID without it being part of the health facility registry. You can use it to link one HIP / HIU ID with your Client ID with no validations.  
+In the Sandbox you can simply declare a HIP/HIU ID without it being part of the health facility registry. You can use it to link one HIP / HIU ID with your Client ID with no validations. 
+
+{{% badge icon="exclamation-triangle"%}}Note{{% /badge %}} Make sure you provide a Unique HIP ID and Facility name (Make up a unique id and name). The Sandbox is a shared integration system and currently does not check for duplicate HIP IDs. This will make it easier for you to search and discover your health facility in the PHR app  
 
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-devservice.yml" api="POST /v1/bridges/addUpdateServices$" >}}
 
+All HIUs including PHR apps need to register a unique HIU code and name. 
 
-All HIUs including PHR apps also need to register a HIU code. 
-
-**Note :** Create unique (fake) HIP/HIU (both Id & Name should be unique) so it can be searched and discovered in the PHR app.
 
 ### Check your configuration 
 

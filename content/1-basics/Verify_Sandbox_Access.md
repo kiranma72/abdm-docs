@@ -18,11 +18,11 @@ https://sandbox.ndhm.gov.in/applications/Home/login
 ![Landing_Page](../Landing_Page.png) 
 {{%icon icon="info-circle" %}} [For additional information on the various application status](../about_abdm_sandbox#abdm-sandbox-journey)
 
-**Step 3:** Once the application is _Approved_ by the committee, the user will receive an email containing stating _Client id_ & _Client Secret_. On Frontend, the user will see the status changed to _Sandbox Application Status_.  
+**Step 3:** Once the application is _Approved_ by the committee, the user will receive an email containing your _Client id_ & _Client Secret_. On Frontend, the user will see the status changed to _Sandbox Application Status_.  
 ![Sandbox_Application_Status](../SandboxApplicationStatus.png) 
 {{%icon icon="info-circle" %}} If the status is approved and you havent received the client secret via email, kindly drop a mail{{%icon icon="envelope" %}} to Integration.support@nha.gov.in. Please note that the committee currently meets once a week and it can take 7 - 10 days for you to get your application approved. 
 
-**Step 4:** Once _Client id_ & _Client Secret_ are received via an email, please verify it works using the and check if the correct using by creating a gateway session token. 
+**Step 4:** Once _Client id_ & _Client Secret_ are received via an email, please verify it works by creating a gateway session token. 
 
 ###### Create Gateway Session Token 
 Server : https://dev.abdm.gov.in/gateway
@@ -32,7 +32,7 @@ Server : https://dev.abdm.gov.in/gateway
 
 ###### Verify using Postman 
 
-We recommened you get comfortable using POSTMAN to check various ABDM APIs like the sessions API above. [Click here](../postman_setup) Setup Postman, the ABDM API collection and use POSTMAN to verify your client id and secret is able to get you a session token. 
+We recommened you get comfortable using POSTMAN to check various ABDM APIs like the sessions API above.  [Setup Postman ](../postman_setup), download the ABDM API collection and use POSTMAN to verify your client id and secret is able to generate a session token. 
 
 
 ##### Check your JWT token

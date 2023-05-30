@@ -16,7 +16,7 @@ https://sandbox.abdm.gov.in/applications/Home/signup_form
 **Step 2:**  
 Your application will be reviewed by the Sandbox Committee. The Committee will approve or reject with remarks.  
 
-_Note_: The committee currently meets only once a week. Hence, please expect 7 days turnaround time for approval. 
+_Note_: The committee currently meets only once a week. Hence, please expect minimum of 7 days turnaround time for approval. 
 
 https://sandbox.ndhm.gov.in/applications/Home/admin
 

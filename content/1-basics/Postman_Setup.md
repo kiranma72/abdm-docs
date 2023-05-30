@@ -32,9 +32,9 @@ Steps to download and install the native Postman application
 - **Step-7:** After signing in,in the Postman interface click on *Workspaces* dropdown on the top left. Click on *Create Workspace* button. Enter the name and select the visibility of the workspace and click *Create Workspace*.
 - **Step-8:** Now you have the workspace created to enable you to organize your Postman work.
 
-## Download Collections And Environment Variables 
+## Download ABDM API Collection And Environment Variables 
 
-Download API Collection and extract the files from zip.
+Download ABDM API Collection and extract the files from zip.
 [{{% icon icon="download" %}}](../Postman_Collection.zip "download"). 
 
 ## Import Collections
@@ -54,22 +54,10 @@ We can import Collections in Postman. To perform this task, follow the below ste
 ###### Sample List of collections 
 ![collection list](../sample_collection_list.png)
 
-## Import Environments Variables
-The Environment variables allow developers to store and reuse parameter values in API requests and scripts. If you need to update a variable value, you can do it in one place and the value will be automatically changed throughout your request collections. The environment variables in Postman can be used in the URLs, in the POST parameters, in the JavaScript code, etc. To specify the variable, use the brackets as a variable name placeholder({{ }}. For example, {{access_token}}).
+## Collection Variables
+The collections has a set of collection variables pre-defined. These allow developers to store and reuse parameter values in API requests and scripts. If you need to update a variable value, you can do it in one place and the value will be automatically changed throughout your collection. The collection variables in Postman can be used in the URLs, in the POST parameters, in the JavaScript code, etc. To specify the variable, use the brackets as a variable name placeholder({{ }}. For example, {{access_token}}).
 
-
-- **Step-1:** Select the **Environments** in the left and then click on Import button in the Postman application.
-![environment import button](../environment_import.png)
-- **Step-2:** Import pop-up shall open with the options to import from a File, Folder, Link, Raw text and Code Repository.
-- **Step-3:** click on choose files and select the Postman environment variables json file (ABDM_API_postman_environments.json - which was downloaded earlier) to import. 
-![import environment variables](../environment_variables_files_imported.png)
-- **Step-4:** Click on Import button. The environment variables would have been imported.
-![after environment import](../after_environment_import.png)
-
-select the downloaded variable from the dropdown in the right to resolve the variables. 
-![set environment variable dropdown](../select_environment_variable_dropdown.png)
-
-Now you can see the used variables been resolved.
+Verify variables being displayed have been resolved.
 ![environment variable resolved](../variables_resolved.png)
 
 ## Verify Your Access To Sandbox Using Postman

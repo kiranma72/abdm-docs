@@ -9,7 +9,11 @@ pre : "<b>1.6 </b>"
 
 ## Bahmni
 
-Bahmni is an OpenMRS Distro. It is an open source EMR and a full Hospital Management System with Lab, Billing, Pharmacy, PACS and other integrated features. Bahmni functions as a Health Information Provider and Health Information User under the ABDM ecosystem.
+Bahmni is an OpenMRS Distro. It is an open source EMR and a full Hospital Management System with Lab, Billing, Pharmacy, PACS and other integrated features. An instance of Bahmni has been setup to act as a Health Information Provider and Health Information User in the ABDM Sandbox. This can be very useful for testing the following use cases during ABDM integration. 
+
+- To see examples of how Milestone 1 is integrated in a HMIS / LMIS
+- To test Milestone 3 if you are integrating the same in a HMIS or PHR app
+- To test most of the PHR app related testcases that require a HIP / HIU
 
 ## Who is developing Bahmni?
 
@@ -18,7 +22,7 @@ Bahmni is built by the Bahmni Coalition, and other open-source contributors.The 
 
 ## How is Bahmni ABDM integrated?
 
-Bahmni is ABDM compliant, i.e it has successfully integrated all the required milestones/ guidelines mandated by the NHA to be an ABDM compliant software.Bahmni would serve as a goto ABDM compliant Hospital Management System which facilities can adopt to integrate seamlessly with the ABDM ecosystem 
+Bahmni is ABDM compliant, i.e it has successfully integrated all the required milestones/ guidelines mandated by the NHA to be an ABDM compliant software. Bahmni can be deployed as an ABDM compliant Hospital Management System which facilities can adopt to integrate seamlessly with the ABDM ecosystem 
 
 With Bahmni, 
 
@@ -26,15 +30,13 @@ With Bahmni,
 
 - The facility can act as a HIP, i.e. create medical records which can be shared digitally.
 
-- The facility can act as a HIU, i.e. request and  view patient’s records in the software.
+- The facility can act as a HIU, i.e. request and  view patient’s records with consent.
 
 ## Bahmni Environment
 
-The LITE version of Bahmni, (ABDM Compliant) configured for clinics and small hospitals. It comes with the CIEL dictionary, and ABDM components.
+The LITE version of Bahmni, (ABDM Compliant) configured for clinics and small hospitals. It comes with the CIEL dictionary, and ABDM components. To access the hosted instance that is linked with the ABDM sandbox use
 
 URL: https://dev.lite.mybahmni.in/
-
-It is usable with the ABDM sandbox.
 
 The environment is currently available only during India hours (8am-9pm IST daily).
 If you need it up longer for specific demos, please contact bahmni via SLACK. 
@@ -85,6 +87,8 @@ Note : HIU/HIP id for the above Bahmni environment
     *Username:* admin
 
     *Password:* nimda
+
+Please be aware that multiple integrators will use the same login / credentials. This support from Bahmni is being provided to support the ABDM community. Share the love & care. 
 
 ## Landing Page & Login Page 
 

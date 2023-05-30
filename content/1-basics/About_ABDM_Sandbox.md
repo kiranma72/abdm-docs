@@ -37,9 +37,9 @@ Here's how your **journey through the sandbox looks like:**
 
 ## ABDM Integration Milestones
 The integration steps have been broken into milestones to make it easier for integrators. Each Milestone has a set of functional test cases that must be supported by your application as part of certification
-- **Milestone 1**: ABHA Number creation and capture & verification for seamless patient registration.[{{% icon icon="download" %}}](https://sandbox.abdm.gov.in/documents/ABHA_APIs.xlsx)
-- **Milestone 2**: Building Health Information Provider (HIP) services to share digital records via any Personal Health Records (PHR) app. [{{% icon icon="download" %}}](https://sandbox.abdm.gov.in/documents/Milestone_M2_APIs.xlsx)
-- **Milestone 3**: Developing Health Information User (HIU) services to provide view of patient’s medical history to authorized healthcare workers with complete consent
+- **Milestone 1**: ABHA Number creation. Capture & verification of ABHA Address during patient registration.[{{% icon icon="download" %}}](https://sandbox.abdm.gov.in/documents/ABHA_APIs.xlsx)
+- **Milestone 2**: Building Health Information Provider (HIP) services to share digital records with any Personal Health Records (PHR) app. [{{% icon icon="download" %}}](https://sandbox.abdm.gov.in/documents/Milestone_M2_APIs.xlsx)
+- **Milestone 3**: Developing Health Information User (HIU) services to obtain patient’s medical history with  consent
 - **PHR & Locker Apps**: Subscriptions for notifications, helping users manage consents, upload of user scanned records and more 
 
 
