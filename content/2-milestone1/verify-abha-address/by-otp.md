@@ -40,30 +40,17 @@ Functionality|Test Case|Steps to execute|
 sequenceDiagram
 title Verify User's ABHA Address by User shared OTP
 actor User
-User-->>HIP System:Share the health ID and preferred auth Mode
-HIP System->>Repository:User shares Health ID & selects Auth mode as MOBILE_OTP
-activate Repository
-Repository->>Gateway:/v0.5/users/auth/init
-Gateway->>CM:/v0.5/users/auth/init
-activate CM
-CM-->>User:Sends OTP
-CM->>Gateway:/v0.5/users/auth/on-init
-deactivate CM
-Gateway->>Repository:/v0.5/users/auth/on-init
-Repository-->>HIP System:Notification
-deactivate Repository
-User-->>HIP System:Shares the received OTP
-HIP System->>Repository:Forwrads OTP
-activate Repository
-Repository->>Gateway:/v0.5/users/auth/confirm
-Gateway->>CM:/v0.5/users/auth/confirm
-activate CM
-note left of CM:Shares a new auth.accessToken specific for Linking
-CM->>Gateway:/v0.5/users/auth/on-confirm
-deactivate CM
-Gateway->>Repository:/v0.5/users/auth/on-confirm
-Repository-->>HIP System:Notification
-deactivate Repository
+User-->>HIP/HRP:Shares the ABHA Address and preferred auth Mode
+HIP/HRP->>HIE-CM:/v0.5/users/auth/init Auth mode MOBILE_OTP
+activate HIE-CM
+HIE-CM-->>User:Sends OTP
+HIE-CM->>HIP/HRP:/v0.5/users/auth/on-init
+activate User
+User-->>HIP/HRP:Shares the received OTP
+activate HIP/HRP
+HIP/HRP->>HIE-CM: /v0.5/users/auth/confirm with OTP
+HIE-CM->>HIP/HRP:/v0.5/users/auth/on-confirm
+note left of HIE-CM:Shares a new auth.accessToken for Linking
 {{< /mermaid >}}
 
 
@@ -72,26 +59,26 @@ deactivate Repository
 
 **1. Get a patient's authentication modes**
 
-**URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/fetch-modes
+**URL:** https://dev.abdm.gov.in/gateway/
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/users/auth/fetch-modes$" >}}
 
 **2. Accept callback with supported authentication modes for this PHR Address**
 
-**URL:** {HRP CALLBACK URL}/v0.5/users/auth/on-fetch-modes
+**URL:** Callback URL registered by HRP
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/users/auth/on-fetch-modes$" >}}
 
 **3. Initialize authentication from HIP**
 
-**URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/init
+**URL:** https://dev.abdm.gov.in/gateway/
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/users/auth/init$" >}}
 
 
 **4. Response to user authentication initialization**
 
-**URL:** {HRP CALLBACK URL}/v0.5/users/auth/on-init
+**URL:** Callback URL registered by HRP
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/users/auth/on-init$" >}}
 
@@ -99,7 +86,7 @@ User will get a SMS on their mobile phone with a OTP from the HIE-CM. Collect th
 
 **5. Confirmation request by sending token, otp**
 
-**URL:** https://dev.abdm.gov.in/gateway/v0.5/users/auth/confirm
+**URL:** https://dev.abdm.gov.in/gateway/
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/users/auth/confirm$" >}}
 
@@ -107,7 +94,7 @@ Ensure the transaction ID is the same as obtained in the on-init callback
 
 **6. Callback from HIE-CM with KYC and Token information**
 
-**URL:** {HRP CALLBACK URL}/v0.5/users/auth/on-confirm
+**URL:** Callback URL registered by HRP
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/users/auth/on-confirm$" >}}
 

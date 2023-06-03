@@ -15,14 +15,9 @@ pre = "<b>2.2.2 </b>"
 
 ABDM requires HMIS/LMIS to generate a link token that can be used for linking of health records. A demographic authentication where the ABHA address, name, year of birth and gender (as in the ABHA address) is required to generate this linking token.
 
-The user's demographic information can be obtained either via:
-1. Scanning the Health Faciilty QR Code
-2. By (Health Facility) Scanning the User's ABHA QR Code
-3. By OTP
+The Health Facility can scan the **User's ABHA QR code** using a 2D Barcode scanner. HMIS/LMIS systems are expected to support this ability. 
 
-Health Facility can scan the **User's ABHA QR code**, whereby User provides consent to link the Health Record to their account.
-
-Health Facility (HIP) Initiated linking is the process through which an HIP links the patient’s care context (health record) with the patient ABHA Address, after patient registration and creation of health records (in their HMIS/LMIS system)
+The User ABHA QR code contains all the demographic information. This is very useful esp when dealing with people without smartphones who have been issued an ABHA card. 
 
 
 **Sample QR Codes**
@@ -32,30 +27,26 @@ QR Code|JSON output
 Sample QR Code in User's ABHA Application ![ABHA App QR Code](../abha-qr-in-app.png) | ![ABHA App QR Scan](../json-abha-app-qr-scan.png)
 Sample QR Code in User's ABHA Card ![ABHA App QR Code](../abha-card-eg.png) | ![ABHA App QR Scan](../json-abha-card-qr.png)
 
-Care context (Health record) linking happens in two steps:
+Note the differences in the feild names between both the QR codes. Your software must be able to handle either QR code.
+
+In Milestone 2, Any Health record generated for this user will need to be linked to the ABHA address. Linking happens in two steps:
 
 1. Link token generation
-2. Linking care context with ABHA address after obtaining valid link token
+2. Linking care context with ABHA address using valid link token
 
-**Link Token generation**
-
-To achieve linking, the Health Facility (HIP) needs to have a valid link token. There are two possible ways to get the link token:
-1. Through scan and share profile use case
-2. Using link token service
-
-The link token will be used for linking multiple number of care contexts, and concurrent linkages.
+A link token can be generated using Demographic authentication APIs described below. The link token must be saved by the HRP can can be used for linking multiple number of care contexts till it expires. 
 
 **Pre-requisites:**
 1. Patient must have a ABHA app with a valid ABHA address or physical card like a ABHA card
 2. Hospital must have a 2D Barcode scanner available at the registration counter.
-	- The HRP software registration page have text box to load data scanned from ABHA QR Code.
+3. The HRP software registration page must have text box to load data scanned from ABHA QR Code.
 
 **Steps to scan User's ABHA QR Code**
 
 1. Hospital operator scans the QR code on patient ABHA card or as displayed in ABHA mobile App
-	- The Patient details like ABHA address, Name, DOB, Gender, State Id, District Id, etc are embedded in the QR code as a JSON
-2. HRP software must validate the scanned data and collect a Linking Token from ABDM Gateway
-3. The software must use the information scanned to register the patient and save the ABHA Address
+2. The Patient details like ABHA address, Name, DOB, Gender, State Id, District Id, etc are embedded in the QR code as a JSON
+3. HRP software must validate the scanned data and collect a Linking Token from ABDM Gateway
+4. The software must use the information scanned to register the patient and save the ABHA Address
 
 ## Sample User Experience
 
@@ -108,6 +99,8 @@ HIE-CM-->>HRP/HIP: Response 200
 This API is called by HIPs to initiate authentication of users. A transactionId is retuned by the corresponding callback API for confirmation of user auth.
 
 **BASE URLs:**  https://dev.abdm.gov.in/gateway
+
+Note: purpose should be KYC_AND_LINK and authmode should be DEMOGRAPHICS
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/users/auth/init" >}}
 
@@ -163,16 +156,13 @@ HRP/HIP-->>ABDM Sandbox Gateway:Response 200
 
 **2. Call back API**
 
-**BASE URLs:**
-  - Sandbox Server URL: https://dev.abdm.gov.in/hiecm/api/
-
-  - Production Server URL: https://live.abdm.gov.in/hiecm/api
+**BASE URLs:** Callback URL registered by HRP
 
 {{< swaggermin src="/abdm-docs/Yaml/HIECM-LinkTokenService.yml" api="POST /{callback_url}/v3/hip/token/on-generate-token$" >}}
 
-{{%icon icon="info-circle" %}} If you are unauthorised for V3 APIS, kindly contact Integration.support@nha.gov.in with your clientID.
+{{%icon icon="info-circle" %}} If you get unauthorised (400) for V3 APIS, kindly contact Integration.support@nha.gov.in with your clientID.
 
 
 ## Verify ABHA Address by demographic
 
-If Linking token has expired (more than 6 months old or it has been already used once). In that case, all the demographic information is available and can be used directly.
+If Linking token has expired (more than 6 months old or it has been already used once), the HMIS/LMIS is expected to generate a new token using the demographic authentication APIs. 

@@ -453,10 +453,10 @@ paths:
           description: Internal Server Error
         '503':
           description: Service Unavailable
-  /{callback_url}/v3/app/patient/profile/on-share:
+  /v3/app/patient/profile/on-share:
     post:
       servers:
-       - url: https://integrator.callback.url
+       - url: https://dev.abdm.gov.in/hiecm/api
          description: Base path for operations with /v3/app/patient/profile/on-share
       tags:
         - abdm-app-profile-share

@@ -10,11 +10,13 @@ pre = "<b>2.2 </b>"
 
 **What is ABHA Address?**
 
-ABHA Address is an easy to remember username that enables a user to access their health records digitally and share their records with various healthcare providers. 
+ABHA Address is an account on a HIE-CM that enables an user to get this health records linked and share these linked records with consent. 
 
-An ABHA address may look like ‘name@abdm’. It is required to sign up on ABHA Application.
+Users can create an ABHA address via a PHR application, the [NHA HIE-CM Website](https://phr.abdm.gov.in) or by creating a ABHA Number which provides a default ABHA address (14DigitABHANo@abdm). An ABHA address looks like ‘name@abdm’ (production) or 'name@sbx' (Sandbox). 
 
-![sharing phr addr](/abdm-docs/img/sharing-phr-address-during-reg.png)
+Users looking to collect their health records digtally are expected to share their ABHA address when they visit a healthcare facility. 
+
+![sharing ABHA addr](/abdm-docs/img/sharing-phr-address-during-reg.png)
 
 This section covers the methods that must be supported for collecting & verifying the ABHA Address from the user:
 {{% notice %}}
