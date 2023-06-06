@@ -10,7 +10,7 @@ pre = "<b>2. </b>"
 
 **Functionalities to be implemented as part of Milestone 1 are:**
 1. Create ABHA number - using Aadhaar / Mobile / Demographic / Driving License
-2. Collect & Verify ABHA address during patient registration
+2. Collect and Verify ABHA address during patient registration
 
 
 ## M1 Test Cases mapping by Role
