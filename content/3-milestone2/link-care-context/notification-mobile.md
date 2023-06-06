@@ -8,11 +8,12 @@ pre = "<b>3.3.2 </b>"
 
 # Notification to Mobile
 
-**Applicable when:** User has come to the hospital, does not share ABHA address during registration but shares mobile, name, age, gender.
+**Applicable when:** User does not share ABHA address during registration but shares mobile, name, age, gender.
 
-- Health Information Provider (HIP) calls an API with just the mobile number to notify the user that a new health record has been created for the patient.
-
-- HIPs can send SMS to patients in case they have not registered and do not have a health-ID after their visit. HIPs will call gateway with phone number, care-context-details and an optional deeplink URL. 
+- Health Information Provider (HIP) must call an ABDM API when a new health record is ready to be shared with an user. 
+- ABDM sends the SMS to notify the user that they can access and link the new health record using any PHR app. 
+- The SMS contains a deep link the triggers the PHR app. 
+- The PHR app will help the user create an ABHA address, discover and link the health record. 
 
 ## Sample User Experience
 
@@ -35,21 +36,18 @@ The following flow diagram details the flows that take place during "Sending SMS
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
 title Notification to Mobile
-HIP System->>Repository:POST/v0.5/patients/sms/notify
-activate Repository
-Repository->>Gateway:v0.5/patients/sms/notify
-Gateway->>CM:Send SMS Request
-CM->>Gateway:Send SMS Response
-Gateway->>Repository:v0.5/patients/sms/on-notify
-deactivate Repository
-Repository->>HIP System:POST/v0.5/patients/sms/on-notify
+HIP/HRP->>HIE-CM:POST/v0.5/patients/sms/notify
+activate HIE-CM
+actor User
+HIE-CM->>User:Send SMS with deep link
+HIE-CM->>HIP/HRP:v0.5/patients/sms/on-notify
 {{< /mermaid >}}
 
 ## API Information Request Response 
 
 **1. Send SMS Notifications**
 
-API to send SMS notifications to patient with custom deeplink.
+API to send SMS notifications to patient with custom deeplink. "name" is the health facility name as in HFR and "id" is the HFR (HIP) ID. 
 
 **BASE URL:** https://dev.abdm.gov.in/gateway
 
@@ -59,6 +57,6 @@ API to send SMS notifications to patient with custom deeplink.
 
 Acknowledgement response for SMS notification sent to patient by HIP
 
-**BASE URL:** https://dev.abdm.gov.in/gateway
+**BASE URL:** Callback URL registered for HRP
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/patients/sms/on-notify$" >}}

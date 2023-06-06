@@ -136,3 +136,114 @@ PATRQT|Self Requested|Only applicable if patient himself/herself is requesting i
 }
 ```
 
+- **Sends consent request**
+
+```json
+{
+  "requestId": "499a5a4a-7dda-4f20-9b67-e24589627061",
+  "timestamp": "1970-01-01T00:00:00.000Z",
+  "consent": {
+    "purpose": {
+      "text": "string",
+      "code": "string",
+      "refUri": "http://example.com"
+    },
+    "patient": {
+      "id": "hinapatel@ndhm"
+    },
+    "hip": {
+      "id": "string"
+    },
+    "careContexts": [
+      {
+        "patientReference": "batman@tmh",
+        "careContextReference": "Episode1"
+      }
+    ],
+    "hiu": {
+      "id": "string"
+    },
+    "requester": {
+      "name": "Dr. Manju",
+      "identifier": {
+        "type": "REGNO",
+        "value": "MH1001",
+        "system": "https://www.mciindia.org"
+      }
+    },
+    "hiTypes": [
+      "OPConsultation"
+    ],
+    "permission": {
+      "accessMode": "VIEW",
+      "dateRange": {
+        "from": "1970-01-01T00:00:00.000Z",
+        "to": "1970-01-01T00:00:00.000Z"
+      },
+      "dataEraseAt": "1970-01-01T00:00:00.000Z",
+      "frequency": {
+        "unit": "HOUR",
+        "value": 0,
+        "repeats": 0
+      }
+    }
+  }
+}
+```
+
+- **Notification of consent grant**
+
+```json
+{
+  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+  "timestamp": "1970-01-01T00:00:00.000Z",
+  "notification": {
+    "status": "GRANTED",
+    "consentId": "1876f659-bb20-4000-88dc-b45f97252901",
+    "consentDetail": {
+      "schemaVersion": "",
+      "consentId": "1876f659-bb20-4000-83ff-489361a4bd01",
+      "createdAt": "1970-01-01T00:00:00.000Z",
+      "patient": {
+        "id": "hinapatel79@ndhm"
+      },
+      "careContexts": [
+        {
+          "patientReference": "hinapatel79@hospital",
+          "careContextReference": "Episode1"
+        }
+      ],
+      "purpose": {
+        "text": "string",
+        "code": "string",
+        "refUri": "http://example.com"
+      },
+      "hip": {
+        "id": "string",
+        "name": "TESI-HIP"
+      },
+      "consentManager": {
+        "id": "string"
+      },
+      "hiTypes": [
+        "OPConsultation"
+      ],
+      "permission": {
+        "accessMode": "VIEW",
+        "dateRange": {
+          "from": "1970-01-01T00:00:00.000Z",
+          "to": "1970-01-01T00:00:00.000Z"
+        },
+        "dataEraseAt": "1970-01-01T00:00:00.000Z",
+        "frequency": {
+          "unit": "HOUR",
+          "value": 0,
+          "repeats": 0
+        }
+      }
+    },
+    "signature": "Signature of CM as defined in W3C standards; Base64 encoded",
+    "grantAcknowledgement": false
+  }
+}
+```

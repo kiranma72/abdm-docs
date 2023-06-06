@@ -8,23 +8,17 @@ pre = "<b>3.3.1 </b>"
 
 # HIP Initiated linking
 
-**Applicable when:** User has come to the hospital & ABHA address has been captured during registration
-
-- When a new health record is created for the patient, it needs to be linked to the ABHA address (HIP initiated linking)
-
-- If linking token has expired, a new link token is obtained via demo auth & health record must be linked.
-
-Here's more to understand on **HIP initiated linking:**
+This is applicable when User has shared an ABHA address during registration.
 
 - Whenever a new health record is created for a patient, decide which care context this will be a part of.
 
 - The HRP must link the care context as soon as the health record is ready to be shared with the user
 
-- We link the care context using the linking token with the ABHA address.
+- Linking the care context requires a linking token. This is obtained and saved at the time of registration. 
 
-- When the user has shared their ABHA address, if the user does not have a valid token, then they need to generate linking token, that is when they do [demographic auth.](/abdm-docs/2-milestone1/abha-number/aadhar-demographic/index.html)
+- if the HRP does not have a valid linking token, they need to generate linking token via [demographic auth.](/abdm-docs/2-milestone1/verify-abha-address/demographics/)
 
-- Whenever a **new care context is linked** or an **existing care context is updated** with new health records, a notification is sent to all PHR applications that have subscribed to receive notifications for this ABHA address.
+- Whenever a new care context is linked or an existing care context is updated with new health records, a notification is sent to all PHR applications that have subscribed to receive notifications for this ABHA address.
 
 ## Test Cases
 
@@ -36,6 +30,8 @@ Functionality|Test Case|Steps To Be Executed
 
 **Function:** HIP Initiated Health Record Linking Using Mobile OTP
 
+*(Testcase incorrect for this section)*
+
 Functionality|Test Case|Steps To Be Executed 
 |------|-----|-----|
 {{% badge style="blue" %}}Mandatory{{% /badge %}} Link record via mobile OTP (HIP_INTI_LINK_201)|The system should have provision to link patient's Health record with ABHA address |**1.**  Enter patient's ABHA address on the System. **2.**  OTP receive by the patient.
@@ -43,6 +39,8 @@ Functionality|Test Case|Steps To Be Executed
 {{% badge style="blue" %}}Mandatory{{% /badge %}} Linking of Health Records (HIP_INTI_LINK_205)|HIP system links the ABHA number / address with the patient records|**1.**  Link Health Records. **2.**  Through PHR Application check if the linked records can be pulled
 
 **Function:** HIP Initiated Health Record Linking Using Aadhaar OTP
+
+*(Testcase incorrect for this section)*
 
 Functionality|Test Case|Steps To Be Executed 
 |------|-----|-----|
@@ -52,12 +50,16 @@ Functionality|Test Case|Steps To Be Executed
 
 **Function:** HIP Initiated Health Record Linking Using Direct Auth
 
+*(Testcase incorrect for this section)*
+
 Functionality|Test Case|Steps To Be Executed 
 |------|-----|-----|
 {{% badge style="blue" %}}Mandatory for the Govt. Integartors{{% /badge %}} Direct Auth mode for Linking of Health Records (HIP_INTI_LINK_401)|The system should have provision to link patient's Health record with ABHA address |**1.**  Enter patient's ABHA address on the System. **2.** The user logs into their PHR Application receives the request for approval and approves it. **3.** Search the request in the Notification tab. **4.** Approve the request.(User may approve or reject the request. if the request is rejected process ends there). **5.** Upon successful validation of OTP linking token is generated.
 {{% badge style="blue" %}}Mandatory{{% /badge %}} Linking of Health Records (HIP_INTI_LINK_404)|HIP system links the ABHA Address with the patient records|**1.**  Link Health Records. **2.**  Through PHR Application check if the linked records can be pulled.
 
 **Function:** HIP Initiated Health Record Linking Using Demographic Auth
+
+*(Testcase needs language modification)*
 
 Functionality|Test Case|Steps To Be Executed 
 |------|-----|-----|
@@ -101,7 +103,7 @@ deactivate HIE-CM
 
 **1. Care-Context Linking**
 
-API to submit care-context to HIE-CM for HIP initiated linking. The API must accompany the "accessToken" (linking token) fetched in the users/auth process.
+API to submit care-context to HIE-CM for HIP initiated linking. The API must accompany the "accessToken" (linking token) fetched in the users/auth process or via demographic auth
 
 **BASE URLs:**  https://dev.abdm.gov.in/gateway
 
@@ -140,4 +142,5 @@ PHR App-->>HIE-CM :s
 
 ## V3 API Information Request Response
 
--YET TO DO-
+-YAML Not yet released-
+

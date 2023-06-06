@@ -6,22 +6,14 @@ chapter = true
 pre = "<b>3. </b>"
 +++
 
-## Get Milestone 2 Certified
+**Functionalities to be supported as part of Milestone 2:** 
 
-**Functionalities of Milestone 2:** Building Health Information Provider (HIP) services to share digital records via any Personal Health Records (PHR) application.
+- Link health records with ABHA address
+- Allow users to discover their health records 
+![Milestone 2 - Link and Discover](M2_link_and_discover.png) 
 
-The Milestone 2 can be explained with 2 scenarios:
-
-**Scenario 1:**
-- User has shared ABHA Address during Registration (1 of 3 ways from [verification of ABHA address](/abdm-docs/2-milestone1/verify-abha-address/index.html))
-- Expectation is HIP initiated linking (that whenever a new health record is created for this user, it is linked to a care context)
-
-**Scenario 2:**
-- User has not shared ABHA Address during Registration.
-- Expectation is to send an SMS that a new health record is available with a deep link; and to support user initiated discovery & linking
-
-Milestone 2 revolves around HRPs, here's a quick snapshot to understand what functionalities will be covered in this section:
-
+- Save user consents 
+- Share health records after verifying consent
 ![HRP Milestone 2 Functionalities](/abdm-docs/img/hrp-milestone2.jpg) 
 
 
