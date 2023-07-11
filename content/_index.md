@@ -5,7 +5,7 @@ date = 2022-05-07T17:53:25+05:30
 
 ## Welcome to the ABDM Sandbox
 
-This documentation is designed for developers who want to integrate with the various ABDM Building Blocks. 
+This **documentation** is designed for **developers** who want to integrate with the various ABDM Building Blocks. 
 
 ### ABDM Building Blocks 
 ABDM Sandbox provides you access to APIs for the following Building Blocks 
