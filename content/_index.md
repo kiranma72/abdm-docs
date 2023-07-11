@@ -11,7 +11,7 @@ This documentation is designed for developers who want to integrate with the var
 ABDM Sandbox provides you access to APIs for the following Building Blocks 
 
 - Ayushman Bharat Health Account (ABHA) - Formerly called Health ID. 
-- Health Information Exchange & Consent Manager (the @abdm HIE-CM)
+- Health Information Exchange & Consent Manager ( @abdm HIE-CM)
 - The Health Professionals Registry (HPR)
 - The Health Facility Registry (HFR) 
 
