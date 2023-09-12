@@ -6,32 +6,35 @@ chapter = true
 pre = "<b>3.6 </b>"
 +++
 
-# Request Health Records
-
-The **data request and transfer** process between the HIU, HIE-CM and HIP passes through the following three stages:
+The **data request and transfer** process between the HIU, HIE-CM and HIP/HRP passes through the following three stages:
 
 **First Stage**
 
-- The HIU system for patient’s health information to the HIP, through the HIE-CM against a valid granted consent.
-- The HIE-CM assigns a transaction ID for the entire data flow and communicates this Id to the health repositories of the HIU and the HIP.
-- The HIU’s health repository embeds three key elements within the health information request:
+- The HIU system initiates a Health Information request (to the HIE-CM) for an ABHA address for which it has already been granted a consent. 
+- The HIE-CM assigns a transaction ID for the entire data flow and communicates this Id to both the HIU and all the HRPs/ HIPs.
+- The HIU embeds three key elements within the health information request:
 	- The consent ID corresponding to the consent artefact against which the information request is being made.
-	- A data push URL, which is a callback URL that indicates where the information can be pushed by the HIP’s health repository. This URL can be different from the HIU’s access URL, provided at the time of registration with the gateway. The HIU can specify a different URL for the data flow, in order to keep its identity secret to the possible extent.
-	- Several parameters such as the date-time range for the requested and a set of encryption parameters for the HIP repository to encrypt the information. The Elliptic-curve Diffie–Hellman based encryption standard is used for encrypting health information.
+	- A data push URL, which is the URL where the information must be pushed by the HIP’s health repository. This URL can be different from the HIU’s access URL, provided at the time of registration with the gateway. The HIU can specify a different URL for the data flow, in order to keep its identity secret to the possible extent.
+	- Parameters such as the date-time range for the requested and a public key and encryption parameters for the HIP repository to encrypt the information. The Elliptic-curve Diffie–Hellman based encryption standard is used for encrypting the transferred health information.
 
-- The HIU’s health repository relays all this information to the HIE-CM through the gateway. From the HIE-CM, the information is relayed to the HIP’s health repository (via the gateway).
+- The HIU’s health repository relays all this information to the HIE-CM. The HIE-CM triggers the requests to all the HIPs linked to the ABHA address.
 
 **Second Stage**
 
-Once the HIP repository receives the information, it first validates the information request, as follows:
+Once the HIP repository receives the health information request, it performs the following validations:
 
-- The HIP finds out if the consent ID corresponds to an expired, paused or revoked artefact.
-- It then checks if the request’s date-time range will correspond to the range for which the consent artefact allows information access. It also ensures that the encryption parameters are correctly defined.
-- Once the above checks are made and validated, the HIP health repository encrypts the requested health records and forwards it along with the transaction ID to the HIU’s data push URL, after signing the encrypted data with its long-term private key.
+- The HIP checks the consent ID is available with it and ensures its is not a expired or revoked artefact.
+- If the consent id is not available with the HIP a copy can be obtained from the HIE-CM (V3 APIs only)
+- The request’s date-time range is cross checked against  the range for which the consent artefact allows information access. 
+- Only health records of the HI type allowed in the consent request and for the requested / allowed time period must be selected for transfer
+- Once the above checks are made and health records selected, the HIP health repository encrypts the selected health records using the HIU public key.
+- The encrypted data is pushed along with with the transaction ID to the HIU’s data push URL.
 
 **Third Stage**
 
 Finally, the HIE-CM receives notifications from both the HIP and the HIU. The HIP’s health repository notifies the HIE-CM that the requested information was transmitted to the HIU. The HIU’s health repository sends a notification that the requested information was successfully received, or that the request failed.
+
+## API Sequence 
 
 All above 3 stages that pertains to HIP are shown in the following diagram:
 
@@ -39,21 +42,24 @@ All above 3 stages that pertains to HIP are shown in the following diagram:
 %%{init:{"fontSize": "1.0rem", "sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
 title Request for Health Records 
+HIU->>HIE-CM: Triggers Health Information request 
 HIE-CM->>HIP/HRP:POST/v0.5/health-information/hip/request
 activate HIP/HRP
-HIP/HRP-->>HIP/HRP System:notification
 HIP/HRP->>HIE-CM:POST/v0.5/health-information/hip/on-request
+HIP/HRP->>HIP/HRP: Select Health records, encrypt data
+HIP/HRP-->>HIU: POST {HIUdatapushURL}/v0.5/health-information/transfer
+HIP/HRP->>HIE-CM: POST /v0.5/health-information/notify
+HIU->>HIE-CM: Notify transfer recieved
 {{< /mermaid >}}
 
-When HIP gets the request for data transfer, it first **validates the consent:**
-1. Consent ID is valid
-2. Consent has not expired
-3. Data requested is within the consent granted range
-4. Only data types that are granted in the consent, are shared
 
 ## Sample User Experience 
 
 ![data_request_flow](../data_request.gif)
+
+See [Working with consents in the ABDM sandbox](/abdm-docs/3-milestone2/understanding-consents/#working-with-consents-in-the-abdm-sandbox) to trigger a Health Information request to your HIP/HRP. 
+
+Remember to use an ABHA address that has a care context linked to your HIP/HRP for this experience.
 
 ## Test Cases
 
@@ -85,7 +91,7 @@ Health information transfer API.
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/health-information/transfer$" >}}
 
 **Note:** You can send a base64 value of MD5 checksum of the original (pre-encrypted data) so the HIU can verify the integrity of the data once they decrypt it and derive an equivalent checksum and compare it with the value sent as a part of the encrypted data payload.
-- you can use any online tool like https://emn178.github.io/online-tools/md5_checksum.html to get checksum of the pre-encrypted data.
+- Try using the tool like https://emn178.github.io/online-tools/md5_checksum.html to get checksum of the pre-encrypted data when working with postman
 - convert the obtained checksum value to base64 once you get a checksum value from the previous step.
 
 **4. Data Transfer Notification**

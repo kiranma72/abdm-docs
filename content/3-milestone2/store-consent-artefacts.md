@@ -8,11 +8,14 @@ pre = "<b>3.5 </b>"
 
 # Store Consent Artefacts
 
-- Users have the option to **revoke the consent** they have provided to the Health Information User (HIU), at any time. The HIUs must remove any copy of the users' data when the consent is revoked.
+- All Health Information Providers (HIPs) who are holding any data associated with this consent are notified whenever a consent is granted, revoked, expired or the ABHA address is deleted. 
 
-- All Health Information Providers (HIPs) who are holding any data associated with this consent are notified. They must save a copy of the consent artefact in their system. Data can be shared against this consent any number of times till the **consent expires** (or is revoked by the user).
+- THe HIP must save a copy of the consent artefact in their system. Data can be requested against a granted consent any number of times till the **consent expires** (or is revoked by the user).
 
-- To summarise, if the consent is revoked/expired, they have to get rid of the consent artefacts.
+- When a user revokes a consent - the HIP must ensure that no further data is shared against this consent. 
+
+- If a user deletes their ABHA address, the HIP must remove all references to this ABHA address from their system. This includes all consents related to this ABHA address and also all links between the ABHA address and user profile and health records in their system. Note that HIP/HRPs MUST NOT DELETE the user profile or health data when an ABHA address is deleted. 
+
 
 ## Test Cases
 
@@ -26,6 +29,10 @@ ABHA Deactivation | {{% badge style="blue" %}}Mandatory{{% /badge %}} HIP must d
 ## Sample User Experience 
 
 {{< gallery dir="3-milestone2/user-experience" />}} {{< load-photoswipe >}}
+
+{{%icon icon="info-circle" %}} See working with [consents in ABDM Sandbox](/abdm-docs/3-milestone2/understanding-consents/#working-with-consents-in-the-abdm-sandbox)
+
+In order to get a notification ensure that the ABHA address used in the consent request has a care context linked from the HIP you have [registered against your client id](/abdm-docs/1-basics/working_with_abdm_apis/#linking-the-hips--hius-id-for-a-client-id). 
 
 ## API Sequence Diagram
 
@@ -42,7 +49,7 @@ HRP/HIP->>HIE-CM: POST/v0.5/consents/hip/on-notify
 
 **1. Consent Notification**
 
-**BASE URL:** https://your-hrp-server.com
+**BASE URL:** Callback URL registered by HRP
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/consents/hip/notify$" >}}
 
@@ -52,4 +59,3 @@ HRP/HIP->>HIE-CM: POST/v0.5/consents/hip/on-notify
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/consents/hip/on-notify$" >}}
 
-{{%icon icon="info-circle" %}} To request HIU (https://dev.ndhm.gov.in/hiu#/hiu/login) login access, kindly drop a mail{{%icon icon="envelope" %}} to integration.support@nha.gov.in.

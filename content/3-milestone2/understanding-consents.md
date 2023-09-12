@@ -8,60 +8,52 @@ pre = "<b>3.4 </b>"
 
 # Understanding Consents
 
-- ABDM design is aligned with **India's Personal Data Protection Bill,** that is the exchange of health data can only happen with the consent of the User.
+ABDM was designed to align with India's **Personal Data Protection Bill,** that requires exchange of any personal data (like health data) to happen only with the consent of the User.
 
-- The entity requesting access to the data (HIU), needs to provide the following information:
-	1. The purpose for which they want access to data
-	2. The historical time period of health data
-	3. The type of health records
-	4. How long they wish to keep the copy of the data
+Any entity (Health Information User - HIU ) which would like to access health records that are linked to an ABHA address will require to first obtain a consent for data access. 
 
-- ABDM uses an electronic consent artefact based on [**MEITY's electronic consent framework**](https://dla.gov.in/sites/default/files/pdf/MeitY-Consent-Tech-Framework%20v1.1.pdf) to allow HIUs to specify their consent request.
+The HIU needs to create a consent request that contains the following information:
 
-- Users can modify any of the request consent parameters, and provide a consent approval that suits them.
+1. The purpose for which they want access to data
+2. The historical time period of data they require
+3. The type of health records (like diagnostics, prescriptions .. )
+4. How long they wish to keep the copy of the data
 
-- Users have the option to revoke the consent they have provided to the HIU, at any time. The HIU must remove any copy of the user's data when the consent is revoked.
+ABDM uses an electronic consent artefact based on [**MEITY's electronic consent framework**](https://dla.gov.in/sites/default/files/pdf/MeitY-Consent-Tech-Framework%20v1.1.pdf) to specify consent requests.
 
-- All HIPs who are holding any data associated with this consent are notified. They must save a copy of the consent artefact in their system. Data can be shared against this consent any number of times till the consent expires / is revoked by the user.
+On recieving a consent request, Users can review and also modify any of the request parameters, and provide a consent approval that suits them. for example they can change the type of records or the duration the HIU is allowed to keep the data. 
+
+Once the user *grants* consent, the HIU will be able to use the signed consent artefact to get access to the health data
+
+Users also have the option to *revoke* the consent they have provided to the HIU, at any time. The HIU must remove any copy of the user's data when the consent is revoked.
+
+When a consent is granted or revoked by the user, The HIE-CM notifies all HIPs who holding any data associated with the consent. 
+
+HRP/HIPs must save a copy of the consent artefact in their system when they get such a notification. 
+
+HIUs can request Data using the signed consent any number of times till the consent expires / is revoked by the user.
+
+The diagram below provides an overview of the consent based data sharing in ABDM 
+
 ![Understanding Consents](../understanding-consents.jpg)
 
-### Making a consent request (as HIU)
+### Working with Consents in the ABDM Sandbox
 
-HIU can create a request to obtain a patient's consent to access his/her health information, as follows:
+Developers can either use the [Sandbox Reference HIU](https://dev.ndhm.gov.in/hiu) or [Bahmini HIU](/abdm-docs/1-basics/bahmni/) to trigger consent requests. You can create a consent request against a Sandbox ABHA address (@ sbx), Grant / Deny / Revoke the request using the [Sandbox ABHA App](/abdm-docs/1-basics/sandbox_abha_app/) 
 
-1. As a HIU, you will need to log in to sandbox's reference doctor's interface with login credentials (this will be sent to you via email). If you don't have your login credentials, send a request to integrate your test environment to NHA. NHA will respond along with your login credentials.
-2. After logging in, you can create the consent request by providing the following details:
-	- User's consent manager ID
-	- Purpose of your consent request
+1. Login in to the HIU application. For the Sandbox reference HIU, If you don't have your login credentials, send a request with your client ID and email as outlined on the HIU page.  NHA will respond along with your login credentials.
+2. After logging in, you can create the consent request including:
+	- User's ABHA Sandbox address
+  - Purpose of your consent request
 	- Details of who is requesting the health information
 	- The time period for which you require the patient's health documents. This information will enable your HIP to share the patient's health documents relevant to the required time period.
 	- Provide a list of the health information types for which you're requesting, such as clinical notes, examination data and so forth.
 3. Your consent request as HIU comes with a consent expiry time, after which you will not be able to access the patient's data.
+4. Login to the Sandbox ABHA app with the ABHA address to which you raised the consent request 
+5. Go to the requests tab to see the consent request and actions 
+6. Make sure the ABHA address for which you are requesting consent has care contexts linked, ideally from a HIP that you have linked with your client id. 
 
-### Receiving a consent artefact (as HIP)
 
-The HIP receives the consent artefact after patients grants a request. The consent artefact lets the HIP know what data needs to be shared, as detailed below:
-
-1. Patient's consent manager ID
-2. Purpose of data access consent
-3. Details of who is requesting the health information and of whom
-4. Health information types.
- 
- The HIP needs to maintain details of what has been requested and what has been sent, as detailed in the following table:
-
-What is requested?|What needs to be sent?
-|---|--------|
-Prescription|Medication that the doctor advised
-Diagnostic Report|Diagnostic Report that was created following a test/procedure
-OP Consultation|Out Patient Consultation Document which may include complaints, prescription, observations, follow ups, appointments, test reports etc
-Discharge Summary|Discharge Summary document which may include conditions, medications, observations, procedure done, discharge note, treatment plan etc
-Immunization Record|Immunization records with any additional documents such as vaccine certificate, the next immunization recommendations, etc.
-Record artifact|Unstructured historical health records as a single or multiple Health Record Documents generally uploaded by the patients through the Health Locker and can be shared across the health ecosystem.
-Wellness Record|Regular wellness information of patients typically through the Patient Health Record (ABHA) application covering clinical information such as vitals, physical examination, general wellness, women wellness, etc.
-
-*Note: For detailed information on what information can be sent for a requested HI Type, please refer to the Data Format Specifications*
-
-5. The consent request is time-bound, after time is elapsed the HIU cannot view the data once the user has granted and HIP should check this date before sending any data.
 
 ### Meta Codes
 While requesting and exchanging health information, there are few meta codes that are relevant to you if you are a HIU or HIP.
@@ -77,121 +69,55 @@ HPAYMT|Healthcare Payment|Typically for payers conducting financial or contractu
 DSRCH|Disease Specific Healthcare Research||
 PATRQT|Self Requested|Only applicable if patient himself/herself is requesting information
 
-## JSON Structure of Consents
-
-- Request data with signed consent
+### Structure of Consent Request
 
 ```JSON
 {
-  "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
-  "timestamp": "1970-01-01T00:00:00.000Z",
-  "notification": {
-    "status": "GRANTED",
-    "consentId": "1876f69b-c9c0-4000-88a4-01933ae7df01",
-    "consentDetail": {
-      "schemaVersion": "",
-      "consentId": "1876f69b-c9c0-4000-85e5-f8d1a5f1a701",
-      "createdAt": "1970-01-01T00:00:00.000Z",
-      "patient": {
-        "id": "hinapatel79@ndhm"
-      },
-      "careContexts": [
-        {
-          "patientReference": "hinapatel79@hospital",
-          "careContextReference": "Episode1"
-        }
-      ],
-      "purpose": {
-        "text": "string",
-        "code": "string",
-        "refUri": "http://example.com"
-      },
-      "hip": {
-        "id": "string",
-        "name": "TESI-HIP"
-      },
-      "consentManager": {
-        "id": "string"
-      },
-      "hiTypes": [
-        "OPConsultation"
-      ],
-      "permission": {
-        "accessMode": "VIEW",
-        "dateRange": {
-          "from": "1970-01-01T00:00:00.000Z",
-          "to": "1970-01-01T00:00:00.000Z"
+    "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+    "timestamp": "1970-01-01T00:00:00.000Z",
+    "consent": {
+        "purpose": {
+            "text": "care management",
+            "code": "CAREMGT",
+            "refUri": "http://terminology.hl7.org/ValueSet/v3-PurposeOfUse"
         },
-        "dataEraseAt": "1970-01-01T00:00:00.000Z",
-        "frequency": {
-          "unit": "HOUR",
-          "value": 0,
-          "repeats": 0
+        "patient": {
+            "id": "91686532731326@sbx"
+        },
+       
+        "hiu": {
+            "id": "HIU_2"
+        },
+        "requester": {
+            "name": "Dr.Parthiban",
+            "identifier": {
+                "type": "REGNO",
+                "value": "MH1001",
+                "system": "https://www.mciindia.org"
+            }
+        },
+        "hiTypes": [
+            "OPConsultation",
+            "Prescription"
+        ],
+        "permission": {
+            "accessMode": "VIEW",
+            "dateRange": {
+                "from": "2020-11-25T12:30:29.592Z",
+                "to": "2023-04-18T12:30:29.592Z"
+            },
+            "dataEraseAt": "2025-12-20T12:30:29.592Z",
+            "frequency": {
+                "unit": "MONTH",
+                "value": 12,
+                "repeats": 12
+            }
         }
-      }
-    },
-    "signature": "Signature of CM as defined in W3C standards; Base64 encoded",
-    "grantAcknowledgement": false
-  }
-}
-```
-
-- **Sends consent request**
-
-```json
-{
-  "requestId": "499a5a4a-7dda-4f20-9b67-e24589627061",
-  "timestamp": "1970-01-01T00:00:00.000Z",
-  "consent": {
-    "purpose": {
-      "text": "string",
-      "code": "string",
-      "refUri": "http://example.com"
-    },
-    "patient": {
-      "id": "hinapatel@ndhm"
-    },
-    "hip": {
-      "id": "string"
-    },
-    "careContexts": [
-      {
-        "patientReference": "batman@tmh",
-        "careContextReference": "Episode1"
-      }
-    ],
-    "hiu": {
-      "id": "string"
-    },
-    "requester": {
-      "name": "Dr. Manju",
-      "identifier": {
-        "type": "REGNO",
-        "value": "MH1001",
-        "system": "https://www.mciindia.org"
-      }
-    },
-    "hiTypes": [
-      "OPConsultation"
-    ],
-    "permission": {
-      "accessMode": "VIEW",
-      "dateRange": {
-        "from": "1970-01-01T00:00:00.000Z",
-        "to": "1970-01-01T00:00:00.000Z"
-      },
-      "dataEraseAt": "1970-01-01T00:00:00.000Z",
-      "frequency": {
-        "unit": "HOUR",
-        "value": 0,
-        "repeats": 0
-      }
     }
-  }
 }
 ```
 
-- **Notification of consent grant**
+### Notification of consent grant
 
 ```json
 {
@@ -214,33 +140,33 @@ PATRQT|Self Requested|Only applicable if patient himself/herself is requesting i
         }
       ],
       "purpose": {
-        "text": "string",
-        "code": "string",
-        "refUri": "http://example.com"
-      },
+            "text": "care management",
+            "code": "CAREMGT",
+            "refUri": "http://terminology.hl7.org/ValueSet/v3-PurposeOfUse"
+        },
       "hip": {
         "id": "string",
         "name": "TESI-HIP"
       },
       "consentManager": {
-        "id": "string"
+        "id": "sbx"
       },
       "hiTypes": [
         "OPConsultation"
       ],
       "permission": {
-        "accessMode": "VIEW",
-        "dateRange": {
-          "from": "1970-01-01T00:00:00.000Z",
-          "to": "1970-01-01T00:00:00.000Z"
-        },
-        "dataEraseAt": "1970-01-01T00:00:00.000Z",
-        "frequency": {
-          "unit": "HOUR",
-          "value": 0,
-          "repeats": 0
+            "accessMode": "VIEW",
+            "dateRange": {
+                "from": "2020-11-25T12:30:29.592Z",
+                "to": "2023-04-18T12:30:29.592Z"
+            },
+            "dataEraseAt": "2025-12-20T12:30:29.592Z",
+            "frequency": {
+                "unit": "MONTH",
+                "value": 12,
+                "repeats": 12
+            }
         }
-      }
     },
     "signature": "Signature of CM as defined in W3C standards; Base64 encoded",
     "grantAcknowledgement": false

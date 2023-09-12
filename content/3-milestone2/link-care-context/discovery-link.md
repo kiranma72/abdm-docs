@@ -81,45 +81,36 @@ Request for patient care context discover, made by Gateway intended for a specif
 
 ![Link Record Step 3](/abdm-docs/img/linkrecord-Step3.png)
 
-## Verify the patient and link the carecontext as requested by the patient
-
-- This flow begins once a user initiates a link request after discovering care comtexts.  
+- This flow begins once a user initiates a link request after discovering care contexts.  
 - The User shares the reference number and care contexts to be linked via the PHR app
-- On getting the link/init request 
- The HIP system sends an OTP to the patient’s phone number. 
-Note, the phone number for OTP communication from HIP may be the same as verified by the HIE-CM or maybe a different number that the patient has chosen as preferred mode of communication with HIP - meaning it's up to the HIP to choose the phone number it sends OTP to. 
-
-- The patient, via patient app, submits the OTP received from the HIP system within the stipulated time. If the patient is successfully authenticated by the HIP, the linking is now complete. 
-
+- On getting the link/init request, the HRP/HIP must send an OTP to the patient’s phone number
+- The HIP/HRP then responds with link/on-init to HIE-CM
+- The user enters the OTP in the PHR App and the app triggers the link/confirm
+- The HIP/HRP verifes the otp and sends the link/on-confirm. 
+- On getting the on-confirm, the HIE-CM links the care contexts to the ABHA address 
 
 ## API Sequence Diagram
-
-The following flow diagram details the flows that take place while linking to a health repository representing an HIP:
 
 {{< mermaid >}}
 %%{init:{"fontSize": "1.0rem", sequence":{"showSequenceNumbers":true}}}%%
 sequenceDiagram
-title Linking (HIP side)
-PHR App->>Gateway:Link Care Context
-Gateway->>Repository:POST/v0.5/links/link/init
-activate Repository
-Repository-->>HIP System:Link init Request
-HIP System-->>Repository: Response
-Repository->>Gateway:POST/v0.5/links/link/on-init
-HIP System-->>User: Send token out-of-band
-Gateway->>Repository: POST/v0.5/links/link/confirm
-Repository-->>HIP System:Link Confirm Request
-HIP System-->>Repository: Response
-Repository->>Gateway:POST/v0.5/links/link/on-confirm
-deactivate Repository
+title Linking post Discovery (HIP side)
+actor User
+PHR App->>HIE-CM:Link Care Context
+HIE-CM->>HIP/HRP:POST/v0.5/links/link/init
+activate HIP/HRP
+HIP/HRP-->>User: Send token out-of-band
+HIP/HRP->>HIE-CM:POST/v0.5/links/link/on-init
+PHR App->>HIE-CM:Confirm link with OTP
+HIE-CM->>HIP/HRP: POST/v0.5/links/link/confirm
+HIP/HRP->>HIE-CM:POST/v0.5/links/link/on-confirm
 {{< /mermaid >}}
-
 
 #### LINKING
 
 **1. Link Patient's Care Contexts**
 
-**BASE URL:** https://your-hrp-server.com
+**BASE URL:** Callback URL registered by HRP
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/links/link/init$" >}}
 
@@ -133,13 +124,13 @@ deactivate Repository
 
 API to submit the token that was sent by HIP during the link request.
 
-**BASE URL:** https://your-hrp-server.com
+**BASE URL:** Callback URL registered by HRP
 
 {{< swaggermin src="/abdm-docs/Yaml/ndhm-hip.yml" api="POST /v0.5/links/link/confirm$" >}}
 
 **4. Care Context Linkage Completion**
 
-Token authenticated by HIP, indicating completion of linkage of care-contexts
+Token authenticated by HIP, confirming linkage of care-contexts
 
 **BASE URL:** https://dev.abdm.gov.in/gateway
 
