@@ -22,6 +22,7 @@ If you want to contribute to improving the documentation, write with your github
 - Put images and other resources under the static folder. If you add to static folder reference your image using a path like /abdm-docs/img/<filename>
 - Put images in the same content folder as the page your are editing. Reference the image using the path ../<filename> 
 - Use  {{< gallery dir="folder name"  \>}} shortcode for a carousel of images. Full path from Content must be specified for folder. eg: 1-basics/<foldername>. This is based on [hugo-easy-gallery](https://github.com/liwenyip/hugo-easy-gallery)
+- Set theme to 'green' in config.toml for customizations
 
 
 
